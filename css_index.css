@@ -1,0 +1,31 @@
+/*========================== General ==========================*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Arial, Helvetica, sans-serif;
+}
+
+/*========================== Sidebar ==========================*/
+#sidebar {
+    width: 200px;
+    height: 100%;
+    background-color: rgba(62, 62, 62, 1);
+    float: left;
+    clear: left;
+    padding: 24px;
+}
+#sidebar ul {
+    list-style: none;
+}
+#sidebar ul li a {
+    color: white;
+    font-size: 120%;
+    text-decoration: none;
+}
+#sidebar ul li a:hover {
+    color: rgba(255, 40, 50, 0.5);
+}
+
+/*========================== Welcome Page ==========================*/
+h1, h3 {
+}

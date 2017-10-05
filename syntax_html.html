@@ -1,0 +1,257 @@
+<html>
+    <head>
+        <title>HTML Syntax</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="css_syntax_html.css">
+    </head>
+
+    <body>
+        <h1 id="title">HTML Syntax</h1>
+
+        <div id="content">
+            <p><span class="bold">Note: </span>The information on this document was based on many tutorials on youtube and questions on StackOverflow as well as what I've learned in class. I feel that I should at least mention some of these sources: <a href="https://www.w3schools.com/default.asp">w3schools.com</a> and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a></p>
+
+            <h2>HTML</h2>
+            <p>HTML, or Hyptertext Markup Language,  is a markup language to create web pages. It is a document that contains text. </p>
+            <p>The syntax uses elements to mark up the document. Elements are defined with angle brackets &lt;&gt;. Some examples include &lt;body&gt;-Content goes here-&lt;&frasl;body&gt; which defines the body of your content. &lt;br&gt; defines a line break. Elements contain attributes which can each be set a value.</p>
+
+            <p><span class="bold">Doctype Declaration: </span>tells browser to load most current version of HTML, not a tag.</p>
+
+            <h2>Starting Template</h2>
+            <pre>
+            &lt;!&minus;&minus;html: defines the whole document&minus;&minus;&gt;
+            &lt;html&gt;
+                &lt;!&minus;&minus;head: contains title of page, language, JS References&minus;&minus;&gt;
+                &lt;head&gt;
+                    &lt;!&minus;&minus;title: title for page, displayed in tab&minus;&minus;&gt;
+                    &lt;title&gt; My Web Page &lt;&frasl;title&gt;
+
+                    &lt;!&minus;&minus;meta: data about data, provides info about HTML document, like description, keywords, author&minus;&minus;&gt;
+                    &lt;meta name="description" content="describe the HTML webpage"&frasl;&gt;
+                    &lt;meta name="keywords" content="html. reference, guide"&frasl;&gt;
+                    &lt;meta http-equiv="author" content="Enn"&frasl;&gt;
+                    &lt;meta http-equiv="content-language" content="en-us"&frasl;&gt;
+                &lt;&frasl;head&gt;
+                &lt;!&minus;&minus;body: defines document body, where content goes&minus;&minus;&gt;
+                &lt;body&gt;
+                    -Content Goes Here-
+                &lt;&frasl;body&gt;
+            &lt;&frasl;html&gt;
+            </pre>
+
+            <h2>List of Elements</h2>
+            <p>&lt;h(x)&gt; where x is 1-6: heading</p>
+            <h1>Heading 1</h1>
+            <h6>Heading 6</h6>
+            <p>&lt;p&gt;: paragraph</p>
+            <p>&lt;br&gt;: line break</p>
+            <p>&lt;b&gt;: <b>bold</b> (semantic in HTML5)</p>
+            <p>&lt;strong&gt;: <strong>bold</strong>, semantic</p>
+            <p>&lt;i&gt;: <i>italicize</i>, (semantic in HTML5)</p>
+            <p>&lt;em&gt;: <em>italicize</em>, semantic</p>
+            <p>&lt;sub&gt;: subscript<sub>sub</sub></p>
+            <p>&lt;sup&gt;: superscript<sup>sup</sup></p>
+            <p>&lt;img src="" alt="" width="" height=""&gt;: image, use relative path rather than absolute. Path is relative to current document's directory. May scale down but don't scale up. Set width to certain pixel and height to auto to maintain aspect ratio. alt attribute sets alternative text.</p>
+            <p>&lt;&gt;: iframe element: to insert content from external source. Attributes include frameborder (0=off, 1=on), width and height, name and id</p>
+            <pre>
+            &lt;iframe frameborder="1" width="200px" height="200px" src="first.html" id="ouriframeid"&gt;
+                Do you see this?
+            &lt;&frasl;iframe&gt;
+
+            &lt;a href="second.html" target="ouriframeid"&gt;Switch to new document&lt;&frasl;a&gt;
+            </pre>
+            <iframe src="first.html" width="200px" height="200px" frameborder="1" id="ouriframeid">Do you see this?</iframe>
+            <a href="#ouriframeid" target="second.html">Switch to new document</a>
+            <p>&lt;audio&gt;: audio element, can add different sources for alternatives or backup. Supports .mp3, .wav, .ogg. Attributes include controls, autoplay, loop, draggable</p>
+            <pre>
+                &lt;audio controls autoplay loop draggable="true"&gt;
+                    &lt;source src="...mp3"&frasl;&gt;
+                    &lt;source src="...wav"&frasl;&gt;
+                &lt;&frasl;audio&gt;
+            </pre>
+            <p>&lt;video&gt;: video element. Attributes include width and height, controls</p>
+            <pre>
+                &lt;video width="640px" height="360px" controls&gt;
+                    &lt;source src="...mp4"&frasl;&gt;
+                &lt;&frasl;video&gt;
+            </pre>
+
+            <h2>Lists</h2>
+            <p>Lists can either br ordered(ol) or unordered(ul)</p>
+            <pre>
+            &lt;ul&gt;
+                &lt;li&gt;Unordered list item one&lt;&frasl;li&gt;
+                &lt;li&gt;Unordered list item two&lt;&frasl;li&gt;
+                &lt;li&gt;Unordered list item three&lt;&frasl;li&gt;
+            &lt;&frasl;ul&gt;
+            </pre>
+            <p>Result:</p>
+            <ul>
+                <li>Unordered list item one</li>
+                <li>Unordered list item two</li>
+                <li>Unordered list item three</li>
+            </ul>
+
+            <h2>Tables</h2>
+            <h4>List of Table Elements</h6>
+            <p>&lt;table&gt;: creates a table</p>
+            <p>&lt;tr&gt;: table row</p>
+            <p>&lt;td&gt;: table data or content</p>
+            <p>&lt;th&gt;: table header, bold and centered by default</p>
+            <p>&lt;caption&gt;: caption for table</p>
+            <p>&lt;col&gt;: specifies column properties for each column within colgroup</p>
+            <p>&lt;colgroup&gt;: specifies group of 1 or more columns, used to apply styes to entire columns. Must be after any caption elements and before any thead, tbody, tfoot, and tr elements.</p>
+            <pre>
+            &lt;table&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Column 1&lt;&frasl; &gt;
+                    &lt;th&gt;Column 2&lt;&frasl; &gt;
+                    &lt;th&gt;Column 3&lt;&frasl; &gt;
+                &lt;&frasl;tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Data 1&lt;&frasl; &gt;
+                    &lt;td&gt;Data 2&lt;&frasl; &gt;
+                    &lt;td&gt;Data 3&lt;&frasl; &gt;
+                &lt;&frasl;tr&gt;
+            &lt;&frasl;table&gt;
+            </pre>
+            <p>Result:</p>
+            <table>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                </tr>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                </tr>
+            </table>
+
+            <h2>Web Links</h2>
+            <p>A link to another webpage or refocuses to some element/section in current webpage.</p>
+            &lt;a href=""&gt;: anchor element, href attribute specifies the link
+
+            <h2>Forms</h2>
+            <p>&lt;form action="" method="" name="" enctype=""&gt;: creates a form. action attribute defines action to be performed when form is submitted. Usually to webpage on server (a php file). method attribute specifies GET or POST HTTP methods. Use GET for search or lookup, submitted form data will be visible. POST when changing data on the server, sends the form data to be processed. name attribute for different forms, must have for each input field or else data won't be sent. enctype for how the submitted data will be encoded.</p>
+            <h4>Input Types</h4>
+            &lt;input type="" name="" other attributes...&gt;
+
+            <p>text: for one-line text input field</p>
+            <p>&lt;input type="text" name="inputText"&gt;</p>
+            <input type="text" name="" value="">
+
+            <p>password: like text input but hides input</p>
+            <p>&lt;input type="password" name="psw"&gt;</p>
+            <input type="password" name="psw">
+
+            <p>submit: submit button, submits the form, can use onsubmit attribute on form and define a function (JS) for validation</p>
+            <p>&lt;input type="submit" value="Submit"&gt;</p>
+            <input type="submit" value="Submit">
+
+            <p>reset: reset button to reset all form values to default</p>
+            <p>&lt;input type="reset"&gt;</p>
+
+            <p>radio: radio button (select one of various choices)</p>
+            <p>&lt;input type="radio" name="gender" value="male"&gt;</p>
+            <p>&lt;input type="radio" name="gender" value="female"&gt;</p>
+            <p>&lt;input type="radio" name="gender" value="other"&gt;</p>
+            <input type="radio" name="gender" value="male">
+            <input type="radio" name="gender" value="female">
+            <input type="radio" name="gender" value="other">
+
+            <p>checkbox: for selecting 0 or more options</p>
+            <p>&lt;input type="checkbox" name="vehicle1" value="Bike" checked&gt; I have a bike</p>
+            <p>&lt;input type="checkbox" name="vehicle2" value="Car"&gt; I have a car</p>
+            <input type="checkbox" name="vehicle1" value="Bike" checked> I have a bike
+            <input type="checkbox" name="vehicle2" value="Car"> I have a car
+
+            <p>number: for numeric input</p>
+            <p>&lt;input type="number" name="quantity" min="1" max="10"&gt;</p>
+            <input type="number" name="quantity" min="1" max="10">
+
+            <p>button: handled by function defined in JS or JQuery</p>
+            <p>&lt;input type="button" onclick="function()" value="Button"&gt;</p>
+            <input type="button" value="Button">
+
+            <h4>Input Elements</h4>
+            <p>textarea: for multi-line input</p>
+            &lt;textarea rows="10" cols="80"&gt;&lt;&frasl; &gt;
+            <textarea name="textArea" rows="10" cols="80"></textarea>
+
+            <h4>Add Labels</h4>
+            <p>&lt;label for="idOfInput"&gt;Label for Input&lt;&frasl; &gt;</p>
+            <label for="idOfInput">Label for Input</label>
+            <input type="text" name="" id="idOfInput">
+
+            <p>Drop-down list</p>
+            <pre>
+            &lt;select name="fruits"&gt;
+                &lt;option value="strawberry"&gt;Strawberry&lt;&frasl;option&gt;
+                &lt;option value="apple"&gt;Apple&lt;&frasl;option&gt;
+                &lt;option value="pear"&gt;Pear&lt;&frasl;option&gt;
+                &lt;option value="kiwi"&gt;Kiwi&lt;&frasl;option&gt;
+            &lt;&frasl;select&gt;
+            </pre>
+            <select name="fruits">
+                <option value="strawberry">Strawberry</option>
+                <option value="apple">Apple</option>
+                <option value="pear">Pear</option>
+                <option value="kiwi">Kiwi</option>
+            </select>
+
+            <p>Fieldset and legend: group related elements, a bow is drawn around these elements. legend will create a caption within top line of box</p>
+            <pre>
+            &lt;fieldset&gt;
+                &lt;legend&gt;Descibe your interests&lt;&frasl;legend&gt;
+                Favorite Color: &lt;input type="text" name=""&gt;&lt;br&gt;
+                Favorite Pet: &lt;input type="text" name=""&gt;&lt;br&gt;
+            &lt;&frasl;fieldset&gt;
+            </pre>
+            <fieldset>
+                <legend>Describe your interests</legend>
+                Favorite Color: <input type="text" name=""><br>
+                Favorite Pet: <input type="text" name=""><br>
+            </fieldset>
+
+            <p>There are many other form elements and form input types that are not mentioned, check out the w3schools website to learn more.</p>
+
+            <h4> Form Attributes</h4>
+            <p>value: sets initial value of input</p>
+            <p>readonly: input is readonly, can't be set</p>
+            <p>disabled: input field is disabled and can't be submitted</p>
+            <p>size: size in characters for input field</p>
+            <p>maxlength: maximum allowed length for input</p>
+            <p>autocomplete: if form should autocomplete, browser completes input values based on previously entered values</p>
+            <p>autofocus: input field should get focused when page loads</p>
+            <p>placeholder: gives hint describing expected value, the lightened text will disappear when a value is inputted by user</p>
+            <p>pattern: takes a regular expression to check against input's value</p>
+            <p>required: indicates that field must be filled out, can't be empty, will set it as invalid</p>
+
+            <p>There are many other attributes, check out the w3schools website to learn more.</p>
+
+            <h2>HTML Entities</h2>
+            <p>Some characters are special in HTML and to specify it literally, it must be escaped. In this case, instead of escaping with backslash, we escape with the ampersand &amp;</p>
+            <p>&amp;nbsp; - non-breaking space </p>
+            <p>&amp;lt; - less than &lt;</p>
+            <p>&amp;gt; - greater than &gt;</p>
+            <p>&amp;amp - ampersand &amp;</p>
+            <p>&amp;quot - quotation mark &quot;</p>
+            <p>&amp;apos - apostrophe &apos;</p>
+
+        </div>
+
+        <!-- Copy and Paste
+        Element Start:              &lt; &gt;
+        Element End:                &lt;&frasl; &gt;
+        Comment Start and End:      &lt;!&minus;&minus; &minus;&minus;&gt;
+        Open Tag:                   &lt;
+        Close Tag:                  &frasl;&gt;
+        -->
+    </body>
+</html>
