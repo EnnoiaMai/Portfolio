@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS Syntax</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio - CSS Syntax Guide and Techniques">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="css_syntax_css.css">
+    </head>
+    <body>
+        <h1 id="title">CSS Syntax</h1>
+
+        <div id="content">
+            <p><span class="bold">Note: </span>The information on this document was based on many tutorials on youtube and questions on StackOverflow as well as what I've learned in class. I feel that I should at least mention some of these sources: <a href="https://www.w3schools.com/default.asp">w3schools.com</a> and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a></p>
+
+            <h2>CSS</h2>
+            <p>CSS (Cascading Style Sheets): style sheets that describe the look or format of a document. It adds style or appearance to HTML.</p>
+            <p>3 Ways to define style sheets:</p>
+            <ol>
+                <li>External Style sheets </li>
+                <p>&lt;link rel="stylesheet" type="text/css" href="mycssfile.css"&gt;</p>
+                <li>Internal Style sheets</li>
+                <p>&lt;style&gt;h1{color: blue;}&lt;&frasl;style&gt;</p>
+                <li>Inline</li>
+                <p>&lt;h1 style="color: blue;"&gt;Header 1&lt;&frasl;style&gt;</p>
+            </ol>
+
+            <h2>CSS Syntax</h2>
+            <p>Each selector and statements within brackets define a rule.</p>
+            <pre>
+            Selector {
+                property1: value1;
+                property2: value2;
+            }
+            </pre>
+            <p>Multiple Selectors:</p>
+            Selector1, Selector2, ... {
+                property: value;
+            }
+            </pre>
+            <h2>Selectors</h2>
+            <p>ID Selector: one-of-a-kind thing, gives specific id to element to target</p>
+            <p>#idNAme {...}</p>
+            <p>Class Selector: rules that apply to a gruop of elements, for mass changes. When applying multiple classes to an element, if the same properties are set, then the last class will override that property.</p>
+            <p>.classNme {...}</p>
+            <p>Tag Selector: selects all elements of a certain tag</p>
+            <p>a {...}</p>
+            <p>Descendant Selectors: steps down the HTML tree and applies it to selectors within a specific path</p>
+            <p>li a {...}</p>
+            <p>Child Selector: selects direct child of an element</p>
+            <p>selector>childElement {...}</p>
+            <p>Adjacent Sibling Selector: chooses only the element's next sibling</p>
+            <p>selector+siblingElement {...}</p>
+            <p>General Sibling Selector: chooses all siblings of element</p>
+            <p>selector~siblingElement {...}</p>
+            <p>Attribute Selector: chooses elements with the attribute</p>
+            <p>selector[attribute] {....}</p>
+            <p>selector[attribute="value"] {....} selects element with attribute of a specific value</p>
+            <p>selector[attribute^="value"] {....} selects element with attribute that begins with the value</p>
+            <p>selector[attribute$="value"] {....} match any value that ends with a specific value</p>
+            <p>selector[attribute*="value"] {....} selects a value anywhere within attribute value</p>
+            <p>If you are familiar with regular expressions, the use of ^ and $ are conceptually similar</p>
+            <p>Wildcard Selector: selects every element</p>
+            <p>* {...}</p>
+
+            <p>div .error - all elements under a div that is of class error</p>
+            <p>div.error - all divs that are of class error</p>
+            <p>div#navigation - though unecessary because this is an id selector, the div that has the id "navigation"</p>
+
+            <h2>Pseudoclasses</h2>
+            <p>Gives you behavior in CSS without JavaScript</p>
+            <table>
+                <tr>
+                    <th>Examples</th>
+                    <th>Definition</th>
+                </tr>
+                <tr>
+                    <td>a:link</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>a:visited</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>a:hover</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>a:active</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>:before</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>:after</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>:nth-child()</td>
+                    <td>For pattern selection, like every odd or even element or some multiple. Put arguments inside parentheses like keywords even or odd or some arbitrary number. E.g. 3n selects every 3rd element</td>
+                </tr>
+                <tr>
+                    <td>:not()</td>
+                    <td>Can exclude elements that you don't want to be affected by the rule. Selector in parentheses must be present in the css.</td>
+                </tr>
+                <tr>
+                    <td>:first-child</td>
+                    <td>Chooses the first child of the element. Other pseudo-selectors include :first-letter</td>
+                </tr>
+                <tr>
+                    <td>:focus</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>For anchor tag pseudoclasses, want in this order: a:link{...}, a:visited{...}, a:hover{...}</p>
+
+            <h2>CSS Properties</h2>
+            <p>Inheritance: properties are inherited from each child element's parents. child elements can override their parent's properties. Dimensional and layout properties are not inherited. The hierarchy of precendence is: id -> class -> tag</p>
+            <p>color: #HEX | rgb | rgba | predefined;</p>
+            <p>background-color: #HEX | rgb | rgba | predefined; - only applies to content and padding</p>
+            <p>background-repeat: norepeat | repeat-x | repeat-y;</p>
+            <p>background-image: url("image"); - nest to use relative path to make code portable. Can use external source to image but be cautious of their servers.</p>
+            <p>overflow: visible | hidden | scroll | auto; - if content overflows an element's box, works on block elements with a specified height</p>
+
+            <h4>Text</h4>
+            <p>can use color to set color of text and background-color to set color of background</p>
+            <p>text-align: center | left | right | justify; - justify must be used with block level element</p>
+            <p>text-decoration: none | overline | underline | line-through;</p>
+            <p>text-indent: px;</p>
+            <p>text-transformation: uppercase | lowercase | capitalize;</p>
+            <p>letter-spacing: px; - the space between characters in a text</p>
+            <p>line-height: number | px | %; - the space between lines</p>
+            <p>word-spacing: px; - the space between words in a text</p>
+            <p>text-shadow: h-shadow(px) v-shadow(px) blur-radius(px) color;</p>
+
+            <h4>Font</h4>
+            <p>font-size: px | em | %</p>
+            <p>font-weight: bold | 100...900; - 400 is normal, 700 is bold</p>
+            <p>font-style: normal | italic | oblique;</p>
+            <p>font-family: "Times New Roman", Arial, Helvetica, sans-serif, ...</p>
+            <p>fonts are used if available, if not the property proceeds left-to-right</p>
+            <pre>@font-face {
+                font-family: customFont;
+                src: url();
+                }
+            </pre>
+
+            <h2>CSS Layouts</h2>
+            <p>Layouts are either liquid, fixed, or a hybrid of both</p>
+            <p>Responsive Design: design elements to look different on desktop and on mobile</p>
+
+            <h4>Box Model of CSS</h4>
+            <p>Each element follows this model wherein they contain their content and are surrounded by padding, then a border, then margins. Border and padding properties add to the dimensions of the element.</p>
+
+            <h4>Dimensional and Layout Properties</h4>
+            <p>margin: top | right | bottom | left;</p>
+            <p>padding: top | right | bottom | left;</p>
+            <p>shortcut can be margin: all; takes 1 value and sets all margins, margin: top+bot right+left; takes 2 values, margin: top left+right bot; takes 3 values. Applies to padding as well.</p>
+            <p>Note: center elements by setting left and right margins to auto</p>
+
+            <p>border: width(px) style color;</p>
+            <p>Individual properties include border-bottom | -top | -left | -right</p>
+            <p>border-radius: px; - larger px means steeper, can apply border corners separately e.g. border-top-left-radius: 10px;</p>
+            <p>border-image: url("") width(px) repeat - specifies image to use as border, border repeat as repeated, rounded or stretched</p>
+
+            <p>float: right | left | none;</p>
+
+            <h4>Positioning in CSS</h4>
+            <p>position: static | fixed | absolute | relative;</p>
+            <p>fixed, absolute, and relative positions take 2 values each from top/bottom and left/right in order to position elements.</p>
+            <ol>
+                <li>static - default, elements are within the flow of the document. Follows a top-down ordering,</li>
+                <li>fixed - element is locked in place to the viewport and is out of the flow</li>
+                <li>absolute - element positioned relative to first positioned(non-static) ancestor</li>
+                <li>relative - element is positioned relative to where it would be normally</li>
+            </ol>
+
+            <h2>Special Effects</h2>
+            <h4>Gradients</h4>
+            <p>background: linear-gradient(color1, color2) - default direction is top to bottom</p>
+
+            <h4>Shadow Effects</h4>
+            <p>text-shadow: h(px) v(px) blur(px) color;</p>
+            <p>box-shadow: h(px) v(px) blur(px) spread(px) color;</p>
+
+            <h4>Cursor Property and Custom Cursor</h4>
+            <p>cursor: auto | crosshair | help | wait | cell | progress | pointer | ...</p>
+            <p>cursor: url(""), url(""), auto; - defines list of custom cursors to use. Set auto at the end in the case that the custom cursor images can't be used.</p>
+
+            <h2>Display Property</h2>
+            <p>Specifies type of box used for the element</p>
+            <p>inline - takes up as much space as element needs, will wrap</p>
+            <p>block - fills to end of browser</p>
+            <p>inline-block - like inline element with dimensional properties. Inside is block-level, element itself is inline-level</p>
+            <p>flex - a flexbox gives you single row where elements are aligned on an invisible line. Place elements on a row without bothering with floats or positioning of elements. Allows you to stack elements side-by-side.</p>
+            <pre>
+            HTML:
+            &lt;div class="flex-container"&gt;
+                &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
+                &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
+                &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
+            &lt;&frasl;div&gt;
+            CSS:
+            .flex-container {
+                display: flex;
+                width: 500px;
+                height: 250px;
+            }
+            .flex-item {
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                background-color: blue;
+            }
+            </pre>
+
+            <h2>Creating a Horizontal Menu</h2>
+            <p>Create a list either ordered or unordered, within list create list elements and within list elements, create anchor tags. Change display property to inline.</p>
+            <p>Note: set min-width property so that menu doesn't fall apart when browser is resized</p>
+
+            <h2>Creating a sidebar (simple way)</h2>
+            <p>Get rid of all margins and padding.</p>
+            <pre>
+            * {
+                maring: 0;
+                padding: 0;
+            }
+            </pre>
+            <p>Set height to 100% for html and body.</p>
+            <pre>
+            html, body {
+                height: 100%;
+            }
+            </pre>
+            <p>Give sidebar a width, a height of 100%, float it left, make sure rest of body has margin-left equal to the width of the sidebar.</p>
+            <pre>
+            Html: &lt;div id="sidebar"&gt;...&lt;&frasl;div&gt;
+            CSS: #sidebar {
+                width: 300px;
+                float: left;
+                height: 100%;
+                }
+            </pre>
+
+            <h2>Media Queries</h2>
+            <p>@media rule used to define different style rules for different media types/devices</p>
+            <p>@media not|only mediatype and (media feature){...}</p>
+            <p>Can have different stylesheets based on the media</p>
+            <p>&lt;link rel="stylesheet" media="mediatype" and|not|only (media feature) href="mystylesheet.css"&gt;</p>
+
+            <h4>Media Types</h4>
+            <ul>
+                <li>all - for all media type devices</li>
+                <li>print - for printers</li>
+                <li>screen - for computer screens, tablets, smartphones etc.</li>
+            </ul>
+            <h4>Media Features</h4>
+            <ul>
+                <li>max-device-width: max width of device like computer screen</li>
+                <li>max-device-height: max height of device like computer screen</li>
+                <li>min-device-width</li>
+                <li>min-device-height</li>
+                <li>max-width: max width of display area like browser window</li>
+                <li>max-height: max height of display area like browser window</li>
+                <li>min-width</li>
+                <li>min-height</li>
+                <li>width: the viewport width</li>
+                <li>height: the viewport height</li>
+                <li>orientation: orientation of viewport, landscape or portrait</li>
+            </ul>
+            <p>Example:</p>
+            <pre>
+            @media screen and (min-width: 480px){
+                selector {...}
+            }
+            </pre>
+        </div>
+    </body>
+
+    <!-- Copy and Paste
+    Element Start:              &lt; &gt;
+    Element End:                &lt;&frasl; &gt;
+    Comment Start and End:      &lt;!&minus;&minus; &minus;&minus;&gt;
+    Open Tag:                   &lt;
+    Close Tag:                  &frasl;&gt;
+    -->
+</html>
