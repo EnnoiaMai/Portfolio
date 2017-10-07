@@ -27,6 +27,48 @@
                 &lt;body&gt;
             &lt;html&gt;
             </pre>
+
+            <p>JavaScript Types</p>
+            <p>The following table shows primitive types and their primitive values all of which are immutable except object types.</p>
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>True</th>
+                    <th>False</th>
+                </tr>
+                <tr>
+                    <td>Undefined</td>
+                    <td>undefined</td>
+                    <td>False</td>
+                </tr>
+                <tr>
+                    <td>Boolean</td>
+                    <td>true</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>String</td>
+                    <td>nonempty</td>
+                    <td>""</td>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td>nonzero</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Object</td>
+                    <td>any</td>
+                    <td>null</td>
+                </tr>
+            </table>
+            <p>typeof() operator returns type of object</p>
+
+            <h2>Variables</h2>
+            <p>Variables: declared with var keyword. Use for storage, can be reused and set to different primary types - String, Number, Boolean, or some Object.</p>
+            <p>Global variables: declared outside the function, alive as long as page is laoded.</p>
+            <p>Local variables: accessible within the scope of the function.</p>
+            <p>Note: a variable defined within scope of a local function without the var keyword becomes global</p>
             <pre>
             var day;            // Declare variable without assigning value
             var value = 100;    // Declare variable and assign value
@@ -35,11 +77,6 @@
             var status = true;  // Initialize with a Boolean value
             callingFunction(parameter)  // Call function and pass in parameters
             </pre>
-            <h2>Variables</h2>
-            <p>Variables: declared with var keyword. Use for storage, can be reused and set to different primary types - String, Number, Boolean, or some Object.</p>
-            <p>Global variables: declared outside the function, alive as long as page is laoded.</p>
-            <p>Local variables: accessible within the scope of the function.</p>
-            <p>Note: a variable defined within scope of a local function without the var keyword becomes global</p>
 
             <h2>Some JS Functions</h2>
             <p>document.write("Hello World"); - writes out the text to the document</p>
@@ -48,7 +85,7 @@
 
             <h2>Functions</h2>
             <p>Functions: set of statements to perform a task, can't put numbers in beginning of function name</p>
-            <p>Arguments are passed in as values to parameters of functions, they are copied to the parameters.</p>
+            <p>Arguments are passed in as values to parameters of functions, they are copied to the parameters. Can be accessed using arguments keyword and indexing.</p>
             <p>Ex.</p>
             <pre>
             function addTogether(num, str){
@@ -65,6 +102,12 @@
             }
             var sum = add(2, 3);
             </pre>
+            <p>Accessing arguments - arguments objectse has entry for each argument passed to function, but doesn't have array properties except length.</p>
+            <pre>
+            function someFunction(){
+                alert(arguments[0]);
+            }
+            </pre>
 
             <h2>Arithmetic and Assignment Operators</h2>
             <p>Assignment operator: =</p>
@@ -72,6 +115,7 @@
             <p>Compound operators: +=, -=, *=, /=</p>
             <p>Incremental and decremental operators: ++ and --</p>
             <p>Precedence: * /, + -</p>
+            <p>=== compares both value and type</p>
 
             <h2>Conditions</h2>
             <pre>
@@ -94,6 +138,9 @@
             for (counter; condition; incrementor){
                 statements
             }
+            for (variable in object){
+                statements
+            }
             </pre>
 
             <h2>Logical Operators</h2>
@@ -104,7 +151,9 @@
             var array = [value1, value2, value3];   // initialize array with values
             var getValue = array[index]             // get value at position/index
             array[index] = newValue                 // set value at position/index
+            [ [x, x, x],[y, y, y] ]                 // 2D array
             </pre>
+            <p>Array functions include push() and pop() which works on tail end and shift() and unshift() which operate on first element of list. Arrays won't give an array IndexOutOfBoundsException.</p>
 
             <h2>Objects</h2>
             <p>Properties: variables inside an object, use dot syntax (.) to access properties. Properties describe the object, actions describe the behavior</p>
@@ -131,8 +180,13 @@
             <p>Methods:</p>
             <ul>
                 <li>toUppercase()</li>
+                <li>toLowerCase()</li>
                 <li>length</li>
+                <li>substring()</li>
                 <li>charAt()</li>
+                <li>concat()</li>
+                <li>indexOf()</li>
+                <li>lastInstanceOf()</li>
                 <li>replace(string1, string2)</li>
                 <li>bold()</li>
                 <li>italics()</li>
@@ -150,10 +204,18 @@
 
             <h4>Date Object</h4>
             <p>var dateObj = new Date();</p>
+            <p>Date(year, month, day, hrs, min, sec, millis) what is not filled in will be taken as 0. Note that months are zero-based.</p>
+            <p>Methods:</p>
             <ul>
                 <li>toDateString()</li>
-                <li>getYear()</li>
-                <li>setYear()</li>
+                <li>getTime()</li>
+                <li>setTime(millis)</li>
+                <li>getFullYear()</li>
+                <li>setFullYear(year)</li>
+                <li>getMonth() - 0 to 11</li>
+                <li>setMonth() - 0 to 11</li>
+                <li>getDate()</li>
+                <li>setDate(date)</li>
             </ul>
 
             <h2>Document Object Model (DOM)</h2>
