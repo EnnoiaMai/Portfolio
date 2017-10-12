@@ -2,22 +2,57 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Times New Roman", Arial, Helvetica, sans-serif;
+    font-family: "Times New Roman", Arial;
+    line-height: 148%;
 }
 div {
     border: 1px dashed blue;
 }
+p, li {
+    font-size: 108%;
+}
+li {
+    list-style-position: inside;
+    padding-left: 16px;
+}
+pre {
+    font-size: 90%;
+    overflow: auto;
+}
+table, th, td {
+    border: 1px dashed orange;
+}
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#iframe_link_div {
+    text-align: center;
+}
 .bold {
     font-weight: bold;
 }
+.italic {
+    font-style: italic;
+}
+.no_list_style {
+    list-style-type: none;
+}
+
 
 /*========================== Content ==========================*/
 #title {
     text-align: center;
+    padding: 24px;
     border: 1px dashed green;
 }
 #content {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+}
+.section {
+    margin-top: 16px;
+    margin-bottom: 16px;
 }

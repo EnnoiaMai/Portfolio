@@ -13,81 +13,167 @@
         <h1 id="title">HTML Syntax</h1>
 
         <div id="content">
-            <p><span class="bold">Note: </span>The information on this document was based on many tutorials on youtube and questions on StackOverflow as well as what I've learned in class. I feel that I should at least mention some of these sources: <a href="https://www.w3schools.com/default.asp">w3schools.com</a> and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a></p>
+            <div class="section">
+                <p><span class="bold">Note: </span>Some sources that should be credited in creating this document include various tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/default.asp">w3schools.com</a> and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a></p>
+            </div>
 
-            <h2>HTML</h2>
-            <p>HTML, or Hyptertext Markup Language,  is a markup language to create web pages. It is a document that contains text. Adds structure to web pages.</p>
-            <p>The syntax uses elements to mark up the document. Elements are defined with angle brackets &lt;&gt;. Some examples include &lt;body&gt;-Content goes here-&lt;&frasl;body&gt; which defines the body of your content. &lt;br&gt; defines a line break. Elements contain attributes which can each be set a value.</p>
-            <p>Document Object Model(DOM): tree-like structure but not binary, the structure of HTML wherein each element has an object associated with it which can be referenced in JavaScript. Elements can be selected in CSS.</p>
+            <div class="section">
+                <h2>HTML</h2>
+                <p><span class="bold">HTML (Hyptertext Markup Language)</span>: a markup language to create and add structure to web pages. A document containing text.</p>
+                <ul>
+                    <li>Syntax uses elements to mark up document.</li>
+                    <li>Elements are defined with angle brackets &lt;&gt;.</li>
+                    <li>Elements contain attributes which can each be set a value.</li>
+                </ul>
+                <br>
+                <p><span class="bold">Document Object Model(DOM)</span>: tree-like structure but not binary, the structure of HTML wherein each element has an object associated with it which can be referenced in JavaScript. Elements can be selected in CSS.</p>
+                <br>
+                <p class="italic">index.html is the first page loaded on the website</p>
+                <br>
+                <p><span class="bold">Doctype Declaration: </span>tells browser to load most current version of HTML, not a tag.</p>
+            </div>
 
-            <p>index.html is the first page loaded on the website</p>
+            <div class="section">
+                <h2>Starting Template</h2>
+                <pre>
+                &lt;html&gt;
+                    &lt;head&gt;
+                        &lt;title&gt; My Web Page &lt;&frasl;title&gt;
+                        &lt;meta name="description" content="describe the HTML webpage"&frasl;&gt;
+                        &lt;meta name="keywords" content="html, reference, guide"&frasl;&gt;
+                        &lt;meta http-equiv="author" content="Enn"&frasl;&gt;
+                        &lt;meta http-equiv="content-language" content="en-us"&frasl;&gt;
+                    &lt;&frasl;head&gt;
+                    &lt;body&gt;
+                        -Content Goes Here-
+                    &lt;&frasl;body&gt;
+                &lt;&frasl;html&gt;
+                </pre>
+            </div>
 
-            <p><span class="bold">Doctype Declaration: </span>tells browser to load most current version of HTML, not a tag.</p>
-
-            <h2>Starting Template</h2>
-            <pre>
-            &lt;!&minus;&minus;html: defines the whole document&minus;&minus;&gt;
-            &lt;html&gt;
-                &lt;!&minus;&minus;head: contains title of page, language, JS References&minus;&minus;&gt;
-                &lt;head&gt;
-                    &lt;!&minus;&minus;title: title for page, displayed in tab&minus;&minus;&gt;
-                    &lt;title&gt; My Web Page &lt;&frasl;title&gt;
-
-                    &lt;!&minus;&minus;meta: data about data, provides info about HTML document, like description, keywords, author&minus;&minus;&gt;
-                    &lt;meta name="description" content="describe the HTML webpage"&frasl;&gt;
-                    &lt;meta name="keywords" content="html. reference, guide"&frasl;&gt;
-                    &lt;meta http-equiv="author" content="Enn"&frasl;&gt;
-                    &lt;meta http-equiv="content-language" content="en-us"&frasl;&gt;
-                &lt;&frasl;head&gt;
-                &lt;!&minus;&minus;body: defines document body, where content goes&minus;&minus;&gt;
-                &lt;body&gt;
-                    -Content Goes Here-
-                &lt;&frasl;body&gt;
-            &lt;&frasl;html&gt;
-            </pre>
-
+            <div class="section">
             <h2>List of Elements</h2>
-            <p>&lt;h(x)&gt; where x is 1-6: heading</p>
-            <h1>Heading 1</h1>
-            <h6>Heading 6</h6>
-            <p>&lt;p&gt;: paragraph</p>
-            <p>&lt;blockquote&gt;: a section quoted from another source</p>
-            <p>&lt;pre&gt;: preformatting, all spaces/tabs are maintained</p>
-            <p>&lt;br&gt;: line break</p>
-            <p>&lt;hr&gt;: horizontal ruler</p>
-            <p>&lt;div&gt;: div element defines a block section</p>
-            <p>&lt;span&gt;: span element defines an inline section</p>
-            <p><span class="bold">Note: </span>block level elements occupy an entire line whereas inline elements occupy as much space as it needs.</p>
-            <p>&lt;b&gt;: <b>bold</b> (semantic in HTML5)</p>
-            <p>&lt;strong&gt;: <strong>bold</strong>, semantic</p>
-            <p>&lt;i&gt;: <i>italicize</i>, (semantic in HTML5)</p>
-            <p>&lt;em&gt;: <em>italicize</em>, semantic</p>
-            <p>&lt;sub&gt;: subscript<sub>sub</sub></p>
-            <p>&lt;sup&gt;: superscript<sup>sup</sup></p>
-            <p>&lt;img src="" alt="" width="" height=""&gt;: image, use relative path rather than absolute. Path is relative to current document's directory. May scale down but don't scale up. Set width to certain pixel and height to auto to maintain aspect ratio. alt attribute sets alternative text.</p>
-            <p>&lt;&gt;: iframe element: to insert content from external source. Attributes include frameborder (0=off, 1=on), width and height, name and id</p>
-            <pre>
-            &lt;iframe frameborder="1" width="200px" height="200px" src="first.html" id="ouriframeid"&gt;
-                Do you see this?
-            &lt;&frasl;iframe&gt;
+                <table>
+                    <tr>
+                        <th>&lt;Element&gt;</th>
+                        <th>Definition</th>
+                    </tr>
+                    <tr>
+                        <td>&lt;html&gt;</td>
+                        <td>defines the whole document</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;head&gt;</td>
+                        <td>contains title of page, language, JS References</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;title&gt;</td>
+                        <td>title for page, displayed in tab</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;meta&gt;</td>
+                        <td>data about data, provides info about HTML document such as description, keywords, author</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;body&gt;</td>
+                        <td>body of content</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;h(x)&gt;</td>
+                        <td>where x = 1-6, heading, text is larger and bold</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;p&gt;</td>
+                        <td>paragraph</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;blockquote&gt;</td>
+                        <td>a section quoted from another source</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;pre&gt;</td>
+                        <td>preformatting, all spaces and tabs maintained</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;br&gt;</td>
+                        <td>line break</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;hr&gt;</td>
+                        <td>horizontal ruler</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;div&gt;</td>
+                        <td>defines a block section, occupies entire line</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;span&gt;</td>
+                        <td>defines an inline section, occupies as much as needed</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;b&gt;</td>
+                        <td><b>bold</b> (semantic in HTML5)</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;strong&gt;</td>
+                        <td><strong>bold</strong>, semantic</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;i&gt;</td>
+                        <td><i>italicize</i>, (semantic in HTML5)</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;em&gt;</td>
+                        <td><em>italicize</em>, semantic</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;sub&gt;</td>
+                        <td>subscript<sub>sub</sub></td>
+                    </tr>
+                    <tr>
+                        <td>&lt;sup&gt;</td>
+                        <td>superscript<sup>sup</sup></td>
+                    </tr>
+                    <tr>
+                        <td>&lt;img src="" alt="" width="" height=""&gt;</td>
+                        <td>Image, use relative path rather than absolute. Path is relative to current document's directory. May scale down but don't scale up. Set width to certain pixel and height to auto to maintain aspect ratio. alt attribute sets alternative text.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;audio&gt;</td>
+                        <td>audio element, can add different sources for alternatives or backup. Supports .mp3, .wav, .ogg. Attributes include controls, autoplay, loop, draggable
+                        <pre>
+                            &lt;audio controls autoplay loop draggable="true"&gt;
+                                &lt;source src="...mp3"&frasl;&gt;
+                                &lt;source src="...wav"&frasl;&gt;
+                            &lt;&frasl;audio&gt;
+                        </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&lt;video&gt;</td>
+                        <td>video element. Attributes include width and height, controls
+                        <pre>
+                            &lt;video width="640px" height="360px" controls&gt;
+                                &lt;source src="...mp4"&frasl;&gt;
+                            &lt;&frasl;video&gt;
+                        </pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
-            &lt;a href="second.html" target="ouriframeid"&gt;Switch to new document&lt;&frasl;a&gt;
-            </pre>
-            <iframe src="first.html" width="200px" height="200px" frameborder="1" id="ouriframeid">Do you see this?</iframe>
-            <a href="#ouriframeid" target="second.html">Switch to new document</a>
-            <p>&lt;audio&gt;: audio element, can add different sources for alternatives or backup. Supports .mp3, .wav, .ogg. Attributes include controls, autoplay, loop, draggable</p>
-            <pre>
-                &lt;audio controls autoplay loop draggable="true"&gt;
-                    &lt;source src="...mp3"&frasl;&gt;
-                    &lt;source src="...wav"&frasl;&gt;
-                &lt;&frasl;audio&gt;
-            </pre>
-            <p>&lt;video&gt;: video element. Attributes include width and height, controls</p>
-            <pre>
-                &lt;video width="640px" height="360px" controls&gt;
-                    &lt;source src="...mp4"&frasl;&gt;
-                &lt;&frasl;video&gt;
-            </pre>
+            <div class="section">
+                <h2>iframe</h2>
+                <p>&lt;iframe&gt;: inserts content from external source. Use target attribute on anchor tag to reference iframe element</p>
+                <pre>
+                &lt;iframe src="first.html" name="ouriframe" width="200px" height="200px"&gt;&lt;&frasl;iframe&gt;
+                &lt;a href="second.html" target="ouriframe"&gt;Switch to new document&lt;&frasl;a&gt;
+                </pre>
+                <iframe src="first.html"name="ouriframe" width="200px" height="200px"></iframe>
+                <div id="iframe_link_div">                    
+                    <a id="iframe_link" href="second.html" target="ouriframe">Switch to new document</a>
+                </div>
+            </div>
 
             <h2>Lists</h2>
             <p>Lists can either br ordered(ol) or unordered(ul)</p>

@@ -10,20 +10,29 @@
     width: 200px;
     height: 100%;
     background-color: rgba(62, 62, 62, 1);
-    float: left;
-    clear: left;
-    padding: 24px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow: auto;
 }
 #sidebar ul {
-    list-style: none;
+    list-style-type: none;
 }
 #sidebar ul li a {
     color: white;
-    font-size: 120%;
+    font-size: 110%;
     text-decoration: none;
+    padding: 8px 24px 8px 24px;
+    display: block;
 }
 #sidebar ul li a:hover {
     color: rgba(255, 40, 50, 0.5);
+}
+#languages_anchor+ul, #projects_anchor+ul {
+    display: none;
+}
+#languages_anchor+ul li, #projects_anchor+ul li {
+    padding-left: 24px;
 }
 
 /*========================== Welcome Page ==========================*/
