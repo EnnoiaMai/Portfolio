@@ -7,6 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" type="text/css" href="css/syntax_html.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/themes/prism-tomorrow.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/prism.min.js"></script>
+
     </head>
 
     <body>
@@ -19,329 +22,518 @@
 
             <div class="section">
                 <h2>HTML</h2>
-                <p><span class="bold">HTML (Hyptertext Markup Language)</span>: a markup language to create and add structure to web pages. A document containing text.</p>
+                <p><span class="definition">HTML (Hyptertext Markup Language)</span>: a markup language to create and add structure to web pages. A document containing text.</p>
                 <ul>
                     <li>Syntax uses elements to mark up document.</li>
                     <li>Elements are defined with angle brackets &lt;&gt;.</li>
                     <li>Elements contain attributes which can each be set a value.</li>
                 </ul>
                 <br>
-                <p><span class="bold">Document Object Model(DOM)</span>: tree-like structure but not binary, the structure of HTML wherein each element has an object associated with it which can be referenced in JavaScript. Elements can be selected in CSS.</p>
+                <p><span class="definition">Document Object Model (DOM)</span>: tree-like structure but not binary, the structure of HTML wherein each element has an object associated with it which can be referenced in JavaScript. Elements can be selected in CSS.</p>
                 <br>
-                <p class="italic">index.html is the first page loaded on the website</p>
+                <p class="italic">index.html is the first page loaded on the website.</p>
                 <br>
-                <p><span class="bold">Doctype Declaration: </span>tells browser to load most current version of HTML, not a tag.</p>
+                <p><span class="definition">Doctype Declaration: </span>tells browser to load most current version of HTML, not a tag.</p>
             </div>
 
             <div class="section">
                 <h2>Starting Template</h2>
-                <pre>
-                &lt;html&gt;
-                    &lt;head&gt;
-                        &lt;title&gt; My Web Page &lt;&frasl;title&gt;
-                        &lt;meta name="description" content="describe the HTML webpage"&frasl;&gt;
-                        &lt;meta name="keywords" content="html, reference, guide"&frasl;&gt;
-                        &lt;meta http-equiv="author" content="Enn"&frasl;&gt;
-                        &lt;meta http-equiv="content-language" content="en-us"&frasl;&gt;
-                    &lt;&frasl;head&gt;
-                    &lt;body&gt;
-                        -Content Goes Here-
-                    &lt;&frasl;body&gt;
-                &lt;&frasl;html&gt;
-                </pre>
+    <pre><code class="language-html">
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt; My Web Page &lt;&frasl;title&gt;
+            &lt;meta name="description" content="describe the HTML webpage"&gt;
+            &lt;meta name="keywords" content="html, reference, guide"&gt;
+            &lt;meta http-equiv="author" content="Enn"&gt;
+            &lt;meta http-equiv="content-language" content="en-us"&gt;
+        &lt;&frasl;head&gt;
+        &lt;body&gt;
+            -Content Goes Here-
+        &lt;&frasl;body&gt;
+    &lt;&frasl;html&gt;
+    </code></pre>
             </div>
 
             <div class="section">
             <h2>List of Elements</h2>
-                <table>
+                <table class="table_3_to_7">
                     <tr>
                         <th>&lt;Element&gt;</th>
                         <th>Definition</th>
                     </tr>
                     <tr>
                         <td>&lt;html&gt;</td>
-                        <td>defines the whole document</td>
+                        <td>Defines the whole document</td>
                     </tr>
                     <tr>
                         <td>&lt;head&gt;</td>
-                        <td>contains title of page, language, JS References</td>
+                        <td>Contains title of page, language, JS References</td>
                     </tr>
                     <tr>
                         <td>&lt;title&gt;</td>
-                        <td>title for page, displayed in tab</td>
+                        <td>Title for page, displayed in tab</td>
                     </tr>
                     <tr>
                         <td>&lt;meta&gt;</td>
-                        <td>data about data, provides info about HTML document such as description, keywords, author</td>
+                        <td>Data about data, provides info about HTML document such as description, keywords, author</td>
                     </tr>
                     <tr>
                         <td>&lt;body&gt;</td>
-                        <td>body of content</td>
+                        <td>Body of content</td>
                     </tr>
                     <tr>
                         <td>&lt;h(x)&gt;</td>
-                        <td>where x = 1-6, heading, text is larger and bold</td>
+                        <td>Where x = 1-6, heading, text is larger and bold</td>
                     </tr>
                     <tr>
                         <td>&lt;p&gt;</td>
-                        <td>paragraph</td>
+                        <td>Paragraph</td>
                     </tr>
                     <tr>
                         <td>&lt;blockquote&gt;</td>
-                        <td>a section quoted from another source</td>
+                        <td>Section quoted from another source</td>
                     </tr>
                     <tr>
                         <td>&lt;pre&gt;</td>
-                        <td>preformatting, all spaces and tabs maintained</td>
+                        <td>Preformatting, all spaces and tabs maintained</td>
                     </tr>
                     <tr>
                         <td>&lt;br&gt;</td>
-                        <td>line break</td>
+                        <td>Line break</td>
                     </tr>
                     <tr>
                         <td>&lt;hr&gt;</td>
-                        <td>horizontal ruler</td>
+                        <td>Horizontal ruler</td>
                     </tr>
                     <tr>
                         <td>&lt;div&gt;</td>
-                        <td>defines a block section, occupies entire line</td>
+                        <td>Defines a block section, occupies entire line</td>
                     </tr>
                     <tr>
                         <td>&lt;span&gt;</td>
-                        <td>defines an inline section, occupies as much as needed</td>
+                        <td>Defines an inline section, occupies as much as needed</td>
                     </tr>
                     <tr>
                         <td>&lt;b&gt;</td>
-                        <td><b>bold</b> (semantic in HTML5)</td>
+                        <td><b>Bold</b> (semantic in HTML5)</td>
                     </tr>
                     <tr>
                         <td>&lt;strong&gt;</td>
-                        <td><strong>bold</strong>, semantic</td>
+                        <td><strong>Bold</strong>, semantic</td>
                     </tr>
                     <tr>
                         <td>&lt;i&gt;</td>
-                        <td><i>italicize</i>, (semantic in HTML5)</td>
+                        <td><i>Italicize</i>, (semantic in HTML5)</td>
                     </tr>
                     <tr>
                         <td>&lt;em&gt;</td>
-                        <td><em>italicize</em>, semantic</td>
+                        <td><em>Italicize</em>, semantic</td>
                     </tr>
                     <tr>
                         <td>&lt;sub&gt;</td>
-                        <td>subscript<sub>sub</sub></td>
+                        <td>Subscript<sub>sub</sub></td>
                     </tr>
                     <tr>
                         <td>&lt;sup&gt;</td>
-                        <td>superscript<sup>sup</sup></td>
+                        <td>Superscript<sup>sup</sup></td>
                     </tr>
                     <tr>
                         <td>&lt;img src="" alt="" width="" height=""&gt;</td>
-                        <td>Image, use relative path rather than absolute. Path is relative to current document's directory. May scale down but don't scale up. Set width to certain pixel and height to auto to maintain aspect ratio. alt attribute sets alternative text.</td>
+                        <td>Image, use relative path rather than absolute. Path is relative to current document's directory. May scale down but don't scale up. Set width/height to certain pixel and its complement to auto to maintain aspect ratio. alt attribute sets alternative text.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;a href=""&gt;</td>
+                        <td>Anchor element, href attribute specifies the link to another webpage or refocuses to some element/section in current webpage.</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;input type="" name=""&gt;</td>
+                        <td>Input types for forms. Takes in user input and allows form to submit data to server-side script.</td>
                     </tr>
                     <tr>
                         <td>&lt;audio&gt;</td>
-                        <td>audio element, can add different sources for alternatives or backup. Supports .mp3, .wav, .ogg. Attributes include controls, autoplay, loop, draggable
-                        <pre>
-                            &lt;audio controls autoplay loop draggable="true"&gt;
-                                &lt;source src="...mp3"&frasl;&gt;
-                                &lt;source src="...wav"&frasl;&gt;
-                            &lt;&frasl;audio&gt;
-                        </pre>
+                        <td>Audio element, can add different sources for alternatives or backups. Supports .mp3, .wav, .ogg. Attributes include controls, autoplay, loop, draggable.
+    <pre><code class="language-html">
+    &lt;audio controls autoplay loop draggable="true"&gt;
+        &lt;source src="...mp3"&gt;
+        &lt;source src="...wav"&gt;
+    &lt;&frasl;audio&gt;
+    </code></pre>
                         </td>
                     </tr>
                     <tr>
                         <td>&lt;video&gt;</td>
-                        <td>video element. Attributes include width and height, controls
-                        <pre>
-                            &lt;video width="640px" height="360px" controls&gt;
-                                &lt;source src="...mp4"&frasl;&gt;
-                            &lt;&frasl;video&gt;
-                        </pre>
+                        <td>Video element. Attributes include width, height, controls
+    <pre><code class="language-html">
+    &lt;video width="640px" height="360px" controls&gt;
+        &lt;source src="...mp4"&gt;
+    &lt;&frasl;video&gt;
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&lt;iframe&gt;</td>
+                        <td>Inserts content from external source. Use target attribute on anchor tag to reference iframe element.
+    <pre><code class="language-html">
+    &lt;iframe src="first.html" name="ouriframe" width="200px" height="200px"&gt;&lt;&frasl;iframe&gt;
+    &lt;a href="second.html" target="ouriframe"&gt;Switch to new document&lt;&frasl;a&gt;
+    </code>
+    <iframe src="syntax_html_iframe/first.html"name="ouriframe" width="200px" height="200px"></iframe>
+    <div id="iframe_link_div">
+        <a id="iframe_link" href="syntax_html_iframe/second.html" target="ouriframe">Switch to new document</a>
+    </div></pre>
                         </td>
                     </tr>
                 </table>
             </div>
 
             <div class="section">
-                <h2>iframe</h2>
-                <p>&lt;iframe&gt;: inserts content from external source. Use target attribute on anchor tag to reference iframe element</p>
-                <pre>
-                &lt;iframe src="first.html" name="ouriframe" width="200px" height="200px"&gt;&lt;&frasl;iframe&gt;
-                &lt;a href="second.html" target="ouriframe"&gt;Switch to new document&lt;&frasl;a&gt;
-                </pre>
-                <iframe src="syntax_html_iframe/first.html"name="ouriframe" width="200px" height="200px"></iframe>
-                <div id="iframe_link_div">
-                    <a id="iframe_link" href="syntax_html_iframe/second.html" target="ouriframe">Switch to new document</a>
+                <h2>Lists</h2>
+                <p>Either ordered(ol) or unordered(ul).</p>
+    <pre><code class="language-html">
+    &lt;ul&gt;
+        &lt;li&gt;Unordered list item 1&lt;&frasl;li&gt;
+        &lt;li&gt;Unordered list item 2&lt;&frasl;li&gt;
+        &lt;li&gt;Unordered list item 3&lt;&frasl;li&gt;
+    &lt;&frasl;ul&gt;
+    </code></pre>
+                <div class="section_result">
+                    <h3>Result:</h3>
+                    <div class="center_block_list">
+                        <ul>
+                            <li>Unordered list item 1</li>
+                            <li>Unordered list item 2</li>
+                            <li>Unordered list item 3</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <h2>Lists</h2>
-            <p>Lists can either br ordered(ol) or unordered(ul)</p>
-            <pre>
-            &lt;ul&gt;
-                &lt;li&gt;Unordered list item one&lt;&frasl;li&gt;
-                &lt;li&gt;Unordered list item two&lt;&frasl;li&gt;
-                &lt;li&gt;Unordered list item three&lt;&frasl;li&gt;
-            &lt;&frasl;ul&gt;
-            </pre>
-            <p>Result:</p>
-            <ul>
-                <li>Unordered list item one</li>
-                <li>Unordered list item two</li>
-                <li>Unordered list item three</li>
-            </ul>
+            <div class="section">
+                <h2>Tables and Table Elements</h2>
+                <table class="table_3_to_7">
+                    <tr>
+                        <th>&lt;Element&gt;</th>
+                        <th>Definition</th>
+                    </tr>
+                    <tr>
+                        <td>&lt;table&gt;</td>
+                        <td>Creates a table</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;tr&gt;</td>
+                        <td>Table row</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;td&gt;</td>
+                        <td>Table data or content</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;th&gt;</td>
+                        <td>Table header, bold and centered by default</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;caption&gt;</td>
+                        <td>Caption for table</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;col&gt;</td>
+                        <td>Specifies column properties for each column within colgroup</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;colgroup&gt;</td>
+                        <td>Specifies group of 1 or more columns, used to apply styes to entire columns. Must be after any caption elements and before any thead, tbody, tfoot, and tr elements.</td>
+                    </tr>
+                </table>
+    <pre><code class="language-html">
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Column 1&lt;&frasl; &gt;
+            &lt;th&gt;Column 2&lt;&frasl; &gt;
+            &lt;th&gt;Column 3&lt;&frasl; &gt;
+        &lt;&frasl;tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Data 1&lt;&frasl; &gt;
+            &lt;td&gt;Data 2&lt;&frasl; &gt;
+            &lt;td&gt;Data 3&lt;&frasl; &gt;
+        &lt;&frasl;tr&gt;
+    &lt;&frasl;table&gt;
+    </code></pre>
+                <div class="section_result">
+                    <h3>Result:</h3>
+                    <table class="center_block">
+                        <tr>
+                            <th>Column 1</th>
+                            <th>Column 2</th>
+                            <th>Column 3</th>
+                        </tr>
+                        <tr>
+                            <td>Data 1</td>
+                            <td>Data 2</td>
+                            <td>Data 3</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
 
-            <h2>Tables</h2>
-            <h4>List of Table Elements</h6>
-            <p>&lt;table&gt;: creates a table</p>
-            <p>&lt;tr&gt;: table row</p>
-            <p>&lt;td&gt;: table data or content</p>
-            <p>&lt;th&gt;: table header, bold and centered by default</p>
-            <p>&lt;caption&gt;: caption for table</p>
-            <p>&lt;col&gt;: specifies column properties for each column within colgroup</p>
-            <p>&lt;colgroup&gt;: specifies group of 1 or more columns, used to apply styes to entire columns. Must be after any caption elements and before any thead, tbody, tfoot, and tr elements.</p>
-            <pre>
-            &lt;table&gt;
-                &lt;tr&gt;
-                    &lt;th&gt;Column 1&lt;&frasl; &gt;
-                    &lt;th&gt;Column 2&lt;&frasl; &gt;
-                    &lt;th&gt;Column 3&lt;&frasl; &gt;
-                &lt;&frasl;tr&gt;
-                &lt;tr&gt;
-                    &lt;td&gt;Data 1&lt;&frasl; &gt;
-                    &lt;td&gt;Data 2&lt;&frasl; &gt;
-                    &lt;td&gt;Data 3&lt;&frasl; &gt;
-                &lt;&frasl;tr&gt;
-            &lt;&frasl;table&gt;
-            </pre>
-            <p>Result:</p>
-            <table>
-                <tr>
-                    <th>Column 1</th>
-                    <th>Column 2</th>
-                    <th>Column 3</th>
-                </tr>
-                <tr>
-                    <td>Data 1</td>
-                    <td>Data 2</td>
-                    <td>Data 3</td>
-                </tr>
-            </table>
+            <div class="section">
+                <h2>Forms</h2>
+    <pre><code class="language-html">
+    &lt;form action="someFile.php" method="GET | POST" name="" enctype=""&gt;
+    </code></pre>
+                <p>Creates a form, the following explains the attributes:</p>
+                <ul>
+                    <li><span class="definition_attribute">action</span>: action to be performed when form is submitted, usually a path to webpage on server (a php file)</li>
+                    <li><span class="definition_attribute">method</span>: specifies <span class="definition_value">GET</span> or <span class="definition_value">POST</span> HTTP methods. Use GET for search or lookup, submitted form data will be visible. Use POST when changing data on the server, sends the form data to be processed.</li>
+                    <li><span class="definition_attribute">name</span>: for different forms, must have name for each input field or else data won't be sent.</li>
+                    <li><span class="definition_attribute">enctype</span>: for how submitted data will be encoded.</li>
+                </ul>
+                <br>
+                <h2>Input Types and Input Elements</h2>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Code</th>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Text</span>: for one-line text input field</td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;input type="text" name="inputText"&gt;
+    </code>
+    <input type="text" name="" value="">
+    </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Password</span>: like text input but hides input</td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;input type="password" name="psw"&gt;
+    </code>
+    <input type="password" name="psw">
+    </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Submit</span>: button that submits the form, can use onsubmit attribute on form and define a function (JS) for validation.</td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;input type="submit" value="Submit"&gt;
+    </code>
+    <input type="submit" value="Submit">
+    </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Reset</span>: reset button to reset all form values to default</td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;input type="reset"&gt;
+    </code>
+    <input type="reset" name="" value="Reset">
+    </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Radio button</span>: select one of various choices</td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;input type="radio" name="gender" value="male"&gt;
+    &lt;input type="radio" name="gender" value="female"&gt;
+    &lt;input type="radio" name="gender" value="other"&gt;
+    </code>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
+    <input type="radio" name="gender" value="other"> Other
+    </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Checkbox</span>: for selecting 0 or more options</td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;input type="checkbox" name="vehicle1" value="Bike" checked&gt; I have a bike
+    &lt;input type="checkbox" name="vehicle2" value="Car"&gt; I have a car
+    </code>
+    <input type="checkbox" name="vehicle1" value="Bike" checked> I have a bike
+    <input type="checkbox" name="vehicle2" value="Car"> I have a car
+    </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Number</span>: for numeric input</td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;input type="number" name="quantity" min="1" max="10"&gt;
+    </code>
+    <input type="number" name="quantity" min="1" max="10">
+    </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Button</span>: handled by function defined in JS or JQuery</td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;input type="button" onclick="function()" value="Button"&gt;
+    </code>
+    <input type="button" value="Button">
+    </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Element</th>
+                        <th>Code</th>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Labels</span>: text, if clicked will set focus on element, use for attribute</td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;label for="idOfInput"&gt;Label for Input&lt;&frasl; &gt;
+    </code>
+    <label for="idOfInput">Label for Input</label>
+    <input type="text" name="" id="idOfInput">
+    </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Textarea</span>: for multi-line input</td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;textarea rows="8" cols="30"&gt;&lt;&frasl; &gt;
+    </code>
+    <textarea name="textArea" rows="8" cols="30"></textarea>
+    </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Drop-down lists</span></td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;select name="fruits"&gt;
+        &lt;option value="strawberry"&gt;Strawberry&lt;&frasl;option&gt;
+        &lt;option value="apple"&gt;Apple&lt;&frasl;option&gt;
+        &lt;option value="pear"&gt;Pear&lt;&frasl;option&gt;
+        &lt;option value="kiwi"&gt;Kiwi&lt;&frasl;option&gt;
+    &lt;&frasl;select&gt;
+    </code>
+    <select name="fruits">
+        <option value="strawberry">Strawberry</option>
+        <option value="apple">Apple</option>
+        <option value="pear">Pear</option>
+        <option value="kiwi">Kiwi</option>
+    </select>
+    </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition">Fieldset</span> and <span class="definition">Legend</span>: group related elements, a border is drawn around these elements, legend will create a caption within top line of box.</td>
+                        <td>
+    <pre><code class="language-html">
+    &lt;fieldset&gt;
+        &lt;legend&gt;Descibe your interests&lt;&frasl;legend&gt;
+        Favorite Color: &lt;input type="text" name=""&gt;&lt;br&gt;
+        Favorite Pet: &lt;input type="text" name=""&gt;&lt;br&gt;
+    &lt;&frasl;fieldset&gt;
+    </code>
+    <fieldset>
+        <legend>Describe your interests</legend>
+        Favorite Color: <input type="text" name=""><br>
+        Favorite Pet: <input type="text" name=""><br>
+    </fieldset>
+    </pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
-            <h2>Web Links</h2>
-            <p>A link to another webpage or refocuses to some element/section in current webpage.</p>
-            &lt;a href=""&gt;: anchor element, href attribute specifies the link
+            <div class="section">
+                <h2> Form Attributes</h2>
+                <table class="table_3_to_7">
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Definition</th>
+                    </tr>
+                    <tr>
+                        <td>value</td>
+                        <td>Sets initial value of input.</td>
+                    </tr>
+                    <tr>
+                        <td>readonly</td>
+                        <td>Input is readonly and can't be set.</td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>Input field is disabled and can't be submitted.</td>
+                    </tr>
+                    <tr>
+                        <td>size</td>
+                        <td>Size in characters for input field.</td>
+                    </tr>
+                    <tr>
+                        <td>maxlength</td>
+                        <td>Maximum allowed length for input.</td>
+                    </tr>
+                    <tr>
+                        <td>autocomplete</td>
+                        <td>If form should autocomplete, browser completes input values based on previously entered values.</td>
+                    </tr>
+                    <tr>
+                        <td>autofocus</td>
+                        <td>Input field should get focused when page loads.</td>
+                    </tr>
+                    <tr>
+                        <td>placeholder</td>
+                        <td>Gives hint describing expected value, the lightened text will disappear when a value is inputted by user.</td>
+                    </tr>
+                    <tr>
+                        <td>pattern</td>
+                        <td>Takes a regular expression to check against input's value.</td>
+                    </tr>
+                    <tr>
+                        <td>required</td>
+                        <td>Indicates that field must be filled out, can't be empty, will set it as invalid.</td>
+                    </tr>
+                </table>
+            </div>
 
-            <h2>Forms</h2>
-            <p>&lt;form action="" method="" name="" enctype=""&gt;: creates a form. action attribute defines action to be performed when form is submitted. Usually to webpage on server (a php file). method attribute specifies GET or POST HTTP methods. Use GET for search or lookup, submitted form data will be visible. POST when changing data on the server, sends the form data to be processed. name attribute for different forms, must have for each input field or else data won't be sent. enctype for how the submitted data will be encoded.</p>
-            <h4>Input Types</h4>
-            &lt;input type="" name="" other attributes...&gt;
+            <div class="section">
+                <h2>HTML Entities</h2>
+                <p>Some characters are special in HTML and to specify it literally, it must be escaped. In this case, instead of escaping with backslash, we escape with the ampersand &amp;.</p>
+                <table>
+                    <tr>
+                        <th>Entity</th>
+                        <th>Definition</th>
+                    </tr>
+                    <tr>
+                        <td>&amp;nbsp;</td>
+                        <td>Non-breaking space</td>
+                    </tr>
+                    <tr>
+                        <td>&amp;lt;</td>
+                        <td>Less than &lt;</td>
+                    </tr>
+                    <tr>
+                        <td>&amp;gt;</td>
+                        <td>Greater than &gt;</td>
+                    </tr>
+                    <tr>
+                        <td>&amp;amp</td>
+                        <td>Ampersand &amp;</td>
+                    </tr>
+                    <tr>
+                        <td>&amp;quot</td>
+                        <td>Quotation mark &quot;</td>
+                    </tr>
+                    <tr>
+                        <td>&amp;apos</td>
+                        <td>Apostrophe &apos;</td>
+                    </tr>
+                </table>
+            </div>
 
-            <p>text: for one-line text input field</p>
-            <p>&lt;input type="text" name="inputText"&gt;</p>
-            <input type="text" name="" value="">
-
-            <p>password: like text input but hides input</p>
-            <p>&lt;input type="password" name="psw"&gt;</p>
-            <input type="password" name="psw">
-
-            <p>submit: submit button, submits the form, can use onsubmit attribute on form and define a function (JS) for validation</p>
-            <p>&lt;input type="submit" value="Submit"&gt;</p>
-            <input type="submit" value="Submit">
-
-            <p>reset: reset button to reset all form values to default</p>
-            <p>&lt;input type="reset"&gt;</p>
-
-            <p>radio: radio button (select one of various choices)</p>
-            <p>&lt;input type="radio" name="gender" value="male"&gt;</p>
-            <p>&lt;input type="radio" name="gender" value="female"&gt;</p>
-            <p>&lt;input type="radio" name="gender" value="other"&gt;</p>
-            <input type="radio" name="gender" value="male">
-            <input type="radio" name="gender" value="female">
-            <input type="radio" name="gender" value="other">
-
-            <p>checkbox: for selecting 0 or more options</p>
-            <p>&lt;input type="checkbox" name="vehicle1" value="Bike" checked&gt; I have a bike</p>
-            <p>&lt;input type="checkbox" name="vehicle2" value="Car"&gt; I have a car</p>
-            <input type="checkbox" name="vehicle1" value="Bike" checked> I have a bike
-            <input type="checkbox" name="vehicle2" value="Car"> I have a car
-
-            <p>number: for numeric input</p>
-            <p>&lt;input type="number" name="quantity" min="1" max="10"&gt;</p>
-            <input type="number" name="quantity" min="1" max="10">
-
-            <p>button: handled by function defined in JS or JQuery</p>
-            <p>&lt;input type="button" onclick="function()" value="Button"&gt;</p>
-            <input type="button" value="Button">
-
-            <h4>Input Elements</h4>
-            <p>textarea: for multi-line input</p>
-            &lt;textarea rows="10" cols="80"&gt;&lt;&frasl; &gt;
-            <textarea name="textArea" rows="10" cols="80"></textarea>
-
-            <h4>Add Labels</h4>
-            <p>&lt;label for="idOfInput"&gt;Label for Input&lt;&frasl; &gt;</p>
-            <label for="idOfInput">Label for Input</label>
-            <input type="text" name="" id="idOfInput">
-
-            <p>Drop-down list</p>
-            <pre>
-            &lt;select name="fruits"&gt;
-                &lt;option value="strawberry"&gt;Strawberry&lt;&frasl;option&gt;
-                &lt;option value="apple"&gt;Apple&lt;&frasl;option&gt;
-                &lt;option value="pear"&gt;Pear&lt;&frasl;option&gt;
-                &lt;option value="kiwi"&gt;Kiwi&lt;&frasl;option&gt;
-            &lt;&frasl;select&gt;
-            </pre>
-            <select name="fruits">
-                <option value="strawberry">Strawberry</option>
-                <option value="apple">Apple</option>
-                <option value="pear">Pear</option>
-                <option value="kiwi">Kiwi</option>
-            </select>
-
-            <p>Fieldset and legend: group related elements, a bow is drawn around these elements. legend will create a caption within top line of box</p>
-            <pre>
-            &lt;fieldset&gt;
-                &lt;legend&gt;Descibe your interests&lt;&frasl;legend&gt;
-                Favorite Color: &lt;input type="text" name=""&gt;&lt;br&gt;
-                Favorite Pet: &lt;input type="text" name=""&gt;&lt;br&gt;
-            &lt;&frasl;fieldset&gt;
-            </pre>
-            <fieldset>
-                <legend>Describe your interests</legend>
-                Favorite Color: <input type="text" name=""><br>
-                Favorite Pet: <input type="text" name=""><br>
-            </fieldset>
-
-            <p>There are many other form elements and form input types that are not mentioned, check out the w3schools website to learn more.</p>
-
-            <h4> Form Attributes</h4>
-            <p>value: sets initial value of input</p>
-            <p>readonly: input is readonly, can't be set</p>
-            <p>disabled: input field is disabled and can't be submitted</p>
-            <p>size: size in characters for input field</p>
-            <p>maxlength: maximum allowed length for input</p>
-            <p>autocomplete: if form should autocomplete, browser completes input values based on previously entered values</p>
-            <p>autofocus: input field should get focused when page loads</p>
-            <p>placeholder: gives hint describing expected value, the lightened text will disappear when a value is inputted by user</p>
-            <p>pattern: takes a regular expression to check against input's value</p>
-            <p>required: indicates that field must be filled out, can't be empty, will set it as invalid</p>
-
-            <p>There are many other attributes, check out the w3schools website to learn more.</p>
-
-            <h2>HTML Entities</h2>
-            <p>Some characters are special in HTML and to specify it literally, it must be escaped. In this case, instead of escaping with backslash, we escape with the ampersand &amp;</p>
-            <p>&amp;nbsp; - non-breaking space </p>
-            <p>&amp;lt; - less than &lt;</p>
-            <p>&amp;gt; - greater than &gt;</p>
-            <p>&amp;amp - ampersand &amp;</p>
-            <p>&amp;quot - quotation mark &quot;</p>
-            <p>&amp;apos - apostrophe &apos;</p>
-
-            <h2>HTML Attributes for CSS</h2>
-            <p>id=""</p>
-            <p>class=""</p>
+            <div class="section">
+                <p>There are many other elements, attributes, form elements, form input types nad attributes that are not mentioned, check out the w3schools website to learn more.</p>
+            </div>
 
         </div>
 
