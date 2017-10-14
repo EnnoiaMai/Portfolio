@@ -5,6 +5,9 @@
     font-family: "Times New Roman", Arial;
     line-height: 148%;
 }
+body {
+    min-width: 1000px;
+}
 h2 {
     padding-top: 16px;
     padding-bottom: 16px;
@@ -12,7 +15,7 @@ h2 {
 p, li, td {
     font-size: 108%;
 }
-ul {
+ul, ol {
     margin-left: 40px;
 }
 pre, code {
@@ -32,7 +35,10 @@ th {
     font-size: 116%;
 }
 tr:nth-child(odd) {
-    background-color: #f2f2f2
+    /*background-color: rgba(208, 237, 255, 0.5);*/
+    /*background-color: #f2f2f2*/
+    /*background-color: #CFD8DC;*/
+    background-color: #E4EAED;
 }
 tr:nth-child(even) {
     background-color: white;
@@ -70,6 +76,10 @@ a:visited {
 .definition_value {
     color: rgba(0, 129, 138, 1);
     font-weight: bold;
+}
+.definition_selector {
+    color: rgba(213, 132, 253, 1);
+    /*font-weight: bold;*/
 }
 .center_block {
     margin-left: auto;
@@ -112,4 +122,17 @@ a:visited {
 .table_3_to_7 th:first-child {
     text-align: left;
     padding-left: 5%;
+}
+.table_3_to_7 th[colspan="2"] {
+    text-align: center;
+}
+.table_1_to_1 {
+    width: 100%;
+}
+.table_1_to_1 td:first-child {
+    width: 50%;
+}
+.table_1_to_1 td:nth-child(2) {
+    padding-left: 5%;
+    padding-right: 5%;
 }
