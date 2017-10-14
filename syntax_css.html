@@ -16,7 +16,7 @@
 
         <div id="content">
             <div class="section">
-                <p><span class="bold">Note: </span>Some sources that should be credited in creating this document include various tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/default.asp">w3schools.com</a> and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
+                <p><span class="bold">Note: </span>Some sources that should be credited in creating this document include various tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
             </div>
 
             <div class="section">
@@ -30,7 +30,7 @@
                     <tr>
                         <td>External Style sheets</td>
                         <td>
-    <pre><code class="language-html">
+    <pre><code class="language-markup">
     &lt;link rel="stylesheet" type="text/css" href="mycssfile.css"&gt;
     </code></pre>
                         </td>
@@ -38,7 +38,7 @@
                     <tr>
                         <td>Internal Style sheets</td>
                         <td>
-    <pre><code class="language-html">
+    <pre><code class="language-markup">
     &lt;style&gt;h1 {color: blue; }&lt;&frasl;style&gt;
     </code></pre>
                         </td>
@@ -46,7 +46,7 @@
                     <tr>
                         <td>Inline</td>
                         <td>
-    <pre><code class="language-html">
+    <pre><code class="language-markup">
     &lt;h1 style="color: blue;"&gt;Header 1&lt;&frasl;style&gt;
     </code></pre>
                         </td>
@@ -595,7 +595,7 @@
                     <tr>
                         <td>flex</td>
                         <td>A flexbox which prepares a single, invisible line where elements are aligned. Place elements on a row/column without needing to bother with floats or positioning of elements. Allows you to stack elements side-by-side.
-    <pre><code class="language-html">
+    <pre><code class="language-markup">
     &lt;!-- HTML: --&gt;
     &lt;div class="flex-container"&gt;
         &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
@@ -625,7 +625,7 @@
             <div class="section">
                 <h2>Creating a Simple Horizontal Menu</h2>
                 <p>1) Create a list either ordered or unordered, within list create list elements and within list elements, create anchor tags.</p>
-    <pre><code class="language-html">
+    <pre><code class="language-markup">
     &lt;!-- Html: --&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;a href=""&gt;First Link&lt;&frasl;a&gt;
@@ -675,7 +675,7 @@
     </code></pre>
                 <br>
                 <p>3) Give sidebar a width, a height of 100%, fixed positioning, and make sure rest of body has margin-left equal to the width of the sidebar.</p>
-    <pre><code class="language-html">
+    <pre><code class="language-markup">
     &lt;!-- Html: --&gt;
     &lt;div id="sidebar"&gt;
         <i>Content for sidebar</i>
@@ -707,10 +707,10 @@
     }
     </code></pre>
                 <br>
-                <p>@media rule used to define different style rules for different media types/devices. The media feature or expressions resolve to true or false.</p>
+                <p><span class="definition_selector">@media</span> rule used to define different style rules for different media types/devices. The media feature or expressions resolve to true or false.</p>
                 <br>
                 <p>Can have different stylesheets based on the media</p>
-    <pre><code class="language-html">
+    <pre><code class="language-markup">
     &lt;link rel="stylesheet" media="mediatype" and|not|only (media feature) href="mystylesheet.css"&gt;
     </code></pre>
                 <br>

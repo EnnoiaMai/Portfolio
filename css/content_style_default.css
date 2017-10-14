@@ -12,6 +12,10 @@ h2 {
     padding-top: 16px;
     padding-bottom: 16px;
 }
+h4 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
 p, li, td {
     font-size: 108%;
 }
@@ -69,6 +73,9 @@ a:visited {
     /*color: rgba(4, 56, 81, 1);*/
     font-weight: bold;
 }
+.definition_element {
+    color: rgba(173, 43, 61, 1);
+}
 .definition_attribute {
     color: rgba(140, 22, 30, 1);
     font-weight: bold;
@@ -80,6 +87,9 @@ a:visited {
 .definition_selector {
     color: rgba(213, 132, 253, 1);
     /*font-weight: bold;*/
+}
+.definition_javascript {
+    color: rgba(241, 126, 23, 1);
 }
 .center_block {
     margin-left: auto;
