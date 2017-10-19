@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Swift 4.0 Syntax</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio - Swift 4.0 Syntax Guide and Techniques">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="css/content_style_default.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/themes/prism-tomorrow.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/components/prism-swift.min.js"></script>
+    </head>
+    <body>
+        <h1 id="title">Swift 4.0 Syntax</h1>
+
+        <div id="content">
+            <div class="section">
+                <p><span class="bold">Note: </span>Some sources that should be credited in creating this document include various tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
+            </div>
+
+            <div class="section">
+                <p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309">developer.apple.com</a> contains the official documentation for the Swift language and syntax. This page is a summary of this documentation.</p>
+            </div>
+
+            <div class="section">
+                <h2>Basics</h2>
+                <h4>Constants and Variables</h4>
+                <p>Use <span class="definition_swift">let</span> keyword to denote constants and <span class="definition_swift">var</span> keyword to denote variables.</p>
+                <ul>
+                    <li>Names can't contain whitespace and can't start with a number.</li>
+                </ul>
+    <pre><code class="language-swift">
+    let constant = value
+    var variable = value
+    var variable1 = value, variable2 = value
+
+    var variable: Type = value
+    var variable1. variable2: Type
+    </code></pre>
+
+                <h4>Semicolons</h4>
+                <p> No need for semicolons at end of statement unless multiple statements are on one line.</p>
+
+                <h4>Printing Output</h4>
+                <ul>
+                    <li>The latter uses string interpolation.</li>
+                </ul>
+    <pre><code class="language-swift">
+    print(value)
+    print("Printing string and value of \()")
+    </code></pre>
+
+                <h4>Comments</h4>
+                <ul>
+                    <li>// is a single line comment</li>
+                    <li>/**/ is a multiline comment</li>
+                    <li>/* /**/ */ are nested multiline comments</li>
+                </ul>
+
+                <h4>Integer</h4>
+                <p>Type Int has the same size as the current platform's native word size</p>
+                <ul>
+                    <li>32-bit platform would set Int32 as default.</li>
+                    <li>64-bit platform would set Int64 as default.</li>
+                </ul>
+                <p>UInt - unsigned Int. Use min and max properties to find the Integer bounds.</p>
+
+                <h4>Floating Point Numbers</h4>
+                <ul>
+                    <li>Float - 32-bit floating-point number</li>
+                    <li>Double - 64-bit floating-point number</li>
+                </ul>
+
+                <h4>Type Safety and Type Inference</h4>
+                <p>Type Safety: Swift is discrete on types of values and performs type-checking. </p>
+                <p>Type Inference: compiler deduces type of expression by examining values, usually occurs for literal values. No loss of precision in the Double when adding Int and Double assuming Int is casted.</p>
+
+                <h4>Numeric Literals</h4>
+                <ul>
+                    <li>Decimal number: no prefix</li>
+                    <li>Binary number: 0b prefix</li>
+                    <li>Octal number: 0o prefix</li>
+                    <li>Hexadecimal number: 0x prefix</li>
+                    <li>Exponents: e(number) of p(number) for Hex</li>
+                </ul>
+
+                <h4>Numeric Type Conversion to prevent errors</h4>
+                <p>Swift type initializers: SomeType(ofInitialValue)</p>
+
+                <h4>Type Aliases</h4>
+    <pre><code class="language-swift">
+    typealias newName = Type
+    </code></pre>
+
+                <h4>Booleans</h4>
+    <pre><code class="language-swift">
+    var variable = true | false    // Inferred type with Boolean literals
+    var variable: Bool = true    // Without inference
+    </code></pre>
+
+                <h4>Tuples</h4>
+                <p>Tuples: multiple values that combine into a single compound value. Can decompose tuples into constants or variables. Can ignore values using underscore (_), access the tuple using the index, and name tuples.</p>
+    <pre><code class="language-swift">
+    let name = (value1, value2)    // Initialize typle
+    let (name1, name2) = name    // Decompose tuple
+    let (name1, _) = name    // Ignoring name2
+    name.0    // Accessing tuple by index
+    let name = (elem1: value1, elem2: value2)    // Naming tuples
+    name.elem1    // Accessing values by tuple name
+    </code></pre>
+
+                <h4>Optionals</h4>
+                <p>Use when values may be abesnt, variable can be set to nil. Defining an optional without the value will set it to nil by default.</p>
+                <p>The following is an example of Forced Unwrapping within an if statement</p>
+    <pre><code class="language-swift">
+    var name: Type?    // value is nil
+    if (name != nil) {
+        print(name!)
+    }
+    </code></pre>
+
+                <h4>Optional Binding</h4>
+    <pre><code class="language-swift">
+    if let constantName = someOptional, var = otherOptional {
+        statements    // No need to unwrap constantName
+    }
+    </code></pre>
+
+                <h4>Implicitly Unwrapped Optionals</h4>
+                <p>An optional that is assumed to always have a value. ! character gives permission for optional to be unwrapped whenever it's used. Can still use optional binding on it.</p>
+    <pre><code class="language-swift">
+    let name: Type!    // Runtime error if nil
+    </code></pre>
+
+                <h4>Error Handling</h4>
+                <p>Lets you determine the cause of the error. If function can throw an error, wrap it in a try expression, then wrap it in a do statement to propagate error to catch clauses.</p>
+    <pre><code class="language-swift">
+    func canThrowAnError() throws {
+        statements
+    }
+
+    do {
+        try canThrowAnError()    // no error thrown
+    } catch {
+        statements    // error thrown
+    }
+    </code></pre>
+
+                <h4>Assertions and Preconditions</h4>
+                <p>Checks that occur at runtime. You specify a condition before executing further code. Assertions are checked in debug builds and Preconditions are checked in both debug and production builds.</p>
+    <pre><code class="language-swift">
+    assert(boolean expression, "message")
+    assertionFailure("message")    // Indicates that assertions failed
+    </code></pre>
+
+            </div>
+
+            <div class="section">
+                <h2>Basic Operators</h2>
+            </div>
+
+            <div class="section">
+                <h2>Strings and Characters</h2>
+            </div>
+
+            <div class="section">
+                <h2>Collection Types</h2>
+            </div>
+
+            <div class="section">
+                <h2>Control Flow</h2>
+            </div>
+
+            <div class="section">
+                <h2>Functions</h2>
+            </div>
+
+            <div class="section">
+                <h2>Closures</h2>
+            </div>
+
+            <div class="section">
+                <h2>Enumerations</h2>
+            </div>
+
+            <div class="section">
+                <h2>Classes and Structures</h2>
+            </div>
+
+            <div class="section">
+                <h2>Properties</h2>
+            </div>
+
+            <div class="section">
+                <h2>Methods</h2>
+            </div>
+
+            <div class="section">
+                <h2>Subscripts</h2>
+            </div>
+
+            <div class="section">
+                <h2>Inheritance</h2>
+            </div>
+
+            <div class="section">
+                <h2>Initialization</h2>
+            </div>
+
+            <div class="section">
+                <h2>Deinitialization</h2>
+            </div>
+
+            <div class="section">
+                <h2>Optional Chaining</h2>
+            </div>
+
+            <div class="section">
+                <h2>Error Handling</h2>
+            </div>
+
+            <div class="section">
+                <h2>Type Casting</h2>
+            </div>
+
+            <div class="section">
+                <h2>Nested Types</h2>
+            </div>
+
+            <div class="section">
+                <h2>Extensions</h2>
+            </div>
+
+            <div class="section">
+                <h2>Protocols</h2>
+            </div>
+
+            <div class="section">
+                <h2>Generics</h2>
+            </div>
+
+            <div class="section">
+                <h2>Automatic Reference Counting</h2>
+            </div>
+
+            <div class="section">
+                <h2>Memory Safety</h2>
+            </div>
+
+            <div class="section">
+                <h2>Access Control</h2>
+            </div>
+
+            <div class="section">
+                <h2>Advanced Operators</h2>
+            </div>
+
+        </div>
+    </body>
+</html>
