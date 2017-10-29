@@ -53,11 +53,20 @@
     </code></pre>
 
                 <h4>Comments</h4>
-                <ul>
-                    <li>// is a single line comment</li>
-                    <li>/**/ is a multiline comment</li>
-                    <li>/* /**/ */ are nested multiline comments</li>
-                </ul>
+                <table>
+                    <tr>
+                        <td>Single-line comment</td>
+                        <td>&frasl;&frasl;</td>
+                    </tr>
+                    <tr>
+                        <td>Multiline comment</td>
+                        <td>&frasl;* *&frasl;</td>
+                    </tr>
+                    <tr>
+                        <td>Nested Multiline comments</td>
+                        <td>&frasl;* &frasl;**&frasl; *&frasl;</td>
+                    </tr>
+                </table>
 
                 <h4>Integer</h4>
                 <p>Type Int has the same size as the current platform's native word size</p>
@@ -78,13 +87,32 @@
                 <p>Type Inference: compiler deduces type of expression by examining values, usually occurs for literal values. No loss of precision in the Double when adding Int and Double assuming Int is casted.</p>
 
                 <h4>Numeric Literals</h4>
-                <ul>
-                    <li>Decimal number: no prefix</li>
-                    <li>Binary number: 0b prefix</li>
-                    <li>Octal number: 0o prefix</li>
-                    <li>Hexadecimal number: 0x prefix</li>
-                    <li>Exponents: e(number) of p(number) for Hex</li>
-                </ul>
+                <table>
+                    <tr>
+                        <th>Literal</th>
+                        <th>Prefix</th>
+                    </tr>
+                    <tr>
+                        <td>Decimal number</td>
+                        <td>no prefix</td>
+                    </tr>
+                    <tr>
+                        <td>Binary number</td>
+                        <td>0b prefix</td>
+                    </tr>
+                    <tr>
+                        <td>Octal number</td>
+                        <td>0o prefix</td>
+                    </tr>
+                    <tr>
+                        <td>Hexadecimal number</td>
+                        <td>0x prefix</td>
+                    </tr>
+                    <tr>
+                        <td>Exponents</td>
+                        <td>e(number) of p(number) for Hex</td>
+                    </tr>
+                </table>
 
                 <h4>Numeric Type Conversion to prevent errors</h4>
                 <p>Swift type initializers: SomeType(ofInitialValue)</p>
@@ -109,6 +137,7 @@
     name.0    // Accessing tuple by index
     let name = (elem1: value1, elem2: value2)    // Naming tuples
     name.elem1    // Accessing values by tuple name
+    (1, "zebra") < (2, "apple")    // comparing tuples
     </code></pre>
 
                 <h4>Optionals</h4>
@@ -159,102 +188,2000 @@
 
             <div class="section">
                 <h2>Basic Operators</h2>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Operators</th>
+                    </tr>
+                    <tr>
+                        <td>Unary</td>
+                        <td>+, -</td>
+                    </tr>
+                    <tr>
+                        <td>Binary</td>
+                        <td>+, -, *, /, %</td>
+                    </tr>
+                    <tr>
+                        <td>Ternary</td>
+                        <td>(a ? b : c)</td>
+                    </tr>
+                    <tr>
+                        <td>Assignment Operators</td>
+                        <td>=, +=, -=, *=, &frasl;=, %=</td>
+                    </tr>
+                    <tr>
+                        <td>Comparison Operators</td>
+                        <td>==, !=, &gt;, &lt;, &gt;=, &lt;=</td>
+                    </tr>
+                    <tr>
+                        <td>Identity Operators</td>
+                        <td>===(identical to), !==(not identical to)</td>
+                    </tr>
+                    <tr>
+                        <td>Logical Operators</td>
+                        <td>!, &amp;&amp;, ||</td>
+                    </tr>
+                    <tr>
+                        <td>Nil-Coalescing Operator: unwraps an optional a if it contains a value, or returns default value b if a is nil. Expression a is optional, and b must match the type stored in a.</td>
+                        <td>(a ?? b)</td>
+                    </tr>
+                    <tr>
+                        <td>Range Operators</td>
+                        <td>
+                        <pre>
+Closed Range operator: (a...b)
+Half-open Range operator: (a..&lt;b)
+One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
+</pre>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <p>The assignment operator can be used to decompose a tuple. Tuples can be compared using comparison operator and each corresponding pair of values are checked left-to-right returning a boolean. If the pair is equal, the next pair is checked. Only works if operator can be applied to each value in respective tuples.</p>
+
             </div>
 
             <div class="section">
                 <h2>Strings and Characters</h2>
+                <p>Strings are value types, creating a new String copies that value. String mutability indicated by assigning it to a constant or a variable.</p>
+    <pre><code class="language-swift">
+    // A String literal
+    let string = "text"
+
+    // Multiline String literals
+    let string = """
+        text
+    """
+
+    // String Initializer
+    var emptyString = String()
+    </code></pre>
+
+                <table>
+                    <tr>
+                        <th colspan="2">Special Characters (Escape Characters)</th>
+                    </tr>
+                    <tr>
+                        <th>Character</th>
+                        <th>Definition</th>
+                    </tr>
+                    <tr>
+                        <td>\0</td>
+                        <td>null character</td>
+                    </tr>
+                    <tr>
+                        <td>\\</td>
+                        <td>backslash</td>
+                    </tr>
+                    <tr>
+                        <td>\t</td>
+                        <td>horizontal tab</td>
+                    </tr>
+                    <tr>
+                        <td>\n</td>
+                        <td>line feed</td>
+                    </tr>
+                    <tr>
+                        <td>\r</td>
+                        <td>carriage return</td>
+                    </tr>
+                    <tr>
+                        <td>\"</td>
+                        <td>double quote</td>
+                    </tr>
+                    <tr>
+                        <td>\'</td>
+                        <td>single quote</td>
+                    </tr>
+                </table>
+
+                <h4>Manipulating Strings and Methods</h4>
+                <table>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Code</th>
+                    </tr>
+                    <tr>
+                        <td>Check if string is empty</td>
+                        <td>
+    <pre><code class="language-swift">
+    emptyString.isEmpty
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Get count of characters</td>
+                        <td>
+    <pre><code class="language-swift">
+    string.count
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Iterating over String</td>
+                        <td>
+    <pre><code class="language-swift">
+    for character in "string" {
+        statements
+    }
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>String Concatenation: constructing new strings by adding string values together.</td>
+                        <td>
+    <pre><code class="language-swift">
+    var newString = string1 + string2
+    newString += string2
+    newString.append(character)
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>String Interpolation: constructing new string from a mix of constants, variables, literals, and expressions.</td>
+                        <td>
+    <pre><code class="language-swift">
+    let multiplier = 3
+    let message = "\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>String Indices</td>
+                        <td>
+    <pre><code class="language-swift">
+    let someString = "This is a String"
+    // Returns first character of string
+    someString[someString.startIndex]
+
+    // Returns second character of string
+    someString[someString.index(after: someString.startIndex)]
+
+    // Returns position after last character
+    someString[someString.index(before: someString.endIndex)]
+
+    // Getting character by offset
+    let index = someString.index(someString.startIndex, offsetBy: 3)
+    someString[index]
+
+    // indices property to access index of individual characters
+    for index in someString.indices {
+        statements
+    }
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Inserting and Removing</td>
+                        <td>
+    <pre><code class="language-swift">
+    // Inserting character or word at index
+    someString.insert("c", at: someString.endIndex)
+    someString.insert(contentsOf: " word", at: someString.index(before: someString.endIndex))
+
+    // Removing character at index or range of characters
+    someString.remove(at: index)
+    someString.removeSubrange(range)
+    </code></pre>
+                        </td>
+                    </tr>
+                </table>
+
+                <h4>Substring</h4>
+                <p>Different type but short-lived and has same methods as String. Has region of memory that is resused from what was stored in original string.</p>
+    <pre><code class="language-swift">
+    let subString = someString[range]
+    </code></pre>
+
+                <p>Strings and Characters can be compared using == and !=</p>
             </div>
 
             <div class="section">
                 <h2>Collection Types</h2>
+                <p>3 primary collection types are arrays, sets, and dictionaries. Implemented as generic collections. Mutability of collection types depends on setting it as a constant or a variable.</p>
+
+                <h3>Array</h3>
+                <p>An array stores values of the same type in an ordered list.</p>
+                <table>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Code</th>
+                    </tr>
+                    <tr>
+                        <td>Initializing an array</td>
+                        <td>
+    <pre><code class="language-swift">
+    // Initialize an empty array
+    var array = [Type]()
+
+    // Initialize array with default value
+    var array = Array(repeating: count)
+
+    // Initialize array with array literal
+    var array: [Type] = [value1, value2]
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Accessing and Modifying an Array: any gaps in an array are closed when an item is removed.</td>
+                        <td>
+    <pre><code class="language-swift">
+    // Number of items in array
+    array.count
+
+    // Check if array has count 0
+    array.isEmpty
+
+    // Appending to an array
+    array.append(_:)
+    array += [value]
+
+    // Retrieving and changing a value
+    array[index]
+
+    // Inserting and Removing
+    array.insert(_:at:)
+    array.remove(at:)
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Iterating over an array</td>
+                        <td>
+    <pre><code class="language-swift">
+    for item in array {
+        statements
+    }
+
+    // Iterates giving both the index and value
+    for (index, value) in array.enumerated() {
+        statements
+    }
+    </code></pre>
+                        </td>
+                    </tr>
+                </table>
+
+                <h3>Set</h3>
+                <p>Sets store distinct values of same type in a collection with no defined ordering. A type must he hashable to be stored in a set. String, Int, Double, Bool, and enums are by default. Conform to Hashable and Equatable protocol for custom sets and dictionaries.</p>
+                <p>Hash value: an Int value that is the same for objects that compare equally. If a==b then a.hashValue = b.hashValue.</p>
+
+                <table>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Code</th>
+                    </tr>
+                    <tr>
+                        <td>Initializing a Set</td>
+                        <td>
+    <pre><code class="language-swift">
+    // Initialize empty set
+    var set = Set&lt;Type&gt;()
+
+    // Initialize set with array literal
+    var set: Set&lt;Type&gt; = [value1, value2]
+
+    // Set already created set to empty using empty array literal
+    setVariable = []
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Accessing and Modifying a Set</td>
+                        <td>
+    <pre><code class="language-swift">
+    /* Other methods and properties include
+    .insert(_:), .remove(_:), removeAll(), .count, and isEmpty */
+
+    // Check if the set contains a value
+    set.contains(value)
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Iterating over a Set</td>
+                        <td>
+    <pre><code class="language-swift">
+    for item in set {
+        statements
+    }
+
+    // Iterate over an ordered set
+    for item in set.sorted() {
+        statements
+    }
+    </code></pre>
+                        </td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr>
+                        <th colspan="2">Set Operations</th>
+                    </tr>
+                    <tr>
+                        <th>Operation</th>
+                        <th>Definition</th>
+                    </tr>
+                    <tr>
+                        <td>intersection(_:)</td>
+                        <td>Creates a new set with common values to both.</td>
+                    </tr>
+                    <tr>
+                        <td>symmetricDifference(_:)</td>
+                        <td>Creates a new set with values in either set but not both.</td>
+                    </tr>
+                    <tr>
+                        <td>union(_:)</td>
+                        <td>Creates a new set with all values in both sets.</td>
+                    </tr>
+                    <tr>
+                        <td>subtracting(_:)</td>
+                        <td>Creates a new set with values not in the specified set.</td>
+                    </tr>
+                    <tr>
+                        <td>==</td>
+                        <td>If two sets contain all the same values.</td>
+                    </tr>
+                    <tr>
+                        <td>isSubset(of:)</td>
+                        <td>Whether all of the values of a set are contained in the specified set.</td>
+                    </tr>
+                    <tr>
+                        <td>isSuperset(of:)</td>
+                        <td>Whether a set contains all of the values in a specified set.</td>
+                    </tr>
+                    <tr>
+                        <td>isStrictSubset(of:) or isStrictSuperset(of:)</td>
+                        <td>Same as above but checks if they are not equal to the specified set.</td>
+                    </tr>
+                    <tr>
+                        <td>isDisjoint(with:)</td>
+                        <td>Whether two sets have no values in common.</td>
+                    </tr>
+                </table>
+
+                <h3>Dictionary</h3>
+                <p>A dictionary stores associations between keys of same type and values of same type with no defined ordering. Keys must be unique. Subscript syntax which is used for a dictionary returns a value as an optional, so it must be unwrapped.</p>
+                <table>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Code</th>
+                    </tr>
+                    <tr>
+                        <td>Initializing a Dictionary</td>
+                        <td>
+    <pre><code class="language-swift">
+    // Initialize an empty dictionary
+    var dictionary = [KeyType: ValueType]()
+
+    // Initialize with dictionary literal
+    var dictionary = [key1: value1, key2: value2]
+
+    // Empty dictionary literal
+    dictionaryVariable = [:]
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Accessing and Modifying a Dictionary</td>
+                        <td>
+    <pre><code class="language-swift">
+    /* Methods and properties include .count, .isEmpty */
+
+    // Assigning new key-value pair or replace existing key's value
+    dictionary[key] = value
+    // Same except returns old value before updating, returns an optional
+    dictionary.updateValue(_:forkey:)
+
+    // Removing key-value pair
+    dictionary[key] = nil
+    dictionary.removeValue(forKey:)
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Iterating over a Dictionary</td>
+                        <td>
+    <pre><code class="language-swift">
+    for (key, value) in dictionary {
+        statements
+    }
+
+    // Iterate over dictionary's keys
+    for key in dictionary.keys {
+        statements
+    }
+
+    // Iterate over dictionary's values
+    for values in dictionary.values {
+        statements
+    }
+
+    // Initialize a new array with keys or values property
+    let keyArray = [Type](dictionary.keys)
+    let valuesArray = [Type](dictionary.values)
+    </code></pre>
+                        </td>
+                    </tr>
+                </table>
             </div>
 
             <div class="section">
                 <h2>Control Flow</h2>
+                <h3>For-in loops</h3>
+    <pre><code class="language-swift">
+    // Iterate over collection
+    for value in collection {
+        statements
+    }
+
+    // Iterate over range
+    for value in a...b {
+        statements
+    }
+
+    // Ignore value from a sequence
+    for _ in a...b {
+        statements
+    }
+
+    // Skips unwanted values
+    for value in stride(from:to:by:){
+        statements
+    }
+    </code></pre>
+
+                <h3>While loops and Repeat-While</h3>
+    <pre><code class="language-swift">
+    while (condition) {
+        statements
+    }
+
+    repeat {
+        statements
+    }
+    while (condition)
+    </code></pre>
+
+                <h3>Conditional Statements</h3>
+                <p>if statement to evaluate simple conditions with a few outcomes.</p>
+    <pre><code class="language-swift">
+    if (condition) {
+        statements
+    } else if (condition) {
+        statements
+    } else {
+        statements
+    }
+    </code></pre>
+                <p>switch statement for more complex conditions with multiple outcomes. Compares value against one or more of same type. Must be exhaustive which means it must consider every possible value. No implicit fallthrough.</p>
+    <pre><code class="language-swift">
+    switch (somevalue) {
+    case value1:
+        statements
+    case value2, value3:
+        statements
+    default:
+        statements
+    }
+    </code></pre>
+
+                <p>Can use switch for interval matching, just use ranges for values. For tuples, each element of tuple can be tested against a different value or interval of values. Use wilecard (_) to match any possible value.</p>
+                <p>Value Bindings: values are bound to temporary constants&frasl;variables within case's body, can combine compound cases with value bindings.</p>
+                <p>where clause: check for additional conditions.</p>
+                <p>Can also have compound cases and use value bindings with compound cases.</p>
+    <pre><code class="language-swift">
+    // Interval Matching
+    switch (number) {
+    case 0:
+        statements
+    case 1..&lt;10
+        statements
+    default:
+        statements
+    }
+
+    // Tuples
+    switch (number) {
+    case (0, 0):
+        statements
+    case (_, 0):
+        statements
+    default:
+        statements
+    }
+
+    // Value Bindings
+    switch (somePoint) {
+    case (let x, 0):
+        statements
+    case (0, let y):
+        statements
+    case let (x, y):
+        statements
+    }
+
+    // where clause
+    switch (anotherPoint) {
+    case let (x, y) where x == y:
+        statements
+    case let (x, y) where x == -y:
+        statements
+    case let (x, y):
+        statements
+    }
+    </code></pre>
+
+                <h3>Control Transfer Statements</h3>
+                <ul>
+                    <li>continue</li>
+                    <li>break - use in switch or loop</li>
+                    <li>fallthrough - keyword allows fallthrough in switch</li>
+                    <li>return</li>
+                    <li>throw</li>
+                </ul>
+
+    <h3>Labeled Statements</h3>
+    <p>Can break or continue out of labeled loops, can break out of conditional statements.</p>
+    <pre><code class="language-swift">
+    (label name): while (condition) {
+        statements
+    }
+    </code></pre>
+
+                <h3>Guard</h3>
+                <p>guard statement executes statements depending on Boolean value of an expression. Use to require a condition be true for code after guard to execute. Has an else clause, which is executed if condition is not true. Else clause must transfer control to exit the code block.</p>
+                <ul>
+                    <li>Can use with optional binding.</li>
+                    <li>Variables or constants defined by guard are available for rest of code block.</li>
+                </ul>
+
+    <pre><code class="language-swift">
+    guard (condition) else {
+        statements
+        transfer control statement
+    }
+    </code></pre>
             </div>
 
             <div class="section">
                 <h2>Functions</h2>
+                <p>Functions can have parameter(s), no parameters, return value(s), or no return values.</p>
+                <h3>Defining Functions</h3>
+    <pre><code class="language-swift">
+    func name(parameterName1: Type, parameterName2: Type) -> Type {
+        return Type
+    }
+    </code></pre>
+
+                <h3>Functions with Multiple Return Values</h3>
+    <pre><code class="language-swift">
+    func name(parameterName: Type) -> (tupleLabel1: Type, tupleLabel2: Type) {
+        return (value1, value2)
+    }
+
+    // Use dot syntax to access the values
+    let constant = name(parameter)
+    constant.tupleLabel1
+
+    // Can return optional tuple and access using optional binding
+    func name(parameter) -> (tupleLabel1: Type, tupleLabel2: Type)? {
+        statements
+    }
+    if let constant = name(argument) {
+        statements
+    }
+    </code></pre>
+
+                <h3>Function Argument Labels and Parameter Names</h3>
+                <ul>
+                    <li>Variadic Parameters: to specify that parameter can be passed a varying number of input values.</li>
+                </ul>
+    <pre><code class="language-swift">
+    // Specifying Argument Labels
+    func someFunction(argumentLabel parameter: Type) {
+        statements
+    }
+
+    // Omitting Argument Labels
+    func someFunction(_ parameter1: Type, parameter2: Type) {
+        statements
+    }
+
+    // Default Parameter Values
+    func someFunction(parameter: Type = value) {
+        statements
+    }
+
+    // Variadic Parameters
+    func someFunction(_ parameter: Type...) -> Type {
+        statements
+    }
+
+    // In-Out Parameters
+    func someFunction(_ parameter1: inout Type, _ parameter2: inout Type) {
+        statements
+    }
+    someFunction(&amp;someVariable, &amp;anotherVariable)
+    </code></pre>
+
+                <h3>Function Types</h3>
+                <p>Each function has a specific function type, made up of parameter types and return type. Can define constant&frasl;variable to be a certain function type then assign appropriate function to it.</p>
+    <pre><code class="language-swift">
+    // Example of a function type
+    (Type1, Type2) -> Type
+    () -> Void
+
+    // Assigning that function to a variable with that function type
+    var variable: (Type1, Type2) -> Type = function
+    </code></pre>
+
+                <h3>Function Types as Parameter Types</h3>
+                <p>Lets you leave some aspects of a function's implementation for the function's caller to provide.</p>
+    <pre><code class="language-swift">
+    func outerFunc(_someFunc: (Type, Type) -> Type, _ param1: Type, param2: Type) {
+        print(someFunc(param1, param2))
+    }
+    outerFunc(function, arg1, arg2)
+    </code></pre>
+
+                <h3>Function Types as Return Types</h3>
+                <p>Lets you pass function back and have it be determined by the parameters passed in</p>
+    <pre><code class="language-swift">
+    func chooseStepFunction(backward: Bool) -> (Int) -> Int {
+        return (backward) ? stepBackward : stepForward
+    }
+    // stepBackward and stepForward are functions with type (Int) -> Int
+    </code></pre>
+
+                <h3>Nested Functions</h3>
+                <p>Hidden from outside but can be called by enclosing function. Enclosing function can return nested function to let it be used in another scope.</p>
             </div>
 
             <div class="section">
                 <h2>Closures</h2>
+                <p>Closures are self-contained blocks of functionality that can be passed around. Can capture and store references to any constants and variables. Functions are actually closures but are named.</p>
+                <ul>
+                    <li>Parameters can be in-out, can be tuples, and can be variadic.</li>
+                    <li>For closures, parameters can't have default values.</li>
+                    <li>in keyword indicates that the definition for closure has finished.</li>
+                </ul>
+                <h3>Closure Expression Syntax</h3>
+    <pre><code class="language-swift">
+    { (parameters: Type) -> Type in
+        statements
+    }
+    </code></pre>
+                <p>Inferring Type from Context: don't need to write in parameter types or return if closure can be inferred</p>
+                <p>Implicit Returns from Single-Expression closures: can leave out return keyword.</p>
+                <p>Shorthand Argument names: used to refer to values of closure's arguments</p>
+    <pre><code class="language-swift">
+    // Closure example
+    reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
+        return s1 > s2
+    })
+
+    // Inferring type from context
+    reversedNames = names.sorted(by: { s1, s2 in return s1 > s2})
+
+    // Implicit returns
+    reversedNames = names.sorted(by: {s1, s2 in s1 > s2})
+
+    // Shorthand arguments
+    reversedNames = names.sorted(by: {$0 > $1})
+    </code></pre>
+
+                <h3>Trailing Closures</h3>
+                <p>Use if need to pass a closure expression to a function as the function's final argument and closure is long.</p>
+    <pre><code class="language-swift">
+    func someFunctionThatTakesAClosure(closure: () -> Void) {
+        // function body
+    }
+
+    // Calling function with trailing closure
+    someFunctionThatTakesAClosure() {
+        // trailing closure's body
+    }
+
+    // Example
+    reversedNames = names.sorted() {}
+    </code></pre>
+
+                <h3>Capturing Values</h3>
+                <p>Closures can capture constants and variables from their surrounding context in which they were defined. Can refer to those constants or variables within its body even when scope doesn't exist.</p>
+    <pre><code class="language-swift">
+    // Inner function here can capture reference to runningTotal and amount
+    func makeIncrementer(forIncrement amount: Int) -> () -> Int {
+        var runningTotal = 0
+        func incrementer() -> Int {
+            runningTotal += amount
+            return runningTotal
+        }
+        return incrementer
+    }
+    </code></pre>
+
+                <h3>Closures are Reference Types</h3>
+                <p>Whenever you assign a function or closure to a constant or variable, you're setting it to be a reference to the function or closure. So assigning a closure to two different constants or variables results in them referring to the same closure.</p>
+
+                <h3>Escaping Closures</h3>
+                <p>Use @escaping keyword. Use when a closure is passed as an argument to a function but can be called after the function returns. Closure is allowed to "escape" and for example, be stored in a variable to be called later. Must refer to self explicitly within an escaping closure.</p>
+    <pre><code class="language-swift">
+    var completionHandlers: [() -> Void] = []
+    func someFunctionwithEscapingClosure(completionHandler: @escaping () -> Void) {
+        completionHandlers.append(completionHandler)
+    }
+    func someFunctionWithNonescapingClosure(closure: () -> Void) {
+        closure()
+    }
+
+    class SomeClass {
+        var x = 10
+        func doSomething() {
+            someFunctionWithEscapingClosure { self.x = 100 }
+            someFunctionWithNonescapingClosure { x = 200}
+        }
+    }
+    </code></pre>
+
+                <h3>Autoclosure</h3>
+                <p>Use @autoclosure keyword, created to wrap an expression being passed in as an argument to a function. Lets you omit braces around a function's parameter by writing a normal expression instead of an explicit closure. Lets you delay evaluation.</p>
+    <pre><code class="language-swift">
+    func serve(customer customerProvider: () -> String) {
+        print("Now serving \(customerProvider()).")
+    }
+    serve(customer: { customersArray.remove(at: 0) })
+
+    // Same as above but with autoclosure
+    func serve(customer customerProvider: @autoclosure () -> String) {
+        print("Now serving \(customerProvider()).")
+    }
+    serve(customer: customersArray.remove(at: 0))
+    </code></pre>
             </div>
 
             <div class="section">
                 <h2>Enumerations</h2>
+                <p>Can define just the case, the case and a raw value, or the case and its associated values.</p>
+                <h3>Enumeration Syntax</h3>
+    <pre><code class="language-swift">
+    enum SomeEnumeration {
+        case one
+        case two
+        case three, four, five
+    }
+
+    // Can set an enum case to a variable and match enum values
+    var aCase = SomeEnumeration.one
+    aCase = .two
+    switch aCase {
+    case .one:
+        statements
+    case .two:
+        statements
+    default:
+        statements
+    }
+    </code></pre>
+                <h3>Associated Values</h3>
+                <p>Can store additional custom info along with the case value, and info can vary each time the case is used.</p>
+    <pre><code class="language-swift">
+    enum SomeEnum {
+        case one(Type1, Type2, Type3)
+        case two(Type)
+    }
+    var aCase = SomeEnum.one(value1, value2, value3)
+
+    // Extraction of associated values
+    switch aCase {
+    case .one(let constant1, let constant2, let constant3):
+        statements
+    // shorthand if all associated values are constants
+    case let .one(constant1, constant2, constant3):
+        statements
+    case .two(let constant)
+        statements
+    }
+    </code></pre>
+
+                <h3>Raw Values and Implicitly Assigned Raw Values</h3>
+                <p>Raw values are an alternative to associated types, the enum can be prepopulated with default values that are all of the same type.</p>
+                <ul>
+                    <li>Raw values can be any basic type.</li>
+                    <li>Each raw value must be unique within enum.</li>
+                </ul>
+                <p>When integers are used for raw values, implicit value for each case is one more than the previous case. When strings are used for raw values, implicit value for each case is the text of the case's name.</p>
+    <pre><code class="language-swift">
+    enum SomeEnum: Character {
+        case tab = "\t"
+        case lineFeed = "\n"
+    }
+    // Access raw value of the case
+    let aRawValue = SomeEnum.tab.rawValue
+
+    // Implicitly assigned raw values
+    enum SomeEnum: Int {
+        case mercury = 1, venus, earth, mars
+    }
+
+    enum SomeEnum: String {
+        case north, south, east, west
+    }
+    </code></pre>
+
+                <h3>Initializing from a Raw Value</h3>
+                <p>Works if the enum is defined with raw value type. Enum will have an initializer that takes a value of the raw value's type and returns either the enum case or nil. So using the initializer will return an optional.</p>
+    <pre><code class="language-swift">
+    let possiblePlanet = Planet(rawValue: 7)
+    </code></pre>
+
+                <h3>Recursive Enumerations</h3>
+                <p>An enum that has another intance of the enum as the associated vallue for one or more enum cases. Use indirect keyword before the case. Can write before enum introducer to enable indirection of all cases</p>
+                <pre><code class="language-swift">
+                enum ArithmeticExpression {
+                    case number(Int)
+                    indirect case addition(ArithmeticExpression, ArithmeticExpression)
+                }
+                // All cases are indirect in the following
+                indirect enum ArithmeticExpression {
+                    case...
+                }
+                </code></pre>
+
             </div>
 
             <div class="section">
                 <h2>Classes and Structures</h2>
+                <p>An object in Swift is called an instance because classes and structs are similar.</p>
+                <p>Classes and Structures are similar because they both:</p>
+                <ul>
+                    <li>Define properties</li>
+                    <li>Define methods</li>
+                    <li>Define subscripts</li>
+                    <li>Define initializers</li>
+                    <li>Can be extended</li>
+                    <li>Can conform to protocols</li>
+                </ul>
+                <p>Classes have additional capabilities that structures do not:</p>
+                <ul>
+                    <li>Inheritance</li>
+                    <li>Type Casting to interpret type of class instance at runtime</li>
+                    <li>Deinitializers to let instance of class free up resources</li>
+                    <li>Reference Counting</li>
+                </ul>
+
+                <h4>Accessing Properties</h4>
+                <p>Use dot syntax(.)</p>
+
+                <h4>Memberwise Initializers for Structure Types</h4>
+                <p>Used to initialize member properties of new structure instances.</p>
+
+    <pre><code class="language-swift">
+    // Definition syntax of class
+    class SomeClass {
+
+    }
+    // Definition syntax of structure
+    struct SomeStructure {
+
+    }
+    // Synax for creating instances
+    let someClassOrStructInstance = SomeClassOrStruct()
+
+    // Accessing Properties
+    someInstance.someProperty
+
+    // Memberwise Initializers
+    let vga = Resolution(width: 640, height: 480)
+    </code></pre>
+
+                <h4>Structures and Enumerations are Value Types</h4>
+                <p><span class="definition">Value Type</span>: type whose value is copied when assigned to constant&frasl;variable or when passed to a function.</p>
+                    <ul>
+                        <li>Any instance created from struct&frasl;enum and their properties is always copied.</li>
+                        <li>Basic types are all value types.</li>
+                    </ul>
+
+                <h4>Classes are Reference Types</h4>
+                <p><span class="definition">Reference Types</span>: types that are not copied when assigned to a variable&frasl;constant or when passed to a function.<p>
+                    <ul>
+                        <li>Another variable that is assigned to the class instance essentially produces two different names for the same single instance.</li>
+                        <li>Doing this means that these constants&frasl;variables are just references to the instance behind the scenes.</li>
+                        <li>Reference types are like pointers in C.</li>
+                    </ul>
             </div>
 
             <div class="section">
                 <h2>Properties</h2>
+                <p><span class="definition">Stored Properties</span>: constants or variables stored as part of an instance of a class or sturcture.</p>
+                <ul>
+                    <li>Can provide the property a default value or modify its initial value during initialization.</li>
+                    <li>If an instance of a structure is assigned to a constant, can't modify its properties.</li>
+                </ul>
+
+                <p>Lazy Stored Properties: property whose initial value is not calculated until the first time it's used. Must be declared as a variable.</p>
+                <ul>
+                    <li>Useful when value requires expensive setup</li>
+                </ul>
+    <pre><code class="language-swift">
+    // Instance created only when importer is first accessed
+    lazy var importer = DataImpoter()
+    </code></pre>
+
+                <p>Computed Properties: properties that don't store a value, but provides a getter and optionally a setter to retrieve and set other properties and values indirectly.</p>
+                <ul>
+                    <li>Class, structures, and enums can define computed properties.</li>
+                    <li>Must be declared as a variable.</li>
+                </ul>
+    <pre><code class="language-swift">
+    struct {
+        var center: Point {
+            get {
+                statements
+            }
+            set (newValue) {
+                statements
+            }
+        }
+    }
+    </code></pre>
+
+                <p>Read-only Computed Properties: computed property with a getter but no setter.</p>
+                <ul>
+                    <li>Always returns a value.</li>
+                    <li>Access through dot syntax (.) but can't be set to a different value.</li>
+                </ul>
+
+                <p>Property Observers: observe and respond to changes in property's value, called every time a property's value is set. Can add observers to stored properties except lazy properties. Not useful for non-overridden computed properties</p>
+                <ul>
+                    <li>willSet called just before value is stored.</li>
+                    <li>didSet called immediately after new value is stored.</li>
+                </ul>
+    <pre><code class="language-swift">
+    var totalSteps: Int = 0 {
+        willSet(newTotalSteps) {
+            statements
+        }
+        didSet {
+            // access old value via oldValue
+        }
+    }
+    </code></pre>
+
+                <p>Global Variables: variables defined outside of any function, method, closure, or type context.</p>
+                <p>Local Variables: variables defined within a function, method, or closure context.</p>
+                <ul>
+                    <li>Both can be computed properties</li>
+                </ul>
+
+                <p>Type Properties: defining properties that belong to the type itself, there will only ever be one copy of these properties regardless of how many instances of that type created.</p>
+                <ul>
+                    <li>Basically like a static class or static struct.</li>
+                </ul>
+                <pre><code class="language-swift">
+                class|struct|enum SomeClass|Struct|Enum {
+                    static var storedTypeProperty = "Some Value"
+                    static var computedTypeProperty: Int {
+                        get {}; set {}
+                    }
+                }
+                </code></pre>
             </div>
 
             <div class="section">
                 <h2>Methods</h2>
+                <p>Functions associated with a particular type. Classes, structures, and enums can define instance methods.</p>
+                <p>Instance methods: same syntax as functions. Belongs to isntances of a class, struct, or enum. Has access to all other instance methods and properties of that type.</p>
+                <p>self: implicit property to instance itself. Refers to current instance.</p>
+
+                <h4>Modifying Value Types from within Instance Methods</h4>
+                <p>Can't modify propertise of a value type from within an instance method. Must use mutating keyword to do so.</p>
+                <p>The following example shows the the Point instance is actually being modified. Can't do this on a constant of structure type.</p>
+
+    <pre><code class="language-swift">
+    struct Point {
+        properties
+        mutating func moveBy(){
+            statements modifying properties
+        }
+    }
+    </code></pre>
+
+                <p>Mutating methods can assign a new instance to the implicit self property.</p>
+    <pre><code class="language-swift">
+    mutating func moveBy(x deltaX: Double, y deltaY: Double) {
+        self = Point(x: x + deltaX, y: y + deltaY)    // creates new struct
+    }
+    </code></pre>
+                <p>An example of the mutating method with enums</p>
+    <pre><code class="language-swift">
+    enum State {
+        case off, low, high
+        mutating func next() {
+            switch self {
+                case enumConstant:
+                    statements
+                default:
+                    statements
+            }
+        }
+    }
+    </code></pre>
+
+                <h4>Type Methods</h4>
+                <p>Similar to static in C, denotes that the properties and methods belong to the that class and not its instances. Use static keyword before func keyword. Can use class keyword to let subclasses override superclass's implementation of that method.</p>
+    <pre><code class="language-swift">
+    static func(){
+        statements
+    }
+    static Class {
+        statements
+    }
+    </code></pre>
+
             </div>
 
             <div class="section">
                 <h2>Subscripts</h2>
+                <p>Used to set and retrieve values by index.</p>
+                <p><span class="definition">Subscript Overloading</span>: having multiple subscripts with the appropriate one inferred based on the type of index value passed to the subscript. </p>
+                <ul>
+                    <li>Can be read-write or read-only by using getters and setters.</li>
+                    <li>Can be of any type and returns any type.</li>
+                    <li>Can have variadic parameters.</li>
+                    <li>Can't use in-out parameters or default parameters</li>
+                </ul>
+    <pre><code class="language-swift">
+    subscript(index: Int) -> Int {
+        get {
+            statements
+        }
+        set (newValue) {
+            statements
+        }
+    }
+    </code></pre>
             </div>
 
             <div class="section">
                 <h2>Inheritance</h2>
+                <p><span class="definition">Base class</span>: any class that doesn't inherit from another class.</p>
+                <p><span class="definition">Subclassing</span>: basing a new class on an existing class, the subclass inherits characteristics of the superclass.</p>
+                <p><span class="definition">Overriding</span>: providing own custom implementation to something inherited from superclass. Use override keyword.</p>
+                <p><span class="definition_swift">super</span>: prefix used to access superclass methods, properties, and subscripts.</p>
+    <pre><code class="language-swift">
+    // Example of subclassing, overriding, and using super
+    class SomeSubclass: SomeSuperclass {
+        override func superClassMethod() {
+            super.methodInSuperclass();
+        }
+    }
+    </code></pre>
+                <h4>Override Property Getters and Setters</h4>
+                <p>Can't present an inherited read-write property as read-only property, but can present read-only property as read-write property.</p>
+
+                <h4>Override Property Observers</h4>
+                <p>Can't add property observers to constant stored properties or inherited read-only computed properties since these properties can't be set.</p>
+
+                <h4>Prevent Overrides</h4>
+                <p>Use final keyword before introducer keyword on method, property, or subscript to prevent overwriting on it. Can also add final to class to prevent subclassing.</p>
             </div>
 
             <div class="section">
                 <h2>Initialization</h2>
+                <p>The process of setting an initial value for each stored property on that instance. Classes and structs must set all stored properties to an appropriate initial value by the time the instance is created.</p>
+                <ul>
+                    <li>Can alternatively specify default property value.</li>
+                    <li>Initializer can have parameter name and argument label.</li>
+                    <li>Can use underscore (_) in init to leave out argument label.</li>
+                    <li>There can be multiple initializers.</li>
+                    <li>Optional property types are automatically initialized as nil.</li>
+                    <li>Values can be assigned to constant properties during initialization and can't be modified by a subclass.</li>
+                </ul>
+    <pre><code class="language-swift">
+    init(param: Type) {
+        // initialize properties
+    }
+
+    // Default property value, Initializer with parameter and argument
+    struct SomeStruct {
+        var someVariable = 10
+        let someConstant: Int
+        // Optional property initializes to nil
+        var someOptional: Type?
+
+        init(arg param: Type) {
+            // Assigning constant properties
+            someConstant = 20
+        }
+    }
+    let constant = SomeStruct(arg: argumentToInit)
+
+    // Leaving out argument label
+    init (_ param: Type) {...}
+    </code></pre>
+
+                <p>Default Initializers: for any class or struct that provides default values for all its properties and doesn't provide an init.</p>
+                <ul>
+                    <li>Structs receive memberwise initializer if they don't define their own initializers, even if stored properties don't have default values.</li>
+                </ul>
+
+                <p>Initializer Delegation: inits can call other inits</p>
+                <ol>
+                    <li>Value types - use self.init to refer to other initializers from the same value type. Defining custom initializer prevents access to default init or memberwise init, but can redeclare or re-define it.</li>
+                    <li>Reference types - like classes, all stored properties including those inherited from superclass must be assigned an initial value during initialization.</li>
+                </ol>
+
+                <p>Designated Initializers: primary initializers, fully initializes all properties. Calls superclass initializer to continue initialization up superclass chain.</p>
+                <p>Convenience Initializers: supporting initializers, can use to call designated initializer or to create instance for specific use case.</p>
+    <pre><code class="language-swift">
+    init (parameters) {
+        statements
+    }
+    convenience init (parameters) {
+        statements
+    }
+    </code></pre>
+                <h3>Initializer Delegation for Class Types</h3>
+                <ol>
+                    <li>Designated initializer must call designated initializer from immediate superclass.</li>
+                    <li>Convenience initializer must call another initializer from same class.</li>
+                    <li>Convenience initializer must ultimately call a designated initializer.</li>
+                </ol>
+                <p>Designated initializers must always delegate up, convenience must always delegate across.</p>
+
+                <h3>Two-Phase Initialization</h3>
+                <p>Each stored property is assigned an initial value, then each class can customize properties further.</p>
+                <p>Safety Checks</p>
+                <ol>
+                    <li>A designated initializer must ensure all properties introduced by its class are initialized before delegating up to the superclass initializer.</li>
+                    <li>A designated initializer must delegate up to the superclass initializer before assigning a value to an inherited property.</li>
+                    <li>A convenience initializer must delegate to another initializer before assigning a value to any property.</li>
+                    <li>An initializer can't call instance methods, read values of properties, or refer to self as a value until after first phase of initialization is complete.</li>
+                </ol>
+                <p>Two-Phase Initialization</p>
+                <p>Phase 1: makes sure all stored properties have a value and delegates up until it can't anymore.</p>
+                <p>Phase 2: works back down, allowing designated initializer to customize instance further.</p>
+
+                <h3>Initializer Inheritance and Overriding</h3>
+                <p>Subclasses don't inherit superclass initializers by default. If subclass initializer matches superclass designated initializer, must write overwrite modifier.</p>
+    <pre><code class="language-swift">
+    class Bicycle: Vehicle {
+        override init() {
+            super.init()
+            numberOfwheels = 2
+        }
+    }
+    </code></pre>
+
+                <h3>Automatic Initializer Inheritance</h3>
+                <p>Rule 1: if subclass doesn't define any designated initializers, it automatically inherits all of its superclass designated initializers.</p>
+                <p>Rule 2: if subclass provides an implementation of all of its superclass designated initializers either by inheriting them or by providing custom implementation, then it automatically inherits all of the superclass convenience initializers.</p>
+
+                <h3>Failable Initializers</h3>
+                <p>use init? keyword. Use when initialization can fail. Can't define failable and nonfailable initializer with same parameter types and names.</p>
+                <ul>
+                    <li>Failable initializer creates an optional value of the type it initializes.</li>
+                    <li>Return nil within failable initializer.</li>
+                </ul>
+                <p class="bold">Failable Initializer for Enumerations</p>
+                <p>Enumerations with raw values automatically receive failable initializer.</p>
+    <pre><code class="language-swift">
+    enum SomeEnum {
+    case one, two, three
+        init?(param: Type) {
+            switch param {
+            case value1:
+                self = .one
+            case value2:
+                self = .two
+            case value3:
+                self = .three
+            default:
+                return nil
+            }
+        }
+    }
+    // Failable inits for enums with raw values
+    init?(rawValue:)
+    </code></pre>
+
+                <h3>Propagation of Initialization Failure</h3>
+                <p>Failable initializer of class, struct, or enum can delegate across to another failable initializer from same class, struct, or enum. Subclass failable initializer can delegate up to a superclass failable initializer. If initialization fails in one and is delegated ao another failable initializer, entire process fails.</p>
+
+                <h3>Overriding a Failable Initializer</h3>
+                <p>Can override superclass failable initializer in a subclass and can override it with a subclass nonfailable initializer. Doing this means that the only way to delegate up to the superclass initializer is to force-unwrap the result of the failable superclass initializer.</p>
+
+                <h3>Required Initializers</h3>
+                <p>Use required keyword. Indicates that every sbclass of that class must implement that initializer. Must also write required modifier before every subclass implementation of a required initializer.</p>
+    <pre><code class="language-swift">
+    class SomeClass {
+        required init() {
+            // initialize properties
+        }
+    }
+    class SomeSubclass: SomeClass {
+        required init() {
+            // initialize properties
+        }
+    }
+    </code></pre>
+
+                <h3>Setting Default Property Value with a Closure of Function</h3>
+    <pre><code class="language-swift">
+    class SomeClass {
+        let someProperty: SomeType = {
+            // create default value for someProperty inside this closure
+            // someValue must be same type as SomeType
+            return someValue
+        }()
+    }
+    </code></pre>
+
             </div>
 
             <div class="section">
                 <h2>Deinitialization</h2>
+                <p>Called immediately before class instance is deallocated. Only for class types. Swift uses automatic reference counting to handle memory management. Can use deinit to clean up resources like closing an opened file. Can't call a deinitializer. Superclass deinitializers are inherited by subclasses and are called automatically at the end of the subclass deinitializer implementation.</p>
+    <pre><code class="language-swift">
+    deinit {
+        /* For example, can make a player instance an optional and set it to nil indicating that player has left. deinit of player instance will then be called.
+        */
+    }
+    </code></pre>
             </div>
 
             <div class="section">
                 <h2>Optional Chaining</h2>
+                <p>The process for querying and calling properties, methods, and subscripts on an optional that might currently be nil. Multiple queries can be chained and the entire chain fails if any link in it is nil. An alternative to forced unwrapping. Result of optional chaining call is the same type as the expected return value but wrapped in an optional.</p>
+    <pre><code class="language-swift">
+    /* roomCount is of type Int?, residence is an optional, numberOfRooms is nonoptional. Optional binding and optional chaining. */
+    if let roomcount = john.residence?.numberOfRooms {
+        statements
+    }
+    </code></pre>
+
+                <h3>Defining Model Classes for Optional Chaining</h3>
+                <p>Can do multilevel optional chaining. Can attempt to set property's value through optional chaining, but won't be easy to see if assignment was successful. Can use return value of a function call to resolve this problem.</p>
+
+                <h3>Calling Methods through Optional Chaining</h3>
+    <pre><code class="language-swift">
+    if john.residence?.printNumberOfRooms() != nil {
+        statements
+    }
+    // Example of setting property through optional chaining
+    if (john.residence?.address = someAddress) != nil {
+        statements
+    }
+    </code></pre>
+
+                <h3>Accessing Subscripts through Optional Chaining and Subscripts of Optional type</h3>
+    <pre><code class="language-swift">
+    if let firstRoomName = john.residence?[0].name {
+        statements
+    }
+    // Setting new value using optional chaining
+    john.residence?[0] = Room(name: "Bathroom")
+
+    // If subscript returns value of optional type like in a dictionary
+    testScores["Dave"]?[0] = 91
+    </code></pre>
+
+                <h3>Linking Multiple Levels of Chaining</h3>
+                <p>Idea is that multiple levels of chaining do not accumulate.</p>
+                <ul>
+                    <li>If the type you're trying to retrieve is not optional, it will become optional.</li>
+                    <li>If the type is already optional, it won't become "more optional".</li>
+                </ul>
+    <pre><code class="language-swift">
+    if let johnsStreet = john.residence?.address?.street {
+        // street is an optional string
+    }
+    </code></pre>
+                <p>Can also chain on methods with optional return values.</p>
             </div>
 
             <div class="section">
                 <h2>Error Handling</h2>
+                <p>Errors are represented by values of types that conform to the Error protocol.</p>
+    <pre><code class="language-swift">
+    enum VendingMachineError: Error {
+        case invalidSelection
+        case insufficientFunds(coinsNeeded: Int)
+        case outOfStock
+    }
+
+    // Throwing an error
+    throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
+    </code></pre>
+
+                <h3>Handling Errors</h3>
+                <ol>
+                    <li>Propagate error from a function to the scope from which it was called.</li>
+                    <li>Use do-catch statement.</li>
+                    <li>Handle it as an optional value.</li>
+                    <li>Assert that error won't occur.</li>
+                </ol>
+                <h3>Propagating Errors using Throwing Functions</h3>
+    <pre><code class="language-swift">
+    func canThrowErrors() throws -> String {
+        statements
+        throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
+    }
+    func someFunc() {
+        try instance.canThrowErrors()
+    }
+    </code></pre>
+
+                <h3>Handle Errors using Do-Catch</h3>
+    <pre><code class="language-swift">
+    do {
+        try expression
+        statements
+    } catch pattern1 {
+        statements
+    } catch pattern2 where (condition) {
+        statements
+    } catch {
+        // An example of catch all, error bound to local constant named error
+    }
+    </code></pre>
+
+                <h3>Converting Errors to Optional Values</h3>
+                <p>Use try? to handle errors by converting it to an optional value. If the error is thrown while evaluating the try? expression, the value of the expression is nil.</p>
+    <pre><code class="language-swift">
+    func someThrowingFunction() throws -> Int {
+        statements
+    }
+
+    let x = try? someThrowingFunction()
+    </code></pre>
+
+                <h3>Disable Error Propagation</h3>
+                <p>Write try! before expression if you know that the error won't be thrown.</p>
+    <pre><code class="language-swift">
+    let photo = try! loadImage(atPath: "")
+    </code></pre>
+
+                <h3>Specifying Cleanup Action</h3>
+                <p>Use defer to execute a set of statements regardless of how code execution leaves the current block of code. It delays execution until the scope is exited. The first defer block executes last.</p>
+    <pre><code class="language-swift">
+    if exists(filename) {
+        let file = open(filename)
+        defer {
+            close(file)
+        }
+    }
+    </code></pre>
             </div>
 
             <div class="section">
                 <h2>Type Casting</h2>
+                <p>Used to check the type of an instance. Use the is and as operators. To work with instances as their native types in a hierarchy of classes and subclasses, must check their type by downcasting them to a different type.</p>
+                <p>Type check operator (is): check whether instance is of a certain subclass type.</p>
+                <p>Type cast operator (as): referring to an instance of a subclass behind the scenes. as? returns optional type, as! force-unwraps the result.</p>
+    <pre><code class="language-swift">
+    if instance is Subclass1 {
+        statements
+    } else if instance is Subclass2 {
+        statements
+    }
+
+    if let movie = instance as? Movie {
+        // statements using unwrapped movie
+    } else if let song = instance as? Song {
+        // statements using unwrapped song
+    }
+    </code></pre>
+
+                <h3>Type Casting for Any and AnyObject</h3>
+                <ul>
+                    <li>Any can represent an instance of any type at all, including function types.</li>
+                    <li>AnyObject can represent an instance of any class type.</li>
+                </ul>
+
             </div>
 
             <div class="section">
-                <h2>Nested Types</h2>
+                <h2>Referring to Nested Types</h2>
+                <p>To use nested type outside of its definition context, prefix its name with the name of the type it's nested within</p>
+    <pre><code class="language-swfit">
+    let heartsSymbol = BlackjackCard.Suit.hearts.rawValue
+    </code></pre>
             </div>
 
             <div class="section">
                 <h2>Extensions</h2>
+                <p>Adds new functionality to existing class, structure, enum, or protocol.</p>
+                <ul>
+                    <li>Add computed instance properties and computed type properties</li>
+                    <li>Define instance methods and type methods, including mutating methods.</li>
+                    <li>Provide new initializers to extend those types to accept your own custom types. These must be convenience inits, not designated ones.</li>
+                    <li>Define subscripts.</li>
+                    <li>Define and use nested type.</li>
+                    <li>Make existing type conform to a protocol.</li>
+                    <li>Extend an existing generic type.</li>
+                </ul>
+
+                <h3>Extension Syntax</h3>
+    <pre><code class="language-swift">
+    extension SomeType {
+        statements
+    }
+    // Extension adopting one or more protocols
+    extension SomeType: SomeProtocol, AnotherProtocol {
+        statements
+    }
+
+    // Adding computed properties
+    extension Double {
+        var km:Double {
+            return self * 1000.0
+        }
+    }
+    // Adding new inits
+    extension Rect {
+        init(center: Point, size: Size) {
+            let originX = center.x - (size.width / 2)
+            let originY = center.y - (size.height / 2)
+            // Call designated initializer
+            self.init(origin: Point(x: originX, y: originY), size: size)
+        }
+    }
+    // Extension with subscripts
+    extension Int {
+        subscript(digitIndex: Int) -> Int {
+            var decimalBase = 1
+            for _ in 0..&lt;digitIndex {
+                decimalBase *= 10
+            }
+            return (self / decimalBase) % 10
+        }
+    }
+    </code></pre>
             </div>
 
             <div class="section">
                 <h2>Protocols</h2>
+                <p>Protocol: defines blueprint of methods, properties, and requirements that suit a task or functionality. Can be adopted by class, struct, or enum which provides the implementation of the requirements. Like an interface in Java.</p>
+
+                <h3>Protocol Syntax</h3>
+    <pre><code class="language-swift">
+    protocol SomeProtocol {
+        // protocol definition
+    }
+    struct SomeStruct: SomeSuperClass, FirstProtocol, AnotherProtocol {
+        // struct definition
+    }
+    </code></pre>
+                <p>Protocol only specifies required property name and type to conform. Specifies if property is gettable or gettable and settable. Always declared as variable properties.</p>
+                <ul>
+                    <li>Method parameters within protocol can be variadic but can't have default values.</li>
+                </ul>
+    <pre><code class="language-swift">
+    protocol SomeProtocol {
+        var mustBeSettable: Int { get set }
+        var doesntNeedToBesettable: Int {get }
+
+        // Type property requirement
+        static var someTypeProperty: Int { get set }
+
+        // Method requirements
+        static func someTypeMethod()
+
+        // Mutating Method
+        mutating func toggle()
+
+        // Initializer Requirements
+        init(someParameter: Int)
+    }
+    </code></pre>
+                <p>Conforming class that implement the initializer can have it be be designated or convenience. Must mark with required.</p>
+    <pre><code class="language-swift">
+    class SomeClass: SomeProtocol {
+        required init(someParameter: Int) {
+            // initializer implementation
+        }
+    }
+
+    // Subclass overriding a designated initializer and implementing matching initializer from a protocol
+    class SomeSubClass: SomeSuperClass, SomeProtocol {
+        required override init() {
+            // initializer implementation
+        }
+    }
+    </code></pre>
+                <p>Protocols can act as types. Like calling an interface method. You don't know what instance is passed in, but you do know it must conform to the protocol type, which means it'll have the protocol methods and requirements implemented.</p>
+
+                <h3>Delegation</h3>
+                <p>Enables class or struct to delegate its responsibilities to an instance of another type.</p>
+                <ol>
+                    <li>Define protocol that lists delegated responsibilities.</li>
+                    <li>Let the delegate, the conforming type, provide functionality</li>
+                </ol>
+
+    <pre><code class="language-swift">
+    protocol DiceGame {
+        var dice: Dice { get }
+        func play()
+    }
+    protocol DiceGameDelegate {
+        func gameDidStart(_ game: DiceGame)
+    }
+
+    class SomeClass: DiceGame {
+        var delegate: DiceGameDelegate?
+
+        func someFunc() {
+            delegate?.gameDidStart(self)
+        }
+    }
+    class DiceGameTracker: DiceGameDelegate {
+        func gameDidState(_ game: DiceGame) {
+            // implementation
+        }
+    }
+    </code></pre>
+
+                <h3>Adding Protocol Conformance with an Extension</h3>
+                <p>Extend existing type to conform to a new protocol.</p>
+    <pre><code class="language-swift">
+    protocol TextRepresentable {
+        var textualDescription: String { get }
+    }
+    extension Dice: TextRepresentable {
+        var textualDescription: String {
+            // implementation
+
+        }
+    }
+    </code></pre>
+
+                <h3>Collections of Protocol Types</h3>
+                <p>Protocol used as type to be stored in a collection.</p>
+    <pre><code class="language-swift">
+    let things: [TextRepresentable] = [game, d12, hamster]
+
+    for thing in things {
+        print(thing.textualDescription)
+    }
+    </code></pre>
+
+                <h3>Protocol Inheritance</h3>
+                <p>To add further requirements on top of the requirements it inherits.</p>
+    <pre><code class="language-swift">
+    protocol InheritingProtocol: SomeProtocol, AnotherProtocol {
+        // protocol definition
+    }
+    </code></pre>
+
+                <h3>Class-Only Protocols</h3>
+                <p>To limit protocol adoption to class types. Use AnyObject.</p>
+    <pre><code class="language-swift">
+    protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol {
+        // class-only protocol definitions
+    }
+    </code></pre>
+
+                <h3>Protocol Composition</h3>
+                <p>Requiring a type to conform to multiple protocols. Separate with ampersand &amp;. Can contain one class type to specify required superclass.</p>
+    <pre><code class="language-swift">
+    // Named and Aged are protocols
+    func wishHappyBirthday(toCelebrator: Named &amp; Aged)
+    </code></pre>
+
+                <h3>Checking for Protocol Conformance</h3>
+                <ul>
+                    <li>is operator returns true if an instance conforms to a protocol, false if not.</li>
+                    <li>as? returns optional value of protocol's type, nil if instance doesn't conform to protocol.</li>
+                    <li>as! force downcasts to protocol type, runtime error if downcast fails.</li>
+                </ul>
+
+                <h3>Optional Protocol Requirements</h3>
+                <p>When requirements don't have to be implemented by types that conform to the protocol. Prefixed by optional modifier as part of protocol's definition. Both protocol and the optional requirement must be marked with @objc attribute. @objc protocols can only be adopted by classes, not structs or enums.</p>
+    <pre><code class="language-swift">
+    @objc protocol CounterDataSource {
+        @objc optional func increment(forCount count: Int) -> Int
+        @objc optional var fixedIncrement: Int { get }
+    }
+    class Counter {
+        var dataSource: CoutnerDataSource?
+        func increment() {
+            // the entire increment function is optional
+            if let amount = dataSource?.increment?(forCount: count) {
+                count += amount
+            }
+        }
+    }
+    </code></pre>
+
+                <h3>Protocol Extensions</h3>
+                <p>To define behaviors on protocols themselves, rather than in each type's individual conformance. All conforming types will gain this method implementation. Can be used to provide default implementation (can be overridden).</p>
+                <pre><code class="language-swift">
+    extension RandomNumberGenerator {
+        func randomBool() -> Bool {
+            return random() > 0.5
+        }
+    }
+    generator = LinearCongruentGenerator()
+    print("\(generator.random())")
+    </code></pre>
             </div>
 
             <div class="section">
                 <h2>Generics</h2>
+                <p>For reusability, to avoid duplication, and for abstraction.</p>
+    <pre><code class="language-swift">
+    func swapTwoValues&lt;T&gt;(_ a: inout T, _ b: inout T) {
+        let temporaryA = a
+        a = b
+        b = temporaryA
+    }
+    </code></pre>
+                <p>Type parameter: a placeholder type such as T in the example above. Written in brackets after a function's name. After defining it, you can use it as parameters, in function body, or as return type.</p>
+                <ul>
+                    <li>Name using descriptive names like Key and Value and Element or single letters.</li>
+                </ul>
+                <p>Generic Types: custom classes, structures, enums that can work with any type. E.g. Array and Dictionary</p>
+                <ul>
+                    <li>Write type parameter after struct's name.</li>
+                </ul>
+    <pre><code class="language-swift">
+    struct Stack&lt;Element&gt; {
+        var items = [Element]()
+        mutating func push(_ item: Element) {
+            items.append(item)
+        }
+        mutating func pop() -> Element {
+            return items.removeLast()
+        }
+    }
+    // Create instance by writing type to be stored
+    var stackOfStrings = Stack&lt;String&gt;()
+    </code></pre>
+
+                <h3>Extending a Generic Type</h3>
+                <p>Don't provide type parameter list as part of extension's definition, the original type parameter will be used.</p>
+    <pre><code class="language-swift">
+    extension Stack {
+        var topItem: Element? {
+            return items.isEmpty ? nil : items[items.count - 1]
+        }
+    }
+    </code></pre>
+
+                <h3>Type Constraints</h3>
+                <p>Specifies that the type parameter must inherit from a certain class or conform to a certain protocol.</p>
+                <ul>
+                    <li>E.g. Dictionaries must be hashable (conform to hashable protocol).</li>
+                    <li>To use comparison operators == or !=, must conform to Equatable protocol.</li>
+                </ul>
+    <pre><code class="language-swift">
+    func someFunction&lt;T: SomeClass, U: SomeProtocol&gt;(someT: T, someU: U) {
+        // function body
+    }
+
+    func findIndex&lt;T: Equatable&gt;(of valueToFind: T, in array: [T]) -> Int? {
+        for (index, value) in array.enumerated() {
+            if value == valueToFind {
+                return index
+            }
+        }
+        return nil
+    }
+    </code></pre>
+
+                <h3>Associated Types</h3>
+                <p>Gives a placeholder name to a type that's used as part of the protocol. Actual type provided when protocol is adopted. Use associatedtype keyword. This alias enables referring to the type in the protocol.</p>
+                <ul>
+                    <li>Can have generic type conform to generic protocol (the associated type).</li>
+                </ul>
+    <pre><code class="language-swift">
+    protocol Container {
+        associatedtype Item
+        mutating func append(_ item: Item)
+        var count: Int { get }
+        subscript(i: Int) -> Item { get }
+    }
+
+    // Extending an Existing Type
+    extension Array: Container {}
+
+    // Using Type Annotations to constrain an Associated Type
+    protocol Container {
+        associatedtype Item: Equatable
+        mutating func append(_ item: Item)
+        ...
+    }
+    </code></pre>
+
+                <h3>Generic Where Clauses</h3>
+                <p>To define requirements for associated types. where clause enables requiring that associated type must conform to some protocol, or that type parameters and associated types must be the same. Write before opening curly brace of a type or function's body.</p>
+                <p>The following code is a function that compares 2 containers even if they're of different type. Can do so because it checks if type C1 and type C2 contain the same type of items.</p>
+    <pre><code class="language-swift">
+    func allItemsMatch&lt;C1: container, C2: Container&gt;
+        (_ someContainer: C1, _ anotherContainer: C2) -> Bool
+        where C1.Item == C2.Item, C1.Item: Equatable {
+
+        // check if each type of container hold the same type of items
+    }
+    </code></pre>
+
+                <h3>Extensions with a Generic Where Clause</h3>
+                <p>In the following example, the Stack didn't require Item to be Equatable. However, since we're using equality operators, we must specify that the Element conforms to that protocol for it to compile correctly.</p>
+    <pre><code class="language-swift">
+    extension Stack where Element: Equatable {
+        func isTop(_ item: Element) -> Bool {
+            guard let topItem = items.last else {
+                return false
+            }
+            return topItem == item
+        }
+    }
+
+    // Where clause with extensions to a protocol
+    extension Container where Item: Equatable {
+        func startWith(_ item: Item) -> Bool {
+            return count >= 1 &amp;&amp; self[0] ==item
+        }
+    }
+    </code></pre>
+
+                <h3>Associated Types with a Generic Where Clause</h3>
+                <p>In the following example, the clause requires that the iterator can only traverse over elements that are of the same item type as the container's items.</p>
+    <pre><code class="language-swift">
+    protocol Container {
+        associatedtype Item
+        ...
+        associatedtype Iterator: IteratorProtocol where Iterator.Element == Item
+        func makeIterator() -> Iterator
+    }
+    </code></pre>
             </div>
 
             <div class="section">
                 <h2>Automatic Reference Counting</h2>
+                <p>To track and manage app's memory usage. ARC allocates memory to store info. about class instances and frees them up when they're no longer used. ARC tracks how many properties, constants, and variables are currently referring to each class instance and creates a strong reference (keeps it in memory and doesn't deallocate).</p>
+
+    <pre><code class="language-swift">
+    // 1 strong reference
+    reference1 = Person(name: "John")
+
+    // 3 strong references
+    reference2 = reference1
+    reference3 = reference1
+
+    // 1 strong reference
+    reference1 = nil
+    refernece2 = nil
+    </code></pre>
+
+                <p>Strong Reference cycle: when two class instances hold a strong reference to each other.</p>
+                <ul>
+                    <li>Resolve by assigning references as weak or unowned. Allows one instance in a reference cycle to refer to the other without keeping a strong hold on it.</li>
+                </ul>
+                <p>Weak Reference: use when the other instance has a shorter lifetime. Use weak keyword. Always declared as a variable to be set to nil at runtime.</p>
+                <p>Unowned Reference: use when other instance has same or longer lifetime and reference is expected to always have a value. Use unowned keyword. Also doesn't have strong hold on the instance. Are always nonoptional, value is never set to nil.</p>
+
+                <h3>Strong Reference Cycles for Closures</h3>
+                <p>Strong reference cycle can occur if a closure is assigned to a property of a class instance and captures that instance by accessing a property or method like self.property or self.method(). This occurs because closures are reference types.</p>
+                <ul>
+                    <li>Resolve by defining a capture list as part of closure's definition and declare each reference to be weak or unowned.</li>
+                </ul>
+    <pre><code class="language-swift">
+    // Example with strong reference error
+    lazy var asHTML: () -> String = {
+        if let text = self.text {
+            return "&lt;\(self.name)&gt;\(text)&lt;\(self.name)&gt;"
+        } else {
+            return "&lt;\(self.name)&gt;"
+        }
+    }
+
+    // Example with resolving it by capture list
+    lazy var someClosure: (Int, String) -> String = {
+        [unowned self, weak delegate = self.delegate!] (index: Int, stringToProcess: String) -> String in
+        // closure body
+    }
+    </code></pre>
             </div>
 
             <div class="section">
                 <h2>Memory Safety</h2>
+                <p>Conflicting access to memory occurs if two accesses meet the conditions below:</p>
+                <ul>
+                    <li>At least one is a write access.</li>
+                    <li>They access the same location in memory.</li>
+                    <li>Their durations overlap.</li>
+                </ul>
+                <p>Usually occurs if the memory access is long-term instead of instantaneous, which causes overlap in accesses.</p>
+                <ul>
+                    <li>Overlaps occur usually with in-out parameters and mutating methods of a struct.</li>
+                </ul>
+                <p>The following code produces an error because the read access to stepSize overlaps with the write access to number. number and stepSize refer to same location in memory so their accesses overlap.</p>
+    <pre><code class="lanuage-swift">
+    var stepSize = 1
+    func incrementInPlace(_ number: inout Int) {
+        number += stepSize
+    }
+    incrementInPlace(&amp;stepSize)
+    </code></pre>
+                <p>The following balance function produces a conflict because it's performing accesses to same location in memory simultaneously.</p>
+    <pre><code class="language-swift">
+    func balance(_ x: inout Int, _ y: inout Int) {
+        let sum = x + y
+        x = sum / 2
+        y = sum - x
+    }
+    var playerOneScore = 42
+    var playerTwoScore = 30
+    balance(&amp;playerOneScore, &amp;playerOneScore)
+    </code></pre>
+
+                <h3>Conflicting Access to self in Methods</h3>
+                <p>Mutating method of struct has write access to self for the duration of the method call.</p>
+                <p>The following code produces a conflict because both self (due to it being a mutating function) and teammate refer to the same location in memory.</p>
+    <pre><code class="language-swift">
+    struct Player {
+        var health: Int
+        mutating func shareHealth(with teammate: inout Player) {
+            balance(&amp;teammate.health, &amp;health)
+        }
+    }
+    var oscar = Player(health: 10)
+    oscar.shareHealth(with: &amp;oscar)
+    </code></pre>
+
+                <h3>Conflicting Access to Properties</h3>
+                <p>Types like structs, tuples, and enums are value types, so mutating any piece of the value mutates the whole value. Can produce overlapping conflicts.</p>
+                <p>There is a conflic because the balance function takes in-out parameters and needs write access to them during the call.</p>
+    <pre><code class="language-swift">
+    // The variable is a tuple
+    var playerInformation = (health: 10, energy: 20)
+    balance(&amp;playerInformation.health, &amp;playerInformation.energy)
+    </code></pre>
+
+                <p>Overlapping access to properties of a structure is safe if these conditions apply:</p>
+                <ul>
+                    <li>Accessing only stored properties of an instance, not computed properties or class properties.</li>
+                    <li>The structure is the value of a local variable, not a global variable.</li>
+                    <li>The structure is either not captured by any closures or it's captured only by nonescaping closures.</li>
+                </ul>
             </div>
 
             <div class="section">
                 <h2>Access Control</h2>
+                <p>Module: a single unit of code distribution, a framework or application built and shipped as a single unit and can be imported by another module with swift's import keyword.</p>
+                <ul>
+                    <li>Each build target in Xcode is a separate module in swift.</li>
+                </ul>
+                <p>Source file: a single swift source code file within a module.</p>
+
+                <h3>Access Levels</h3>
+                <table>
+                    <tr>
+                        <th>Level</th>
+                        <th>Description</th>
+                        <th>Modifier (place before entity's introducer)</th>
+                    </tr>
+                    <tr>
+                        <td>Open access and Public access</td>
+                        <td>
+                            <p>Entities can be used within any source file and in a source file from another module that imports the defining module. Usually for public interface to a framework.</p>
+                            <p>Public access defines that classes and class members can only be subclassed from within a module. Open access lets subclassing across modules.</p></td>
+                        <td>
+    <pre><code class="language-swift">
+    open class SomePublicClass {}
+
+    public class SomePublicClass {}
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Internal access</td>
+                        <td>Entities can be used within any source file from a defining module but not across modules. Usually for defining an app's or framework's internal structure.</td>
+                        <td>
+    <pre><code class="language-swift">
+    internal class SomeInternalClass {}
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>File-private access</td>
+                        <td>Entity can only be used in its own defining source file. Usually to hide implementation details of functionality when the details are used within the entire file.</td>
+                        <td>
+    <pre><code class="language-swift">
+    fileprivate class SomeFilePrivateClass {}
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Private access</td>
+                        <td>Entity is restricted to the enclosing declaration when the details of functionality are used within a single declaration.</td>
+                        <td>
+    <pre><code class="language-swift">
+    private class SomePrivateClass {}
+    </code></pre>
+                        </td>
+                    </tr>
+                </table>
+                <p>The default access level for all entities are internal.</p>
+                <p>When developing a single-target app, internal access level is sufficient. You can mark some parts of code as fileprivate/private to hide implementation details.</p>
+                <p>When developing frameworks, you should mark them as open or public.</p>
             </div>
 
             <div class="section">
                 <h2>Advanced Operators</h2>
+                <h3>Operator Methods</h3>
+                <p>Overloading operators: classes and structures providing their own implementations of existing operators</p>
+                <ul>
+                    <li>The addition operator + is a binary operator and is infix.</li>
+                    <li>To overload, define a type method with the method name matching the operator to overload.</li>
+                    <li>In the following example, left and right represents the instances on the left and right side of the + operator.</li>
+                </ul>
+    <pre><code class="language-swift">
+    struct Vector2D {
+        var x = 0.0, y = 0.0
+    }
+    extension Vector2D {
+        static func + (left: Vector2D, right: Vector2D) -> Vector 2D {
+            return Vector2D(x: left.x + right.x, y: left.y + right.y)
+        }
+    }
+    let vector = Vector2D(x: 3.0, y: 1.0)
+    let anotherVector = Vector2D(x: 2.0, y: 4.0)
+    let combinedVector = vector + anotherVector
+    </code></pre>
+
+                <h3>Equivalence Operators</h3>
+                <p>Use equivalence operators to check for equivalence of your own custom type.</p>
+    <pre><code class="language-swift">
+    extension Vector2D {
+        static func == (left: Vector2D, right: Vector2D) -> Bool {
+            return (left.x == right.x) &amp;&amp; (left.y == right.y)
+        }
+        static func != (left: Vector2D, right: Vector2D) -> Bool {
+            return !(left == right)
+        }
+    }
+    </code></pre>
+
+                <h3>Custom Operators</h3>
+                <p>You can define and implement your own custom operators. Declare at a global level using the keywords prefix, infix, or postfix. Can also specify the precedence group that the custom operator belongs to.</p>
+
+    <pre><code class="language-swift">
+    prefix operator +++
+
+    extension Vector2D {
+        static prefix func +++ (vector: inout Vector2D) -> Vector2D {
+            vector += vector
+            return vector
+        }
+    }
+    var toBeDoubled = Vector2D(x: 1.0, y: 4.0)
+    let afterDoubling = +++toBeDoubled
+    </code></pre>
             </div>
 
         </div>
