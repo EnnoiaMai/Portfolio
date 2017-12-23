@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Syntax</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio - JavaScript Syntax Guide and Techniques">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/themes/prism-tomorrow.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/prism.min.js"></script>
+    </head>
+    <body>
+        <h1 id="title">JavaScript Syntax</h1>
+
+        <div id="content">
+            <div class="section">
+                <p><span class="bold">Note: </span>Some sources that should be credited in creating this document include various tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/js/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
+            </div>
+
+            <div class="section">
+                <h2>Javascript</h2>
+                <p><span class="definition">JavaScript</span>: adds programming to web pages. Places code into page and browser executes it. A loosely typed language, don't need to explicitly declare data types. All about tying function to an event.</p>
+                <br>
+                <p>Place in <span class="definition_element">&lt;script&gt;</span> element tag within <span class="definition_element">&lt;head&gt;</span> and either allow page to load before calling JS functions or use JQuery's <span class="definition_javascript">document.ready()</span> function.</p>
+    <pre><code class="language-markup">
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;script src="javascript_file.js"&gt;&lt;&frasl;script&gt;
+        &lt;&frasl;head&gt;
+        &lt;body&gt;
+        &lt;&frasl;body&gt;
+    &lt;&frasl;html&gt;
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>JavaScript Types</h2>
+                <p>The following table shows primitive types and their primitive values all of which are immutable except object types.</p>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>True</th>
+                        <th>False</th>
+                    </tr>
+                    <tr>
+                        <td>Undefined</td>
+                        <td>undefined</td>
+                        <td>False</td>
+                    </tr>
+                    <tr>
+                        <td>Boolean</td>
+                        <td>true</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>String</td>
+                        <td>nonempty</td>
+                        <td>""</td>
+                    </tr>
+                    <tr>
+                        <td>Number</td>
+                        <td>nonzero</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Object</td>
+                        <td>any</td>
+                        <td>null</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Variables</h2>
+                <p><span class="definition">Variables</span>: declared with <span class="definition_javascript">var</span> keyword. Use for storage, can be reused and set to different primary types.</p>
+                <br>
+                <p><span class="definition">Global variables</span>: declared outside the function, alive as long as page is laoded.</p>
+                <br>
+                <p><span class="definition">Local variables</span>: accessible within the scope of the function.</p>
+                <ul>
+                    <li>A variable defined within scope of a local function without the var keyword becomes global.</li>
+                </ul>
+                <br>
+    <pre><code class="language-javascript">
+    var day;    // Declare variable without assigning value
+    var value = 100;    // Declare variable and assign value
+    var number = 1;    // Initialize with numeric literal
+    var text = "hello";    // Initialize with a String
+    var status = true;    // Initialize with a Boolean value
+    callingFunction(parameter);    // Call function and pass in parameters
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Some JS Functions</h2>
+    <pre><code class="language-javascript">
+    document.write("string");    // writes out the text to the document
+    alert(message | "string");    // alerts user with popup and the message
+    confirm();    // asks user if want to confirm, returns true or false value
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Functions</h2>
+                <p><span class="definition">Functions</span>: set of statements to perform a task, can't put numbers in beginning of function name</p>
+                <br>
+                <p><span class="definition">Arguments</span>: passed in as values to parameters of functions, they are copied to the parameters. Can be accessed using <span class="definition_javascript">arguments</span> keyword and indexing.</p>
+    <pre><code class="language-javascript">
+    function addTogether(num, str){
+        var add = num + str;
+        alert(add);
+    }
+    addTogether(100, " things I like");
+    </code></pre>
+                <br>
+                <p>Can return from function and store it in a variable.</p>
+    <pre><code class="language-javascript">
+    function add(x, y){
+        result = x + y;
+        return result;
+    }
+    var sum = add(2, 3);
+    </code></pre>
+                <br>
+                <p><span class="bold">Accessing arguments</span> - arguments objects have entry for each argument passed to function, but doesn't have array properties aside from <span class="definition_javascript">length.</span></p>
+    <pre><code class="language-javascript">
+    function someFunction(){
+        alert(arguments[0]);
+    }
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>JavaScript Operators</h2>
+                <p><span class="definition">Precedence</span>: (* and /) is performed before (+ and -)</p>
+                <br>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Operators</th>
+                    </tr>
+                    <tr>
+                        <td>Arithmetic Operators</td>
+                        <td>+, -, *, /, %, ++, --</td>
+                    </tr>
+                    <tr>
+                        <td>Assignment Operators</td>
+                        <td>=, +=, -=, *=, /=, %=</td>
+                    </tr>
+                    <tr>
+                        <td>Comparison Operators</td>
+                        <td>==, == (equal value and equal type), !=, !==, &gt;, &lt;, &gt;=, &lt;=, ?</td>
+                    </tr>
+                    <tr>
+                        <td>Logical Operators</td>
+                        <td>&amp;&amp;, ||, !</td>
+                    </tr>
+                    <tr>
+                        <td>Type Operators</td>
+                        <td><span class="definition_javascript">typeof()</span> returns type of variable, <span class="definition_javascript">instanceof()</span> returns true if object is an instance of the object type</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Conditions</h2>
+    <pre><code class="language-javascript">
+    if (conditions){
+        statements;
+    }
+    else if (conditions){
+        statements;
+    }
+    else {
+        statements;
+    }
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Loops</h2>
+    <pre><code class="language-javascript">
+    while (conditions) {
+        statements;
+    }
+    for (counter; condition; incrementor) {
+        statements;
+    }
+    for (variable in object) {
+        statements;
+    }
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Arrays</h2>
+    <pre><code class="language-javascript">
+    var array = [value1, value2, value3];    // initialize array with values
+    var getValue = array[index];    // get value at position/index
+    array[index] = newValue;    // set value at position/index
+    var multiDimArray = [ [x, x, x], [y, y, y] ];    // 2D array
+    </code></pre>
+                <p>Array functions include <span class="definition_javascript">push()</span> and <span class="definition_javascript">pop()</span> which works on tail end and <span class="definition_javascript">shift()</span> and <span class="definition_javascript">unshift()</span> which operate on first element of list. Arrays won't give an array IndexOutOfBoundsException.</p>
+            </div>
+
+            <div class="section">
+                <h2>Objects</h2>
+                <p><span class="definition">Properties</span>: variables inside an object, use dot syntax (.) to access properties. Properties describe the object, actions describe the behavior.</p>
+                <p><span class="definition">Methods</span>: actions of the object that describe its behavior.</p>
+                <p><span class="definition_javascript">new</span> keyword: creates copy of existing object or create an instance of it.</p>
+                <p><span class="definition_javascript">delete</span> keyword: deletes property.</p>
+    <pre><code class="language-javascript">
+    var otter = {
+        color: "grey",
+        animalClass: "mammalia",
+        swim: function(){
+            document.write("The otter swam.");
+        }
+    }
+    </code></pre>
+                <br>
+                <p>Can change values of properties in object and its data type. Can add new properties as long as the property has a different name.</p>
+    <pre><code class="language-javascript">
+    otter.numLimbs = 4;    // added new property numLimbs with value 4
+    delete otter.numLimbs;    // deleted property numLimbs
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Global Objects</h2>
+                <p>Global objects are objects that JS provides to be used anywhere.</p>
+                <br>
+                <h4 class="definition">String Object</h4>
+    <pre><code class="language-javascript">
+    var strObject = "some text";
+    </code></pre>
+                <br>
+                <table>
+                    <tr>
+                        <th colspan="3">Methods</th>
+                    </tr>
+                    <tr>
+                        <td>toUppercase();</td>
+                        <td>toLowerCase();</td>
+                        <td>length;</td>
+                    </tr>
+                    <tr>
+                        <td>substring();</td>
+                        <td>charAt();</td>
+                        <td>concat();</td>
+                    </tr>
+                    <tr>
+                        <td>indexOf();</td>
+                        <td>lastInstanceOf();</td>
+                        <td>replace(<i>string1</i>, <i>string2</i>);</td>
+                    </tr>
+                    <tr>
+                        <td>bold();</td>
+                        <td>italics();</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <br>
+
+                <h4 class="definition">Math Object</h4>
+    <pre><code class="language-javascript">
+    var numberObj = 5.0;
+    </code></pre>
+                <br>
+                <table>
+                    <th colspan="2">Methods</th>
+                    <tr>
+                        <td>Math.round(numberObj);</td>
+                        <td>Math.ceil(numberObj);</td>
+                    </tr>
+                    <tr>
+                        <td>Math.floor(numberObj);</td>
+                        <td>Math.sqrt(numberObj);</td>
+                    </tr>
+                </table>
+                <br>
+
+                <h4 class="definition">Date Object</h4>
+                <p> For the constructor for the Date object, whatever isn't filled in will be taken as 0. Months are zero-based.</p>
+    <pre><code class="language-javascript">
+    var dateObj = new Date();    // Returns current date and time
+    var dateObj = new Date(year, month, day, hrs, min, sec, millis);
+    </code></pre>
+                <br>
+                <table>
+                    <tr>
+                        <th colspan="3">Methods</th>
+                    </tr>
+                    <tr>
+                        <td>toDateString();</td>
+                        <td>getTime();</td>
+                        <td>setTime(millis);</td>
+                    </tr>
+                    <tr>
+                        <td>getFullYear();</td>
+                        <td>setFullYear(year);</td>
+                        <td>getMonth(); (0-11)</td>
+                    </tr>
+                    <tr>
+                        <td>setMonth(); (0-11)</td>
+                        <td>getDate();</td>
+                        <td>setDate(date);</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Document Object Model (DOM)</h2>
+                <p><span class="definition">DOM</span>: represents the entire webpage or document. Every html element has a corresponding object, can use JS to access parts of the web page. Acts as the interface to get to the HTML.</p>
+                <ul>
+                    <li>The browser loads the page, then the DOM is created. Objects are stored in the DOM.</li>
+                    <li>After selecting an element to target, can change the CSS style, the text, the image, perform validation, create new pages, and change internals.</li>
+                </ul>
+                <br>
+                <p><span class="definition">Nodes</span>: Element node, Attribute node, and Text node</p>
+            </div>
+
+            <div class="section">
+                <h2>Ways to Reference HTML elements</h2>
+                <ol>
+                    <li><span class="definition_javascript">getElementById();</span></li>
+                    <li><span class="definition_javascript">getElementsByClassName();</span></li>
+                    <li><span class="definition_javascript">getElementsByTagName();</span></li>
+                </ol>
+    <pre><code class="language-javascript">
+    var element = document.getElementById("idOfElement");
+    var element = document.getElementsByClassName("className");
+    var element = document.getElementsByTag("tag");
+    </code></pre>
+                <p>For both getting elements by class and by tag name, a node list is returned. List must be iterated over of have its indices accessed to get the actual element.</p>
+            </div>
+
+            <div class="section">
+                <h2>Changing Style of elements</h2>
+    <pre><code class="language-javascript">
+    element.style.property = "";
+    element.style.color = "blue";
+    element.style.backgroundColor = "red";
+    element.style.fontStyle = "italic";
+    etc.
+    </code></pre>
+                <p>JS doesn't recognize hyphen within properties of CSS, so it must be camelcase. Exception is with padding.</p>
+            </div>
+
+            <div class="section">
+                <h2>innerHTML</h2>
+                <p><span class="definition_javascript">innerHTML</span> is the HTML content of the element grabbed, gets the text child node of the element.</p>
+    <pre><code class="language-javascript">
+    var content = element.innerHTML;    // reads the content
+    element.innerHTML = text;    // sets the content
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Image</h2>
+                <p>Use src attribute of image tag to change the image</p>
+    <pre><code class="language-javascript">
+    imageElement.src = "pathToNewImage";
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Events</h2>
+                <p><span class="definition">EventListeners</span> can be attached to the HTML element and the <span class="definition">EventHandler</span> is the piece of functionality that will run when that event occurs. Can choose the Event for the object to listen to. The "on" event that's usually defined in HTML as an attribute is left out in JS.</p>
+    <pre><code class="language-javascript">
+    element.addEventListener(event, functionName);
+    functionName() {
+        statements;
+    }
+    </code></pre>
+
+                <h4>List of Events</h4>
+                <ul>
+                    <li><span class="definition_javascript">onclick</span></li>
+                    <li><span class="definition_javascript">onmouseover</span></li>
+                    <li><span class="definition_javascript">onmouseout</span></li>
+                </ul>
+            </div>
+
+            <div class="section">
+            <h2>Creating and Removing elements</h2>
+    <pre><code class="language-javascript">
+    // Creating a new element:
+    var newElement = document.createElement("htmlElement");
+    someDiv.appendChild(newElement);
+    var text = document.createTextNode("someText");
+    newElement.appendChild(text);
+
+    // Removing an element:
+    var parentNode = childElement.parentNode();
+    parentNode.removeChild(childElement);
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Creating Attribute Node</h2>
+    <pre><code class="language-javascript">
+    var newAttribute = document.createAttribute("attribute");
+    newAttribute.value = "attributeValue";
+    element.setAttributeNode(newAttribute);
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Traversing the DOM</h2>
+                <p>Use the parent-child relationship to move around and target an element. Can go from parent to child, child to parent, child to siblings, etc.</p>
+                <ul>
+                    <li>When returning a node list, the list will include whitespace nodes.</li>
+                </ul>
+                <br>
+    <pre><code class="language-javascript">
+    // Parent to Child:
+    var childNodes = parent.childNodes[];    // Returns list of all child nodes
+    var firstElement = parent.firstElementChild;    // Give first child element
+    var lastElement = parent.lastElementChild;    // Give last child element
+
+    // Child to Parent:
+    var parent = child.parentNode;    // if only 1 parent
+    var parent = child.parentElement;    // gives parent element
+
+    // Child to Siblings:
+    var sibling = element.nextElementSibling    // gives element after
+    var sibling = element.previousElementSibling    // gives element before
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Forms</h2>
+                <p>For forms, <span class="definition_javascript">value</span> property of the html element object returns the value of the input. Can do <span class="definition_javascript">value.length</span> to grab the length of the input value.</p>
+            </div>
+            <div class="section">
+                <h2>Classes</h2>
+                <p>An object serving as a generic template for new objects to use.</p>
+    <pre><code class="language-javascript">
+    function someClass(param1, param2, param3){
+        this.property1 = param1;
+        this.property2 = param2;
+        this.property3 = param3;
+    }
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Windows Object</h2>
+                <p>The document object that comprises the entire webpage. It is the browser window itself. Usually use this object for page redirects.</p>
+    <pre><code class="language-javascript">
+    window.location="url"
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Using the Local Storage of the Browser</h2>
+    <pre><code class="language-javascript">
+    function process(){
+        if(!localStorage){
+            alert("Your browser doesn't support local storage.");
+            return;
+        }
+        var theKey = document.getElementById("key").value;
+        var theValue = document.getElementById("value").value;
+        localStorage.setItem("theKey", "theValue");
+    }
+    function findIt(){
+        if (!localStorage){
+            alert("Your browser doesn't support local storage.");
+            return;
+        }
+        var theKey = document.getElementById("findKey").value;
+        var theValue = localStorage.getItem("theKey");
+        var handle = document.getElementById("results");
+        handle.innerHTML = theValue;
+    }
+    </code></pre>
+            </div>
+        </div>
+    </body>
+    <!-- Copy and Paste
+    Element Start:              &lt; &gt;
+    Element End:                &lt;&frasl; &gt;
+    Comment Start and End:      &lt;!&minus;&minus; &minus;&minus;&gt;
+    Open Tag:                   &lt;
+    Close Tag:                  &frasl;&gt;
+    -->
+</html>
