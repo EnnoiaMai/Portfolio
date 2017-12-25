@@ -1,11 +1,16 @@
-/*========================== General ==========================*/
+/*================================= General ==================================*/
 * {
     margin: 0;
     padding: 0;
-    font-family: "Times New Roman", Arial, Helvetica, sans-serif;
+    /* font-family: "Times New Roman", Arial, Helvetica, sans-serif; */
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif;
+    /* font-family: 'Source Sans Pro', sans-serif; */
+    /* font-family: 'Work Sans', sans-serif; */
+    /* font-family: 'Quicksand', sans-serif; */
 }
 
-/*========================== Sidebar ==========================*/
+/*================================= Sidebar ==================================*/
 #sidebar {
     width: 200px;
     height: 100%;
@@ -22,8 +27,8 @@
     color: white;
     font-size: 110%;
     text-decoration: none;
-    padding: 8px 24px 8px 24px;
     display: block;
+    padding: 8px 24px 8px 24px;
 }
 #sidebar ul li a:hover {
     color: rgba(255, 40, 50, 0.5);
@@ -35,9 +40,15 @@
     padding-left: 24px;
 }
 
-/*========================== Welcome Page ==========================*/
+/*=============================== Welcome Page ===============================*/
 h1, h3 {
 }
 .content {
     margin-left: 200px;
+}
+
+iframe {
+    /*border: none;*/
+    /*background-color: #FFC;*/
+    border: 1px solid black;
 }

@@ -8,6 +8,7 @@
         <meta name="author" content="Enn">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Quicksand|Source+Sans+Pro|Work+Sans" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/index.js"></script>
@@ -20,37 +21,35 @@
         -->
         <div id="sidebar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="html/about_me.html">About Me</a></li>
+                <li><a href="html/home.html" target="pageContainer">Home</a></li>
                 <li><a id="languages_anchor">Languages and Syntax</a>
                     <ul>
-                        <li><a href="">Java</a></li>
-                        <li><a href="html/syntax_swift_4.html">Swift 4.0</a></li>
-                        <li><a href="">C/C++</a></li>
-                        <li><a href="html/syntax_html.html">HTML</a></li>
-                        <li><a href="html/syntax_css.html">CSS</a></li>
-                        <li><a href="html/syntax_javascript.html">JavaScript</a></li>
-                        <li><a href="html/syntax_jquery.html">JQuery</a></li>
-                        <li><a href="html/syntax_php.html">PHP</a></li>
-                        <li><a href="html/syntax_perl.html"></a></li>
-                        <li><a href="html/syntax_python.html">Python</a></li>
-                        <li><a href="html/syntax_bash.html">Bash</a></li>
+                        <li><a href="html/syntax_java.html" target="pageContainer">Java</a></li>
+                        <li><a href="html/syntax_swift_4.html" target="pageContainer">Swift 4.0</a></li>
+                        <li><a href="html/syntax_cpp.html" target="pageContainer">C/C++</a></li>
+                        <li><a href="html/syntax_html.html" id="link_syntax_html" target="pageContainer">HTML</a></li>
+                        <li><a href="html/syntax_css.html" id="link_syntax_css" target="pageContainer">CSS</a></li>
+                        <li><a href="html/syntax_javascript.html" target="pageContainer">JavaScript</a></li>
+                        <li><a href="html/syntax_jquery.html" target="pageContainer">JQuery</a></li>
+                        <li><a href="html/syntax_php.html" target="pageContainer">PHP</a></li>
+                        <li><a href="html/syntax_perl.html" target="pageContainer">Perl</a></li>
+                        <li><a href="html/syntax_python.html" target="pageContainer">Python</a></li>
+                        <li><a href="html/syntax_bash.html" target="pageContainer">Bash</a></li>
                     </ul>
                 </li>
                 <li><a id="projects_anchor">Projects</a>
                     <ul>
-                        <li><a href="web_applications/web_applications.html">Web Applications</a></li>
-                        <li><a href="mobile_applications/mobile_applications.html">Mobile Applications</a></li>
-                        <li><a href="python_scripts/python_scripts.html">Python Scripts</a></li>
-                        <li><a href="bash_scripts/bash_scripts.html">Bash Scripts</a></li>
+                        <li><a href="web_applications/web_applications.html" target="pageContainer">Web Applications</a></li>
+                        <li><a href="mobile_applications/mobile_applications.html" target="pageContainer">Mobile Applications</a></li>
+                        <li><a href="python_scripts/python_scripts.html" target="pageContainer">Python Scripts</a></li>
+                        <li><a href="bash_scripts/bash_scripts.html" target="pageContainer">Bash Scripts</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
 
         <div class="content">
-            <h1>Welcome to</h1>
-            <h3>Enn's Portfolio</h3>
+            <iframe src="html/home.html" name="pageContainer" width="" height=""></iframe>
         </div>
     </body>
 
