@@ -7,7 +7,7 @@ Date Created: December 2017
     Method Prototypes:
     var link = new selected_link("enn");
 
-    link.setQuantity(sku, quantity);
+    link.setCurrentLink(link);
 */
 
 
@@ -20,9 +20,11 @@ function link_saver(key) {
     this.getCookieValue = function() {  // PRIVATE METHOD
         // Grab the cookie first and split each individual cookie
         var rawString = document.cookie;
-        if(rawString == undefined)
+        alert("rawString = " + rawString);
+        if(rawString == undefined) {
             return;
-        var cookiesArray = rawSring.split(";");
+        }
+        var cookiesArray = rawString.split(";");
 
         // Find the cookie with the specific key
         var cookie = null;
@@ -46,7 +48,8 @@ function link_saver(key) {
 ////////////////////////////////////////////////////////////////////////////////
 
     this.getCurrentLink = function() {
-        this.getCookieValues();
+        this.getCookieValue();
+        alert("getting current link, which is " + this.currentLink);
         return this.currentLink;
     }
 

@@ -6,9 +6,15 @@ Date Created: December 2017
 var linkSaver = new link_saver('enn');
 var submenuToggled = false;
 $(document).ready(function() {
-    setListeners()
+    alert("document ready");
+    setListeners();
     initializeMenu();
     var currentLinkID = "#" + (linkSaver.getCurrentLink());
+    if (currentLinkID != "#") {
+        alert(currentLinkID);
+    } else {
+        alert("error");
+    }
     updateMenu(currentLinkID);
 });
 
@@ -31,6 +37,7 @@ function toggleSubMenu() {
 }
 
 function initializeMenu() {
+    alert("initialize menu");
     $("#sidebar a").addClass("normal_link");
 }
 function updateMenu(selector) {

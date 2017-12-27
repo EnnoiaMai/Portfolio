@@ -6,7 +6,7 @@ Date Created: December 2017
 var linkSaver = new link_saver('enn');
 var submenuToggled = false;
 $(document).ready(function() {
-    setListeners()
+    setListeners();
     initializeMenu();
     var currentLinkID = "#" + (linkSaver.getCurrentLink());
     updateMenu(currentLinkID);
