@@ -34,7 +34,7 @@ function initializeMenu() {
     $("#sidebar a").addClass("normal_link");
 }
 function updateMenu(selector) {
-    alert("updateMenu");
+    // alert("updateMenu");
     $('#sidebar a.highlighted_link').removeClass("highlighted_link");
     $(selector).addClass("highlighted_link");
 }
