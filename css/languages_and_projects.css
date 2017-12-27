@@ -58,6 +58,7 @@ body > div {
     list-style-type: none;
 }
 .list div ul a {
+    color: #000;
     display: inline-block;
     font-size: 110%;
     text-decoration: none;
@@ -65,13 +66,13 @@ body > div {
     padding-bottom: 6px;
     padding-left: 18px;
 }
-.list div ul a:visited {
-    color: #000;
-}
 .list div ul a:hover {
     color: #6A0000;
     text-decoration-color: #6A0000;
     text-decoration-line: underline;
+}
+.list div ul a:visited {
+    color: #000;
 }
 .list div:first-child {
     border-right: 1px solid #BBB;
