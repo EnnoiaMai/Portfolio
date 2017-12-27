@@ -49,12 +49,13 @@ function link_saver(key) {
 
     this.getCurrentLink = function() {
         this.getCookieValue();
-        // alert("getting current link, which is " + this.currentLink);
+        alert("getting current link, which is " + this.currentLink);
         return this.currentLink;
     }
 
     this.setCurrentLink = function(link) {
         this.currentLink = link;
+        alert("setting current link, which is " + this.currentLink);
         this.writeCookie();
     }
 }
