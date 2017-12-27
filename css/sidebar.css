@@ -1,0 +1,74 @@
+/*
+Thuc Nguyen
+Date Created: December 2017
+*/
+
+/*================================= Sidebar ==================================*/
+#sidebar {
+    flex: 0 0 16%;
+    /* width: 200px; */
+    /* height: 100%; */
+    background-color: rgba(33, 33, 33, 1.0);
+    /* position: fixed;
+    top: 0px;
+    left: 0px; */
+    overflow: auto;
+    box-sizing: border-box;
+}
+#sidebar ul {
+    list-style-type: none;
+}
+#submenu_links ul {
+    display: none;
+}
+#submenu_links ul li {
+    padding-left: 24px;
+}
+.normal_link {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.0);
+    font-size: 100%;
+    text-decoration: none;
+    display: block;
+    padding: 10px 24px 10px 24px;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.normal_link:hover {
+    color: #FFF;
+    background-color: #000;
+    cursor: pointer;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.highlighted_link {
+    color: white;
+    background-color: rgba(231, 123, 27, 1.0);
+    font-size: 100%;
+    text-decoration: none;
+    display: block;
+    padding: 10px 24px 10px 24px;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+#submenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#submenu div {
+    width: 10%;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+#submenu div img {
+    /* display: inline-block; */
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    /* border: 1px dashed red; */
+}

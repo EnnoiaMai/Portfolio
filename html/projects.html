@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: December 2017
+-->
 <html>
     <head>
         <title>Projects</title>
@@ -6,10 +11,77 @@
         <meta name="author" content="Enn">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" type="text/css" href="">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Quicksand|Source+Sans+Pro|Work+Sans" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../css/languages_and_projects.css">
+        <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="../js/languages_and_projects.js"></script>
     </head>
 
     <body>
-        <h1>Projects</h1>
+        <div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="../index.html" id="link_home">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <div id="submenu">
+                        <a href="languages_and_syntax.html">Languages and Syntax</a>
+                        <div>
+                            <img src="../images/open_submenu.png" alt="open">
+                        </div>
+                    </div>
+                    <li id="submenu_links">
+                        <ul>
+                            <li><a href="syntax_java.html" id="link_syntax_java">Java</a></li>
+                            <li><a href="syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                            <li><a href="syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                            <li><a href="syntax_html.html" id="link_syntax_html">HTML</a></li>
+                            <li><a href="syntax_css.html" id="link_syntax_css">CSS</a></li>
+                            <li><a href="syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                            <li><a href="syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="syntax_php.html" id="link_syntax_php">PHP</a></li>
+                            <li><a href="syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="syntax_python.html" id="link_syntax_python">Python</a></li>
+                            <li><a href="syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <div class="header">
+                    <h1>Projects</h1>
+                </div>
+                <div class="list">
+                    <div>
+                        <h2>Web Applications</h2>
+                        <ul>
+                            <li><a href="../web_applications/proj1/index.html">CS545 Project 1</a></li>
+                            <li><a href="">CS545 Project 2</a></li>
+                            <li><a href="">CS545 Project 3</a></li>
+                            <li><a href="">CS545 Project 4</a></li>
+                        </ul>
+                        <h2>Mobile Applications</h2>
+                        <ul>
+                            <li><a href="">CS646 Assignment 1</a></li>
+                            <li><a href="">CS646 Assignment 2</a></li>
+                            <li><a href="">CS646 Assignment 3</a></li>
+                            <li><a href="">CS646 Assignment 4</a></li>
+                            <li><a href="">CS646 Assignment 5</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Python Scripts</h2>
+                        <ul>
+                            <li><a href=""></a></li>
+                        </ul>
+                        <h2>Bash Scripts</h2>
+                        <ul>
+                            <li><a href=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

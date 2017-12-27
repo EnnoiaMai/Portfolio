@@ -1,54 +1,212 @@
+/*
+Thuc Nguyen
+Date Created: December 2017
+*/
+
 /*================================= General ==================================*/
 * {
     margin: 0;
     padding: 0;
-    /* font-family: "Times New Roman", Arial, Helvetica, sans-serif; */
-    /* font-family: 'Open Sans', sans-serif; */
     font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif;
     /* font-family: 'Source Sans Pro', sans-serif; */
-    /* font-family: 'Work Sans', sans-serif; */
-    /* font-family: 'Quicksand', sans-serif; */
+    /* font-family: 'Open Sans', sans-serif; */
 }
 
-/*================================= Sidebar ==================================*/
-#sidebar {
-    width: 200px;
-    height: 100%;
-    background-color: rgba(62, 62, 62, 1);
-    position: fixed;
-    top: 0px;
-    left: 0px;
+body > div {
+    min-width: 840px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    /* width: 100%;
+    height: 100%; */
     overflow: auto;
-}
-#sidebar ul {
-    list-style-type: none;
-}
-#sidebar ul li a {
-    color: white;
-    font-size: 110%;
-    text-decoration: none;
-    display: block;
-    padding: 8px 24px 8px 24px;
-}
-#sidebar ul li a:hover {
-    color: rgba(255, 40, 50, 0.5);
-}
-#languages_anchor+ul, #projects_anchor+ul {
-    display: none;
-}
-#languages_anchor+ul li, #projects_anchor+ul li {
-    padding-left: 24px;
 }
 
 /*=============================== Welcome Page ===============================*/
-h1, h3 {
-}
 .content {
-    margin-left: 200px;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
-iframe {
-    /*border: none;*/
-    /*background-color: #FFC;*/
-    border: 1px solid black;
+/*============================== HEADER ======================================*/
+.content > div:first-child {
+    color: #FFF;
+    background-color: #6A0000;
+    text-align: center;
+    padding: 24px;
+}
+.content > div:first-child > h1 {
+    padding: 12px;
+}
+.content > div:first-child > h3 {
+    padding: 4px;
+}
+.content > div:first-child > h4 {
+    font-size: 110%;
+    padding: 8px;
+}
+
+#header_image_container {
+    background-image: url("../images/otter_400x400.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 12px 0px;
+    /*border: 1px solid black;*/
+}
+#header_image_container > div {
+    width: 400px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    /*border: 1px dashed orange;*/
+}
+#header_image_container img {
+    width: 100%;
+    max-width: 400px;
+    /*border: 1px dashed green;*/
+}
+
+/*============================ ABOUT ME ======================================*/
+.content > div:nth-child(2) {
+    background-color: #F2F2F2;
+    padding: 24px;
+}
+.content > div:nth-child(2) > h2 {
+    text-align: center;
+    padding: 12px;
+}
+.content > div:nth-child(2)>  p {
+    font-size: 120%;
+    line-height: 36px;
+    width: 75%;
+    padding: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*============================ PROJECTS ======================================*/
+.content > div:nth-child(3) {
+    background-color: #FFF;
+    padding: 24px;
+}
+.content > div:nth-child(3) > h2 {
+    text-align: center;
+    padding: 12px 12px 24px 12px;
+    padding: 24px;
+}
+
+/*----------------------------- Grid Container -------------------------------*/
+.grid_container {
+    display: grid;
+    width: 75%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "language language"
+        "web python"
+        "mobile bash";
+    grid-gap: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    /*border: 1px solid purple;*/
+}
+.grid_container > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.grid_container div > div {
+
+}
+.grid_container > div h3, .grid_container > div p {
+    color: #BBB;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.grid_container > div h3 {
+    font-size: 150%;
+    text-align: center;
+    text-decoration-color: rgba(255, 255, 255, 0.0);
+    text-decoration-line: underline;
+    padding: 12px;
+}
+.grid_container > div p {
+    font-size: 110%;
+    line-height: 36px;
+}
+.grid_container > div h3:hover {
+    cursor: pointer;
+    text-decoration-color: rgba(255, 255, 255, 1.0);
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+.grid_container > div:hover h3, .grid_container > div:hover p {
+    color: #FFF;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.grid_container > div:nth-child(1):hover, .grid_container > div:nth-child(2):hover, .grid_container > div:nth-child(3):hover, .grid_container > div:nth-child(4):hover, .grid_container > div:nth-child(5):hover {
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.grid_container > div:nth-child(1) {
+    grid-area: language;
+    background-color: rgba(103, 103, 103, 1.0);
+    /*border: 1px dashed grey;*/
+}
+.grid_container > div:nth-child(1):hover {
+    background-color: rgba(49, 49, 49, 1.0);
+}
+.grid_container > div:nth-child(2) {
+    grid-area: web;
+    background-color: rgba(91, 116, 114, 1.0);
+    /*border: 1px dashed blue;*/
+}
+.grid_container > div:nth-child(2):hover {
+    background-color: rgba(72, 135, 132, 1.0);
+}
+.grid_container > div:nth-child(3) {
+    grid-area: python;
+    background-color: rgba(136, 108, 116, 1.0);
+    /*border: 1px dashed red;*/
+}
+.grid_container > div:nth-child(3):hover {
+    background-color: rgba(158, 86, 106, 1.0);
+}
+.grid_container > div:nth-child(4) {
+    grid-area: mobile;
+    background-color: rgba(79, 99, 116, 1.0);
+    /*border: 1px dashed brown;*/
+}
+.grid_container > div:nth-child(4):hover {
+    background-color: rgba(53, 101, 142, 1.0);
+}
+.grid_container > div:nth-child(5) {
+    grid-area: bash;
+    background-color: rgba(187, 159, 125, 1.0);
+    /*border: 1px dashed purple;*/
+}
+.grid_container > div:nth-child(5):hover {
+    background-color: rgba(213, 161, 100, 1.0);
+}
+
+.grid_image_container {
+    /* border: 1px solid black; */
+}
+.grid_image_container img {
+    width: 70%;
+    max-width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

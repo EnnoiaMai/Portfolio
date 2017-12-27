@@ -1,5 +1,8 @@
-<Doctype! html>
-
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: December 2017
+-->
 <html>
     <head>
         <title>Enn's Portfolio</title>
@@ -8,10 +11,12 @@
         <meta name="author" content="Enn">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Quicksand|Source+Sans+Pro|Work+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/sidebar.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="js/index.js"></script>
+        <script type="text/javascript" src="js/menu_cookie.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
     </head>
 
     <body>
@@ -19,37 +24,97 @@
         href="languages_and_syntax.html"
         href="projects.html"
         -->
-        <div id="sidebar">
-            <ul>
-                <li><a href="html/home.html" target="pageContainer">Home</a></li>
-                <li><a id="languages_anchor">Languages and Syntax</a>
-                    <ul>
-                        <li><a href="html/syntax_java.html" target="pageContainer">Java</a></li>
-                        <li><a href="html/syntax_swift_4.html" target="pageContainer">Swift 4.0</a></li>
-                        <li><a href="html/syntax_cpp.html" target="pageContainer">C/C++</a></li>
-                        <li><a href="html/syntax_html.html" id="link_syntax_html" target="pageContainer">HTML</a></li>
-                        <li><a href="html/syntax_css.html" id="link_syntax_css" target="pageContainer">CSS</a></li>
-                        <li><a href="html/syntax_javascript.html" target="pageContainer">JavaScript</a></li>
-                        <li><a href="html/syntax_jquery.html" target="pageContainer">JQuery</a></li>
-                        <li><a href="html/syntax_php.html" target="pageContainer">PHP</a></li>
-                        <li><a href="html/syntax_perl.html" target="pageContainer">Perl</a></li>
-                        <li><a href="html/syntax_python.html" target="pageContainer">Python</a></li>
-                        <li><a href="html/syntax_bash.html" target="pageContainer">Bash</a></li>
-                    </ul>
-                </li>
-                <li><a id="projects_anchor">Projects</a>
-                    <ul>
-                        <li><a href="web_applications/web_applications.html" target="pageContainer">Web Applications</a></li>
-                        <li><a href="mobile_applications/mobile_applications.html" target="pageContainer">Mobile Applications</a></li>
-                        <li><a href="python_scripts/python_scripts.html" target="pageContainer">Python Scripts</a></li>
-                        <li><a href="bash_scripts/bash_scripts.html" target="pageContainer">Bash Scripts</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+        <div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="index.html" id="link_home">Home</a></li>
+                    <li><a href="html/projects.html">Projects</a></li>
+                    <div id="submenu">
+                        <a href="html/languages_and_syntax.html">Languages and Syntax</a>
+                        <div>
+                            <img src="images/open_submenu.png" alt="open">
+                        </div>
+                    </div>
+                    <li id="submenu_links">
+                        <ul>
+                            <li><a href="html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                            <li><a href="html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                            <li><a href="html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                            <li><a href="html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                            <li><a href="html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                            <li><a href="html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                            <li><a href="html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                            <li><a href="html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                            <li><a href="html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="content">
-            <iframe src="html/home.html" name="pageContainer" width="" height=""></iframe>
+            <div class="content">
+                <div>
+                    <h1>Welcome</h1>
+                    <h3>A peek at all my endeavors</h3>
+                    <div id="header_image_container">
+                        <div>
+                            <img src="images/header_circle.png" alt="">
+                        </div>
+                    </div>
+                    <h4>Ennoia</h4>
+                </div>
+
+                <div>
+                    <h2>About Me</h2>
+                    <p>My name is Thuc Nguyen, but I also go by Ennoia. I graduated from UCSD in 2017 with a Human Biology major. During the years as an undergraduate, I grew a strong interest in Computer Science and started learning how to program offhand. I looked into C++ as my first programming language to gain some fundamental understanding of how to code. Thereafter, I sought to learn a multitude of languages and coded some mobile applications along the way. I was never able to fully complete and publish an app. The only classes I took during my undergrad years included an Introduction to Java class and a Basic Data Structures class. Despite my lack of a formal education in this field, I am motivated to pursue C.S. and complete as many projects as I can. This is my life's work.</p>
+                </div>
+                <div>
+                    <h2>Projects</h2>
+                    <div class="grid_container">
+                        <div>
+                            <h3>Languages and Syntax</h3>
+                            <p>The syntax for all of the languages that I have learned so far. Each particular page includes code snippets that I have found useful for understanding the language. I try to summarize what I've learned and read from various sites that contain the documentation, so these pages act more as notes and as a reference rather than a coverage of all the capabilities of the language. These notes also use code blocks from Youtube videos as examples.</p>
+                        </div>
+                        <div id="container_web">
+                            <div>
+                                <h3>Web Applications</h3>
+                                <p>Contains the websites that I have completed. Most of these web projects were assigned in my CS545 class.</p>
+                            </div>
+                            <div class="grid_image_container">
+                                <img src="images/web_blurred.png" alt="Web">
+                            </div>
+                        </div>
+                        <div id="container_python">
+                            <div>
+                                <h3>Python Scripts</h3>
+                                <p>Contains random python scripts that I completed.</p>
+                            </div>
+                            <div class="grid_image_container">
+                                <img src="images/python_blurred.png" alt="Python">
+                            </div>
+                        </div>
+                        <div id="container_mobile">
+                            <div>
+                                <h3>Mobile Applications</h3>
+                                <p>Contains the applications that I have completed or in the process of completing. Some of these projects were assigned in my CS646 class.</p>
+                            </div>
+                            <div class="grid_image_container">
+                                <img src="images/mobile_blurred.png" alt="Mobile">
+                            </div>
+                        </div>
+                        <div id="container_bash">
+                            <div>
+                                <h3>Bash Scripts</h3>
+                                <p>Contains random bash scripts that I completed.</p>
+                            </div>
+                            <div class="grid_image_container">
+                                <img src="images/bash_blurred.png" alt="Bash">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 

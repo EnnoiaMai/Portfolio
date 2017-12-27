@@ -1,0 +1,78 @@
+/*
+Thuc Nguyen
+Date Created: December 2017
+*/
+
+/*============================== GENERAL =====================================*/
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif;
+    /* font-family: 'Source Sans Pro', sans-serif; */
+    /* font-family: 'Open Sans', sans-serif; */
+}
+
+body > div {
+    min-width: 840px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    /* width: 100%;
+    height: 100%; */
+    overflow: auto;
+}
+
+.content {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.header {
+    color: #FFF;
+    background-color: rgba(103, 103, 103, 1.0);
+    min-height: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid green; */
+}
+.list {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    /* border: 1px solid red; */
+}
+.list div h2 {
+    text-align: center;
+    padding: 12px;
+}
+.list div {
+    width: 50%;
+    /* border: 1px dashed purple; */
+}
+.list div ul {
+    list-style-type: none;
+}
+.list div ul a {
+    display: inline-block;
+    font-size: 110%;
+    text-decoration: none;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 18px;
+}
+.list div ul a:visited {
+    color: #000;
+}
+.list div ul a:hover {
+    color: #6A0000;
+    text-decoration-color: #6A0000;
+    text-decoration-line: underline;
+}
+.list div:first-child {
+    border-right: 1px solid #BBB;
+}
