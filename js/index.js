@@ -6,15 +6,15 @@ Date Created: December 2017
 var linkSaver = new link_saver('enn');
 var submenuToggled = false;
 $(document).ready(function() {
-    alert("document ready");
+    // alert("document ready");
     setListeners();
     initializeMenu();
     var currentLinkID = "#" + (linkSaver.getCurrentLink());
-    if (currentLinkID != "#") {
-        alert(currentLinkID);
-    } else {
-        alert("error");
-    }
+    // if (currentLinkID != "#") {
+    //     alert(currentLinkID);
+    // } else {
+    //     alert("error");
+    // }
     updateMenu(currentLinkID);
 });
 

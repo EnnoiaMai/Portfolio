@@ -20,7 +20,7 @@ function link_saver(key) {
     this.getCookieValue = function() {  // PRIVATE METHOD
         // Grab the cookie first and split each individual cookie
         var rawString = document.cookie;
-        alert("rawString = " + rawString);
+        // alert("rawString = " + rawString);
         if(rawString == undefined) {
             return;
         }
@@ -49,7 +49,7 @@ function link_saver(key) {
 
     this.getCurrentLink = function() {
         this.getCookieValue();
-        alert("getting current link, which is " + this.currentLink);
+        // alert("getting current link, which is " + this.currentLink);
         return this.currentLink;
     }
 
