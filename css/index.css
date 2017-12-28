@@ -11,7 +11,9 @@ Date Created: December 2017
     /* font-family: 'Source Sans Pro', sans-serif; */
     /* font-family: 'Open Sans', sans-serif; */
 }
-
+body {
+    min-width: 1000px;
+}
 body > div {
     min-width: 840px;
     min-height: 100vh;
@@ -52,19 +54,19 @@ body > div {
     background-size: contain;
     background-position: center;
     margin: 12px 0px;
-    /*border: 1px solid black;*/
+    /* border: 1px solid black; */
 }
 #header_image_container > div {
     width: 400px;
     height: 400px;
     margin-left: auto;
     margin-right: auto;
-    /*border: 1px dashed orange;*/
+    /* border: 1px dashed orange; */
 }
 #header_image_container img {
     width: 100%;
     max-width: 400px;
-    /*border: 1px dashed green;*/
+    /* border: 1px dashed green; */
 }
 
 /*============================ ABOUT ME ======================================*/
@@ -109,6 +111,7 @@ body > div {
     grid-gap: 48px;
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
     /*border: 1px solid purple;*/
 }
 .grid_container > div {
@@ -120,16 +123,16 @@ body > div {
     -moz-transition-duration: 500ms;
     transition-duration: 500ms;
 }
-.grid_container div > div {
-
+.grid_container > div h3 {
+    text-align: center;
 }
-.grid_container > div h3, .grid_container > div p {
+.grid_container > div a, .grid_container > div p {
     color: #BBB;
     -webkit-transition-duration: 500ms;
     -moz-transition-duration: 500ms;
     transition-duration: 500ms;
 }
-.grid_container > div h3 {
+.grid_container > div a {
     font-size: 150%;
     text-align: center;
     text-decoration-color: rgba(255, 255, 255, 0.0);
@@ -140,7 +143,7 @@ body > div {
     font-size: 110%;
     line-height: 36px;
 }
-.grid_container > div h3:hover {
+.grid_container > div a:hover {
     cursor: pointer;
     text-decoration-color: rgba(255, 255, 255, 1.0);
     -webkit-transition-duration: 500ms;
@@ -148,7 +151,7 @@ body > div {
     transition-duration: 500ms;
 }
 
-.grid_container > div:hover h3, .grid_container > div:hover p {
+.grid_container > div:hover a, .grid_container > div:hover p {
     color: #FFF;
     -webkit-transition-duration: 500ms;
     -moz-transition-duration: 500ms;

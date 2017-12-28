@@ -6,6 +6,9 @@ Date Created: December 2017
 /*================================= Sidebar ==================================*/
 #sidebar {
     flex: 0 0 16%;
+    /* min-width: 100px; */
+    /* flex-grow: 0;
+    flex-shrink: 0; */
     /* width: 200px; */
     /* height: 100%; */
     background-color: rgba(33, 33, 33, 1.0);
@@ -58,17 +61,25 @@ Date Created: December 2017
 #submenu {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
+    box-sizing: border-box;
+}
+#submenu a {
+    /* flex-shrink: 1; */
+    /* border: 1px dashed blue; */
 }
 #submenu div {
-    width: 10%;
+    flex: 0 0 14%;
+    align-self: center;
     padding-left: 4px;
     padding-right: 4px;
+    /* border: 1px dashed red; */
 }
 #submenu div img {
     /* display: inline-block; */
     width: 100%;
-    max-width: 220px;
+    /* min-width: 20px; */
+    max-width: 100px;
     height: auto;
     /* border: 1px dashed red; */
 }
