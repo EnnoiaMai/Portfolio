@@ -19,9 +19,11 @@ Date Created: December 2017
     box-sizing: border-box;
 }
 #sidebar ul {
+    font-size: 1.1rem;
     list-style-type: none;
 }
 #submenu_links ul {
+    font-size: 1.0rem;
     display: none;
 }
 #submenu_links ul li {
@@ -78,6 +80,7 @@ Date Created: December 2017
 #submenu div img {
     /* display: inline-block; */
     width: 100%;
+    max-width: 100px;
     /* min-width: 20px; */
     max-width: 100px;
     height: auto;
