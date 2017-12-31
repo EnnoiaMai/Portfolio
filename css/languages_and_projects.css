@@ -11,14 +11,14 @@ Date Created: December 2017
     /* font-family: 'Source Sans Pro', sans-serif; */
     /* font-family: 'Open Sans', sans-serif; */
 }
-
+body {
+    min-width: 1000px;
+}
 body > div {
     min-width: 840px;
     min-height: 100vh;
     display: flex;
     flex-direction: row;
-    /* width: 100%;
-    height: 100%; */
     overflow: auto;
 }
 
@@ -30,7 +30,8 @@ body > div {
 .header {
     color: #FFF;
     background-color: rgba(103, 103, 103, 1.0);
-    min-height: 40%;
+    /* min-height: 40%; */
+    height: 300px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -46,18 +47,19 @@ body > div {
     margin-right: auto;
     /* border: 1px solid red; */
 }
-.list div h2 {
+.list > div h2 {
     text-align: center;
     padding: 12px;
 }
-.list div {
+.list > div {
     width: 50%;
     /* border: 1px dashed purple; */
 }
-.list div ul {
+.list > div ul {
     list-style-type: none;
+    /* border: 1px dashed red; */
 }
-.list div ul a {
+.list > div ul a, .list table td > a {
     color: #000;
     display: inline-block;
     font-size: 110%;
@@ -66,14 +68,53 @@ body > div {
     padding-bottom: 6px;
     padding-left: 18px;
 }
-.list div ul a:hover {
+.list > div ul a:hover, .list table td > a:hover {
     color: #6A0000;
     text-decoration-color: #6A0000;
     text-decoration-line: underline;
 }
-.list div ul a:visited {
+.list > div ul a:visited, .list table td > a:visited {
     color: #000;
 }
-.list div:first-child {
+.list > div:first-child {
     border-right: 1px solid #BBB;
+}
+
+/*================================= PROJECTS =================================*/
+.list table {
+    width: 80%;
+    border-collapse: collapse;
+    /* border: 1px solid blue; */
+    margin-left: auto;
+    margin-right: auto;
+}
+.list table tr td {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.list table tr td:first-child {
+    width: 50%;
+}
+.list table tr td:nth-child(2) {
+    /* width: 20%; */
+    /* border: 1px dashed purple; */
+}
+.list table tr td div {
+    background-color: rgba(220, 220, 220, 1.0);
+    width: 10%;
+    margin-left: 10px;
+    /* margin-right: auto; */
+    padding: 4px;
+    border-radius: 20%;
+    /* border: 1px dashed orange; */
+}
+.list table tr td div a {
+    display: block;
+    width: 100%;
+    /* border: 1px dashed green; */
+}
+.list table td img {
+    width: 100%;
+    max-width: 100px;
 }

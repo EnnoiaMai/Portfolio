@@ -168,13 +168,15 @@ body > div {
 }
 #directory_container {
     width: 10%;
-    height: 80vh;
+    /* height: 80vh; */
+    height: 96%;
     min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
-    top: 40px;
+    /* top: 40px; */
+    top: 4%;
     right: 0px;
     /* transform: translate(0%, -50%); */
     /* border: 1px solid purple; */
@@ -187,6 +189,7 @@ body > div {
     box-shadow: 1px 0px 5px 0px rgba(220, 220, 220, 1.0) inset;
     overflow: auto;
     padding: 16px;
+    transform: translate(100%, 0%);
     /* border: 1px solid grey; */
 }
 #directory ul {
@@ -221,13 +224,24 @@ body > div {
     /* border: 1px solid blue; */
 }
 #navigation_buttons div {
-    width: 40%;
-    height: 100%;
+    /* width: 40%; */
+    width: auto;
+    height: 90%;
+    /* border: 1px dashed purple; */
 }
 #navigation_buttons div img {
     width: auto;
     height: 100%;
     max-height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#directory_menu {
+    visibility: hidden;
+}
+#directory_top_arrow {
+    visibility: hidden;
 }
 
 .section {

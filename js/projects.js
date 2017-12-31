@@ -1,0 +1,9 @@
+/*
+Thuc Nguyen
+Date Created: December 2017
+*/
+
+$(document).ready(function() {
+    currentPath = sidebarImagePath.SYNTAX;
+    initializeSidebar();
+});

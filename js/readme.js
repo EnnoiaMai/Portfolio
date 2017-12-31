@@ -4,7 +4,6 @@ Date Created: December 2017
 */
 
 $(document).ready(function() {
-    fromIndex = false;
+    currentPath = sidebarImagePath.PROJECT;
     initializeSidebar();
-
 });

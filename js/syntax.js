@@ -3,29 +3,33 @@ Thuc Nguyen
 Date Created: December 2017
 */
 
-var directoryOpened = true;
+var directoryOpened = false;
 $(document).ready(function() {
-    // alert("document ready syntax.js");
-    fromIndex = false;
+    currentPath = sidebarImagePath.SYNTAX;
     initializeSidebar();
 
+    // Initially toggle the submenu to show the syntax pages
     toggleSubMenu();
     $('#submenu img').attr('src', '../images/close_submenu.png');
 
+    // Dynamically create the id for all the h2 tags and populate it in the directory div
     createIDForSections();
     createDirectoryOfContents();
-    $('#directory_arrow').on('click', displayDirectory);
+
+    // Click event listener to display the directory and anon function for handler when transition ends
+    $('#directory_menu').on('click', displayDirectory);
     $('#directory').on('transitionend webkitTransitionEnd oTransitionEnd', function() {
-        if (!directoryOpened) {
-            $(this).css("visibility", "hidden");
-        }
+        // if (!directoryOpened) {
+        //     $(this).css("visibility", "hidden");
+        // }
     });
-    $('#directory_top_arrow').on('click', function() {
-        // $(window).scrollTop(0);
-        $('html, body').stop().animate({
-            scrollTop: 0
-        }, 200);
-    })
+
+    // Click event listener to scroll to top of page
+    $('#directory_top_arrow').on('click', scrollToTop);
+
+    // Initially hide the directory menu button and then fade it in
+    $('#directory_menu').css("visibility", "visible").hide().fadeIn(500);
+    // $('#directory_top_arrow').hide();
 });
 
 function createIDForSections() {
@@ -35,7 +39,6 @@ function createIDForSections() {
 }
 
 function createDirectoryOfContents() {
-    // alert("createDirectoryOfContents");
     var directoryString = "<h3>Contents</h3><ul>";
     $('#content h2').each(function() {
         var headerText = $(this).text();
@@ -44,7 +47,7 @@ function createDirectoryOfContents() {
     });
     directoryString += "</ul>";
 
-    // <div id=\"navigation_buttons\"><div><img src=\"../images/close_arrow.png\" alt=\"open\" id=\"directory_arrow\"></div>" +
+    // <div id=\"navigation_buttons\"><div><img src=\"../images/close_arrow.png\" alt=\"open\" id=\"directory_menu\"></div>" +
     // "<div><img src=\"../images/close_arrow.png\" alt\"open\"></div></div>
 
     var handler = document.getElementById('directory');
@@ -59,19 +62,24 @@ function displayDirectory() {
         // Close the directory
         directoryOpened = false;
         directory.style.transform = "translate(100%, 0%)";
-        // $(directory).attr("src", "../images/close_arrow.png");
-        // directory.src = "../images/close_arrow.png";
-        $(this).attr("src", "../images/open_arrow.png");
-        $('#directory_top_arrow').fadeOut(500);
+        // $(this).attr("src", "../images/open_arrow.png");
+        $('#directory_top_arrow').fadeOut(500, function() {
+            $(this).css("visibility", "hidden");
+        });
     }
     else {
         // Open the directory
         directoryOpened = true;
-        directory.style.visibility = "visible";
+        // directory.style.visibility = "visible";
         directory.style.transform = "translate(0%, 0%)";
-        // $(directory).attr("src", "../images/open_arrow.png");
-        // directory.src = "../images/open_arrow.png";
-        $(this).attr("src", "../images/close_arrow.png");
-        $('#directory_top_arrow').fadeIn(500);
+        // $(this).attr("src", "../images/close_arrow.png");
+        $('#directory_top_arrow').css("visibility", "visible").hide().fadeIn(500);
     }
+}
+
+function scrollToTop() {
+    // $(window).scrollTop(0);
+    $('html, body').stop().animate({
+        scrollTop: 0
+    }, 200);
 }

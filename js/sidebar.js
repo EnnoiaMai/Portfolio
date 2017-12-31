@@ -67,7 +67,12 @@ function link_saver(key) {
 
 var linkSaver = new link_saver('enn');
 var submenuToggled = false;
-var fromIndex = false;
+var sidebarImagePath = {
+    INDEX: "pathIndex",
+    SYNTAX: "syntax",
+    PROJECT: "project"
+};
+var currentPath = sidebarImagePath.INDEX;
 // Methods used for sidebar and submenu selection
 function initializeSidebar() {
     $('#submenu img').on('click', toggleSubMenu);
@@ -79,7 +84,7 @@ function initializeSidebar() {
     if (currentLinkID != "#") {
         $(currentLinkID).addClass("highlighted_link");
     } else {
-        alert("sidebar.js - couldn't highlight current link");
+        // alert("sidebar.js - couldn't highlight current link");
     }
 }
 
@@ -87,19 +92,23 @@ function toggleSubMenu() {
     $('#submenu_links').children("ul").toggle();
     if (!submenuToggled) {
         var path;
-        if (fromIndex) {
+        if (currentPath == sidebarImagePath.INDEX) {
             path = "images/close_submenu.png";
-        } else {
+        } else if (currentPath == sidebarImagePath.SYNTAX) {
             path = "../images/close_submenu.png";
+        } else if (currentPath == sidebarImagePath.PROJECT) {
+            path = "../../images/close_submenu.png";
         }
         $(this).attr("src", path);
         submenuToggled = true;
     } else {
         var path;
-        if (fromIndex) {
+        if (currentPath == sidebarImagePath.INDEX) {
             path = "images/open_submenu.png";
-        } else {
+        } else if (currentPath == sidebarImagePath.SYNTAX) {
             path = "../images/open_submenu.png";
+        } else if (currentPath == sidebarImagePath.PROJECT) {
+            path = "../../images/open_submenu.png";
         }
         $(this).attr("src", path);
         submenuToggled = false;
@@ -108,5 +117,10 @@ function toggleSubMenu() {
 
 function saveLink() {
     var id = this.id;
+    linkSaver.setCurrentLink(id);
+}
+
+// Done in languages.js file whenever a link under the div with class list is clicked
+function manuallySaveLink(id) {
     linkSaver.setCurrentLink(id);
 }

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: December 2017
+-->
+<html>
+    <head>
+        <title>Project 1 - Montreal</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../css/readme.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/readme.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="../../index.html" id="link_home">Home</a></li>
+                    <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                    <div id="submenu">
+                        <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                        <div>
+                            <img src="../../images/open_submenu.png" alt="open">
+                        </div>
+                    </div>
+                    <li id="submenu_links">
+                        <ul>
+                            <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                            <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                            <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                            <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                            <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                            <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                            <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                            <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                            <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content_container">
+                <div class="header">
+                    <h1>Project 1 - Montreal</h1>
+                </div>
+
+                <div class="content">
+                    <div class="section">
+                        <h2>Assignment Details</h2>
+                        <p>This assignment requires the use of strict xHTML and CSS to design a basic website. The website provides information about Montreal, Canada for tourists. It must include the following xHTML pages as links:</p>
+                        <br>
+                        <ul>
+                            <li>History</li>
+                            <li>Neighborhoods</li>
+                            <li>Art and Architecture</li>
+                            <li>Must-See Sites</li>
+                            <li>Food and Restaurants</li>
+                        </ul>
+                        <br>
+                        <p>The websites must includes the following elements - links, images, lists, and tables.</p>
+                        <p>Only strict xHTML and CSS are allowed, Javascript, PHP, and other technologies aren't. xHTML and CSS must validate using W3C (CSS level 3). External stylesheets must be used.</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Project Details</h2>
+                        <p>The project was straightforward in its requirement and as an introduction to building a website, so the layout was fairly simple. This layout was reused for most of the pages, including the History, Neighborhoods, Art and Architecture, Must-See Sites, and the Food and Restaurants pages.</p>
+                        <br>
+                        <p>The pattern to laying out the elements was to either keep the image of interest on the left or right side of the page and the description on its opposite side. These "blocks" of content were visually divided by a border. As someone who was new to web development, I had not yet learned layouts such as flex or grid layouts, so the CSS part of the project was somehwat of a challenge.</p>
+                        <br>
+                        <p>In order to get the "outer" div (enveloping the text and image content) to respect the height of its contents, the "inner" div which contained the image had its display property set to inline-block. This way, the outer div would respect the height of the image and its margins would expand. The two inner divs that contained the description and the image, respectively, were either floated to the left or to the right.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
