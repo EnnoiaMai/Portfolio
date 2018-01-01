@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: December 2017
+-->
+<html>
+    <head>
+        <title>Project 4 - Bertha's Deluxe Chocolates</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../css/readme.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/readme.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="../../index.html" id="link_home">Home</a></li>
+                    <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                    <div id="submenu">
+                        <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                        <div>
+                            <img src="../../images/open_submenu.png" alt="open">
+                        </div>
+                    </div>
+                    <li id="submenu_links">
+                        <ul>
+                            <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                            <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                            <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                            <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                            <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                            <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                            <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                            <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                            <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content_container">
+                <div class="header" id="header_cs545">
+                    <h1>Project 4 - Bertha's Deluxe Chocolates</h1>
+                </div>
+
+                <div class="content">
+                    <div class="section">
+                        <h2>Assignment Details</h2>
+                        <p>For this assignment, an online store website will be created and will feature products from a fictional company, <b>Bertha's Deluxe Chocolates</b>. Based off of See's Candies, this company produces chocolates and confections which can be purchased online. The site must feature a page that lets users browse the products and a shopping cart that lets customers add and remove items. The assignment also requires a report page that lists all the orders placed, ordered by SKU, the stock keeping unit.</p>
+                        <br>
+                        <p>The website must include the following:</p>
+                        <ul>
+                            <li>Links: <b>Home, Products, Order Online, About Us, Contact</b></li>
+                            <li>Home: returns user to landing page</li>
+                            <li>Products: description of the types of candies available for order. Products are organized by category.</li>
+                            <li>Order Online: order form to select types of chocolates to order and the quantity. The user must be able to change the quantity and remove items altogether. The total for an item should change when the user changes the quantity field. The form should show a grand total.</li>
+                            <li>About Us and Contact pages are static and contain fictional details.</li>
+                        </ul>
+                        <br>
+                        <p>Products should be organized by the following categories:</p>
+                        <ul>
+                            <li>Milk chocolate</li>
+                            <li>Dark chocolate</li>
+                            <li>Nuts and chews</li>
+                            <li>Brittles and Toffees</li>
+                            <li>Truffles</li>
+                            <li>Gifts</li>
+                            <li>Holiday assortments</li>
+                        </ul>
+                        <br>
+                        <h4>The database</h4>
+                        <p>The available products that the user can purchase are contained within a read-only table named products. The table must ne queried to retrieve the products and populate the website.</p>
+                        <p>The sales information to produce the report page is stored in a different database. The information stored is the SKU, date, and quantity of each purchase made by users, which are all inserted or updated to this database.</p>
+                        <br>
+                        <p>The following shows the fields in the products table:</p>
+                        <p><em>mysql> describe products;</em></p>
+                        <table id="cs545_proj4_table">
+                            <tr>
+                                <td>Field</td>
+                                <td>Type</td>
+                                <td>Null</td>
+                                <td>Key</td>
+                                <td>Default</td>
+                                <td>Extra</td>
+                            </tr>
+                            <tr>
+                                <td>sku</td>
+                                <td>char(9)</td>
+                                <td>NO</td>
+                                <td>PRI</td>
+                                <td>NULL</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>category</td>
+                                <td>varchar(20)</td>
+                                <td>YES</td>
+                                <td></td>
+                                <td>NULL</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>title</td>
+                                <td>varchar(25)</td>
+                                <td>YES</td>
+                                <td></td>
+                                <td>NULL</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>short_description</td>
+                                <td>varchar(200)</td>
+                                <td>YES</td>
+                                <td></td>
+                                <td>NULL</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>long_description</td>
+                                <td>varchar(500)</td>
+                                <td>YES</td>
+                                <td></td>
+                                <td>NULL</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>cost</td>
+                                <td>decimal(6, 2)</td>
+                                <td>YES</td>
+                                <td></td>
+                                <td>NULL</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>retail</td>
+                                <td>decimal(6, 2)</td>
+                                <td>YES</td>
+                                <td></td>
+                                <td>NULL</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p><em>7 rows in set (0.00 sec)</em></p>
+                        <br>
+                        <h4>The Order Form</h4>
+                        <p>The order form should have the following fields:</p>
+                        <ul>
+                            <li>Billing Address</li>
+                            <ol>
+                                <li>First Name</li>
+                                <li>Last Name</li>
+                                <li>Address (2 lines)</li>
+                                <li>City, State, and Zip Code</li>
+                                <li>Phone Number</li>
+                            </ol>
+                            <li>Shipping Address</li>
+                            <ol>
+                                <li>First Name</li>
+                                <li>Last Name</li>
+                                <li>Address (2 lines)</li>
+                                <li>City, State, and Zip Code</li>
+                                <li>Phone Number</li>
+                            </ol>
+                            <li>Payment Type (Visa, Mastercard, Discover, American Express)</li>
+                            <li>Card Number</li>
+                            <li>Expiration Date</li>
+                        </ul>
+                        <br>
+                        <h4>Additional Details</h4>
+                        <p>Technologies and languages used must be HTML, Javascript or JQuery, Perl for all dynamic code, and the MySQL database. Perl cgi must be used for all dynamic code in this project. PHP is not allowed.</p>
+                        <ul>
+                            <li>The application must cater to the user experience and be easily navigated and seamless.</li>
+                            <li>Javscript should be used creatively and AJAX appropriately to keep from refreshing the page.</li>
+                            <li>HTML, CSS, and JS files must be separated using external files and can not be embedded in the HTML file.</li>
+                            <li>$2.00 shipping fee is charged for each item.</li>
+                            <li>The tax rate in San Diego will be used (8.0%).</li>
+                            <li>The only information stored in the database to produce the report is the date, the sku, and the quantity.</li>
+                            <li>The <b>cost price</b> should not be visible at all on the webpage, only the <b>retail price</b>.</li>
+                        </ul>
+                        <br>
+                        <p>The customer should be directed to a confirmation page when submitting the order, and the confirmation should include details of the order. For example, the items ordered and total can be shown along with the billing and shipping address. The complete credit card number should not be shown, only the last 4 digits. The report page should show total sales and profit for each product sold and ordered by SKU. A grand total for gross sales and profit should be calculated and displayed.</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Project Details</h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
