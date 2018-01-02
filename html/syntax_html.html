@@ -11,6 +11,7 @@ Date Created: December 2017
         <meta name="author" content="Enn">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
         <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/themes/prism-tomorrow.min.css">
@@ -52,12 +53,14 @@ Date Created: December 2017
 
             <div id="content_container">
 
-                <h1 id="title">HTML Syntax</h1>
+                <div>
+                    <h1>HTML Syntax</h1>
+                </div>
 
                 <div id="content">
 
                     <div class="section">
-                        <p><span class="bold">Note: </span>Some sources that should be credited in creating this document include various tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/html/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a></p>
+                        <p><span class="bold">Sources to credit: </span>Tutorials on Youtube, StackOverflow, <a href="https://www.w3schools.com/html/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a></p>
                     </div>
 
                     <div class="section">
@@ -78,20 +81,20 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Starting Template</h2>
-            <pre><code class="language-markup">
-            &lt;html&gt;
-                &lt;head&gt;
-                    &lt;title&gt; My Web Page &lt;&frasl;title&gt;
-                    &lt;meta name="description" content="describe the HTML webpage"&gt;
-                    &lt;meta name="keywords" content="html, reference, guide"&gt;
-                    &lt;meta http-equiv="author" content="Enn"&gt;
-                    &lt;meta http-equiv="content-language" content="en-us"&gt;
-                &lt;&frasl;head&gt;
-                &lt;body&gt;
-                    -Content Goes Here-
-                &lt;&frasl;body&gt;
-            &lt;&frasl;html&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt; My Web Page &lt;&frasl;title&gt;
+            &lt;meta name="description" content="describe the HTML webpage"&gt;
+            &lt;meta name="keywords" content="html, reference, guide"&gt;
+            &lt;meta http-equiv="author" content="Enn"&gt;
+            &lt;meta http-equiv="content-language" content="en-us"&gt;
+        &lt;&frasl;head&gt;
+        &lt;body&gt;
+            -Content Goes Here-
+        &lt;&frasl;body&gt;
+    &lt;&frasl;html&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -192,35 +195,35 @@ Date Created: December 2017
                             <tr>
                                 <td>&lt;audio&gt;</td>
                                 <td>Audio element, can add different sources for alternatives or backups. Supports .mp3, .wav, .ogg. Attributes include controls, autoplay, loop, draggable.
-            <pre><code class="language-markup">
-            &lt;audio controls autoplay loop draggable="true"&gt;
-                &lt;source src="...mp3"&gt;
-                &lt;source src="...wav"&gt;
-            &lt;&frasl;audio&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;audio controls autoplay loop draggable="true"&gt;
+        &lt;source src="...mp3"&gt;
+        &lt;source src="...wav"&gt;
+    &lt;&frasl;audio&gt;
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td>&lt;video&gt;</td>
                                 <td>Video element. Attributes include width, height, controls
-            <pre><code class="language-markup">
-            &lt;video width="640px" height="360px" controls&gt;
-                &lt;source src="...mp4"&gt;
-            &lt;&frasl;video&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;video width="640px" height="360px" controls&gt;
+        &lt;source src="...mp4"&gt;
+    &lt;&frasl;video&gt;
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td>&lt;iframe&gt;</td>
                                 <td>Inserts content from external source. Use target attribute on anchor tag to reference iframe element.
-            <pre><code class="language-markup">
-            &lt;iframe src="first.html" name="ouriframe" width="200px" height="200px"&gt;&lt;&frasl;iframe&gt;
-            &lt;a href="second.html" target="ouriframe"&gt;Switch to new document&lt;&frasl;a&gt;
-            </code>
-            <iframe src="../syntax_html_iframe/first.html"name="ouriframe" width="200px" height="200px"></iframe>
-            <div id="iframe_link_div">
-                <a id="iframe_link" href="../syntax_html_iframe/second.html" target="ouriframe">Switch to new document</a>
-            </div></pre>
+    <pre><code class="language-markup">
+    &lt;iframe src="first.html" name="ouriframe" width="200px" height="200px"&gt;&lt;&frasl;iframe&gt;
+    &lt;a href="second.html" target="ouriframe"&gt;Switch to new document&lt;&frasl;a&gt;
+    </code>
+    <iframe src="../syntax_html_iframe/first.html"name="ouriframe" width="200px" height="200px"></iframe>
+    <div id="iframe_link_div">
+        <a id="iframe_link" href="../syntax_html_iframe/second.html" target="ouriframe">Switch to new document</a>
+    </div></pre>
                                 </td>
                             </tr>
                         </table>
@@ -229,13 +232,13 @@ Date Created: December 2017
                     <div class="section">
                         <h2>Lists</h2>
                         <p>Either ordered(ol) or unordered(ul).</p>
-            <pre><code class="language-markup">
-            &lt;ul&gt;
-                &lt;li&gt;Unordered list item 1&lt;&frasl;li&gt;
-                &lt;li&gt;Unordered list item 2&lt;&frasl;li&gt;
-                &lt;li&gt;Unordered list item 3&lt;&frasl;li&gt;
-            &lt;&frasl;ul&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;ul&gt;
+        &lt;li&gt;Unordered list item 1&lt;&frasl;li&gt;
+        &lt;li&gt;Unordered list item 2&lt;&frasl;li&gt;
+        &lt;li&gt;Unordered list item 3&lt;&frasl;li&gt;
+    &lt;&frasl;ul&gt;
+    </code></pre>
                         <div class="section_result">
                             <h3>Result:</h3>
                             <div class="center_block_list">
@@ -284,20 +287,20 @@ Date Created: December 2017
                                 <td>Specifies group of 1 or more columns, used to apply styes to entire columns. Must be after any caption elements and before any thead, tbody, tfoot, and tr elements.</td>
                             </tr>
                         </table>
-            <pre><code class="language-markup">
-            &lt;table&gt;
-                &lt;tr&gt;
-                    &lt;th&gt;Column 1&lt;&frasl; &gt;
-                    &lt;th&gt;Column 2&lt;&frasl; &gt;
-                    &lt;th&gt;Column 3&lt;&frasl; &gt;
-                &lt;&frasl;tr&gt;
-                &lt;tr&gt;
-                    &lt;td&gt;Data 1&lt;&frasl; &gt;
-                    &lt;td&gt;Data 2&lt;&frasl; &gt;
-                    &lt;td&gt;Data 3&lt;&frasl; &gt;
-                &lt;&frasl;tr&gt;
-            &lt;&frasl;table&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Column 1&lt;&frasl; &gt;
+            &lt;th&gt;Column 2&lt;&frasl; &gt;
+            &lt;th&gt;Column 3&lt;&frasl; &gt;
+        &lt;&frasl;tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Data 1&lt;&frasl; &gt;
+            &lt;td&gt;Data 2&lt;&frasl; &gt;
+            &lt;td&gt;Data 3&lt;&frasl; &gt;
+        &lt;&frasl;tr&gt;
+    &lt;&frasl;table&gt;
+    </code></pre>
                         <div class="section_result">
                             <h3>Result:</h3>
                             <table class="center_block">
@@ -317,9 +320,9 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Forms</h2>
-            <pre><code class="language-markup">
-            &lt;form action="someFile.php" method="GET | POST" name="" enctype=""&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;form action="someFile.php" method="GET | POST" name="" enctype=""&gt;
+    </code></pre>
                         <p>Creates a form, the following explains the attributes:</p>
                         <ul>
                             <li><span class="definition_attribute">action</span>: action to be performed when form is submitted, usually a path to webpage on server (a php file)</li>
@@ -337,87 +340,87 @@ Date Created: December 2017
                             <tr>
                                 <td><span class="definition">Text</span>: for one-line text input field</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;input type="text" name="inputText"&gt;
-            </code>
-            <input type="text" name="" value="">
-            </pre>
+    <pre><code class="language-markup">
+    &lt;input type="text" name="inputText"&gt;
+    </code>
+    <input type="text" name="" value="">
+    </pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Password</span>: like text input but hides input</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;input type="password" name="psw"&gt;
-            </code>
-            <input type="password" name="psw">
-            </pre>
+    <pre><code class="language-markup">
+    &lt;input type="password" name="psw"&gt;
+    </code>
+    <input type="password" name="psw">
+    </pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Submit</span>: button that submits the form, can use onsubmit attribute on form and define a function (JS) for validation.</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;input type="submit" value="Submit"&gt;
-            </code>
-            <input type="submit" value="Submit">
-            </pre>
+    <pre><code class="language-markup">
+    &lt;input type="submit" value="Submit"&gt;
+    </code>
+    <input type="submit" value="Submit">
+    </pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Reset</span>: reset button to reset all form values to default</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;input type="reset"&gt;
-            </code>
-            <input type="reset" name="" value="Reset">
-            </pre>
+    <pre><code class="language-markup">
+    &lt;input type="reset"&gt;
+    </code>
+    <input type="reset" name="" value="Reset">
+    </pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Radio button</span>: select one of various choices</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;input type="radio" name="gender" value="male"&gt;
-            &lt;input type="radio" name="gender" value="female"&gt;
-            &lt;input type="radio" name="gender" value="other"&gt;
-            </code>
-            <input type="radio" name="gender" value="male"> Male
-            <input type="radio" name="gender" value="female"> Female
-            <input type="radio" name="gender" value="other"> Other
-            </pre>
+    <pre><code class="language-markup">
+    &lt;input type="radio" name="gender" value="male"&gt;
+    &lt;input type="radio" name="gender" value="female"&gt;
+    &lt;input type="radio" name="gender" value="other"&gt;
+    </code>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
+    <input type="radio" name="gender" value="other"> Other
+    </pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Checkbox</span>: for selecting 0 or more options</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;input type="checkbox" name="vehicle1" value="Bike" checked&gt; I have a bike
-            &lt;input type="checkbox" name="vehicle2" value="Car"&gt; I have a car
-            </code>
-            <input type="checkbox" name="vehicle1" value="Bike" checked> I have a bike
-            <input type="checkbox" name="vehicle2" value="Car"> I have a car
-            </pre>
+    <pre><code class="language-markup">
+    &lt;input type="checkbox" name="vehicle1" value="Bike" checked&gt; I have a bike
+    &lt;input type="checkbox" name="vehicle2" value="Car"&gt; I have a car
+    </code>
+    <input type="checkbox" name="vehicle1" value="Bike" checked> I have a bike
+    <input type="checkbox" name="vehicle2" value="Car"> I have a car
+    </pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Number</span>: for numeric input</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;input type="number" name="quantity" min="1" max="10"&gt;
-            </code>
-            <input type="number" name="quantity" min="1" max="10">
-            </pre>
+    <pre><code class="language-markup">
+    &lt;input type="number" name="quantity" min="1" max="10"&gt;
+    </code>
+    <input type="number" name="quantity" min="1" max="10">
+    </pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Button</span>: handled by function defined in JS or JQuery</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;input type="button" onclick="function()" value="Button"&gt;
-            </code>
-            <input type="button" value="Button">
-            </pre>
+    <pre><code class="language-markup">
+    &lt;input type="button" onclick="function()" value="Button"&gt;
+    </code>
+    <input type="button" value="Button">
+    </pre>
                                 </td>
                             </tr>
                             <tr>
@@ -427,60 +430,60 @@ Date Created: December 2017
                             <tr>
                                 <td><span class="definition">Labels</span>: text, if clicked will set focus on element, use for attribute</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;label for="idOfInput"&gt;Label for Input&lt;&frasl; &gt;
-            </code>
-            <label for="idOfInput">Label for Input</label>
-            <input type="text" name="" id="idOfInput">
-            </pre>
+    <pre><code class="language-markup">
+    &lt;label for="idOfInput"&gt;Label for Input&lt;&frasl; &gt;
+    </code>
+    <label for="idOfInput">Label for Input</label>
+    <input type="text" name="" id="idOfInput">
+    </pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Textarea</span>: for multi-line input</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;textarea rows="8" cols="30"&gt;&lt;&frasl; &gt;
-            </code>
-            <textarea name="textArea" rows="8" cols="30"></textarea>
-            </pre>
+    <pre><code class="language-markup">
+    &lt;textarea rows="8" cols="30"&gt;&lt;&frasl; &gt;
+    </code>
+    <textarea name="textArea" rows="8" cols="30"></textarea>
+    </pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Drop-down lists</span></td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;select name="fruits"&gt;
-                &lt;option value="strawberry"&gt;Strawberry&lt;&frasl;option&gt;
-                &lt;option value="apple"&gt;Apple&lt;&frasl;option&gt;
-                &lt;option value="pear"&gt;Pear&lt;&frasl;option&gt;
-                &lt;option value="kiwi"&gt;Kiwi&lt;&frasl;option&gt;
-            &lt;&frasl;select&gt;
-            </code>
-            <select name="fruits">
-                <option value="strawberry">Strawberry</option>
-                <option value="apple">Apple</option>
-                <option value="pear">Pear</option>
-                <option value="kiwi">Kiwi</option>
-            </select>
-            </pre>
+    <pre><code class="language-markup">
+    &lt;select name="fruits"&gt;
+        &lt;option value="strawberry"&gt;Strawberry&lt;&frasl;option&gt;
+        &lt;option value="apple"&gt;Apple&lt;&frasl;option&gt;
+        &lt;option value="pear"&gt;Pear&lt;&frasl;option&gt;
+        &lt;option value="kiwi"&gt;Kiwi&lt;&frasl;option&gt;
+    &lt;&frasl;select&gt;
+    </code>
+    <select name="fruits">
+        <option value="strawberry">Strawberry</option>
+        <option value="apple">Apple</option>
+        <option value="pear">Pear</option>
+        <option value="kiwi">Kiwi</option>
+    </select>
+    </pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Fieldset</span> and <span class="definition">Legend</span>: group related elements, a border is drawn around these elements, legend will create a caption within top line of box.</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;fieldset&gt;
-                &lt;legend&gt;Descibe your interests&lt;&frasl;legend&gt;
-                Favorite Color: &lt;input type="text" name=""&gt;&lt;br&gt;
-                Favorite Pet: &lt;input type="text" name=""&gt;&lt;br&gt;
-            &lt;&frasl;fieldset&gt;
-            </code>
-            <fieldset>
-                <legend>Describe your interests</legend>
-                Favorite Color: <input type="text" name=""><br>
-                Favorite Pet: <input type="text" name=""><br>
-            </fieldset>
-            </pre>
+    <pre><code class="language-markup">
+    &lt;fieldset&gt;
+        &lt;legend&gt;Descibe your interests&lt;&frasl;legend&gt;
+        Favorite Color: &lt;input type="text" name=""&gt;&lt;br&gt;
+        Favorite Pet: &lt;input type="text" name=""&gt;&lt;br&gt;
+    &lt;&frasl;fieldset&gt;
+    </code>
+    <fieldset>
+        <legend>Describe your interests</legend>
+        Favorite Color: <input type="text" name=""><br>
+        Favorite Pet: <input type="text" name=""><br>
+    </fieldset>
+    </pre>
                                 </td>
                             </tr>
                         </table>

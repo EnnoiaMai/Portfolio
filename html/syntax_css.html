@@ -11,6 +11,7 @@ Date Created: December 2017
         <meta name="author" content="Enn">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
         <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/themes/prism-tomorrow.min.css">
@@ -51,11 +52,13 @@ Date Created: December 2017
             </div>
 
             <div id="content_container">
-                <h1 id="title">CSS Syntax</h1>
+                <div>
+                    <h1>CSS Syntax</h1>
+                </div>
 
                 <div id="content">
                     <div class="section">
-                        <p><span class="bold">Note: </span>Some sources that should be credited in creating this document include various tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/css/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
+                        <p><span class="bold">Sources to credit: </span>Tutorials on Youtube, StackOverflow, <a href="https://www.w3schools.com/css/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
                     </div>
 
                     <div class="section">
@@ -69,25 +72,25 @@ Date Created: December 2017
                             <tr>
                                 <td>External Style sheets</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;link rel="stylesheet" type="text/css" href="mycssfile.css"&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;link rel="stylesheet" type="text/css" href="mycssfile.css"&gt;
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Internal Style sheets</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;style&gt;h1 {color: blue; }&lt;&frasl;style&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;style&gt;h1 {color: blue; }&lt;&frasl;style&gt;
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Inline</td>
                                 <td>
-            <pre><code class="language-markup">
-            &lt;h1 style="color: blue;"&gt;Header 1&lt;&frasl;style&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;h1 style="color: blue;"&gt;Header 1&lt;&frasl;style&gt;
+    </code></pre>
                                 </td>
                             </tr>
                         </table>
@@ -96,15 +99,15 @@ Date Created: December 2017
                     <div class="section">
                         <h2>CSS Syntax</h2>
                         <p>Each selector and statements within brackets define a rule.</p>
-            <pre><code class="language-css">
-            Selector {
-                property1: value1;
-                property2: value2;
-            }
-            Selector1, Selector2, ... {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    Selector {
+        property1: value1;
+        property2: value2;
+    }
+    Selector1, Selector2, ... {
+        property: value;
+    }
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -116,132 +119,132 @@ Date Created: December 2017
                             </tr>
                             <tr>
                                 <td><span class="definition">ID Selector</span>: one-of-a-kind thing, gives specific id to element to target.</td>
-                                <td>
-            <pre><code class="language-css">
-            #id {
-                property: value;
-            }
-            </code></pre>
+                        <td>
+    <pre><code class="language-css">
+    #id {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Class Selector</span>: rules that apply to a group of elements, for mass changes. When applying multiple classes to an element, if the same properties are set, then the last class (most recent) in the css file will override that property.</td>
                                 <td>
-            <pre><code class="language-css">
-            .class {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    .class {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Tag Selector</span>: selects all elements of a certain tag.</td>
                                 <td>
-            <pre><code class="language-css">
-            tag {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    tag {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Descendant Selectors</span>: steps down the HTML tree and applies it to selectors within a specific path.</td>
                                 <td>
-            <pre><code class="language-css">
-            div li a {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    div li a {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Child Selector</span>: selects direct child of an element.</td>
                                 <td>
-            <pre><code class="language-css">
-            selector>childElement {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    selector>childElement {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Adjacent Sibling Selector</span>: chooses only the element's next sibling.</td>
                                 <td>
-            <pre><code class="language-css">
-            selector+siblingElement {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    selector+siblingElement {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">General Sibling Selector</span>: chooses all siblings of selected element.</td>
                                 <td>
-            <pre><code class="language-css">
-            selector~siblingElement {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    selector~siblingElement {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Attribute Selector</span>: chooses elements with the attribute.</td>
                                 <td>
-            <pre><code class="language-css">
-            selector[attribute] {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    selector[attribute] {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Attribute with Value Selector</span>: selects elements with attribute and specific value.</td>
                                 <td>
-            <pre><code class="language-css">
-            selector[attribute="value"] {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    selector[attribute="value"] {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Attribute with Beginning Value</span>: selects element with attribute that begins with the value</td>
                                 <td>
-            <pre><code class="language-css">
-            selector[attribute^="value"] {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    selector[attribute^="value"] {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Attribute with Ending Value</span>: match any value that ends with a specific value</td>
                                 <td>
-            <pre><code class="language-css">
-            selector[attribute$="value"] {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    selector[attribute$="value"] {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Attribute Containing Value</span>: selects a value anywhere within attribute value</td>
                                 <td>
-            <pre><code class="language-css">
-            selector[attribute*="value"] {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    selector[attribute*="value"] {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td><span class="definition">Wildcard Selector</span>: selects every element.</td>
                                 <td>
-            <pre><code class="language-css">
-            * {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    * {
+        property: value;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
@@ -267,11 +270,11 @@ Date Created: December 2017
                     <div class="section">
                         <h2>Pseudo Classes and Elements</h2>
                         <p>Defines special state of an element. Gives you behavior in CSS without JavaScript.</p>
-            <pre><code class="language-css">
-            selector:pseudo-class {
-                property: value;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    selector:pseudo-class {
+        property: value;
+    }
+    </code></pre>
                         <table>
                             <tr>
                                 <th>Pseudo Classes</th>
@@ -453,12 +456,12 @@ Date Created: December 2017
                             <tr>
                                 <td>@font-face</td>
                                 <td>
-            <pre><code class="language-css">
-            @font-face {
-                font-family: customFont;
-                src: url();
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    @font-face {
+        font-family: customFont;
+        src: url();
+    }
+    </code></pre>
                                 </td>
                             </tr>
                         </table>
@@ -506,20 +509,20 @@ Date Created: December 2017
                             <tr>
                                 <td class="italic">Margin and Padding shortcut</td>
                                 <td>
-            <pre><code class="language-css">
-            margin: px; (applies to all)
-            margin: px (top+bot) px (left+right);
-            margin: px (top) px (left+right) px (bot);
-            </code></pre>
+    <pre><code class="language-css">
+    margin: px; (applies to all)
+    margin: px (top+bot) px (left+right);
+    margin: px (top) px (left+right) px (bot);
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="italic">Centering block elements</td>
                                 <td>
-            <pre><code class="language-css">
-            margin-left: auto;
-            margin-right: auto;
-            </code></pre>
+    <pre><code class="language-css">
+    margin-left: auto;
+    margin-right: auto;
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
@@ -529,17 +532,17 @@ Date Created: December 2017
                             <tr>
                                 <td class="italic">Border shortcut</td>
                                 <td>
-            <pre><code class="language-css">
-            border: px (width) style color;
-            </code></pre>
+    <pre><code class="language-css">
+    border: px (width) style color;
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
                                 <td>border-radius:</td>
                                 <td>px; (Larger px means steeper, can apply border corners separately.)
-            <pre><code class="language-css">
-            border-top-left-radius: px;
-            </code></pre>
+    <pre><code class="language-css">
+    border-top-left-radius: px;
+    </code></pre>
                                 </td>
                             </tr>
                             <tr>
@@ -560,9 +563,9 @@ Date Created: December 2017
                         <br>
                         <p>Values fixed, absolute, and relative positions take two values each from top/bottom and left/right in order to position elements.</p>
                         <br>
-            <pre><code class="language-css">
-            position: static | fixed | absolute | relative;
-            </code></pre>
+    <pre><code class="language-css">
+    position: static | fixed | absolute | relative;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -610,9 +613,9 @@ Date Created: December 2017
                     <div class="section">
                         <h2>Display Property</h2>
                         <p>Specifies type of box used for the element</p>
-            <pre><code class="language-css">
-            display: value;
-            </code></pre>
+    <pre><code class="language-css">
+    display: value;
+    </code></pre>
 
                         <table class="table_3_to_7">
                             <tr>
@@ -634,28 +637,28 @@ Date Created: December 2017
                             <tr>
                                 <td>flex</td>
                                 <td>A flexbox which prepares a single, invisible line where elements are aligned. Place elements on a row/column without needing to bother with floats or positioning of elements. Allows you to stack elements side-by-side.
-            <pre><code class="language-markup">
-            &lt;!-- HTML: --&gt;
-            &lt;div class="flex-container"&gt;
-                &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
-                &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
-                &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
-            &lt;&frasl;div&gt;
-            </code></pre>
-            <pre><code class="language-css">
-            /* CSS: */
-            .flex-container {
-                display: flex;
-                width: 500px;
-                height: 250px;
-            }
-            .flex-item {
-                width: 100px;
-                height: 100px;
-                margin: 10px;
-                background-color: blue;
-            }
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;!-- HTML: --&gt;
+    &lt;div class="flex-container"&gt;
+        &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
+        &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
+        &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
+    &lt;&frasl;div&gt;
+    </code></pre>
+    <pre><code class="language-css">
+    /* CSS: */
+    .flex-container {
+        display: flex;
+        width: 500px;
+        height: 250px;
+    }
+    .flex-item {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        background-color: blue;
+    }
+    </code></pre>
                                 </td>
                             </tr>
                         </table>
@@ -664,94 +667,94 @@ Date Created: December 2017
                     <div class="section">
                         <h2>Creating a Simple Horizontal Menu</h2>
                         <p>1) Create a list either ordered or unordered, within list create list elements and within list elements, create anchor tags.</p>
-            <pre><code class="language-markup">
-            &lt;!-- Html: --&gt;
-            &lt;ul&gt;
-                &lt;li&gt;&lt;a href=""&gt;First Link&lt;&frasl;a&gt;
-                &lt;li&gt;&lt;a href=""&gt;Second Link&lt;&frasl;a&gt;
-                &lt;li&gt;&lt;a href=""&gt;Third Link&lt;&frasl;a&gt;
-            &lt;&frasl;ul&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;!-- Html: --&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href=""&gt;First Link&lt;&frasl;a&gt;
+        &lt;li&gt;&lt;a href=""&gt;Second Link&lt;&frasl;a&gt;
+        &lt;li&gt;&lt;a href=""&gt;Third Link&lt;&frasl;a&gt;
+    &lt;&frasl;ul&gt;
+    </code></pre>
                         <br>
                         <p>2) Change display property to inline. Set min-width property so that menu doesn't fall apart when browser is resized or minimized.</p>
-            <pre><code class="language-css">
-            ul {
-                text-align: center;
-            }
-            ul li {
-                display: inline;
-                list-style-type: none;
-            }
-            ul li a {
-                color: #005;
-                background-color: white;
-                font-weight: bold;
-                text-decoration: none;
-                padding: 5px 10px 5px 10px;
-            }
-            ul li a:hover {
-                color: white;
-                background-color: #005;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    ul {
+        text-align: center;
+    }
+    ul li {
+        display: inline;
+        list-style-type: none;
+    }
+    ul li a {
+        color: #005;
+        background-color: white;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 5px 10px 5px 10px;
+    }
+    ul li a:hover {
+        color: white;
+        background-color: #005;
+    }
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Creating a Simple Fixed Sidebar</h2>
                         <p>1) Get rid of all margins and padding.</p>
-            <pre><code class="language-css">
-            * {
-                margin: 0;
-                padding: 0;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    </code></pre>
             <br>
             <p>2) Set height to 100% for html and body.</p>
-            <pre><code class="language-css">
-            html, body {
-                height: 100%;
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    html, body {
+        height: 100%;
+    }
+    </code></pre>
                         <br>
                         <p>3) Give sidebar a width, a height of 100%, fixed positioning, and make sure rest of body has margin-left equal to the width of the sidebar.</p>
-            <pre><code class="language-markup">
-            &lt;!-- Html: --&gt;
-            &lt;div id="sidebar"&gt;
-                <i>Content for sidebar</i>
-            &lt;&frasl;div&gt;
-            </code></pre>
-            <pre><code class="language-css">
-            /* CSS: */
-            #sidebar {
-                width: 300px;
-                height: 100%;
-                position: fixed;
-                top: 0px;
-                left: 0px;
-            }
-            body {
-                margin-left: 300px;
-            }
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;!-- Html: --&gt;
+    &lt;div id="sidebar"&gt;
+        <i>Content for sidebar</i>
+    &lt;&frasl;div&gt;
+    </code></pre>
+    <pre><code class="language-css">
+    /* CSS: */
+    #sidebar {
+        width: 300px;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+    }
+    body {
+        margin-left: 300px;
+    }
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Media Queries</h2>
-            <pre><code class="language-css">
-            @media not|only mediatype and (media feature) {
-                <i>CSS code</i>
-            }
-            @media screen and (min-width: 480px) {
-                <i>CSS code</i>
-            }
-            </code></pre>
+    <pre><code class="language-css">
+    @media not|only mediatype and (media feature) {
+        <i>CSS code</i>
+    }
+    @media screen and (min-width: 480px) {
+        <i>CSS code</i>
+    }
+    </code></pre>
                         <br>
                         <p><span class="definition_selector">@media</span> rule used to define different style rules for different media types/devices. The media feature or expressions resolve to true or false.</p>
                         <br>
                         <p>Can have different stylesheets based on the media</p>
-            <pre><code class="language-markup">
-            &lt;link rel="stylesheet" media="mediatype" and|not|only (media feature) href="mystylesheet.css"&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;link rel="stylesheet" media="mediatype" and|not|only (media feature) href="mystylesheet.css"&gt;
+    </code></pre>
                         <br>
 
                         <table>

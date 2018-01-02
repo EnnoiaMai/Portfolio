@@ -11,14 +11,14 @@ Date Created: December 2017
         <meta name="author" content="Enn">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
         <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/themes/prism.min.css">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/prism.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/components/prism-php.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/components/prism-php-extras.min.js">
-        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/components/prism-php-extras.min.js"></script>
         <script type="text/javascript" src="../js/sidebar.js"></script>
         <script type="text/javascript" src="../js/syntax.js"></script>
     </head>
@@ -54,11 +54,13 @@ Date Created: December 2017
             </div>
 
             <div id="content_container">
-                <h1 id="title">PHP Syntax</h1>
+                <div>
+                    <h1>PHP Syntax</h1>
+                </div>
 
                 <div id="content">
                     <div class="section">
-                        <p><span class="bold">Note: </span>Some sources that should be credited in creating this document include various tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/php/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
+                        <p><span class="bold">Sources to credit: </span>Tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/php/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
                     </div>
 
                     <div class="section">
@@ -87,23 +89,22 @@ Date Created: December 2017
                         </ul>
                         <p>The following describes how to use the opening and closing tag for a php block.</p>
 
-            <pre>
-            <code class="language-php">
-            &lt;?php
-                    echo "Hello World";
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            echo "Hello World";
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Comments</h2>
-            <pre><code class="language-php">
-            &lt;?php
-                    // A single-line comment
-                    # Also a single-line comment
-                    /* Multi-line comment block */
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            // A single-line comment
+            # Also a single-line comment
+            /* Multi-line comment block */
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -117,14 +118,14 @@ Date Created: December 2017
                             <li>Don't have to define data type.</li>
                         </ul>
 
-            <pre><code class="language-php">
-            &lt;?php
-                    $variableName = value;
-                    $string_var = "This is a string";
-                    $integer_var = 5;
-                    echo $string_var;
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            $variableName = value;
+            $string_var = "This is a string";
+            $integer_var = 5;
+            echo $string_var;
+        ?&gt;
+    </code></pre>
 
                         <h3>Variable Scope</h3>
                         <p><span class="definition">Global Scope</span>: variables declared outside a function, can only be accessed outside.</p>
@@ -133,29 +134,29 @@ Date Created: December 2017
                         <br>
                         <p>Global variables are also stored by PHP in the array <span class="definition_php">$GLOBALS[<i>index</i>]</span> where index holds the name of the variable.</p>
 
-            <pre><code class="language-php">
-            &lt;?php
-                    $x = 5;
-                    $y = 10;
-                    function myTest() {
-                        $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            $x = 5;
+            $y = 10;
+            function myTest() {
+                $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
+            }
+        ?&gt;
+    </code></pre>
                         <br>
 
                         <p><span class="definition">Static Scope</span>: use static keyword to prevent a local variable from being deleted. The variable is still local to the function.</p>
-            <pre><code class="language-php">
-            &lt;?php
-                    function myTest() {
-                        static $x = 0;
-                        echo $x;
-                        $x++
-                    }
-                    myTest()    // prints 0
-                    myTest()    // prints 1
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            function myTest() {
+                static $x = 0;
+                echo $x;
+                $x++
+            }
+            myTest()    // prints 0
+            myTest()    // prints 1
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -164,25 +165,25 @@ Date Created: December 2017
                         <p><span class="definition">print</span>: outputs data to screen and has return value of 1 to be used in expressions. Can take one argument. Use as <span class="definition_php">print</span> or <span class="definition_php">print()</span>.</p>
                         <p><span class="definition">Concatenate Strings</span> by using dot(.)</p>
 
-                        <pre><code class="language-php">
-            &lt;?php
-                    echo "&lt;h2&gt;echo Header2&lt;&frasl;h2&gt;";
-                    echo "This", "string", "has", "multiple parameters.";
+                <pre><code class="language-php">
+    &lt;?php
+            echo "&lt;h2&gt;echo Header2&lt;&frasl;h2&gt;";
+            echo "This", "string", "has", "multiple parameters.";
 
-                    // Concatenate strings
-                    echo $string_var_1 . $string_var_2
+            // Concatenate strings
+            echo $string_var_1 . $string_var_2
 
-                    $txt1 = "How do";
-                    $txt2 = "you do?";
-                    $x = 5;
-                    $y = 4;
+            $txt1 = "How do";
+            $txt2 = "you do?";
+            $x = 5;
+            $y = 4;
 
-                    // Prints How do you do?
-                    echo "Combined text is " $.txt1 . $txt2;
-                    // Prints 9
-                    echo $x + $y;
-                ?&gt;
-                        </code></pre>
+            // Prints How do you do?
+            echo "Combined text is " $.txt1 . $txt2;
+            // Prints 9
+            echo $x + $y;
+        ?&gt;
+                </code></pre>
                     </div>
 
                     <div class="section">
@@ -198,24 +199,24 @@ Date Created: December 2017
                             <li><span class="definition">Resource</span> - not an actual type. Stores references to functions and resources external to PHP.</li>
                         </ol>
                         <p><span class="definition_php">var_dump(<i>value</i>)</span>: returns the data type and value</p>
-            <pre><code class="language-php">
-            &lt;?php
-                    $x = number;
-                    var_dump($x);
+    <pre><code class="language-php">
+    &lt;?php
+            $x = number;
+            var_dump($x);
 
-                    // The following defines a class
-                    class Car {
-                        function Car() {
-                            $this-&gt;model = "VW";
-                        }
-                    }
+            // The following defines a class
+            class Car {
+                function Car() {
+                    $this-&gt;model = "VW";
+                }
+            }
 
-                    // Create an object
-                    $herbie = new Car();
-                    // Show object properties
-                    echo $herbie-&gt;model;
-                ?&gt;
-            </code></pre>
+            // Create an object
+            $herbie = new Car();
+            // Show object properties
+            echo $herbie-&gt;model;
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -276,12 +277,12 @@ Date Created: December 2017
                             <tr>
                                 <td>strcmp(<i>string1</i>, <i>string2</i>)</td>
                                 <td>Compares two strings(case-sensitive).
-            <pre>
-                Returns
-                0 - if two strings equal
-                &lt;0 - if string1 is less than string2
-                &gt;0 - if string1 is greater than string2
-            </pre>
+    <pre>
+        Returns
+        0 - if two strings equal
+        &lt;0 - if string1 is less than string2
+        &gt;0 - if string1 is greater than string2
+    </pre>
                                 </td>
                             </tr>
                             <tr>
@@ -347,89 +348,89 @@ Date Created: December 2017
                     <div class="section">
                         <h2>Conditional Statements</h2>
                         <h3 class="definition">if, elseif, and else</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    if (condition) {
-                        statements;
-                    }
-                    elseif (condition) {
-                        statements;
-                    }
-                    else {
-                        statements;
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            if (condition) {
+                statements;
+            }
+            elseif (condition) {
+                statements;
+            }
+            else {
+                statements;
+            }
+        ?&gt;
+    </code></pre>
                         <br>
                         <h3 class="definition">Switch</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    switch (value) {
-                        case value1:
-                            statements;
-                            break;
-                        case value2:
-                            statements;
-                            break;
-                        default:
-                            statements;
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            switch (value) {
+                case value1:
+                    statements;
+                    break;
+                case value2:
+                    statements;
+                    break;
+                default:
+                    statements;
+            }
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Loops</h2>
                         <h3 class="definition">while</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    while (condition is true) {
-                        statements;
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            while (condition is true) {
+                statements;
+            }
+        ?&gt;
+    </code></pre>
 
                         <h3 class="definition">do while</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    do {
-                        statements;
-                    } while (condition is true);
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            do {
+                statements;
+            } while (condition is true);
+        ?&gt;
+    </code></pre>
 
                         <h3 class="definition">for</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    for (initial counter; condition; increment counter) {
-                        statements;
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            for (initial counter; condition; increment counter) {
+                statements;
+            }
+        ?&gt;
+    </code></pre>
 
                         <h3 class="definition">foreach</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    foreach ($array as $value) {
-                        statements;
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            foreach ($array as $value) {
+                statements;
+            }
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Functions</h2>
                         <p>Function names are NOT case-sensitive. Can start with a letter or underscore but NOT a number.</p>
                         <br>
-            <pre><code class="language-php">
-            &lt;?php
-                    function functionName($parameter, $parameterWithDefaultValue = value) {
-                        statements;
-                        return $variableOrValue;
-                    }
-                    functionName(argument);
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            function functionName($parameter, $parameterWithDefaultValue = value) {
+                statements;
+                return $variableOrValue;
+            }
+            functionName(argument);
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -444,70 +445,70 @@ Date Created: December 2017
                         <br>
 
                         <h3>Indexed Arrays</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    // Creating an array with automatically assigned index
-                    $cars = array("Volve", "BMW", "Toyota");
+    <pre><code class="language-php">
+    &lt;?php
+            // Creating an array with automatically assigned index
+            $cars = array("Volve", "BMW", "Toyota");
 
-                    // Creating an array with manually assigned index
-                    $cars[0] = "Volvo";
-                    $cars[1] = "BMW";
-                    $cars[2] = "Toyota";
+            // Creating an array with manually assigned index
+            $cars[0] = "Volvo";
+            $cars[1] = "BMW";
+            $cars[2] = "Toyota";
 
-                    // Return length of array
-                    count($cars);
+            // Return length of array
+            count($cars);
 
-                    // Loop through Indexed array
-                    for ($x = 0; $x < count($cars); $x++) {
-                        statements;
-                    }
-                ?&gt;
-            </code></pre>
+            // Loop through Indexed array
+            for ($x = 0; $x < count($cars); $x++) {
+                statements;
+            }
+        ?&gt;
+    </code></pre>
                         <br>
 
                         <h3>Associative Arrays</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    // Create with array() function
-                    $age = array("Peter"=&gt;"35", "Ben"=&gt;"37", "Joe"=&gt;"43");
+    <pre><code class="language-php">
+    &lt;?php
+            // Create with array() function
+            $age = array("Peter"=&gt;"35", "Ben"=&gt;"37", "Joe"=&gt;"43");
 
-                    // Create manually
-                    $age['Peter'] = "35";
-                    $age['Ben'] = "37";
-                    $age['Joe'] = "43";
+            // Create manually
+            $age['Peter'] = "35";
+            $age['Ben'] = "37";
+            $age['Joe'] = "43";
 
-                    // Using the named keys
-                    echo "Peter is " . $age['Peter'] . " years old.";
+            // Using the named keys
+            echo "Peter is " . $age['Peter'] . " years old.";
 
-                    // Loop through Associative array
-                    foreach ($age as $x =&gt; $x_value) {
-                        echo "Key=" . $x . ", Value=" . $x_value;
-                        echo "&lt;br&gt;";
-                    }
-                ?&gt;
-            </code></pre>
+            // Loop through Associative array
+            foreach ($age as $x =&gt; $x_value) {
+                echo "Key=" . $x . ", Value=" . $x_value;
+                echo "&lt;br&gt;";
+            }
+        ?&gt;
+    </code></pre>
                         <br>
 
                         <h3>Multidimensional Arrays</h3>
                         <h3 class="definition">2D Array</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    $cars = array
-                        (
-                        array("Volvo", 22, 18),
-                        array("BMW", 15, 13),
-                        array("Saab", 5, 2),
-                        array("Land Rover", 17, 15)
-                        );
+    <pre><code class="language-php">
+    &lt;?php
+            $cars = array
+                (
+                array("Volvo", 22, 18),
+                array("BMW", 15, 13),
+                array("Saab", 5, 2),
+                array("Land Rover", 17, 15)
+                );
 
-                    // Use nested for loop to get to the inner array
-                    for ($row = 0; $row &lt; 4; $row++) {
-                        for ($col = 0; $col &lt; 3; $col++) {
-                            echo $cars[$row][$col];
-                        }
-                    }
-                ?&gt;
-            </code></pre>
+            // Use nested for loop to get to the inner array
+            for ($row = 0; $row &lt; 4; $row++) {
+                for ($col = 0; $col &lt; 3; $col++) {
+                    echo $cars[$row][$col];
+                }
+            }
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -699,24 +700,24 @@ Date Created: December 2017
                         <br>
 
                         <h3>$_REQUEST</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-                        $name = $_REQUEST['fname'];
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+                $name = $_REQUEST['fname'];
+            }
+        ?&gt;
+    </code></pre>
                         <br>
 
                         <h3>$_POST and $_GET</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-                        $name = $_POST['fname'];
-                    }
-                    echo $_GET['parameterSent'];
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+                $name = $_POST['fname'];
+            }
+            echo $_GET['parameterSent'];
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -753,55 +754,55 @@ Date Created: December 2017
                         <br>
 
                         <p>The following is an example of Validating the form</p>
-            <pre><code class="language-php">
-            &lt;?php
-                    if ($_SERVER["REQUEST_METHOD"] == POST) {
-                        $name = test_input($_POST["name"]);
-                        $email = test_input($_POST["email"]);
-                    }
-                    function test_input($data) {
-                        // trim extra spaces, tabs, or newline
-                        $data = trim($data);
-                        // remove backslashes
-                        $data = stripslashes($data);
-                        // convert to html entities
-                        $data = htmlspecialchars($data)
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            if ($_SERVER["REQUEST_METHOD"] == POST) {
+                $name = test_input($_POST["name"]);
+                $email = test_input($_POST["email"]);
+            }
+            function test_input($data) {
+                // trim extra spaces, tabs, or newline
+                $data = trim($data);
+                // remove backslashes
+                $data = stripslashes($data);
+                // convert to html entities
+                $data = htmlspecialchars($data)
+            }
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Required Fields</h2>
-            <pre><code class="language-php">
-            &lt;?php
-                        // Initialize variables
-                        $nameErr = $emailErr = "";
-                        $name = $email = "";
+    <pre><code class="language-php">
+    &lt;?php
+                // Initialize variables
+                $nameErr = $emailErr = "";
+                $name = $email = "";
 
-                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                            // Check if name is empty (works for radio buttons too)
-                            if (empty($_POST["name"])) {
-                                $nameErr = "Name is required";
-                            } else {
-                                $name = test_input($_POST["name"]);
-                            }
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    // Check if name is empty (works for radio buttons too)
+                    if (empty($_POST["name"])) {
+                        $nameErr = "Name is required";
+                    } else {
+                        $name = test_input($_POST["name"]);
+                    }
 
-                            // Check if email is empty
-                            if (empty($_POST["email"])) {
-                                $emailErr = "Email is required";
-                            } else {
-                                $email = test_input($_POST["email"]);
-                            }
-                        }
-                ?&gt;
-            </code></pre>
+                    // Check if email is empty
+                    if (empty($_POST["email"])) {
+                        $emailErr = "Email is required";
+                    } else {
+                        $email = test_input($_POST["email"]);
+                    }
+                }
+        ?&gt;
+    </code></pre>
                         <br>
                         <p>The following displays the error message. It uses embedded scripts, not recommended.</p>
-            <pre><code class="language-php">
-            Name: &lt;input type="text" name="name"&gt;&lt;span class="error"&gt;*&lt;?php echo $nameErr;?&gt;&lt;&frasl;span&gt;
-            Email: &lt;input type="text" name="email"&gt;&lt;span class="error"&gt;*&lt;?php echo $emailErr;?&gt;&lt;&frasl;span&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    Name: &lt;input type="text" name="name"&gt;&lt;span class="error"&gt;*&lt;?php echo $nameErr;?&gt;&lt;&frasl;span&gt;
+    Email: &lt;input type="text" name="email"&gt;&lt;span class="error"&gt;*&lt;?php echo $emailErr;?&gt;&lt;&frasl;span&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -810,49 +811,49 @@ Date Created: December 2017
                         <br>
 
                         <h3>Validating Name</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    $name = test_input($_POST["name"]);
-                    if (!preg_match("/^[a-zA-Z]*$/", $name)) {
-                        $nameErr = "Only letters and whitespace are allowed.";
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            $name = test_input($_POST["name"]);
+            if (!preg_match("/^[a-zA-Z]*$/", $name)) {
+                $nameErr = "Only letters and whitespace are allowed.";
+            }
+        ?&gt;
+    </code></pre>
                         <br>
 
                         <h3>Validating Email</h3>
                         <p>Use <span class="definition_php">filter_var()</span> PHP function.</p>
-            <pre><code class="language-php">
-            &lt;?php
-                    $email = test_input($_POST["email"]);
-                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        $emailErr = "Invalid email format";
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            $email = test_input($_POST["email"]);
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $emailErr = "Invalid email format";
+            }
+        ?&gt;
+    </code></pre>
                         <br>
 
                         <h3>Validating Radio Button</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    if (empty($_POST["gender"])) {
-                        $genderErr = "Gender is required";
-                    } else {
-                        $gender = test_input($POST["gender"]);
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            if (empty($_POST["gender"])) {
+                $genderErr = "Gender is required";
+            } else {
+                $gender = test_input($POST["gender"]);
+            }
+        ?&gt;
+    </code></pre>
                         <br>
 
                         <h3>Preventing Form from clearing fields after submission</h3>
                         <p>Use <span class="definition_php">isset()</span> PHP function.</p>
-            <pre><code class="language-php">
-            &lt;?php
-                    if (isset($gender) &amp;&amp; $gender == "male") {
-                        echo "checked";
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            if (isset($gender) &amp;&amp; $gender == "male") {
+                echo "checked";
+            }
+        ?&gt;
+    </code></pre>
 
                     </div>
 
@@ -866,23 +867,23 @@ Date Created: December 2017
                             <li><i>format</i> for time: h (hours), i (minutes), s (seconds), a (am or pm)</li>
                             <li><i>timestamp</i> is optional. Default is current time.</li>
                         </ul>
-            <pre><code class="language-php">
-            &lt;?php
-                    echo "Today is " . date("Y/m/d");
-                    echo "The time is " . date("h:i:sa");
-                    // Get time zone
-                    date_default_timezone_set("America/New York");
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            echo "Today is " . date("Y/m/d");
+            echo "The time is " . date("h:i:sa");
+            // Get time zone
+            date_default_timezone_set("America/New York");
+        ?&gt;
+    </code></pre>
 
                         <h3>Creating a date</h3>
                         <p class="definition_php">mktime(<i>hour</i>, <i>minute</i>, <i>second</i>, <i>month</i>, <i>day</i>, <i>year</i>)</p>
-            <pre><code class="language-php">
-            &lt;?php
-                    $d = mktime(11, 14, 54, 8, 12, 2014);
-                    echo "Created date is " . date("Y-m-d h:i:sa", $d);
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            $d = mktime(11, 14, 54, 8, 12, 2014);
+            echo "Created date is " . date("Y-m-d h:i:sa", $d);
+        ?&gt;
+    </code></pre>
 
                         <h3>Creating date from string</h3>
                         <p class="definition_php">strtotime(<i>time</i>, <i>now</i>)</p>
@@ -895,22 +896,22 @@ Date Created: December 2017
                         <p><span class="definition_php">require</span>: produces an error, stops the script.</p>
                         <p><span class="definition_php">include</span>: produces a warning, the script continues.</p>
                         <br>
-            <pre><code class="language-php">
-            &lt;?php
-                    include 'filename';
-                    require 'filename';
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            include 'filename';
+            require 'filename';
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>File Handling</h2>
                         <p><span class="definition_php">readfile(<i>file</i>)</span>: reads a file and writes it to the output buffer.</p>
-            <pre><code class="language-php">
-            &lt;?php
-                    echo readfile("textFile.txt");
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            echo readfile("textFile.txt");
+        ?&gt;
+    </code></pre>
                         <br>
 
                         <p><span class="definition_php">fopen(<i>file</i>, <i>mode</i>)</span>: opens a file in a certain mode. Also creates a file if it doesn't exist.</p>
@@ -920,19 +921,19 @@ Date Created: December 2017
                         <p><span class="definition_php">feof(<i>file</i>)</span>: checks if end-of-file (EOF) reached.</p>
                         <p><span class="definition_php">fclose(<i>file</i>)</span>: close an open file</p>
 
-            <pre><code class="language-php">
-            &lt;?php
-                    $myfile = fopen("file.txt", "r") or die("Unable to open file!");
-                    echo fread($myfile, filesize("file.txt"));
-                    echo fgets($myfile);
-                    echo fgetc($myfile);
+    <pre><code class="language-php">
+    &lt;?php
+            $myfile = fopen("file.txt", "r") or die("Unable to open file!");
+            echo fread($myfile, filesize("file.txt"));
+            echo fgets($myfile);
+            echo fgetc($myfile);
 
-                    while (!feof($myfile)) {
-                        echo fgets($myfile);
-                    }
-                    fclose($myfile);
-                ?&gt;
-            </code></pre>
+            while (!feof($myfile)) {
+                echo fgets($myfile);
+            }
+            fclose($myfile);
+        ?&gt;
+    </code></pre>
                         <br>
 
                         <table>
@@ -978,67 +979,67 @@ Date Created: December 2017
                         <p>Configure <span class="definition">php.ini</span> file to allow file uploads. Look for file_uploads directive and set to On.</p>
                         <p class="definition_php">file_uploads = On</p>
 
-            <pre><code class="language-markup">
-            &lt;!-- HTML --&gt;
-            &lt;form action="upload.php" method="post" enctype="multipart/form-data"&gt;
-                Select image to upload:
-                &lt;input type="file" name="fileToUpload" id="fileToUpload"&gt;
-                &lt;input type="submit" value="Upload Image" name="submit"&gt;
-            &lt;&frasl;form&gt;
-            </code></pre>
+    <pre><code class="language-markup">
+    &lt;!-- HTML --&gt;
+    &lt;form action="upload.php" method="post" enctype="multipart/form-data"&gt;
+        Select image to upload:
+        &lt;input type="file" name="fileToUpload" id="fileToUpload"&gt;
+        &lt;input type="submit" value="Upload Image" name="submit"&gt;
+    &lt;&frasl;form&gt;
+    </code></pre>
                         <p>File upload requires method <span class="definition_value">post</span> and enctype as <span class="definition_value">multipart/form-data</span></p>
 
-            <pre><code class="language-php">
-            &lt;?php
-                    $target_dir = "uploads/";
-                    $target_file = $target_dir . basename($FILES["fileToUpload"]["name"]);
+    <pre><code class="language-php">
+    &lt;?php
+            $target_dir = "uploads/";
+            $target_file = $target_dir . basename($FILES["fileToUpload"]["name"]);
+            $uploadOk = 1;
+
+            // Get file extension
+            $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+            // Check if image is actual or fake
+            if (isset($_POST["submit"])) {
+                $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+                if ($check !== false) {
+                    echo "File is an image - " . $check["mime"] . ".";
                     $uploadOk = 1;
+                } else {
+                    echo "File is not an image.";
+                    $uploadOk = 0;
+                }
+            }
 
-                    // Get file extension
-                    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+            // Check if File Already Exists
+            if (file_exists($target_file)) {
+                echo "Sorry, file already exists.";
+                $uploadOk = 0;
+            }
 
-                    // Check if image is actual or fake
-                    if (isset($_POST["submit"])) {
-                        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-                        if ($check !== false) {
-                            echo "File is an image - " . $check["mime"] . ".";
-                            $uploadOk = 1;
-                        } else {
-                            echo "File is not an image.";
-                            $uploadOk = 0;
-                        }
-                    }
+            // Limit File Size
+            if ($_FILES["fileToUpload"]["size"] > 1000000) {
+                echo "Sorry, file is larger than 1MB";
+                $uploadOk = 0;
+            }
 
-                    // Check if File Already Exists
-                    if (file_exists($target_file)) {
-                        echo "Sorry, file already exists.";
-                        $uploadOk = 0;
-                    }
+            // Limit File Type
+            if ($imageFileType != "jpg" &amp;&amp; $imageFileType != "png" &amp;&amp; $imageFileType != "jpeg") {
+                echo "Sorry, only JPG, JPEG, and PNG are allowed.";
+                $uploadOk = 0;
+            }
 
-                    // Limit File Size
-                    if ($_FILES["fileToUpload"]["size"] > 1000000) {
-                        echo "Sorry, file is larger than 1MB";
-                        $uploadOk = 0;
-                    }
-
-                    // Limit File Type
-                    if ($imageFileType != "jpg" &amp;&amp; $imageFileType != "png" &amp;&amp; $imageFileType != "jpeg") {
-                        echo "Sorry, only JPG, JPEG, and PNG are allowed.";
-                        $uploadOk = 0;
-                    }
-
-                    // Check if $uploadOk is set to 0 by an error
-                    if ($uploadOk == 0) {
-                        echo "Sorry, your file wasn't uploaded.";
-                    } else {
-                        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                            echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
-                        } else {
-                            echo "Sorry, there was an error uploading your file."
-                        }
-                    }
-                ?&gt;
-            </code></pre>
+            // Check if $uploadOk is set to 0 by an error
+            if ($uploadOk == 0) {
+                echo "Sorry, your file wasn't uploaded.";
+            } else {
+                if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                    echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
+                } else {
+                    echo "Sorry, there was an error uploading your file."
+                }
+            }
+        ?&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -1056,53 +1057,53 @@ Date Created: December 2017
                         </ul>
                         <br>
 
-            <pre><code class="language-php">
-            &lt;?php
-                    $cookie_name = "user";
-                    $cookie_value = "John Doe";
-                    // 86400 is a day
-                    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-                ?&gt;
-            &lt;html&gt;
-                &lt;body&gt;
-                &lt;?php
-                                if (!isset($_COOKIE[$cookie_name])) {
-                                    echo "Cookie named " . $cookie_name . " is not set!";
-                                } else {
-                                    echo "Cookie " . $cookie_name . " is set!";
-                                    echo "Value is: " . $_COOKIE[$cookie_name];
-                                }
-                            ?&gt;
-                &lt;&frasl;body&gt;
-            &lt;&frasl;html&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            $cookie_name = "user";
+            $cookie_value = "John Doe";
+            // 86400 is a day
+            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+        ?&gt;
+    &lt;html&gt;
+        &lt;body&gt;
+        &lt;?php
+                        if (!isset($_COOKIE[$cookie_name])) {
+                            echo "Cookie named " . $cookie_name . " is not set!";
+                        } else {
+                            echo "Cookie " . $cookie_name . " is set!";
+                            echo "Value is: " . $_COOKIE[$cookie_name];
+                        }
+                    ?&gt;
+        &lt;&frasl;body&gt;
+    &lt;&frasl;html&gt;
+    </code></pre>
                         <br>
                         <p><span class="bold">Modify a cookie</span> value by setting it again using setcookie() function.</p>
                         <p><span class="bold">Delete a cookie</span> by using setcookie() function with expiration date in the past.</p>
                         <br>
-            <pre><code class="language-php">
-            &lt;?php
-                    // Set expiration date to an hour ago
-                    setcookie("user", "", time() - 3600);
-                ?&gt;
+    <pre><code class="language-php">
+    &lt;?php
+            // Set expiration date to an hour ago
+            setcookie("user", "", time() - 3600);
+        ?&gt;
 
-            /* Check if Cookies enabled by using setcookie() function and
-               checking the count of the $_COOKIE array variable. */
-            &lt;?php
-                    setcookie("test_cookie", "test", time() + 3600, "/")
+    /* Check if Cookies enabled by using setcookie() function and
+       checking the count of the $_COOKIE array variable. */
+    &lt;?php
+            setcookie("test_cookie", "test", time() + 3600, "/")
+        ?&gt;
+    &lt;html&gt;
+        &lt;body&gt;
+        &lt;?php
+                        if (count($_COOKIE) > 0) {
+                            echo "Cookies are enabled.";
+                        } else {
+                            echo ''Cookies are disabled.";
+                        }
                 ?&gt;
-            &lt;html&gt;
-                &lt;body&gt;
-                &lt;?php
-                                if (count($_COOKIE) > 0) {
-                                    echo "Cookies are enabled.";
-                                } else {
-                                    echo ''Cookies are disabled.";
-                                }
-                        ?&gt;
-                &lt;&frasl;body&gt;
-            &lt;&frasl;html&gt;
-            </code></pre>
+        &lt;&frasl;body&gt;
+    &lt;&frasl;html&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -1119,29 +1120,29 @@ Date Created: December 2017
                         <p><span class="definition_php">print_r($_SESSION)</span>: shows all session variable values for a user session</p>
                         <p>Use global variable $_SESSION to set session variables. Change session variables by overwriting it.</p>
                         <br>
-            <pre><code class="language-php">
-            &lt;?php
-                    session_start();
+    <pre><code class="language-php">
+    &lt;?php
+            session_start();
+        ?&gt;
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;body&gt;
+        &lt;?php
+                        // Set session variables
+                        $_SESSION["favcolor" = "green"];
+                        $_SESSION["favanimal" = "cat"];
+
+                        // Get session variable values (could be from different page)
+                        echo "Favorite color is " . $_SESSION["favcolor"] . ".&lt;br&gt;";
+                        echo "Favorite animal is " . $_SESSION["favanimal] . ".";
+
+                        print_r($_SESSION);
+                        session_unset();
+                        session_destroy();
                 ?&gt;
-            &lt;!DOCTYPE html&gt;
-            &lt;html&gt;
-                &lt;body&gt;
-                &lt;?php
-                                // Set session variables
-                                $_SESSION["favcolor" = "green"];
-                                $_SESSION["favanimal" = "cat"];
-
-                                // Get session variable values (could be from different page)
-                                echo "Favorite color is " . $_SESSION["favcolor"] . ".&lt;br&gt;";
-                                echo "Favorite animal is " . $_SESSION["favanimal] . ".";
-
-                                print_r($_SESSION);
-                                session_unset();
-                                session_destroy();
-                        ?&gt;
-                &lt;&frasl;body&gt;
-            &lt;&frasl;html&gt;
-            </code></pre>
+        &lt;&frasl;body&gt;
+    &lt;&frasl;html&gt;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -1155,40 +1156,40 @@ Date Created: December 2017
                             <li>takes the variable to check and the type of check to use.</li>
                         </ul>
                         <br>
-            <pre><code class="language-php">
-            &lt;?php
-                    // Sanitize a String
-                    $str = "&lt;h1&gt;Hello World!&lt;&frasl;h1&gt;";
-                    $newstr = filter_var($str, FILTER_SANITIZE_STRING);
+    <pre><code class="language-php">
+    &lt;?php
+            // Sanitize a String
+            $str = "&lt;h1&gt;Hello World!&lt;&frasl;h1&gt;";
+            $newstr = filter_var($str, FILTER_SANITIZE_STRING);
 
-                    // Validate an Integer, the first check done because if $int set to 0, function will say it's invalid
-                    $int = 100;
-                    if (filter_var($int, FITLER_VALIDATE_INT) === 0 || !filter_var($int, FILTER_VALIDATE_INT) === false) {
-                    	echo ("Integer is valid.");
-                    } else {
-                    	echo("Integer is not valid.")
-                    }
+            // Validate an Integer, the first check done because if $int set to 0, function will say it's invalid
+            $int = 100;
+            if (filter_var($int, FITLER_VALIDATE_INT) === 0 || !filter_var($int, FILTER_VALIDATE_INT) === false) {
+            	echo ("Integer is valid.");
+            } else {
+            	echo("Integer is not valid.")
+            }
 
-                    // Validate IP Address
-                    $ip = "127.0.0.1";
+            // Validate IP Address
+            $ip = "127.0.0.1";
 
-                    if (!filter_var($ip, FILTER_VALIDATE_IP) === false) {
-                    	echo("$ip is a valid IP address.");
-                    } else {
-                    	echo("$ip is not a valid IP address");
-                    }
+            if (!filter_var($ip, FILTER_VALIDATE_IP) === false) {
+            	echo("$ip is a valid IP address.");
+            } else {
+            	echo("$ip is not a valid IP address");
+            }
 
-                    // Sanitize and Validate Email Address
-                    $email = "john.doe@example.com";
-                    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+            // Sanitize and Validate Email Address
+            $email = "john.doe@example.com";
+            $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
-                    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-                    	echo("$email is a valid email address.");
-                    } else {
-                    	echo("$email is not a valid email address.");
-                    }
-                ?&gt;
-            </code></pre>
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+            	echo("$email is a valid email address.");
+            } else {
+            	echo("$email is not a valid email address.");
+            }
+        ?&gt;
+    </code></pre>
                         <br>
                         <p>Other forms of validation and sanitizing using filter_var() include urls, integers within a range, IPv6 address, a url with a querystring, and removing HTML tags and all characters with ASCII values > 127.</p>
                     </div>
@@ -1203,15 +1204,15 @@ Date Created: December 2017
                         <br>
 
                         <h3>Using the die() Function</h3>
-            <pre><code class="language-php">
-            &lt;?php
-                    if (!file_exists("file.txt")) {
-                        die("File not found");
-                    } else {
-                        $file = fopen("file.txt", "r");
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            if (!file_exists("file.txt")) {
+                die("File not found");
+            } else {
+                $file = fopen("file.txt", "r");
+            }
+        ?&gt;
+    </code></pre>
                         <br>
 
                         <h3>Creating a Custom Error Handler</h3>
@@ -1316,42 +1317,42 @@ Date Created: December 2017
                             <li>You can re-throw Exceptions by throwing in a catch block but wrapping the original try-catch block in another try-catch block.</li>
                         </ul>
                         <br>
-            <pre><code class="language-php">
-            &lt;?php
-                    function checkNum($number) {
-                        if ($number > 1) {
-                        	throw new Exception("Value must be 1 or below");
-                        }
-                        return true;
-                    }
+    <pre><code class="language-php">
+    &lt;?php
+            function checkNum($number) {
+                if ($number > 1) {
+                	throw new Exception("Value must be 1 or below");
+                }
+                return true;
+            }
 
-                    try {
-                    	checkNum(2);
-                    	echo 'Number is 1 or below.';
-                    } catch (customException $e) {
-                        echo 'CustomException: ' . $e-&gt;getMessage();
-                    } catch (Exception $e) {
-                        echo 'Message: ' . $e-&gt;getMessage();
-                    }
-                ?&gt;
-            </code></pre>
+            try {
+            	checkNum(2);
+            	echo 'Number is 1 or below.';
+            } catch (customException $e) {
+                echo 'CustomException: ' . $e-&gt;getMessage();
+            } catch (Exception $e) {
+                echo 'Message: ' . $e-&gt;getMessage();
+            }
+        ?&gt;
+    </code></pre>
                         <br>
                         <h3>Create a Custom Exception Class</h3>
                         <ul>
                             <li>The class must extend from the Exception class.</li>
                         </ul>
                         <br>
-            <pre><code class="language-php">
-            &lt;?php
-                    class CustomException extends Exception {
-                    	public function errorMessage() {
-                    		// error message
-                    		$errorMsg = 'Error on line ' .$this-&gt;getLine().' in '.this-&gt;getFile() .': &lt;b&gt; '.this-&gt;getMessage().'&lt;/b&gt; is not a valid Email address';
-                    		return $errorMsg;
-                        }
-                    }
-                ?&gt;
-            </code></pre>
+    <pre><code class="language-php">
+    &lt;?php
+            class CustomException extends Exception {
+            	public function errorMessage() {
+            		// error message
+            		$errorMsg = 'Error on line ' .$this-&gt;getLine().' in '.this-&gt;getFile() .': &lt;b&gt; '.this-&gt;getMessage().'&lt;/b&gt; is not a valid Email address';
+            		return $errorMsg;
+                }
+            }
+        ?&gt;
+    </code></pre>
                         <br>
                         <p><span class="definition_php">set_exception_handler()</span>: sets user-defined function to handle all uncaught exceptions.</p>
                         <ul>
