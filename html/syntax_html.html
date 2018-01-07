@@ -60,7 +60,7 @@ Date Created: December 2017
                 <div id="content">
 
                     <div class="section">
-                        <p><span class="bold">Sources to credit: </span>Tutorials on Youtube, StackOverflow, <a href="https://www.w3schools.com/html/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a></p>
+                        <p><span class="bold">Sources to credit: </span>Tutorials on Youtube, StackOverflow, <a href="https://www.w3schools.com/html/default.asp">w3schools.com</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN web docs</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a></p>
                     </div>
 
                     <div class="section">
@@ -101,7 +101,7 @@ Date Created: December 2017
                     <h2>List of Elements</h2>
                         <table class="table_3_to_7">
                             <tr>
-                                <th>&lt;Element&gt;</th>
+                                <th>Element</th>
                                 <th>Definition</th>
                             </tr>
                             <tr>
@@ -255,7 +255,7 @@ Date Created: December 2017
                         <h2>Tables and Table Elements</h2>
                         <table class="table_3_to_7">
                             <tr>
-                                <th>&lt;Element&gt;</th>
+                                <th>Element</th>
                                 <th>Definition</th>
                             </tr>
                             <tr>
@@ -428,10 +428,26 @@ Date Created: December 2017
                                 <th>Code</th>
                             </tr>
                             <tr>
+                                <td><span class="definition">Form</span>: defines form to collect user input</td>
+                                <td>
+    <pre><code class="language-markup">
+    &lt;form action="..." method="get|post"&gt;&lt;&frasl;form&gt;
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="definition">Input</span>: element that retrieves user input, distinguished by the input type</td>
+                                <td>
+    <pre><code class="language-markup">
+    &lt;input type="..." name="..." value="..."&gt;
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td><span class="definition">Labels</span>: text, if clicked will set focus on element, use for attribute</td>
                                 <td>
     <pre><code class="language-markup">
-    &lt;label for="idOfInput"&gt;Label for Input&lt;&frasl; &gt;
+    &lt;label for="idOfInput"&gt;Label for Input&lt;&frasl;label&gt;
     </code>
     <label for="idOfInput">Label for Input</label>
     <input type="text" name="" id="idOfInput">
@@ -442,7 +458,7 @@ Date Created: December 2017
                                 <td><span class="definition">Textarea</span>: for multi-line input</td>
                                 <td>
     <pre><code class="language-markup">
-    &lt;textarea rows="8" cols="30"&gt;&lt;&frasl; &gt;
+    &lt;textarea rows="8" cols="30"&gt;&lt;&frasl;textarea&gt;
     </code>
     <textarea name="textArea" rows="8" cols="30"></textarea>
     </pre>
@@ -515,6 +531,14 @@ Date Created: December 2017
                             <tr>
                                 <td>maxlength</td>
                                 <td>Maximum allowed length for input.</td>
+                            </tr>
+                            <tr>
+                                <td>min</td>
+                                <td>The input value must be greater than or equal to the specified value.</td>
+                            </tr>
+                            <tr>
+                                <td>max</td>
+                                <td>The input value must be less than or equal to the specified value.</td>
                             </tr>
                             <tr>
                                 <td>autocomplete</td>

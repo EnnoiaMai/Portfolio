@@ -58,7 +58,7 @@ Date Created: December 2017
 
                 <div id="content">
                     <div class="section">
-                        <p><span class="bold">Sources to credit: </span>Tutorials on Youtube, StackOverflow, <a href="https://www.w3schools.com/css/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
+                        <p><span class="bold">Sources to credit: </span>Tutorials on Youtube, StackOverflow, <a href="https://www.w3schools.com/css/default.asp">w3schools.com</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">MDN web docs</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
                     </div>
 
                     <div class="section">
@@ -168,7 +168,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td><span class="definition">Adjacent Sibling Selector</span>: chooses only the element's next sibling.</td>
+                                <td><span class="definition">Adjacent Sibling Selector</span>: chooses only the element's next sibling. More specifically, selects all elements placed immediately after the selector.</td>
                                 <td>
     <pre><code class="language-css">
     selector+siblingElement {
@@ -178,7 +178,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td><span class="definition">General Sibling Selector</span>: chooses all siblings of selected element.</td>
+                                <td><span class="definition">General Sibling Selector</span>: chooses all siblings of selected element. More specifically, selects all elements preceded by the selector.</td>
                                 <td>
     <pre><code class="language-css">
     selector~siblingElement {
@@ -665,6 +665,459 @@ Date Created: December 2017
                     </div>
 
                     <div class="section">
+                        <h2>Media Queries</h2>
+    <pre><code class="language-css">
+    @media not|only mediatype and (media feature) {
+        <i>CSS code</i>
+    }
+    @media screen and (min-width: 480px) {
+        <i>CSS code</i>
+    }
+    </code></pre>
+                        <br>
+                        <p><span class="definition_selector">@media</span> rule used to define different style rules for different media types/devices. The media feature or expressions resolve to true or false.</p>
+                        <br>
+                        <p>Can have different stylesheets based on the media</p>
+    <pre><code class="language-markup">
+    &lt;link rel="stylesheet" media="mediatype" and|not|only (media feature) href="mystylesheet.css"&gt;
+    </code></pre>
+                        <br>
+
+                        <table class="table_60">
+                            <tr>
+                                <th colspan="2">Media Types</th>
+                            </tr>
+                            <tr>
+                                <td>all</td>
+                                <td>For all media type devices</td>
+                            </tr>
+                            <tr>
+                                <td>print</td>
+                                <td>For printers</td>
+                            </tr>
+                            <tr>
+                                <td>screen</td>
+                                <td>For computer screens, tablets, smartphones etc.</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Media Features</th>
+                            </tr>
+                            <tr>
+                                <td>max-device-width</td>
+                                <td>max width of device like computer screen</td>
+                            </tr>
+                            <tr>
+                                <td>max-device-height</td>
+                                <td>max height of device like computer screen</td>
+                            </tr>
+                            <tr>
+                                <td>min-device-width</td>
+                                <td>min width of device like computer screen</td>
+                            </tr>
+                            <tr>
+                                <td>min-device-height</td>
+                                <td>min height of device like computer screen</td>
+                            </tr>
+                            <tr>
+                                <td>max-width</td>
+                                <td>max width of display area like browser window</td>
+                            </tr>
+                            <tr>
+                                <td>max-height</td>
+                                <td>max height of display area like browser window</td>
+                            </tr>
+                            <tr>
+                                <td>min-width</td>
+                                <td>min width of display area like browser window</td>
+                            </tr>
+                            <tr>
+                                <td>min-height</td>
+                                <td>min height of display area like browser window</td>
+                            </tr>
+                            <tr>
+                                <td>width</td>
+                                <td>the viewport width</td>
+                            </tr>
+                            <tr>
+                                <td>height</td>
+                                <td>the viewport height</td>
+                            </tr>
+                            <tr>
+                                <td>orientation</td>
+                                <td>orientation of viewport, landscape or portrait</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <h2>Web Browsers and Rendering Engines</h2>
+                        <table class="table_60 center_table_data">
+                            <tr>
+                                <th>Browser</th>
+                                <th>Engine</th>
+                                <th>CSS prefix</th>
+                            </tr>
+                            <tr>
+                                <td>Firefox</td>
+                                <td>Gecko</td>
+                                <td>-moz</td>
+                            </tr>
+                            <tr>
+                                <td>Safari</td>
+                                <td>Webkit</td>
+                                <td>-webkit</td>
+                            </tr>
+                            <tr>
+                                <td>Chrome</td>
+                                <td>Blink</td>
+                                <td>-webkit</td>
+                            </tr>
+                            <tr>
+                                <td>Opera</td>
+                                <td>Presto/Blink</td>
+                                <td>-o and -webkit</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <h2>CSS Transitions</h2>
+                        <p>Transitions allow values of properties to change smoothly over time.</p>
+                        <ul>
+                            <li>Must specify the CSS property to add an effect to and the duration.</li>
+                            <li>To change several values, separate the individual transitions with commas.</li>
+                        </ul>
+                        <br>
+    <pre><code class="language-css">
+    /* General Syntax */
+    selector {
+        transition: [property] [duration] [transition-timing-function] [delay];
+    }
+
+    /* Example */
+    div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transition: width 2s linear 1s;
+    }
+    div:hover {
+        width: 300px;
+    }
+
+    /* Example of setting multiple transition effects */
+    selector {
+        transition: background-color 0.5s linear 0s,
+                width 1s ease 0.5s;
+    }
+    </code></pre>
+                        <br>
+                        <table>
+                            <tr>
+                                <th colspan="2">CSS Transition Properties</th>
+                            </tr>
+                            <tr>
+                                <th>Property</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>transition</td>
+                                <td>Shorthand for setting the four transition properties</td>
+                            </tr>
+                            <tr>
+                                <td>transition-delay</td>
+                                <td>Delays transition effect</td>
+                            </tr>
+                            <tr>
+                                <td>transition-duration</td>
+                                <td>Seconds/Milliseconds the transition effect takes</td>
+                            </tr>
+                            <tr>
+                                <td>transition-property</td>
+                                <td>Name of CSS property transition effect is for</td>
+                            </tr>
+                            <tr>
+                                <td>transition-timing-function</td>
+                                <td>Speed curve of transition effect - ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(n, n, n, n)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <h2>CSS Transforms</h2>
+                        <p>The source of the following information about transforms came from this <a href="https://robots.thoughtbot.com/transitions-and-transforms">website</a>.</p>
+                        <p>Transforms change the appearance of an element, and they are triggered when an element changes state.</p>
+                        <br>
+                        <table class="table_3_columns">
+                            <tr>
+                                <th>Transform Value</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td>scale</td>
+                                <td>Increases or decreases the size of the element.</td>
+                                <td>
+    <pre><code class="language-css">
+    selector {
+        transition: transform 1s;
+    }
+    selector:hover {
+        transform: scale(2);
+    }
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>rotate</td>
+                                <td>Rotates the element by a number of degrees.</td>
+                                <td>
+    <pre><code class="language-css">
+    selector {
+        transition: transform 1s;
+    }
+    selector:hover {
+        transform: rotate(1080deg);
+    }
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>translate</td>
+                                <td>Moves an element around, based on coordinate system in which positive X and positive Y are to the right and downwards, respectively.</td>
+                                <td>
+    <pre><code class="language-css">
+    selector {
+        transition: transform 1s;
+    }
+    selector:hover {
+        transform: translate(20px, 20px);
+    }
+    </code></pre>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <h2>Flexbox</h2>
+                        <p>The source of the following information about Flexboxes came from this <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">website</a></p>
+                        <br>
+                        <p>Flexbox layouts allow items to be distributed within a container, and is a dynamic way to let the child elements inside the container grow or shrink to fill up the space. It is a way to layout items dynamically.</p>
+                        <ul>
+                            <li>The parent container must have its display property set to flex.</li>
+                        </ul>
+                        <br>
+                        <p>The following are properties associated with the parent container:</p>
+                        <br>
+                        <table class="table_3_columns">
+                            <tr>
+                                <th>Property</th>
+                                <th>Description</th>
+                                <th>Value</th>
+                            </tr>
+                            <tr>
+                                <td>flex-direction</td>
+                                <td>Determines the direction in which items will be laid out.</td>
+                                <td>row | row-reverse | column | column-reverse</td>
+                            </tr>
+                            <tr>
+                                <td>flex-wrap</td>
+                                <td>Determines if the items will be able to wrap around the container.</td>
+                                <td>wrap | no-wrap | wrap-reverse</td>
+                            </tr>
+                            <tr>
+                                <td>justify-content</td>
+                                <td>Determines the alignment of the items along the main axis.</td>
+                                <td>flex-start | flex-end | center | space-between | space-around</td>
+                            </tr>
+                            <tr>
+                                <td>align-item</td>
+                                <td>Determines the alignment of the items along the cross-axis.</td>
+                                <td>flex-start | flex-end | center | baseline | stretch</td>
+                            </tr>
+                        </table>
+                        <br>
+
+                        <p>The following are properties associated with the items within the container:</p>
+                        <br>
+                        <table class="table_3_columns">
+                            <tr>
+                                <th>Property</th>
+                                <th>Description</th>
+                                <th>Value</th>
+                            </tr>
+                            <tr>
+                                <td>order</td>
+                                <td>The order in which the item is added to the container.</td>
+                                <td>An integer. Default value is 0.</td>
+                            </tr>
+                            <tr>
+                                <td>flex</td>
+                                <td>a shorthand for flex-grow, flex-shrink, and flex-basis in that order.</td>
+                                <td>The default value is 0 1 auto.</td>
+                            </tr>
+                            <tr>
+                                <td>flex-grow</td>
+                                <td>Allows the item to grow to fill the remaining space.</td>
+                                <td>The value is a proportion or a ratio. A value of 1 for this property for all items means that they will distribute space evenly.</td>
+                            </tr>
+                            <tr>
+                                <td>flex-shrink</td>
+                                <td>Determines if the item will shrink.</td>
+                                <td>The value is a proprtion or a ratio. A value of 0 means that the item will not shrink.</td>
+                            </tr>
+                            <tr>
+                                <td>flex-basis</td>
+                                <td>Sets the size of the element. This size is applied before the space left over is distributed.</td>
+                                <td>A length, like a percentage, a px, etc. Default value is auto.</td>
+                            </tr>
+                            <tr>
+                                <td>align-self</td>
+                                <td>Sets the alignment on the cross-axis of the individual item.</td>
+                                <td>flex-start | flex-end | center | baseline | stretch | auto</td>
+                            </tr>
+                        </table>
+                        <br>
+                    </div>
+
+                    <div class="section">
+                        <h2>Example of using Flexbox to Layout Contents</h2>
+                        <p>The following is an example of how to style a website to make a standard layout in which there is a horizontal menu that sticks at the top while scrolling down, content that is automatically sized in the middle, and a footer that sticks to the bottom of the page.</p>
+    <pre><code class="language-css">
+    /* The body will be the outer container that holds the menu, the content, and the footer */
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    /* Set the position to fixed so that the menu is out of the flow */
+    .menu {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 10;
+    }
+    /* Content should grow to fill the remaining space, but shouldn't shrink */
+    .content {
+        flex: 1 0 auto;
+    }
+    /* Footer should not shrink */
+    .footer {
+        flex-shrink: 0;
+    }
+    </code></pre>
+                    </div>
+
+                    <div class="section">
+                        <h2>Grid</h2>
+                        <p>The source of the following information about Grids came from this <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">website</a></p>
+                        <br>
+                        <p>The Grid layout is a two-dimensional layout system that can handle both rows and columns. The page is divided into as many columns as specified by one of the grid properties. However, the max is 12 columns. Rows and columns can stretch or overlap in terms of the amount of space it takes up.</p>
+                        <ul>
+                            <li>The parent container must have its display property set to grid.</li>
+                            <li>The parent container is called the grid container, and the items within this grid are the grid items. There are grid lines which divide and distinguish each grid cell.</li>
+                        </ul>
+                        <br>
+                        <p>The following are properties associated with the grid container:</p>
+                        <br>
+                        <table class="table_3_columns">
+                            <tr>
+                                <th>Property</th>
+                                <th>Description</th>
+                                <th>Value</th>
+                            </tr>
+                            <tr>
+                                <td>grid-template-columns and grid-template-rows</td>
+                                <td>Specifies the number of columns and rows the grid will have. The lines can be named, and the size is a length such as a percentage, px, or a fraction (fr). If a custom name is not defined, then the line name is numerical.</td>
+                                <td>size | name size</td>
+                            </tr>
+                            <tr>
+                                <td>grid-template-areas</td>
+                                <td>Lays out the grid items by referencing the items by their grid-area property. If the grid-area name is repeated, then that item spans across those cells. The period means an empty cell.</td>
+                                <td>grid-area name | . | none</td>
+                            </tr>
+                            <tr>
+                                <td>grid-column-gap and grid-row-gap</td>
+                                <td>Sets the space between the columns and rows. More specifically, it is the width of the grid lines.</td>
+                                <td>size</td>
+                            </tr>
+                            <tr>
+                                <td>grid-gap</td>
+                                <td>Shorthand for grid-row-gap and grid-column-gap. Takes size values.</td>
+                                <td>size(grid-row-gap) size(grid-column-gap)</td>
+                            </tr>
+                            <tr>
+                                <td>justify-items</td>
+                                <td>Aligns grid item contents along the row axis. Applies to all grid items in the parent container.</td>
+                                <td>start | end | center | stretch</td>
+                            </tr>
+                            <tr>
+                                <td>align-items</td>
+                                <td>Aligns grid item contents along the column axis. Applies to all grid items in the parent container.</td>
+                                <td>start | end | center | stretch</td>
+                            </tr>
+                            <tr>
+                                <td>justify-content</td>
+                                <td>Aligns the grid within the grid container along the row axis. Only works if the size of the grid is smaller than the size of the grid container.</td>
+                                <td>start | end | center | stretch | space=around | space-between</td>
+                            </tr>
+                            <tr>
+                                <td>align-content</td>
+                                <td>Aligns the grid within the grid container along the column axis.</td>
+                                <td>start | end | center | stretch | space=around | space-between</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p>The following are properties associated with the grid items:</p>
+                        <br>
+                        <table>
+                            <tr>
+                                <th>Property</th>
+                                <th>Description</th>
+                                <th>Value</th>
+                            </tr>
+                            <tr>
+                                <td>grid-column-start, grid-column-end, grid-row-start, grid-row-end</td>
+                                <td>Sets the position of the grid item in the container. It refers to the starting and ending grid lines and allows the grid item to span across multiple rows and/or columns.</td>
+                                <td>number | name | span number | span name | auto</td>
+                            </tr>
+                            <tr>
+                                <td>grid-area</td>
+                                <td>The name of the grid item so that it could be referenced by the parent container when setting the grid-template-areas property.</td>
+                                <td>name</td>
+                            </tr>
+                            <tr>
+                                <td>justify-self</td>
+                                <td>Aligns the individual grid item's content along the row axis.</td>
+                                <td>start | end | center | stretch</td>
+                            </tr>
+                            <tr>
+                                <td>align-self</td>
+                                <td>Aligns the individual grid item's content along the column axis.</td>
+                                <td>start | end | center | stretch</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <h2>Example of using the Grid to Layout Contents</h2>
+                        <p>The following examples creates a grid with 3 columns but an undefined amount of rows, intentionally done to avoid having a fixed number of rows. The columnes are spaced out evenly by using the fraction (fr) unit.</p>
+    <pre><code class="language-css">
+    .grid_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 36px 24px;
+    }
+    .grid_container div {
+        background-color: #FFFCF8;
+        box-shadow: 0px 0px 1px 0px grey;
+    }
+    </code></pre>
+                    </div>
+
+                    <div class="section">
                         <h2>Creating a Simple Horizontal Menu</h2>
                         <p>1) Create a list either ordered or unordered, within list create list elements and within list elements, create anchor tags.</p>
     <pre><code class="language-markup">
@@ -739,89 +1192,26 @@ Date Created: December 2017
                     </div>
 
                     <div class="section">
-                        <h2>Media Queries</h2>
+                        <h2>Get input textbox to fill Parent Container</h2>
+                        <p>Include the box-sizing property with the value of border-box in the CSS for the parent container of the input element. The textbox will then stretch to fill its parent div in width.</p>
+                        <p>Then, set the width of the input element to some percentage.</p>
+                        <br>
+                        <p>For example,</p>
+                        <div style="box-sizing: border-box; padding: 4px 16px; border: 1px solid grey">
+                            <input type="text" name="" value="" style="width: 100%;">
+                        </div>
     <pre><code class="language-css">
-    @media not|only mediatype and (media feature) {
-        <i>CSS code</i>
+    div {
+        box-sizing: border-box;
+        padding: 4px 16px;
+        border: 1px solid grey;
     }
-    @media screen and (min-width: 480px) {
-        <i>CSS code</i>
+    input {
+        width: 100%;
     }
     </code></pre>
-                        <br>
-                        <p><span class="definition_selector">@media</span> rule used to define different style rules for different media types/devices. The media feature or expressions resolve to true or false.</p>
-                        <br>
-                        <p>Can have different stylesheets based on the media</p>
-    <pre><code class="language-markup">
-    &lt;link rel="stylesheet" media="mediatype" and|not|only (media feature) href="mystylesheet.css"&gt;
-    </code></pre>
-                        <br>
-
-                        <table>
-                            <tr>
-                                <th colspan="2">Media Types</th>
-                            </tr>
-                            <tr>
-                                <td>all</td>
-                                <td>For all media type devices</td>
-                            </tr>
-                            <tr>
-                                <td>print</td>
-                                <td>For printers</td>
-                            </tr>
-                            <tr>
-                                <td>screen</td>
-                                <td>For computer screens, tablets, smartphones etc.</td>
-                            </tr>
-                            <tr>
-                                <th colspan="2">Media Features</th>
-                            </tr>
-                            <tr>
-                                <td>max-device-width</td>
-                                <td>max width of device like computer screen</td>
-                            </tr>
-                            <tr>
-                                <td>max-device-height</td>
-                                <td>max height of device like computer screen</td>
-                            </tr>
-                            <tr>
-                                <td>min-device-width</td>
-                                <td>min width of device like computer screen</td>
-                            </tr>
-                            <tr>
-                                <td>min-device-height</td>
-                                <td>min height of device like computer screen</td>
-                            </tr>
-                            <tr>
-                                <td>max-width</td>
-                                <td>max width of display area like browser window</td>
-                            </tr>
-                            <tr>
-                                <td>max-height</td>
-                                <td>max height of display area like browser window</td>
-                            </tr>
-                            <tr>
-                                <td>min-width</td>
-                                <td>min width of display area like browser window</td>
-                            </tr>
-                            <tr>
-                                <td>min-height</td>
-                                <td>min height of display area like browser window</td>
-                            </tr>
-                            <tr>
-                                <td>width</td>
-                                <td>the viewport width</td>
-                            </tr>
-                            <tr>
-                                <td>height</td>
-                                <td>the viewport height</td>
-                            </tr>
-                            <tr>
-                                <td>orientation</td>
-                                <td>orientation of viewport, landscape or portrait</td>
-                            </tr>
-                        </table>
                     </div>
+
                 </div>
             </div>
             <div id="directory_container">

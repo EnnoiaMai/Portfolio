@@ -253,6 +253,7 @@ body > div {
     visibility: hidden;
 }
 
+/* Distinguishes Topics */
 .section {
     margin-top: 24px;
     margin-bottom: 24px;
@@ -261,6 +262,8 @@ body > div {
     background-color: #c9d4d4;
     padding: 16px;
 }
+
+/* For tables that have 2 columns - the following are percentages of width */
 .table_3_to_7 {
     width: 100%;
 }
@@ -284,7 +287,35 @@ body > div {
     width: 50%;
 }
 .table_1_to_1 td:nth-child(2) {
-    /* padding-left: 5%; */
     padding: 8px 16px;
-    /* padding-right: 5%; */
+}
+
+/* For small tables that should stretch to fill the width a certain amount */
+.table_60 {
+    width: 60%;
+}
+.center_table_data td {
+    text-align: center;
+}
+
+/* For tables that should fill the parent section */
+.table_100 {
+    width: 100%;
+}
+
+/* For tables that have 3 columns */
+.table_3_columns {
+    width: 100%;
+}
+.table_3_columns td {
+    vertical-align: text-top;
+}
+.table_3_columns td:first-child {
+    width: 20%;
+}
+.table_3_columns td:nth-child(2) {
+    width: 40%;
+}
+.table_3_columns td:nth-child(3) {
+    width: 40%;
 }

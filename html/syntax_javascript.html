@@ -57,7 +57,7 @@ Date Created: December 2017
 
                 <div id="content">
                     <div class="section">
-                        <p><span class="bold">Sources to credit: </span>Tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/js/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
+                        <p><span class="bold">Sources to credit: </span>Tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/js/default.asp">w3schools.com</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">MDN web docs</a>, <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>, and <a href="https://www.youtube.com/user/flashbuilding/videos">Adam Khoury</a>.</p>
                     </div>
 
                     <div class="section">
@@ -111,13 +111,17 @@ Date Created: December 2017
                                 <td>null</td>
                             </tr>
                         </table>
+                        <br>
+                        <h4>Difference between undefined and null</h4>
+                        <p>undefined: a variable has been declared by not yet assigned a value. It is a type itself.</p>
+                        <p>null: an assignment value representing no value. It is an object.</p>
                     </div>
 
                     <div class="section">
                         <h2>Variables</h2>
                         <p><span class="definition">Variables</span>: declared with <span class="definition_javascript">var</span> keyword. Use for storage, can be reused and set to different primary types.</p>
                         <br>
-                        <p><span class="definition">Global variables</span>: declared outside the function, alive as long as page is laoded.</p>
+                        <p><span class="definition">Global variables</span>: declared outside the function, alive as long as page is loaded.</p>
                         <br>
                         <p><span class="definition">Local variables</span>: accessible within the scope of the function.</p>
                         <ul>
@@ -146,30 +150,50 @@ Date Created: December 2017
                     <div class="section">
                         <h2>Functions</h2>
                         <p><span class="definition">Functions</span>: set of statements to perform a task, can't put numbers in beginning of function name</p>
+                        <ul>
+                            <li>The () operator invokes the function. Accessing the function without () gives the function definition and not the result.</li>
+                            <li>Functions can be used as the value for a variable.</li>
+                        </ul>
                         <br>
                         <p><span class="definition">Arguments</span>: passed in as values to parameters of functions, they are copied to the parameters. Can be accessed using <span class="definition_javascript">arguments</span> keyword and indexing.</p>
+                        <ul>
+                            <li><span class="bold">Accessing arguments</span> - arguments objects have entry for each argument passed to function, but doesn't have array properties aside from <span class="definition_javascript">length.</span></li>
+                        </ul>
+                        <br>
+                        <h4>Function Syntax</h4>
+    <pre><code class="language-javascript">
+    function name (parameter1, parameter2, parameter3) {
+        // statements
+    }
+    </code></pre>
+    <br>
+                        <h4>Examples of Functions</h4>
     <pre><code class="language-javascript">
     function addTogether(num, str){
         var add = num + str;
         alert(add);
     }
     addTogether(100, " things I like");
-    </code></pre>
-                        <br>
-                        <p>Can return from function and store it in a variable.</p>
-    <pre><code class="language-javascript">
+
+    // Can return from function and store it in a variable
     function add(x, y){
         result = x + y;
         return result;
     }
     var sum = add(2, 3);
-    </code></pre>
-                        <br>
-                        <p><span class="bold">Accessing arguments</span> - arguments objects have entry for each argument passed to function, but doesn't have array properties aside from <span class="definition_javascript">length.</span></p>
-    <pre><code class="language-javascript">
+
+    // Accessing Arguments
     function someFunction(){
         alert(arguments[0]);
     }
+    </code></pre>
+                        <br>
+                        <h4>Passing Parameters</h4>
+                        <p>Use an anonymous function that calls the defined function.</p>
+    <pre><code class="language-javascript">
+    element.addEventListener("event", function() {
+        myFunction(p1, p2);
+    });
     </code></pre>
                     </div>
 
