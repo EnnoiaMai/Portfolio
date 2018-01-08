@@ -139,11 +139,79 @@ Date Created: December 2017
                     </div>
 
                     <div class="section">
-                        <h2>Some JS Functions</h2>
+                        <h2>JavaScript Operators</h2>
+                        <p><span class="definition">Precedence</span>: (* and /) is performed before (+ and -)</p>
+                        <br>
+                        <table>
+                            <tr>
+                                <th>Type</th>
+                                <th>Operators</th>
+                            </tr>
+                            <tr>
+                                <td>Arithmetic Operators</td>
+                                <td>+, -, *, /, %, ++, --</td>
+                            </tr>
+                            <tr>
+                                <td>Assignment Operators</td>
+                                <td>=, +=, -=, *=, /=, %=</td>
+                            </tr>
+                            <tr>
+                                <td>Comparison Operators</td>
+                                <td>==, == (equal value and equal type), !=, !==, &gt;, &lt;, &gt;=, &lt;=, ?</td>
+                            </tr>
+                            <tr>
+                                <td>Logical Operators</td>
+                                <td>&amp;&amp;, ||, !</td>
+                            </tr>
+                            <tr>
+                                <td>Type Operators</td>
+                                <td><span class="definition_javascript">typeof()</span> returns type of variable, <span class="definition_javascript">instanceof()</span> returns true if object is an instance of the object type</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <h2>Conditions</h2>
     <pre><code class="language-javascript">
-    document.write("string");    // writes out the text to the document
-    alert(message | "string");    // alerts user with popup and the message
-    confirm();    // asks user if want to confirm, returns true or false value
+    if (conditions){
+        statements;
+    }
+    else if (conditions){
+        statements;
+    }
+    else {
+        statements;
+    }
+    </code></pre>
+                    </div>
+
+                    <div class="section">
+                        <h2>Loops</h2>
+                        <p>Aside from the while loop and the standard for loop, there is also the for...in and for...of loops</p>
+                        <ul>
+                            <li><span class="definition_javascript">for...in</span> iterates over enumerable properties of an object. It shouldn't be used to iterate over an array where index order is important because there is no guarantee that the indexes will be in order.</li>
+                            <li><span class="definition_javascript">for...of</span> iterates over iterable objects. It should be used to iterate over an array, returns the value of what was iterated over.</li>
+                        </ul>
+    <pre><code class="language-javascript">
+    // The while loop
+    while (conditions) {
+        statements;
+    }
+
+    // Standard for loop
+    for (counter; condition; incrementor) {
+        statements;
+    }
+
+    // The for...in loop
+    for (variable in object) {
+        statements;
+    }
+
+    // The for...of loop
+    for (variable of iterable) {
+        statements;
+    }
     </code></pre>
                     </div>
 
@@ -198,76 +266,91 @@ Date Created: December 2017
                     </div>
 
                     <div class="section">
-                        <h2>JavaScript Operators</h2>
-                        <p><span class="definition">Precedence</span>: (* and /) is performed before (+ and -)</p>
-                        <br>
-                        <table>
-                            <tr>
-                                <th>Type</th>
-                                <th>Operators</th>
-                            </tr>
-                            <tr>
-                                <td>Arithmetic Operators</td>
-                                <td>+, -, *, /, %, ++, --</td>
-                            </tr>
-                            <tr>
-                                <td>Assignment Operators</td>
-                                <td>=, +=, -=, *=, /=, %=</td>
-                            </tr>
-                            <tr>
-                                <td>Comparison Operators</td>
-                                <td>==, == (equal value and equal type), !=, !==, &gt;, &lt;, &gt;=, &lt;=, ?</td>
-                            </tr>
-                            <tr>
-                                <td>Logical Operators</td>
-                                <td>&amp;&amp;, ||, !</td>
-                            </tr>
-                            <tr>
-                                <td>Type Operators</td>
-                                <td><span class="definition_javascript">typeof()</span> returns type of variable, <span class="definition_javascript">instanceof()</span> returns true if object is an instance of the object type</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="section">
-                        <h2>Conditions</h2>
+                        <h2>Some JS Functions</h2>
     <pre><code class="language-javascript">
-    if (conditions){
-        statements;
-    }
-    else if (conditions){
-        statements;
-    }
-    else {
-        statements;
-    }
+    document.write("string");    // writes out the text to the document
+    alert(message | "string");    // alerts user with popup and the message
+    confirm();    // asks user if want to confirm, returns true or false value
     </code></pre>
                     </div>
 
                     <div class="section">
-                        <h2>Loops</h2>
+                        <h2>Enums</h2>
+                        <p><span class="definition">Enum</span>: a type that restricts variables to one value from a predefined set of constants.</p>
+                        <ul>
+                            <li>Javascript doesn't really have enums. They are more like objects with properties that can be accessed and added to, even when those properties are not yet declared.</li>
+                            <li>Can also have properties that are enums.</li>
+                        </ul>
+                        <br>
     <pre><code class="language-javascript">
-    while (conditions) {
-        statements;
-    }
-    for (counter; condition; incrementor) {
-        statements;
-    }
-    for (variable in object) {
-        statements;
+    // Example of creating an enum
+    var SomeEnum = {
+        PROPERTY_1: value,
+        PROPERTY_2: value,
+        PROPERTY_3: value
+    };
+    // Setting a variable to an enum value
+    var currentValue = SomeEnum.PROPERTY_1;
+    </code></pre>
+                    </div>
+
+                    <div class="section">
+                        <h2>Classes</h2>
+                        <p>An object serving as a generic template for new objects to use.</p>
+    <pre><code class="language-javascript">
+    function someClass(param1, param2, param3){
+        this.property1 = param1;
+        this.property2 = param2;
+        this.property3 = param3;
     }
     </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Arrays</h2>
+                        <p>Arrays won't give an array IndexOutOfBoundsException.</p>
     <pre><code class="language-javascript">
     var array = [value1, value2, value3];    // initialize array with values
     var getValue = array[index];    // get value at position/index
     array[index] = newValue;    // set value at position/index
     var multiDimArray = [ [x, x, x], [y, y, y] ];    // 2D array
     </code></pre>
-                        <p>Array functions include <span class="definition_javascript">push()</span> and <span class="definition_javascript">pop()</span> which works on tail end and <span class="definition_javascript">shift()</span> and <span class="definition_javascript">unshift()</span> which operate on first element of list. Arrays won't give an array IndexOutOfBoundsException.</p>
+                        <br>
+                        <table class="table_3_to_7">
+                            <tr>
+                                <th colspan="2">Array Methods</th>
+                            </tr>
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>push()</td>
+                                <td>Adds new elements to end of array.</td>
+                            </tr>
+                            <tr>
+                                <td>pop()</td>
+                                <td>Removes last element in array.</td>
+                            </tr>
+                            <tr>
+                                <td>shift()</td>
+                                <td>Removes first element in array.</td>
+                            </tr>
+                            <tr>
+                                <td>unshift()</td>
+                                <td>Adds new element to beginning of array.</td>
+                            </tr>
+                            <tr>
+                                <td>splice(start, deleteCount, item...)</td>
+                                <td>Changes the content of the array by removing existing elements or adding new elements.</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p>Example using <span class="definition_javascript">splice()</span></p>
+    <pre><code class="language-javascript">
+    array.splice(2, 0, 'item_1');   // inserts 'item_1' at index position 2
+    array.splice(2, 1);     // removes one item at index posiiton 2
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -294,7 +377,7 @@ Date Created: December 2017
                     </div>
 
                     <div class="section">
-                        <h2>Global Objects</h2>
+                        <h2>Built-in Objects in JS</h2>
                         <p>Global objects are objects that JS provides to be used anywhere.</p>
                         <br>
                         <h4 class="definition">String Object</h4>
@@ -302,7 +385,7 @@ Date Created: December 2017
     var strObject = "some text";
     </code></pre>
                         <br>
-                        <table>
+                        <table class="table_60">
                             <tr>
                                 <th colspan="3">Methods</th>
                             </tr>
@@ -324,9 +407,15 @@ Date Created: December 2017
                             <tr>
                                 <td>bold();</td>
                                 <td>italics();</td>
-                                <td></td>
+                                <td>split(separator);</td>
                             </tr>
                         </table>
+                        <br>
+                        <p>The <span class="definition_javascript">indexOf(<i>searchValue, fromIndex</i>)</span> method   returns the index in the String of the first occurrence of the specified value. Starts at fromIndex and returns -1 if the value isn't found.</p>
+                        <p>The <span class="definition_javascript">split(<i>separator</i>)</span> method splits a String object into an array of strings using a specified separator to divide the content.</p>
+                        <ul>
+                            <li>The searchValue is the string to search.</li>
+                        </ul>
                         <br>
 
                         <h4 class="definition">Math Object</h4>
@@ -334,19 +423,40 @@ Date Created: December 2017
     var numberObj = 5.0;
     </code></pre>
                         <br>
-                        <table>
-                            <th colspan="2">Methods</th>
+                        <table class="table_60">
+                            <th colspan="3">Methods</th>
                             <tr>
                                 <td>Math.round(numberObj);</td>
                                 <td>Math.ceil(numberObj);</td>
+                                <td>Math.floor(numberObj);</td>
                             </tr>
                             <tr>
-                                <td>Math.floor(numberObj);</td>
                                 <td>Math.sqrt(numberObj);</td>
+                                <td>Math.random();</td>
+                                <td></td>
                             </tr>
                         </table>
                         <br>
-
+                        <p>Example of using a Random Number Generator</p>
+                        <ul>
+                            <li><span class="definition_javascript">Math.random()</span> returns a random number between 0(inclusive) and 1(exclusive)</li>
+                            <li>To get the random number to expand to some specified range, multiply it by that number.</li>
+                        </ul>
+                        <br>
+    <pre><code class="language-javascript">
+    // Returns a random number from 1-10
+    Math.floor((Math.random() * 10) + 1);
+    </code></pre>
+                        <br>
+                        <h4 class="definition">Number Object</h4>
+                        <p><span class="definition_javascript">toFixed()</span>: formats a number using fixed-point notation. Returns a string representation of the number object.</p>
+                        <ul>
+                            <li>[digits] is the # of digits to appear after the decimal point. Can only be between 0 and 20.</li>
+                        </ul>
+    <pre><code class="language-javascript">
+    numObj.toFixed([digits]);
+    </code></pre>
+                        <br>
                         <h4 class="definition">Date Object</h4>
                         <p> For the constructor for the Date object, whatever isn't filled in will be taken as 0. Months are zero-based.</p>
     <pre><code class="language-javascript">
@@ -374,6 +484,32 @@ Date Created: December 2017
                                 <td>setDate(date);</td>
                             </tr>
                         </table>
+                        <br>
+                        <h4 class="definition">parseInt() and parseFloat()</h4>
+                        <p><span class="definition_javascript">parseInt(<i>string, radix</i>)</span>: parses String and returns integer of specified radix, the base</p>
+                        <ul>
+                            <li>Specify 10 for radix for decimal numeral system.</li>
+                        </ul>
+                        <p><span class="definition_javascript">parseFloat(<i>value</i>)</span>: parses argument and returns a floating point number. Returns NaN if value can't be parsed.</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Windows object</h2>
+                        <p>The document object that comprises the entire webpage. It is the browser window itself. Usually use this object for page redirects.</p>
+    <pre><code class="language-javascript">
+    window.location="url"
+    </code></pre>
+                        <br>
+                        <h4>Setting a timeout on the window object</h4>
+                        <p><span class="definition_javascript">setTimeout(<i>function, ms, param1, param2...</i>)</span>: calls a function after a specified number of milliseconds</p>
+                        <ul>
+                            <li>Can use this to redirect user to a page after waiting for an amount of time.</li>
+                        </ul>
+    <pre><code class="language-javascript">
+    window.setTimeout(function() {
+        window.location.href="...";
+    }, ms);
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -385,6 +521,22 @@ Date Created: December 2017
                         </ul>
                         <br>
                         <p><span class="definition">Nodes</span>: Element node, Attribute node, and Text node</p>
+                        <br>
+                        <h4>Loading of the DOM</h4>
+                        <p><span class="definition">DomContentLoaded</span> event fires when the DOM finishes loading and the markup is parsed.</p>
+                        <p><span class="definition">Load</span> event fires when page is fully loaded, including downloading images and external resources.</p>
+                        <br>
+    <pre><code class="language-javascript">
+    // Can add the following event listeners
+    document.addEventListener("DocumentContentLoaded", domLoaded, false);
+    window.addEventListener("load", pageLoaded, false);
+    function domLoaded() {
+        statements;
+    }
+    function pageLoaded() {
+        statements;
+    }
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -433,12 +585,18 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Events</h2>
-                        <p><span class="definition">EventListeners</span> can be attached to the HTML element and the <span class="definition">EventHandler</span> is the piece of functionality that will run when that event occurs. Can choose the Event for the object to listen to. The "on" event that's usually defined in HTML as an attribute is left out in JS.</p>
+                        <p><span class="definition">EventListeners</span> can be attached or removed to or from the HTML element and the <span class="definition">EventHandler</span> is the piece of functionality that will run when that event occurs. Can choose the Event for the object to listen to. The "on" event that's usually defined in HTML as an attribute is left out in JS.</p>
+                        <ul>
+                            <li>Can add multiple Event Listeners to an element and event handlers of the same type.</li>
+                            <li>Can add event listeners to DOM objects too like the window object.</li>
+                        </ul>
+                        <br>
     <pre><code class="language-javascript">
-    element.addEventListener(event, functionName);
-    functionName() {
-        statements;
-    }
+    // Attaching an event listener
+    element.addEventListener("event", functionName);
+
+    // Removing an event listener
+    element.removeEventListener("event", functionName);
     </code></pre>
 
                         <h4>List of Events</h4>
@@ -446,6 +604,12 @@ Date Created: December 2017
                             <li><span class="definition_javascript">onclick</span></li>
                             <li><span class="definition_javascript">onmouseover</span></li>
                             <li><span class="definition_javascript">onmouseout</span></li>
+                        </ul>
+                        <br>
+                        <h4>Event Object</h4>
+                        <p><span class="definition_javascript">event.target</span>: the target property can be the element that registered for the event or a descendant of it. It is a reference to the object in which the event was triggered.</p>
+                        <ul>
+                            <li>We can compare <span class="definition_javascript">event.target</span> to <span class="definition_javascript">this</span> to determine if the event is being handled due to event bubbling.</li>
                         </ul>
                     </div>
 
@@ -497,26 +661,160 @@ Date Created: December 2017
                     </div>
 
                     <div class="section">
-                        <h2>Forms</h2>
+                        <h2>Forms and Validation</h2>
                         <p>For forms, <span class="definition_javascript">value</span> property of the html element object returns the value of the input. Can do <span class="definition_javascript">value.length</span> to grab the length of the input value.</p>
-                    </div>
-                    <div class="section">
-                        <h2>Classes</h2>
-                        <p>An object serving as a generic template for new objects to use.</p>
+                        <br>
+                        <p><span class="bold">Input Type Radio</span> - <span class="definition_javascript">checked</span> property can be used to set the checked property or to get the boolean value of whether or not the radio button was checked.</p>
     <pre><code class="language-javascript">
-    function someClass(param1, param2, param3){
-        this.property1 = param1;
-        this.property2 = param2;
-        this.property3 = param3;
+    // Returns true or false depending on if radio is checked
+    var value = radioObject.checked;
+
+    // Set the checked property
+    radioObject.checked = true | false;
+    </code></pre>
+                        <br>
+                        <p><span class="bold">Input Type File</span> - Previewing an uploaded image</p>
+                        <ul>
+                            <li>Use method <span class="definition_javascript">URL.createObjectURL()</span>, which creates the URL that links to the object. Lifetime is as long as the document is up.</li>
+                            <li>Release the object using <span class="definition_javascript">URL.revokeObjectURL()</span> when object isn't needed. The browser also releases it when it's unloaded.</li>
+                        </ul>
+                        <br>
+                        <p>In the following example, trim is a helper method, and fileHandle is the name given to the input type file.</p>
+    <pre><code class="language-javascript">
+    var objectURL = URL.createObjectURL(object);
+
+    var file = URL.createObjectURL(event.target.files[0]);
+
+    if ( !(trim($('input[name="fileHandle"]').val())) ) {
+        // did not validate, do something here
     }
+    </code></pre>
+                        <br>
+                        <p><span class="definition_javascript">test()</span>: tests for a match in the string with the specified regular expression.</p>
+                        <br>
+    <pre><code class="language-javascript">
+    // Returns true if matched, false otherwise
+    RegExpObject.test(string);
     </code></pre>
                     </div>
 
                     <div class="section">
-                        <h2>Windows Object</h2>
-                        <p>The document object that comprises the entire webpage. It is the browser window itself. Usually use this object for page redirects.</p>
+                        <h2>Javascript Regular Expressions</h2>
+                        <p><span class="definition">Regular Expression(Regex)</span>: sequence of characters that defines a search pattern</p>
+                        <ul>
+                            <li><span class="definition_javascript">/^<i>pattern</i>$/<i>modifiers</i></span></li>
+                            <li>To create a Regular Expression object, use the RegExp constructor</li>
+                        </ul>
+                        <br>
+                        <p>Check out these sites for a more detailed explanation: <a href="https://www.geeksforgeeks.org/write-regular-expressions/">GeeksforGeeks</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">MDN web docs</a></p>
+                        <br>
     <pre><code class="language-javascript">
-    window.location="url"
+    var regexObj = new RegExp(pattern, flags);
+    </code></pre>
+                        <br>
+                        <table class="table_3_to_7">
+                            <tr>
+                                <th colspan="2">Regex Modifiers</th>
+                            </tr>
+                            <tr>
+                                <td>i</td>
+                                <td>Matching will be case-insensitive.</td>
+                            </tr>
+                            <tr>
+                                <td>g</td>
+                                <td>Matching will be global.</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <table class="table_3_to_7">
+                            <tr>
+                                <th colspan="2">Regex Patterns</th>
+                            </tr>
+                            <tr>
+                                <td>[abc]</td>
+                                <td>Find any character that matches the ones in the bracket.</td>
+                            </tr>
+                            <tr>
+                                <td>[0-9]</td>
+                                <td>Find any digits matching the ones within the brackets.</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <table class="table_3_to_7">
+                            <tr>
+                                <th colspan="2">Regex Metacharacters</th>
+                            </tr>
+                            <tr>
+                                <td>\d</td>
+                                <td>Finds a digit.</td>
+                            </tr>
+                            <tr>
+                                <td>\s</td>
+                                <td>Finds a whitespace character.</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <table class="table_3_to_7">
+                            <tr>
+                                <th colspan="2">Regex Quantifiers</th>
+                            </tr>
+                            <tr>
+                                <td>n+</td>
+                                <td>At least one n.</td>
+                            </tr>
+                            <tr>
+                                <td>n*</td>
+                                <td>Zero or more occurrences of n.</td>
+                            </tr>
+                            <tr>
+                                <td>n?</td>
+                                <td>Zero or one occurrences of n.</td>
+                            </tr>
+                            <tr>
+                                <td>{...}</td>
+                                <td>Repeat preceding character for as many times as the value inside the bracket.</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <h2>Animations and Transitions</h2>
+                        <h4>Animations</h4>
+                        <p>For animations to work, the following conditions must be met:</p>
+                        <ul>
+                            <li>Animations should be relative to a container.</li>
+                            <li>The container should have position relative and the element to animate should have position absolute.</li>
+                        </ul>
+                        <br>
+                        <p>The element's style is changed over time by using a timer. Use <span class="definition_javascript">setInterval(<i>function, time</i>)</span> and <span class="definition_javascript">clearInterval(<i>id</i>)</span>.</p>
+                        <br>
+    <pre><code class="language-javascript">
+    var id = setInterval(someFunction, time);
+    function someFunction() {
+        if (condition_for_completion) {
+            clearInterval(id);
+        } else {
+            // change element style
+        }
+    }
+    </code></pre>
+                        <br>
+                        <h4>Transitions</h4>
+                        <p>Set the value for the transition property.</p>
+    <pre><code class="language-javascript">
+    element.style.transition = [property] [duration] [transition-timing-function] [delay];
+
+    // Example
+    element.style.transition = "width 1s ease 0s";
+    </code></pre>
+                        <br>
+                        <h4>Javascript Transition Events</h4>
+                        <p>The <span class="definition_javascript">transitionend event</span> is widely supported and fires when the transition of an element is completed.</p>
+                        <br>
+    <pre><code class="language-javascript">
+    element.addEventListener("transitionend", function() {
+        alert("transition ended");
+    });
     </code></pre>
                     </div>
 

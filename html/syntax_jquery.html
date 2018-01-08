@@ -114,61 +114,20 @@ Date Created: December 2017
         $("selector").method();
     });
     </code></pre>
-                        <p><span class="definition_javascript">ready</span> function waits until webpage is downlaoded before any jquery code is executed. Usually do your setup here like initializing variables or grabbing html elements as objects and setting EventListeners to them.</p>
+                        <p><span class="definition_javascript">ready</span> function waits until webpage is downlaoded before any jquery code is executed. Usually do the setup here such as initializing variables or grabbing HTML elements as objects and setting Event Listeners to them.</p>
                     </div>
 
                     <div class="section">
-                        <h2>JQuery Events</h2>
-                        <p>The following are a list of some of the events that can be attached to an object. The shorthand way is displayed first. The function can be anonymous and defined as a parameter or a function name without the invoker can be set as the parameter.</p>
+                        <h2>JQuery object vs DOM object</h2>
+                        <p>Using JQuery selectors returns all the elements in the document that match in a collection. DOM elements can be wrapped in a JQuery object to access methods that are more concise and straightforward.</p>
+                        <br>
+                        <p>JQuery objects can access different methods than Javascript objects, so these must be distinguished using the wrapper $("selector").</p>
+                        <br>
+                        <p>In order to convert a JQuery object to a Javascript object, brackets can be used.</p>
     <pre><code class="language-javascript">
-    // The following is an anonymous call to a function
-    $("selector").on("event", function() {
-        statements;
-    });
-
-    // The following is using the function name, usually for reusability
-    $("selector").on("event", functionName);
+    // index is an integer
+    var domElement = $("selector")[index];
     </code></pre>
-                        <table>
-                            <tr>
-                                <th>Events</th>
-                                <th>Code</th>
-                            </tr>
-                            <tr>
-                                <td>Click: event is fired when user clicks on the html element.</td>
-                                <td>
-    <pre><code class="language-javascript">
-    $("selector").click(function() {
-        statements;
-    });
-
-    $("selector").on("click", function() {
-        statements;
-    })
-    </code></pre>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Mouseover: event is fired when user mouses over html element.</td>
-                                <td>
-    <pre><code class="language-javascript">
-    $("selector").mouseover(function() {
-        statements;
-    });
-    </code></pre>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Load: event that is sent to an element when it and all sub-elements have been completely loaded. Sent to element associated with a URL: images, scripts, frames, iframes, and window object.</td>
-                                <td>
-    <pre><code class="language-javascript">
-    $("selector").load(function() {
-        statements;
-    });
-    </code></pre>
-                                </td>
-                            </tr>
-                        </table>
                     </div>
 
                     <div class="section">
@@ -178,10 +137,10 @@ Date Created: December 2017
     <pre><code class="language-javascript">
     $("selector:pesudoclass").method();
     </code></pre>
-
+                        <br>
                         <table>
                             <tr>
-                                <th>Selector</th>
+                                <th>Pseudo Element</th>
                                 <th>Definition</th>
                             </tr>
                             <tr>
@@ -213,6 +172,11 @@ Date Created: December 2017
                                 <td>Selects elements that have specified child element.</td>
                             </tr>
                         </table>
+                        <br>
+                        <h4>Differences between this and $(this)</h4>
+                        <p>The <span class="definition_javascript">this</span> keyword is the specific DOM element associated with the event that was triggered.</p>
+                        <br>
+                        <p><span class="definition_javascript">$(this)</span> still refers to the currently selected object but because it is wrapped in a JQuery object, it has access to JQuery methods. The wrapper only adds the JQuery library to the reference.</p>
                     </div>
 
                     <div class="section">
@@ -223,13 +187,13 @@ Date Created: December 2017
     $("selector").css("property", "value").css("property", "value")...
     </code></pre>
 
-                        <table>
+                        <table class="table_1_to_1">
                             <tr>
                                 <th>Method</th>
                                 <th>Code</th>
                             </tr>
                             <tr>
-                                <td>CSS method: sets values to the properties of the selector</td>
+                                <td><span class="definition">css()</span>: sets values to the properties of the selector</td>
                                 <td>
     <pre><code class="language-javascript">
     // For single rule
@@ -244,7 +208,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>HTML method: replaces actual html element along with any applicable text.</td>
+                                <td><span class="definition">html()</span>: replaces html element along with any applicable text. Can use this method to return the HTML contents of the element.</td>
                                 <td>
     <pre><code class="language-javascript">
     $("selector").html("&lt;tag&gt;Content&lt;tag&gt;");
@@ -252,7 +216,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>Text Method: like html method but only replaces the text.</td>
+                                <td><span class="definition">text()</span>: like html method but only replaces the text.</td>
                                 <td>
     <pre><code class="language-javascript">
     $("selector").text("Content");
@@ -260,7 +224,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>Each method and this keyword: each lets looping through elements of selector, a DOM looping construct. this keyword is the current element of the loop.</td>
+                                <td><span class="definition">each()</span> and <span class="definition">this</span>: each lets looping through elements of selector, a DOM looping construct. this keyword is the current element of the loop.</td>
                                 <td>
     <pre><code class="language-javascript">
     $("selector").each(function() {
@@ -270,7 +234,69 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>Add, Remove, and Toggle Classes: adds or removes class attribute to elements, or toggle the class on and off</td>
+                                <td><span class="definition">eq()</span>: returns the specific JQuery object at the specified index in the collection of JQuery objects.</td>
+                                <td>
+    <pre><code class="language-javascript">
+    // index is an integer
+    var jqueryObj = $("selector").eq(index);
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="definition">get()</span>: similar to eq() but returns the DOM element itself.</td>
+                                <td>
+    <pre><code class="language-javascript">
+    // index is an integer
+    var domElement = $("selector").get(index);
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="definition">val()</span>: gets the current value of the element or sets the value of every matched element. Usually used to get value of form elements.</td>
+                                <td>
+    <pre><code class="language-javascript">
+    // Get the value
+    var theValue = $("selector").val();
+
+    // Set the value
+    $("selector").val(value);
+    </code> </pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="definition">children(<i>selector</i>)</span>matches the children of the element but only a single level down the DOM tree.</td>
+                                <td>
+    <pre><code class="language-javascript">
+    $("selector").children("selector");
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="definition">find(<i>selector</i>)</span>matches the children of the element(s) but goes through its descendants.</td>
+                                <td>
+    <pre><code class="language-javascript">
+    $("selector").find("selector");
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="definition">closest(selector)</span>: get the first element that matches the selector by testing the element itself and then traversing up the tree to the ancestors.</td>
+                                <td>
+    <pre><code class="language-javascript">
+    $("selector").closest("selector");
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="definition">parents()</span>: also traverses up the tree to find a match but begins with the parent element and continues to find all the ancestors that matches, instead of stopping when finding the first match.</td>
+                                <td>
+    <pre><code class="language-javascript">
+    $("selector").parents("selector");
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="definition">Add</span>, <span class="definition">Remove</span>, and <span class="definition">Toggle Classes</span>: adds or removes class attribute to elements, or toggle the class on and off</td>
                                 <td>
     <pre><code class="language-javascript">
     $("selector").addClass("className");
@@ -280,7 +306,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>Append, Prepend, After, and Before: append of prepend selected element with the new element along with its content within the selector (after or before its first child element). After and Before will place the element outside of the selector.</td>
+                                <td><span class="definition">Append</span>, <span class="definition">Prepend</span>, <span class="definition">After</span>, and <span class="definition">Before</span>: append of prepend selected element with the new element along with its content within the selector (after or before its first child element). After and Before will place the element outside of the selector.</td>
                                 <td>
     <pre><code class="language-javascript">
     // Append or Prepend
@@ -294,7 +320,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>Replace and Remove: replaces selector with new element or removes if completely.</td>
+                                <td><span class="definition">Replace</span> and <span class="definition">Remove</span>: replaces selector with new element or removes if completely.</td>
                                 <td>
     <pre><code class="language-javascript">
     // Replace
@@ -306,7 +332,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>Attribute: sets or removes the attribute to and from the selector. Examples include src= for img tag, pattern= for input, etc.</td>
+                                <td><span class="definition">Attribute</span>: sets or removes the attribute to and from the selector. Examples include src= for img tag, pattern= for input, etc.</td>
                                 <td>
     <pre><code class="language-javascript">
     // Add Attribute
@@ -318,7 +344,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>Hover: methods takes two functions, one for hover on and the other for hover off.</td>
+                                <td><span class="definition">Hover</span>: methods takes two functions, one for hover on and the other for hover off.</td>
                                 <td>
     <pre><code class="language-javascript">
     $("selector").hover(function() {
@@ -330,7 +356,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>Fade In, Fade Out, Toggling Fade, and Fade To: fades in or fades out the element. Toggle fading on and off, or fade to a specific opacity</td>
+                                <td><span class="definition">Fade In</span>, <span class="definition">Fade Out</span>, <span class="definition">Toggling Fade</span>, and <span class="definition">Fade To</span>: fades in or fades out the element. Toggle fading on and off, or fade to a specific opacity</td>
                                 <td>
     <pre><code class="language-javascript">
     // Fade In, Fade Out, Toggle
@@ -347,7 +373,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>Slide Effects and Toggling</td>
+                                <td><span class="definition">Slide Effects</span> and <span class="definition">Toggling</span></td>
                                 <td>
     <pre><code class="language-javascript">
     $("selector").slideUp();
@@ -357,7 +383,7 @@ Date Created: December 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>Show and Hide: usually for images and menus</td>
+                                <td><span class="definition">Show</span> and <span class="definition">Hide</span>: usually for images and menus</td>
                                 <td>
     <pre><code class="language-javascript">
     // Show the selected element
@@ -369,6 +395,125 @@ Date Created: December 2017
                                 </td>
                             </tr>
                         </table>
+                    </div>
+
+                    <div class="section">
+                        <h2>JQuery Events</h2>
+                        <p>The following is a list of some of the events that can be attached to an object. The shorthand way is displayed first. The function can be anonymous and defined as a parameter or a function name without the invoker can be set as the parameter.</p>
+    <pre><code class="language-javascript">
+    // The following is an anonymous call to a function
+    $("selector").on("event", function() {
+        statements;
+    });
+
+    // The following is using the function name, usually for reusability
+    $("selector").on("event", functionName);
+    </code></pre>
+                        <br>
+                        <table class="table_1_to_1">
+                            <tr>
+                                <th>Events</th>
+                                <th>Code</th>
+                            </tr>
+                            <tr>
+                                <td><span class="definition">Click</span>: event is fired when user clicks on the html element.</td>
+                                <td>
+    <pre><code class="language-javascript">
+    $("selector").click(function() {
+        statements;
+    });
+
+    $("selector").on("click", function() {
+        statements;
+    })
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="definition">Mouseover</span>: event is fired when user mouses over html element.</td>
+                                <td>
+    <pre><code class="language-javascript">
+    $("selector").mouseover(function() {
+        statements;
+    });
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="definition">Load</span>: event that is sent to an element when it and all sub-elements have been completely loaded. Sent to element associated with a URL: images, scripts, frames, iframes, and window object.</td>
+                                <td>
+    <pre><code class="language-javascript">
+    $("selector").load(function() {
+        statements;
+    });
+    </code></pre>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <h4>Event Object</h4>
+                        <p><span class="definition_javascript">event.preventDefault()</span>: prevents the default action of the event from triggering.</p>
+                        <ul>
+                            <li>For example, you could use this on clicked anchors so that it won't take the user to the URL.</li>
+                        </ul>
+                        <br>
+                        <h4>Event Delegation</h4>
+                        <p>Check out this <a href="https://learn.jquery.com/events/event-delegation/">website</a> for more detailed information</p>
+                        <br>
+                        <p><span class="definition">Event Delegation</span>: attaching an event listener to a parent container, which will trigger that event through all of its children.</p>
+                        <ul>
+                            <li>This allows the possibility of adding event listeners to elements that doesn't exist yet, or that will be dynamically added later on.</li>
+                            <li>Note that event listeners are added only when the method that attaches the event to the element is called. So a newly added item won't normally have an event listener attached to it.</li>
+                        </ul>
+                        <br>
+                        <p><span class="definition">Event Propagation</span>: when an event gets triggered on an element and the event is not handled, the event will bubble up to its parents towards the document root until one of its ancestors handles it.</p>
+                        <br>
+                        <p>The second parameter of the on() method can be used to filter out which child triggered the event. The event first gets triggered by the parent container element, but the second parameter checks to see if the triggering element matches that selector.</p>
+    <pre><code class="language-javascript">
+    // Syntax
+    $("selector").on("event", "selector", functionHandler);
+
+    // Example
+    $("div").on("click", "a", function(event) {
+        // statements
+    });
+    </code></pre>
+                    </div>
+
+
+                    <div class="section">
+                        <h2>Retrieving id of element in JQuery vs Javascript</h2>
+    <pre><code class="language-javascript">
+    // Returns the id in JQuery
+    var id = $("selector").attr("id");
+
+    // Returns the id in Javascript (handler function previously attached to an event listener)
+    function someFunction(event) {
+        var id = event.target.id;
+        var id = this.id;   // also returns the id
+    }
+    </code></pre>
+                    </div>
+
+                    <div class="section">
+                        <h2>Scroll smoothly to an Element</h2>
+                        <p>The href attribute contains the id for the element to scroll to, so it is grabbed and used to determine the offset from the top of the browser window.</p>
+    <pre><code class="language-javascript">
+    $('a[href^="#"]').on('click', function(event) {
+        var anchorHandle = $(this.getAttribute('href'));
+        if (anchorHandle.length) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: anchorHandle.offset().top
+            }, milliseconds);
+        }
+    });
+    </code></pre>
+                    </div>
+
+                    <div class="section">
+                        <h2>Cookies</h2>
+                        
                     </div>
 
                     <div class="section">
