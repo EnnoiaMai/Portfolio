@@ -1,14 +1,78 @@
 <!DOCTYPE html>
 <!--
 Thuc Nguyen
-Date Created: December 2017
+Date Created: January 2017
 -->
 <html>
     <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
+        <title>CS646 Assignment 3</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../css/readme.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/readme.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="../../index.html" id="link_home">Home</a></li>
+                    <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                    <div id="submenu">
+                        <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                        <div>
+                            <img src="../../images/open_submenu.png" alt="open">
+                        </div>
+                    </div>
+                    <li id="submenu_links">
+                        <ul>
+                            <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                            <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                            <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                            <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                            <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                            <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                            <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                            <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                            <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content_container">
+                <div class="header" id="header_cs646">
+                    <h1>CS646 Assignment 3</h1>
+                </div>
+
+                <div class="content">
+                    <div class="section">
+                        <h2>Assignment</h2>
+                        <p>The assignment introduces UIKit, views, controls, and other aspects of the framework. More specifically, it asks for implementation of the keyboard for text input, text fields and buttons, dialogs, sliders, and touches on persistence of data.</p>
+                        <br>
+                        <h4>The Application</h4>
+                        <p>Implement a Swift iOS app that contains three text fields (Red, Green Blue) with labels, one button (with label Color) and a UIView. The UIView we will call the color view.<br><br> The color view starts with a black background. The user is to enter values 0 through 100 in the text fields. When one presses the button the background color of the color view is changed using the values that the user entered in the text fields. Sample screen shot below. Note that the keyboard is not shown after pressing the button.<br><br> The application should store the values in the text fields. So when the user "kills" the application and then restarts the app the values in the test fields are restored to the values they had before the app was killed and the color view is the same color is was before the app was killed. Killing the app is different than just placing the app in the background.</p>
+                        <br>
+                        <p>When the user enters a number less than 0 or more than 100 display a warning that the input is out of range. Change the number in the text field to the closest valid number to the value the user entered.<br><br>Don’t allow the user to enter a number outside the range of 0 to 100.<br><br>Add sliders to allow the user to change the colors with three sliders. As a user changes the slider the value in the corresponding text field and the color of the color view should change.</p>
+                        <div id="cs646_assignment3_example">
+                            <img src="images/cs646_assignment3_example.png" alt="example">
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Implementation Details</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

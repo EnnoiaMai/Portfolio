@@ -52,7 +52,7 @@ function updateSidebar() {
     $('#submenu_links a').each(function() {
         var id = this.id;
         if (id.includes(determinant)) {
-            alert("languages and syntax js file - determinant found as " + determinant);
+            // alert("languages and syntax js file - determinant found as " + determinant);
             manuallySaveLink(id);
         }
     });

@@ -1,14 +1,101 @@
 <!DOCTYPE html>
 <!--
 Thuc Nguyen
-Date Created: December 2017
+Date Created: January 2017
 -->
 <html>
     <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
+        <title>CS646 Assignment 4</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../css/readme.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/readme.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="../../index.html" id="link_home">Home</a></li>
+                    <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                    <div id="submenu">
+                        <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                        <div>
+                            <img src="../../images/open_submenu.png" alt="open">
+                        </div>
+                    </div>
+                    <li id="submenu_links">
+                        <ul>
+                            <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                            <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                            <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                            <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                            <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                            <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                            <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                            <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                            <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content_container">
+                <div class="header" id="header_cs646">
+                    <h1>CS646 Assignment 4</h1>
+                </div>
+
+                <div class="content">
+                    <div class="section">
+                        <h2>Assignment</h2>
+                        <p>The assignment introduces more UI elements to be familiar with. This includes the UITabBarController, the UIPickerView, the MKMapView within the MapKit library, the UISegmentedControl, the UIActivityIndicatorView, the UIAlertController, and a review of the UISlider.</p>
+                        <br>
+                        <h4>App Description</h4>
+                        <p>This app will use a number of UI elements so the app will not make much sense as a single app. You will use a tab bar with a number of tabs. The view for each tab is described below.</p>
+                        <br>
+                        <h4>Sports Tab</h4>
+                        <p>The view at this tab will contain a custom picker view with two columns. The first column will contain a list of countries. When the user has selected a country, the second column will then display a list of sports in that country. The list of countries and their sports are given below. The view also has a slider. When the user selects the top (first) sport in the list. The slider moves all the way to the left. When the user selects the bottom (last) sport in the list the slider moves all the way to the right. When the user selects sports between the first and last the slider moves proportionally. So if Taiwan is selected and the user selects the second sport from the top then the slider moves 1/6 the way to the right. Conversely when the user moves the slider the picker will move to the corresponding sport.</p>
+                        <br>
+                        <table id="cs646_assignment4_table">
+                            <tr>
+                                <th>Country</th>
+                                <th>Sports</th>
+                            </tr>
+                            <tr>
+                                <td>India</td>
+                                <td>Cricket, Chess, Badminton, Field Hockey, Football, Tennis, Gilli-danda, Golf</td>
+                            </tr>
+                            <tr>
+                                <td>USA</td>
+                                <td>Baseball, Football, Curling, Basketball, Soccer, Rock Climbing, Skateboarding</td>
+                            </tr>
+                            <tr>
+                                <td>Taiwan</td>
+                                <td>Football, Archery, Baseball, Table Tennis, Cycling, Taekwondo</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <h4>Map Tab</h4>
+                        <p>This view contains a map view. The map is centered on San Diego and zoomed in so that El Cajon and Escondido are labeled on the map.<br><br>The map view should also show the user's current location and should support giving directions between two locations.</p>
+                        <br>
+                        <h4>Segment Tab</h4>
+                        <p>This view has a segmented control with three options: Progress, Text, Alert. When the user selects the "Progress" option they see a switch and an inactive activity indicator. When they turn the switch "on" or to the left the activity indicator spins. When they turn the switch off the activity indicator stops spinning. When the user selects the "Text" option they see a Text View that they can enter text. The text view should start with some text. When they select the "Alert" option they will see a button. When they click on the button an alert will pop up asking the user "Do you like the iPhone?".</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Implementation Details</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

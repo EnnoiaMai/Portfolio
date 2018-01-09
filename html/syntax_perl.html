@@ -1,10 +1,173 @@
 <!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: January 2017
+-->
 <html>
     <head>
-        <meta charset="utf-8">
-        <title></title>
+        <title>Perl Syntax</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio - Perl Syntax Guide and Techniques">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
+        <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/themes/prism.min.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/components/prism-php.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/components/prism-php-extras.min.js"></script>
+        <script type="text/javascript" src="../js/sidebar.js"></script>
+        <script type="text/javascript" src="../js/syntax.js"></script>
     </head>
     <body>
+        <div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="../index.html" id="link_home">Home</a></li>
+                    <li><a href="projects.html" id="link_projects">Projects</a></li>
+                    <div id="submenu">
+                        <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                        <div>
+                            <img src="../images/open_submenu.png" alt="open">
+                        </div>
+                    </div>
+                    <li id="submenu_links">
+                        <ul>
+                            <li><a href="syntax_java.html" id="link_syntax_java">Java</a></li>
+                            <li><a href="syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                            <li><a href="syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                            <li><a href="syntax_html.html" id="link_syntax_html">HTML</a></li>
+                            <li><a href="syntax_css.html" id="link_syntax_css">CSS</a></li>
+                            <li><a href="syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                            <li><a href="syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="syntax_php.html" id="link_syntax_php">PHP</a></li>
+                            <li><a href="syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="syntax_python.html" id="link_syntax_python">Python</a></li>
+                            <li><a href="syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
+            <div id="content_container">
+                <div>
+                    <h1>Perl Syntax</h1>
+                </div>
+
+                <div id="content">
+                    <div class="section">
+                        <p><span class="bold">Sources to credit: </span>Tutorials on youtube, StackOverflow, .</p>
+                    </div>
+
+                    <div class="section">
+                        <p><a href="http://perldoc.perl.org/">perldoc.perl.org/</a> contains documentation for the Perl language and syntax.</p>
+                        <p><a href="https://www.cpan.org/">cpan.org</a> contains an organized and large repository of Perl modules</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Perl</h2>
+                        <p>Perl: server-side scripting language that is loosely typed like PHP.</p>
+                        <p><b>Note</b>: there are no open tags</p>
+                        <ul>
+                            <li>Although PHP and Microsoft have about 95% of the dynamic pages market, Perl is still in use in every computer and server.</li>
+                            <li>Developed by Larry Wall before the Internet.</li>
+                            <li>The language wasn't originally made for the internet, PHP was built off of Perl so their language syntax is similar.</li>
+                            <li>Some companies use Perl for test harnesses rather than deploying web applications.</li>
+                            <li>The language is not designed to be an object-oriented language but can still be used to make classes.</li>
+                        </ul>
+                        <br>
+                        <p>For Perl, static resources are separated from scripts or programs.</p>
+                        <ul>
+                            <li>public_html -&gt; static resources (HTML, CSS, JS)</li>
+                            <li>cgi-bin -&gt; programs (Perl scripts)</li>
+                        </ul>
+
+                        <h4>Extensions</h4>
+
+                        <h4>Variable Interpolation</h4>
+                    </div>
+
+                    <div class="section">
+                        <h2>Comments</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Basic Data Types (3 Types of variables)</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Special Variables</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Heredoc</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Conditions</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Loops</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Subroutines</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Files</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Arrays</h2>
+
+                        <h4>Looping through Arrays</h4>
+
+                        <h4>Getting Array length</h4>
+                    </div>
+
+                    <div class="section">
+                        <h2>Hashes</h2>
+
+                        <h4>Looping through Hashes</h4>
+
+                        <h4>Getting Hash length</h4>
+                    </div>
+
+                    <div class="section">
+                        <h2>Scope</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Serialization</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Sanitizing Data</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>CGI module</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Cookies</h2>
+
+                        <h4>Reading Cookies in Perl</h4>
+
+                        <h4>Sending Cookies in Perl</h4>
+                    </div>
+
+                    <div class="section">
+                        <h2>Database Connections</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </body>
 </html>

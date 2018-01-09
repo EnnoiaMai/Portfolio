@@ -45,6 +45,48 @@ body > div {
     background-color: rgba(53, 101, 142, 1.0);
 }
 
+.cs646_code {
+    color: #990000;
+}
+.cs646_link:link {
+    color: rgba(200, 0, 0, 1);
+    text-decoration-color: rgba(50, 50, 50, 1);
+    text-decoration-line: underline;
+}
+.cs646_link:visited {
+    color: rgba(200, 0, 0, 1);
+    text-decoration-color: rgba(50, 50, 50, 1);
+    text-decoration-line: underline;
+}
+#cs646_assignment3_example {
+    width: 30%;
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#cs646_assignment3_example img {
+    width: 100%;
+    max-width: 285px;
+}
+#cs646_assignment4_table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+#cs646_assignment4_table th, #cs646_assignment4_table td {
+    padding: 8px 16px;
+    border: 1px solid #BBB;
+}
+#cs646_assignment4_table th {
+    background-color: #DDD;
+}
+#cs646_assignment4_table td:first-child {
+    width: 30%;
+}
+#cs646_assignment4_table td:nth-child(2) {
+    width: 70%;
+}
+
 .content {
     font-size: 110%;
     width: 85%;

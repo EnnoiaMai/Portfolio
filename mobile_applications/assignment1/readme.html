@@ -1,14 +1,121 @@
 <!DOCTYPE html>
 <!--
 Thuc Nguyen
-Date Created: December 2017
+Date Created: January 2017
 -->
 <html>
     <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
+        <title>CS646 Assignment 1</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../css/readme.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/readme.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="../../index.html" id="link_home">Home</a></li>
+                    <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                    <div id="submenu">
+                        <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                        <div>
+                            <img src="../../images/open_submenu.png" alt="open">
+                        </div>
+                    </div>
+                    <li id="submenu_links">
+                        <ul>
+                            <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                            <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                            <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                            <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                            <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                            <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                            <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                            <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                            <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content_container">
+                <div class="header" id="header_cs646">
+                    <h1>CS646 Assignment 1</h1>
+                </div>
+
+                <div class="content">
+                    <div class="section">
+                        <h2>Assignment</h2>
+                        <p>The assignment asks questions dealing with the basic syntax of Swift 4.0. The code had to be compiled and ran in XCode using Playground.</p>
+                        <br>
+                        <ol>
+                            <li>A palindrome is a string that reads the same forwards and backwards. We will call a number a palindrome if it reads the same forwards and backwards. So 191 is a palindrome. Write a function that returns the number of palindrome numbers between 0 and n.</li>
+                            <br>
+                            <li>If we list all the natural numbers below 20 that are multiples of 3 or 5 but not multiples both of 3 and 5, we get 3, 5, 6, 9, 10, 12, 18. The sum of these multiples is 63. Write a function, sumMultiples3_5, that returns the sum of the multiples of 3 and 5 less than N. So<br><br>
+                            <span class="cs646_code">sumMultiples3_5(20) == 63</span></li>
+                            <br>
+                            <li>Write a function patternCount with two arguments. The first arguments is a string, let's call it text, and the second argument is also a string, call it pattern. The function patternCount returns the number of times the pattern occurs in the text. For example:<br><br>
+                            <span class="cs646_code">
+                            patternCount(string: "abababa", pattern: "aba") == 3
+                            patternCount(string: "aaaaa", pattern: "aa") == 4
+                            patternCount(string: "Abcde", pattern: "abc") == 0</span></li>
+                            <br>
+                            <li>Write a Swift function, call it popularClasses, that has one argument, an array of sets of courses, and returns the intersection of all the sets in the array. In the code below popularClasses would return {“CS237”}.<br><br>
+                            <span class="cs646_code">
+                            let studentA: Set = ["CS101", "CS237", "CS520"]<br>
+                            let studentB: Set = ["CS101", "Math245", "CS237"]<br>
+                            let studentC: Set = ["CS237", "CS560"]<br>
+                            popularClasses([studentA, studentB, studentC])</span></li>
+                            <br>
+                            <li>Write a Swift function, call it average, that has one argument, an array of Ints, and returns an optional double, which is the average of the inputs ints. If the input array is empty return the optional value nil.</li>
+                            <br>
+                            <li>Write a Swift function average2 which is the same as average in problem 5 except that the input is an array of optional ints.</li>
+                            <br>
+                            <li>Write a Swift function cost that has one argument a dictionary. The dictionary has three keys: “name”, “price”, and “quantity”. The function cost returns the cost of the item, that is the price * quantity. The keys and values in the dictionary are all strings. The value at “price” is the string of a double like “3.45”. The string at “quantity” is the string of an integer. Note that if either the key “price” or “quantity” is not in the map the function “cost” returns 0 (zero). Examples given below.<br><br>
+                            <span class="cs646_code">
+                            let iceCreamA = ["name": "Mochie Green Tea", "quantity": "2", "price": "2.3"]<br>
+                            let iceCreamB = ["name": "Mochie Green Tea", "price": "2.3"]<br>
+                            <br>
+                            cost(iceCreamA)&nbsp;&nbsp;&nbsp;&nbsp;// returns 4.6<br>
+                            cost(iceCreamB)&nbsp;&nbsp;&nbsp;&nbsp;// returns 0</span></li>
+                            <br>
+                            <li>Write a Swift function wordCount that has two arguments, a string and an Int. The string contains words separated by a space. For example “cat bat cat rat mouse bat”. wordCount returns a dictionary where the keys are the words in the string and the values are the number of times the word appears in the list. Only the words that occur at least as many times as the second argument are in the dictionary.<br><br>
+                            <span class="cs646_code">
+                            wordCount(words: “cat bat cat rat mouse bat”, count: 1) returns [“cat”: 2, “bat”: 2 “rat”: 1, “mouse”: 1]<br>
+                            wordCount(words: “cat bat cat rat mouse bat”, count: 2) returns [“cat”: 2, “bat”: 2 ]<br>
+                            wordCount(words: “cat bat cat rat mouse bat”, count: 3) returns [:]</span></li>
+                            <br>
+                            <li>Write a Swift function wordCount2 that has the same arguments as wordCount in problem 7 and returns the same result. However give the second argument a default value of 2 so we can call the function with one or two arguments as shown below.<br><br>
+                            <span class="cs646_code">
+                            wordCount2(words: “cat bat cat rat mouse bat”) returns [“cat”: 2, “bat”: 2 ]<br>
+                            wordCount2(words: “cat bat cat rat mouse bat”, count: 3) returns [:]</span></li>
+                            <br>
+                            <li>Write a Swift function wordCount3 that has one argument an Int, which has the same role as the second argument of wordCount. wordCount3 returns a function. The return function has one argument a String that contains words. When evaluated the returned function returns the dictionary of words in the string with the number of times the word appears in the list. But as in problem 7 it only contains the words that occur as many times as the argument to wordCount3. See examples below.<br><br>
+                            <span class="cs646_code">
+                            let testA = wordCount3(2)<br>
+                            testA(words: “cat bat cat rat mouse bat”) returns [“cat”: 2, “bat”: 2 ]<br>
+                            testA(words: “a a a b c c”) returns [“a”: 3, “c”: 2]<br>
+                            let testB = wordCount3(3)<br>
+                            testB(words: “a a a b c c”) returns [“a”: 3]</span></li>
+                        </ol>
+                    </div>
+
+                    <div class="section">
+                        <h2>Implementation Details</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

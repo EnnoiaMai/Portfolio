@@ -1,14 +1,257 @@
 <!DOCTYPE html>
 <!--
 Thuc Nguyen
-Date Created: December 2017
+Date Created: January 2017
 -->
 <html>
     <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
+        <title>CS646 Assignment 5</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../css/readme.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/readme.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="../../index.html" id="link_home">Home</a></li>
+                    <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                    <div id="submenu">
+                        <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                        <div>
+                            <img src="../../images/open_submenu.png" alt="open">
+                        </div>
+                    </div>
+                    <li id="submenu_links">
+                        <ul>
+                            <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                            <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                            <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                            <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                            <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                            <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                            <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                            <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                            <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content_container">
+                <div class="header" id="header_cs646">
+                    <h1>CS646 Assignment 5</h1>
+                </div>
+
+                <div class="content">
+                    <div class="section">
+                        <h2>Assignment</h2>
+                        <p>The assignment focuses on networks and protocols, primarily using GET and POST URLs to communicate with a server to retrieve and post user data. It also requires integration of maps similar to assignment 4.</p>
+                        <br>
+
+                        <h4>App Description</h4>
+                        <p>This app will allow users to post where they are from and allow them to see on a map where others are from. The app has two basic parts. The first part is posting the user information and the second is viewing the data posted by other users.</p>
+                        <br>
+
+                        <h4>Posting User Information</h4>
+                        <p>The user posts 8 pieces of information described below.</p>
+                        <br>
+                        <ol>
+                            <li><b>nickname</b> - A string used to identify the user to others. Any two users can not use the same nickname, in other words the nicknames are unique. Nicknames are case insensitive. That is “FooBar” is considered the same as “foobar”. Required.</li>
+                            <br>
+                            <li><b>password</b> - A string determined by the user. Passwords must be at least three characters long. Required.</li>
+                            <br>
+                            <li><b>country</b> - A string which is the country the user is from. The list of supported countries is available from the server (see server protocol below). The server does not accept posts containing countries not supported by the server. Required.</li>
+                            <br>
+                            <li><b>state</b> - A string which is the state/providence the user is from in their country. The list of supported states is available from the server (see server protocol below). The server does not accept posts containing states not supported by the server. Required.</li>
+                            <br>
+                            <li><b>city</b> - A string which is the city the user is from. The server does not have a list of cities. Required.</li>
+                            <br>
+                            <li><b>year</b> - An integer representing the year the user started attending SDSU. The year needs to between 1970 and 2017. Required.</li>
+                            <br>
+                            <li><b>longitude</b></li>
+                            <br>
+                            <li><b>latitude</b></li>
+                        </ol>
+                        <br>
+                        <p>The longitude and latitude of the user's hometown, or if the user prefers, of their actual home. Only people in a few professions knows the latitude and longitude of anything, so do not ask the user to enter these numbers. Show them a map and let them mark a point on the map. Use this point to determine the latitude and longitude. Latitude values are doubles in the interval [-90, 90] and Longitude values are doubles in the interval [-180, 180). These values are optional in the sense that the user data can be sent to the server without them. You will lose points if you can not do this.</p>
+                        <br>
+
+                        <h4>Viewing User's Hometown</h4>
+                        <p>The app gives the user two ways to view the hometowns posted to the server. The first is as a list and the second is as markers on a map. When showing the data as a list the viewer needs to be able to access the nickname, country, state and city of each entry. In the map tapping on the marker should provide the nickname of the person represented by the marker. The user needs to be able to filter data by country and year. The user may only want to see locations of users in California, or users that started SDSU in 2016, or users in California that started SDSU in 2015.</p>
+                        <br>
+
+                        <h4>Server Protocol</h4>
+                        <p>The server supports 6 GET requests and 1 POST request detailed below.<br><br>
+                        When a request is successful it will return a response with the HTTP status 200. If there is a problem with the request the response will have a HTTP status of 404 or 400. When you request a URL that does not exists you will get a 404 response and the body of the response will be HTML. This can happen when you mistype the URL. Other errors will return a response with a 400 or 404 status and the body of the response will be JSON. This can happen if you do not include a required parameter, misspell a parameter or have a value that is out of range or the wrong type. All 200 responses indicate that their bodies contain JSON data.<br><br>
+                        Note that the URLs given below are case sensitive. The path and all query parameter names
+                        are lower case.</p>
+                        <br>
+
+                        <h4>GET URLs</h4>
+                        <p><a href="https://bismarck.sdsu.edu/hometown/countries" class="cs646_link">https://bismarck.sdsu.edu/hometown/countries</a></p>
+                        <p>
+                        Parameter: None<br>
+                        Returns JSON array of strings, the names of the countries currently supported<br>
+                        Sample return value:<br>
+                        ["China","India","Mexico","USA"]
+                        </p>
+                        <br>
+                        <p>https://bismarck.sdsu.edu/hometown/states?country=ACountryName</p>
+                        <p>
+                        Parameter: ACountryName = one of the country names returned from the first URL<br>
+                        Sample: <a href="https://bismarck.sdsu.edu/hometown/states?country=USA" class="cs646_link"> https://bismarck.sdsu.edu/hometown/states?country=USA</a><br>
+                        Return JSON array of string, names of the states/providences in given country<br>
+                        Sample return value (Shortened for space reasons)<br>
+                        ["Alabama","Alaska","Arizona","Wyoming"]
+                        </p>
+                        <br>
+                        <p>https://bismarck.sdsu.edu/hometown/nicknameexists?name=ANickName</p>
+                        <p>
+                        Parameter: ANickName = A nickname that you wish to see if is already used<br>
+                        Sample: <a href="https://bismarck.sdsu.edu/hometown/nicknameexists?name=foo" class="cs646_link">https://bismarck.sdsu.edu/hometown/nicknameexists?name=foo</a><br>
+                        Returns: JSON boolean. Returns true if nickname is already in use.<br>
+                        Sample return value:<br>
+                        false
+                        </p>
+                        <br>
+                        <p><a href="https://bismarck.sdsu.edu/hometown/count" class="cs646_link">https://bismarck.sdsu.edu/hometown/count</a></p>
+                        <p>
+                        Parameter: None<br>
+                        Returns: Integer number of current users. As new users can be added to the server at any time this value may not be correct for very long. The actual number of users may be larger.<br>
+                        Sample return value:<br>
+                        12
+                        </p>
+                        <br>
+                        <p><a href="https://bismarck.sdsu.edu/hometown/nextid" class="cs646_link">https://bismarck.sdsu.edu/hometown/nextid</a></p>
+                        <p>
+                        Parameter: None<br>
+                        Returns: The id that will be used for the next user. This is only useful when using the page query parameter with the reverse query.<br>
+                        Sample return value:<br>
+                        3
+                        </p>
+                        <br>
+                        <p><a href="https://bismarck.sdsu.edu/hometown/users" class="cs646_link">https://bismarck.sdsu.edu/hometown/users</a></p>
+                        <p>The URL returns a JSON array of the users that have been added to the server. Each user is a JSON object. The keys in the object are: nickname, country, state, city, year, longitude, latitude, id and timestamp. The values at the keys nickname, country, state, city, year are as sent in the adduser post (see below). If the longitude and latitude are not give in the adduser post the values returned are 0. Each user has an id, which is added by the server. Ids are integers. The ids are unique and are increasing. Below is an sample response from the server. It is what the server returns after the two samples in the POST URL section are sent to the server. Since rew2 was sent after rew that user has an larger id. The time stamp is when the user data was received by the server in UTC.</p>
+                        <br>
+                        <p>Note that the list of users by default is sorted by increasing id. That is users that were added to the server earlier are listed earlier. The list is sorted by increasing time stamp.</p>
+            <pre>
+            [{
+                "nickname": "rew",
+                "city: "Devils Lake",
+                "longitude": 0,
+                "state": "North Dakota",
+                "year": 1985,
+                "id": 1,
+                "latitude": 0,
+                "time-stamp": "2017-03-01T02:44:03.247Z",
+                "country": "USA"
+            },
+            {
+                "nickname": "rew2",
+                "city": "Minneapolis",
+                "longitude": -93.293753,
+                "state": "Minnesota",
+                "year": 1985,
+                "id": 2,
+                "latitude": 44.96606,
+                "time-stamp": "2017-03-01T20:31:00.632Z",
+                "country": "USA"
+            }]
+            </pre>
+                        <p>This request has 9 optional query parameters. These are used to further specify which users to return or to reverse the order of the list. These are described below.</p>
+                        <br>
+                        <p>
+                        <b>country</b><br>
+                        Sample: <a href="https://bismarck.sdsu.edu/hometown/users?country=USA" class="cs646_link">https://bismarck.sdsu.edu/hometown/users?country=USA</a><br>
+                        Returns only the users in the given country.</p>
+                        <br>
+                        <p>
+                        <b>state</b><br>
+                        Sample: <a href="https://bismarck.sdsu.edu/hometown/users?state=Minnesota" class="cs646_link">https://bismarck.sdsu.edu/hometown/users?state=Minnesota</a><br>
+                        Returns only the users in the given state.</p>
+                        <br>
+                        <p>
+                        <b>city</b><br>
+                        Sample: <a href="https://bismarck.sdsu.edu/hometown/users?city=Minneapolis" class="cs646_link">https://bismarck.sdsu.edu/hometown/users?city=Minneapolis</a><br>
+                        Returns only the users in the given city. Since different cities can have the same name (Paris, France & Paris, California) it is best to combine this with country and state query parameters. For example:<br>
+                        <a href="https://bismarck.sdsu.edu/hometown/users?country=USA&state=Minnesota&city=Minneapolis" class="cs646_link">https://bismarck.sdsu.edu/hometown/users?country=USA&state=Minnesota&city=Minneapolis</a></p>
+                        <br>
+                        <p>
+                        <b>year</b><br>
+                        Sample: <a href="https://bismarck.sdsu.edu/hometown/users?year=1985" class="cs646_link">https://bismarck.sdsu.edu/hometown/users?year=1985</a><br>
+                        Returns only the users that started SDSU in the given year.</p>
+                        <br>
+                        <p>
+                        <b>afterid</b><br>
+                        Sample: <a href="https://bismarck.sdsu.edu/hometown/users?afterid=1" class="cs646_link">https://bismarck.sdsu.edu/hometown/users?afterid=1</a><br>
+                        Returns only the users with ids strictly greater than the one given.</p>
+                        <br>
+                        <p>
+                        <b>beforeid</b><br>
+                        Sample: <a href="https://bismarck.sdsu.edu/hometown/users?beforeid=2" class="cs646_link">https://bismarck.sdsu.edu/hometown/users?beforeid=2</a><br>
+                        Returns only the users with ids strictly less than the one given.</p>
+                        <br>
+                        <p>
+                        <b>reverse</b><br>
+                        Sample: <a href="https://bismarck.sdsu.edu/hometown/users?reverse=true" class="cs646_link">https://bismarck.sdsu.edu/hometown/users?reverse=true</a><br>
+                        When the value of reverse is true the order of the list returned is in reverse order. That is the most recent user added is now first in the returned list rather then last. That is the return list is sorted by timestamp with time decreasing, which is the same as sorting by decreasing id.</p>
+                        <br>
+                        <p>
+                        <b>page</b><br>
+                        Sample: <a href="https://bismarck.sdsu.edu/hometown/users?page=0" class="cs646_link">https://bismarck.sdsu.edu/hometown/users?page=0</a><br>
+                        When the list of users gets long it may not be practical to get the entire list in one request. Then this query parameter is present the list is divided into groups or pages. The default size of the group or page is 25 users. This can be change. See pagesize below. When page=0 you get the first 25 users. When page=1 you get the second 25 users. To get the entire list you increase the value by 1 until you get back an empty list. If you use pages with the reverse set to true you have to be careful. Pages are computed on the current list of users. On a reverse list first query to get the nextid then always use the beforeid with the page as in the following:<br>
+                        <a href="https://bismarck.sdsu.edu/hometown/users?page=2&reverse=true&beforeid=30" class="cs646_link">https://bismarck.sdsu.edu/hometown/users?page=2&reverse=true&beforeid=30</a></p>
+                        <br>
+                        <p>
+                        <b>pagesize</b><br>
+                        Sample: <a href="https://bismarck.sdsu.edu/hometown/users?page=0&pagesize=5" class="cs646_link">https://bismarck.sdsu.edu/hometown/users?page=0&pagesize=5</a><br>
+                        This changes the size of pages from the default 25. Only has an affect when used with the page query.</p>
+                        <br>
+                        <p>The query parameters above can be used individually or combined. You can use all or none of them. The order they are listed the URL does not matter.</p>
+                        <br>
+                        <h4>POST URL</h4>
+                        <p><a href="https://bismarck.sdsu.edu/hometown/adduser" class="cs646_link">https://bismarck.sdsu.edu/hometown/adduser</a></p>
+                        <p>Body of the request: The body of the request is a JSON object with 6 required keys and 2 optional keys which are nickname, password, country, state, city, year, longitude, latitude. The latter two are optional. These are described above in the “Posting User Information” section. Two samples are:</p>
+                        <br>
+            <pre>
+            {
+                "nickname" : "rew",
+                "password" : "catman",
+                "country" : "USA",
+                "state" : "North Dakota",
+                "city" : "Devils Lake",
+                "year" : 1985}
+                {"nickname" : "rew2",
+                "password" : "guess",
+                "country" : "USA",
+                "state" : "Minnesota",
+                "city" : "Minneapolis",
+                "year" : 1985,
+                "latitude" :44.966060,
+                "longitude" : -93.293753
+            }
+            </pre>
+                        <br>
+                        <p>If the post is successful then the server response has status code 200 and the body contains the string “ok”.</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Implementation Details</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
