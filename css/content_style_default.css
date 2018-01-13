@@ -282,13 +282,20 @@ body > div {
 }
 .table_1_to_1 {
     width: 100%;
+    /* box-sizing: border-box;
+    border-collapse: collapse; */
 }
 .table_1_to_1 td:first-child {
     width: 50%;
 }
 .table_1_to_1 td:nth-child(2) {
+    width: 50%;
     padding: 8px 16px;
 }
+
+/* .table_1_to_1 pre { */
+    /* width: 100%; */
+/* } */
 
 /* For small tables that should stretch to fill the width a certain amount */
 .table_60 {

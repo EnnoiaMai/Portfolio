@@ -193,6 +193,37 @@ Date Created: December 2017
                     </div>
 
                     <div class="section">
+                        <h2>Additional Notes</h2>
+                        <ul>
+                            <li>Form should be validated in JS and in the script. Credit card numbers shouldn't have letters, and expiration date should be in the future.</li>
+                            <li>If client disables JS, cookies won't work so its information could instead be stored on the server and the script can print back actual pages with the shopping cart badge number visible and changed.</li>
+                            <li>Name the cookie the actual account number in jadrnxxx to avoid name clashes</li>
+                            <li>Empty out the shopping cart after the user paid for the products.</li>
+                            <li>Would add buttons dynamically but also have to attach handlers to those buttons. Do this through delegated events.</li>
+                            <li>Order online can be made a modal dialogue as an option.</li>
+                        </ul>
+                        <br>
+                        <p><span class="definition">db file</span>: comes with Perl and common on UNIX systems. Gives you a data structure that resides both on disk and in memory. For example, if you insert something to the shopping cart, it writes the data to disk but saves it in memory, and if you want to read it, there is no disk access. So it keeps in memory and on disk a synced copy of the shopping cart.</p>
+                        <br>
+                        <h4>Ways for the client to send the serial number (token) back to the server</h4>
+                        <ol>
+                            <li><span class="definition">URL Rewriting</span>: call the script and attach the parameter (serial number) onto the end of it.</li>
+                            <li><span class="definition">Hidden input field</span> in a form: input[type='hidden'], name = sessionID, value = the token given to the client by the server.</li>
+                            <li><span class="definition">Cookies</span>: most common way to save state. Have session cookies stored on the computer. Every time you connect, the cookie is sent automatically. Only need to write the statement document.cookie='$cookie'. The cookie will go even with AJAX calls. Essentially a single key-value pair.<br>
+                            <b>Fields of a cookie</b>:<br>
+                            <ul>
+                                <li>name</li>
+                                <li>value - string with finite length (1024)</li>
+                                <li>expiration date</li>
+                                <li>path</li>
+                                <li>domain</li>
+                                <li>security flight</li>
+                            </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="section">
                         <h2>Project Details</h2>
                         <p></p>
                     </div>

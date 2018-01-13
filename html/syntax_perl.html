@@ -69,7 +69,7 @@ Date Created: January 2017
 
                     <div class="section">
                         <h2>Perl</h2>
-                        <p>Perl: server-side scripting language that is loosely typed like PHP.</p>
+                        <p><span class="definition">Perl</span>: server-side scripting language that is loosely typed like PHP.</p>
                         <p><b>Note</b>: there are no open tags</p>
                         <ul>
                             <li>Although PHP and Microsoft have about 95% of the dynamic pages market, Perl is still in use in every computer and server.</li>
@@ -79,95 +79,648 @@ Date Created: January 2017
                             <li>The language is not designed to be an object-oriented language but can still be used to make classes.</li>
                         </ul>
                         <br>
+
                         <p>For Perl, static resources are separated from scripts or programs.</p>
                         <ul>
                             <li>public_html -&gt; static resources (HTML, CSS, JS)</li>
                             <li>cgi-bin -&gt; programs (Perl scripts)</li>
                         </ul>
+                        <br>
+
+                        <p>An example of where scripts go on the server:</p>
+                        <p>/src/www/cgi-bin/jadrn041</p>
+                        <br>
+                        <p>In the code, the script can be referenced by using the src attribute.</p>
+                        <p><span class="definition">mod-perl</span>: brings Apache and Perl together by running CGI scripts much faster and reducing loads on the server.</p>
+                        <ul>
+                            <li>It is an artificial mount point, not an actual location on the server.</li>
+                            <li>It uses Perl and signals Apache to use this built-in Perl module.</li>
+                        </ul>
+    <pre><code class="language-perl">
+    # Does about 25k requests per second
+    src='/perl/jadrnxxx/script.cgi'
+    </code></pre>
+                        <br>
+                        <p>You can also reference the script for standard CGI in the following. However, this should be avoided due to drawbacks like fewer requests per second and having to reference the Perl interpreter at the start of every script.</p>
+                        <ul>
+                            <li>If done this way, script must have executable permissions</li>
+                        </ul>
+    <pre><code class="language-perl">
+    # Does about 800 requests per second
+    src='cgi-bin/jadrnxxx/script.cgi'
+
+    # Must also include at the top of every script -
+    #!/usr/bin/perl
+    </code></pre>
+                        <br>
+
+                        <p><span class="definition">Common Gateway Interface (CGI)</span>: a protocol that involves sending information from client to server, specifically GET and POST with parameters.</p>
+                        <br>
+
+                        <p><span class="definition">Perl Interpreter</span>: a modular part of Apache that runs all the time similar to PHP. When you request for a script to run, the machine doesn't have to load the Perl interpreter and start a new process. Just reads and executes the script.</p>
+                        <br>
+
+                        <h4>Running CGI script on command line with syntax checking</h4>
+                        <p>perl -cWT script.cgi</p>
+                        <br>
+
+                        <h4>Running an infinite loop in a script</h4>
+                        <p>If there is an infinite loop in your script and it is ran, it won't be able to be stopped unless you have permissions. It must be cleared.</p>
+                        <br>
 
                         <h4>Extensions</h4>
+                        <p><span class="definition">.cgi</span> - Perl scripts for the web<br>
+                        <span class="definition">.pl</span> - Perl scripts as local scripts for administrative purposes or to perform a task on the server.</p>
+                        <br>
+
+                        <h4>Permission on Scripts</h4>
+                        <p>Scripts should have 644 permissions. Doesn't need executable permissions.</p>
+                        <br>
 
                         <h4>Variable Interpolation</h4>
+                        <p>Double quotes invokes variable interpolation, similar to PHP. Single quotes take the literal meaning, so there will not be variable interpolation.</p>
                     </div>
 
                     <div class="section">
                         <h2>Comments</h2>
+                        <p>Use hashtag symbol #</p>
+                        <ul>
+                            <li>There are no multi-line comments.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section">
+                        <h2>Variables</h2>
+                        <p>my: keyword used to declare variables. Will limit scope to the current block. Should always declare a variable with the my keyword. Anything with narrower scope will see it.</p>
+                        <br>
+
+                        <h4>Swapping variables a and b</h4>
+    <pre><code class="language-perl">
+    ($a, $b) = ($b, $a);
+    </code></pre>
+                        <br>
+
+                        <h4>Nuances with singular and plural</h4>
+    <pre><code class="language-perl">
+    @colors = ('red', 'green', 'blue');
+
+    # The following gets red, this is because it's scalar, it's one thing
+    $colors[0]
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Basic Data Types (3 Types of variables)</h2>
+                        <ol>
+                            <li><span class="definition">Scalar Variable</span> ($X) - a single thing, either text data or numbers, can be true or false (empty string and 0 would be false).</li>
+                            <li><span class="definition">Array</span> (@X) - always integer-indexed, there are no associative arrays.</li>
+                            <li><span class="definition">Hashes</span> or <span class="definition">Maps</span> (%X) - a key-value pair idea or a dictionary object.</li>
+                        </ol>
                     </div>
 
                     <div class="section">
                         <h2>Special Variables</h2>
+                        <table>
+                            <tr>
+                                <td>$_</td>
+                                <td>Default input and pattern matching.<br>
+                                Ex. in a loop, print $_ will print the last thing that you referenced rather than listing the element itself.</td>
+                            </tr>
+                            <tr>
+                                <td>@ARGV</td>
+                                <td>Command line arguments</td>
+                            </tr>
+                            <tr>
+                                <td>@INC</td>
+                                <td>Paths where libraries are stored. Can add own perl modules to the environment. Would push a path onto this array, which will be used to search for modules.</td>
+                            </tr>
+                            <tr>
+                                <td>@_</td>
+                                <td>Parameters that are passed into a function. There are no formal parameters to a function. It pulls parameters out of the @_ array<br>
+    <pre><code class="language-perl">
+    # Example
+    sub foo {
+        my ($a, $b, $c) = @_;
+    }
+    foo('cat', 'dog', 'frog');
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>%ENV</td>
+                                <td>Environmental variables</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <h2>Printing</h2>
+                        <p>You must use print in Perl, echo keyword is not available as it is in PHP.</p>
+                        <p>Use print for a heredoc to process the HTML out.</p>
+                        <p><b>Note</b>: The very first line to print must be specifying the content-type, and there must be a blank line after this line.</p>
+                        <br>
+    <pre><code class="language-perl">
+    print &lt;&lt;END_HTML;
+    Content-type: text/html
+
+    # HTML code goes here
+    END_HTML
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Heredoc</h2>
+    <pre><code class="language-perl">
+    print &lt;&lt;END;
+    Content-type: text/html
+
+    &lt;!Doctype html&gt;...
+    # Make sure there are no extra spaces in front or after the following line
+    END
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Conditions</h2>
+                        <ul>
+                            <li>Must use brackets</li>
+                        </ul>
+    <pre><code class="language-perl">
+    # The following will not work
+    if ($x > 0)
+        print "It is positive";
+    # The following will work
+    if ($x > 0) {
+        print "It is positive";
+    }
+    # else if is not 2 words, and there is no 'e' in it
+    elsif (condition) {
+        # statements
+    } else {
+        # statements
+    }
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Loops</h2>
+                        <ul>
+                            <li>Be cautious of infinite loops</li>
+                        </ul>
+    <pre><code class="language-perl">
+    # foreach loop - safer to use
+    foreach $item (@inventory) {
+        print $item;
+    }
+
+    # until loop - same as while not
+    until (condition) {
+        # loop while false
+    }
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Subroutines</h2>
-                    </div>
-
-                    <div class="section">
-                        <h2>Files</h2>
+                        <ul>
+                            <li>Can be thought of as functions</li>
+                        </ul>
+    <pre><code class="language-perl">
+    sub hello {
+        # @_ is the array of parameters passed in
+        my $name = shift @_;
+        print "Hello $name";
+    }
+    hello("John");
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Arrays</h2>
+                        <p>There is an empty space/buffer in the front and end of the array to use. So shift causes pointer to move one memory location. This means that shifting is not inefficient because it's essentially just moving the pointers to different memory locations.</p>
+                        <br>
+                        <table>
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>shift</td>
+                                <td>Removes the first element in the array, the element at index 0.</td>
+                            </tr>
+                            <tr>
+                                <td>unshift</td>
+                                <td>Inserts a new element at index 0.</td>
+                            </tr>
+                            <tr>
+                                <td>pop</td>
+                                <td>Removes from the end.</td>
+                            </tr>
+                            <tr>
+                                <td>push</td>
+                                <td>Adds to the end.</td>
+                            </tr>
+                        </table>
+                        <br>
 
                         <h4>Looping through Arrays</h4>
+    <pre><code class="language-perl">
+    my @colors = ('red', 'green');
+    $colors[2] = 'blue';
+    # parentheses not necessary
+    push @colors, 'purple';
+
+    # prints all elements in colors array
+    foreach $color (@colors) {
+        print $color;
+    }
+
+    # same as exploding array elements into variables
+    ($one, $two, $three, $four) = @colors;
+    foreach (@colors) {
+        # special variable $_ to specify the local variable
+        print $_;
+    }
+    </code></pre>
 
                         <h4>Getting Array length</h4>
+    <pre><code class="language-perl">
+    # force it to be scalar
+    $size = @colors;
+
+    # get last index of element in array
+    $last_index = $#colors;
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Hashes</h2>
+                        <p>Like associative arrays in PHP. Perl doesn't have associative arrays.</p>
+                        <ul>
+                            <li>Hash uses the % sign</li>
+                            <li>Use $ sign to define a single element in the hash</li>
+                        </ul>
+                        <br>
+                        <h4>Initializing a hash</h4>
+    <pre><code class="language-perl">
+    # Both of the following do the same thing
+    %colors = ('F00', 'red'
+                '0F0', 'green',
+                '00F', 'blue');
+
+    %colors = ('F00'=&gt; 'red',
+                '0F0' =&gt; 'green',
+                '00F' =&gt; 'blue');
+    </code></pre>
+                        <br>
+                        <p>Use same syntax when dealing with key-value pairs like retrieving parameters or setting values. Can be quoted, can be a variable, or can be bear.</p>
+    <pre><code class="language-perl">
+    # Syntax
+    $colors{'key'} = 'value';
+
+    # Examples
+    $colors{'white'} = 'FFF';   # quoted
+    $blk = 'black';
+    $colors{$blk} = '000';      # variable
+    $colors{black} = '000';     # bear word
+    </code></pre>
+                        <br>
 
                         <h4>Looping through Hashes</h4>
+                        <ul>
+                            <li>Keys function is an iterator, returns keys in a collection one at a time</li>
+                            <li>Iterators are not fail-fast. If things change after the fact, then arrays cannot be in a state where they don't reflect what you actually have.</li>
+                        </ul>
+                        <br>
+    <pre><code class="language-perl">
+    foreach $K (Keys %colors) {
+        # print all key-value pairs in that hash
+        print "$K = $colors{$K}\n";
+    }
+
+    # Alternatively, can pull out the key-value that each goes through,
+    # and returns both
+    while (($K, $V) = each(%colors)) {
+        # prints everything in hash table
+        print "$K = $V\n";
+    }
+
+    # The same thing except using values
+    foreach $V (values %colors) {
+        # prints all the values and ignores the keys
+        print "$V\n";
+    }
+
+    # To sort by keys, can insert Sort before Keys. By default,
+    # hashes won't be printed in order.
+    foreach $K (Sort Keys %colors) {
+        print "$K = $colors{$K}\n";
+    }
+
+    # To get the keys and values as an array
+    my @color_key = keys (%colors);     # parenthese aren't needed
+    my @color_values = values %colors;
+    </code></pre>
 
                         <h4>Getting Hash length</h4>
+                        <ul>
+                            <li>Force it in a scalar context</li>
+                        </ul>
+    <pre><code class="language-perl">
+    print "The hash has " . (scalar Keys %colors) . "Elements\n";
+
+    # Can't do what we did with arrays, the following won't work
+    $len = %colors;
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Scope</h2>
+                        <p>There is a scope called <span class="definition">our</span> which has package scope (like protected in Java). But don't need to bother with this.</p>
+                        <br>
+                        <p>In the following, my $<i>variable</i> is <span class="definition">lexically-scoped</span>, which means that since it is declared in the scope of the file, everything in the file can see it. With my $fname='Henry' in a narrower scope, it becomes a shadow variable. $lname becomes global everywhere including across modules and package boundaries.</p>
+                        <br>
+                        <p><span class="definition">Shadow variable<span>: two variables with the same name and one has narrower scope.</p>
+                        <br>
+    <pre><code class="language-perl">
+    my $fname = 'John';     # lexically-scoped
+    $lname = 'Smith';
+    {
+        my $fname = 'Henry';    # shadow variable
+        $lname = 'Jones';       # global
+    }
+    print "$fname $lname\n";    # prints 'John Jones'
+    </code></pre>
+                        <br>
+                        <p><span class="definition">my</span> is local and lexically-scoped, it depends on the brackets in the file and is a compile-time thing. <span class="definition">local</span> is dynamically scoped and is a run-time thing</p>
+                        <table class="table_1_to_1">
+                            <tr>
+                                <td>
+                                File 1<br>
+    <pre><code class="language-perl">
+    local $X;
+    foo();
+    </code></pre>
+                                </td>
+                                <td>
+                                File 2<br>
+    <pre><code class="language-perl">
+    # $X is visible in this fieldset
+    foo() {...}
+    # foo is in use so $X is still visible. Scope is carried forward.
+    </code></pre>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p>Don't make global variables, declare them all using my. Refer to variables as my, if have list of them put them in parentheses.</p>
+    <pre><code class="language-perl">
+    my ($X, %Y, $Z);
+    </code></pre>
+                    </div>
+
+                    <div class="section">
+                        <h2>Use and Require</h2>
+                        <ul>
+                            <li>Can include files like in PHP but uses different keywords in Perl.</li>
+                        </ul>
+                        <p><span class="definition">use</span>: if file is not available, script still runs.</p>
+                        <p><span class="definition">require</span>: if file is not available, script will fail.</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Files</h2>
+    <pre><code class="language-perl">
+    # fh is the file handle
+    open($fh, "&lt;data.txt");
+    if (!fh) {
+        die "Could not open file";
+    }
+    # like getcontents in PHP, each line is an array element here
+    </code></pre>
+                        <br>
+                        <h4>Other values for second parameter of open()</h4>
+                        <p>
+                            "&lt;file" - open for read<br>
+                            "&gt;file" - open for write<br>
+                            "&gt;&gt;file" - open append
+                        </p>
                     </div>
 
                     <div class="section">
                         <h2>Serialization</h2>
+                        <p>Perl uses split and join similar to PHP's implode and explode.</p>
+    <pre><code class="language-perl">
+    # array to string
+    $str = join('||', @colors);
+
+    # string to array
+    @colors = split('||', $str);
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Sanitizing Data</h2>
+                        <p>The following displays functions that are useful for sanitizing input data from users.</p>
+                        <table class="table_3_to_7">
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>chomp $line</td>
+                                <td>Removes all end of line characters.</td>
+                            </tr>
+                            <tr>
+                                <td>chop $line</td>
+                                <td>Removes last character of a line no matter what it is.</td>
+                            </tr>
+                            <tr>
+                                <td>die</td>
+                                <td>Kills the script and sends a message, can use die and call a function.</td>
+                            </tr>
+                            <tr>
+                                <td>split and join</td>
+                                <td>explodes and implodes</td>
+                            </tr>
+                            <tr>
+                                <td>tr ///</td>
+                                <td>Translate, has a return value and can be captured<br>
+    <pre><code class="language-perl">
+    # Example, will uppercase the string, takes a regular expression
+    tr /a-z/A-Z/
+    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>up $str</td>
+                                <td>uppercase a string</td>
+                            </tr>
+                            <tr>
+                                <td>lc $str</td>
+                                <td>lowercase a string</td>
+                            </tr>
+                            <tr>
+                                <td>s ///</td>
+                                <td>Substitute one set of things for another set of things</td>
+                            </tr>
+                        </table>
                     </div>
 
                     <div class="section">
                         <h2>CGI module</h2>
+                        <p><span class="definition">CGI.pm (CGI.perl.module)</span>: written to help adapt this language to the internet. Within script put the following:</p>
+    <pre><code class="language-perl">
+    use CGI;
+
+    # Will send error messages to server, helps with debugging.
+    use CGI::Carp qw(fatalsToBrowser);
+    </code></pre>
+                        <ul>
+                            <li>:: is the scope resolution operator</li>
+                            <li>carp: a module in CGI</li>
+                            <li>qw: quotewords, a way of serializing</li>
+                        </ul>
+                        <br>
+                        <p>CGI is a class of objects that you can call methods on.</p>
+    <pre><code class="language-perl">
+    my $q = new CGI;
+    my $name = $q-&gt;param('fname');   # returns value associated with fname
+
+    # To get all of the parameters,
+    @keys = $q-&gt;param;
+
+    # Printing all the parameters out
+    foreach $key (@keys) {
+        # can dig out the values associated with the keys
+        print "$key = $q-&gt;param($key)";
+    }
+
+    # Works with both GET or POST. Can disallow one and not the other.
+    # REQUEST_METHOD is a constant, either GET or POST.
+    $method = $ENV{REQUEST_METHOD};
+    my $error = $q-&gt;cgi-error;
+
+    # Can do this to do a redirection
+    $q-&gt;redirect(_uri='http://...');     # print this because it must go to the client
+    </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Cookies</h2>
+                        <p><span class="definition">Cookies</span>: a key-value pair, exactly one pair, 1 key or name and 1 value. Used for saving state but mostly to store information about a person or a client. Allow them to store information. Can identify a user. For example, a shopping cart can be implemented using a cookie.</p>
+                        <ul>
+                            <li>Write the cookie in JS and store on client side, cookie will get sent automatically when you connect to the server. Cookie can then be read.</li>
+                            <li>If the client disables JS, the cookies won't work. Workaround is storing the cookie information on the server and printing back actual pages of the information after identifying the user. If JS is enabled, use AJAX behind the scenes to communicate with the server.</li>
+                            <li>If expiration isn't specified, cookie will last until browser is closed. The parameter for this cookie uses the Date object in JS but if the CGI module is used, writing out the big long string associated with the Date object isn't necessary.</li>
+                            <li>Setting expiration to a negative value deletes the cookie. It will ask the browser to delete the cookie, but doesn't guarantee deletion. Write an empty string for the value to overwrite the value with the new one and ensure deletion.</li>
+                        </ul>
+                        <br>
+    <pre><code class="language-perl">
+    # Example of creating a cookie
+    my $cookie = $q-&gt;cookie(-name=&gt;'jadrnxxx', -expires=&gt;'+1h', -value=&gt;'value');
+    </code></pre>
+                        <ul>
+                            <li>Try not to use a generic name</li>
+                        </ul>
+                        <p>Several Examples of specifying the expiration include:<br>
+                        +1y +6M -1d +12hr +30m</p>
+                        <br>
 
                         <h4>Reading Cookies in Perl</h4>
+                        <p>In the following example, 'jadrnxxx' is the key, $cookie is the value of the cookie sent back.</p>
+    <pre><code class="language-perl">
+    # All cookies will get sent, must find yours
+    my $cookie = $q-&gt;cookie('jadrnxxx');
+    </code></pre>
+                        <br>
+                        <p>If there is more than one value that must be stored, the string must be serialized For example,<br>
+                        ABC123=1||BBQ-126=3</p>
 
                         <h4>Sending Cookies in Perl</h4>
+                        <p>The cookie must be printed to the header before anything is sent to the client. The statement inserts the cookie into the header, not actually printing anything. Usually, Content-type: text/html and a blank line must be sent first when sending a page. However, when this cookie is inserted into the header, it sets the Content-type automatically.</p>
+    <pre><code class="language-perl">
+    # Insert this cookie into the header
+    print q-&gt;header(-cookie-&gt;$cookie);
+    </code></pre>
+                        <br>
+                        <p>Cookies are used because want clients to store things on the client side in an easy manner. Must impose state on a stateless media i.e. for bank transaction. Store bits of information on the client side so that server can identify the client. Have a persistent state on server side which is a table that has a lookup number. When users log in, they get a serial number and on subsequent requests, they must send that serial number so that the server can authenticate them.</p>
                     </div>
 
                     <div class="section">
                         <h2>Database Connections</h2>
+                        <ul>
+                            <li>Use the DBI module</li>
+                        </ul>
+    <pre><code class="">
+    use DBI;
+    my $dbh = DBI-&gt;connect($source, $user, $password);
+    my $source = 'dbi:(database):(host):(server):(port)';
+
+    # will go to browser with the carp error messages
+    if (!$dbh) die "error message";
+
+    # disconnect() instead of close()
+    $dbh-&gt;disconnect();
+    </code></pre>
+                        <br>
+
+                        <p>Difference between queries that return a result-set and queries that do not. Insert, Delete, and Update returns the number of rows affected. However, Select returns a result-set, an ephemeral table. With PHP we had a mixed return type meaning it returns different things depending on the circumstances, but Perl doesn't work that way.</p>
+                        <br>
+
+                        <h4>Query - SELECT</h4>
+                        <ul>
+                            <li>Must prepare a statement and then execute it.</li>
+                        </ul>
+                        <br>
+    <pre><code class="language-perl">
+    # sql statements, will get interpolation here since it's in double quotes
+    my &sth = $dbh-&gt;prepare("SELECT * FROM ...");
+
+    # Example of using creating sql statement with SELECT
+    my $sth = $dbh-&gt;prepare("SELECT * FROM products WHERE sku='$sku';");
+
+    # Don't escape quotes unless necessary, for example
+    # \"$item\" instead of '$item'
+
+    # With Select, a result-set is returned and must be cycled through after this statement executes
+    $sth-&gt;execute();
+
+    while (@row=$sth-&gt;fetchrow_array()) {
+        # The first column for that record
+        $row[0]
+    }
+    # Free up that resource by closing the statement handle
+    $sth-&gt;finish();
+    # Disconnects
+    $dbh-&gt;disconnect();
+    </code></pre>
+                        <br>
+
+                        <h4>Query - INSERT, DELETE, UPDATE</h4>
+                        <ul>
+                            <li>There is no result-set that needs to be cycled through</li>
+                        </ul>
+    <pre><code class="language-perl">
+    # After executing this, check how many rows were affected
+    my $rows = $dbh-&gt;do("INSERT INTO...");
+    </code></pre>
                     </div>
                 </div>
             </div>
 
+            <div id="directory_container">
+                <div id="navigation_buttons">
+                    <div>
+                        <img src="../images/return_top_arrow.png" alt="open" id="directory_top_arrow">
+                    </div>
+                    <div>
+                        <img src="../images/directory_menu.png" alt="menu" id="directory_menu">
+                    </div>
+                </div>
+                <div id="directory">
+                </div>
+            </div>
         </div>
     </body>
 </html>
