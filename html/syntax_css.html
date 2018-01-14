@@ -14,9 +14,9 @@ Date Created: December 2017
         <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
         <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/themes/prism-tomorrow.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/prism.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
         <script type="text/javascript" src="../js/sidebar.js"></script>
         <script type="text/javascript" src="../js/syntax.js"></script>
     </head>
@@ -247,14 +247,6 @@ Date Created: December 2017
     </code></pre>
                                 </td>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                <pre><code class="language-css">
-
-                                </code></pre>
-                                </td>
-                            </tr>
                         </table>
                         <br>
                         <p>If you are familiar with regular expressions, the use of ^ and $ are applied when filtering the values of the above attribute selectors.</p>
@@ -275,7 +267,8 @@ Date Created: December 2017
         property: value;
     }
     </code></pre>
-                        <table>
+                        <br>
+                        <table class="table_3_to_7">
                             <tr>
                                 <th>Pseudo Classes</th>
                                 <th>Definition</th>
@@ -369,7 +362,8 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>CSS Properties</h2>
-                        <p><span class="definition">Inheritance</span>: properties are inherited from each child element's parents. child elements can override their parent's properties. Dimensional and layout properties are not inherited. The hierarchy of precendence is: id &gt; class &gt; tag</p>
+                        <p><span class="definition">Inheritance</span>: properties are inherited from each child element's parents. child elements can override their parent's properties. Dimensional and layout properties are not inherited. The hierarchy of precendence is: <span class="definition">id &gt; class &gt; tag</span></p>
+                        <br>
 
                         <table class="table_3_to_7">
                             <tr>
@@ -478,7 +472,7 @@ Date Created: December 2017
                         <p><span class="definition">Box Model of CSS: </span>each element follows this model in which they contain their content and are surrounded by padding, then a border, then margins. Border and padding properties add to the dimensions of the element.</p>
                         <br>
 
-                        <table>
+                        <table class="table_3_to_7">
                             <tr>
                                 <th colspan="2">Dimensional and Layout Properties</th>
                             </tr>
@@ -782,7 +776,7 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>CSS Transitions</h2>
-                        <p>Transitions allow values of properties to change smoothly over time.</p>
+                        <p><span class="definition">Transitions</span> allow values of properties to change smoothly over time.</p>
                         <ul>
                             <li>Must specify the CSS property to add an effect to and the duration.</li>
                             <li>To change several values, separate the individual transitions with commas.</li>
@@ -847,7 +841,7 @@ Date Created: December 2017
                     <div class="section">
                         <h2>CSS Transforms</h2>
                         <p>The source of the following information about transforms came from this <a href="https://robots.thoughtbot.com/transitions-and-transforms">website</a>.</p>
-                        <p>Transforms change the appearance of an element, and they are triggered when an element changes state.</p>
+                        <p><span class="definition">Transforms</span> change the appearance of an element, and they are triggered when an element changes state.</p>
                         <br>
                         <table class="table_3_columns">
                             <tr>
@@ -904,12 +898,12 @@ Date Created: December 2017
                         <h2>Flexbox</h2>
                         <p>The source of the following information about Flexboxes came from this <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">website</a></p>
                         <br>
-                        <p>Flexbox layouts allow items to be distributed within a container, and is a dynamic way to let the child elements inside the container grow or shrink to fill up the space. It is a way to layout items dynamically.</p>
+                        <p><span class="definition">Flexbox</span> layouts allow items to be distributed within a container, and is a dynamic way to let the child elements inside the container grow or shrink to fill up the space. It is a way to layout items dynamically.</p>
                         <ul>
                             <li>The parent container must have its display property set to flex.</li>
                         </ul>
                         <br>
-                        <p>The following are properties associated with the parent container:</p>
+                        <p>The following are properties associated with the <b>parent container</b>:</p>
                         <br>
                         <table class="table_3_columns">
                             <tr>
@@ -919,28 +913,28 @@ Date Created: December 2017
                             </tr>
                             <tr>
                                 <td>flex-direction</td>
-                                <td>Determines the direction in which items will be laid out.</td>
+                                <td>Determines direction in which items will be laid out.</td>
                                 <td>row | row-reverse | column | column-reverse</td>
                             </tr>
                             <tr>
                                 <td>flex-wrap</td>
-                                <td>Determines if the items will be able to wrap around the container.</td>
+                                <td>Determines if items will be able to wrap around the container.</td>
                                 <td>wrap | no-wrap | wrap-reverse</td>
                             </tr>
                             <tr>
                                 <td>justify-content</td>
-                                <td>Determines the alignment of the items along the main axis.</td>
+                                <td>Determines alignment of items along the main axis.</td>
                                 <td>flex-start | flex-end | center | space-between | space-around</td>
                             </tr>
                             <tr>
                                 <td>align-item</td>
-                                <td>Determines the alignment of the items along the cross-axis.</td>
+                                <td>Determines alignment of items along the cross-axis.</td>
                                 <td>flex-start | flex-end | center | baseline | stretch</td>
                             </tr>
                         </table>
                         <br>
 
-                        <p>The following are properties associated with the items within the container:</p>
+                        <p>The following are properties associated with the items <b>within the container</b>:</p>
                         <br>
                         <table class="table_3_columns">
                             <tr>
@@ -950,23 +944,23 @@ Date Created: December 2017
                             </tr>
                             <tr>
                                 <td>order</td>
-                                <td>The order in which the item is added to the container.</td>
+                                <td>Order in which the item is added to the container.</td>
                                 <td>An integer. Default value is 0.</td>
                             </tr>
                             <tr>
                                 <td>flex</td>
-                                <td>a shorthand for flex-grow, flex-shrink, and flex-basis in that order.</td>
-                                <td>The default value is 0 1 auto.</td>
+                                <td>Shorthand for flex-grow, flex-shrink, and flex-basis in that order.</td>
+                                <td>Default value is 0 1 auto.</td>
                             </tr>
                             <tr>
                                 <td>flex-grow</td>
-                                <td>Allows the item to grow to fill the remaining space.</td>
-                                <td>The value is a proportion or a ratio. A value of 1 for this property for all items means that they will distribute space evenly.</td>
+                                <td>Allows item to grow to fill the remaining space.</td>
+                                <td>Value is a proportion or a ratio. A value of 1 for this property for all items means that they will distribute space evenly.</td>
                             </tr>
                             <tr>
                                 <td>flex-shrink</td>
-                                <td>Determines if the item will shrink.</td>
-                                <td>The value is a proprtion or a ratio. A value of 0 means that the item will not shrink.</td>
+                                <td>Determines if item will shrink.</td>
+                                <td>Value is a proportion or a ratio. A value of 0 means that the item will not shrink.</td>
                             </tr>
                             <tr>
                                 <td>flex-basis</td>
@@ -985,6 +979,7 @@ Date Created: December 2017
                     <div class="section">
                         <h2>Example of using Flexbox to Layout Contents</h2>
                         <p>The following is an example of how to style a website to make a standard layout in which there is a horizontal menu that sticks at the top while scrolling down, content that is automatically sized in the middle, and a footer that sticks to the bottom of the page.</p>
+                        <br>
     <pre><code class="language-css">
     /* The body will be the outer container that holds the menu, the content, and the footer */
     body {
@@ -1014,13 +1009,13 @@ Date Created: December 2017
                         <h2>Grid</h2>
                         <p>The source of the following information about Grids came from this <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">website</a></p>
                         <br>
-                        <p>The Grid layout is a two-dimensional layout system that can handle both rows and columns. The page is divided into as many columns as specified by one of the grid properties. However, the max is 12 columns. Rows and columns can stretch or overlap in terms of the amount of space it takes up.</p>
+                        <p>The <span class="definition">Grid</span> layout is a two-dimensional layout system that can handle both rows and columns. The page is divided into as many columns as specified by one of the grid properties. However, the max is 12 columns. Rows and columns can stretch or overlap in terms of the amount of space it takes up.</p>
                         <ul>
                             <li>The parent container must have its display property set to grid.</li>
-                            <li>The parent container is called the grid container, and the items within this grid are the grid items. There are grid lines which divide and distinguish each grid cell.</li>
+                            <li>The parent container is called the <span class="definition">grid container</span>, and the items within this grid are the <span class="definition">grid items</span>. There are grid lines which divide and distinguish each grid cell.</li>
                         </ul>
                         <br>
-                        <p>The following are properties associated with the grid container:</p>
+                        <p>The following are properties associated with the <b>grid container</b>:</p>
                         <br>
                         <table class="table_3_columns">
                             <tr>
@@ -1030,17 +1025,17 @@ Date Created: December 2017
                             </tr>
                             <tr>
                                 <td>grid-template-columns and grid-template-rows</td>
-                                <td>Specifies the number of columns and rows the grid will have. The lines can be named, and the size is a length such as a percentage, px, or a fraction (fr). If a custom name is not defined, then the line name is numerical.</td>
+                                <td>Specifies number of columns and rows the grid will have. The lines can be named, and the size is a length such as a percentage, px, or a fraction (fr). If a custom name is not defined, then the line name is numerical.</td>
                                 <td>size | name size</td>
                             </tr>
                             <tr>
                                 <td>grid-template-areas</td>
-                                <td>Lays out the grid items by referencing the items by their grid-area property. If the grid-area name is repeated, then that item spans across those cells. The period means an empty cell.</td>
+                                <td>Lays out grid items by referencing the items by their grid-area property. If the grid-area name is repeated, then that item spans across those cells. The period means an empty cell.</td>
                                 <td>grid-area name | . | none</td>
                             </tr>
                             <tr>
                                 <td>grid-column-gap and grid-row-gap</td>
-                                <td>Sets the space between the columns and rows. More specifically, it is the width of the grid lines.</td>
+                                <td>Sets space between the columns and rows. More specifically, it is the width of the grid lines.</td>
                                 <td>size</td>
                             </tr>
                             <tr>
@@ -1070,9 +1065,9 @@ Date Created: December 2017
                             </tr>
                         </table>
                         <br>
-                        <p>The following are properties associated with the grid items:</p>
+                        <p>The following are properties associated with the <b>grid items</b>:</p>
                         <br>
-                        <table>
+                        <table class="table_3_columns">
                             <tr>
                                 <th>Property</th>
                                 <th>Description</th>
@@ -1080,22 +1075,22 @@ Date Created: December 2017
                             </tr>
                             <tr>
                                 <td>grid-column-start, grid-column-end, grid-row-start, grid-row-end</td>
-                                <td>Sets the position of the grid item in the container. It refers to the starting and ending grid lines and allows the grid item to span across multiple rows and/or columns.</td>
+                                <td>Sets position of the grid item in the container. Refers to the starting and ending grid lines and allows the grid item to span across multiple rows and/or columns.</td>
                                 <td>number | name | span number | span name | auto</td>
                             </tr>
                             <tr>
                                 <td>grid-area</td>
-                                <td>The name of the grid item so that it could be referenced by the parent container when setting the grid-template-areas property.</td>
+                                <td>Name of the grid item so that it could be referenced by the parent container when setting the grid-template-areas property.</td>
                                 <td>name</td>
                             </tr>
                             <tr>
                                 <td>justify-self</td>
-                                <td>Aligns the individual grid item's content along the row axis.</td>
+                                <td>Aligns individual grid item's content along the row axis.</td>
                                 <td>start | end | center | stretch</td>
                             </tr>
                             <tr>
                                 <td>align-self</td>
-                                <td>Aligns the individual grid item's content along the column axis.</td>
+                                <td>Aligns individual grid item's content along the column axis.</td>
                                 <td>start | end | center | stretch</td>
                             </tr>
                         </table>
@@ -1104,6 +1099,7 @@ Date Created: December 2017
                     <div class="section">
                         <h2>Example of using the Grid to Layout Contents</h2>
                         <p>The following examples creates a grid with 3 columns but an undefined amount of rows, intentionally done to avoid having a fixed number of rows. The columnes are spaced out evenly by using the fraction (fr) unit.</p>
+                        <br>
     <pre><code class="language-css">
     .grid_container {
         display: grid;

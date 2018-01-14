@@ -14,9 +14,9 @@ Date Created: December 2017
         <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
         <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/themes/prism-tomorrow.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
         <script type="text/javascript" src="../js/sidebar.js"></script>
         <script type="text/javascript" src="../js/syntax.js"></script>
     </head>
@@ -79,6 +79,7 @@ Date Created: December 2017
                     <div class="section">
                         <h2>JavaScript Types</h2>
                         <p>The following table shows primitive types and their primitive values all of which are immutable except object types.</p>
+                        <br>
                         <table>
                             <tr>
                                 <th>Type</th>
@@ -113,8 +114,8 @@ Date Created: December 2017
                         </table>
                         <br>
                         <h4>Difference between undefined and null</h4>
-                        <p>undefined: a variable has been declared by not yet assigned a value. It is a type itself.</p>
-                        <p>null: an assignment value representing no value. It is an object.</p>
+                        <p><span class="definition">undefined</span>: a variable has been declared but not yet assigned a value. It is a type itself.</p>
+                        <p><span class="definition">null</span>: an assignment value representing no value. It is an object.</p>
                     </div>
 
                     <div class="section">
@@ -189,9 +190,10 @@ Date Created: December 2017
                         <h2>Loops</h2>
                         <p>Aside from the while loop and the standard for loop, there is also the for...in and for...of loops</p>
                         <ul>
-                            <li><span class="definition_javascript">for...in</span> iterates over enumerable properties of an object. It shouldn't be used to iterate over an array where index order is important because there is no guarantee that the indexes will be in order.</li>
-                            <li><span class="definition_javascript">for...of</span> iterates over iterable objects. It should be used to iterate over an array, returns the value of what was iterated over.</li>
+                            <li><span class="definition_javascript">for...in</span> iterates over <span class="definition">enumerable</span> properties of an object. It shouldn't be used to iterate over an array where index order is important because there is no guarantee that the indexes will be in order.</li>
+                            <li><span class="definition_javascript">for...of</span> iterates over <span class="definition">iterable</span> objects. It should be used to iterate over an array, returns the value of what was iterated over.</li>
                         </ul>
+                        <br>
     <pre><code class="language-javascript">
     // The while loop
     while (conditions) {
@@ -219,7 +221,7 @@ Date Created: December 2017
                         <h2>Functions</h2>
                         <p><span class="definition">Functions</span>: set of statements to perform a task, can't put numbers in beginning of function name</p>
                         <ul>
-                            <li>The () operator invokes the function. Accessing the function without () gives the function definition and not the result.</li>
+                            <li>The <span class="definition_javascript">() operator</span> invokes the function. Accessing the function without () gives the function definition and not the result.</li>
                             <li>Functions can be used as the value for a variable.</li>
                         </ul>
                         <br>
@@ -231,7 +233,7 @@ Date Created: December 2017
                         <h4>Function Syntax</h4>
     <pre><code class="language-javascript">
     function name (parameter1, parameter2, parameter3) {
-        // statements
+        statements;
     }
     </code></pre>
     <br>
@@ -437,7 +439,7 @@ Date Created: December 2017
                             </tr>
                         </table>
                         <br>
-                        <p>Example of using a Random Number Generator</p>
+                        <h4>Example of using a Random Number Generator</h4>
                         <ul>
                             <li><span class="definition_javascript">Math.random()</span> returns a random number between 0(inclusive) and 1(exclusive)</li>
                             <li>To get the random number to expand to some specified range, multiply it by that number.</li>
@@ -691,7 +693,6 @@ Date Created: December 2017
     </code></pre>
                         <br>
                         <p><span class="definition_javascript">test()</span>: tests for a match in the string with the specified regular expression.</p>
-                        <br>
     <pre><code class="language-javascript">
     // Returns true if matched, false otherwise
     RegExpObject.test(string);
@@ -706,7 +707,7 @@ Date Created: December 2017
                             <li>To create a Regular Expression object, use the RegExp constructor</li>
                         </ul>
                         <br>
-                        <p>Check out these sites for a more detailed explanation: <a href="https://www.geeksforgeeks.org/write-regular-expressions/">GeeksforGeeks</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">MDN web docs</a></p>
+                        <p>Visit these sites for a more detailed explanation: <a href="https://www.geeksforgeeks.org/write-regular-expressions/">GeeksforGeeks</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">MDN web docs</a></p>
                         <br>
     <pre><code class="language-javascript">
     var regexObj = new RegExp(pattern, flags);
@@ -779,7 +780,7 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Animations and Transitions</h2>
-                        <h4>Animations</h4>
+                        <h4><span class="definition">Animations</span></h4>
                         <p>For animations to work, the following conditions must be met:</p>
                         <ul>
                             <li>Animations should be relative to a container.</li>
@@ -787,7 +788,6 @@ Date Created: December 2017
                         </ul>
                         <br>
                         <p>The element's style is changed over time by using a timer. Use <span class="definition_javascript">setInterval(<i>function, time</i>)</span> and <span class="definition_javascript">clearInterval(<i>id</i>)</span>.</p>
-                        <br>
     <pre><code class="language-javascript">
     var id = setInterval(someFunction, time);
     function someFunction() {
@@ -799,7 +799,7 @@ Date Created: December 2017
     }
     </code></pre>
                         <br>
-                        <h4>Transitions</h4>
+                        <h4><span class="definition">Transitions</span></h4>
                         <p>Set the value for the transition property.</p>
     <pre><code class="language-javascript">
     element.style.transition = [property] [duration] [transition-timing-function] [delay];

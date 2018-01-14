@@ -88,6 +88,83 @@ Date Created: December 2017
                     </div>
 
                     <div class="section">
+                        <h2>Additional Notes</h2>
+                        <p>To debug and view all the printed errors, visit <a href="jadran.sdsu.edu/perl/apache_error_log.cgi" class="cs545_link">jadran.sdsu.edu/perl/apache_error_log.cgi</a></p>
+                        <br>
+                        <h4>Duplication check using AJAX and PHP, PHP Validation and Submission</h4>
+                        <ul>
+                            <li>An alternative to printing a confirmation page is to send back an AJAX string and display to the user that he/she is now registered.</li>
+                            <li>To find duplicates using AJAX and PHP, use both the email address and the phone number for comparison. Duplicates must be checked for in both the HTML with JS enabled (by using AJAX) and the HTML returned by PHP. In order to see if the duplication check is working, you can submit the user information, click back to return to the validation page, and then click submit again.</li>
+                            <li>Use a busywait icon to tell the user that the form is being processed when waiting for the AJAX response to check for duplicates and when uploading the runner's image.</li>
+                            <li>Don't explicitly call the handler that is called when there is an AJAX response.</li>
+                            <li>Whatever the user inputted, repopulate the form with that information after the submit button is clicked.</li>
+                            <li> The report should print out information stored on the database.</li>
+                        </ul>
+                        <br>
+
+                        <h4>Database, Formatting tables, and Querying</h4>
+                        <ul>
+                            <li>Index and primary keys are unnecessary for this project, only add this when you have a lot of users. For example, your SDSU RedID is a primary key.</li>
+                            <li>Put enough data into the table that are different values. Should have enough teens, adults, and seniors.</li>
+                            <li>Inserting into the database, creating a report, and checking for duplicates would be implemented in different PHP files.</li>
+                            <li>Close the connection opened to the database or else it will be orphaned.</li>
+                            <li>In reality, you would use a thread pool and have connectors open all the time and spawn more threads if needed or if more than the one thread is being recycled.</li>
+                        </ul>
+                        <br>
+
+                        <h4>Logging into jadran to user the database on opatija server</h4>
+                        <p>
+                            Log into jadran <br>
+                            The following command looks up the user and gives you the password<br>
+                            GetMySQLPassword</p>
+                        <br>
+                        <p>Connect to the database on opatija using the following commands. It gives you a command line in MySQL client on opatija. Then you can create tables and make changes to the database. Database name is your account number.</p>
+    <pre><code>
+    // On jadrn sevrer
+    mysql -u jadrnxxx -h opatija -p
+
+    // On opatija
+    USE jadrnxxx;
+    SHOW tables;
+    DESCRIBE table_name;
+    </code></pre>
+                        <br>
+
+                        <h4>Making a table with MySQL (Better to redirect this into MySQL)</h4>
+    <pre><code>
+    USE jadrnxxx;
+    DROP TABLE IF EXISTS person;
+    CREATE TABLE person(
+        id int AUTO_INCREMENT PRIMARY KEY,  -- don't need this
+        name varchar(50) NOT NULL,          -- can't be blank
+        address varchar(100) NOT NULL,
+        city varchar(30) NOT NULL,
+        state char(2) NOT NULL,
+        zip char(5) NOT NULL,
+        email varchar(50) NOT NULL
+    );
+    INSERT INTO person VALUES(0, 'Jim Robeson', '3456 Market St', 'San Diego', 'CA', '92104');
+    ...
+    </code></pre>
+                        <br>
+
+                        <h4>Echo a text file containing the SQL commands into a database</h4>
+                        <ul>
+                            <li>Allows you to start a clean table for testing or debugging.</li>
+                        </ul>
+    <pre><code>
+    // Redirects from text file to MySQL
+    mysql -u jadrnxxx -h opatija -p < make_person_table.txt
+    </code></pre>
+                        <br>
+
+                        <h4>Running PHP on terminal</h4>
+    <pre><code>
+    php file.php
+    </code></pre>
+                    </div>
+
+                    <div class="section">
                         <h2>Project Details</h2>
                         <p></p>
                     </div>

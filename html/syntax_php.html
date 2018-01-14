@@ -71,11 +71,17 @@ Date Created: December 2017
                         <h2>PHP</h2>
                         <p><span class="definition">PHP</span>: server-side scripting language designed primarily for web development. A loosely typed language</p>
                         <ul>
-                            <li>The client browser sends a request to the web server, which contains php files, and a new page is sent back.</li>
-                            <li>All php script processing is done on the web server, the product that comes back is html.</li>
+                            <li>The client browser sends a request to the web server, which contains PHP files that are processed, and a new page is sent back as HTML.</li>
                             <li>Use to handle forms, file off emails, make calls to the database, etc.</li>
                             <li>Either find a web host with PHP and MySQL support or install your own web server and then install PHP and MySQL.</li>
+                            <li>Market Share: PHP(~83%), ASP.net(~14%), Java(~2.5%)</li>
+                            <li>File extension is <span class="definition">.php</span></li>
+                            <li>Scripts should be given 644 permissions. Executable permissions aren't necessary, only need read persmissions. This is because there is a module in Apache, the web server, that will handle PHP requests, it's reading files not executing them. </li>
                         </ul>
+                        <br>
+                        <p><span class="definition">PHP Interpreter</span>: runs constantly in Apache. When a request comes for a PHP page, the server spawns a thread and hands it off to the PHP interpreter. The server can deliver ~10k pages per second but will drop to hundreds if it has to start up the PHP interpreter every time.</p>
+
+                        <br>
                         <p><span class="definition">XAMPP</span>: a PHP development environment, download it, navigate to htdocs subdirectory.</p>
                     </div>
 
@@ -85,15 +91,49 @@ Date Created: December 2017
                             <li>Statements end with a semicolon.</li>
                             <li>All keywords, classes, functions, and user-defined functions are <b>NOT case-sensitive</b>.</li>
                             <li>All variable names <b>ARE case-sensitive</b>.</li>
-                            <li>File extension is .php</li>
                         </ul>
-                        <p>The following describes how to use the opening and closing tag for a php block.</p>
+                        <br>
+                        <p>The following describes how to use the opening and closing tag for a PHP block.</p>
 
     <pre><code class="language-php">
     &lt;?php
             echo "Hello World";
         ?&gt;
     </code></pre>
+                    </div>
+
+                    <div class="section">
+                        <h2>Coercion</h2>
+                        <p>PHP interpreter tries to coerce variables to be the same type. It will try to coerce expressions as much as it can. Stops when finds some type that is different.</p>
+                        <br>
+    <pre><code class="language-php">
+    // Example 1
+    $x = 12;
+    $y = 'foo';
+    $x + $y;    // gives 12, foo changes to 0 because not valid integer
+    $x * $y;    // gives 0
+    $x / $y     // gives undefined (outputs nothing)
+
+    // Example 2
+    $x = 12;
+    &y = '2foo';
+    $x + $y;    // gives 14, tries to coerce $y to an integer
+
+    // Example 3
+    $x = 12;
+    $y = 'foo2';
+    $x + $y;    // gives 12, stops after checking 'f' in 'foo2'
+
+    '9' == 9;       // true
+    '09' == 9;      // true
+    '9' === 9;      // false, checks type as well
+    '9abcd' == 9;   // true
+    '9abcd' === 9;  // false
+    </code></pre>
+                        <br>
+                        <p>The following are all false in conditions:<br>
+                        0 0.0 "" "0" "0.0"</p>
+                        <p>'abc' coerced to a number is false, but as a string it's true.</p>
                     </div>
 
                     <div class="section">
@@ -157,10 +197,35 @@ Date Created: December 2017
             myTest()    // prints 1
         ?&gt;
     </code></pre>
+                        <br>
+
+                        <h3>Variable Interpolation</h3>
+                        <p>Using double quotes invokes the interpreter whereas using single quotes does not.</p>
+                        <ul>
+                            <li>In JS, there is no difference between single and double quotes unless there are quotes inside quotes, to which it must be distinguished.</li>
+                            <li>Variable interpolation allows for dealing with key-value pairs in PHP.</li>
+                            <li>Using single quotes is more efficient around constant strings, use it if interpolation isn't needed.</li>
+                        </ul>
+                        <br>
+                        <p>In the following example, the single quotes around the value for a MySQL field are required, so double quotes can be used around the entire statement </p>
+                        <br>
+    <pre><code class="language-php">
+    // No variables needed to be interpolated
+    $x = 'Hello World';
+
+    // Variables needed to be interpolated
+    $y = "$x" . "welcome";
+
+    // Interpolation to formulate sql statement
+    $sql_statement = "SELECT name FROM runner WHERE name='John';";
+
+    // Also works
+    $sql_statement = "SELECT name FROM runner WHERE name='$_POST[fname]';";
+    </code></pre>
                     </div>
 
                     <div class="section">
-                        <h2>PHP5 echo and print statements</h2>
+                        <h2>Echo and Print</h2>
                         <p><span class="definition">echo</span>: outputs data to screen but has no return value. Can take multiple parameters. Faster than print. Use as <span class="definition_php">echo</span> or <span class="definition_php">echo()</span>. Text can contain HTML markup.</p>
                         <p><span class="definition">print</span>: outputs data to screen and has return value of 1 to be used in expressions. Can take one argument. Use as <span class="definition_php">print</span> or <span class="definition_php">print()</span>.</p>
                         <p><span class="definition">Concatenate Strings</span> by using dot(.)</p>
@@ -184,6 +249,35 @@ Date Created: December 2017
             echo $x + $y;
         ?&gt;
                 </code></pre>
+                    </div>
+
+                    <div class="section">
+                        <h2>Here and Now Documents</h2>
+                        <p><span class="definition">Here document</span>: a language construct. Used in Perl when you have to print a webpage and you don't have embedded tags like in PHP.</p>
+                        <ul>
+                            <li>In the example, anything can be put for ENDB but capitalizing it is the convention.</li>
+                            <li>Normally, when printing, whitespace is ignored. However, Here document will actually preserve formatting of the source code. Makes it easy to send a large block of code.</li>
+                            <li>Can include variables in the heredoc and it will perform variable interpolation.</li>
+                            <li>If quotes are present in the heredoc, they will go.</li>
+                        </ul>
+                        <br>
+    <pre><code class="language-php">
+    print &lt;&lt;&lt;ENDB
+        &lt;html&gt;
+        &lt;head&gt;
+        The value of x is $x    // will print whatever x is, not literal '$x'
+        &lt;input type="text" .../&gt;
+    ENDB;
+    </code></pre>
+                        <br>
+                        <p><span class="definition">Now document</span>: similar to heredoc but there won't be variable interpolation.</p>
+    <pre><code class="language-php">
+    print &lt;&lt;&lt;'ENDB'
+        $x = 2;
+        echo 'The value of x is $x';    // will display this string literally
+        echo "The value of x is $x";    // will get variable interpolation
+    ENDB;
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -288,6 +382,10 @@ Date Created: December 2017
                             <tr>
                                 <td>strncmp(<i>string1</i>, <i>string2</i>, <i>length</i>)</td>
                                 <td>String comparison of first n characters (case-sensitive).</td>
+                            </tr>
+                            <tr>
+                                <td>substr(<i>string</i>, <i>offset</i>, <i>length</i>);</td>
+                                <td>Take the string, start at the offset which is an index, and take the length which is the number of characters.</td>
                             </tr>
                         </table>
                     </div>
@@ -1302,6 +1400,8 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Exception Handling</h2>
+                        <p>PHP doesn't have exceptions that will cause a crash, so program will continue even if something has failed. The database stops it from crashing and has its own controls to check against duplicate entries. Exception is not a possibility because the client expects an error. Throwing an exception will result in the client timing out, usually 2 minutes.</p>
+                        <br>
                         <p>When an exception is triggered:</p>
                         <ul>
                             <li>The current code state is saved.</li>

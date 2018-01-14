@@ -33,7 +33,7 @@ body > div {
     margin-left: 40px;
 }
 #content pre, code {
-    font-size: 90%;
+    font-size: 94%;
     overflow: auto;
 }
 #content table {
@@ -177,12 +177,14 @@ body > div {
 }
 #directory_container {
     width: 10%;
+    min-width: 180px;
     /* height: 80vh; */
     height: 96%;
     min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-end;
     position: fixed;
     /* top: 40px; */
     top: 4%;
@@ -225,10 +227,12 @@ body > div {
 #navigation_buttons {
     /* flex-grow: 0;
     flex-shrink: 0; */
+    width: 72%;
     height: 8%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /* justify-content: space-around; */
     /* align-items: center; */
     /* border: 1px solid blue; */
 }

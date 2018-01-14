@@ -52,12 +52,12 @@ body > div {
 .cs646_code {
     color: #990000;
 }
-.cs646_link:link {
+.cs646_link:link, .cs545_link:link {
     color: rgba(200, 0, 0, 1);
     text-decoration-color: rgba(50, 50, 50, 1);
     text-decoration-line: underline;
 }
-.cs646_link:visited {
+.cs646_link:visited, .cs545_link:visited {
     color: rgba(200, 0, 0, 1);
     text-decoration-color: rgba(50, 50, 50, 1);
     text-decoration-line: underline;
