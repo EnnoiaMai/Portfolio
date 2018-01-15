@@ -132,6 +132,13 @@ body > div {
     color: rgba(242, 157, 69, 1);
     font-weight: bold;
 }
+.definition_perl {
+    /* Blue */
+    /* color: #000180; */
+    /* color: #120D92; */
+    color: #1A27AA;
+    font-weight: bold;
+}
 .center_block {
     margin-left: auto;
     margin-right: auto;

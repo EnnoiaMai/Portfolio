@@ -97,7 +97,7 @@ Date Created: December 2017
                         <table>
                             <tr>
                                 <td>Single-line comment</td>
-                                <td>&frasl;&frasl;</td>
+                                <td>&frasl; &frasl;</td>
                             </tr>
                             <tr>
                                 <td>Multiline comment</td>
@@ -110,25 +110,25 @@ Date Created: December 2017
                         </table>
 
                         <h4>Integer</h4>
-                        <p>Type Int has the same size as the current platform's native word size</p>
+                        <p>Type <span class="definition">Int</span> has the same size as the current platform's native word size</p>
                         <ul>
                             <li>32-bit platform would set Int32 as default.</li>
                             <li>64-bit platform would set Int64 as default.</li>
                         </ul>
-                        <p>UInt - unsigned Int. Use min and max properties to find the Integer bounds.</p>
+                        <p><span class="definition">UInt</span> - unsigned Int. Use min and max properties to find the Integer bounds.</p>
 
                         <h4>Floating Point Numbers</h4>
                         <ul>
-                            <li>Float - 32-bit floating-point number</li>
-                            <li>Double - 64-bit floating-point number</li>
+                            <li><span class="definition">Float</span> - 32-bit floating-point number</li>
+                            <li><span class="definition">Double</span> - 64-bit floating-point number</li>
                         </ul>
 
                         <h4>Type Safety and Type Inference</h4>
-                        <p>Type Safety: Swift is discrete on types of values and performs type-checking. </p>
+                        <p><span class="definition">Type Safety</span>: Swift is discrete on types of values and performs type-checking. </p>
                         <p>Type Inference: compiler deduces type of expression by examining values, usually occurs for literal values. No loss of precision in the Double when adding Int and Double assuming Int is casted.</p>
 
                         <h4>Numeric Literals</h4>
-                        <table>
+                        <table class="table_60">
                             <tr>
                                 <th>Literal</th>
                                 <th>Prefix</th>
@@ -156,7 +156,7 @@ Date Created: December 2017
                         </table>
 
                         <h4>Numeric Type Conversion to prevent errors</h4>
-                        <p>Swift type initializers: SomeType(ofInitialValue)</p>
+                        <p>Swift type initializers: <span class="definition_swift">SomeType(ofInitialValue)</span></p>
 
                         <h4>Type Aliases</h4>
     <pre><code class="language-swift">
@@ -170,7 +170,7 @@ Date Created: December 2017
     </code></pre>
 
                         <h4>Tuples</h4>
-                        <p>Tuples: multiple values that combine into a single compound value. Can decompose tuples into constants or variables. Can ignore values using underscore (_), access the tuple using the index, and name tuples.</p>
+                        <p><span class="definition">Tuples</span>: multiple values that combine into a single compound value. Can decompose tuples into constants or variables. Can ignore values using underscore (<span class="definition_swift"> _ </span>), access the tuple using the index, and name tuples.</p>
     <pre><code class="language-swift">
     let name = (value1, value2)    // Initialize typle
     let (name1, name2) = name    // Decompose tuple
@@ -182,8 +182,8 @@ Date Created: December 2017
     </code></pre>
 
                         <h4>Optionals</h4>
-                        <p>Use when values may be abesnt, variable can be set to nil. Defining an optional without the value will set it to nil by default.</p>
-                        <p>The following is an example of Forced Unwrapping within an if statement</p>
+                        <p><span class="definition">Optionals</span>: use when values may be abesnt, variable can be set to nil. Defining an optional without the value will set it to nil by default.</p>
+                        <p>The following is an example of <span class="definition">Forced Unwrapping</span> within an if statement</p>
     <pre><code class="language-swift">
     var name: Type?    // value is nil
     if (name != nil) {
@@ -199,13 +199,13 @@ Date Created: December 2017
     </code></pre>
 
                         <h4>Implicitly Unwrapped Optionals</h4>
-                        <p>An optional that is assumed to always have a value. ! character gives permission for optional to be unwrapped whenever it's used. Can still use optional binding on it.</p>
+                        <p>An optional that is assumed to always have a value. (<span class="definition_swift"> ! </span>) character gives permission for optional to be unwrapped whenever it's used. Can still use optional binding on it.</p>
     <pre><code class="language-swift">
     let name: Type!    // Runtime error if nil
     </code></pre>
 
                         <h4>Error Handling</h4>
-                        <p>Lets you determine the cause of the error. If function can throw an error, wrap it in a try expression, then wrap it in a do statement to propagate error to catch clauses.</p>
+                        <p>Lets you determine the cause of the error. If function can throw an error, wrap it in a <span class="definition_swift">try</span> expression, then wrap it in a <span class="definition_swift">do</span> statement to propagate error to <span class="definition_swift">catch</span> clauses.</p>
     <pre><code class="language-swift">
     func canThrowAnError() throws {
         statements
@@ -219,7 +219,7 @@ Date Created: December 2017
     </code></pre>
 
                         <h4>Assertions and Preconditions</h4>
-                        <p>Checks that occur at runtime. You specify a condition before executing further code. Assertions are checked in debug builds and Preconditions are checked in both debug and production builds.</p>
+                        <p>Checks that occur at runtime. You specify a condition before executing further code. <span class="definition">Assertions</span> are checked in debug builds and <span class="definition">Preconditions</span> are checked in both debug and production builds.</p>
     <pre><code class="language-swift">
     assert(boolean expression, "message")
     assertionFailure("message")    // Indicates that assertions failed
@@ -263,16 +263,16 @@ Date Created: December 2017
                                 <td>!, &amp;&amp;, ||</td>
                             </tr>
                             <tr>
-                                <td>Nil-Coalescing Operator: unwraps an optional a if it contains a value, or returns default value b if a is nil. Expression a is optional, and b must match the type stored in a.</td>
+                                <td><span class="definition">Nil-Coalescing Operator</span>: unwraps an optional a if it contains a value, or returns default value b if a is nil. Expression a is optional, and b must match the type stored in a.</td>
                                 <td>(a ?? b)</td>
                             </tr>
                             <tr>
                                 <td>Range Operators</td>
                                 <td>
-                        <pre>
-Closed Range operator: (a...b)
-Half-open Range operator: (a..&lt;b)
-One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
+<pre>
+<span class="definition">Closed Range operator</span>: (a...b)
+<span class="definition">Half-open Range operator</span>: (a..&lt;b)
+<span class="definition">One-sided Ranges</span>: (a...) | (...b), (a..&lt;) | (..&lt;b)
 </pre>
                         </td>
                             </tr>
@@ -284,7 +284,7 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
 
                     <div class="section">
                         <h2>Strings and Characters</h2>
-                        <p>Strings are value types, creating a new String copies that value. String mutability indicated by assigning it to a constant or a variable.</p>
+                        <p><span class="definition">Strings</span> are value types, creating a new String copies that value. String mutability indicated by assigning it to a constant or a variable.</p>
     <pre><code class="language-swift">
     // A String literal
     let string = "text"
@@ -297,8 +297,8 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
     // String Initializer
     var emptyString = String()
     </code></pre>
-
-                        <table>
+                        <br>
+                        <table class="table_60 center_table_data">
                             <tr>
                                 <th colspan="2">Special Characters (Escape Characters)</th>
                             </tr>
@@ -335,9 +335,10 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
                                 <td>single quote</td>
                             </tr>
                         </table>
+                        <br>
 
                         <h4>Manipulating Strings and Methods</h4>
-                        <table>
+                        <table class="table_3_to_7">
                             <tr>
                                 <th>Subject</th>
                                 <th>Code</th>
@@ -369,7 +370,7 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
                                 </td>
                             </tr>
                             <tr>
-                                <td>String Concatenation: constructing new strings by adding string values together.</td>
+                                <td><span class="definition">String Concatenation</span>: constructing new strings by adding string values together.</td>
                                 <td>
     <pre><code class="language-swift">
     var newString = string1 + string2
@@ -379,7 +380,7 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
                                 </td>
                             </tr>
                             <tr>
-                                <td>String Interpolation: constructing new string from a mix of constants, variables, literals, and expressions.</td>
+                                <td><span class="definition">String Interpolation</span>: constructing new string from a mix of constants, variables, literals, and expressions.</td>
                                 <td>
     <pre><code class="language-swift">
     let multiplier = 3
@@ -429,21 +430,23 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
                         </table>
 
                         <h4>Substring</h4>
-                        <p>Different type but short-lived and has same methods as String. Has region of memory that is resused from what was stored in original string.</p>
+                        <p><span class="definition">Substring</span>: different type but short-lived and has same methods as String. Has region of memory that is resused from what was stored in original string.</p>
     <pre><code class="language-swift">
     let subString = someString[range]
     </code></pre>
 
-                        <p>Strings and Characters can be compared using == and !=</p>
+                        <p>Strings and Characters can be compared using <span class="definition_swift">==</span> and <span class="definition_swift">!=</span></p>
                     </div>
 
                     <div class="section">
                         <h2>Collection Types</h2>
                         <p>3 primary collection types are arrays, sets, and dictionaries. Implemented as generic collections. Mutability of collection types depends on setting it as a constant or a variable.</p>
+                        <br>
 
                         <h3>Array</h3>
-                        <p>An array stores values of the same type in an ordered list.</p>
-                        <table>
+                        <p><span class="definition">Array</span>: stores values of the same type in an ordered list.</p>
+                        <br>
+                        <table class="table_3_to_7">
                             <tr>
                                 <th>Subject</th>
                                 <th>Code</th>
@@ -464,7 +467,7 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
                                 </td>
                             </tr>
                             <tr>
-                                <td>Accessing and Modifying an Array: any gaps in an array are closed when an item is removed.</td>
+                                <td><b>Accessing and Modifying an Array</b>: any gaps in an array are closed when an item is removed.</td>
                                 <td>
     <pre><code class="language-swift">
     // Number of items in array
@@ -504,10 +507,12 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
                         </table>
 
                         <h3>Set</h3>
-                        <p>Sets store distinct values of same type in a collection with no defined ordering. A type must he hashable to be stored in a set. String, Int, Double, Bool, and enums are by default. Conform to Hashable and Equatable protocol for custom sets and dictionaries.</p>
-                        <p>Hash value: an Int value that is the same for objects that compare equally. If a==b then a.hashValue = b.hashValue.</p>
+                        <p><span class="definition">Set</span>: stores distinct values of the same type in a collection with no defined ordering. A type must be <b>hashable</b> to be stored in a set. String, Int, Double, Bool, and enums are by default. Conform to Hashable and Equatable protocol for custom sets and dictionaries.</p>
+                        <br>
+                        <p><span class="definition">Hash value</span>: an Int value that is the same for objects that compare equally. If <span class="definition_swift">a==b</span> then <span class="definition_swift">a.hashValue = b.hashValue</span>.</p>
+                        <br>
 
-                        <table>
+                        <table class="table_3_to_7">
                             <tr>
                                 <th>Subject</th>
                                 <th>Code</th>
@@ -555,8 +560,9 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
                                 </td>
                             </tr>
                         </table>
+                        <br>
 
-                        <table>
+                        <table class="table_80">
                             <tr>
                                 <th colspan="2">Set Operations</th>
                             </tr>
@@ -601,10 +607,12 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
                                 <td>Whether two sets have no values in common.</td>
                             </tr>
                         </table>
+                        <br>
 
                         <h3>Dictionary</h3>
-                        <p>A dictionary stores associations between keys of same type and values of same type with no defined ordering. Keys must be unique. Subscript syntax which is used for a dictionary returns a value as an optional, so it must be unwrapped.</p>
-                        <table>
+                        <p><span class="definition">Dictionary</span>: stores associations between keys of same type and values of same type with no defined ordering. Keys must be unique. Subscript syntax which is used for a dictionary returns a value as an optional, so it must be unwrapped.</p>
+                        <br>
+                        <table class="table_3_to_7">
                             <tr>
                                 <th>Subject</th>
                                 <th>Code</th>
@@ -692,21 +700,25 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
         statements
     }
     </code></pre>
+                        <br>
 
                         <h3>While loops and Repeat-While</h3>
     <pre><code class="language-swift">
+    // While loop
     while (condition) {
         statements
     }
 
+    // Repeat-while loop
     repeat {
         statements
     }
     while (condition)
     </code></pre>
 
+                        <br>
                         <h3>Conditional Statements</h3>
-                        <p>if statement to evaluate simple conditions with a few outcomes.</p>
+                        <p><span class="definition">if statement</span>: to evaluate simple conditions with a few outcomes.</p>
     <pre><code class="language-swift">
     if (condition) {
         statements
@@ -716,7 +728,8 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
         statements
     }
     </code></pre>
-                        <p>switch statement for more complex conditions with multiple outcomes. Compares value against one or more of same type. Must be exhaustive which means it must consider every possible value. No implicit fallthrough.</p>
+                        <br>
+                        <p><span class="definition">switch statement</span>: for more complex conditions with multiple outcomes. Compares value against one or more of same type. Must be exhaustive which means it must consider every possible value. No implicit fallthrough.</p>
     <pre><code class="language-swift">
     switch (somevalue) {
     case value1:
@@ -728,9 +741,9 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
     }
     </code></pre>
 
-                        <p>Can use switch for interval matching, just use ranges for values. For tuples, each element of tuple can be tested against a different value or interval of values. Use wilecard (_) to match any possible value.</p>
-                        <p>Value Bindings: values are bound to temporary constants&frasl;variables within case's body, can combine compound cases with value bindings.</p>
-                        <p>where clause: check for additional conditions.</p>
+                        <p>Can use switch for interval matching, just use ranges for values. For tuples, each element of tuple can be tested against a different value or interval of values. Use wilecard (<span class="definition_swift"> _ </span>) to match any possible value.</p>
+                        <p><span class="definition">Value Bindings</span>: values are bound to temporary constants&frasl;variables within case's body, can combine compound cases with value bindings.</p>
+                        <p><span class="definition">where clause</span>: check for additional conditions.</p>
                         <p>Can also have compound cases and use value bindings with compound cases.</p>
     <pre><code class="language-swift">
     // Interval Matching
@@ -773,15 +786,17 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
         statements
     }
     </code></pre>
+                        <br>
 
                         <h3>Control Transfer Statements</h3>
                         <ul>
-                            <li>continue</li>
-                            <li>break - use in switch or loop</li>
-                            <li>fallthrough - keyword allows fallthrough in switch</li>
-                            <li>return</li>
-                            <li>throw</li>
+                            <li><span class="definition_swift">continue</span></li>
+                            <li><span class="definition_swift">break</span> - use in switch or loop</li>
+                            <li><span class="definition_swift">fallthrough</span> - keyword allows fallthrough in switch</li>
+                            <li><span class="definition_swift">return</span></li>
+                            <li><span class="definition_swift">throw</span></li>
                         </ul>
+                        <br>
 
             <h3>Labeled Statements</h3>
             <p>Can break or continue out of labeled loops, can break out of conditional statements.</p>
@@ -790,9 +805,10 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
         statements
     }
     </code></pre>
+                        <br>
 
                         <h3>Guard</h3>
-                        <p>guard statement executes statements depending on Boolean value of an expression. Use to require a condition be true for code after guard to execute. Has an else clause, which is executed if condition is not true. Else clause must transfer control to exit the code block.</p>
+                        <p><span class="definition">guard statement</span> executes statements depending on Boolean value of an expression. Use to require a condition be true for code after guard to execute. Has an else clause, which is executed if condition is not true. Else clause must transfer control to exit the code block.</p>
                         <ul>
                             <li>Can use with optional binding.</li>
                             <li>Variables or constants defined by guard are available for rest of code block.</li>
@@ -809,12 +825,15 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
                     <div class="section">
                         <h2>Functions</h2>
                         <p>Functions can have parameter(s), no parameters, return value(s), or no return values.</p>
+                        <br>
+
                         <h3>Defining Functions</h3>
     <pre><code class="language-swift">
     func name(parameterName1: Type, parameterName2: Type) -> Type {
         return Type
     }
     </code></pre>
+                        <br>
 
                         <h3>Functions with Multiple Return Values</h3>
     <pre><code class="language-swift">
@@ -834,10 +853,11 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
         statements
     }
     </code></pre>
+                        <br>
 
                         <h3>Function Argument Labels and Parameter Names</h3>
                         <ul>
-                            <li>Variadic Parameters: to specify that parameter can be passed a varying number of input values.</li>
+                            <li><span class="definition">Variadic Parameters</span>: to specify that parameter can be passed a varying number of input values.</li>
                         </ul>
     <pre><code class="language-swift">
     // Specifying Argument Labels
@@ -866,6 +886,7 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
     }
     someFunction(&amp;someVariable, &amp;anotherVariable)
     </code></pre>
+                        <br>
 
                         <h3>Function Types</h3>
                         <p>Each function has a specific function type, made up of parameter types and return type. Can define constant&frasl;variable to be a certain function type then assign appropriate function to it.</p>
@@ -877,6 +898,7 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
     // Assigning that function to a variable with that function type
     var variable: (Type1, Type2) -> Type = function
     </code></pre>
+                        <br>
 
                         <h3>Function Types as Parameter Types</h3>
                         <p>Lets you leave some aspects of a function's implementation for the function's caller to provide.</p>
@@ -886,15 +908,17 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
     }
     outerFunc(function, arg1, arg2)
     </code></pre>
+                        <br>
 
                         <h3>Function Types as Return Types</h3>
-                        <p>Lets you pass function back and have it be determined by the parameters passed in</p>
+                        <p>Lets you pass function back and have it be determined by the parameters passed in.</p>
     <pre><code class="language-swift">
     func chooseStepFunction(backward: Bool) -> (Int) -> Int {
         return (backward) ? stepBackward : stepForward
     }
     // stepBackward and stepForward are functions with type (Int) -> Int
     </code></pre>
+                        <br>
 
                         <h3>Nested Functions</h3>
                         <p>Hidden from outside but can be called by enclosing function. Enclosing function can return nested function to let it be used in another scope.</p>
@@ -902,21 +926,24 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
 
                     <div class="section">
                         <h2>Closures</h2>
-                        <p>Closures are self-contained blocks of functionality that can be passed around. Can capture and store references to any constants and variables. Functions are actually closures but are named.</p>
+                        <p><span class="definition">Closures</span>: self-contained blocks of functionality that can be passed around. Can capture and store references to any constants and variables. Functions are actually closures but are named.</p>
                         <ul>
                             <li>Parameters can be in-out, can be tuples, and can be variadic.</li>
                             <li>For closures, parameters can't have default values.</li>
-                            <li>in keyword indicates that the definition for closure has finished.</li>
+                            <li><span class="definition_swift">in</span> keyword indicates that the definition for closure has finished.</li>
                         </ul>
+                        <br>
+
                         <h3>Closure Expression Syntax</h3>
     <pre><code class="language-swift">
     { (parameters: Type) -> Type in
         statements
     }
     </code></pre>
-                        <p>Inferring Type from Context: don't need to write in parameter types or return if closure can be inferred</p>
-                        <p>Implicit Returns from Single-Expression closures: can leave out return keyword.</p>
-                        <p>Shorthand Argument names: used to refer to values of closure's arguments</p>
+                        <br>
+                        <p><span class="definition">Inferring Type from Context</span>: don't need to write in parameter types or return if closure can be inferred</p>
+                        <p><span class="definition">Implicit Returns from Single-Expression closures</span>: can leave out return keyword.</p>
+                        <p><span class="definition">Shorthand Argument names</span>: used to refer to values of closure's arguments</p>
     <pre><code class="language-swift">
     // Closure example
     reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
@@ -932,6 +959,7 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
     // Shorthand arguments
     reversedNames = names.sorted(by: {$0 > $1})
     </code></pre>
+                        <br>
 
                         <h3>Trailing Closures</h3>
                         <p>Use if need to pass a closure expression to a function as the function's final argument and closure is long.</p>
@@ -948,6 +976,7 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
     // Example
     reversedNames = names.sorted() {}
     </code></pre>
+                        <br>
 
                         <h3>Capturing Values</h3>
                         <p>Closures can capture constants and variables from their surrounding context in which they were defined. Can refer to those constants or variables within its body even when scope doesn't exist.</p>
@@ -962,12 +991,14 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
         return incrementer
     }
     </code></pre>
+                        <br>
 
                         <h3>Closures are Reference Types</h3>
-                        <p>Whenever you assign a function or closure to a constant or variable, you're setting it to be a reference to the function or closure. So assigning a closure to two different constants or variables results in them referring to the same closure.</p>
+                        <p>Whenever you assign a function or closure to a constant or variable, you're setting it to be a <span class="definition">reference</span> to the function or closure. So assigning a closure to two different constants or variables results in them referring to the same closure.</p>
+                        <br>
 
                         <h3>Escaping Closures</h3>
-                        <p>Use @escaping keyword. Use when a closure is passed as an argument to a function but can be called after the function returns. Closure is allowed to "escape" and for example, be stored in a variable to be called later. Must refer to self explicitly within an escaping closure.</p>
+                        <p>Use <span class="definition_swift">@escaping</span> keyword. Use when a closure is passed as an argument to a function but can be called after the function returns. Closure is allowed to "escape" and for example, be stored in a variable to be called later. Must refer to <span class="definition_swift">self</span> explicitly within an escaping closure.</p>
     <pre><code class="language-swift">
     var completionHandlers: [() -> Void] = []
     func someFunctionwithEscapingClosure(completionHandler: @escaping () -> Void) {
@@ -985,9 +1016,10 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
         }
     }
     </code></pre>
+                        <br>
 
                         <h3>Autoclosure</h3>
-                        <p>Use @autoclosure keyword, created to wrap an expression being passed in as an argument to a function. Lets you omit braces around a function's parameter by writing a normal expression instead of an explicit closure. Lets you delay evaluation.</p>
+                        <p>Use <span class="definition_swift">@autoclosure</span> keyword, created to wrap an expression being passed in as an argument to a function. Lets you omit braces around a function's parameter by writing a normal expression instead of an explicit closure. Lets you delay evaluation.</p>
     <pre><code class="language-swift">
     func serve(customer customerProvider: () -> String) {
         print("Now serving \(customerProvider()).")
@@ -1005,6 +1037,7 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
                     <div class="section">
                         <h2>Enumerations</h2>
                         <p>Can define just the case, the case and a raw value, or the case and its associated values.</p>
+                        <br>
                         <h3>Enumeration Syntax</h3>
     <pre><code class="language-swift">
     enum SomeEnumeration {
@@ -1025,8 +1058,10 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
         statements
     }
     </code></pre>
+                        <br>
+
                         <h3>Associated Values</h3>
-                        <p>Can store additional custom info along with the case value, and info can vary each time the case is used.</p>
+                        <p>Can store additional custom info along with the case value, and information can vary each time the case is used.</p>
     <pre><code class="language-swift">
     enum SomeEnum {
         case one(Type1, Type2, Type3)
@@ -1045,9 +1080,10 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
         statements
     }
     </code></pre>
+                        <br>
 
                         <h3>Raw Values and Implicitly Assigned Raw Values</h3>
-                        <p>Raw values are an alternative to associated types, the enum can be prepopulated with default values that are all of the same type.</p>
+                        <p><span class="definition">Raw values</span> are an alternative to associated types, the enum can be prepopulated with default values that are all of the same type.</p>
                         <ul>
                             <li>Raw values can be any basic type.</li>
                             <li>Each raw value must be unique within enum.</li>
@@ -1070,15 +1106,17 @@ One-sided Ranges: (a...) | (...b), (a..&lt;) | (..&lt;b)
         case north, south, east, west
     }
     </code></pre>
+                        <br>
 
                         <h3>Initializing from a Raw Value</h3>
                         <p>Works if the enum is defined with raw value type. Enum will have an initializer that takes a value of the raw value's type and returns either the enum case or nil. So using the initializer will return an optional.</p>
     <pre><code class="language-swift">
     let possiblePlanet = Planet(rawValue: 7)
     </code></pre>
+                        <br>
 
                         <h3>Recursive Enumerations</h3>
-                        <p>An enum that has another intance of the enum as the associated vallue for one or more enum cases. Use indirect keyword before the case. Can write before enum introducer to enable indirection of all cases</p>
+                        <p>An enum that has another intance of the enum as the associated value for one or more enum cases. Use <span class="definition_swift">indirect</span> keyword before the case. Can write before enum introducer to enable indirection of all cases.</p>
     <pre><code class="language-swift">
     enum ArithmeticExpression {
         case number(Int)

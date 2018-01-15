@@ -14,11 +14,12 @@ Date Created: December 2017
         <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
         <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/themes/prism.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css">
+
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/prism.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/components/prism-php.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/components/prism-php-extras.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-php.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-php-extras.min.js"></script>
         <script type="text/javascript" src="../js/sidebar.js"></script>
         <script type="text/javascript" src="../js/syntax.js"></script>
     </head>
@@ -69,7 +70,7 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>PHP</h2>
-                        <p><span class="definition">PHP</span>: server-side scripting language designed primarily for web development. A loosely typed language</p>
+                        <p><span class="definition">PHP</span>: server-side scripting language designed primarily for web development. A loosely typed language. PHP is interpreted, not compiled, though there are compiled versions of php. The script, which has an interpreter and is cached and running inside of the web server, only needs to open the file and interpolate it, sending results to the client.</p>
                         <ul>
                             <li>The client browser sends a request to the web server, which contains PHP files that are processed, and a new page is sent back as HTML.</li>
                             <li>Use to handle forms, file off emails, make calls to the database, etc.</li>
@@ -221,6 +222,31 @@ Date Created: December 2017
 
     // Also works
     $sql_statement = "SELECT name FROM runner WHERE name='$_POST[fname]';";
+    </code></pre>
+                    </div>
+
+                    <div class="section">
+                        <h2>Scope</h2>
+                        <p>Anything used inside a function is local, can refer to a variable outside of a function using <span class="definition_php">global</span> keyword.</p>
+    <pre><code class="language-php">
+    // Example
+    $x = 12;
+    function foo() {
+        // Calling foo() prints "x is " necause $x is undefined
+        echo "x is $x";
+    }
+    foo();
+
+    function foo() {
+        // Get the $x declared outside this function
+        $GLOBALS['x'];
+
+        // Use the $x variable outside
+        global $x;
+
+        // Changes the x outside from 12 to 14
+        $x = 14;
+    }
     </code></pre>
                     </div>
 
@@ -388,6 +414,27 @@ Date Created: December 2017
                                 <td>Take the string, start at the offset which is an index, and take the length which is the number of characters.</td>
                             </tr>
                         </table>
+                        <br>
+                        <h4>Examples using Implode and Explode</h4>
+    <pre><code class="language-php">
+    // Example - Implode
+    // Creates a single string, comma is the separator
+    $mystring = implode(',', $values);
+
+    // If array was 'one', 'two', 'three', 'four', then
+    $mystring = 'one, two, three, four';
+
+    /* Separator can be HTML code, so if you have 10 strings in array, get 10 rows */
+    echo '&lt;tr&gt;&lt;td&gt;', implode('&lt;/td&gt;&lt;td&gt;', &array), '&lt;/tr&gt;';
+
+    // Example - Explode
+    // Separators will be discarded and thrown away
+    $fruit_str = 'apples||peaches||pears';
+    $fruit = explode('||', $fruit_str);
+    $fruit[0];      // apples
+    $fruit[1];      // peaches
+    $fruit[2];      // pears
+    </code></pre>
                     </div>
 
                     <div class="section">
@@ -507,6 +554,9 @@ Date Created: December 2017
     </code></pre>
 
                         <h3 class="definition">foreach</h3>
+                        <ul>
+                            <li>For scalar arrays where indices are integers, $value gets a different value for each pass of the loop.</li>
+                        </ul>
     <pre><code class="language-php">
     &lt;?php
             foreach ($array as $value) {
@@ -519,6 +569,10 @@ Date Created: December 2017
                     <div class="section">
                         <h2>Functions</h2>
                         <p>Function names are NOT case-sensitive. Can start with a letter or underscore but NOT a number.</p>
+                        <ul>
+                            <li>Useful to create utility PHP files with methods that are called frequently and then include it.</li>
+                            <li>Functions can have parameterse and parameters with default values. Can return any kind of value.</li>
+                        </ul>
                         <br>
     <pre><code class="language-php">
     &lt;?php
@@ -527,6 +581,11 @@ Date Created: December 2017
                 return $variableOrValue;
             }
             functionName(argument);
+
+            // Example
+            function foo($bar, $car=0) {
+                statements;
+            }
         ?&gt;
     </code></pre>
                     </div>
@@ -538,6 +597,10 @@ Date Created: December 2017
                         <ol>
                             <li><span class="definition">Indexed arrays</span>: arrays with a numeric index</li>
                             <li><span class="definition">Associative arrays</span>: arrays with named keys</li>
+                            <ul>
+                                <li>Not hash tables but acts like it. Order is preserved and is based on when the element was inserted.</li>
+                                <li>Can only have distinct keys but values can be same or different</li>
+                            </ul>
                             <li><span class="definition">Multidimensional arrays</span>: arrays containing one or more arrays</li>
                         </ol>
                         <br>
@@ -552,6 +615,9 @@ Date Created: December 2017
             $cars[0] = "Volvo";
             $cars[1] = "BMW";
             $cars[2] = "Toyota";
+
+            // Pushes onto end of array
+            $cars[] = "Tesla";
 
             // Return length of array
             count($cars);
@@ -583,7 +649,32 @@ Date Created: December 2017
                 echo "Key=" . $x . ", Value=" . $x_value;
                 echo "&lt;br&gt;";
             }
+
+            // Print all values that came from a form
+            foreach ($_POST as $K=&gt;$V) {
+                // Variable interpolation so will get actual values
+                print "Key is $K and the value is $V";
+            }
         ?&gt;
+    </code></pre>
+                        <br>
+                        <h4>Printing out array values</h4>
+    <pre><code class="language-php">
+    // Fails because don't need single quotes in double quotes
+    echo "a mango is $fruit['mango']";
+
+    // Succeeds because nested inside double quotes
+    echo "a mango is $fruit[mango]";
+
+    // Also works
+    echo "a mango is " . $fruit['mango'];
+
+    $fruit['pau pau'] = 'orange';
+    // Fails because 2 separate words in bracket
+    echo "pau paus are $fruit[pau pau]";
+
+    // Succeeds if use curly braces
+    echo "pau paus are {$fruit[pau pau]}";
     </code></pre>
                         <br>
 
@@ -610,12 +701,12 @@ Date Created: December 2017
                     </div>
 
                     <div class="section">
-                        <h2>Array Functions</h2>
+                        <h2>Array Methods</h2>
                         <p>The following are some of the methods available to manipulate arrays.</p>
-
+                        <br>
                         <table>
                             <tr>
-                                <th colspan="2">Array Functions</th>
+                                <th colspan="2">Array Methods</th>
                             </tr>
                             <tr>
                                 <th>Function</th>
@@ -695,6 +786,10 @@ Date Created: December 2017
                                 <td>array_shift(<i>array</i>) and array_unshift(<i>array</i>, <i>value1</i>, <i>value2</i>, ...)</td>
                                 <td>Removes first element from array and returns its value. Inserts new elements to array in the beginning.</td>
                             </tr>
+                            <tr>
+                                <td>unset(<i>array['key']</i>)</td>
+                                <td>Entirely removes the key-value pair from the array.</td>
+                            </tr>
                         </table>
                     </div>
 
@@ -768,31 +863,31 @@ Date Created: December 2017
                             </tr>
                             <tr>
                                 <td>$_REQUEST</td>
-                                <td>To collect data after submitting an HTML form.</td>
+                                <td>To collect data after submitting an HTML form. GET, POST, and cookies.</td>
                             </tr>
                             <tr>
                                 <td>$_POST</td>
-                                <td>To collect form data after submitting HTML form with method="post".</td>
+                                <td>To collect form data after submitting HTML form with method="post". All the POST parameters</td>
                             </tr>
                             <tr>
                                 <td>$_GET</td>
-                                <td>To collect form data after submitting HTML form with method="get".</td>
+                                <td>To collect form data after submitting HTML form with method="get". All the GET parameters.</td>
                             </tr>
                             <tr>
                                 <td>$_FILES</td>
-                                <td></td>
+                                <td>An associative array of items uploaded to the current script using HTTP POST.</td>
                             </tr>
                             <tr>
                                 <td>$_ENV</td>
-                                <td></td>
+                                <td>All of the environmental variables in context.</td>
                             </tr>
                             <tr>
                                 <td>$_COOKIE</td>
-                                <td></td>
+                                <td>An associative array of variables passed to script using HTTP Cookeis.</td>
                             </tr>
                             <tr>
                                 <td>$_SESSION</td>
-                                <td></td>
+                                <td>An associative array with session variables for the script.</td>
                             </tr>
                         </table>
                         <br>
@@ -1458,6 +1553,46 @@ Date Created: December 2017
                         <ul>
                             <li>No need for a catch block since this sets a top level exception handler.</li>
                         </ul>
+                    </div>
+
+                    <div class="section">
+                        <h2>Database Connections</h2>
+                        <table>
+                            <tr>
+                                <th colspan="2">Mysqli Methods</th>
+                            </tr>
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>mysqli_fetch_row($result)</td>
+                                <td>Fetches one row from a result-set and returns it as an enumerated array.</td>
+                            </tr>
+                            <tr>
+                                <td>mysqli_fetch_array($result)</td>
+                                <td>Fetches a result row as an associative, a numeric array, or both. Both will iterate through each record based on what was returned from the query.</td>
+                            </tr>
+                            <tr>
+                                <td>mysqli_fetch_assoc()</td>
+                                <td>Fetches a result row as an associative array.</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p><span class="definition">Result-set</span> object: transient table that returns the results of the query. Can pull from table to extract information.</p>
+    <pre><code class="language-php">
+    $result = mysqli_query($db, $sql);  // returns the result object
+    $size = mysqli_affected_rows($db);  // size of result-set
+    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC(or _NUM or _BOTH));
+    foreach ($rows as $row) {
+        $row['fname'];
+        $row[i];
+    }
+    // To fetch one row at a time
+    while ($row=mysqli_fetch_array($result)) {
+        statements;
+    }
+    </code></pre>
                     </div>
                 </div>
             </div>

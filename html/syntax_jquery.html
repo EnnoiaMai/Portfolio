@@ -117,16 +117,23 @@ Date Created: December 2017
         $("selector").method();
     });
     </code></pre>
+                        <br>
+                        <h4>Difference between onload() and $(document).ready()</h4>
+                        <p><span class="definition_javascript">onload()</span>: won't finish until everything on the page has loaded, will wait until external resources are downlaoded.</p>
+                        <p><span class="definition_javascript">$(document).ready()</span>: executes right when DOM is built and in memory.</p>
                     </div>
 
                     <div class="section">
                         <h2>JQuery object vs DOM object</h2>
                         <p>Using JQuery selectors returns all the elements in the document that match in a collection. DOM elements can be wrapped in a JQuery object to access methods that are more concise and straightforward. JQuery objects can access different methods than Javascript objects, so these must be distinguished using the wrapper $("selector").</p>
                         <br>
-                        <p>In order to convert a JQuery object to a Javascript object, brackets can be used.</p>
+                        <p>In order to convert a JQuery object to a Javascript object, brackets can be used. Can use [0] because a JQuery object is always a collection, and you are retrieving the first object that matches by getting the 0th index.</p>
     <pre><code class="language-javascript">
     // index is an integer
     var domElement = $("selector")[index];
+
+    // Example
+    var formData = new FormData($('form')[0]);
     </code></pre>
                     </div>
 
@@ -181,6 +188,8 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>JQuery Methods</h2>
+                        <p><span class="definition">Implicit Iteration</span>: applies the rule while going through the objects in the collection.</p>
+                        <br>
                         <p>Methods can be chained using dot syntax (.)</p>
     <pre><code class="language-javascript">
     Ex.
@@ -516,7 +525,7 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Cookies</h2>
-
+                        <p>An ID for a user. Could hold browsing preferences. Has constraints like expiration. Can store in a cookie a key-value pair: a name and a value. Can store 5MB of data on local machine. Local storage (persistent)and local sessions (disappears for one session) to minimize connections to server. Cookies also help minimize connections to server. All are sandboxed, can't get to other people's information. Nowadays, there are APIs to get information from other servers.</p>
                     </div>
 
                     <div class="section">
