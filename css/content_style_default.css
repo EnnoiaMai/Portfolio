@@ -1,4 +1,4 @@
-/*========================== General ==========================*/
+/*============================== GENERAL =====================================*/
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@ body {
     /* min-height: 50%; */
 }
 body > div {
-    min-width: 840px;
+    /* min-width: 840px; */
     min-height: 100vh;
     display: flex;
     flex-direction: row;
@@ -34,7 +34,11 @@ body > div {
 }
 #content pre, code {
     font-size: 94%;
+    /* white-space: pre-wrap; */
     overflow: auto;
+}
+#content pre {
+    /* white-space: pre-wrap; */
 }
 #content table {
     border-collapse: collapse;
@@ -79,7 +83,7 @@ body > div {
     text-decoration-line: underline;
 }
 
-/*======================== Styling Classes ====================*/
+/*============================ HIGHLIGHTED WORDS =============================*/
 .bold {
     font-weight: bold;
 }
@@ -151,21 +155,13 @@ body > div {
     margin-right: auto;
 }
 
-/*========================== Content ==========================*/
+/*================================ CONTENT ===================================*/
 #content_container {
     flex-grow: 1;
     flex-shrink: 1;
 }
-/* #content_container > div {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-} */
-/* #title {
-    text-align: center;
-    padding: 24px;
-    border-bottom: 1px solid grey;
-} */
+
+/* Header */
 #content_container > div:first-child {
     color: #FFF;
     background-color: #002132;
@@ -177,15 +173,15 @@ body > div {
 }
 #content {
     width: 85%;
-    /* flex-basis: 80%; */
     margin-left: auto;
     margin-right: auto;
     /* border: 1px dashed blue; */
 }
+
+/* The Topic Links Sidebar */
 #directory_container {
     width: 10%;
     min-width: 180px;
-    /* height: 80vh; */
     height: 96%;
     min-height: 400px;
     display: flex;
@@ -193,58 +189,21 @@ body > div {
     justify-content: space-between;
     align-items: flex-end;
     position: fixed;
-    /* top: 40px; */
     top: 4%;
     right: 0px;
-    /* transform: translate(0%, -50%); */
     /* border: 1px solid purple; */
 }
-#directory {
-    /* flex-grow: 0;
-    flex-shrink: 0; */
-    height: 85%;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 1px 0px 5px 0px rgba(220, 220, 220, 1.0) inset;
-    overflow: auto;
-    padding: 16px;
-    transform: translate(100%, 0%);
-    /* border: 1px solid grey; */
-}
-#directory ul {
-    font-size: 0.8rem;
-    list-style-type: none;
-}
-#directory ul ul {
-    /* font-size: 100%; */
-    font-size: 1rem;
-    /* padding-left: 24px; */
-}
-#directory ul li {
-    padding-top: 4px;
-}
-#directory a {
-    color: #000;
-    text-decoration: none;
-    /* border: 1px dashed green; */
-}
-#directory a:hover {
-    color: #6A0000;
-}
 
+/* Navigation Buttons */
 #navigation_buttons {
-    /* flex-grow: 0;
-    flex-shrink: 0; */
     width: 72%;
     height: 8%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* justify-content: space-around; */
-    /* align-items: center; */
     /* border: 1px solid blue; */
 }
 #navigation_buttons div {
-    /* width: 40%; */
     width: auto;
     height: 90%;
     /* border: 1px dashed purple; */
@@ -264,7 +223,36 @@ body > div {
     visibility: hidden;
 }
 
-/* Distinguishes Topics */
+/* Topics List */
+#directory {
+    height: 85%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 1px 0px 5px 0px rgba(220, 220, 220, 1.0) inset;
+    overflow: auto;
+    padding: 16px;
+    transform: translate(100%, 0%);
+    /* border: 1px solid grey; */
+}
+#directory ul {
+    font-size: 0.8rem;
+    list-style-type: none;
+}
+#directory ul ul {
+    font-size: 1rem;
+}
+#directory ul li {
+    padding-top: 4px;
+}
+#directory a {
+    color: #000;
+    text-decoration: none;
+    /* border: 1px dashed green; */
+}
+#directory a:hover {
+    color: #6A0000;
+}
+
+/*=============================== SECTIONS ===================================*/
 .section {
     margin-top: 24px;
     margin-bottom: 24px;
@@ -274,27 +262,25 @@ body > div {
     padding: 16px;
 }
 
+/*================================ TABLES ====================================*/
 /* For tables that have 2 columns - the following are percentages of width */
 .table_3_to_7 {
     width: 100%;
 }
 .table_3_to_7 td:first-child {
     width: 30%;
-    /* padding-left: 5%; */
     padding: 8px 16px;
 }
 .table_3_to_7 th:first-child {
     text-align: left;
-    /* padding-left: 5%; */
     padding: 8px 16px;
 }
 .table_3_to_7 th[colspan="2"] {
     text-align: center;
 }
+
 .table_1_to_1 {
     width: 100%;
-    /* box-sizing: border-box;
-    border-collapse: collapse; */
 }
 .table_1_to_1 td:first-child {
     width: 50%;
@@ -304,22 +290,22 @@ body > div {
     padding: 8px 16px;
 }
 
-/* .table_1_to_1 pre { */
-    /* width: 100%; */
-/* } */
-
 /* For small tables that should stretch to fill the width a certain amount */
+.center_table_data td {
+    text-align: center;
+}
 .table_60 {
     width: 60%;
+}
+.table_60_2_columns {
+    width: 60%;
+}
+.table_60_2_columns td {
+    width: 50%;
 }
 .table_80 {
     width: 80%;
 }
-.center_table_data td {
-    text-align: center;
-}
-
-/* For tables that should fill the parent section */
 .table_100 {
     width: 100%;
 }

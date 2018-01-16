@@ -42,8 +42,10 @@ Date Created: December 2017
                             <li><a href="syntax_css.html" id="link_syntax_css">CSS</a></li>
                             <li><a href="syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
                             <li><a href="syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
                             <li><a href="syntax_php.html" id="link_syntax_php">PHP</a></li>
                             <li><a href="syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
                             <li><a href="syntax_python.html" id="link_syntax_python">Python</a></li>
                             <li><a href="syntax_bash.html" id="link_syntax_bash">Bash</a></li>
                         </ul>
@@ -1132,7 +1134,7 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Classes and Structures</h2>
-                        <p>An object in Swift is called an instance because classes and structs are similar.</p>
+                        <p>An object in Swift is called an <span class="definition">instance</span> because classes and structs are similar.</p>
                         <p>Classes and Structures are similar because they both:</p>
                         <ul>
                             <li>Define properties</li>
@@ -1149,10 +1151,12 @@ Date Created: December 2017
                             <li>Deinitializers to let instance of class free up resources</li>
                             <li>Reference Counting</li>
                         </ul>
+                        <br>
 
                         <h4>Accessing Properties</h4>
-                        <p>Use dot syntax(.)</p>
+                        <p>Use dot syntax (<span class="definition_swift">.</span>)</p>
 
+                        <br>
                         <h4>Memberwise Initializers for Structure Types</h4>
                         <p>Used to initialize member properties of new structure instances.</p>
 
@@ -1174,13 +1178,15 @@ Date Created: December 2017
     // Memberwise Initializers
     let vga = Resolution(width: 640, height: 480)
     </code></pre>
+                        <br>
 
                         <h4>Structures and Enumerations are Value Types</h4>
                         <p><span class="definition">Value Type</span>: type whose value is copied when assigned to constant&frasl;variable or when passed to a function.</p>
                             <ul>
-                                <li>Any instance created from struct&frasl;enum and their properties is always copied.</li>
+                                <li>Any instance created from struct&frasl;enum and its properties is always copied.</li>
                                 <li>Basic types are all value types.</li>
                             </ul>
+                        <br>
 
                         <h4>Classes are Reference Types</h4>
                         <p><span class="definition">Reference Types</span>: types that are not copied when assigned to a variable&frasl;constant or when passed to a function.<p>
@@ -1198,8 +1204,9 @@ Date Created: December 2017
                             <li>Can provide the property a default value or modify its initial value during initialization.</li>
                             <li>If an instance of a structure is assigned to a constant, can't modify its properties.</li>
                         </ul>
+                        <br>
 
-                        <p>Lazy Stored Properties: property whose initial value is not calculated until the first time it's used. Must be declared as a variable.</p>
+                        <p><span class="definition">Lazy Stored Properties</span>: property whose initial value is not calculated until the first time it's used. Must be declared as a variable.</p>
                         <ul>
                             <li>Useful when value requires expensive setup</li>
                         </ul>
@@ -1207,8 +1214,9 @@ Date Created: December 2017
     // Instance created only when importer is first accessed
     lazy var importer = DataImpoter()
     </code></pre>
+                        <br>
 
-                        <p>Computed Properties: properties that don't store a value, but provides a getter and optionally a setter to retrieve and set other properties and values indirectly.</p>
+                        <p><span class="definition">Computed Properties</span>: properties that don't store a value, but provides a getter and optionally a setter to retrieve and set other properties and values indirectly.</p>
                         <ul>
                             <li>Class, structures, and enums can define computed properties.</li>
                             <li>Must be declared as a variable.</li>
@@ -1225,17 +1233,19 @@ Date Created: December 2017
         }
     }
     </code></pre>
+                        <br>
 
-                        <p>Read-only Computed Properties: computed property with a getter but no setter.</p>
+                        <p><span class="definition">Read-only Computed Properties</span>: computed property with a getter but no setter.</p>
                         <ul>
                             <li>Always returns a value.</li>
-                            <li>Access through dot syntax (.) but can't be set to a different value.</li>
+                            <li>Access through dot syntax but can't be set to a different value.</li>
                         </ul>
+                        <br>
 
-                        <p>Property Observers: observe and respond to changes in property's value, called every time a property's value is set. Can add observers to stored properties except lazy properties. Not useful for non-overridden computed properties</p>
+                        <p><span class="definition">Property Observers</span>: observe and respond to changes in property's value, called every time a property's value is set. Can add observers to stored properties except lazy properties. Not useful for non-overridden computed properties.</p>
                         <ul>
-                            <li>willSet called just before value is stored.</li>
-                            <li>didSet called immediately after new value is stored.</li>
+                            <li><span class="definition_swift">willSet</span> called just before value is stored.</li>
+                            <li><span class="definition_swift">didSet</span> called immediately after new value is stored.</li>
                         </ul>
     <pre><code class="language-swift">
     var totalSteps: Int = 0 {
@@ -1247,14 +1257,16 @@ Date Created: December 2017
         }
     }
     </code></pre>
+                        <br>
 
-                        <p>Global Variables: variables defined outside of any function, method, closure, or type context.</p>
-                        <p>Local Variables: variables defined within a function, method, or closure context.</p>
+                        <p><span class="definition">Global Variables</span>: variables defined outside of any function, method, closure, or type context.</p>
+                        <p><span class="definition">Local Variables</span>
+</span>: variables defined within a function, method, or closure context.</p>
                         <ul>
                             <li>Both can be computed properties</li>
                         </ul>
 
-                        <p>Type Properties: defining properties that belong to the type itself, there will only ever be one copy of these properties regardless of how many instances of that type created.</p>
+                        <p><span class="definition">Type Properties</span>: defining properties that belong to the type itself, there will only ever be one copy of these properties regardless of how many instances of that type created.</p>
                         <ul>
                             <li>Basically like a static class or static struct.</li>
                         </ul>
@@ -1271,12 +1283,13 @@ Date Created: December 2017
                     <div class="section">
                         <h2>Methods</h2>
                         <p>Functions associated with a particular type. Classes, structures, and enums can define instance methods.</p>
-                        <p>Instance methods: same syntax as functions. Belongs to isntances of a class, struct, or enum. Has access to all other instance methods and properties of that type.</p>
-                        <p>self: implicit property to instance itself. Refers to current instance.</p>
+                        <p><span class="definition">Instance methods</span>: same syntax as functions. Belongs to instances of a class, struct, or enum. Has access to all other instance methods and properties of that type.</p>
+                        <p><span class="definition_swift">self</span>: implicit property to instance itself. Refers to current instance.</p>
+                        <br>
 
                         <h4>Modifying Value Types from within Instance Methods</h4>
-                        <p>Can't modify propertise of a value type from within an instance method. Must use mutating keyword to do so.</p>
-                        <p>The following example shows the the Point instance is actually being modified. Can't do this on a constant of structure type.</p>
+                        <p>Can't modify properties of a value type from within an instance method. Must use <span class="definition_swift">mutating</span> keyword to do so.</p>
+                        <p>The following example shows that the Point instance is actually being modified. Can't do this on a constant of structure type.</p>
 
     <pre><code class="language-swift">
     struct Point {
@@ -1287,7 +1300,7 @@ Date Created: December 2017
     }
     </code></pre>
 
-                        <p>Mutating methods can assign a new instance to the implicit self property.</p>
+                        <p>Mutating methods can assign a new instance to the implicit <span class="definition_swift">self</span> property.</p>
     <pre><code class="language-swift">
     mutating func moveBy(x deltaX: Double, y deltaY: Double) {
         self = Point(x: x + deltaX, y: y + deltaY)    // creates new struct
@@ -1307,9 +1320,10 @@ Date Created: December 2017
         }
     }
     </code></pre>
+                        <br>
 
                         <h4>Type Methods</h4>
-                        <p>Similar to static in C, denotes that the properties and methods belong to the that class and not its instances. Use static keyword before func keyword. Can use class keyword to let subclasses override superclass's implementation of that method.</p>
+                        <p>Similar to static in C, denotes that the properties and methods belong to the that class and not its instances. Use <span class="definition_swift">static</span> keyword before <span class="definition_swift">func</span> keyword. Can use <span class="definition_swift">class</span> keyword to let subclasses override superclass's implementation of that method.</p>
     <pre><code class="language-swift">
     static func(){
         statements
@@ -1323,7 +1337,7 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Subscripts</h2>
-                        <p>Used to set and retrieve values by index.</p>
+                        <p><span class="definition">Subscripts</span>: used to set and retrieve values by index.</p>
                         <p><span class="definition">Subscript Overloading</span>: having multiple subscripts with the appropriate one inferred based on the type of index value passed to the subscript. </p>
                         <ul>
                             <li>Can be read-write or read-only by using getters and setters.</li>
@@ -1347,7 +1361,7 @@ Date Created: December 2017
                         <h2>Inheritance</h2>
                         <p><span class="definition">Base class</span>: any class that doesn't inherit from another class.</p>
                         <p><span class="definition">Subclassing</span>: basing a new class on an existing class, the subclass inherits characteristics of the superclass.</p>
-                        <p><span class="definition">Overriding</span>: providing own custom implementation to something inherited from superclass. Use override keyword.</p>
+                        <p><span class="definition">Overriding</span>: providing own custom implementation to something inherited from superclass. Use <span class="definition_swift">override</span> keyword.</p>
                         <p><span class="definition_swift">super</span>: prefix used to access superclass methods, properties, and subscripts.</p>
     <pre><code class="language-swift">
     // Example of subclassing, overriding, and using super
@@ -1364,16 +1378,16 @@ Date Created: December 2017
                         <p>Can't add property observers to constant stored properties or inherited read-only computed properties since these properties can't be set.</p>
 
                         <h4>Prevent Overrides</h4>
-                        <p>Use final keyword before introducer keyword on method, property, or subscript to prevent overwriting on it. Can also add final to class to prevent subclassing.</p>
+                        <p>Use <span class="definition_swift">final</span> keyword before introducer keyword on method, property, or subscript to prevent overwriting on it. Can also add <span class="definition_swift">final</span> to class to prevent subclassing.</p>
                     </div>
 
                     <div class="section">
                         <h2>Initialization</h2>
-                        <p>The process of setting an initial value for each stored property on that instance. Classes and structs must set all stored properties to an appropriate initial value by the time the instance is created.</p>
+                        <p><span class="definition">Initialization</span>: process of setting an initial value for each stored property on that instance. Classes and structs must set all stored properties to an appropriate initial value by the time the instance is created.</p>
                         <ul>
                             <li>Can alternatively specify default property value.</li>
                             <li>Initializer can have parameter name and argument label.</li>
-                            <li>Can use underscore (_) in init to leave out argument label.</li>
+                            <li>Can use underscore (<span class="definition_swift"> _ </span>) in init to leave out argument label.</li>
                             <li>There can be multiple initializers.</li>
                             <li>Optional property types are automatically initialized as nil.</li>
                             <li>Values can be assigned to constant properties during initialization and can't be modified by a subclass.</li>
@@ -1400,20 +1414,23 @@ Date Created: December 2017
     // Leaving out argument label
     init (_ param: Type) {...}
     </code></pre>
+                        <br>
 
-                        <p>Default Initializers: for any class or struct that provides default values for all its properties and doesn't provide an init.</p>
+                        <p><span class="definition">Default Initializers</span>: for any class or struct that provides default values for all its properties and doesn't provide an init.</p>
                         <ul>
                             <li>Structs receive memberwise initializer if they don't define their own initializers, even if stored properties don't have default values.</li>
                         </ul>
+                        <br>
 
-                        <p>Initializer Delegation: inits can call other inits</p>
+                        <p><span class="definition">Initializer Delegation</span>: inits can call other inits</p>
                         <ol>
-                            <li>Value types - use self.init to refer to other initializers from the same value type. Defining custom initializer prevents access to default init or memberwise init, but can redeclare or re-define it.</li>
-                            <li>Reference types - like classes, all stored properties including those inherited from superclass must be assigned an initial value during initialization.</li>
+                            <li><span class="definition">Value types</span> - use <span class="definition_swift">self.init</span> to refer to other initializers from the same value type. Defining custom initializer prevents access to default init or memberwise init, but can redeclare or re-define it.</li>
+                            <li><span class="definition">Reference types</span> - like classes, all stored properties including those inherited from superclass must be assigned an initial value during initialization.</li>
                         </ol>
+                        <br>
 
-                        <p>Designated Initializers: primary initializers, fully initializes all properties. Calls superclass initializer to continue initialization up superclass chain.</p>
-                        <p>Convenience Initializers: supporting initializers, can use to call designated initializer or to create instance for specific use case.</p>
+                        <p><span class="definition">Designated Initializers</span>: primary initializers, fully initializes all properties. Calls superclass initializer to continue initialization up superclass chain.</p>
+                        <p><span class="definition">Convenience Initializers</span>: supporting initializers, can use to call designated initializer or to create instance for specific use case.</p>
     <pre><code class="language-swift">
     init (parameters) {
         statements
@@ -1422,29 +1439,35 @@ Date Created: December 2017
         statements
     }
     </code></pre>
+                        <br>
+
                         <h3>Initializer Delegation for Class Types</h3>
                         <ol>
                             <li>Designated initializer must call designated initializer from immediate superclass.</li>
                             <li>Convenience initializer must call another initializer from same class.</li>
                             <li>Convenience initializer must ultimately call a designated initializer.</li>
                         </ol>
-                        <p>Designated initializers must always delegate up, convenience must always delegate across.</p>
+                        <p>Designated initializers must always <i>delegate up</i>, convenience must always <i>delegate across</i>.</p>
+                        <br>
 
                         <h3>Two-Phase Initialization</h3>
                         <p>Each stored property is assigned an initial value, then each class can customize properties further.</p>
-                        <p>Safety Checks</p>
+                        <p><span class="definition">Safety Checks</span></p>
                         <ol>
                             <li>A designated initializer must ensure all properties introduced by its class are initialized before delegating up to the superclass initializer.</li>
                             <li>A designated initializer must delegate up to the superclass initializer before assigning a value to an inherited property.</li>
                             <li>A convenience initializer must delegate to another initializer before assigning a value to any property.</li>
-                            <li>An initializer can't call instance methods, read values of properties, or refer to self as a value until after first phase of initialization is complete.</li>
+                            <li>An initializer can't call instance methods, read values of properties, or refer to <span class="definition_swift">self</span> as a value until after first phase of initialization is complete.</li>
                         </ol>
-                        <p>Two-Phase Initialization</p>
-                        <p>Phase 1: makes sure all stored properties have a value and delegates up until it can't anymore.</p>
-                        <p>Phase 2: works back down, allowing designated initializer to customize instance further.</p>
+                        <br>
+
+                        <p class="definition">Two-Phase Initialization</p>
+                        <p><span class="definition">Phase 1</span>: makes sure all stored properties have a value and delegates up until it can't anymore.</p>
+                        <p><span class="definition">Phase 2</span>: works back down, allowing designated initializer to customize instance further.</p>
+                        <br>
 
                         <h3>Initializer Inheritance and Overriding</h3>
-                        <p>Subclasses don't inherit superclass initializers by default. If subclass initializer matches superclass designated initializer, must write overwrite modifier.</p>
+                        <p>Subclasses don't inherit superclass initializers by default. If subclass initializer matches superclass designated initializer, must write <span class="definition_swift">overwrite</span> modifier.</p>
     <pre><code class="language-swift">
     class Bicycle: Vehicle {
         override init() {
@@ -1453,17 +1476,21 @@ Date Created: December 2017
         }
     }
     </code></pre>
+                        <br>
 
                         <h3>Automatic Initializer Inheritance</h3>
-                        <p>Rule 1: if subclass doesn't define any designated initializers, it automatically inherits all of its superclass designated initializers.</p>
-                        <p>Rule 2: if subclass provides an implementation of all of its superclass designated initializers either by inheriting them or by providing custom implementation, then it automatically inherits all of the superclass convenience initializers.</p>
+                        <p><span class="definition">Rule 1</span>: if subclass doesn't define any designated initializers, it automatically inherits all of its superclass designated initializers.</p>
+                        <p><span class="definition">Rule 2</span>: if subclass provides an implementation of all of its superclass designated initializers either by inheriting them or by providing custom implementation, then it automatically inherits all of the superclass convenience initializers.</p>
+                        <br>
 
                         <h3>Failable Initializers</h3>
-                        <p>use init? keyword. Use when initialization can fail. Can't define failable and nonfailable initializer with same parameter types and names.</p>
+                        <p>use <span class="definition">init?</span> keyword. Use when initialization can fail. Can't define failable and nonfailable initializer with same parameter types and names.</p>
                         <ul>
                             <li>Failable initializer creates an optional value of the type it initializes.</li>
                             <li>Return nil within failable initializer.</li>
                         </ul>
+                        <br>
+
                         <p class="bold">Failable Initializer for Enumerations</p>
                         <p>Enumerations with raw values automatically receive failable initializer.</p>
     <pre><code class="language-swift">
@@ -1488,12 +1515,14 @@ Date Created: December 2017
 
                         <h3>Propagation of Initialization Failure</h3>
                         <p>Failable initializer of class, struct, or enum can delegate across to another failable initializer from same class, struct, or enum. Subclass failable initializer can delegate up to a superclass failable initializer. If initialization fails in one and is delegated ao another failable initializer, entire process fails.</p>
+                        <br>
 
                         <h3>Overriding a Failable Initializer</h3>
                         <p>Can override superclass failable initializer in a subclass and can override it with a subclass nonfailable initializer. Doing this means that the only way to delegate up to the superclass initializer is to force-unwrap the result of the failable superclass initializer.</p>
+                        <br>
 
                         <h3>Required Initializers</h3>
-                        <p>Use required keyword. Indicates that every sbclass of that class must implement that initializer. Must also write required modifier before every subclass implementation of a required initializer.</p>
+                        <p>Use <span class="definition_swift">required</span> keyword. Indicates that every subclass of that class must implement that initializer. Must also write <span class="definition_swift">required</span> modifier before every subclass implementation of a required initializer.</p>
     <pre><code class="language-swift">
     class SomeClass {
         required init() {
@@ -1506,6 +1535,7 @@ Date Created: December 2017
         }
     }
     </code></pre>
+                        <br>
 
                         <h3>Setting Default Property Value with a Closure of Function</h3>
     <pre><code class="language-swift">
@@ -1522,7 +1552,7 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Deinitialization</h2>
-                        <p>Called immediately before class instance is deallocated. Only for class types. Swift uses automatic reference counting to handle memory management. Can use deinit to clean up resources like closing an opened file. Can't call a deinitializer. Superclass deinitializers are inherited by subclasses and are called automatically at the end of the subclass deinitializer implementation.</p>
+                        <p>Called immediately before class instance is deallocated. Only for class types. Swift uses automatic reference counting to handle memory management. Can use <span class="definition_swift">deinit</span> to clean up resources like closing an opened file. Can't call a deinitializer. Superclass deinitializers are inherited by subclasses and are called automatically at the end of the subclass deinitializer implementation.</p>
     <pre><code class="language-swift">
     deinit {
         /* For example, can make a player instance an optional and set it to nil indicating that player has left.
@@ -1533,16 +1563,18 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Optional Chaining</h2>
-                        <p>The process for querying and calling properties, methods, and subscripts on an optional that might currently be nil. Multiple queries can be chained and the entire chain fails if any link in it is nil. An alternative to forced unwrapping. Result of optional chaining call is the same type as the expected return value but wrapped in an optional.</p>
+                        <p><span class="definition">Optional chaining</span>: process for querying and calling properties, methods, and subscripts on an optional that might currently be nil. Multiple queries can be chained and the entire chain fails if any link in it is nil. An alternative to forced unwrapping. Result of optional chaining call is the same type as the expected return value but wrapped in an optional.</p>
     <pre><code class="language-swift">
     /* roomCount is of type Int?, residence is an optional, numberOfRooms is nonoptional. Optional binding and optional chaining. */
     if let roomcount = john.residence?.numberOfRooms {
         statements
     }
     </code></pre>
+                        <br>
 
                         <h3>Defining Model Classes for Optional Chaining</h3>
                         <p>Can do multilevel optional chaining. Can attempt to set property's value through optional chaining, but won't be easy to see if assignment was successful. Can use return value of a function call to resolve this problem.</p>
+                        <br>
 
                         <h3>Calling Methods through Optional Chaining</h3>
     <pre><code class="language-swift">
@@ -1554,6 +1586,7 @@ Date Created: December 2017
         statements
     }
     </code></pre>
+                        <br>
 
                         <h3>Accessing Subscripts through Optional Chaining and Subscripts of Optional type</h3>
     <pre><code class="language-swift">
@@ -1566,6 +1599,7 @@ Date Created: December 2017
     // If subscript returns value of optional type like in a dictionary
     testScores["Dave"]?[0] = 91
     </code></pre>
+                        <br>
 
                         <h3>Linking Multiple Levels of Chaining</h3>
                         <p>Idea is that multiple levels of chaining do not accumulate.</p>
@@ -1583,7 +1617,7 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Error Handling</h2>
-                        <p>Errors are represented by values of types that conform to the Error protocol.</p>
+                        <p>Errors are represented by values of types that conform to the <span class="definition_swift">Error</span> protocol.</p>
     <pre><code class="language-swift">
     enum VendingMachineError: Error {
         case invalidSelection
@@ -1594,14 +1628,17 @@ Date Created: December 2017
     // Throwing an error
     throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
     </code></pre>
+                        <br>
 
                         <h3>Handling Errors</h3>
                         <ol>
                             <li>Propagate error from a function to the scope from which it was called.</li>
-                            <li>Use do-catch statement.</li>
+                            <li>Use <span class="definition_swift">do-catch statement</span>.</li>
                             <li>Handle it as an optional value.</li>
                             <li>Assert that error won't occur.</li>
                         </ol>
+                        <br>
+
                         <h3>Propagating Errors using Throwing Functions</h3>
     <pre><code class="language-swift">
     func canThrowErrors() throws -> String {
@@ -1612,6 +1649,7 @@ Date Created: December 2017
         try instance.canThrowErrors()
     }
     </code></pre>
+                        <br>
 
                         <h3>Handle Errors using Do-Catch</h3>
     <pre><code class="language-swift">
@@ -1626,9 +1664,10 @@ Date Created: December 2017
         // An example of catch all, error bound to local constant named error
     }
     </code></pre>
+                        <br>
 
                         <h3>Converting Errors to Optional Values</h3>
-                        <p>Use try? to handle errors by converting it to an optional value. If the error is thrown while evaluating the try? expression, the value of the expression is nil.</p>
+                        <p>Use <span class="definition_swift">try?</span> to handle errors by converting it to an optional value. If the error is thrown while evaluating the <span class="definition_swift">try?</span> expression, the value of the expression is nil.</p>
     <pre><code class="language-swift">
     func someThrowingFunction() throws -> Int {
         statements
@@ -1636,15 +1675,17 @@ Date Created: December 2017
 
     let x = try? someThrowingFunction()
     </code></pre>
+                        <br>
 
                         <h3>Disable Error Propagation</h3>
-                        <p>Write try! before expression if you know that the error won't be thrown.</p>
+                        <p>Write <span class="definition_swift">try!</span> before expression if you know that the error won't be thrown.</p>
     <pre><code class="language-swift">
     let photo = try! loadImage(atPath: "")
     </code></pre>
+                        <br>
 
                         <h3>Specifying Cleanup Action</h3>
-                        <p>Use defer to execute a set of statements regardless of how code execution leaves the current block of code. It delays execution until the scope is exited. The first defer block executes last.</p>
+                        <p>Use <span class="definition_swift">defer</span> to execute a set of statements regardless of how code execution leaves the current block of code. It delays execution until the scope is exited. The first defer block executes last.</p>
     <pre><code class="language-swift">
     if exists(filename) {
         let file = open(filename)
@@ -1657,9 +1698,9 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Type Casting</h2>
-                        <p>Used to check the type of an instance. Use the is and as operators. To work with instances as their native types in a hierarchy of classes and subclasses, must check their type by downcasting them to a different type.</p>
-                        <p>Type check operator (is): check whether instance is of a certain subclass type.</p>
-                        <p>Type cast operator (as): referring to an instance of a subclass behind the scenes. as? returns optional type, as! force-unwraps the result.</p>
+                        <p>Used to check the type of an instance. Use the <span class="definition_swift">is</span> and <span class="definition_swift">as</span> operators. To work with instances as their native types in a hierarchy of classes and subclasses, must check their type by downcasting them to a different type.</p>
+                        <p><span class="definition">Type check operator</span> (<span class="definition_swift">is</span>): check whether instance is of a certain subclass type.</p>
+                        <p><span class="definition">Type cast operator</span> (<span class="definition_swift">as</span>): referring to an instance of a subclass behind the scenes. <span class="definition_swift">as?</span> returns optional type, <span class="definition_swift">as!</span> force-unwraps the result.</p>
     <pre><code class="language-swift">
     if instance is Subclass1 {
         statements
@@ -1673,11 +1714,12 @@ Date Created: December 2017
         // statements using unwrapped song
     }
     </code></pre>
+                        <br>
 
                         <h3>Type Casting for Any and AnyObject</h3>
                         <ul>
-                            <li>Any can represent an instance of any type at all, including function types.</li>
-                            <li>AnyObject can represent an instance of any class type.</li>
+                            <li><span class="definition_swift">Any</span> can represent an instance of any type at all, including function types.</li>
+                            <li><span class="definition_swift">AnyObject</span> can represent an instance of any class type.</li>
                         </ul>
 
                     </div>
@@ -1685,14 +1727,14 @@ Date Created: December 2017
                     <div class="section">
                         <h2>Referring to Nested Types</h2>
                         <p>To use nested type outside of its definition context, prefix its name with the name of the type it's nested within</p>
-    <pre><code class="language-swfit">
+    <pre><code class="language-swift">
     let heartsSymbol = BlackjackCard.Suit.hearts.rawValue
     </code></pre>
                     </div>
 
                     <div class="section">
                         <h2>Extensions</h2>
-                        <p>Adds new functionality to existing class, structure, enum, or protocol.</p>
+                        <p><span class="definition">Extensions</span>: adds new functionality to existing class, structure, enum, or protocol.</p>
                         <ul>
                             <li>Add computed instance properties and computed type properties</li>
                             <li>Define instance methods and type methods, including mutating methods.</li>
@@ -1702,12 +1744,14 @@ Date Created: December 2017
                             <li>Make existing type conform to a protocol.</li>
                             <li>Extend an existing generic type.</li>
                         </ul>
+                        <br>
 
                         <h3>Extension Syntax</h3>
     <pre><code class="language-swift">
     extension SomeType {
         statements
     }
+
     // Extension adopting one or more protocols
     extension SomeType: SomeProtocol, AnotherProtocol {
         statements
@@ -1719,6 +1763,7 @@ Date Created: December 2017
             return self * 1000.0
         }
     }
+
     // Adding new inits
     extension Rect {
         init(center: Point, size: Size) {
@@ -1728,6 +1773,7 @@ Date Created: December 2017
             self.init(origin: Point(x: originX, y: originY), size: size)
         }
     }
+
     // Extension with subscripts
     extension Int {
         subscript(digitIndex: Int) -> Int {
@@ -1743,7 +1789,8 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Protocols</h2>
-                        <p>Protocol: defines blueprint of methods, properties, and requirements that suit a task or functionality. Can be adopted by class, struct, or enum which provides the implementation of the requirements. Like an interface in Java.</p>
+                        <p><span class="definition">Protocol</span>: defines blueprint of methods, properties, and requirements that suit a task or functionality. Can be adopted by class, struct, or enum which provides the implementation of the requirements. Like an interface in Java.</p>
+                        <br>
 
                         <h3>Protocol Syntax</h3>
     <pre><code class="language-swift">
@@ -1754,7 +1801,7 @@ Date Created: December 2017
         // struct definition
     }
     </code></pre>
-                        <p>Protocol only specifies required property name and type to conform. Specifies if property is gettable or gettable and settable. Always declared as variable properties.</p>
+                        <p>Protocol only specifies required property name and type to conform. Specifies if property is gettable or gettable and settable. Always declared as <b>variable</b> properties.</p>
                         <ul>
                             <li>Method parameters within protocol can be variadic but can't have default values.</li>
                         </ul>
@@ -1776,7 +1823,7 @@ Date Created: December 2017
         init(someParameter: Int)
     }
     </code></pre>
-                        <p>Conforming class that implement the initializer can have it be be designated or convenience. Must mark with required.</p>
+                        <p>Conforming class that implement the initializer can have it be be designated or convenience. Must mark with <span class="definition_swift">required</span>.</p>
     <pre><code class="language-swift">
     class SomeClass: SomeProtocol {
         required init(someParameter: Int) {
@@ -1792,9 +1839,10 @@ Date Created: December 2017
     }
     </code></pre>
                         <p>Protocols can act as types. Like calling an interface method. You don't know what instance is passed in, but you do know it must conform to the protocol type, which means it'll have the protocol methods and requirements implemented.</p>
+                        <br>
 
                         <h3>Delegation</h3>
-                        <p>Enables class or struct to delegate its responsibilities to an instance of another type.</p>
+                        <p><span class="definition">Delegation</span>: enables class or struct to delegate its responsibilities to an instance of another type.</p>
                         <ol>
                             <li>Define protocol that lists delegated responsibilities.</li>
                             <li>Let the delegate, the conforming type, provide functionality</li>
@@ -1822,6 +1870,7 @@ Date Created: December 2017
         }
     }
     </code></pre>
+                        <br>
 
                         <h3>Adding Protocol Conformance with an Extension</h3>
                         <p>Extend existing type to conform to a new protocol.</p>
@@ -1832,10 +1881,10 @@ Date Created: December 2017
     extension Dice: TextRepresentable {
         var textualDescription: String {
             // implementation
-
         }
     }
     </code></pre>
+                        <br>
 
                         <h3>Collections of Protocol Types</h3>
                         <p>Protocol used as type to be stored in a collection.</p>
@@ -1846,6 +1895,7 @@ Date Created: December 2017
         print(thing.textualDescription)
     }
     </code></pre>
+                        <br>
 
                         <h3>Protocol Inheritance</h3>
                         <p>To add further requirements on top of the requirements it inherits.</p>
@@ -1854,38 +1904,42 @@ Date Created: December 2017
         // protocol definition
     }
     </code></pre>
+                        <br>
 
                         <h3>Class-Only Protocols</h3>
-                        <p>To limit protocol adoption to class types. Use AnyObject.</p>
+                        <p>To limit protocol adoption to class types. Use <span class="definition_swift">AnyObject</span>.</p>
     <pre><code class="language-swift">
     protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol {
         // class-only protocol definitions
     }
     </code></pre>
+                        <br>
 
                         <h3>Protocol Composition</h3>
-                        <p>Requiring a type to conform to multiple protocols. Separate with ampersand &amp;. Can contain one class type to specify required superclass.</p>
+                        <p>Requiring a type to conform to multiple protocols. Separate with ampersand <span class="definition_swift">&amp;</span>. Can contain one class type to specify required superclass.</p>
     <pre><code class="language-swift">
     // Named and Aged are protocols
     func wishHappyBirthday(toCelebrator: Named &amp; Aged)
     </code></pre>
+                        <br>
 
                         <h3>Checking for Protocol Conformance</h3>
                         <ul>
-                            <li>is operator returns true if an instance conforms to a protocol, false if not.</li>
-                            <li>as? returns optional value of protocol's type, nil if instance doesn't conform to protocol.</li>
-                            <li>as! force downcasts to protocol type, runtime error if downcast fails.</li>
+                            <li><span class="definition_swift">is</span> operator returns true if an instance conforms to a protocol, false if not.</li>
+                            <li><span class="definition_swift">as?</span> returns optional value of protocol's type, nil if instance doesn't conform to protocol.</li>
+                            <li><span class="definition_swift">as!</span> force downcasts to protocol type, runtime error if downcast fails.</li>
                         </ul>
+                        <br>
 
                         <h3>Optional Protocol Requirements</h3>
-                        <p>When requirements don't have to be implemented by types that conform to the protocol. Prefixed by optional modifier as part of protocol's definition. Both protocol and the optional requirement must be marked with @objc attribute. @objc protocols can only be adopted by classes, not structs or enums.</p>
+                        <p>When requirements don't have to be implemented by types that conform to the protocol. Prefixed by <span class="definition_swift">optional</span> modifier as part of protocol's definition. Both protocol and the optional requirement must be marked with <span class="definition_swift">@objc</span> attribute. <span class="definition_swift">@objc</span> protocols can only be adopted by classes, not structs or enums.</p>
     <pre><code class="language-swift">
     @objc protocol CounterDataSource {
         @objc optional func increment(forCount count: Int) -> Int
         @objc optional var fixedIncrement: Int { get }
     }
     class Counter {
-        var dataSource: CoutnerDataSource?
+        var dataSource: CounterDataSource?
         func increment() {
             // the entire increment function is optional
             if let amount = dataSource?.increment?(forCount: count) {
@@ -1894,6 +1948,7 @@ Date Created: December 2017
         }
     }
     </code></pre>
+                        <br>
 
                         <h3>Protocol Extensions</h3>
                         <p>To define behaviors on protocols themselves, rather than in each type's individual conformance. All conforming types will gain this method implementation. Can be used to provide default implementation (can be overridden).</p>
@@ -1918,11 +1973,11 @@ Date Created: December 2017
         b = temporaryA
     }
     </code></pre>
-                        <p>Type parameter: a placeholder type such as T in the example above. Written in brackets after a function's name. After defining it, you can use it as parameters, in function body, or as return type.</p>
+                        <p><span class="definition">Type parameter</span>: a placeholder type such as <span class="definition_swift">T</span> in the example above. Written in brackets after a function's name. After defining it, you can use it as parameters, in function body, or as return type.</p>
                         <ul>
                             <li>Name using descriptive names like Key and Value and Element or single letters.</li>
                         </ul>
-                        <p>Generic Types: custom classes, structures, enums that can work with any type. E.g. Array and Dictionary</p>
+                        <p><span class="definition">Generic Types</span>: custom classes, structures, enums that can work with any type. E.g. Array and Dictionary</p>
                         <ul>
                             <li>Write type parameter after struct's name.</li>
                         </ul>
@@ -1939,6 +1994,7 @@ Date Created: December 2017
     // Create instance by writing type to be stored
     var stackOfStrings = Stack&lt;String&gt;()
     </code></pre>
+                        <br>
 
                         <h3>Extending a Generic Type</h3>
                         <p>Don't provide type parameter list as part of extension's definition, the original type parameter will be used.</p>
@@ -1949,6 +2005,7 @@ Date Created: December 2017
         }
     }
     </code></pre>
+                        <br>
 
                         <h3>Type Constraints</h3>
                         <p>Specifies that the type parameter must inherit from a certain class or conform to a certain protocol.</p>
@@ -1970,9 +2027,10 @@ Date Created: December 2017
         return nil
     }
     </code></pre>
+                        <br>
 
                         <h3>Associated Types</h3>
-                        <p>Gives a placeholder name to a type that's used as part of the protocol. Actual type provided when protocol is adopted. Use associatedtype keyword. This alias enables referring to the type in the protocol.</p>
+                        <p>Gives a placeholder name to a type that's used as part of the protocol. Actual type provided when protocol is adopted. Use <span class="definition_swift">associatedtype</span> keyword. This alias enables referring to the type in the protocol.</p>
                         <ul>
                             <li>Can have generic type conform to generic protocol (the associated type).</li>
                         </ul>
@@ -1994,10 +2052,12 @@ Date Created: December 2017
         ...
     }
     </code></pre>
+                        <br>
 
                         <h3>Generic Where Clauses</h3>
-                        <p>To define requirements for associated types. where clause enables requiring that associated type must conform to some protocol, or that type parameters and associated types must be the same. Write before opening curly brace of a type or function's body.</p>
-                        <p>The following code is a function that compares 2 containers even if they're of different type. Can do so because it checks if type C1 and type C2 contain the same type of items.</p>
+                        <p>To define requirements for associated types. <span class="definition_swift">where</span> clause enables requiring that associated type must conform to some protocol, or that type parameters and associated types must be the same. Write before opening curly brace of a type or function's body.</p>
+                        <br>
+                        <p>The following code is a function that compares 2 containers even if they're of different types. Can do so because it checks if type C1 and type C2 contain the same type of items.</p>
     <pre><code class="language-swift">
     func allItemsMatch&lt;C1: container, C2: Container&gt;
         (_ someContainer: C1, _ anotherContainer: C2) -> Bool
@@ -2006,6 +2066,7 @@ Date Created: December 2017
         // check if each type of container hold the same type of items
     }
     </code></pre>
+                        <br>
 
                         <h3>Extensions with a Generic Where Clause</h3>
                         <p>In the following example, the Stack didn't require Item to be Equatable. However, since we're using equality operators, we must specify that the Element conforms to that protocol for it to compile correctly.</p>
@@ -2026,6 +2087,7 @@ Date Created: December 2017
         }
     }
     </code></pre>
+                        <br>
 
                         <h3>Associated Types with a Generic Where Clause</h3>
                         <p>In the following example, the clause requires that the iterator can only traverse over elements that are of the same item type as the container's items.</p>
@@ -2041,7 +2103,7 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Automatic Reference Counting</h2>
-                        <p>To track and manage app's memory usage. ARC allocates memory to store info. about class instances and frees them up when they're no longer used. ARC tracks how many properties, constants, and variables are currently referring to each class instance and creates a strong reference (keeps it in memory and doesn't deallocate).</p>
+                        <p><span class="definition">Automatic Reference Counting (ARC)</span>: to track and manage app's memory usage. ARC allocates memory to store info. about class instances and frees them up when they're no longer used. ARC tracks how many properties, constants, and variables are currently referring to each class instance and creates a strong reference (keeps it in memory and doesn't deallocate).</p>
 
     <pre><code class="language-swift">
     // 1 strong reference
@@ -2055,18 +2117,19 @@ Date Created: December 2017
     reference1 = nil
     refernece2 = nil
     </code></pre>
-
-                        <p>Strong Reference cycle: when two class instances hold a strong reference to each other.</p>
+                        <br>
+                        <p><span class="definition">Strong Reference Cycle</span>: when two class instances hold a strong reference to each other.</p>
                         <ul>
-                            <li>Resolve by assigning references as weak or unowned. Allows one instance in a reference cycle to refer to the other without keeping a strong hold on it.</li>
+                            <li>Resolve by assigning references as <span class="definition_swift">weak</span> or <span class="definition_swift">unowned</span>. Allows one instance in a reference cycle to refer to the other without keeping a strong hold on it.</li>
                         </ul>
-                        <p>Weak Reference: use when the other instance has a shorter lifetime. Use weak keyword. Always declared as a variable to be set to nil at runtime.</p>
-                        <p>Unowned Reference: use when other instance has same or longer lifetime and reference is expected to always have a value. Use unowned keyword. Also doesn't have strong hold on the instance. Are always nonoptional, value is never set to nil.</p>
+                        <p><span class="definition">Weak Reference</span>: use when the other instance has a shorter lifetime. Use <span class="definition_swift">weak</span> keyword. Always declared as a variable to be set to nil at runtime.</p>
+                        <p><span class="definition">Unowned Reference</span>: use when other instance has same or longer lifetime and reference is expected to always have a value. Use <span class="definition_swift">unowned</span> keyword. Also doesn't have strong hold on the instance. Are always nonoptional, value is never set to nil.</p>
+                        <br>
 
                         <h3>Strong Reference Cycles for Closures</h3>
-                        <p>Strong reference cycle can occur if a closure is assigned to a property of a class instance and captures that instance by accessing a property or method like self.property or self.method(). This occurs because closures are reference types.</p>
+                        <p>Strong reference cycles can occur if a closure is assigned to a property of a class instance and captures that instance by accessing a property or method like <span class="definition_swift">self.property</span> or <span class="definition_swift">self.method()</span>. This occurs because closures are reference types.</p>
                         <ul>
-                            <li>Resolve by defining a capture list as part of closure's definition and declare each reference to be weak or unowned.</li>
+                            <li>Resolve by defining a capture list as part of closure's definition and declare each reference to be <span class="definition_swift">weak</span> or <span class="definition_swift">unowned</span>.</li>
                         </ul>
     <pre><code class="language-swift">
     // Example with strong reference error
@@ -2096,16 +2159,18 @@ Date Created: December 2017
                         </ul>
                         <p>Usually occurs if the memory access is long-term instead of instantaneous, which causes overlap in accesses.</p>
                         <ul>
-                            <li>Overlaps occur usually with in-out parameters and mutating methods of a struct.</li>
+                            <li>Overlaps occur usually with <span class="definition_swift">in-out</span> parameters and <span class="definition_swift">mutating</span> methods of a struct.</li>
                         </ul>
-                        <p>The following code produces an error because the read access to stepSize overlaps with the write access to number. number and stepSize refer to same location in memory so their accesses overlap.</p>
-    <pre><code class="lanuage-swift">
+                        <br>
+                        <p>The following code produces an error because the read access to <i>stepSize</i> overlaps with the write access to <i>number</i>. <i>number</i> and <i>stepSize</i> refer to same location in memory so their accesses overlap.</p>
+    <pre><code class="language-swift">
     var stepSize = 1
     func incrementInPlace(_ number: inout Int) {
         number += stepSize
     }
     incrementInPlace(&amp;stepSize)
     </code></pre>
+                        <br>
                         <p>The following balance function produces a conflict because it's performing accesses to same location in memory simultaneously.</p>
     <pre><code class="language-swift">
     func balance(_ x: inout Int, _ y: inout Int) {
@@ -2117,10 +2182,11 @@ Date Created: December 2017
     var playerTwoScore = 30
     balance(&amp;playerOneScore, &amp;playerOneScore)
     </code></pre>
+                        <br>
 
                         <h3>Conflicting Access to self in Methods</h3>
                         <p>Mutating method of struct has write access to self for the duration of the method call.</p>
-                        <p>The following code produces a conflict because both self (due to it being a mutating function) and teammate refer to the same location in memory.</p>
+                        <p>The following code produces a conflict because both <i>self</i> (due to it being a mutating function) and <i>teammate</i> refer to the same location in memory.</p>
     <pre><code class="language-swift">
     struct Player {
         var health: Int
@@ -2131,10 +2197,12 @@ Date Created: December 2017
     var oscar = Player(health: 10)
     oscar.shareHealth(with: &amp;oscar)
     </code></pre>
+                        <br>
 
                         <h3>Conflicting Access to Properties</h3>
                         <p>Types like structs, tuples, and enums are value types, so mutating any piece of the value mutates the whole value. Can produce overlapping conflicts.</p>
-                        <p>There is a conflic because the balance function takes in-out parameters and needs write access to them during the call.</p>
+                        <br>
+                        <p>Here, there is a conflict because the balance function takes in-out parameters and needs write access to them during the call.</p>
     <pre><code class="language-swift">
     // The variable is a tuple
     var playerInformation = (health: 10, energy: 20)
@@ -2151,14 +2219,15 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Access Control</h2>
-                        <p>Module: a single unit of code distribution, a framework or application built and shipped as a single unit and can be imported by another module with swift's import keyword.</p>
+                        <p><span class="definition">Module</span>: a single unit of code distribution, a framework or application built and shipped as a single unit and can be imported by another module with swift's <span class="definition_swift">import</span> keyword.</p>
                         <ul>
                             <li>Each build target in Xcode is a separate module in swift.</li>
                         </ul>
-                        <p>Source file: a single swift source code file within a module.</p>
+                        <p><span class="definition">Source file</span>: a single swift source code file within a module.</p>
+                        <br>
 
                         <h3>Access Levels</h3>
-                        <table>
+                        <table class="table_3_columns">
                             <tr>
                                 <th>Level</th>
                                 <th>Description</th>
@@ -2168,6 +2237,7 @@ Date Created: December 2017
                                 <td>Open access and Public access</td>
                                 <td>
                                     <p>Entities can be used within any source file and in a source file from another module that imports the defining module. Usually for public interface to a framework.</p>
+                                    <br>
                                     <p>Public access defines that classes and class members can only be subclassed from within a module. Open access lets subclassing across modules.</p></td>
                                 <td>
     <pre><code class="language-swift">
@@ -2205,20 +2275,22 @@ Date Created: December 2017
                                 </td>
                             </tr>
                         </table>
-                        <p>The default access level for all entities are internal.</p>
-                        <p>When developing a single-target app, internal access level is sufficient. You can mark some parts of code as fileprivate/private to hide implementation details.</p>
-                        <p>When developing frameworks, you should mark them as open or public.</p>
+                        <br>
+
+                        <p>The default access level for all entities are <span class="definition_swift">internal</span>.</p>
+                        <p>When developing a single-target app, <span class="definition_swift">internal</span> access level is sufficient. You can mark some parts of code as <span class="definition_swift">fileprivate</span>/<span class="definition_swift">private</span> to hide implementation details.</p>
+                        <p>When developing frameworks, you should mark them as <span class="definition_swift">open</span> or <span class="definition_swift">public</span>.</p>
                     </div>
 
                     <div class="section">
                         <h2>Advanced Operators</h2>
                         <h3>Operator Methods</h3>
-                        <p>Overloading operators: classes and structures providing their own implementations of existing operators</p>
+                        <p><span class="definition">Overloading operators</span>: classes and structures providing their own implementations of existing operators</p>
                         <ul>
-                            <li>The addition operator + is a binary operator and is infix.</li>
+                            <li>The addition operator <span class="definition_swift">+</span> is a binary operator and is infix.</li>
                             <li>To overload, define a type method with the method name matching the operator to overload.</li>
-                            <li>In the following example, left and right represents the instances on the left and right side of the + operator.</li>
                         </ul>
+                        <p>In the following example, left and right represents the instances on the left and right side of the + operator.</p>
     <pre><code class="language-swift">
     struct Vector2D {
         var x = 0.0, y = 0.0
@@ -2232,6 +2304,7 @@ Date Created: December 2017
     let anotherVector = Vector2D(x: 2.0, y: 4.0)
     let combinedVector = vector + anotherVector
     </code></pre>
+                        <br>
 
                         <h3>Equivalence Operators</h3>
                         <p>Use equivalence operators to check for equivalence of your own custom type.</p>
@@ -2245,9 +2318,10 @@ Date Created: December 2017
         }
     }
     </code></pre>
+                        <br>
 
                         <h3>Custom Operators</h3>
-                        <p>You can define and implement your own custom operators. Declare at a global level using the keywords prefix, infix, or postfix. Can also specify the precedence group that the custom operator belongs to.</p>
+                        <p>You can define and implement your own custom operators. Declare at a global level using the keywords <span class="definition_swift">prefix</span>, <span class="definition_swift">infix</span>, or <span class="definition_swift">postfix</span>. Can also specify the precedence group that the custom operator belongs to.</p>
 
     <pre><code class="language-swift">
     prefix operator +++

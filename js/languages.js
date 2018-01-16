@@ -36,11 +36,17 @@ function updateSidebar() {
     else if (href.includes("syntax_jquery")) {
         determinant = "jquery";
     }
+    else if (href.includes("syntax_ajax")) {
+        determinant = "ajax";
+    }
     else if (href.includes("syntax_php")) {
         determinant = "php";
     }
     else if (href.includes("syntax_perl")) {
         determinant = "perl";
+    }
+    else if (href.includes("syntax_mysql")) {
+        determinant = "mysql";
     }
     else if (href.includes("syntax_python")) {
         determinant = "python";

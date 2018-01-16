@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-
+<!--
+Thuc Nguyen
+Date Created: January 2018
+-->
 <html>
     <head>
-        <title></title>
+        <title>AJAX Syntax</title>
         <meta http-equiv="content-type" content="text/html;charset=utf-8">
         <meta name="description" content="Enn's Portfolio - AJAX">
         <meta name="author" content="Enn">
@@ -12,15 +15,15 @@
         <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
         <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css">
 
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-php.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-php-extras.min.js"></script>
-        <script type="text/javascript" src="../js/sidebar.js"></script>
-        <script type="text/javascript" src="../js/syntax.js"></script>
+        <script src="../js/sidebar.js"></script>
+        <script src="../js/syntax.js"></script>
     </head>
+
     <body>
         <div>
             <div id="sidebar">
@@ -42,8 +45,10 @@
                             <li><a href="syntax_css.html" id="link_syntax_css">CSS</a></li>
                             <li><a href="syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
                             <li><a href="syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
                             <li><a href="syntax_php.html" id="link_syntax_php">PHP</a></li>
                             <li><a href="syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
                             <li><a href="syntax_python.html" id="link_syntax_python">Python</a></li>
                             <li><a href="syntax_bash.html" id="link_syntax_bash">Bash</a></li>
                         </ul>
@@ -58,7 +63,10 @@
 
                 <div id="content">
                     <div class="section">
-                        <h2>AJAX</h2>
+                        <p><span class="bold">Sources to credit: </span>Tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/xml/ajax_intro.asp">w3schools.com</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX">MDN web docs</a>.</p>
+                    </div>
+
+                    <div class="section">
                         <p><span class="definition">AJAX (Asynchronous Javascript And XML)</span>: a way to interact with the server but instead of sending back HTML, sends a single string back to update the webpage.</p>
                         <ul>
                             <li>Change things in webpage without rewriting the whole page. For example, can send AJAX requests to server to check for duplicates.</li>
@@ -70,23 +78,23 @@
                         <br>
                         <p><span class="definition">Common Gateway Interface (CGI)</span>: protocol used to send form data to server.</p>
                         <ul>
-                            <li>GET or POST, GET appends to URL, POST sends as a separate packet. Use GET for read-only data, never for changing data on server-side.</li>
+                            <li><span class="definition">GET</span> or <span class="definition">POST</span>, GET appends to URL, POST sends as a separate packet. Use GET for read-only data, never for changing data on server-side.</li>
                             <li>Example of using GET method on form - <br>
-                            echo.php?fname=John&lname=Smith&address=123+main+st.+%2327</li>
+                            <span class="definition_javascript">echo.php?fname=John&lname=Smith&address=123+main+st.+%2327</span></li>
                         </ul>
                         <br>
                         <p>When using CGI, always use POST if anything can change on the server for security purposes. Can add parameters onto the GET string anytime, useful for something like bookmarking. Doesn't apply to AJAX because the URL never changes, so information is never exposed. Using the AJAX method on an event like a click of a link won't work like it usually does for PHP. The browser doesn't include the AJAX call as a history object, so the history must be handled manually.</p>
                         <br>
                         <p>Form data can then be accessed in PHP.</p>
     <pre><code class="language-php">
-    <?php
-    echo $_POST['fname'], ' ';  // putting space after first name
-    echo $_POST['lname'];
-    ?>
+    &lt;?php
+            echo $_POST['fname'], ' ';  // putting space after first name
+            echo $_POST['lname'];
+            ?&gt;
     </code></pre>
                         <br>
 
-                        <p>Same Origin Policy: a safety issue. JS can't open read/write files. However to use JS on the client side, you can read and write cookies. Can only send a JS request from where it came from. Can't connect to any other server besides the one that sent the JS. PHP code can still communicate with other servers. Restrictions don't exists for servers. Policy only applies to JS ran on the client so that JS can't communicate with outside servers.</p>
+                        <p><span class="definition">Same Origin Policy</span>: a safety issue. JS can't open read/write files. However to use JS on the client side, you can read and write cookies. Can only send a JS request from where it came from. Can't connect to any other server besides the one that sent the JS. PHP code can still communicate with other servers. Restrictions don't exists for servers. Policy only applies to JS ran on the client so that JS can't communicate with outside servers.</p>
                     </div>
 
                     <div class="section">
@@ -104,7 +112,7 @@
 
                     <div class="section">
                         <h2>States</h2>
-                        <table class="table_60">
+                        <table class="table_60_2_columns center_table_data">
                             <tr>
                                 <th>State</th>
                                 <th>Description</th>
@@ -134,14 +142,34 @@
 
                     <div class="section">
                         <h2>Status</h2>
-                        <table class="table_60">
+                        <table class="table_60_2_columns center_table_data">
                             <tr>
                                 <th>Status</th>
                                 <th>Description</th>
                             </tr>
                             <tr>
                                 <td>200</td>
-                                <td>Everything worked</td>
+                                <td>Success/OK</td>
+                            </tr>
+                            <tr>
+                                <td>300</td>
+                                <td>Redirection</td>
+                            </tr>
+                            <tr>
+                                <td>400</td>
+                                <td>Bad Request</td>
+                            </tr>
+                            <tr>
+                                <td>403</td>
+                                <td>Forbidden</td>
+                            </tr>
+                            <tr>
+                                <td>404</td>
+                                <td>Not Found</td>
+                            </tr>
+                            <tr>
+                                <td>500</td>
+                                <td>Server Error</td>
                             </tr>
                         </table>
                     </div>
@@ -149,8 +177,8 @@
                     <div class="section">
                         <h2>Ways to use AJAX to send requests and direct to PHP file</h2>
                         <ol>
-                            <li>Using AJAX and the HTTPRequest object. Would create the object once but the request as many times as the number of requests. The JS file will create new requests on an event like a click event of a button/link and that request method formats the request, setting it as POST or GET, the content-type, and checking the states and status to invoke the callback function. Request is sent using send().</li>
-                            <li>Using AJAX utility function in JQuery. This includes $.post and $.get and also $.ajax which is recommended to use because it can format settings. Difference between this way and the previous one is that if it doesn't work, nothing happens.</li>
+                            <li>Using AJAX and the <span class="definition">HTTPRequest object</span>. Would create the object once but the request as many times as the number of requests. The JS file will create new requests on an event like a click event of a button/link and that request method formats the request, setting it as POST or GET, the content-type, and checking the states and status to invoke the callback function. Request is sent using <span class="definition_javascript">send()</span>.</li>
+                            <li>Using <span class="definition">AJAX utility function</span> in JQuery. This includes <span class="definition_javascript">$.post</span> and <span class="definition_javascript">$.get</span> and also <span class="definition_javascript">$.ajax</span> which is recommended to use because it can format settings. Difference between this way and the previous one is that if it doesn't work, nothing happens.</li>
                         </ol>
                         <br>
                         <h4>Example using HTTPRequest object</h4>
@@ -166,7 +194,9 @@
                 }
             }
             else {
-                alert("Error occurred while trying to communicate with the server." + <br>"readyState: " + tempRequest.readyState + "status: " + <br> tempRequest.status);
+                alert("Error occurred while trying to communicate with the server." +
+                "readyState: " + tempRequest.readyState +
+                "status: " + tempRequest.status);
             }
         }
     }
@@ -182,7 +212,7 @@
         handle.innerHTML = s;
         alert(s);
     }
-    </code> </pre>
+    </code></pre>
                         <br>
 
                         <h4>Example using utility functions</h4>
@@ -251,13 +281,13 @@
 
                     <div class="section">
                         <h2>AJAX Manual Serialization</h2>
-                        <p>Serialization: converting all parameters into a single string. A protocol for sharing information between systems. It's mainly used as a way for the client to talk to the server and the server to talk to the client. Just want to send the data and not the HTML tags which will have to be stripped off on the server side. If using AJAX, you must serialize it and send it as a string. The string sent back can be the actual HTML with data in it (by embedding it in HTML using PHP) or just the data itself (JSON/XML).</p>
+                        <p><span class="definition">Serialization</span>: converting all parameters into a single string. A protocol for sharing information between systems. It's mainly used as a way for the client to talk to the server and the server to talk to the client. Just want to send the data and not the HTML tags which will have to be stripped off on the server side. If using AJAX, you must serialize it and send it as a string. The string sent back can be the actual HTML with data in it (by embedding it in HTML using PHP) or just the data itself (JSON/XML).</p>
                         <ul>
-                            <li>For manual submission of form, serialize the form using serialize() method prior to calling submit method. This will build the string for the URL.</li>
+                            <li>For manual submission of form, serialize the form using <span class="definition_javascript">serialize()</span> method prior to calling submit method. This will build the string for the URL.</li>
                             <li>JS doesn't have any memory references to the PHP script. They are independent of one another.</li>
                         </ul>
                         <br>
-                        <p>Implode and Explode functions take an array and makes a string out of it and vice versa. It's useful for serialization.</p>
+                        <p><span class="definition_javascript">Implode</span> and <span class="definition_javascript">Explode</span> functions take an array and makes a string out of it and vice versa. It's useful for serialization.</p>
                         <ol>
                             <li>Can pass data as a JSON object, providing it structure.</li>
                             <li>Can serialize data manually, use separators and parse them on the server side script since AJAX returns a single string.</li>
@@ -269,10 +299,10 @@
                     <div class="section">
                         <h2>Serialization Methods</h2>
                         <ol>
-                            <li>XMLHTTPRequest object</li>
-                            <li>XML: designed so that different computer systems can communicate with each other. Uses tags to define elements.<br>
+                            <li><span class="definition">XMLHTTPRequest object</span></li>
+                            <li><span class="definition">XML</span>: designed so that different computer systems can communicate with each other. Uses tags to define elements.<br>
                             Example: &lt;FirstName&gt;John&lt;/FirstName&gt;</li>
-                            <li>JSON: complex data structure that looks like a 2D Java array.<br>
+                            <li><span class="definition">JSON</span>: complex data structure that looks like a 2D Java array.<br>
                             Example: [['red', green. blue],[...]]<br>
                             Send it to the client, and in JS have a simple assignment statement.</li>
                         </ol>
@@ -300,31 +330,35 @@
     </code></pre>
                         <br>
 
-                        <h4>Methods for XMLHTTPRequest object</h4>
+                        <h4>Methods and Properties for XMLHTTPRequest object</h4>
                         <table>
                             <tr>
-                                <th>Method</th>
+                                <th>Method / Properties</th>
                                 <th>Description</th>
                             </tr>
                             <tr>
                                 <td>abort()</td>
-                                <td></td>
+                                <td>Aborts request. State changes to 4, status to 0.</td>
                             </tr>
                             <tr>
                                 <td>send()</td>
-                                <td>Data tagged to the url (GET protocol).</td>
+                                <td>Sends the request. Data tagged to the url (GET protocol).</td>
                             </tr>
                             <tr>
                                 <td>send(<i>string</i>)</td>
-                                <td>String that goes via POST (POST protocol).</td>
+                                <td>Sends the request. String that goes via POST (POST protocol).</td>
                             </tr>
                             <tr>
                                 <td>onreadystatechange</td>
                                 <td>Fires event when state changes.</td>
                             </tr>
                             <tr>
-                                <td>HTTP status messages</td>
-                                <td>200, 300, 400, 403, 404, 500</td>
+                                <td>status</td>
+                                <td>Returns the status of the response (200, 300, 400, 403, 404, 500).</td>
+                            </tr>
+                            <tr>
+                                <td>statusText</td>
+                                <td>Returns the status and the text of the response message.</td>
                             </tr>
                         </table>
                         <br>
