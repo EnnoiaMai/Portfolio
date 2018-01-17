@@ -143,6 +143,10 @@ body > div {
     color: #1A27AA;
     font-weight: bold;
 }
+.definition_mysql {
+    color: #C64C4D;
+    font-weight: bold;
+}
 .center_block {
     margin-left: auto;
     margin-right: auto;
