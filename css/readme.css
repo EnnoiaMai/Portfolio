@@ -9,8 +9,6 @@ Date Created: December 2017
     margin: 0px;
     font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif;
     line-height: 148%;
-    /* font-family: 'Source Sans Pro', sans-serif; */
-    /* font-family: 'Open Sans', sans-serif; */
 }
 body {
     min-width: 1000px;
@@ -22,12 +20,13 @@ body > div {
     flex-direction: row;
     overflow: auto;
 }
-
+/* Container that holds the Header and the Content */
 .content_container {
     flex-grow: 1;
     flex-shrink: 1;
 }
 
+/*================================== HEADER ==================================*/
 .header {
     height: 300px;
     display: flex;
@@ -45,8 +44,39 @@ body > div {
     background-color: rgba(53, 101, 142, 1.0);
 }
 
+/*================================ CONTENT ===================================*/
+.content {
+    font-size: 110%;
+    width: 85%;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    /* border: 1px dashed blue; */
+}
+.content ul, .content ol {
+    padding-left: 32px;
+}
+.section {
+    margin-bottom: 24px;
+}
+.preview_div {
+    width: 80%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.preview_div img {
+    display: block;
+    width: 100%;
+}
+
+/*=========================== SYNTAX COLORING ================================*/
 .definition {
     color: rgba(69, 12, 150, 1);
+    font-weight: bold;
+}
+.cs545_code {
+    color: #BB4D4D;
     font-weight: bold;
 }
 .cs646_code {
@@ -62,6 +92,9 @@ body > div {
     text-decoration-color: rgba(50, 50, 50, 1);
     text-decoration-line: underline;
 }
+
+/*========================== SPECIFIC FORMATTING =============================*/
+/* CS646 Image Container */
 #cs646_assignment3_example {
     width: 30%;
     padding: 8px;
@@ -72,6 +105,8 @@ body > div {
     width: 100%;
     max-width: 285px;
 }
+
+/* CS646 Tables */
 #cs646_assignment4_table {
     border-collapse: collapse;
     margin-left: auto;
@@ -91,26 +126,7 @@ body > div {
     width: 70%;
 }
 
-.content {
-    font-size: 110%;
-    width: 85%;
-    margin-top: 24px;
-    margin-left: auto;
-    margin-right: auto;
-    /* border: 1px dashed blue; */
-}
-
-.content ul {
-    padding-left: 32px;
-}
-.content ol {
-    padding-left: 32px;
-}
-
-.section {
-    margin-bottom: 24px;
-}
-
+/* CS545 Tables */
 #cs545_proj4_table {
     border-collapse: collapse;
     border: 1px solid #BBB;
