@@ -56,6 +56,9 @@ body > div {
 .content ul, .content ol {
     padding-left: 32px;
 }
+.content pre, .content code {
+    font-size: 94%;
+}
 .section {
     margin-bottom: 24px;
 }
@@ -75,7 +78,14 @@ body > div {
     color: rgba(69, 12, 150, 1);
     font-weight: bold;
 }
+.applicable_files {
+    color: #00935c;
+}
 .cs545_code {
+    color: #664C90;
+    font-weight: bold;
+}
+.cs545_code_sub {
     color: #BB4D4D;
     font-weight: bold;
 }
