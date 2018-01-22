@@ -97,10 +97,11 @@ body > div {
     width: 50%;
 }
 .list table tr td:nth-child(2) {
-    /* width: 20%; */
+    /* width: 50%; */
+    /* display: flex; */
     /* border: 1px dashed purple; */
 }
-.list table tr td div {
+.list table tr td > div:not(.testing) {
     background-color: rgba(220, 220, 220, 1.0);
     width: 10%;
     margin-left: 10px;
@@ -109,12 +110,47 @@ body > div {
     border-radius: 20%;
     /* border: 1px dashed orange; */
 }
-.list table tr td div a {
+.list table tr td > div > a {
     display: block;
     width: 100%;
     /* border: 1px dashed green; */
 }
-.list table td img {
+.list table td img, .testing > div > a > img {
     width: 100%;
     max-width: 100px;
+}
+
+.td_flex {
+    width: 100%;
+    /* width: 50%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* border: 1px solid red; */
+}
+.testing {
+    /* width: 50%;
+    padding: 0px; */
+    /* border-radius: 0%; */
+    background-color: #FFF;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* border: 1px dashed purple; */
+}
+.testing > div {
+    /* display: block;
+    width: 40%; */
+    background-color: rgba(220, 220, 220, 1.0);
+    width: 20%;
+    margin-left: 10px;
+    padding: 4px;
+    border-radius: 20%;
+    /* border: 1px dashed blue; */
+}
+.testing > div > a {
+    display: block;
+    width: 100%;
 }
