@@ -228,7 +228,25 @@ Date Created: December 2017
 
                     <div class="section">
                         <h2>Project Details</h2>
-                        <p><b>Note</b>: Unfortunately, the files of this project were taken off of the server, and I was unable to snap images or gifs of what it looked like. Thus, most of the functionality, such as retrieving the information for the products and displaying it dynamically, cannot be shown. However, I have included images of what the website looks like.</p>
+                        <p><b>Note</b>: Unfortunately, the files of this project were taken off of the server, and I was unable to snap images or gifs of what it looked like. Thus, most of the functionality, such as retrieving the information for the products and displaying it dynamically, cannot be shown. However, I have included a few images of what the website looks like.</p>
+                        <br>
+
+                        <h3>The Shopping Cart</h3>
+                        <p class="applicable_files">shopping_cart.js</p>
+                        <p>This project revolved around the use of a shopping cart implemented as a cookie. For every submission that the user makes, whether it was adding products to the cart, changing the quantity, navigating to the page that shows all the products bookmarked, or deleting the product, the cookie had to be written to.</p>
+                        <br>
+                        <p>A function is used to implement and describe an object, the shopping cart. It takes 'owner', which is the key of the cookie, as a parameter and sets it to the property <span class="cs545_code_sub">owner</span>. The other properties are the <span class="cs545_code_sub">skuArray</span> and the <span class="cs545_code_sub">qtyArray</span>, which are parallel arrays holding the sku of the product that the user added as well as the quantity for that product.</p>
+                        <ul>
+                            <li><b><span class="cs545_code_sub">getCookieValues</span></b> - splits up the raw sting of the cookie and grabs the key-value pair that matches with the owner. Then splits up the each unique sku-quantity pair by using <span class="cs545_code_sub">split()</span> and the separator '||'. Each individual sku-quantity pair was separated with '|', so they were split and appended to the parallel arrays.</li>
+                            <li><b><span class="cs545_code_sub">writeCookie</span></b> - builds the cookie string using the owner property and serializing each sku-quantity pair. Writes the cookie using document.cookie = <i>"cookieString"</i></li>
+                            <li><b><span class="cs545_code_sub">add</span></b> - first calls <span class="cs545_code_sub">getCookieValues()</span>, then adds the sku and quantity to the shopping cart by either updating the sku of the product that already exists in the cart, or by appending the new product. Updating is done by accessing the <span class="cs545_code_sub">skuArray</span> at the appropriate index and updating the <span class="cs545_code_sub">qtyArray</span> using the same index. Adding is done by using <span class="cs545_code_sub">push()</span> on both arrays. <span class="cs545_code_sub">writeCookie()</span> is then called.</li>
+                            <li><b><span class="cs545_code_sub">setQuantity</span></b> - first calls <span class="cs545_code_sub">getCookieValues()</span>, then accesses the appropriate sku-quantity pair by matching the sku with the sku from the cookie. Sets the new quantity of that sku, then calls <span class="cs545_code_sub">writeCookie()</span>.</li>
+                            <li><b><span class="cs545_code_sub">delete</span></b> - first calls <span class="cs545_code_sub">getCookieValues()</span>. In order for the product to be removed from the cart, the index of where the product is in the array had to be grabbed. It was then used in the <span class="cs545_code_sub">splice()</span> method as the first parameter, with the second parameter being 1 to remove only 1 element in both arrays. If there was nothing in the cart after deletion, then the cookie was deleted. Otherwise, the cookie was written to.</li>
+                            <li><b><span class="cs545_code_sub">size</span></b> - returns the total number of products the user added to the cart by going through each element in <span class="cs545_code_sub">qtyArray</span> and summimg up the quantities.</li>
+                            <li><b><span class="cs545_code_sub">getCartArray</span></b> - first calls <span class="cs545_code_sub">getCookieValues()</span>, then returns an array which contains both the <span class="cs545_code_sub">skuArray</span> and the <span class="cs545_code_sub">qtyArray</span> using <span class="cs545_code_sub">push()</span>. Thus, <span class="cs545_code_sub">skuArray</span> will be at index 0 and
+                            <span class="cs545_code_sub">qtyArray</span> at index 1.
+                            </li>
+                        </ul>
                         <br>
 
                         <h3>Menu and Footer</h3>
@@ -239,8 +257,22 @@ Date Created: December 2017
                         <p>The <span class="applicable_files">about.html</span> and <span class="applicable_files">contact.html</span> files were just static pages with fictional details about the company. A map using the Google Maps API was added to the contacts page and pinpoints the location of a See's Candies store, since Bertha's Deluxe Chocolates is fictional.</p>
                         <br>
 
+                        <div class="preview_div">
+                            <img src="../../images/screenshots/CS545_Project4_about.png" alt="CS545 Project 4 About Preview">
+                        </div>
+                        <br>
+                        <div class="preview_div">
+                            <img src="../../images/screenshots/CS545_Project4_contact.png" alt="CS545 Project 4 Contact Preview">
+                        </div>
+                        <br>
+
                         <h3>Home Page</h3>
                         <p> <span class="applicable_files">index.html</span>, aside from displaying the header image, contains a preview of the products at the bottom of the page. This is dynamic in that the products returned to be displayed is random every time the page is loaded. In the JS file, the <span class="applicable_files">get_products.cgi</span> script is run to retrieve the product information. A random number generator using the  <span class="cs545_code_sub">Math.random()</span> JS method is used to get a random index to access the products array. The HTML string is built by accessing this products array and retrieving the respective product information, then lastly setting it to the <span class="cs545_code_sub">innerHTML</span> property of the container.</p>
+                        <br>
+
+                        <div class="preview_div">
+                            <img src="../../images/screenshots/CS545_Project4_home.png" alt="CS545 Project 4 Home Preview">
+                        </div>
                         <br>
 
                         <h3>Products</h3>
@@ -250,39 +282,41 @@ Date Created: December 2017
                         <br>
 
                         <h3>Order Online Checkout</h3>
-                        <p>The orderonlinecheckout.html page displays a table with the product name, description, quantity, and price of each product in the shopping cart. For each product, the user is able to change the quantity then save or cancel, or delete the product completely.</p>
+                        <p>The <span class="applicable_files">orderonlinecheckout.html</span> page displays a table with the product name, description, quantity, and price of each product in the shopping cart. For each product, the user is able to change the quantity then save or cancel, or delete the product completely.</p>
                         <br>
-                        <p>Similar to the products page, after the DOM has loaded, orderonlinecheckout.js calls attachButtonEvent() which uses delegated events to dynamically attach event handlers to newly created elements. It uses the parent td element and traverses downwards to get a handle on child p or input text elements. This then allows for validation of the text input and changes to the text for the quantity. Only the save and delete cases will change the information in the shopping cart (ultimately in the cookie) and will call updateTable().</p>
+                        <p>Similar to the products page, after the DOM has loaded, <span class="applicable_files">orderonlinecheckout.js</span> calls <span class="cs545_code_sub">attachButtonEvent()</span> which uses delegated events to dynamically attach event handlers to newly created elements. It uses the parent &lt;td&gt; element and traverses downwards to get a handle on child &lt;p&gt; or input text elements. This then allows for validation of the text input and for changes to the text of the quantity. Only the save and delete cases will change the information in the shopping cart (in the cookie) and will call <span class="cs545_code_sub">updateTable()</span>.</p>
                         <br>
-                        <p>updateTable() allows the table that contains the product information, quantity, and price to refresh. It updates the innerHTML of the table container with new information from the shopping cart. After updating the table, it calls updateOrderSummary().</p>
+                        <p><span class="cs545_code_sub">updateTable()</span> allows the table that contains the product information, quantity, and price to refresh. It updates the <span class="cs545_code_sub">innerHTML</span> of the table container with new information from the shopping cart. After updating the table, it calls <span class="cs545_code_sub">updateOrderSummary()</span>.</p>
                         <br>
-                        <p>updateOrderSummary() updates the information in the order summary container which lists information about the total price, the shipping fees, and the tax. It also uses the innerHTML property to refresh the order summary table. To take into account the format of the number, aimed to match 2 decimal places, the toFixed() method is used on the number after calculations.</p>
+                        <p><span class="cs545_code_sub">updateOrderSummary()</span> updates the information in the order summary container which lists information about the total price, the shipping fees, and the tax. It also uses the <span class="cs545_code_sub">innerHTML property</span> to refresh the order summary table. To take into account the format of the number, aimed to match 2 decimal places, the <span class="cs545_code_sub">toFixed()</span> method is used on the number after calculations.</p>
                         <br>
 
                         <h3>Order Online Payment</h3>
-                        <p>The orderonlinepayment.html page shows a form the the user fills out, such as their name, phone number, and address. There is also an option that the user can check (via a checkbox) that allows them to fill out the shipping address if their billing address was different. There are also fields for the user to choose the type of credit card (radio buttons) and also text fields for the credit card name, number, expiration date, and CVC. These fields are all validated before being submitted.</p>
+                        <p>The <span class="applicable_files">orderonlinepayment.html</span> page shows a form the the user fills out, such as their name, phone number, and address. There is also an option that the user can check (via a checkbox) that allows them to fill out the shipping address if their billing address was different. There are also fields for the user to choose the type of credit card (radio buttons) and also text fields for the credit card name, number, expiration date, and CVC. These fields are all validated before being submitted.</p>
                         <br>
-                        <p>Implementation of the validation in orderonlinepayment.js is similar to Project 2, so only the validation for the credit card information will be explained.</p>
+                        <p>Implementation of the validation in <span class="applicable_files">orderonlinepayment.js</span> is similar to Project 2, so only the validation for the credit card information will be explained.</p>
                         <ul>
-                            <li>validatePaymentType() - checks if at least 1 radio button was clicked. Uses a conditional to check the ":checked" states of each button.</li>
-                            <li>validateCardName() - checks to see that the inputted text was not empty.</li>
-                            <li>validateCardNumber() - checks that the card number entered was 16 digits and not empty.</li>
-                            <li>validateExpiration() - checks that the month input matches the regex [0-1][0-9] and subsequently, that it is less than 12. Also checks that the year is 4 digits and the CVC is 3. The second conditional checks that the year entered is not less than the current year. If validation has successed so far, the next conditional considers the case in which the year is the same as the current year, but the month is less than the current month. Finally, the CVC is checked to be 3 digits and non-empty.</li>
+                            <li><span class="cs545_code_sub">validatePaymentType()</span> - checks if at least 1 radio button was clicked. Uses a conditional to check the ":checked" states of each button.</li>
+                            <li><span class="cs545_code_sub">validateCardName()</span> - checks to see that the inputted text was not empty.</li>
+                            <li><span class="cs545_code_sub">validateCardNumber()</span> - checks that the card number entered was 16 digits and not empty.</li>
+                            <li><span class="cs545_code_sub">validateExpiration()</span> - checks that the month input matches the regex [0-1][0-9] and subsequently, that it is less than 12. Also checks that the year is 4 digits and the CVC is 3. The second conditional checks that the year entered is not less than the current year. If validation has successed so far, the next conditional considers the case in which the year is the same as the current year, but the month is less than the current month. Finally, the CVC is checked to be 3 digits and non-empty.</li>
                         </ul>
                         <br>
 
                         <h3>Order Online Confirmation</h3>
-                        <p>The page, printed from the print_confirmation.cgi script, is a review of the information that the user submitted in the previous form. This page is navigated to after the user has submitted the form successfully. It displays the billing and shipping address, the product and quantity and price in a table, as well as a grand total including shipping costs and taxes in a container at the right.</p>
+                        <p>The page, printed from the <span class="applicable_files">print_confirmation.cgi</span> script, is a review of the information that the user submitted in the previous form. This page is navigated to after the user has submitted the form successfully. It displays the billing and shipping address, the product and quantity and price in a table, as well as a grand total including shipping costs and taxes in a container at the right.</p>
                         <br>
-                        <p>print_confirmation.cgi </p>
+                        <p><span class="applicable_files">print_confirmation.cgi</span> first prints the cookie to the header. The Content-type line doesn't need to be specified because printing the cookie to the header already does that. All of the POST parameters are then set to local variables, and the estimated delviery date (set to 2 weeks from the current date) is calculated. The database that contains the products table is then connected to and the information from each field is retrieved.</p>
                         <br>
-                        <p>orderconfirmation.js gets the cookie value after the document is ready. What was interesting during my implementation of this was that the cookie and values that were sent to print_confirmation.cgi prior to running this javascript file, was encoded. therefore, in order to get the unencoded form of the cookie values back, decodeURIComponent() was used. This decoded form was then written to the document cookie again in preparation for being sent to the place_order.cgi script.</p>
+                        <p>The price of the product, found by matching the sku from the cookie and the sku in the products table, was used along with the quantity that was saved in the cookie to calculate the total price. For each unique product the user ordered, a row was added to the table by building an HTML string. Using the subtotal, another HTML string was built to populate the order summary table. Afterwards, the entire HTML page was printed out with the built HTML strings embedded.</p>
                         <br>
-                        <p>place_order.cgi</p>
+                        <p><span class="applicable_files">orderconfirmation.js</span> gets the cookie value after the document is ready. What was interesting during my implementation of this was that the cookie and values that were sent to <span class="applicable_files">print_confirmation.cgi</span> prior to running this javascript file, was encoded. therefore, in order to get the unencoded form of the cookie values back, <span class="cs545_code_sub">decodeURIComponent()</span> was used. This decoded form was then written to the document cookie again in preparation for being sent to the <span class="applicable_files">place_order.cgi</span> script.</p>
+                        <br>
+                        <p><span class="applicable_files">place_order.cgi</span> connects to a second database that contains information to construct the sales report. This includes the sku, date, and quantity. In order to get the current date, <span class="cs545_code_sub">localtime-&gt;mdy('/')</span> was used to format the date with forward slashes. Something interesting to note is that if the sku already exists in the field in the database, then that record had to be updated rather than inserted into. This was done by checking to see if any of the records under the sku field matched the sku in the cookie.</p>
                         <br>
 
                         <h3>Report Page</h3>
-                        <p>Lists the sku, quantity, price, and profit for each of the products that exist in the database.</p>
+                        <p><span class="applicable_files">report.cgi</span> outputs HTML that lists the sku, date, quantity, sales or revenue, and profit for each of the products that exist in the database. The grand total is specified at the bottom. In order for the correct information to be calculated and displayed, the script had to connect to both databases. First it connects to the jadrnxxx database to get the sku, date, and quantity that the users placed when making an order. It then connects to the proj4 database to get product information dealing with the sku, cost, and retail price from the products table. To get the revenue and profit to have a precision of 2 decimal places, <span class="cs545_code_sub">sprintf()</span> was used with the first parameter set to "%.2f". The HTML string was then built and embedded in the document to print out.</p>
                     </div>
                 </div>
             </div>

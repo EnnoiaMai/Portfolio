@@ -63,7 +63,7 @@ body > div {
     margin-bottom: 24px;
 }
 .preview_div {
-    width: 80%;
+    width: 90%;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -87,7 +87,7 @@ body > div {
 }
 .cs545_code_sub {
     color: #BB4D4D;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 .cs646_code {
     color: #990000;
