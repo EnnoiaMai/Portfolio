@@ -72,6 +72,16 @@ body > div {
     display: block;
     width: 100%;
 }
+.preview_div_iphone {
+    width: 40%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.preview_div_iphone img {
+    display: block;
+    width: 100%;
+}
 
 /*=========================== SYNTAX COLORING ================================*/
 .definition {
@@ -91,6 +101,10 @@ body > div {
 }
 .cs646_code {
     color: #990000;
+}
+.cs646_code_sub {
+    color: rgba(141, 72, 168, 1);
+    /* font-weight: bold; */
 }
 .cs646_link:link, .cs545_link:link {
     color: rgba(200, 0, 0, 1);
