@@ -14,7 +14,11 @@ Date Created: January 2018
         <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../../css/details.css">
         <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-swift.min.js"></script>
         <script type="text/javascript" src="../../js/sidebar.js"></script>
         <script type="text/javascript" src="../../js/details.js"></script>
     </head>
@@ -251,6 +255,244 @@ Date Created: January 2018
 
                     <div class="section">
                         <h2>Implementation Details</h2>
+                        <p><b>Note</b>: The code relating to connecting to the server and retrieving data can be abstracted for code reusability. Thus, a lot of the code for this task is redundant. I am looking to improve on this when I have the time. The scale of the assignment is somewhat large so only the interesting or difficult code implementation will be elaborated.</p>
+                        <br>
+                        <p>The MapView and UIPickerView were explored in the previous assignments and will not be explained here. The TabBarController holds two separate view controllers, a Map View displaying all the annotations of the users added to the server, and a Table View which also shows the users but in a list. Each cell of the table view displays the user's nickname, year he or she started SDSU, and the city, state, and country of origin. The user can click "Filter" which will bring up switch controls and picker views to choose the country and/or year to filter the user data. The user can also click "Add User" which will navigate the user to a form to fill out. On the form, the city, state, and country can be filled out manually or the user can click "Choose Hometown" which naviates to a map in which the location can be pinned. Clicking done will submit the data to the server.</p>
+                        <br>
+
+                        <h3 class="applicable_files">UserModel.swift</h3>
+                        <p>Outlines the User object which will have properties for the nickname, password, country, state, city, year, and the latitude and longitude.</p>
+                        <br>
+
+                        <h3><span class="applicable_files">MapViewController.swift</span> and <span class="applicable_files">ListUsersViewController.swift</span></h3>
+                        <p><span class="definition">Concurrency</span>: long-running tasks shouldn't be performed on the UI thread and at the same time, UI widgets or views should not be updated on the non-UI thread (the background). The following lists some ways to achieve concurrency.</p>
+                        <ul>
+                          <li><span class="definition">Threads</span> - <span class="cs646_code">performSelector(inBackground:)</span> and <span class="cs646_code">performSelector(inMainThread:)</span></li>
+                          <li><span class="definition">Dispatch Queues</span> - instantiate <span class="cs646_code">DispatchQueue</span> object and call async</li>
+                          <li><span class="definition">Operation Queues</span> - executes <span class="definition">operations</span> which can be run at the same time. Operations run on a separate thread. To start the operation, add it to the queue. Can create <span class="definition">dependencies</span> so that an operation depends on the completion of other operations before it can run.</li>
+                        </ul>
+                        <br>
+                        <p>Aside from displaying the data in a different way by adopting different protocols and implementing them, both controllers need to connect to the server and retrieve user data. The following are methods created to retrieve this data.</p>
+                        <br>
+                        <ul>
+                          <li><span class="cs646_code">retrieveDataFromServer()</span> - builds the URL with the appropriate parameters depending on the filter options the user had set. A block operation is added to the queue which runs code on another thread.</li>
+                          <br>
+                          <li><span class="cs646_code">getUsersFromServer()</span> takes the URL string that was built and initializes the <span class="cs646_code_sub">URL object</span>, sets the <span class="cs646_code_sub">HTTP</span> method to GET and the value for the header as "text/plain" and "Content-Type". Here, the request is sent to the server which will send back a response. For networking, the <span class="cs646_code_sub">URLSession</span> shared instance is grabbed and the <span class="cs646_code_sub">dataTask()</span> method called which takes the request and the completion handler.</li>
+                          <br>
+                          <li><span class="cs646_code">getUsersFromServerHandler()</span> checks that data is not nil and that the HTTP status code is 200 before deserializing the JSON object into an array. On the main queue, the <span class="cs646_code_sub">userData</span> property is set to this deserialized array and either the annotations are reloaded for the MapViewController or the table data is reloaded for the ListUsersViewController.</li>
+                        </ul>
+                        <br>
+  <pre><code class="language-swift">
+  /* A way to organize the following code would be to put this block
+  in a method for code resuability */
+  /*====================================*/
+  let mainQueue = OperationQueue.main
+  mainQueue.addOperation {
+    self.retrievingData = false
+  }
+  /*====================================*/
+
+  func retrieveDataFromServer() {
+    retrievingData = true
+
+    var urlString = ""
+    switch currentFilterParameter {
+    case .ALL:
+      urlString = "https://bismarck.sdsu.edu/hometown/users"
+    case .COUNTRY:
+      urlString = "https://bismarck.sdsu.edu/hometown/users?country=\(countryFilter)"
+    case .YEAR:
+      urlString = "https://bismarck.sdsu.edu/hometown/users?year=\(yearFilter)"
+    case .COUNTRY_AND_YEAR:
+      urlString = "https://bismarck.sdsu.edu/hometown/users?country=\(coutnryFilter)&amp;year=\(yearFilter)"
+    }
+
+    let operation = BlockOperation.init(block: {self.getUsersFromServer(urlString: urlString)})
+    let queue = OperationQueue.init()
+    queue.addOperation(operation)
+  }
+
+  func getUsersFromServer(urlString: String) {
+    if let url = URL.init(string: urlString) {
+      var urlUsersRequest= URLRequest.init(url: url)
+      urlUsersRequest.httpMethod = "GET"
+      urlUsersRequest.setValue("text/plain", forHTTPHeaderField: "Content-Type")
+      let session = URLSession.shared
+      let task = session.dataTask(with: urlUsersRequest, completionHandler: getUsersFromServerHandler)
+      task.resume()
+    }
+    else {
+      let mainQueue = OperationQueue.main
+      mainQueue.addOperation {
+        self.retrievingData = false
+      }
+    }
+  }
+
+  func getUsersFromServerHandler(data: Data?, response: URLResponse?, error: Error?) -&gt; Void {
+    guard (error == nil) else {
+      print(error!.localizedDescription)
+      let mainQueue = OperationQueue.main
+      mainQueue.addOperation {
+        self.retrievingData = false
+      }
+      return
+    }
+    let httpResponse = response as? HTTPURLResponse
+    let status: Int = httpResponse!.statusCode
+
+    guard (data != nil) && (status == 200) else {
+      let mainQueue = OperationQueue.main
+      mainQueue.addOperation {
+        self.retrievingData = false
+      }
+      return
+    }
+
+    do {
+      let json: Any = try JSONSerialization.jsonObject(with: data!)
+      let jsonNSArray = json as! NSArray
+
+      let mainQueue = OperationQueue.main
+      mainQueue.addOperation {
+        self.usersData = jsonNSArray as! Array&lt;Dictionary&lt;String, Any&gt;&gt;
+
+        // If in MapViewController
+        self.reloadAnnotations()
+        // If in ListUsersViewController
+        self.listTableView.reloadData()
+
+        self.retrievingData = false;
+      }
+    }
+    catch {
+      let mainQueue = OperationQueue.main
+      mainQueue.addOperation {
+        self.retrievingData = false
+      }
+    }
+  }
+  </code></pre>
+                        <br>
+
+                        <h3 class="applicable_files">AddUserViewController.swift</h3>
+                        <p>If there is a validation error in the input, the border around the input field will be colored red and an AlertViewController is used to pop up the error message. The validation functions in this form are <span class="cs646_code_sub">validateData()</span>, <span class="cs646_code_sub">chooseHometownValidation()</span>, and <span class="cs646_code_sub">checkValidCity()</span>. Within this controller, there are methods that are called to both retrieve the user data and to post the user data. The reason as to why a request is sent using the GET HTTP method is to check if the nickname the user entered already exists in the server. The code to send this request and execute further code in the completion handler is similar to the code block above. For POST, the request is written similarly but the HTTP method should be set to "post" and setValue() should take in "application/json" as the content-type instead of "text/plain". The JSON string should be built using the user's inputs, which represents the new record to add.</p>
+                        <br>
+  <pre><code class="language-swift">
+  func postDataToServer)() {
+    guard let nicknameText = nicknameTextField.text, let password = passwordTextField.text,
+      let country = countryButton.currentTitle, let state = stateButton.currentTitle, let city = cityTextField.text,
+      let year = yearButton.currentTitle, let yearInt = Int(year) else {
+        isNetworking = false;
+        return
+      }
+
+    let nickname = nicknameText.trimmingCharacters(in: .whitespacesAndNewlines)
+
+    let jsonRecordString = "{\"nickname\":\"\(nickname)\",\"password\":\"\(password)\",\"country\":\"\(country)\",
+      \"state\":\"\(state)\",\"city\":\"\(city)\",\"year\":\(yearInt)}"
+    let jsonRecord: Data? = jsonRecordString.data(using: .utf8)
+
+    let operation = BlockOperation.init(block: { self.postUser(jsonRecord: jsonRecord) })
+    let queue = OperationQueue.init()
+    queue.addOperation(operation)
+  }
+
+  func postUser(jsonRecord: Data?) {
+    if let url = URL.init(string: "https://bismarck.sdsu.edu/hometown/adduser") {
+      var urlPostUserRequest = URLRequest.init(url: url)
+      urlPostUserRequest.httpMethod = "POST"
+      urlPostUserRequest.httpBody = jsonRecord
+      urlPostUserRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+      let session = URLSession.shared
+      let task = session.uploadTask(with: urlPostUserRequest, from: jsonRecord, completionHandler: postUserHandler)
+      task.resume()
+    }
+    else {
+      let mainQueue = OperationQueue.main
+      mainQueue.addOperation({
+        self.isNetworking = false
+      })
+    }
+  }
+
+  func postUserHandler(data: Data?, response: URLResponse?, error: Error?) -&gt; Void {
+    guard (error == nil) else {
+      let mainQueue = OperationQueue.main
+      mainQueue.addOperation({
+        self.isNetworking = false
+      })
+      return
+    }
+
+    let httpResponse = response as? HTTPURLResponse
+    let status: Int = httpResponse!.statusCode
+
+    guard (status == 200) else {
+      let statusError = String(data: data!, encoding: String.Encoding.utf8)
+      print("\(statusError ?? "some status error") and statusCode: \(status)")
+      let mainQueue = OperationQueue.main
+      mainQueue.addOperation({
+        self.isNetworking = false
+      })
+      return
+    }
+
+    let mainQueue = OperationQueue.main
+    mainQueue.addOperation({
+      self.isNetworking = false
+      if (self.currentSource == .MAP) {
+        self.currentSource = .NONE
+        self.posted = true
+        self.performSegue(withIdentifier: self.unwindToMapSegue, sender: self)
+      }
+      else if (self.currentSource == .LIST_USERS) {
+        self.currentSource = .NONE
+        self.posted = true
+        self.performSegue(withIdentifier: self.unwindToListUsersSegue, sender: self)
+      }
+    })
+  }
+  </code></pre>
+                        <br>
+
+                        <h3 class="applicable_files">ChooseHometownViewController.swift</h3>
+                        <p>As with the form, clicking the done button will post the user's information in the form of a request to the server. Thus, the code to construct the JSON object in a string, add an operation to the queue on a separate thread, create the URL request, and specify the handler once there is a response from the server, are similar. However, what's different about hsi view controller is that the location and coordinates that the user clicked and pinned on the map must be reversed-geocoded so that the city, state, and country can be correctly sent to the server. Since we don't want coordinate data to be sent, reverse geocoding is done to send the data in the correct form.</p>
+                        <br>
+  <pre><code class="language-swift">
+  func reverseGeocodeCoordinates() {
+    guard let coordinates = userCoordinates else {
+      isNetworking = false
+      return
+    }
+    let location = CLLocation.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
+    let locator = CLGeocoder()
+    locator.reverseGeocodeLocation(location) { (placemarks, errors) in
+      if let place = placemarks?[0] {
+        self.userCity = place.locality
+        self.userCountry = place.country
+
+        if (place.country == "United States") {
+          self.userState = UnabbreviatedStateOrProvidence.returnUnabbreviated(country: "United States",
+            administrativeArea: place.administrativeArea)
+          self.userCountry = "USA"
+        }
+        else if (place.country == "Mexico") {
+          self.userState = UnabbreviatedStateOrProvidence.returnUnabbreviated(country: "Mexico",
+            administrativeArea: place.administrativeArea)
+        }
+        else {
+          self.userState = place.administrativeArea
+        }
+        self.postDataToServer()
+      }
+      else {
+        self.isNetworking = false
+      }
+    }
+  }
+  </code></pre>
                     </div>
                 </div>
             </div>
