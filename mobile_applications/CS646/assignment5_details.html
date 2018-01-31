@@ -374,6 +374,30 @@ Date Created: January 2018
   }
   </code></pre>
                         <br>
+                        <div class="preview_div_flex_row">
+                          <div>
+                            <p>The Map View that displays the locations or origin of all the users.</p>
+                            <img src="../../images/screenshots/CS646_Assignment5_mapview.gif" alt="CS646 Assignment 5 MapView">
+                          </div>
+                          <div>
+                            <p>An example of filtering the list of users by country. The map view will refresh to show only the relevant annotations and will center on the users.</p>
+                            <img src="../../images/screenshots/CS646_Assignment5_map_filter.gif" alt="CS646 Assignment 5 Filtering MapView">
+                          </div>
+                        </div>
+                        <br>
+                        <hr>
+                        <br>
+                        <div class="preview_div_flex_row">
+                          <div>
+                            <p>The Table View that displays the nickname, year admitted into SDSU, the city, state, and country of each user on the server.</p>
+                            <img src="../../images/screenshots/CS646_Assignment5_tableview.gif" alt="CS646 Assignment 5 TableView">
+                          </div>
+                          <div>
+                            <p>An example of filtering the list of users by year. The table view is refreshed to show the relevant users that match the conditions.</p>
+                            <img src="../../images/screenshots/CS646_Assignment5_table_filter.gif" alt="CS646 Assignment 5 Filtering TableView">
+                          </div>
+                        </div>
+                        <br>
 
                         <h3 class="applicable_files">AddUserViewController.swift</h3>
                         <p>If there is a validation error in the input, the border around the input field will be colored red and an AlertViewController is used to pop up the error message. The validation functions in this form are <span class="cs646_code_sub">validateData()</span>, <span class="cs646_code_sub">chooseHometownValidation()</span>, and <span class="cs646_code_sub">checkValidCity()</span>. Within this controller, there are methods that are called to both retrieve the user data and to post the user data. The reason as to why a request is sent using the GET HTTP method is to check if the nickname the user entered already exists in the server. The code to send this request and execute further code in the completion handler is similar to the code block above. For POST, the request is written similarly but the HTTP method should be set to "post" and setValue() should take in "application/json" as the content-type instead of "text/plain". The JSON string should be built using the user's inputs, which represents the new record to add.</p>
@@ -456,6 +480,17 @@ Date Created: January 2018
   }
   </code></pre>
                         <br>
+                        <div class="preview_div_flex_row">
+                          <div>
+                            <p>The form that the user must fill out to add new users.</p>
+                            <img src="../../images/screenshots/CS646_Assignment5_add_user_form.png" alt="Cs646 Assignment 5 Add User Form">
+                          </div>
+                          <div>
+                            <p>Tapping either country, state, or year will bring up a UIPickerView. Tapping country or state will require the view controller to send a request to the server to retrieve the list of acceptable countries or states. The data for the year is a range of numbers from 1970 to 2017.</p>
+                            <img src="../../images/screenshots/CS646_Assignment5_add_user_form_data_picker.gif" alt="Cs646 Assignment 5 Add User Form Data Picker">
+                          </div>
+                        </div>
+                        <br>
 
                         <h3 class="applicable_files">ChooseHometownViewController.swift</h3>
                         <p>As with the form, clicking the done button will post the user's information in the form of a request to the server. Thus, the code to construct the JSON object in a string, add an operation to the queue on a separate thread, create the URL request, and specify the handler once there is a response from the server, are similar. However, what's different about hsi view controller is that the location and coordinates that the user clicked and pinned on the map must be reversed-geocoded so that the city, state, and country can be correctly sent to the server. Since we don't want coordinate data to be sent, reverse geocoding is done to send the data in the correct form.</p>
@@ -493,6 +528,11 @@ Date Created: January 2018
     }
   }
   </code></pre>
+                        <br>
+                        <p>An alternative to filling out the entire form is to tap on "Choose Hometown from Map" after filling out the nickname, password, and year. The example shows that a location is pinned and "done" is tapped to submit the new information to the server. This then takes the user back to the map view or the table view and refreshes the annotations or the list of users.</p>
+                        <div class="preview_div_iphone">
+                          <img src="../../images/screenshots/CS646_Assignment5_choose_hometown.gif" alt="CS646 Assignment 5 Choose Hometown">
+                        </div>
                     </div>
                 </div>
             </div>

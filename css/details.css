@@ -62,6 +62,8 @@ body > div {
 .section {
     margin-bottom: 24px;
 }
+/* The container for images in general, which will take a large part of
+  the parent container */
 .preview_div {
     width: 90%;
     max-width: 1000px;
@@ -72,6 +74,8 @@ body > div {
     display: block;
     width: 100%;
 }
+
+/* The container for images that for mobile applications */
 .preview_div_iphone {
     width: 40%;
     max-width: 300px;
@@ -81,6 +85,28 @@ body > div {
 .preview_div_iphone img {
     display: block;
     width: 100%;
+}
+/* For multiple images of phones in a row, flex */
+.preview_div_flex_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.preview_div_flex_row > div {
+  flex-basis: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.preview_div_flex_row div img {
+  width: 45%;
+  max-width: 300px;
+}
+.preview_div_flex_row div p {
+  /* min-height: 5rem; */
 }
 
 /*=========================== SYNTAX COLORING ================================*/
