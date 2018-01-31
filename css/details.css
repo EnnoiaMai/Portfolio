@@ -43,6 +43,10 @@ body > div {
     color: #FFF;
     background-color: rgba(53, 101, 142, 1.0);
 }
+#header_cs646_01 {
+  color: #FFF;
+  background-color: rgba(53, 101, 142, 1.0);;
+}
 
 /*================================ CONTENT ===================================*/
 .content {
