@@ -14,10 +14,11 @@ Date Created: January 2018
         <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
         <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-java.min.js"></script>
         <script src="../js/sidebar.js"></script>
         <script src="../js/syntax.js"></script>
     </head>
@@ -60,9 +61,552 @@ Date Created: January 2018
                 </div>
 
                 <div id="content">
-                    <div class="section">
+                  <div class="section">
+                      <p><span class="bold">Sources to credit: </span><a href="http://www.zybooks.com/">Zybooks</a> and my CSE11 Class (Introduction to Computer Science and Object-Oriented Programming: Java).</p>
+                      <br>
+                      <p>The first chapter was an introduction to the language so there are details about computers and programming in general.</p>
+                  </div>
 
-                    </div>
+                  <div class="section">
+                    <h2>Introduction</h2>
+                    <h3>Style guidelines</h3>
+                    <p><span class="definition">Style guide</span>: own style for writing code</p>
+                    <p><span class="definition">K&R style</span>: for braces and indents, named after Kernighan and ritchie</p>
+                    <p><span class="definition">Stroustrup style</span>: for braces and indents, named after Bjarne Stroustrup</p>
+                    <br>
+
+                    <p><span class="definition">API</span>: application programming interface</p>
+                    <p><span class="definition">Package</span>: a group of related classe</p>
+                    <br>
+                    <p><span class="definition">Main</span>: starting place of a program.</p>
+                    <p><span class="definition">Memory</span>: composed of numerous individual locations, each able to store a value.</p>
+                    <p><span class="definition">Variable</span>: represents a particular memory location.</p>
+                    <p><span class="definition">Compiler</span>: converts a program into low-lvl machine instructions of a computer. Translates high-level language programs into executables.</p>
+                    <br>
+
+                    <h3>Basic Output</h3>
+                    <p>Use <span class="definition_java">System.out.print</span> and <span class="definition_java">System.out.println</span></p>
+                    <p><span class="definition">String literal</span>: text in double quotes <span class="definition_java">""</span></p>
+                    <ul>
+                      <li>Separate items or concatenate with (<span class="definition_java">+</span>) symbol</li>
+                    </ul>
+                    <br>
+
+                    <h3>Basic Input</h3>
+                    <p><span class="definition">Scanner</span>: text parser that can read numbers, words, or phrases from an input source like a keyboard.</p>
+  <pre><code class="language-java">
+  Scanner scnr = new Scanner(System.in);
+  scnr.nextInt();
+  scnr.nextDouble();
+  </code></pre>
+                    <br>
+
+                    <h3>Comments and Whitespaces</h3>
+                    <ul>
+                      <li><span class="definition">Single-line</span>: use <span class="definition_java">//</span> symbols, commonly appears after a statement on same line.</li>
+                      <li><span class="definition">Multi-line (block) comment</span>: use <span class="definition_java">/* */</span></li>
+                    </ul>
+                    <br>
+
+                    <h3>Errors and Warnings</h3>
+                    <p><span class="definition">Syntax Error</span>: violate programming language’s rules on how symbols can be combined to create a program.</p>
+                    <ul>
+                      <li>Sometimes error message refers to line that is passed where error actually occurred, should look to previous lines.</li>
+                    </ul>
+                    <p><span class="definition">Compile-time error</span>: syntax error detected by compiler</p>
+                    <p><span class="definition">Runtime error(bug)</span>: logic error that occurrs while program runs</p>
+                    <p><span class="definition">Warning</span>: doesn’t stop compiler from executing program but indicates possible logic error.</p>
+                    <br>
+
+                    <h3>Computers and Programs</h3>
+                    <p><span class="definition">bits(binary digits)</span>: 0s and 1s, from connections of switches that either allow or block flow of electricity.</p>
+                    <ul>
+                      <li>Like on and off switches. <span class="definition">Circuits</span>: connections of switches.</li>
+                    </ul>
+                    <p><span class="definition">Processors</span>: circuits to process or execute a list of desired calculations, each called an <span class="definition">instruction</span>. Instructions specified by configuring external switches. Processors shrunk now.</p>
+                    <p><span class="definition">Memory</span>: circuit that can store 0s and 1s in each of a series of thousands of addressed locations, like series of mailboxes in which each can store an envelope.</p>
+                    <ul>
+                      <li>Analogy -&gt; Chef(processor) executes instructions of a recipe(program), each instruction modifying ingredients(data), w/ recipe and ingredients kept on nearby counter(memory).</li>
+                    </ul>
+                    <br>
+                    <p><span class="definition">Program/Application/App</span>: the programmer-created sequence of instructions</p>
+                    <p><span class="definition">Machine instructions</span>: instructions represented as 0s and 1s</p>
+                    <p><span class="definition">Executable program</span>: sequence of machine instructions</p>
+                    <p><span class="definition">Assemblers</span>: automatically translate human readable instructions ex. “Mul 97, #9, 98”, <span class="definition">assembly language</span>.</p>
+                    <p><span class="definition">High-level languages</span>: 1960s-70s, support programming using formulas or algorithms, included FORTRAN and ALGOL.</p>
+                    <ul>
+                      <li>Executable can only run on particular processor type (e.g. x86) but for multiple processor types, must have multiple executables. Java uses approach in which real processor runs a program, called a virtual machine, that executes instructions in bytecode, generated by compiler as executable using machine instructions of a virtual processor.</li>
+                    </ul>
+                    <br>
+
+                    <h3>Computer Tour</h3>
+                    <p><span class="definition">Input/output devices</span>: screen (monitor) displays items to user. <span class="definition">Keyboard</span>: allows user provide input to computer, accompanied by a mouse. Other input and output include touchscreen, mics, speakers, printers, and usb interfaces. I/O called <span class="definition_java_note">peripherals</span>.</p>
+                    <p><span class="definition">Storage</span>: <span class="definition_java_note">disk</span>: stores files and other data like program files, song/movie files, office docs. Are <span class="definition_java_note">non-volatile</span> (maintain contents when powered off). The head orients magnetic particles in 0 or 1 position as disk spins.</p>
+                    <ul>
+                      <li>Flash storage stores 0s and 1s in non-volatile memory by tunneling electrons into special circuits on memory’s chip, then removing them with electricity that draws electrons back out.</li>
+                    </ul>
+                    <p><span class="definition">Memory</span>: <span class="definition_java_note">RAM</span>: (random-access memory) temporarily holds data read from storage, any address can be accessed much faster than disk. Access any memory location quickly in arbitrary order, w/o having to spin disk to right location. RAM costlier b/c higher speed. Usu. appears on circuit board along with processor chip. Is <span class="definition_java_note">volatile</span>. Memory size typically listed in bits, or in bytes (8 bits). Ex. mb, gb, tb</p>
+                    <p><span class="definition">Processor</span>: runs computer’s programs, reading & executing instructions from memory, performing operations, reading/writing data from/to memory.</p>
+                    <ul>
+                      <li>After powered on, starts executing program of instruction at location 0, called <span class="definition_java_note">BIOS(basic input/output system)</span> which sets up peripherals.</li>
+                      <li>Second is <span class="definition_java_note">operating system(OS)</span>: allows user run other programs and interfaces with other peripherals.</li>
+                      <li>Processor also called CPU or microprocessors, and may contain a small amount of RAM on its own chip, called <span class="definition">cache</span> memory, accessible in one clock tick rather than several; to maintain copy of most-used instructions/data.</li>
+                    </ul>
+                    <p><span class="definition">Clock</span>: processor’s instructions execute at rate governed by its clock, which ticks at specific frequency.</p>
+                    <ul>
+                      <li>Processors have clocks ticking at 1MHz(microwave) to 1GHz(computers), about millions/billions instructions per sec</li>
+                    </ul>
+                    <p><b>Note</b>: Larger memory (more RAM) allows more instructions/data to be kept close to the processor, so makes pc faster.</p>
+                    <br>
+                    <p><span class="definition">Transistors</span>: smaller switches</p>
+                    <p><span class="definition">Integrated Circuit</span>: transistors that are integrated onto a single chip</p>
+                    <p><span class="definition">Moore’s Law</span>: doubling of IC capacity roughly every 18 months, which continues today</p>
+                    <ul>
+                      <li>1971 Intel made first single-IC processor 4004 called a microprocessor 2300 transistors.</li>
+                      <li>2012 single IC several billion transistors containing multiple processors (core).</li>
+                    </ul>
+                    <br>
+
+                    <h3>Computer Components</h3>
+                    <h4><b>Brain</b></h4>
+                    <p><span class="definition">Motherboard</span>: base of operations, foundation for many elements in computer. A large printed circuit board, provides connections for components to communicate.</p>
+                    <p><span class="definition">Microprocessor (Central Processing Unit or CPU)</span>: chip w/ millions of transistors. Performs calculations, transistors manipulate the data.</p>
+                    <p><span class="definition">Read-Only Memory (ROM)</span>: read data only</p>
+                    <p><span class="definition">RAM</span>: read and write to memory.</p>
+                    <ul>
+                      <li><span class="definition_java_note">Stateless</span>: no way to preserve info</li>
+                    </ul>
+                    <p><span class="definition">BIOS</span>: chip that works with CPU, a specific kind of ROM, handles interactions b/w software and machine’s hardware components.</p>
+                    <p><span class="definition">Graphics Processing Units (GPU)</span>: graphic cards with their own microprocessors.</p>
+                    <br>
+
+                    <h4><b>Guts</b></h4>
+                    <p><span class="definition">Power supplies and batteries</span>: provides electricity to computer; transformer is the adapter, which converts electricity into proper voltage. Small battery inside computer always on to preserve time and data about hardware.</p>
+                    <p><span class="definition">Drives</span>: let you store and recall data & apps</p>
+                    <ul>
+                      <li><span class="definition_java_note">Hard drive</span>: series of thin platters that store info using magnetic recordings</li>
+                      <li><span class="definition_java_note">Solid State drive</span>: no moving parts</li>
+                      <li><span class="definition_java_note">Optical storage drives</span>: like CD-ROM or DVD-ROM</li>
+                    </ul>
+                    <p><span class="definition">Modems and Wi-Fi cards</span>: modems let computers communicate with other computers. Wireless cards - radio transceivers that send/receive data through specific frequency of radio waves.</p>
+                    <p><span class="definition">Sound and graphics cards</span>: let computer display graphics or play sounds</p>
+                    <p><span class="definition">Cooling Systems</span>: include heat sinks and fans</p>
+                    <br>
+                    <p><span class="definition">Chip</span>: an integrated circuit, generally a small thin piece of silicon onto which transistors making up microprocessor have been etched. ~1 inch wide and contain tens of millions of transistors.</p>
+                    <br>
+                  </div>
+
+                  <div class="section">
+                    <h2>Variables/Assignments</h2>
+                    <p><span class="definition">Variable</span>: a memory location used to store data. Compiler allocates memory location for the variable capable of storing an a certain data type size.</p>
+                    <p><span class="definition">Address</span>: the memory location where the variable was allocated to</p>
+                    <p><span class="definition">Declaration</span>: a variable definition, so that variable’s memory location is known</p>
+                    <p><span class="definition_java_note">Common error</span>: reading variable that has not been assigned a value/not initialized. Location is some unknown value, commonly 0.</p>
+                    <br>
+
+                    <h3>Identifiers</h3>
+                    <ul>
+                      <li>Must be sequence of letters (a-z, A-Z, _, $) and digits (0-9)</li>
+                      <li>Invalid identifiers include having digit in beginning, using reserved word/keyword, or having space.</li>
+                      <li>Are case-sensitive</li>
+                    </ul>
+                    <br>
+
+                    <h3>Naming Conventions</h3>
+                    <ul>
+                      <li><span class="definition">Camel case</span>: lower camel case e.g. numApples</li>
+                      <li><span class="definition">Underscore separated</span>: words are lowercase, separated by underscore e.g. num_apples</li>
+                      <li>Good practice includes using meaningful names; two or more words per variable.</li>
+                    </ul>
+                    <br>
+
+                    <h3>Arithmetic Expressions</h3>
+                    <p>Expressions follow standard arithmetic rules, negatives allowed(unary minus), factorials don't exist.</p>
+                    <ul>
+                      <li><span class="definition">Divide-by-zero error</span>: occurs at runtime if divisor is 0</li>
+                    </ul>
+                    <table>
+                      <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>Arithmetic Operators</td>
+                        <td>+, -, *, /, %</td>
+                      </tr>
+                      <tr>
+                        <td>Compound Operators</td>
+                        <td>+=, -=, *=, /=, %=</td>
+                      </tr>
+                    </table>
+                    <br>
+                    <table>
+                      <tr>
+                        <th colspan="2">Precedence Rules for arithmetic operators</th>
+                      </tr>
+                      <tr>
+                        <th>Convention</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>( )</td>
+                        <td>Items within parentheses are evaluated first</td>
+                      </tr>
+                      <tr>
+                        <td>unary -</td>
+                        <td>- used as a negative is next</td>
+                      </tr>
+                      <tr>
+                        <td>* / %</td>
+                        <td>Each have equal precedence</td>
+                      </tr>
+                      <tr>
+                        <td>+ -</td>
+                        <td>Each have equal precedence</td>
+                      </tr>
+                      <tr>
+                        <td>left-to-right</td>
+                        <td>If more than one operator of equal precedence can be evaluated, evaluation occurs left to right</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>Floating-point numbers (double)</h3>
+                    <p><span class="definition">double</span>: stores floating-point number.</p>
+                    <ul>
+                      <li><span class="definition">Scientific notation</span>: to represent floating-point numbers much greater/less than 0, using an e, Ex. 6.02e23 = 6.02x10^23</li>
+                      <li>Floating-point variable used to represent quantity that is measured whereas integer for quantity that is counted</li>
+                      <li><span class="definition">Floating-point divide-by-zero</span>: occurs at runtime if divisor is 0.0. Dividing by zero results in ∞ or -∞ depending on signs of operands</li>
+                    </ul>
+                    <br>
+
+                    <h3>Constant variables</h3>
+                    <p>Use <span class="definition_java">final</span> keyword.</p>
+                    <p>Use upper case letters with words separated by underscores.</p>
+                    <br>
+
+                    <h3>Math methods</h3>
+                    <p>Math class -&gt; <span class="definition_java">import java.lang.Math</span><br>
+                      <span class="definition">Method</span>: list of statements that can be executed by referring to the method’s name.<br>
+                      <span class="definition">Argument</span>: input value to a method between parentheses<br>
+                      <span class="definition">Method call</span>: returns a new value</p>
+                    <table>
+                      <tr>
+                        <th colspan="2">Some methods from Java math class</th>
+                      </tr>
+                      <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>pow</td>
+                        <td>Raise to power</td>
+                      </tr>
+                      <tr>
+                        <td>sqrt</td>
+                        <td>Square root</td>
+                      </tr>
+                      <tr>
+                        <td>cbrt</td>
+                        <td>Cube root</td>
+                      </tr>
+                      <tr>
+                        <td>exp</td>
+                        <td>Exponential function</td>
+                      </tr>
+                      <tr>
+                        <td>abs</td>
+                        <td>Absolute value</td>
+                      </tr>
+                      <tr>
+                        <td>ceil</td>
+                        <td>Round up value</td>
+                      </tr>
+                      <tr>
+                        <td>floor</td>
+                        <td>Round down value</td>
+                      </tr>
+                      <tr>
+                        <td>round</td>
+                        <td>Round to nearest integer</td>
+                      </tr>
+                      <tr>
+                        <td>max</td>
+                        <td>Maximum of two values</td>
+                      </tr>
+                      <tr>
+                        <td>min</td>
+                        <td>Minimum of two values</td>
+                      </tr>
+                      <tr>
+                        <td>random</td>
+                        <td>Generates random value between 0.0 and 1.0</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>Type Conversions</h3>
+                      <p><span class="definition">Type conversion</span>: conversion of one data type to another</p>
+                      <p><span class="definition">Implicit conversion</span>: automatic conversions, usually without loss of precision</p>
+                      <ul>
+                        <li>For arithmetic operator, if either operand is a double, the other automatically converted to double.</li>
+                        <li>For assignment, right side type is converted to left side type if conversion doesn’t lead to loss of precision. For example, if you cast a double to an int, then the fractional part will be truncated.</li>
+                      </ul>
+                      <p><span class="definition">Type casting</span>: explicit conversion of one type to another, done by preceding expression with <span class="definition_java">(type)</span> expression</p>
+                    <br>
+
+                    <h3>Binary</h3>
+                    <p><span class="definition">Binary number</span>: processor stores a number using base 2, since each memory location is composed of bits (0s and 1s)</p>
+                    <ul>
+                      <li>Finite quantity of bits limits range of numbers that variable can represent.</li>
+                    </ul>
+                    <p><span class="definition">Decimal number</span>: number in the base 10, digit must be 0-9</p>
+                    <p><span class="definition">Base 2</span>: each digit must be 0-1 and each digit’s place is weighed by increasing powers of 2<br>
+                      Compiler: decimal → binary → memory location</p>
+                    <br>
+
+                    <h3>Characters</h3>
+                    <p><span class="definition_java">char</span>: variable type that can store a single character</p>
+                    <ul>
+                      <li>To specify a character literal, surround with single quotes e.g. 'm'</li>
+                    </ul>
+                    <p><span class="definition">ASCII</span>: standard for encoding characters as numbers</p>
+                    <ul>
+                      <li>Uses 8 bits</li>
+                      <li>Java uses Unicode standard, which uses 16 bits, and has 64000 items vs 255 items in ASCII</li>
+                    </ul>
+                    <p><span class="definition">Escape sequence</span>: a two-character sequence starting with \ that represents a special character</p>
+                    <br>
+
+                    <h3>String basics</h3>
+                    <p>String: a sequence of characters, uses double quotes, stored as sequence of letters in memory. Each string character has an index (position number).</p>
+                    <ul>
+                      <li>String data type uses capital S</li>
+                      <li>scnr.next(); - used to get next string from input. Only gets next input string up to the next input space, tab, or newline.</li>
+                      <li>scnr.nextLine(); - Reads all user text on input line, up to newline character resulting from user pressing Enter</li>
+                      <li>someString.charAt(0); - returns the first letter</li>
+                    </ul>
+                    <br>
+                    <p>Object: consists of some internal data items plus operations that can be performed on that data</p>
+                    <ul>
+                      <li>String variable is a reference type variable that refers to a String object.</li>
+                      <li>Assigning a new literal to that same variable means that a new String object is created, and the String object’s reference is assigned to that variable</li>
+                      <li>Assigning one string variable to another String variable causes both variables to refer to same String.</li>
+                    </ul>
+                    <br>
+
+                    <h3>Integer Overflow</h3>
+                    <p>Overflow: occurs when the value being assigned to a variable is greater than the max value the variable can store.</p>
+                    <ul>
+                      <li>Extra bits are lost and lower bits are stored</li>
+                      <li>Instead of storing as int (~2billion) can store as long but can still overflow</li>
+                      <li>Common source involves intermediate calculations.</li>
+                    </ul>
+                    <br>
+
+                    <h3>Numeric Data Types</h3>
+                    <p>Int used frequently, short and byte rarely, long when necessary. Mantissa and significant digits are limited to 7 in float, and 16 in double. Overflow with floating points result in infinity. For low-cost processors, floating-point calculations slower than int, but for powerful ones, no speed difference. Floating-point numbers sometimes used when integer exceeds max range.</p>
+                    <br>
+                    <table>
+                      <tr>
+                        <th colspan="3">Integer numeric data types</th>
+                      </tr>
+                      <tr>
+                        <th>Definition</th>
+                        <th>Size</th>
+                        <th>Supported number range</th>
+                      </tr>
+                      <tr>
+                        <td>byte myVar;</td>
+                        <td>8 bits</td>
+                        <td>-128 to 127</td>
+                      </tr>
+                      <tr>
+                        <td>short myVar;</td>
+                        <td>16 bits</td>
+                        <td>-32768 to 32767</td>
+                      </tr>
+                      <tr>
+                        <td>int myVar</td>
+                        <td>32 bits</td>
+                        <td>-2,147,483,648 to 2,147,483,647</td>
+                      </tr>
+                      <tr>
+                        <td>long myVar;</td>
+                        <td>64 bits</td>
+                        <td>-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td>
+                      </tr>
+                    </table>
+                    <br>
+                    <table>
+                      <tr>
+                        <th colspan="3">Floating-point numeric data types</th>
+                      </tr>
+                      <tr>
+                        <td>float x;</td>
+                        <td>32 btis</td>
+                        <td>-3.4*10<sup>38</sup> to 3.4*10<sup>38</sup></td>
+                      </tr>
+                      <tr>
+                        <td>double x;</td>
+                        <td>64 bits</td>
+                        <td>-1.7*10<sup>306</sup> to 1.7*10<sup>306</sup></td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>Random Numbers</h3>
+                    <p>Pseudo-random number generator: produces specific sequence of numbers based on a seed number, sequence seeming random but always being the same for a given seed.</p>
+                    <ul>
+                      <li>Random() seeds pseudo-random number generator with a number based on current time, so program will get a different sequence each run, but using Random(num) will seed generator with the value num, which is any “long” value.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  // New random number generator
+  Random randGen = new Random();
+
+  // For dice roll, range would be from 0 to (X - 1)
+  randGen.nextInt(6) + 1;
+  </code></pre>
+                  </div>
+
+                  <div class="section">
+                    <h2>Branches</h2>
+                    <br>
+                    <h3>if-else statements</h3>
+  <pre><code class="language-java">
+  // if-else branches and multiple branches
+  if (expression) {
+    // statements
+  }
+  else if (expression) {
+    // statements
+  }
+  else {
+    // statements
+  }
+  </code></pre>
+                    <br>
+                    <p>Relational and equality operators evalue to a boolean value and works for integer, character(compares numerical encodings) and floating-points(shouldn't compare) built-in types.</p>
+                    <ul>
+                      <li>Don't use with strings, instead use equals() and compareTo()</li>
+                    </ul>
+                    <br>
+                    <table>
+                      <tr>
+                        <th>Operators</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>Relational and equality operators</td>
+                        <td>&lt;, &gt;, &lt;=, &gt;=, ==, !=</td>
+                      </tr>
+                      <tr>
+                        <td>Logical Operators</td>
+                        <td>&amp;&amp;, ||, !</td>
+                      </tr>
+                    </table>
+                    <br>
+                    <table>
+                      <tr>
+                        <th colspan="2">Precedence rules for logial and relational operators</th>
+                      </tr>
+                      <tr>
+                        <td>( )</td>
+                        <td>Items within parentheses</td>
+                      </tr>
+                      <tr>
+                        <td>!</td>
+                        <td>Logical NOT</td>
+                      </tr>
+                      <tr>
+                        <td>* / % + -</td>
+                        <td>Arithmetic operators with own percedence rules</td>
+                      </tr>
+                      <tr>
+                        <td>&lt; &lt;= &gt; &gt;=</td>
+                        <td>Relational operators</td>
+                      </tr>
+                      <tr>
+                        <td>== !=</td>
+                        <td>Equality and Inequality operators</td>
+                      </tr>
+                      <tr>
+                        <td>&amp;</td>
+                        <td>bitwise AND</td>
+                      </tr>
+                      <tr>
+                        <td>|</td>
+                        <td>bitwise OR</td>
+                      </tr>
+                      <tr>
+                        <td>&amp;&amp;</td>
+                        <td>Logical AND operator</td>
+                      </tr>
+                      <tr>
+                        <td>||</td>
+                        <td>Logical OR operator</td>
+                      </tr>
+                    </table>
+                    <br>
+                    <p><span class="definition">Bitwise operators</span>: for integral operand types, like int, the single character versions represent different operators. When both operands are integers, bitwise operators evaluate to an integer value. For boolean operands, bitwise operators evaluate to same boolean value as logical operators, but don’t perform short circuit evaluation.</p>
+                    <br>
+
+                    <h3>Switch statements</h3>
+                    <p>Switch statement’s expression should be an integer, char, or string. Shouldn’t be a boolean or floating-point type. Must have constant expression which can’t be a variable.</p>
+                    <p>Falling through: occurs when break statement is omitted, which causes next case to be executed. Use when multiple cases should execute same statements.</p>
+                    <br>
+                    <pre><code class="language-java">
+                    switch (expression) {
+                      case constantExpr1:
+                        // statements
+                        break;
+                      case constantExpr2:
+                        // statements
+                        break;
+                      default:
+                        // statements
+                        break;
+                    }
+                    </code></pre>
+                    <br>
+
+                    <h3>Boolean data types</h3>
+                    <p>Boolean: possible value of true or false. Use boolean keyword. Can be set to the result of a logical expression</p>
+                    <pre><code class="language-java">
+                    // Setting boolean to result of expression
+                    isNeg = (userNum < 0);
+                    </code></pre>
+                    <br>
+
+                    <h3>Conditional Expressions</h3>
+                    <p>Conditional expression(ternary operator): shorthand notation for if-else statements</p>
+                    <pre><code class="language-java">
+                    // Restrict ternary operators to an assignment statement
+                    condition ? exprWhenTrue : exprWhenFalse;
+                    </code></pre>
+                    <br>
+
+                    <h3>Floating-point comparison</h3>
+                    <p>Floating-point numbers shouldn’t be compared using == because they can’t be exactly represented in limited available memory bits. Instead, should be compared for “close enough”.</p>
+                    <p>Epsilon: difference threshold indicated that floating-point numbers are equal, depends on program’s expected values.</p>
+                    <p>Would have x as input and y as some constant to compare the floating-point numbers</p>
+                    <p>Example: Math.abs(x - y) &lt; 0.0001;</p>
+                    <p>BigDecimal class used in output statement to see inexact value stored in floating-point variable. Floating point values are not always stored with some inaccuracy, sometimes can be represented exactly in finite number of bits, like 0.0, 1.0, 0.25. But other times == will fail. Rounding occurs when variables are printed due to limited number of printed digits.</p>
+                    <br>
+                    <p>www.(Second-level domain).(Top-level domain)</p>
+                    <br>
+                    <p>Primitive type: something cpu can understand and manipulate directly ex. Integers (byte, short, int, long), floating point numbers (float, double), logical (boolean), and characters (char). Means cpu can store them and has machine-lvl instructions to operate on them.</p>
+                    <p>Reference type: if it’s not primitive. Ex. String object composed of info. like primitive chars, a length, and other. Has methods to operate on the reference.</p>
+                  </div>
+
+                  <div class="section">
+                    <h2>Strings and Characters</h2>
+                  </div>
+
+                  <div class="section">
+                    <h2>Loops</h2>
+                  </div>
                 </div>
             </div>
 

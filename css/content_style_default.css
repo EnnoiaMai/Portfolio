@@ -147,6 +147,14 @@ body > div {
     color: #C64C4D;
     font-weight: bold;
 }
+.definition_java {
+  color: #670000;
+  font-weight: bold;
+}
+.definition_java_note {
+  color: #C8601A;
+  font-weight: bold;
+}
 .center_block {
     margin-left: auto;
     margin-right: auto;
