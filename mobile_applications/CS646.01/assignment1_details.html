@@ -14,13 +14,11 @@ Date Created: January 2018
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../css/details.css">
     <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-swift.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-java.min.js"></script>
     <script type="text/javascript" src="../../js/sidebar.js"></script>
     <script type="text/javascript" src="../../js/details.js"></script>
   </head>
@@ -69,9 +67,8 @@ Date Created: January 2018
             <br>
             <p>Create two layouts for the activity, one landscape and one portrait. The layout for each view is shown below. Note that the order of the text views and button are different in the two different views. Match those views. When the user rotates the device, the amounts remain in the fields.</p>
             <br>
-            <div class="preview_div">
-              <!-- image from assignment -->
-              <img src="" alt="">
+            <div id="cs646_01_assignment1_example">
+              <img src="images/CS646_01_Assignment1_orientations.png" alt="CS646.01 Assignment 1 Orientations">
             </div>
             <br>
             <p>When you create your project set the minimum required SDK to API 19 (Android 4.4 KitKat). All non-numeric text displayed on the screen should be in the strings resource file. The user should only be able to enter decimal values in the fields. When the device is rotated, the correct amounts should still be displayed in the edit text fields. When the amounts are converted, the resulting values should display two decimal values.</p>
@@ -79,27 +76,38 @@ Date Created: January 2018
 
           <div class="section">
             <h2>Implementation Details</h2>
-            <p>In order to lay out the buttons and edit text fields in the desired positions, separate layout XML files had to be created, one for the portrait orientation and the other for landscape. Under resources, a directory called "layout-land" was conventionally named to be associated with the "layout" directory. The name of the layout files under each of these directories had to be the same in order for the correct layout to display on orientation change.</p>
+            <p>In order to lay out the buttons and edit text fields in the desired positions, separate layout XML files had to be created, one for the portrait orientation and the other for landscape. Under resources, a directory called <span class="cs646_01_code_highlight">"layout-land"</span> was conventionally named to be associated with the <span class="cs646_01_code_highlight">"layout"</span> directory. The name of the layout files under each of these directories had to be the same in order for the correct layout to display on orientation change.</p>
             <br>
-            <div class="preview_div">
-              <!-- Orientation images -->
-              <img src="" alt="">
+            <div class="preview_div_flex_row_orientation">
+              <div>
+                <p>The application in portrait mode.</p>
+                <img src="../../images/screenshots/CS646_01_Assignment1_portrait.png" alt="CS646.01 Assignment 1 Portrait Orientation">
+              </div>
+              <div>
+                <p>The application in landscape mode.</p>
+                <img src="../../images/screenshots/CS646_01_Assignment1_landscape.png" alt="CS646.01 Assignment 1 Landscape Orientation">
+              </div>
             </div>
             <br>
 
             <h3 class="applicable_files">ConvertActivity.java</h3>
-            <p>An enum called FocusedEditText was declared and the property currentFocusedEditText was instantiated to .NONE. The property is used to mark which edit text field the user just tapped on, or is in focus. This allows the unfocused text field to be cleared of text to make it more clear to the user which currency is being converted.</p>
-            <!-- enum code -->
+            <p>An enum called <span class="cs646_01_code_sub">FocusedEditText</span> was declared and the property <span class="cs646_01_code_sub">currentFocusedEditText</span> was instantiated to <span class="cs646_01_code_sub">.NONE</span>. The property is used to mark which edit text field the user just tapped on, or is in focus. This allows the unfocused text field to be cleared of text to make it more clear to the user which currency is being converted.</p>
             <br>
   <pre><code class="language-java">
+  private FocusedEditText currentFocusedEditText = FocusedEditText.NONE;
 
+  private enum FocusedEditText {
+    USD,
+    INR,
+    NONE
+  }
   </code></pre>
             <br>
 
             <ul>
-              <li>initializeWidgets() - calls this.findViewById() to get a reference to the widgets in Resources. Also sets the click and focus listeners on the button and edit text fields.</li>
+              <li><span class="cs646_01_code">initializeWidgets()</span> - calls <span class="cs646_01_code_sub">this.findViewById()</span> to get a reference to the widgets in Resources. Also sets the click and focus listeners on the button and edit text fields.</li>
               <br>
-              <li>convertInputValue() - takes the value of the currently focused edit text field, converts it to a float, and calculates the new amount converted to the other currency. Something interesting to note was that a formatted string with the proper locale had to be used to set the edit text field.</li>
+              <li><span class="cs646_01_code">convertInputValue()</span> - takes the value of the currently focused edit text field, converts it to a float, and calculates the new amount converted to the other currency. Something interesting to note was that a formatted string with the proper locale had to be used to set the edit text field.</li>
               <br>
   <pre><code class="language-java">
   useEditText.setText(String.format(Locale.US, "%.2f", (usdInputValue * usdRate)));
@@ -109,20 +117,19 @@ Date Created: January 2018
 
             <h3>Implementing Listeners</h3>
             <ul>
-              <li>onClick() - if the convert button was clicked, convertInputValue() was fired.</li>
-              <li>onFocusChange() - whenever an edit text field was focused on by the tap of the user, the currentFocusedEditText property was updated and the text of the unfocused field was set to an empty string.</li>
+              <li><span class="cs646_01_code">onClick()</span> - if the convert button was clicked, <span class="cs646_01_code">convertInputValue()</span> was fired.</li>
+              <li><span class="cs646_01_code">onFocusChange()</span> - whenever an edit text field was focused on by the tap of the user, the <span class="cs646_01_code_sub">currentFocusedEditText</span> property was updated and the text of the unfocused field was set to an empty string.</li>
             </ul>
             <br>
 
             <h3>Temporarily Saving the Text of the Edit Text Fields</h3>
             <ul>
-              <li>onSaveInstanceState() - puts the strings from both the USD and INR edit text fields into the bundle.</li>
-              <li>onRestoreInstanceState() - retrieves the strings using the appropriate keys and sets those values as the text to the edit text fields.</li>
+              <li><span class="cs646_01_code">onSaveInstanceState()</span> - puts the strings from both the USD and INR edit text fields into the bundle.</li>
+              <li><span class="cs646_01_code">onRestoreInstanceState()</span> - retrieves the strings using the appropriate keys and sets those values as the text to the edit text fields.</li>
             </ul>
             <br>
             <div class="preview_div_android">
-              <!-- preview of the conversion in action -->
-              <img src="" alt="">
+              <img src="../../images/screenshots/CS646_01_Assignment1_preview.gif" alt="CS646.01 Assignment 1 Preview">
             </div>
           </div>
         </div>

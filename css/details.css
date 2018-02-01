@@ -66,8 +66,8 @@ body > div {
 .section {
     margin-bottom: 24px;
 }
-/* The container for images in general, which will take a large part of
-  the parent container */
+
+/*-------------------- IMAGE CONTAINER FOR GENERAL IMAGES --------------------*/
 .preview_div {
     width: 90%;
     max-width: 1000px;
@@ -79,7 +79,7 @@ body > div {
     width: 100%;
 }
 
-/* The container for images that for mobile applications */
+/*----------------------- IMAGE CONTAINERS FOR IPHONES -----------------------*/
 .preview_div_iphone {
     width: 40%;
     max-width: 300px;
@@ -90,7 +90,7 @@ body > div {
     display: block;
     width: 100%;
 }
-/* For multiple images of phones in a row, flex */
+/* For multiple images of iPhones in a row, flex */
 .preview_div_flex_row {
   display: flex;
   flex-direction: row;
@@ -106,11 +106,48 @@ body > div {
   align-items: center;
 }
 .preview_div_flex_row div img {
+  display: block;
   width: 45%;
   max-width: 300px;
 }
-.preview_div_flex_row div p {
-  /* min-height: 5rem; */
+
+/*----------------------- IMAGE CONTAINERS FOR ANDROID -----------------------*/
+.preview_div_android {
+  width: 40%;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.preview_div_iphone img {
+    display: block;
+    width: 100%;
+}
+
+/* For multiple images of android phones in a row,
+considers width of landscape orientations */
+.preview_div_flex_row_orientation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.preview_div_flex_row_orientation > div {
+  flex-basis: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.preview_div_flex_row_orientation > div:first-child img {
+  display: block;
+  width: 45%;
+  max-width: 768px;
+}
+.preview_div_flex_row_orientation > div:nth-child(2) img {
+  display: block;
+  width: 90%;
+  max-width: 768px;
 }
 
 /*=========================== SYNTAX COLORING ================================*/
@@ -136,6 +173,19 @@ body > div {
     color: rgba(141, 72, 168, 1);
     /* font-weight: bold; */
 }
+.cs646_01_code {
+  color: #670000;
+  font-weight: bold;
+}
+.cs646_01_code_sub {
+  color: #24567B;
+  font-weight: bold;
+}
+.cs646_01_code_highlight {
+  color: #134A18;
+  font-weight: bold;
+}
+
 .cs646_link:link, .cs545_link:link {
     color: rgba(200, 0, 0, 1);
     text-decoration-color: rgba(50, 50, 50, 1);
@@ -148,6 +198,18 @@ body > div {
 }
 
 /*========================== SPECIFIC FORMATTING =============================*/
+/* CS646.01 Image Container */
+#cs646_01_assignment1_example {
+  width: 50%;
+  padding: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#cs646_01_assignment1_example img {
+  display: block;
+  width: 100%;
+  max-width: 1236px;
+}
 /* CS646 Image Container */
 #cs646_assignment3_example {
     width: 30%;
@@ -156,6 +218,7 @@ body > div {
     margin-right: auto;
 }
 #cs646_assignment3_example img {
+    display: block;
     width: 100%;
     max-width: 285px;
 }
