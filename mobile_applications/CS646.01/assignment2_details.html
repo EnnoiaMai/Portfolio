@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: March 2018
+-->
+<html>
+  <head>
+    <title>CS646.01 Assignment 2</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="description" content="Enn's Portfolio">
+    <meta name="author" content="Enn">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/details.css">
+    <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-java.min.js"></script>
+    <script type="text/javascript" src="../../js/sidebar.js"></script>
+    <script type="text/javascript" src="../../js/details.js"></script>
+  </head>
+  <body>
+    <div>
+      <div id="sidebar">
+          <ul>
+              <li><a href="../../index.html" id="link_home">Home</a></li>
+              <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+              <div id="submenu">
+                  <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                  <div>
+                      <img src="../../images/open_submenu.png" alt="open">
+                  </div>
+              </div>
+              <li id="submenu_links">
+                  <ul>
+                      <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                      <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                      <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                      <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                      <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                      <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                      <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                      <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                      <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                      <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                      <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                      <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                      <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+
+      <div class="content_container">
+        <div class="header" id="header_cs646_01">
+          <h1>CS646.01 Assignment 2</h1>
+        </div>
+
+        <div class="content">
+          <div class="section">
+            <h2>Assignment</h2>
+            <p>This assignment introduces more UI widgets and layouts. This includes using fragments to navigate from one view to another instead of only from activity to activity. This also reviews Intents to call other Activities as well as handling the keyboard and permanent storage of data. Different layouts for landscape and portrait views aren't needed in this assignment.</p>
+            <br>
+            <h4>Personal Information Activity</h4>
+            <p>The first or main activity collects the basic information about a person. This activity’s view will look like a basic form. The information we will collect is:</p>
+            <ul>
+              <li>First (given) name</li>
+              <li>Family (last) name</li>
+              <li>Email</li>
+              <li>Phone</li>
+              <li>Major</li>
+            </ul>
+            <br>
+            <p>For each of the first five items (first name, last name, age, email and phone) use a text field to allow the user to enter the data. In each text field the appropriate keyboard needs to be used. The keyboard should not hide the text field the user is entering. All items need a label indicating what information they contain (first name, last name, etc). All items are on a separate line.</p>
+            <br>
+            <p>To select a major the user needs to go to a second activity.</p>
+            <br>
+            <p>Finally there is a done button. When the done button is pressed the user information is saved. When the app is killed and restarted the saved data is displayed in this activity.</p>
+            <br>
+            <h4>Major Selection</h4>
+            <p>To select a major the user is shown a second activity. When this activity is shown the user sees a list of advanced degrees offered by SDSU. The list is given below. The list is shown using a list fragment. When the user selects one of the advanced degrees, say Masters of Science, they are then shown a list of all the majors in that advanced degree. The list for each advanced degree is given below. The user can select a major in that list. When they are done selecting the major bring them back to the Personal Information Activity, with the selected major shown. For example MS Computer Science or Ph.D. Biology.</p>
+            <br>
+            <p>When the user selects an advanced degree type, say Master of Arts, they may not see the major they are looking for. So they will want to go back to the list of advanced degree type to try again.</p>
+            <br>
+            <p>The user needs to be able to cancel the selection of a major.</p>
+            <br>
+            <p>When you create your project set the minimum required SDK to API 19 (Android 4.4 KitKat)</p>
+            <br>
+            <h4>SDSU Advanced Degrees</h4>
+            <ol>
+              <li>Doctor of Philosophy (Ph.D.)</li>
+              <li>Doctor of Education (Ed.D.)</li>
+              <li>Master of Arts (MA)</li>
+              <li>Master of Science (MS)</li>
+              <li>Master of Fine Arts (MFA)</li>
+            </ol>
+            <br>
+            <h4>Professional Master's Degrees</h4>
+            <ol>
+              <li>Doctor of Philosophy (Ph.D.)</li>
+              <ul>
+                <li>Bioengineering</li>
+                <li>Biology</li>
+                <li>Chemistry</li>
+                <li>Clinical Psychology</li>
+                <li>Computational Science</li>
+                <li>Ecology</li>
+                <li>Education</li>
+                <li>Engineering/Bioengineering</li>
+                <li>Engineering/Electrical and Computer</li>
+                <li>Engineering/Mechanical and Aerospace</li>
+                <li>Engineering/Structural</li>
+                <li>Evolutionary Biology</li>
+                <li>Geography</li>
+                <li>Geophysics</li>
+                <li>Language and Communcative Disorders</li>
+                <li>Mathematics and Science Education</li>
+                <li>Public Health</li>
+              </ul>
+              <br>
+              <li>Doctor of Education (Ed.D.)</li>
+              <ul>
+                <li>Educational Leadership/Pre K-12</li>
+                <li>Educational Leadership/Post Secondary Community College</li>
+              </ul>
+              <br>
+              <li>Master of Arts (MA)</li>
+              <ul>
+                <li>Anthropology</li>
+                <li>Art</li>
+                <li>Biology</li>
+                <li>Chemistry</li>
+                <li>Chicana and Chicano Studies</li>
+                <li>Communication</li>
+                <li>Speech, Language and Hearing Sciences</li>
+                <li>Economics</li>
+                <li>Education</li>
+                <li>English</li>
+                <li>French</li>
+                <li>Geography</li>
+                <li>History</li>
+                <li>Interdisciplinary Studies</li>
+                <li>Journalism and Media Studies</li>
+                <li>Latin American Studies</li>
+                <li>Liberal Arts and Sciences</li>
+                <li>Linguistics</li>
+                <li>Mathematics</li>
+                <li>Music</li>
+                <li>Philosophy</li>
+                <li>Physics</li>
+                <li>Political Science</li>
+                <li>Psychology</li>
+                <li>Rhetoric and Writing Studies</li>
+                <li>Sociology</li>
+                <li>Spanish</li>
+                <li>Television, Film, and New Media Production</li>
+                <li>Theatre Arts</li>
+                <li>Women's Studies</li>
+              </ul>
+              <br>
+              <li>Master of Science (MS)</li>
+              <ul>
+                <li>Accountancy</li>
+                <li>Aerospace Engineering</li>
+                <li>Applied Mathematics</li>
+                <li>Astronomy</li>
+                <li>Bioengineering</li>
+                <li>Biology</li>
+                <li>Bioinformatics and Medical Informatics</li>
+                <li>Biomedical Quality Systems</li>
+                <li>Business Administration</li>
+                <li>Chemistry</li>
+                <li>Child Development</li>
+                <li>Civil Engineering</li>
+                <li>Computational Science</li>
+                <li>Computer Science</li>
+                <li>Counseling</li>
+                <li>Criminal Justice and Criminology</li>
+                <li>Electrical Engineering</li>
+                <li>Exercise Physiology</li>
+                <li>Geography</li>
+                <li>Geological Sciences</li>
+                <li>Gerontology</li>
+                <li>Homeland Security</li>
+                <li>Hospitality and Tourism Management</li>
+                <li>Information Systems</li>
+                <li>Interdisciplinary Studies</li>
+                <li>Kinesiology</li>
+                <li>Mechanical Engineering</li>
+                <li>Medical Physics</li>
+                <li>Microbiology</li>
+                <li>Nursing</li>
+                <li>Nutritional Sciences</li>
+                <li>Physics</li>
+                <li>Psychology</li>
+                <li>Public Health</li>
+                <li>Regulatory Affairs</li>
+                <li>Rehabilitation Counseling</li>
+                <li>Statistics</li>
+              </ul>
+              <br>
+              <li>Master of Fine Arts (MFA)</li>
+              <ul>
+                <li>Art</li>
+                <li>Creative Writing</li>
+                <li>Design and Technical Theatre</li>
+                <li>Musical Theatre</li>
+                <li>Theatre Arts</li>
+              </ul>
+            </ol>
+          </div>
+
+          <div class="section">
+            <h2>Implementation Details</h2>
+            <p>There are two activities for this assignment with the first displaying text fields to enter the user's personal information and the second allowing the user to choose a degree and major. In the first activity, a textview was used to display the degree and major that the user selected. There are three buttons - one that navigates the user to the activity to choose a degree and major, another to delete the degree and major chosen, and a done button to save the information.</p>
+            <br>
+
+            <h3>Personal Information Activity</h3>
+            <p>In order to save the data to a file, the file must be written to using an output stream. Likewise, in order to read the saved data into memory, the file must be read using an input stream. It was easier to serialize the data manually using the <span class="cs646_01_code_highlight">'|'</span> separator before saving it to the file.</p>
+            <br>
+            <ul>
+              <li><span class="cs646_01_code">restoreData()</span> - calls readSavedFile() helper method which will return the serialized string of data, and then splits the string into an array. For each element in the array, the text for each text field is set appropriately.</li>
+              <br>
+              <li><span class="cs646_01_code">saveData()</span> - calls writeSavedFile() helper method after first manuallly serializing the data of each text field using the '|' separator.</li>
+              <br>
+              <li><span class="cs646_01_code">readSavedFile()</span> - opens the <span class="applicable_files">savedPersonalInformation.txt</span> file using a <span class="cs646_01_code_sub">BufferedInputStream</span> which will read the data of bytes. The file is closed and the string returned.</li>
+              <br>
+              <li><span class="cs646_01_code">writeSavedFile()</span> - saves the serialized data by writing to the <span class="applicable_files">savedPersonalInformation.txt</span> file if it exists, or creates a new file of that name if it doesn't. Uses a <span class="cs646_01_code_sub">BufferedOutputStream</span> to write the byte data.</li>
+            </ul>
+            <br>
+
+            <p>Not only does the data have to persist even after the application is killed, the state and data should be temporarily saved in onSaveInstanceState() and onRestoreInstanceState().</p>
+            <br>
+            <ul>
+              <li><span class="cs646_01_code">onRestoreInstanceState()</span> - checks if there is an instance state object or returns otherwise, then attempts to retrieve the data as an array of strings. Each text field will have its text set appropriately.</li>
+              <br>
+              <li><span class="cs646_01_code">onSaveInstanceState()</span> - the text of each text field is stored in an array of strings and placed in the outState bundle.</li>
+            </ul>
+            <br>
+
+            <p>Clicking 'Choose Major' navigates the user to the activity, but the activity started expects a result. So in <span class="cs646_01_code">onActivityResult()</span>, if the request code equates to the same code sent and the result code is OK, then the textview's text is set to the data sent back to this activity.</p>
+            <br>
+
+            <h3>Choose Major Activity</h3>
+            <p>An instance of the fragment is kept as a property so that the current list data that is shown in the list view corresponds to the correct information (list of degrees or list of majors).</p>
+            <br>
+            <ul>
+              <li><span class="cs646_01_code">onCreate()</span> - instantiates a new fragment, sets the title of the activity to "Choose Degree", and sets currentListData to <span class="cs646_01_code_sub">ADVANCED_DEGREE_LIST</span>, which is an enum constant (the enum type is declared in ChooseMajorFragment).</li>
+              <br>
+              <li><span class="cs646_01_code">onBackPressed()</span> - if currentListData is <span class="cs646_01_code_sub">ADVANCED_DEGREE_LIST</span>, or the data currently pertains to the list of degrees, then clicking on the back button results in the button's default action of killing the current activity. If currentListData is <span class="cs646_01_code_sub">MAJOR_LIST</span>, then the back button calls refreshDegreeList() from the fragment, which refreshes the list view to show the list of degrees.</li>
+              <br>
+            </ul>
+            <br>
+            <p>Within <span class="cs646_01_code_sub">ChooseMajorFragment</span>, the <span class="cs646_01_code_sub">MajorSelectedListener</span> interface is defined for this activity to implement.</p>
+            <ul>
+              <li><span class="cs646_01_code">fragmentChanged()</span> - fires when the user selected an item of the list view in the fragment. Sets the title of the activity to "Choose Major".</li>
+              <br>
+              <li><span class="cs646_01_code">majorSelected()</span> - fires when a major is selected. The string is placed as an extra to the intent with the result code as RESULT_OK, and then finish() is called to kill the activity.</li>
+            </ul>
+            <br>
+
+            <h4>Choose Major Fragment</h4>
+            <p>This fragment declares the constants for the <span class="cs646_01_code_sub">ListData</span> enum as well as the interface to be implemented by its listeners. The two functions to be implemented are fragmentChanged() and majorSelected(). The <span class="cs646_01_code_sub">listOfDegrees</span> only need to be instantiated once after reading from the <span class="applicable_files">advanced_degrees.txt</span> file whereas the <span class="cs646_01_code_sub">listInListView</span> is subject to change depending on what degree the user selected.</p>
+            <br>
+            <ul>
+              <li><span class="cs646_01_code">onActivityCreated()</span> - calls readDegreesFile() before setting the list of degrees to the ArrayAdapter, which will be set to the list view.</li>
+              <br>
+              <li><span class="cs646_01_code">readDegreesFile()</span> - opens <span class="applicable_files">advanced_degrees.txt</span> using an InputStream and reads in each line as an element for the arraylist. Regardless of whether or not an exception is thrown, the file is closed.</li>
+              <br>
+              <li><span class="cs646_01_code">readMajorsFile()</span> - called when the user clicks on an advanced degree from the list view. The file matching the degree name is opened and each line is read and added to the array adapter after the adapter is cleared. <span class="cs646_01_code_sub">notifyDataSetChanged()</span> is called so that the observers know that the underlying data has changed.</li>
+              <br>
+              <li><span class="cs646_01_code">returnAbbreviation()</span> - the abbreviated form of the degrees is used as part of the text that displays both the degree and major. The abbreviation resides within the parentheses of each degree listing, so the substring method is used to grab it.</li>
+              <br>
+              <li><span class="cs646_01_code">refreshDegreeList()</span> - called when the user taps the back button and the current list being shown is the list of majors. The list is refreshed to show the list of degrees.</li>
+              <br>
+              <li><span class="cs646_01_code">onItemClick()</span> - depending on the value of <span class="cs646_01_code_sub">currentListData</span> (whether or not the list of degrees or list of majors is currently displayed), either the selected degree will be used to open the majors file, or the major that was selected will be sent back as an argument to classes implementing the <span class="cs646_01_code_sub">MajorSelectedListener</span> interface.</li>
+            </ul>
+            <br>
+            <p>The following is an example of the personal information form filled out.</p>
+            <br>
+            <div class="preview_div_android">
+              <img src="../../images/screenshots/CS646_01_Assignment2_preview.png" alt="CS646.01 Assignment 2 Preview">
+            </div>
+            <br>
+            <div class="preview_div_flex_row">
+              <div>
+                <p>An example of choosing a degree and a major.</p>
+                <img src="../../images/screenshots/CS646_01_Assignment2_choose_major.gif" alt="CS646.01 Assignment 2 Choose Major">
+              </div>
+              <div>
+                <p>An example of clicking 'Done' to save and persist the data, killing the app, and launching the app again.</p>
+                <img src="../../images/screenshots/CS646_01_Assignment2_persistence.gif" alt="CS646.01 Assignment 2 Persistence">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

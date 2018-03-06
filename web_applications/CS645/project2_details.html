@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: March 2017
+-->
+<html>
+    <head>
+        <title>Project 2 - Java Servlets and Java Server Pages (JSP)</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Enn's Portfolio">
+        <meta name="author" content="Enn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../css/details.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/details.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="../../index.html" id="link_home">Home</a></li>
+                    <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                    <div id="submenu">
+                        <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                        <div>
+                            <img src="../../images/open_submenu.png" alt="open">
+                        </div>
+                    </div>
+                    <li id="submenu_links">
+                        <ul>
+                            <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                            <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                            <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                            <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                            <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                            <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                            <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                            <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                            <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                            <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                            <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                            <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                            <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content_container">
+                <div class="header" id="header_cs545">
+                    <h1>Project 2 - Java Servlets and Java Server Pages (JSP)</h1>
+                </div>
+
+                <div class="content">
+                    <div class="section">
+                        <h2>Assignment Details</h2>
+                        <p><b>The main entry point must be a file named proj2.html, not index.html.</b></p>
+                        <br>
+                        <p>We will be using the Tomcat web server instead of Apache for most of this project. All files for this project must go in or below your web_services subdirectory. This means all files including html, css, js, etc. The sole exception to this is product image files. Since you have stored product images in your public_html area, you should leave them there, and use a URL that points to your images folder. Other than images, <b>no part of the project may be in or below public_html</b>.</p>
+                        <br>
+                        <p>You will access your online store (the landing page) via the following URL pattern (Note that there is no ~ (tilde) character in the URL): <i>http://jadran.sdsu.edu/jadrnXXX/proj2.html</i></p>
+                        <br>
+
+                        <h3>Assignment</h3>
+                        <p>This is a continuation of the previous project. For this assignment, you will write the customer application, the online storefront. This application is the 'face' of your business to the public. You should make every effort to make this application attractive, friendly, and easy to use. The appearance and ease of use will be weighted heavily during grading.</p>
+                        <br>
+                        <p>All dynamic content coming from the server must be done with Java servlets or JSP. You may not use Perl, PHP or anything else for dynamic code on the server side other than Java. You should also plan to make optimum use of Javascript to enhance your site. The only external framework or libraries you may use are Bootstrap and jQuery.</p>
+                        <br>
+
+                        <h3>Details</h3>
+                        <ul>
+                          <li>There should <b>NOT</b> be any kind of login screen.</li>
+                          <li>Your application will allow users to browse through your store offerings easily.</li>
+                          <li>You should include search functionality or filters to assist customers in finding what they want.</li>
+                          <li>When any item is visible on screen, you should show the manufacturer's id, thumbnail image, price of each item, and status, "in stock" or "coming soon".</li>
+                          <li>When an item is selected, you should show complete information about the item including a larger image, description, features, and the retail price. <i>(do not display fields that are inappropriate, such as the cost or any internal stocknumbers)</i></li>
+                          <li>The actual functionality and menu structure of the application is up to you. You have considerable flexibility about how your design this application.</li>
+                          <li>All of the items in your product database table should be displayed regardless of the on hand quantity.</li>
+                          <ul>
+                            <li><b>in stock</b>, the on_hand quantity > 0.</li>
+                            <li><b>coming soon</b>, the on_hand quantity = 0.</li>
+                          </ul>
+                          <li>Be sure to insert a minimum of 25 records in the inventory database table, of which at least 20 must be in stock, with an on hand quantity > 0. Include at least 5 items that are in the inventory table but not in stock.</li>
+                          <li>You will offer a 'shopping cart' which will offer 'Add to shopping cart' and 'Check Out Now' buttons. A link or button to the shopping cart should always be visible.</li>
+                          <ul>
+                            <li>Users may select items and add them to the shopping cart. You will want to use AJAX for this to avoid refreshing the current page. You must save the state of your shopping cart so that users can put things in the cart then continue shopping.</li>
+                            <li>Customers may not purchase items (or put them in the shopping cart) that you don't have. If a customer wants to purchase a quantity that exceeds your on hand quantity, you must alert the customer that the quantity is unavailable.</li>
+                            <li>Customers should be able to modify quantities or delete items from the shopping cart at will.</li>
+                            <li>The 'Check Out Now' button should take the users to a screen where they may purchase the items in the shopping cart with a credit card. NOTE: There must NOT be a login screen for this application. Required fields for this are:<br>
+                            <b>Shipping Information</b> (Name, Address, Address, City, State, Zip, Contact Phone)<br>
+                            <b>Billing Information</b> (Name, Address, Address, City, State, Zip, Phone, Credit Card Type, Credit Card Number, Credit Card Expiration Date, Security Code)</li>
+                            <li>The two addresses may be different. The billing information must match what the credit card company has on file for that customer. Add a checkbox to allow the user to use the billing address for the shipping address. <i>[The user shouldn't have to enter the same address twice.]</i></li>
+                            <li>When using/testing your application, please do <b>NOT</b> enter valid credit card information!</li>
+                            <li>Once shipping and billing information has been entered, display an Order Summary page which shows the name and address to which the items will be shipped, the items ordered, and the quantity for each with extension. Include a $5.00 shipping charge and 7.75% sales tax. In California, sales tax is applied to the shipping charge when it is a flat amount, so include the $5.00 shipping charge when calculating the tax. Show a total for the order and give the buyer the options to 'Place Order' or 'Cancel'. Display a confirmation page after a successful purchase to let the customer know the order was accepted and the merchandise is on the way. <i>(The cancel option does not remove items from the shopping cart, but just returns the user to the main page. The 'Place Order' choice should remove the purchased items from the shopping cart.)</i></li>
+                          </ul>
+                          <li>A customer purchase should cause the quantity in the product table in your database to be modified. This will reduce the quatity by the number purchased.</li>
+                          <li>Once the purchase has been completed, there need not be any facility for the customer to return to or view/modify/cancel the order.</li>
+                          <li>Also, note that you are not storing the customer information (name, addresses, credit card # etc). Of course, a real business would store this information in the database, but this has been deleted from your project to keep the size of it manageable.</li>
+                        </ul>
+                        <br>
+                        <p>You may use xhtml, html 5, CSS ,Javascript, AJAX, Bootstrap, jQuery, Java Servlets, JSP, JDBC and also the MySQL database on opatija for this project.</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Additional Notes</h2>
+                    </div>
+
+                    <div class="section">
+                        <h2>Project Details</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
