@@ -91,68 +91,58 @@ body > div {
     font-style: italic;
 }
 .definition {
-    /* Purple */
-    color: rgba(69, 12, 150, 1);
-    /*color: rgba(94, 19, 27, 1);*/
-    /*color: rgba(4, 56, 81, 1);*/
+    color: rgba(69, 12, 150, 1); /* Purple */
     font-weight: bold;
 }
 .definition_element {
-    /* Pale Red*/
-    color: rgba(173, 43, 61, 1);
+    color: rgba(173, 43, 61, 1); /* Pale Red*/
     font-weight: bold;
 }
 .definition_attribute {
-    /* Maroon */
-    color: rgba(140, 22, 30, 1);
+    color: rgba(140, 22, 30, 1); /* Maroon */
     font-weight: bold;
 }
 .definition_value {
-    /* Teal */
-    color: rgba(0, 129, 138, 1);
+    color: rgba(0, 129, 138, 1); /* Teal */
     font-weight: bold;
 }
 .definition_selector {
-    /* Pink */
-    color: rgba(213, 132, 253, 1);
+    color: rgba(213, 132, 253, 1); /* Pink */
     font-weight: bold;
 }
 .definition_javascript {
-    /* Orange */
-    color: rgba(241, 126, 23, 1);
+    color: rgba(241, 126, 23, 1); /* Orange */
     font-weight: bold;
 }
 .definition_swift {
-    /* Dark Pink */
-    color: rgba(141, 72, 168, 1);
+    color: rgba(141, 72, 168, 1); /* Dark Pink */
     font-weight: bold;
 }
 .definition_comment {
-    /* Green */
-    color: rgba(0, 107, 0, 1);
+    color: rgba(0, 107, 0, 1); /* Green */
 }
 .definition_php {
-    /* Orange-Yellow */
-    color: rgba(242, 157, 69, 1);
+    color: rgba(242, 157, 69, 1); /* Orange-Yellow */
     font-weight: bold;
 }
 .definition_perl {
-    /* Blue */
-    /* color: #000180; */
-    /* color: #120D92; */
-    color: #1A27AA;
+    color: #1A27AA; /* Blue */
     font-weight: bold;
 }
 .definition_mysql {
-    color: #C64C4D;
+    color: #C64C4D; /* Pale Pink */
     font-weight: bold;
 }
 .definition_java {
-  color: #670000;
+  color: #670000; /* Maroon */
   font-weight: bold;
 }
 .definition_java_note {
-  color: #C8601A;
+  color: #C8601A; /* Orange */
+  font-weight: bold;
+}
+.highlight {
+  color: #134A18; /* Dark Green */
   font-weight: bold;
 }
 .center_block {
@@ -337,4 +327,11 @@ body > div {
 }
 .table_3_columns td:nth-child(3) {
     width: 40%;
+}
+
+.table_3_columns_even {
+  width: 100%;
+}
+.table_3_columns_even td {
+  width: 30%;
 }

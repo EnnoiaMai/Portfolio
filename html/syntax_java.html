@@ -84,6 +84,11 @@ Date Created: January 2018
                     <p><span class="definition">Compiler</span>: converts a program into low-lvl machine instructions of a computer. Translates high-level language programs into executables.</p>
                     <br>
 
+                    <h3>Compiling and Running Java files</h3>
+                    <p>Use command <span class="highlight">'javac <i>file1 file2</i>'</span> to compile java classes before running them.</p>
+                    <p>Use command <span class="highlight">'java ClassName.java'</span> (assuming main() contained here) to run program.</p>
+                    <br>
+
                     <h3>Basic Output</h3>
                     <p>Use <span class="definition_java">System.out.print</span> and <span class="definition_java">System.out.println</span></p>
                     <p><span class="definition">String literal</span>: text in double quotes <span class="definition_java">""</span></p>
@@ -225,7 +230,8 @@ Date Created: January 2018
                     <ul>
                       <li><span class="definition">Divide-by-zero error</span>: occurs at runtime if divisor is 0</li>
                     </ul>
-                    <table>
+                    <br>
+                    <table class="table_60">
                       <tr>
                         <th>Operator</th>
                         <th>Description</th>
@@ -238,9 +244,17 @@ Date Created: January 2018
                         <td>Compound Operators</td>
                         <td>+=, -=, *=, /=, %=</td>
                       </tr>
+                      <tr>
+                        <td>Increment Operator</td>
+                        <td>++</td>
+                      </tr>
+                      <tr>
+                        <td>Decrement Operator</td>
+                        <td>--</td>
+                      </tr>
                     </table>
                     <br>
-                    <table>
+                    <table class="table_60">
                       <tr>
                         <th colspan="2">Precedence Rules for arithmetic operators</th>
                       </tr>
@@ -290,6 +304,7 @@ Date Created: January 2018
                       <span class="definition">Method</span>: list of statements that can be executed by referring to the method’s name.<br>
                       <span class="definition">Argument</span>: input value to a method between parentheses<br>
                       <span class="definition">Method call</span>: returns a new value</p>
+                    <br>
                     <table>
                       <tr>
                         <th colspan="2">Some methods from Java math class</th>
@@ -362,41 +377,11 @@ Date Created: January 2018
                     </ul>
                     <p><span class="definition">Decimal number</span>: number in the base 10, digit must be 0-9</p>
                     <p><span class="definition">Base 2</span>: each digit must be 0-1 and each digit’s place is weighed by increasing powers of 2<br>
-                      Compiler: decimal → binary → memory location</p>
-                    <br>
-
-                    <h3>Characters</h3>
-                    <p><span class="definition_java">char</span>: variable type that can store a single character</p>
-                    <ul>
-                      <li>To specify a character literal, surround with single quotes e.g. 'm'</li>
-                    </ul>
-                    <p><span class="definition">ASCII</span>: standard for encoding characters as numbers</p>
-                    <ul>
-                      <li>Uses 8 bits</li>
-                      <li>Java uses Unicode standard, which uses 16 bits, and has 64000 items vs 255 items in ASCII</li>
-                    </ul>
-                    <p><span class="definition">Escape sequence</span>: a two-character sequence starting with \ that represents a special character</p>
-                    <br>
-
-                    <h3>String basics</h3>
-                    <p>String: a sequence of characters, uses double quotes, stored as sequence of letters in memory. Each string character has an index (position number).</p>
-                    <ul>
-                      <li>String data type uses capital S</li>
-                      <li>scnr.next(); - used to get next string from input. Only gets next input string up to the next input space, tab, or newline.</li>
-                      <li>scnr.nextLine(); - Reads all user text on input line, up to newline character resulting from user pressing Enter</li>
-                      <li>someString.charAt(0); - returns the first letter</li>
-                    </ul>
-                    <br>
-                    <p>Object: consists of some internal data items plus operations that can be performed on that data</p>
-                    <ul>
-                      <li>String variable is a reference type variable that refers to a String object.</li>
-                      <li>Assigning a new literal to that same variable means that a new String object is created, and the String object’s reference is assigned to that variable</li>
-                      <li>Assigning one string variable to another String variable causes both variables to refer to same String.</li>
-                    </ul>
+                      <span class="highlight">Compiler: decimal → binary → memory location</span></p>
                     <br>
 
                     <h3>Integer Overflow</h3>
-                    <p>Overflow: occurs when the value being assigned to a variable is greater than the max value the variable can store.</p>
+                    <p><span class="definition">Overflow</span>: occurs when the value being assigned to a variable is greater than the max value the variable can store.</p>
                     <ul>
                       <li>Extra bits are lost and lower bits are stored</li>
                       <li>Instead of storing as int (~2billion) can store as long but can still overflow</li>
@@ -405,9 +390,15 @@ Date Created: January 2018
                     <br>
 
                     <h3>Numeric Data Types</h3>
-                    <p>Int used frequently, short and byte rarely, long when necessary. Mantissa and significant digits are limited to 7 in float, and 16 in double. Overflow with floating points result in infinity. For low-cost processors, floating-point calculations slower than int, but for powerful ones, no speed difference. Floating-point numbers sometimes used when integer exceeds max range.</p>
+                    <ul>
+                      <li>Int used frequently, short and byte rarely, long when necessary.</li>
+                      <li>Mantissa and significant digits are limited to 7 in float, and 16 in double.</li>
+                      <li>Overflow with floating points result in infinity.</li>
+                      <li>For low-cost processors, floating-point calculations slower than int, but for powerful ones, no speed difference.</li>
+                      <li>Floating-point numbers sometimes used when integer exceeds max range.</li>
+                    </ul>
                     <br>
-                    <table>
+                    <table class="table_80">
                       <tr>
                         <th colspan="3">Integer numeric data types</th>
                       </tr>
@@ -438,7 +429,7 @@ Date Created: January 2018
                       </tr>
                     </table>
                     <br>
-                    <table>
+                    <table class="table_60">
                       <tr>
                         <th colspan="3">Floating-point numeric data types</th>
                       </tr>
@@ -456,9 +447,9 @@ Date Created: January 2018
                     <br>
 
                     <h3>Random Numbers</h3>
-                    <p>Pseudo-random number generator: produces specific sequence of numbers based on a seed number, sequence seeming random but always being the same for a given seed.</p>
+                    <p><span class="definition">Pseudo-random number generator</span>: produces specific sequence of numbers based on a seed number, sequence seeming random but always being the same for a given seed.</p>
                     <ul>
-                      <li>Random() seeds pseudo-random number generator with a number based on current time, so program will get a different sequence each run, but using Random(num) will seed generator with the value num, which is any “long” value.</li>
+                      <li><span class="definition_java">Random()</span> seeds pseudo-random number generator with a <span class="highlight">number based on current time</span>, so program will get a different sequence each run, but using <span class="definition_java">Random(num)</span> will seed generator with the value num, which is any “long” value.</li>
                     </ul>
                     <br>
   <pre><code class="language-java">
@@ -487,12 +478,12 @@ Date Created: January 2018
   }
   </code></pre>
                     <br>
-                    <p>Relational and equality operators evalue to a boolean value and works for integer, character(compares numerical encodings) and floating-points(shouldn't compare) built-in types.</p>
+                    <p>Relational and equality operators evaluate to a <span class="definition_java">boolean</span> value and works for integer, character(compares numerical encodings) and floating-points(shouldn't compare) built-in types.</p>
                     <ul>
-                      <li>Don't use with strings, instead use equals() and compareTo()</li>
+                      <li>Don't use with strings, instead use <span class="definition_java">equals()</span> and <span class="definition_java">compareTo()</span></li>
                     </ul>
                     <br>
-                    <table>
+                    <table class="table_60">
                       <tr>
                         <th>Operators</th>
                         <th>Description</th>
@@ -507,7 +498,7 @@ Date Created: January 2018
                       </tr>
                     </table>
                     <br>
-                    <table>
+                    <table class="table_60">
                       <tr>
                         <th colspan="2">Precedence rules for logial and relational operators</th>
                       </tr>
@@ -554,58 +545,2345 @@ Date Created: January 2018
 
                     <h3>Switch statements</h3>
                     <p>Switch statement’s expression should be an integer, char, or string. Shouldn’t be a boolean or floating-point type. Must have constant expression which can’t be a variable.</p>
-                    <p>Falling through: occurs when break statement is omitted, which causes next case to be executed. Use when multiple cases should execute same statements.</p>
+                    <p><span class="definition">Falling through</span>: occurs when break statement is omitted, which causes next case to be executed. Use when multiple cases should execute same statements.</p>
                     <br>
-                    <pre><code class="language-java">
-                    switch (expression) {
-                      case constantExpr1:
-                        // statements
-                        break;
-                      case constantExpr2:
-                        // statements
-                        break;
-                      default:
-                        // statements
-                        break;
-                    }
-                    </code></pre>
+  <pre><code class="language-java">
+  switch (expression) {
+    case constantExpr1:
+      // statements
+      break;
+    case constantExpr2:
+      // statements
+      break;
+    default:
+      // statements
+      break;
+  }
+  </code></pre>
                     <br>
 
                     <h3>Boolean data types</h3>
-                    <p>Boolean: possible value of true or false. Use boolean keyword. Can be set to the result of a logical expression</p>
-                    <pre><code class="language-java">
-                    // Setting boolean to result of expression
-                    isNeg = (userNum < 0);
-                    </code></pre>
+                    <p><span class="definition">Boolean</span>: possible value of true or false. Use <span class="definition_java">boolean</span> keyword. Can be set to the result of a logical expression</p>
+  <pre><code class="language-java">
+  // Setting boolean to result of expression
+  isNeg = (userNum < 0);
+  </code></pre>
                     <br>
 
                     <h3>Conditional Expressions</h3>
-                    <p>Conditional expression(ternary operator): shorthand notation for if-else statements</p>
-                    <pre><code class="language-java">
-                    // Restrict ternary operators to an assignment statement
-                    condition ? exprWhenTrue : exprWhenFalse;
-                    </code></pre>
+                    <p><span class="definition">Conditional expression (ternary operator)</span>: shorthand notation for if-else statements</p>
+  <pre><code class="language-java">
+  // Restrict ternary operators to an assignment statement
+  condition ? exprWhenTrue : exprWhenFalse;
+  </code></pre>
                     <br>
 
                     <h3>Floating-point comparison</h3>
-                    <p>Floating-point numbers shouldn’t be compared using == because they can’t be exactly represented in limited available memory bits. Instead, should be compared for “close enough”.</p>
-                    <p>Epsilon: difference threshold indicated that floating-point numbers are equal, depends on program’s expected values.</p>
+                    <p><span class="highlight">Floating-point numbers shouldn’t be compared using == because they can’t be exactly represented in limited available memory bits</span>. Instead, should be compared for “close enough”.</p>
+                    <p><span class="definition">Epsilon</span>: difference threshold indicated that floating-point numbers are equal, depends on program’s expected values.</p>
                     <p>Would have x as input and y as some constant to compare the floating-point numbers</p>
-                    <p>Example: Math.abs(x - y) &lt; 0.0001;</p>
-                    <p>BigDecimal class used in output statement to see inexact value stored in floating-point variable. Floating point values are not always stored with some inaccuracy, sometimes can be represented exactly in finite number of bits, like 0.0, 1.0, 0.25. But other times == will fail. Rounding occurs when variables are printed due to limited number of printed digits.</p>
+                    <p class="definition_java">Example: Math.abs(x - y) &lt; 0.0001;</p>
+                    <p><span class="definition">BigDecimal</span> class used in output statement to see inexact value stored in floating-point variable. Floating point values are not always stored with some inaccuracy, sometimes can be represented exactly in finite number of bits, like 0.0, 1.0, 0.25. But other times == will fail. Rounding occurs when variables are printed due to limited number of printed digits.</p>
                     <br>
-                    <p>www.(Second-level domain).(Top-level domain)</p>
+                    <p><b>Domain Name</b></p>
+                    <p>www.(<b>Second-level domain</b>).(<b>Top-level domain</b>)</p>
                     <br>
-                    <p>Primitive type: something cpu can understand and manipulate directly ex. Integers (byte, short, int, long), floating point numbers (float, double), logical (boolean), and characters (char). Means cpu can store them and has machine-lvl instructions to operate on them.</p>
-                    <p>Reference type: if it’s not primitive. Ex. String object composed of info. like primitive chars, a length, and other. Has methods to operate on the reference.</p>
+                    <p><span class="definition">Primitive type</span>: something cpu can understand and manipulate directly ex. Integers (byte, short, int, long), floating point numbers (float, double), logical (boolean), and characters (char). Means cpu can store them and has machine-lvl instructions to operate on them.</p>
+                    <p><span class="definition">Reference type</span>: if it’s not primitive. Ex. String object composed of info. like primitive chars, a length, and other. Has methods to operate on the reference.</p>
                   </div>
 
                   <div class="section">
                     <h2>Strings and Characters</h2>
+                    <h3>Characters</h3>
+                    <p><span class="definition_java">char</span>: variable type that can store a single character</p>
+                    <ul>
+                      <li>To specify a character literal, surround with single quotes e.g. 'm'</li>
+                    </ul>
+                    <p><span class="definition">ASCII</span>: standard for encoding characters as numbers</p>
+                    <ul>
+                      <li>Uses 8 bits</li>
+                      <li>Java uses Unicode standard, which uses 16 bits, and has 64000 items vs 255 items in ASCII</li>
+                    </ul>
+                    <p><span class="definition">Escape sequence</span>: a two-character sequence starting with \ that represents a special character</p>
+                    <br>
+
+                    <h3>Character Operations</h3>
+                    <p>For the following, each method must prepend Character i.e. Character.isLetter.</p>
+                    <br>
+                    <table class="table_60">
+                      <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>isLetter(c)</td>
+                        <td>True if alphabetic: a-z or A-Z</td>
+                      </tr>
+                      <tr>
+                        <td>isDigit(c)</td>
+                        <td>True if digit: 0-9</td>
+                      </tr>
+                      <tr>
+                        <td>isWhitespace(c)</td>
+                        <td>True of whitespace</td>
+                      </tr>
+                      <tr>
+                        <td>toUpperCase(c)</td>
+                        <td>Uppercase version of the character</td>
+                      </tr>
+                      <tr>
+                        <td>toLowerCase(c)</td>
+                        <td>Lowercase version of the character</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>String basics</h3>
+                    <p><span class="definition">String</span>: a sequence of characters, uses double quotes, stored as sequence of letters in memory. Each string character has an index (position number).</p>
+                    <ul>
+                      <li>String data type uses capital S</li>
+                      <li><span class="definition_java">scnr.next();</span> - used to get next string from input. Only gets next input string up to the next input space, tab, or newline.</li>
+                      <li><span class="definition_java">scnr.nextLine();</span> - Reads all user text on input line, up to newline character resulting from user pressing Enter</li>
+                      <li><span class="definition_java">someString.charAt(0);</span> - returns the first letter</li>
+                      <li>String variable is a reference type variable that refers to a String object.</li>
+                      <li>Assigning a new literal to that same variable means that a new String object is created, and the String object’s reference is assigned to that variable</li>
+                      <li>Assigning one string variable to another String variable causes both variables to refer to same String.</li>
+                    </ul>
+                    <br>
+
+                    <h3>String Comparisons</h3>
+                    <p>Equal strings have the same number of characters, and each corresponding character is identical. The case matters, spaces and special symbols also matter.</p>
+                    <br>
+                    <table class="table_3_to_7">
+                      <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>equals()</td>
+                        <td>Returns true if two strings are equal. Don't use == operator, it compares the strings' addresses, not their content.</td>
+                      </tr>
+                      <tr>
+                        <td>compareTo()</td>
+                        <td>Compares stirngs relationally (alphabetically or lexicographically)<br>
+                        <i>If str1 is less than str2, then a negative number is returned<br>
+                        If str1 is equal to str2, then 0 is returned<br>
+                        If str1 is greater than str2, then a positive number is returned</i>
+                        </td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>String Access Operations</h3>
+                    <p>The following is a list of String methods. The methods are useful for accessing information about a string.</p>
+                    <br>
+                    <table class="table_3_to_7">
+                      <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>charAt(<i>index</i>)</td>
+                        <td>Determines character at an index of a string.</td>
+                      </tr>
+                      <tr>
+                        <td>length()</td>
+                        <td>Number of characters within string.</td>
+                      </tr>
+                      <tr>
+                        <td>isEmpty()</td>
+                        <td>True if length is 0.</td>
+                      </tr>
+                      <tr>
+                        <td>indexOf(<i>item</i>)</td>
+                        <td>Index of the first item occurence, else returns -1. Items may be char, String variable, or string literal. <b>indexOf(<i>item</i>, <i>indx</i>)</b> starts at index indx. <b>lastIndexOf(<i>item</i>)</b> finds the last occurrence.</td>
+                      </tr>
+                      <tr>
+                        <td>substring(<i>startIndex</i>, <i>endIndex</i>)</td>
+                        <td>Returns substring starting at startIndex and ending at endIndex - 1. The length of the substring is given by endIndex - startIndex.</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>String Modify Operations</h3>
+                    <p>The following are methods to modify strings. Each returns a new String object of the appropriate length. Strings are <span class="definition">immutable</span>. Can’t modify a String’s characters, an entirely new String with modifications is created and assigned, original is left like it was.</p>
+                    <br>
+                    <table class="table_3_to_7">
+                      <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>concat(<i>moreString</i>)</td>
+                        <td>Creates a new String that appends the String moreString at the end</td>
+                      </tr>
+                      <tr>
+                        <td>replace(<i>findStr, replaceStr</i>)<br>
+                        replace(<i>findChar, replaceChar</i>)</td>
+                        <td>Returns a new String in which all occurrences of <i>findStr</i> (or <i>findChar</i>) have been replaced with <i>replaceStr</i> (or <i>replaceChar</i>)</td>
+                      </tr>
+                      <tr>
+                        <td>str1 + str2</td>
+                        <td>Returns a new String having str1 with str2 appended. str1 may be a String variable or string literal. Likewise for str2. One of str1 or str2 but not both may be a character.</td>
+                      </tr>
+                      <tr>
+                        <td>str1 += str2</td>
+                        <td>Shorthand for str1 = str1 + str2. str1 must be a String variable, and str2 may be a String variable, a string literal, or a character.</td>
+                      </tr>
+                    </table>
                   </div>
 
                   <div class="section">
                     <h2>Loops</h2>
+                    <p>Three components of loops are variable <span class="highlight">initialization, loop expression, and updating the loop variable</span>.</p>
+                    <p>For loops are used when the number of iterations is computable before entering the loop. While loops are used when the number of iterations is not computable before entering the loop.</p>
+                    <p><span class="definition">Iteration</span>: each execution of the loop body</p>
+                    <p><span class="definition">Infinite Loop</span>: loop that will always execute because loop's expression always evaluates to true</p>
+  <pre><code class="language-java">
+  // While Loop
+  while (expression) {
+    // Loop body
+  }
+
+  // For Loop
+  for (initialExpression; conditionExpression; updateExpression) {
+    // Loop body
+  }
+
+  // Enhanced for loop
+  for each (Type item : collection) {
+    // Loop body
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Break and Continue</h3>
+                    <p><span class="definition">Break statement</span>: causes immediate exit of the loop</p>
+                    <p><span class="definition">Continue statement</span>: causes immediate jump to loop condition check</p>
+  <pre><code class="language-java">
+  // Example
+  first:
+  for (int i = 0; i < 10; i++) {
+    second:
+    for (int j = i; j < 10; j++) {
+      System.out.println(j);
+      if (i == 5) {
+        break first;
+      }
+    }
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Enumerations</h3>
+                    <p><span class="definition">Enumeration type</span>: defines name for a new type and possible values for that type, so that they can be used like built-in types. <span class="definition">Constants</span> are items inside braces. Must include enumeration type and enumerator within that type.</p>
+  <pre><code class="language-java">
+  public enum identifier {
+    enumerator1,
+    enumerator2,
+    ...
+  }
+
+  // Example
+  public enum LightState {
+    RED, GREEN, YELLOW, DONE
+  }
+  LightState lightVal = LightState.RED;
+  </code></pre>
+                  </div>
+
+                  <div class="section">
+                    <h2>Objects and Classes</h2>
+                    <p><span class="definition">Object</span>: consists of some internal data items plus operations that can be performed on that data. Instance of a class type and must be explicitly allcoated.</p>
+                    <p><span class="definition">Class</span>: defines new type that can group data and methods to form an object.</p>
+                    <ul>
+                      <li><span class="definition">Member method</span>: method that is part of a class, can access private fields of the class.</li>
+                      <li><span class="definition">Implementation</span>: details of each member method</li>
+                      <li><span class="definition">Member access operator</span>: "." allows for member-method call</li>
+                    </ul>
+                    <p><span class="definition">Interface (class)</span>: class' public member methods</p>
+                    <p><span class="definition">Fields</span>: a class' member variables, set as private</p>
+                    <p><span class="definition">Class members</span>: a class' fields and methods, usually public</p>
+                    <p>Access modifiers include <span class="definition_java">private</span> and <span class="definition_java">public</span>.</p>
+                    <p><span class="definition_java">main()</span> should be defined in a separate class to distinguish between program's functionality and any defined classes.</p>
+  <pre><code class="language-java">
+  // Instantiating a new object
+  ClassName variableName = new ClassName();
+
+  // Member-method call
+  variableName.memberMethod();
+
+  // Class Example
+  public class ClassName {
+    // Private fields
+    private type fieldName;
+
+    // Public member methods
+    public type memberMethod(parameters) {
+
+    }
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Mutators, Accessors, Private Helpers</h3>
+                    <p><span class="definition">Mutators</span>: may modify or mutate the class' fields.</p>
+                    <ul>
+                      <li><span class="definition">Setter method</span>: mutator for setting field's value.</li>
+                    </ul>
+                    <p><span class="definition">Accessor</span>: accesses fields but may not modify them.</p>
+                    <ul>
+                      <li><span class="definition">Getter method</span>: accessor for getting field's value.</li>
+                    </ul>
+                    <br>
+                    <p><span class="definition">Private Helper Methods</span>: to help public methods carry out their tasks and reduce redundant code.</p>
+                    <br>
+
+                    <h3>Constructors</h3>
+                    <p><span class="definition">Constructor</span>: called automatically when the variable of that class type is allocated, which can be used to initialize all fields.</p>
+                    <p><span class="definition">Default Constructor</span>: constructor that can be called without any arguments. Java compiler implicitly defines a default constructor if class doesn’t have a defined constructor.</p>
+                    <p><span class="definition">Constructor Overloading</span>: done by defining multiple constructors differing in parameter types, to provide different initialized values when creating a new object.</p>
+  <pre><code class="language-java">
+  // Example
+  public class RunnerInfo {
+    private int timeRun;
+    private double distanceRun;
+
+    // Default Constructor
+    public RunnerInfo() {
+      timeRun = 0;
+      distanceRun = 0.0;
+    }
+
+    // A second constructor
+    public RunnerInfo(int timeRunSecs, double distRunMiles) {
+      timeRun = timeRunSecs;
+      distanceRun = distRunMiles;
+    }
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Object and References</h3>
+                    <p><span class="definition">Reference</span>: variable type that refers to an object. Can be thought of as storing memory address of an object. Variables of class data type and array types are reference variables.</p>
+                    <p><span class="definition_java">new</span>: operator allocates memory for an object, then returns a reference to the object’s location in memory. Can't just define or declare it, must assign each reference to an object.</p>
+                    <ul>
+                      <li>Reference variable and its objecct are separate entities in memory.</li>
+                      <li>Two or more reference variables may refer to the same object.</li>
+                    </ul>
+                    <br>
+
+                    <h3>this implicit parameter</h3>
+                    <p><span class="definition">Implicit parameter</span>: when the compiler converts the following syntax into a method call with the object’s reference implicitly passed as a parameter -</p>
+                    <ul>
+                      <li><span class="definition_java">objectReference.method();</span> into <span class="definition_java">method(objectReference, ...);</span></li>
+                    </ul>
+                    <p><span class="definition_java">this</span>: keyword allows access to implicitly-passed object reference wihin a member method. Makes it clear that a class member is being accessed. 'this' contains the address of the object.</p>
+                    <ul>
+                      <li>Can be used in a constructor to invoke difference (overloaded) constructor i.e. <span class="definition_java">this(0, 0)</span></li>
+                    </ul>
+                    <br>
+
+                    <h3>Abstract Data Types</h3>
+                    <p><span class="definition">Abstract Data Type (ADT)</span>: data type whose creation and update are constrained to specific well-defined operations. Class can be used to implement an ADT. Examples include String and ArrayList types.</p>
+                    <p><span class="definition">Information hiding(encapsulation)</span>: ADT aspect wherein internal implementation of an ADT’s data and operations are hidden from the ADT user, allowing user to be more productive. User of an object need only know object’s interface (public member method declarations) and not object’s implementation (member method definitions and private data).</p>
+                    <br>
+
+                    <h3>Primitives and Reference Types</h3>
+                    <p><span class="definition">Primitive type</span>: directly stores data for that variable type, like int, double, or char.</p>
+                    <p><span class="definition">Reference type</span>: can refer to an instance of a class, or object.</p>
+                    <p><span class="definition">Primitive wrapper classes</span>: built-in reference types that augment primitive types. Allow program to create objects that store a single primitive type value. Also provides methods for converting between primitive types, number systems, and primitive types and String representations.</p>
+                    <ul>
+                      <li>New memory allocation occurs every time a new value is assigned to a primitive wrapper type, previous memory location remains unmodified</li>
+                      <li><span class="highlight">Primitive wrapper object is immutable</span>, meaning it can't be changed via methods or variable assignments after object creation.</li>
+                      <li>Primitive wrapper classes (except for Character and Boolean) define <span class="definition_java">MAX_VALUE</span> and <span class="definition_java">MIN_VALUE</span> fields, static fields initialized with max and min values a type may represent.</li>
+                      <li>Equality operators (!= and ==) evaluates to true/false depending on each operand’s referenced object for primitive wrapper classes. Compares reference, not content. May use operators to compare primitive wrapper class object with primitive variable or a literal constant.</li>
+                      <li>Reference variables of primitive wrapper classes can also be compared using <span class="definition_java">equals()</span> and <span class="definition_java">compareTo()</span> methods.</li>
+                    </ul>
+                    <br>
+                    <table class="table_60 center_table_data">
+                      <tr>
+                        <th>Reference type</th>
+                        <th>Associated primitive type</th>
+                      </tr>
+                      <tr>
+                        <td>Character</td>
+                        <td>char</td>
+                      </tr>
+                      <tr>
+                        <td>Integer</td>
+                        <td>int</td>
+                      </tr>
+                      <tr>
+                        <td>Double</td>
+                        <td>double</td>
+                      </tr>
+                      <tr>
+                        <td>Boolean</td>
+                        <td>boolean</td>
+                      </tr>
+                      <tr>
+                        <td>Long</td>
+                        <td>long</td>
+                      </tr>
+                    </table>
+                    <br>
+                    <table class="table_3_to_7">
+                      <tr>
+                        <th colspan="2">Comparing Primitive Wrapper class objects using relational operators</th>
+                      </tr>
+                      <tr>
+                        <td>objectVar == objectVar<br>
+                        (also applies to !=)
+                        </td>
+                        <td>WARNING. Compares references to objects, not the value of the objects.</td>
+                      </tr>
+                      <tr>
+                        <td>objectVar == primitiveVar<br>
+                        (also applies to !=)</td>
+                        <td>OK. Compares value of object to value or primitive variable.</td>
+                      </tr>
+                      <tr>
+                        <td>objectVar == 100<br>
+                        (also applies to !=)</td>
+                        <td>OK. Compares value of object to literal constant.</td>
+                      </tr>
+                      <tr>
+                        <td>objectVar < objectVar<br>
+                        (also applies to <=, >, and >=)</td>
+                        <td>OK. Compares values of objects.</td>
+                      </tr>
+                      <tr>
+                        <td>objectVar < primitiveVar<br>
+                        (also applies to <=, >, and >=)</td>
+                        <td>OK. Compares values of object to value of primitive.</td>
+                      </tr>
+                      <tr>
+                        <td>objectVar < 100<br>
+                        (also applies to <=, >, and >=)</td>
+                        <td>OK. Compares values of object to literal constant.</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>Parameter of Reference Types</h3>
+                    <p><span class="definition">Reference variable</span>: variable that points to object or array, stores a memory location of object it refers. Passing a reference variable as a method argument assigns the argument’s stored reference to the corresponding method parameter. Returning a reference variable returns an object reference.</p>
+                    <ul>
+                      <li>Address values contained by arguments are copied to parameters.</li>
+                    </ul>
+                    <br>
+                    <p>Difference between pass by value (primitive types) and pass by reference(object or primitive wrapper types)</p>
+                    <ul>
+                      <li><span class="highlight">Objects passed by reference, memory location passed to method’s parameter</span>.</li>
+                      <li>Parameter of reference type allows object modification only through object’s public methods or fields.</li>
+                    </ul>
+                  </div>
+
+                  <div class="section">
+                    <h2>User-defined Methods</h2>
+                    <h3>Parameters</h3>
+                    <p><span class="definition">Parameter</span>: input method to affect method’s behavior, like a variable definition. Upon a call, parameter’s memory location allocated, and argument’s value is assigned to the parameter. Upon return, parameter deleted from memory</p>
+                    <p><span class="definition">Argument</span>: value passed to a parameter, an expression</p>
+                    <p><span class="definition">Return statement</span>: returns a value and only one item.</p>
+                    <br>
+
+                    <h3>How methods work</h3>
+                    <p><span class="definition">Stack frame</span>: set of local variables created by each method call, return statement discards these variables.</p>
+                    <ul>
+                      <li>Return statement creates a return address which stores that value, and the value can be set to a variable.</li>
+                    </ul>
+                    <br>
+
+                    <h3>Array parameters</h3>
+                    <ul>
+                      <li>For a variable of primitive type, the argument’s value is <span class="highlight">copied</span> into a local variable for the parameter. This means that any assignments to parameters don’t affect the arguments.</li>
+                      <li>An array is passed to a method by passing a <span class="highlight">reference</span> to the array. The array reference is copied to the method’s parameter, so the method can modify elements of an array argument.</li>
+                      <li>Contents of array/object parameter can be changed in a method, but the array reference passed to the method cannot. Assigning array parameter only updates the local reference, leaving the argument unchanged.</li>
+                    </ul>
+                    <br>
+
+                    <h3>Scope of a variable / Method-definitions</h3>
+                    <p><span class="definition">Scope</span>: name of defined variable/method item which is only visible to part of a program</p>
+                    <ul>
+                      <li>Variable defined in method has scope limited to inside method. Scope starts after definition until method’s end.</li>
+                      <li>If a method’s local variable has the same name as a field, then that name refers to the local item in that method.</li>
+                      <li>Method has scope, extending from class’s opening brace to class’s closing brace.</li>
+                    </ul>
+                    <p><span class="definition">Field (class member variable)</span>: variable defined within class but outside any method</p>
+                    <ul>
+                      <li>Field’s scope extend from class’s opening brace to class’s closing brace.</li>
+                      <li>Sometimes called <span class="definition">global variables</span>.</li>
+                    </ul>
+                    <br>
+
+                    <h3>Method Name Overloading</h3>
+                    <p><span class="definition">Method overloading</span>: two methods with the same name but differing in number or types of parameters.</p>
+                    <ul>
+                      <li>Allowed as long as parameters are distinct.</li>
+                      <li>Two same-named method definition with the same parameter types but different return types will still yield a compiler error.</li>
+                    </ul>
+                  </div>
+
+                  <div class="section">
+                    <h2>Arrays</h2>
+                    <p><span class="definition">Array</span>: an ordered list of items of a given data type. Each item is directly accessible.</p>
+                    <p><span class="definition">Vector</span>: construct like array.</p>
+                    <ul>
+                      <li><span class="definition">Element</span>: each item in an array.</li>
+                      <li><span class="definition">Index</span>: each element’s location number, enables direct access. Use brackets <span class="definition_java">[ ]</span> to indicate that the variable is an array reference.</li>
+                      <li>The compiler/runtime system allocates a contiguous block of memory that has enough room to store the capacity denoted in the array based on its type (int means 4 bytes).</li>
+                      <li>Array’s element default values automatically initialized to 0 for ints and floating-point data types, and false for booleans.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  // Array reference variable declaration
+  dataType[] identifier;
+
+  // Array allocation
+  identifier = new type[numElements];
+
+  // Additional array initialization
+  type[] identifier = {val0, val1, ..., valN - 1};
+
+  // Iterating through arrays
+  for (i = 0; i < numElements; ++i) {
+    // Loop body acccessing myArray[i];
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Swapping two variables</h3>
+                    <p>Swap requires third, temporary variable to hold a value while the other is copied over. Reversing a list with N elements can be achieved by swapping element 1 and N, element 2 and N-1, etc. stopping at middle of list.</p>
+  <pre><code class="language-java">
+  // Reverse array's elements
+  for (i = 0; i < (NUM_ELEMENTS / 2); ++i) {
+    tempVal = userVals[i];
+    userVals[i] = userVals[NUM_ELEMENTS - 1 - i];
+    userVals[NUM_ELEMENTS - 1 - i] = tempVal;
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Two-dimensional Arrays</h3>
+                    <p><span class="definition_java">Int[][] myArray = new int[R][C]</span> for R rows and C columns, conceptually a table.</p>
+                    <p><span class="definition">Row-major order</span>: compiler maps 2D array elements to 1D memory, each row following the previous row.</p>
+  <pre><code class="language-java">
+  // Initializing a 2D array
+  int[][] numVals = { {22, 44, 66}, {97, 98, 99} };
+
+  // Use multiple lines to make rows more visible
+  int[][] numVals = {
+    {22, 44, 66},
+    {97, 98, 99}
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>ArrayList</h3>
+                    <p><span class="definition">Java Collection Framework (JCF)</span>: defines interfaces and classes for common ADT's or collections.</p>
+                    <p><span class="definition">Collections</span>: a generic group of objects known as elements, each is an interface that declares accessible methods. Other collections besides ArrayList are LinkedList, Set, Queue, Map, etc.</p>
+                    <ul>
+                      <li>Use ArrayList as a data structure when you require many accesses and few inserts (<span class="highlight">faster positional access</span>).</li>
+                      <li>Use LinkedList as a data structure when you require many inserts, but  accessing requires iteration (<span class="highlight">faster element insertion and removal</span>).</li>
+                    </ul>
+                    <p><span class="definition">ArrayList</span>: ordered list of reference type items</p>
+                    <ul>
+                      <li>List size can grow.</li>
+                      <li>Doesn’t support primitive types but does support reference types like Integer.</li>
+                      <li>Use <span class="definition_java">import java.util.ArrayList;</span></li>
+                      <li>When accessing the list, the index is an expression and can be used to look up the Nth item in the list.</li>
+                      <li>Don’t use floating-point type to access index value.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  // ArrayList implemented as a generic class supporting different types
+  ArrayList&lt;T&gt; arrayList = new ArrayList&lt;T&gt;();
+  </code></pre>
+                    <br>
+                    <table class="table_3_to_7">
+                      <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>add(<i>element</i>)<br>
+                        add(<i>int index, T newElement</i>)</td>
+                        <td>Creates space for and adds the element at the end of the list or at the specified position in the list.</td>
+                      </tr>
+                      <tr>
+                        <td>remove(<i>T element</i>)<br>
+                        remove(<i>int index</i>)</td>
+                        <td>Removes the first occurrence of the specified element or the element at the specified position in the list.</td>
+                      </tr>
+                      <tr>
+                        <td>get(<i>index</i>)</td>
+                        <td>Returns the element at the index. Indices start at 0.</td>
+                      </tr>
+                      <tr>
+                        <td>set(<i>index, element</i>)</td>
+                        <td>Replaces the element at the specified position in this list with the specified element.</td>
+                      </tr>
+                      <tr>
+                        <td>size()</td>
+                        <td>Returns the number of elements in the list.</td>
+                      </tr>
+                      <tr>
+                        <td>isEmpty()</td>
+                        <td>Returns true if list contains no elements.</td>
+                      </tr>
+                      <tr>
+                        <td>clear()</td>
+                        <td>Removes all of the elements from the list.</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="section">
+                    <h2>Input / Output</h2>
+                    <h3>OutputStream and System.out</h3>
+                    <p><span class="definition">OutputStream</span>: a class that supports output, provides overloaded methods for writing a sequence of bytes to a destination. Sequence normally placed into a buffer, and system outputs buffer at various times.</p>
+                    <p><span class="definition">System.out</span>: predefined output stream object reference associated with system’s standard output e.g. computer screen. System class’ <span class="definition_java">out</span> variable is a reference derived from Output stream called <span class="definition_java">PrintStream</span> (e.g. PrintStream out; in System class).</p>
+                    <p><span class="definition">PrintStream</span>: extends functionality of OutputStream class and provides <span class="definition_java">print()</span> and <span class="definition_java">println()</span> methods for converting different types of data into sequence of characters.</p>
+                    <ul>
+                      <li><span class="definition_java">print()</span> and <span class="definition_java">println()</span> methods overloaded to support many data types, but can also support reference types. Will print out object’s class followed by “@” and then hexadecimal value of object’s hash code.</li>
+                      <li><span class="definition">Hash code</span>: represents object’s address in memory</li>
+                    </ul>
+                    <br>
+
+                    <h3>InputStream and System.in</h3>
+                    <p><span class="definition">InputStream</span>: a class for input, provides overloaded <span class="definition_java">read()</span> methods for programmer to extract bytes from a source.</p>
+                    <p><span class="definition">System.in</span>: a predefined input stream object reference associated with system’s standard input e.g. keyboard. Automatically reads standard input from a buffer (a memory region) that OS fills with input data.</p>
+                    <p><span class="definition">Byte stream</span>: includes <span class="definition_java">System.in</span>, <span class="definition_java">read()</span> method reads 8-bit ASCII value from OS’s buffer. Each value read from the input stream is returned as an int (not byte) so that the programmer can see if the data isn't available (indicated by -1 return value).</p>
+                    <ul>
+                      <li>Means that 8 bits/1byte of data returned by System.in.read().</li>
+                      <li>Must use clause <span class="definition_java">throws IOException</span> to <span class="definition_java">main()</span> when using input stream.</li>
+                    </ul>
+                    <p><span class="definition">Throws clause</span>: tells Java VM that method may exit because of an exception.</p>
+                    <p><span class="definition">Exception</span>: event that disrupts program’s execution.</p>
+                    <p>A program typically uses <span class="definition_java">Scanner</span> class as wrapper that augments System.in by automatically scanning sequence of bytes and converting them to desired data type.</p>
+                    <br>
+  <pre><code class="language-java">
+  // Example of using throws
+  import java.io.IOException;
+
+  public class InputStreamReader {
+    public static void main (String[] args) throws IOException {
+      int userInput = 0;
+    }
+  }
+
+  // Instantiating a Scanner object
+  Scanner scnr = new Scanner(System.in);
+  </code></pre>
+                    <br>
+
+                    <h3>Output formatting</h3>
+                    <p><span class="definition">Output formatting</span>: to adjust the way output appears.</p>
+                    <ul>
+                      <li>Use <span class="definition_java">printf()</span> and <span class="definition_java">format()</span></li>
+                    </ul>
+                    <p><span class="definition">Format string</span>: first argument of <span class="definition_java">printf()</span>, defines format of text that will be printed along with any number of placeholders for printing numeric values.</p>
+                    <p><span class="definition">Format specifiers</span>: placeholders for printing numeric values, defines type of values being printed in place of the format specifier.</p>
+                    <ul>
+                      <li>Begins with <span class="definition_java">%</span> character followed by sequence of characters indicating type of value to be printed.</li>
+                      <li><span class="definition_java">%</span> indicates that we'd like to output value stored within a variable.</li>
+                      <li>For each format specifier within format string, value to be printed must be provided in <span class="definition_java">printf()</span> statement as arguments following format strings.</li>
+                    </ul>
+                    <br>
+                    <p><span class="definition">Format sub-specifiers</span>: define how a value stored within a variable will be printed in place of a format specifier</p>
+                    <ul>
+                      <li>Included between % and format specifier characters</li>
+                    </ul>
+                    <br>
+                    <p><span class="definition">flush()</span>: will immediately flush contents of buffer for the specified OutputStream</p>
+                    <ul>
+                      <li>Used if program is processor-intensive and does not want to wait for processor to apply its resources.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  // Single decimal printf statement example
+  System.out.printf("You know %d people.\n", totalPeople);
+
+  // Multiple format specifiers within a format string
+  System.out.printf("Savings after %d years is: %f\n\n", years, total);
+
+  // Format specifiers and sub-specifiers
+  %(flags)(width)(.precision)specifier
+
+  // Example causes variable to output with only 1 digit after decimal point
+  printf("%.1f", myFloat);
+  </code></pre>
+                    <br>
+                    <table class="table_100">
+                      <tr>
+                        <th colspan="3">Format specifiers for printf() and format()</th>
+                      </tr>
+                      <tr>
+                        <th>Format specifier</th>
+                        <th>Data Type(s)</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>%c</td>
+                        <td>char</td>
+                        <td>Prints a single Unicode character.</td>
+                      </tr>
+                      <tr>
+                        <td>%d</td>
+                        <td>int, long, short</td>
+                        <td>Prints a decimal integer value.</td>
+                      </tr>
+                      <tr>
+                        <td>%o</td>
+                        <td>int, long, short</td>
+                        <td>Prints an octal integer value.</td>
+                      </tr>
+                      <tr>
+                        <td>%h</td>
+                        <td>int, char, long, short</td>
+                        <td>Prints a hexadecimal integer value.</td>
+                      </tr>
+                      <tr>
+                        <td>%f</td>
+                        <td>float, double</td>
+                        <td>Prints a floating-point value.</td>
+                      </tr>
+                      <tr>
+                        <td>%e</td>
+                        <td>float, double</td>
+                        <td>Prints a floating-point value in scientific notation.</td>
+                      </tr>
+                      <tr>
+                        <td>%s</td>
+                        <td>String</td>
+                        <td>Prints the characters in a String variable or literal.</td>
+                      </tr>
+                      <tr>
+                        <td>%%</td>
+                        <td></td>
+                        <td>Prints the '%' character.</td>
+                      </tr>
+                      <tr>
+                        <td>%n</td>
+                        <td></td>
+                        <td>Prints the platform-specific new-line character.</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <table class="table_3_columns">
+                      <tr>
+                        <th colspan="3">Floating-point formatting</th>
+                      </tr>
+                      <tr>
+                        <th>Sub-specifier</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                      </tr>
+                      <tr>
+                        <td>width</td>
+                        <td>Specifies minimum number of characters to be printed. If formatted value has more characters than the width, it will not be truncated. If formatted value has fewer characters than the width, the output will be padded with spaces (or 0's if the '0' flag is specified).</td>
+                        <td>printf("Value: %7.2f", myFloat);<br>
+                        Value: 12.34</td>
+                      </tr>
+                      <tr>
+                        <td>precision</td>
+                        <td>Specifies the number of digits to print following the decimal point. If the precision is not specified, a default precision of 6 is used.</td>
+                        <td>printf("%.4f", myFloat);<br>
+                        12.3400<br><br>
+                        printf("%3.4e", myFloat);<br>
+                        1.2340e+01</td>
+                      </tr>
+                      <tr>
+                        <td>flags</td>
+                        <td>-: Left justifies the output given the specified width, padding the output with spaces.<br>
+                        +: Print a preceding + sign for positive values. Negative numbers are always printed with the - sign.<br>
+                        0: Pads the output with 0's when the formatted value has fewer characters than the width.<br>
+                        space: Prints a preceding space for positive value.</td>
+                        <td>printf("%+f", myFloat);<br>
+                        +12.340000<br><br>
+                        printf("%08.2f", myFloat);<br>
+                        00012.34</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <table class="table_3_columns">
+                      <tr>
+                        <th colspan="3">Integer Formatting</th>
+                      </tr>
+                      <tr>
+                        <th>Sub-specifier</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                      </tr>
+                      <tr>
+                        <td>width</td>
+                        <td>Specifies minimum number of characters to be printed. If formatted value has more characters than the width, it will not be truncated. If formatted value has fewer characters than the width, the output will be padded with spaces (or 0's if the '0' flag is specified).</td>
+                        <td>printf("Value: %7d", myInt);<br>
+                        Value: 301</td>
+                      </tr>
+                      <tr>
+                        <td>flags</td>
+                        <td>-: Left justifies the output given the specified width, padding the output with spaces.<br>
+                        +: Print a preceding + sign for positive values. Negative numbers are always printed with the - sign.<br>
+                        0: Pads the output with 0's when the formatted value has fewer characters than the width.<br>
+                        space: Prints a preceding space for positive value.</td>
+                        <td>printf("%+d", myInt);<br>
+                        +301<br><br>
+                        printf("%08d", myInt);<br>
+                        00000301<br><br>
+                        printf("%+08d", myInt);<br>
+                        +0000301</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <table class="table_3_columns">
+                      <tr>
+                        <th colspan="3">String formatting</th>
+                      </tr>
+                      <tr>
+                        <th>Sub-specifier</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                      </tr>
+                      <tr>
+                        <td>width</td>
+                        <td>Specifies minimum number of characters to be printed. If the string has more characters than the width, it will not be truncated. If formatted value has fewer characters than the width, the output will be padded with spaces.</td>
+                        <td>printf("%20s String", myString);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Formatting String</td>
+                      </tr>
+                      <tr>
+                        <td>precision</td>
+                        <td>Specifies the maximum number of characters to be printed. If the string has more characters than the precision, it will be truncated.</td>
+                        <td>printf("%.6s", myString);<br>
+                        Format</td>
+                      </tr>
+                      <tr>
+                        <td>flags</td>
+                        <td>-: Left justifies the output given the specified width, padding the output with spaces.</td>
+                        <td>printf("%-20s String", myString);<br>
+                        Formatting&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>Streams using Strings</h3>
+                    <p><span class="definition">Input String Stream</span>: scanner object initialized from a String rather than from keyboard (standard input).</p>
+                    <ul>
+                      <li>Uses <span class="definition_javascript">import java.util.Scanner</span>.</li>
+                      <li><span class="definition_javascript">Scanner inSS = new Scanner(userInfo);</span> creates Scanner object in which associated input stream is initialized with copy of myString. Program extracts data from scanner inSS using next() methods.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  import java.util.Scanner;
+
+  public class StringInputStream {
+    public static void main(String[] args) {
+      Scanner inSS = null;
+      String userInfo = "Amy Smith 19";
+      String firstName = "";
+      String lastName = "";
+      int userAge = 0;
+
+      // Initialize scanner object with string
+      firstName = inSS.next();
+      lastName = inSS.next();
+      userAge = inSS.nextInt();
+
+      // Output parsed values
+      System.out.println("First name: " + firstName);
+      System.out.println("Last name: " + lastName);
+      System.out.println("Age: " + userAge);
+
+      return;
+    }
+  }
+  </code></pre>
+                    <br>
+                    <p><span class="definition">Output string stream</span>: associated with a string rather than with the screen (standard output)</p>
+                    <ul>
+                      <li>Available using <span class="definition_java">import java.io.StringWriter;</span> and <span class="definition_java">import java.io.PrintWriter;</span></li>
+                      <li>Created using both <span class="definition_java">StringWriter</span> and <span class="definition_java">PrintWriter</span> classes.</li>
+                    </ul>
+                    <p><span class="definition">StringWriter</span>: provides character stream to output characters.</p>
+                    <p><span class="definition">PrintWriter</span>: wrapper class that augments character streams, like StringWriter, using <span class="definition_java">print()</span> and <span class="definition_java">println()</span> methods to output various data types to underlying character stream.</p>
+                    <ul>
+                      <li>Use <span class="definition_java">print()</span> and <span class="definition_java">println()</span> from PrintWriter and <span class="definition_java">toString()</span> from StringWriter.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  System.out.println("Enter \"firstname lastname age\" on each line");
+  System.out.println("(\"Exit\" as firstname exits).\n");
+
+  // Grab data as long as "Exit" is not entered
+  while (!inputDone) {
+    // Entire line into lineString
+    lineString = scnr.nextLine();
+
+    // Create new input string stream
+    inSS = new Scanner(lineString);
+
+    // Now process the line
+    firstName = inSS.next();
+
+    // Output parsed values
+    if (firstName.equals("Exit")) {
+      System.out.println("    Exiting.");
+
+      inputDone = true;
+    }
+    else {
+      lastName = inSS.next();
+      userAge = inSS.nextInt();
+
+      System.out.println("    First name: " + firstName);
+      System.out.println("    Last name: " + lastName);
+      System.out.println("    Age: " + userAge);
+      System.out.println();
+    }
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>File Input / Output</h3>
+                    <p>Can get input from file rather than from keyboard. Create new input stream that comes from file rather than input stream System.in.</p>
+                    <br>
+  <pre><code class="language-java">
+  import java.util.Scanner;
+  import java.io.FileInputStream;
+  import java.io.IOException;
+
+  public class FileReadNums {
+    public static void main(String[] args) throws IOException {
+      FileInputStream fileByteStream = null;
+      Scanner inFS = null;
+      int fileNum1 = 0;
+      int fileNum2 = 0;
+
+      // Try to open file
+      System.out.println("Opening file myfile.txt");
+      fileByteStream = new FileInputStream("myfile.txt");
+      inFS = new Scanner(fileByteStream);
+
+      // File is open and valid so far, myfile.txt should contain two integers,
+      // else problems
+      System.out.println("Reading two ingegers.");
+      fileNum1 = inFS.nextInt();
+      fileNum2 = inFS.nextInt();
+
+      // Output values read from file
+      System.out.println("num1: " + fileNum1);
+      System.out.println("num2: " + fileNum2);
+      System.out.println("num1+num2: " + (fileNum1 + fileNum2));
+
+      // Try to close file, can throw IOException if fails
+      System.out.println("Closing file myfile.txt");
+      fileByteStream.close()
+
+      return;
+    }
+  }
+  </code></pre>
+                    <br>
+
+                    <p><span class="definition">FileInputStream</span>: derived from InputStream, letting programmer read bytes from a file.</p>
+                    <p><span class="definition">IOException class</span>: provides mechanisms for exception throwing and handling.</p>
+                    <ul>
+                      <li>Use <span class="definition_java">import java.io.FileInputStream;</span> and <span class="definition_java">import java.io.IOException;</span></li>
+                    </ul>
+                    <p><span class="definition_java">hasNextInt()</span>: method returns true if an integer is available for reading. Returns false if next item in file is not an integer or if previous stream operation reached end of file.</p>
+  <pre><code class="language-java">
+  System.out.println("Reading and printing numbers.");
+  fileNum = inFS.nextInt();
+
+  while (inFS.hasNextInt()) {
+    System.out.println("num: " + fileNum);
+
+    fileNum = inFS.nextInt();
+  }
+  System.out.println("num: " + fileNum);
+
+  // Try to close file, may throw IOException if fails
+  System.out.println("Closing file myfile.txt");
+  fileByteStream.close();
+
+  return;
+  </code></pre>
+                    <br>
+
+                    <p><span class="definition">FileOutputStream</span>: a kind of OutputStream, lets output to be written to a file. PrintWriter object created and lets programmer use print() and println() methods to write data types to file.</p>
+  <pre><code class="language-java">
+  import java.io.PrintWriter;
+  import java.io.FileOutputStream;
+  import java.io.IOException;
+
+  public class FileWriteSample {
+    public static void main(String[] args) throws IOException {
+      FileOutputStream fileByteStream = null;
+      PrintWriter outFS = null;
+
+      // Try to open file
+      fileByteStream = new FileOutputStream("myoutfile.txt");
+      outFS = new PrintWriter(fileByteStream);
+
+      // Can now write to file
+      outFS.println("Hello");
+      outFS.println("1 2 3");
+      outFS.flush();
+
+      // Try to close file, may throw IOException if fails
+      fileByteStream.close();
+
+      return;
+    }
+  }
+  </code></pre>
+                  </div>
+
+                  <div class="section">
+                    <h2>Abstract Class and Inheritance</h2>
+                    <p><span class="definition">Class</span>: encapsulates data and behavior to create objects.</p>
+                    <p><span class="definition">Inheritance</span>: lets one class, a subclass, be based on another class, a superclass.</p>
+                    <p><span class="definition">Abstract Class</span>: guides design of subclasses but can’t be instantiated as an object, specifies any required behavior of the subclass (any methods the subclass must implement).</p>
+                    <ul>
+                      <li>Use <span class="definition_java">abstract</span> keyword in front of class definition.</li>
+                      <li>Abstract class can contain non-abstract methods and variables that are shared by subclasses.</li>
+                    </ul>
+                    <p><span class="definition">Concrete class</span>: class that isn’t abstract, can be instantiated..</p>
+                    <p><span class="definition">Abstract method</span>: method that each subclass must implement to be a concrete class, if subclass doesn’t implement the method(s), must be defined as abstract.</p>
+                    <p><span class="definition">Method signature</span>: defines method’s name, parameters, and return type.</p>
+                    <br>
+
+                    <h3>Abstraction and Polymorphism</h3>
+                    <p><span class="highlight">Abstract classes provide runtime polymorphism</span>, which lets programmer use an abstract method without worrying about which concrete class implements that method. When program executes, JVM will automatically call method of concrete class.</p>
+                    <p>Inheritance and polymorphism lets a class override the methods defined in the superclass, but a class can only inherit, or extend, from a single superclass.</p>
+                    <br>
+  <pre><code class="language-java">
+  // Polymorphism example
+  import java.util.ArrayList;
+
+  public class PolymorphismExample {
+    public static void main(String[] args) {
+      ArrayList&lt;Shape&gt; shapesList = new ArrayList&lt;Shape&gt;();
+
+      Circle circle = new Circle(new Point(0.0, 0.0), 1.0);
+      shapesList.add(circle);
+
+      Rectangle rectangle = new Rectangle(new Point(0.0, 0.0), new Point(2.0, 2.0));
+      shapesList.add(rectangle);
+
+      for (Shape shape : shapesList) {
+        System.out.println("Shape is: " + shape.getClass() + " and area is: " +
+          shape.computeArea());
+      }
+
+      return;
+    }
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Interfaces</h3>
+                    <p><span class="definition">Interface</span>: specifies a set of methods that an implementing class must override and define. Another mechanism for programmers to state that a class adheres to rules defined by the interface.</p>
+                    <ul>
+                      <li>Use keyword <span class="definition_java">interface</span>.</li>
+                      <li>Any class that implements an interface must -
+                        <ol>
+                          <li>List the interface name after the keyword <span class="definition_java">implements</span>.</li>
+                          <li>Override and implement the interface's methods.</li>
+                        </ol>
+                      </li>
+                      <li>Multiple interfaces can be implemented using a comma-separated list.</li>
+                    </ul>
+                    <p><span class="definition">Implement</span>: means that a class adheres to the rules defined by an interface.</p>
+                    <ul>
+                      <li>Interfaces can’t be instantiated, methods declared by interface must be overridden and defined by implementing class. Contains only method declarations, no definitions.</li>
+                    </ul>
+                    <br>
+                    <p>Only abstract classes can provide code to subclasses. Interfaces provide method declarations but no code implementing methods. Interfaces can define public static final fields and don’t restrict a class’ inheritance. Only abstract classes can provide variables/fields to the subclasses.</p>
+                    <br>
+  <pre><code class="language-java">
+  // Example of defining interfaces
+  import java.awt.Graphics2D;
+
+  public interface Drawable {
+    public void draw(Graphics2D graphicsObject);
+  }
+
+  public interface DrawableASCII {
+    public void drawASCII(char drawChar);
+  }
+  </code></pre>
+                  </div>
+
+                  <div class="section">
+                    <h2>Inheritance</h2>
+                    <h3>Derived Classes</h3>
+                    <p>Derive by using keyword <span class="definition_java">extends</span> in the class initializing statement.</p>
+                    <p><span class="definition">Subclass</span>: derived class, class that is derived from another class.</p>
+                    <p><span class="definition">Base class</span>: another and any class that can act as a superclass.</p>
+                    <p><span class="definition">Inheritance</span>: the derived class inherits the properties of its base class.</p>
+                    <ul>
+                      <li>An object defined in a subclass has access to all public members of the derived class and public members of the base class.</li>
+                    </ul>
+                    <br>
+                    <p class="highlight">Various class derivation variaions:</p>
+                    <ol>
+                      <li>Derived class can itself serve as a base class for another class.</li>
+                      <li>A class can serve as a base class for multiple derived classes.</li>
+                      <li>A class can only be derived from one base class directly, ex. inheriting from two classes or more will lead to a compiler error.</li>
+                    </ol>
+                    <br>
+
+                    <h3>Access by Members of Derived Classes</h3>
+                    <p>Members of a derived class have access to public members of the base class, but not to private members of the base class.</p>
+                    <p><span class="definition">Protected</span>: provides access to derived classes and other classes in same package but not by anyone else.</p>
+                    <p><span class="definition">Package</span>: directory in which program files are located. Classes in same package are located in same directory.</p>
+                    <p>For example, being specified as protected, member baseName is accessible anywhere in derived class, and in main() of a different class because protected specifier also allows access to classes in the same package.</p>
+                    <p><span class="definition">Public</span>: class can be used by every class in program regardless of package in which either is defined.</p>
+                    <p><span class="definition">Package private (no specifier)</span>: class can be used only in other classes within same package.</p>
+                    <br>
+                    <table class="table_3_to_7">
+                      <tr>
+                        <th colspan="2">Access specifiers for class members</th>
+                      </tr>
+                      <tr>
+                        <th>Specifier</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>private</td>
+                        <td>Accessible by self.</td>
+                      </tr>
+                      <tr>
+                        <td>protected</td>
+                        <td>Accessible by self, derived classes, and other classes in the same package.</td>
+                      </tr>
+                      <tr>
+                        <td>public</td>
+                        <td>Accessible by self, derived classes, and everyone else.</td>
+                      </tr>
+                      <tr>
+                        <td>no specifier</td>
+                        <td>Accessible by self and other classes in the same package.</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>Overriding member methods</h3>
+                    <p><span class="definition">Overrides</span>: derived class may define a member method having same name as base class, member method would override the method of base class.</p>
+                    <ul>
+                      <li>Derived class in overriding takes precedence over base class member method with same name and parameter types</li>
+                    </ul>
+                    <p><span class="definition">Annotations</span>: optional notes beginning with <span class="definition_java">“@”</span> symbol that can provide compiler with useful information in order to help compiler detect errors better.</p>
+                    <ul>
+                      <li>Example is <span class="definition_java">@Override</span></li>
+                    </ul>
+                    <p><span class="definition">super</span>: used to access class members of an object’s base class, i.e. superclass instead of object’s own class members</p>
+                    <ul>
+                      <li>overriding function can still call overridden method using this keyword, as in <span class="definition_java">super.printItem();</span> in the following example.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  // Example of method calling overridden method of base class (i.e. superclass)
+  public class ProduceItem extends GenericItem {
+    @Override
+    public void printItem() {
+      super printItem();
+      System.out.println(" (Expires: " + expirationDate + ")");
+      return;
+    }
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>The Object class</h3>
+                    <p><span class="definition">Object class</span>: serves as base class for all other classes, doesn’t have superclass, located at root of Java class hierarchy.</p>
+                    <ul>
+                      <li><span class="definition_java">toString()</span>: returns string representation of Object. By default, method returns String containing name of class of which object is an instance, followed by object’s hexadecimal address in memory</li>
+                      <li><span class="definition_java">equals(otherObject)</span>: compares object to another object and returns true if both variables reference the same object. Otherwise, returns false. By default, method tests equality of references, not their contents.</li>
+                    </ul>
+                    <br>
+
+                    <h3>Polymorphism</h3>
+                    <p><span class="definition">Polymorphism</span>: determining which program behavior to execute depending on data types.</p>
+                    <ul>
+                      <li><span class="definition">Compile-time polymorphism</span>: method overloading is a form of this, compiler determines which of several identically-named methods to call based on method’s arguments.</li>
+                      <li><span class="definition">Run-time polymorphism</span>: compiler can’t make determination until program is running.</li>
+                    </ul>
+                    <p><span class="definition">Derived/Base class Reference Conversion</span>: a reference to a derived class can be converted to a reference to the base class without explicit casting, which is in contrast to other data type conversions like converting double to an int which must be explicitly casted.</p>
+                    <ul>
+                      <li>JVM automatically performs runtime polymorphism, it dynamically determines correct method to call based on actual object type to which the variable/element refers.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  public class ItemInventory {
+
+    public static void main(String[] args) {
+      GenericItem genericItem1;
+      ProduceItem produceItem1;
+      ArrayList&lt;GenericItem&gt; inventoryList = new ArrayList&lt;GenericItem&gt;();
+      int i = 0;
+
+      // Polymorphism - the correct printItem() will be called
+      inventoryList.add(genericItem1);
+      inventoryList.add(produceItem1);
+      System.out.println("\nInventory: ");
+      for (i = 0; i < inventoryList.size(); ++i) {
+        inventoryList.get(i).printItem();
+      }
+      return;
+    }
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>ArrayList of Objects</h3>
+                    <ul>
+                      <li>Java automatic conversion of derived class references to base class references.</li>
+                      <li><span class="definition_java">System.out.println(objList.get(i));</span> doesn’t need to explicitly call each element’s <span class="definition_java">toString()</span> method because each element is concatenated within a String literal.</li>
+                      <li>Method operating on a collection of Object elements may only invoke methods declared by the base class (e.g. Object class).</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  public class ArrayPrinter {
+    // Method prints an ArrayList of Objects
+    public static void PrintArrayList(ArrayList&lt;Object&gt; objList) {
+      int i = 0;
+
+      for (i = 0; i < objList.size(); ++i) {
+        System.out.println(objList.get(i));
+      }
+      return;
+    }
+
+    public static void main(String[] args) {
+      ArrayList&lt;Object&gt; objList = new ArrayList&lt;Object&gt;();
+
+      // Add new instances of various classes to objList
+      objList.add(new Integer(12));
+      objList.add(new IntegerWithBase(10, 2));
+      objList.add(new Double(3.14));
+      objList.add(new String("Hello!"));
+      objList.add(new Object());
+
+      // Call method to print list of objects
+      PrintArrayList(objList);
+      return;
+    }
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Is-a versus has-a relationships</h3>
+                    <p><span class="definition">Composition</span>: one object may be made up of other objects, doesn’t have to involve inheritance.</p>
+                    <ul>
+                      <li>It has a 'has a' relationship.</li>
+                      <li>Inheritance involves a 'is a' relationship.</li>
+                    </ul>
+                  </div>
+
+                  <div class="section">
+                    <h2>Exceptions</h2>
+                    <h3>Exception basics</h3>
+                    <p><span class="definition">Exception</span>: a circumstance that the program was not designed to handle, such as if the user enters a negative height.</p>
+                    <p><span class="definition">Exception-handling constructs</span>: <span class="definition_java">try</span>, <span class="definition_java">throw</span>, and <span class="definition_java">catch</span>, to keep error-checking code separate and to reduce redundant checks.</p>
+                    <ul>
+                      <li><span class="definition_java">try</span>: block surrounds normal code, which is exited immediately if a throw statement executes.</li>
+                      <li><span class="definition_java">throw</span>: statement appears within try block; if reached, execution jumps immediately to end of try block. Code written so only error situations lead to reaching a throw. Syntax similar to a return statement.<br>
+                      <span class="definition_java">Throwable</span>: an object type, such as of type Exception or its subclasses.</li>
+                      <li><span class="definition_java">catch</span>: immediately follows try block; if catch was reached due to an exception throw of the catch clause’s parameter type, then the clause executes. Clause is said to catch the thrown exception.<br>
+                      <span class="definition">Handler</span>: catch block called this because it handles an exception</li>
+                      <li>finally block: follows all catch blocks, and executes after program exits corresponding try or catch blocks.
+                        <ul>
+                          <li>If an exception is thrown in a try block, the corresponding catch block will execute, followed by the finally block. If exception is not thrown in the try block, the finally block will execute once try block completes.</li>
+                          <li>Use finally blocks for code that should be executed both if the code executed normally and when an exception is thrown.</li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <br>
+                    <p>Object thrown and caught must be of Throwable class type or its subclasses. Java offers Throwable types like <span class="definition_java">Error</span>, <span class="definition_java">Exception</span>, and their derivatives. Exception class can be passed a string as in <span class="definition_java">throw new Exception(“Invalid weight.”);</span> and the internal String value is retrieved by <span class="definition_java">excpt.getMessage();</span></p>
+                    <br>
+  <pre><code class="language-java">
+  try {
+    // If error detected
+    throw objectOfExceptionType;
+  }
+  catch (exceptionType excptObj) {
+    // Handle exception
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Exceptions with methods</h3>
+                    <p>If exception is thrown within a method and not caught within that method, then method is immediately exited and the calling method is checked for a handler, and so on up the method call hierarchy.</p>
+                    <p>Then, programmer must include <span class="definition">throws clause</span> within method declaration, by appending <span class="definition_java">throws Exception</span> before opening curly brace.</p>
+                    <br>
+  <pre><code class="language-java">
+  // Example
+  public static int getWeight() throws Exception {
+    Scanner scnr = new Scanner(System.in);
+    int weightParam = 0;
+
+    // Get user data
+    System.out.print("Enter weight (in pounds): ");
+    weightParam = scnr.nextInt();
+
+    // Error checking, non-negative weight
+    if (weightParam < 0) {
+      throw new Exception("Invalid weight.");
+    }
+    return weightParam;
+  }
+
+  while (quitCmd != 'q') {
+    try {
+      // Get user data
+      weightVal = getWeight();
+      heightVal = getHeight();
+
+      // Calculate BMI and print user health info if no input error
+      bmiCalc = ((float) weightVal / (float) (heightVal * heightVal)) * 703.0f;
+      System.out.println("BMI: " + bmiCalc);
+      System.out.println("(CDC: 18.6-24.9 normal)");
+    } catch (Exception excpt) {
+      // Prints the error message passed by throw statement
+      System.out.println(excpt.getMessage());
+      System.out.println("Cannot compute health info");
+    }
+  }
+  </code></pre>
+                    <br>
+                    <p><span class="definition">Checked exception</span>: exception that programmer should be able to anticipate and handle.</p>
+                    <p><span class="definition">Unchecked exceptions</span>: exceptions that result from hardware/logic errors that typically can’t be anticipated/handled appropriately, and should be eliminated from program or cause program to terminate.</p>
+                    <ul>
+                      <li>Comprised of <span class="definition_java">Error</span> and <span class="definition_java">RuntimeException</span> classes and subclasses.</li>
+                    </ul>
+                    <br>
+                    <table class="table_3_to_7">
+                      <tr>
+                        <th colspan="2">Common unchecked exceptions</th>
+                      </tr>
+                      <tr>
+                        <th>Unchecked exception</th>
+                        <th>Notes</th>
+                      </tr>
+                      <tr>
+                        <td>NullPointerException</td>
+                        <td>Indicates a null reference.</td>
+                      </tr>
+                      <tr>
+                        <td>IndexOutOfBoundsException</td>
+                        <td>Indicates that an index (e.g. an index for an array) is outside the appropriate range.</td>
+                      </tr>
+                      <tr>
+                        <td>ArithmeticException</td>
+                        <td>Indicates the occurrence of an exceptional arithmetic condition (e.g. integer division by zero).</td>
+                      </tr>
+                      <tr>
+                        <td>IOError</td>
+                        <td>Indicates the failure of an I/O operation.</td>
+                      </tr>
+                      <tr>
+                        <td>ClassCastException</td>
+                        <td>Indicates an invalid attempt to cast an object to type of which the object is not an instance (e.g. casting a Double to a String).</td>
+                      </tr>
+                      <tr>
+                        <td>IllegalArgumentException</td>
+                        <td>Thrown by a method to indicate an illegal or inappropriate argument.</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>Multiple Handlers</h3>
+                    <p>Different throws in a try block may throw different exception types. Multiple handlers may exist, each handling a different type. If it is handled, the first handler executes, while the remaining are skipped.</p>
+                    <ul>
+                      <li>Place a catch block intended to handle exceptions of a base class before catch blocks intended to handle exceptions of a derived class.</li>
+                    </ul>
+                    <p><span class="definition_java">catch(Throwable throwObj)</span>: a catch-all handler that catches any error or exception as both are derived from Throwable class; <span class="highlight">useful when listed as the last handler</span>.</p>
+                    <br>
+  <pre><code class="language-java">
+  try {
+    throw objOfExcptType1;
+    ...
+    throw objOfExcptType1;
+    ...
+    throw objOfExcptType1;
+    ...
+  }
+  catch (excptType1 excptObj) {
+    // Handle type1
+  }
+  catch (excptType2 excptObj) {
+    // Handle type2
+  }
+  catch (Throwable throwObj) {
+    // Handle others
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Exception Handling in File I/O</h3>
+                    <p><span class="definition">FileReader class</span>: provides an input stream that lets the programmer read characters from a file specified via its constructor. Supports overloaded <span class="definition_java">read()</span> methods for reading characters and a <span class="definition_java">close()</span> method for terminating stream and closing the file. Most throw exceptions are of type IOException.</p>
+                    <p><span class="definition">FileNotFoundException</span>: inherits from <span class="definition_java">IOException</span>, <span class="definition_java">FileReader</span>’s constructor may throw this if the specified file can’t be opened for reading.</p>
+                    <br>
+                    <p>Program execution immediately jumps to end of try block as soon as a contained statement throws an Exception, must ensure JVM clean up resources associated with file streams.</p>
+                    <br>
+                    <p><span class="definition">FileWriter</span>: provides overloaded <span class="definition_java">write()</span> methods to write stream of characters and a <span class="definition_java">close()</span> method to flush underlying buffer and close the stream. Both may throw IOException if program or OS can’t create/open the specified file.</p>
+                    <br>
+  <pre><code class="language-java">
+  try {
+    // Prompt user for input, FileReader constructor may throw FileNotFoundException
+    System.out.println("Opening file " + fileName + ".");
+    fileCharStream = new FileReader(fileName);
+
+    // Use file input stream which may throw IOException if read() fails
+    // -1 means end of file has been reached
+    System.out.print("Reading character values: ");
+    while (charRead != -1) {
+      charRead = fileCharStream.read();
+      System.out.print(charRead + " ");
+    }
+
+    // Done with file, so try to close it which may throw IOException if fails
+    if (fileCharStream != null) {
+      System.out.println("\nClosing file " + fileName + ".");
+      fileCharStream.close()
+    }
+  } catch (IOException excpt) {
+    System.out.println("Caught IOException: " + excpt.getMessage());
+  }
+  </code></pre>
+                  </div>
+
+                  <div class="section">
+                    <h2>GUI</h2>
+                    <h3>Basic Graphics</h3>
+                    <p><span class="definition">Graphical application</span>: program that displays drawings and other graphical objects. Display their contents inside a window called a <span class="definition">frame</span> using <span class="definition">JFrame</span> object.</p>
+                    <br>
+                    <p>Creating a JFrame object for a graphical application</p>
+                    <ol>
+                      <li>Set the frame’s size using <span class="definition_java">setSize()</span> method.</li>
+                      <li>Set the frame’s title using <span class="definition_java">setTitle()</span> method with string as argument, can also use JFrame constructor.</li>
+                      <li>Set frame’s closing operation using <span class="definition_java">setDefaultCloseOperation()</span>.</li>
+                      <li>Make frame visible using <span class="definition_java">setVisible()</span> method.</li>
+                    </ol>
+                    <br>
+  <pre><code class="language-java">
+  import javax.swing.JFrame;
+
+  public class EmptryFrame {
+    public static void main(String[] args) {
+
+      // Construct the JFrame object
+      JFrame appFrame = new JFrame();
+
+      // Set the frame's width (400) and height (250) in pixels
+      appFrame.setSize(400, 250);
+
+      // Set the frame's title
+      appFrame.setTitle("An Empty Frame");
+
+      // Set the program to exit when the user closes the frame
+      appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+      // Make the frame visible to the user
+      appFrame.setVisible(true);
+
+      return;
+    }
+  }
+  </code></pre>
+                    <br>
+                    <p><span class="definition">JComponent</span>: blank graphical component that a programmer extends/customizes with custom code in order to draw basic shapes.</p>
+                    <ul>
+                      <li>Cast Graphics object to Graphics2D - <span class="definition_java">Graphics2D graphicsObj = (Graphics2D)g;</span></li>
+                      <li>Create a Rectangle object - <span class="definition_java">Rectangle(int x, int y, int width, int height)</span></li>
+                      <li>Create a Color object - <span class="definition_java">Color binColor1 = new Color(128, 128, 0);</span></li>
+                      <li>Set the color used by Graphics2D object - <span class="definition_java">setColor()</span></li>
+                      <li>Draw the shape - <span class="definition_java">draw()</span> for outline, <span class="definition_java">fill()</span> for filling</li>
+                    </ul>
+  <pre><code class="language-java">
+  import java.awt.Graphics;
+  import javax.swing.JComponent;
+
+  public class MyCustomJComponent extends JComponent {
+    public void paintComponent(Graphics g) {
+      // Cast to Graphics2D
+      Graphics2D graphicsObj = (Graphics2D)g;
+
+      // Drawing instructions
+      // Draw 1st bin as olive-colored rectangle at (10, 10) with
+      // width = 200 and height = 50
+      Rectangle binRectangle1 = new Rectangle(10, 10, 200, 50);
+      Color binColor1 = new Color(128, 128, 0);
+      graphicsObj.setColor(binColor1);
+      graphicsObj.fill(binRectangle1);
+    }
+  }
+
+  // Another example
+  import java.swing.JFrame;
+
+  public class HistogramViewer {
+    public static void main(String[] args) {
+      JFrame appFrame = new JFrame();
+      HistogramComponent histogramComponent = new HistogramComponent();
+
+      appFrame.setSize(400, 250);
+      appFrame.setTitle("Histogram Viewer");
+      appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+      // Add the HistogramComponent object to the frame
+      appFrame.add(histogramComponent);
+
+      // Set the frame and its contents visible
+      appFrame.setVisible(true);
+
+      return;
+    }
+  }
+  </code></pre>
+                    <br>
+                    <p>Top-left corner is (0, 0) in this positioning coordinate system. X-coordinate increases horizontally to right and y-coordinate increases vertically downward.</p>
+                    <br>
+                    <table class="table_3_to_7">
+                      <tr>
+                        <th colspan="2">Summary of common shapes for drawing</th>
+                      </tr>
+                      <tr>
+                        <th>Shape</th>
+                        <th>Description</th>
+                      </tr>
+                      <tr>
+                        <td>Rectangle</td>
+                        <td>The Rectangle class for drawing a rectangle.</td>
+                      </tr>
+                      <tr>
+                        <td>RoundRectangle2D</td>
+                        <td>The RoundRectangle2D class for drawing a rectangle with rounded corners.</td>
+                      </tr>
+                      <tr>
+                        <td>Ellipse2D.Double</td>
+                        <td>The Ellipse2D.Double class for drawing an ellipse with a size and location.</td>
+                      </tr>
+                      <tr>
+                        <td>Line2D.Double</td>
+                        <td>The Line2D.Double class for drawing a line between two coordinate points.</td>
+                      </tr>
+                      <tr>
+                        <td>Polygon</td>
+                        <td>The Polygon class for drawing a generic polygon with user-specified boundary points.</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>Introduction to GUI</h3>
+                    <p><span class="definition">Swing GUI Components</span>: set of components for development of custom GUIs.</p>
+                    <p><span class="definition">Graphical User Interface (GUI)</span>: lets user interface with a program via use of graphical components such as windows, buttons, text boxes, etc.</p>
+                    <p><span class="definition">JTextField</span>: a Swing GUI component enabling display of line of text and available using <span class="definition_java">import javax.swing.JTextField;</span></p>
+                    <br>
+  <pre><code class="language-java">
+  import javax.swing.JTextField;
+
+  outputField = new JTextField();
+  outputField.setText("");
+  outputField.setEditable(false);
+  </code></pre>
+                    <br>
+                    <p><span class="definition">JFrame</span>: a top-level container of GUI components and serves as app’s main window.</p>
+                    <ul>
+                      <li>Use JFrame’s <span class="definition">add()</span> method to add GUI components to frame.</li>
+                      <li><span class="definition">frame.pack()</span> automatically resizes frame to fit all of contained components.</li>
+                    </ul>
+                    <ol>
+                      <li>Create GUI components.</li>
+                      <li>Create top-level GUI component container.</li>
+                      <li>Add GUI components to top-level container.</li>
+                      <li>Configure top-level container.</li>
+                      <li>Display top-level container.</li>
+                    </ol>
+                    <br>
+
+                    <h3>Position with GridBagLayout</h3>
+                    <p><span class="definition">Layout manager</span>: allows control over positioning and layout of GUI components within Jframe or other such containers.</p>
+                    <p><span class="definition">GridBagLayout</span>: positions GUI components in a two-dimensional grid and is one of the layout managers supported by Java. Each cell of the grid is indexed using one number for column x and another for row y. Top-left cell at (x=0, y=0) and increases right and down.</p>
+                    <ul>
+                      <li>Can add insets and padding.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  import java.awt.GridBagConstraints;
+  import java.awt.GridBagLayout;
+  import java.awt.Insets;
+  import javax.swing.JFrame;
+  import javax.swing.JLabel;
+  import javax.swing.JTextField;
+
+  public class SalaryLabelGUI {
+
+    public static void main(String[] args) {
+      int hourlyWage = 0;
+      JFrame topFrame = null;
+      JLabel wageLAbel = null;
+      JLabel salLabel = null;
+      JTextField salField = null;
+      JTextField wageField = null;
+      GridBagConstraints layoutConst = null;
+
+      hourlyWage = 20;
+
+      // Set hourly and yearly salary
+      wageLabel = new JLabel("Hourly wage:");
+      salLabel = new JLabel("Yearly salary:");
+
+      wageField = new JTextField(15);
+      wageField.setEditable(false);
+      wageField.setText(Integer.toString(hourlyWage));
+
+      salField = new JTextField(15);
+      salField.setEditable(false);
+      salField.setText(Integer.toString((hourlyWage * 40 * 50)));
+
+      // Create frame and add components using GridBagLayout
+      topFrame = new JFrame("Salary");
+
+      // Use a GridBagLayout
+      topFrame.setLayout(new GridBagLayout());
+
+      // Create GridBagConstraints
+      layoutConst = new GridBagConstraints();
+
+      // Specify component's grid location
+      layoutConst.gridx = 0;
+      layoutConst.gridy = 0;
+
+      // 10 pixels of padding around component
+      layoutConst.insets = new Insets(10, 10, 10, 10);
+
+      // Add component using the specified constraints
+      topFrame.add(wageLabel, layoutConst);
+
+      layoutConst = new GridBagConstraints();
+      layoutConst.gridx = 1;
+      layoutConst.gridy = 0;
+      layoutConst.insets = new Insets(10, 10, 10, 10);
+      topFrame.add(wageField, layoutConst);
+
+      layoutConst = new GridBagConstraints();
+      layoutConst.gridx = 0;
+      layoutConst.gridy = 1;
+      layoutConst.insets = new Insets(10, 10, 10, 10);
+      topFrame.add(salLabel, layoutConst);
+
+      layoutConst = new GridBagConstraints();
+      layoutConst.gridx = 1;
+      layoutConst.gridy = 1;
+      layoutConst.insets = new Insets(10, 10, 10, 10);
+      topFrame.add(salField, layoutConst);
+
+      // Terminate program when window closes
+      topFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+      // Resize window to fit components
+      topFrame.pack();
+
+      // Display window
+      topFrame.setVisible(true);
+
+      return;
+    }
+  }
+  </code></pre>
+                    <br>
+                    <table>
+                      <tr>
+                        <th colspan="3">Common layout constraints specified with a GridBagConstraints object</th>
+                      </tr>
+                      <tr>
+                        <th>Constraint</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                      </tr>
+                      <tr>
+                        <td>gridx, gridy</td>
+                        <td>Used to specify the location (i.e. row and column) of a component</td>
+                        <td>layoutConst.gridx = 10;</td>
+                      </tr>
+                      <tr>
+                        <td>insets</td>
+                        <td>Used to specify the minimum pixel padding in all four cardinal directions between a component and the edge of its containing cell.</td>
+                        <td>layoutConst.insets = new Insets(topPad, leftPad, botPad, rightPad);</td>
+                      </tr>
+                      <tr>
+                        <td>gridwidth, gridheight</td>
+                        <td>Used to specify the width (or height) of a component in number of cells.</td>
+                        <td>layoutConst.gridwidth = 2;</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <p>Alternative way using custom JFrame class</p>
+                    <ul>
+                      <li><span class="definition">Constructor</span>: contains all code necessary to create and arrange GUI components, automatically called when instance of class is created.</li>
+                      <li>Code within constructor directly invokes JFrame’s methods e.g. <span class="definition_java">add(wageLabel, layoutConst);</span> without the need to create a separate JFrame component because the class extends JFrame.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  public class SalaryLabelFrame extends JFrame {
+    private JLabel wageLabel;
+    private JLabel salLabel;
+    private JTextField salField;
+    private JTextField wageField;
+
+    // Constructor initializes the SalaryLabelFrame, creates GUI components, and
+    // adds them using a GridBagLayout
+    SalaryLabelFrame() {
+      int hourlyWage = 20;
+      GridBagConstraints layoutConst;
+
+      // Set frame's title
+      setTitle("Salary");
+
+      // Set hourly and yearly salary
+      wageLabel = new JLabel("Hourly wage:");
+      salLabel = new JLabel("Yearly salary:");
+
+      wageField = new JTextField(15);
+      wageField.setEditable(false);
+      wageField.setText(Integer.toString(hourlyWage));
+
+      salField = new JTextField(15);
+      salField.setEditable(false);
+      salField.setText(Integer.toString((hourlyWage * 40 * 50)));
+
+      // Use a GridBagLayout
+      setLayout(new GridBagLayout());
+    }
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Input and Action Listeners</h3>
+                    <p><span class="definition">Action Events</span>: notify program that input has been received and ready for processing.</p>
+                    <p><span class="definition">ActionListener object</span>: used to handle action events and defines how program should respond to action events.</p>
+                    <ul>
+                      <li>Must use <span class="definition_java">import java.awt.event.ActionListener;</span> and <span class="definition_java">java.awt.event.ActionEvent</span>.</li>
+                      <li><span class="definition_java">setEditable(true)</span> for field object.</li>
+                      <li>Use <span class="definition_java">addActionListener()</span> method to register suitable ActionListener ex. <span class="definition_java">wageField.addActionListener(this)</span>.</li>
+                    </ul>
+  <pre><code class="language-java">
+  /* Method is automatically called when an event occurs
+      (e.g. Enter key is pressed) */
+  @Override
+  public void actionPerformed(ActionEvent event) {
+    String userInput = "";
+    int hourlyWage = 0;
+
+    // Get user's wage input
+    userInput = wageField.getText();
+
+    // Convert from String to an integer
+    hourlyWage = Integer.parseInt(userInput);
+
+    // Display calculated salary
+    setfield.setText(Integer.toString(hourlyWage * 40 * 50));
+
+    return;
+  }
+  </code></pre>
+                    <br>
+                    <p><span class="definition">JButton</span>: Swing GUI component that represents a labeled button.</p>
+                    <ul>
+                      <li><span class="definition_java">import javax.swing.JButton;</span></li>
+                      <li><span class="definition_java">calcButton.addActionListener(this);</span> so when user presses calcButton, an action event is generated. <span class="definition_java">actionPerformed()</span> method within SalaryCalcButtonFrame class automatically receives the action event and displays the calculated salary.</li>
+                    </ul>
+                    <br>
+
+                    <h3>Input and Formatted Text Fields</h3>
+                    <p><span class="definition">JFormattedTextField</span>: Swing GUI component that extends JTextField enabling specification of appropriate types and sequence of characters (character format) that text field component can display or accept as input.</p>
+                    <p><span class="definition">Format Object</span>: specifies formatting requirements for any string that JFormattedTextField component displays.</p>
+                    <ul>
+                      <li>Example: <span class="definition_java">distField = new JFormattedTextField(NumberFormat.getNumberInstance());</span></li>
+                    </ul>
+                    <p><span class="definition">NumberFormat object</span>: specifies formatting requirements a string must meet in order to represent a real number (e.g. 1, 1.1, -3, -3,14, etc.).</p>
+                    <br>
+                    <table class="table_3_columns">
+                      <tr>
+                        <th colspan="3">Common NumberFormat instances</th>
+                      </tr>
+                      <tr>
+                        <th>Number format instance</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                      </tr>
+                      <tr>
+                        <td>Number</td>
+                        <td>A general purpose number format to represent real numbers such as 1.25.</td>
+                        <td>distField = new JFormattedTextField(NumberFormat.getNumberInstance());</td>
+                      </tr>
+                      <tr>
+                        <td>Integer</td>
+                        <td>A number format to represent integers such as 10</td>
+                        <td>indexField = new JFormattedTextField(NumberFormat.getIntegerInstance());</td>
+                      </tr>
+                      <tr>
+                        <td>Currency</td>
+                        <td>A number format to represent numbers as currency values such as $1.99</td>
+                        <td>amountfield = new JFormattedTextField(NumberFormat.getCurrencyInstance());</td>
+                      </tr>
+                      <tr>
+                        <td>Percentage</td>
+                        <td>A number format to represent numbers as percentages such as 10%</td>
+                        <td>interestField = new JFormattedTextField(NumberFormat.getPercentInstance());</td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <p><span class="definition">Message dialog</span>: separate window used to display simple message.</p>
+                    <p>In the code <span class="definition_java">JOptionPane.showMessageDialog(this, “Enter a positive distance”);</span> "this" denotes dialog’s parent frame; keyword refers to the object associated with the class in this context.</p>
+                    <p>In the following example, <span class="definition_java">getValue()</span> method extracts input and <span class="definition_java">doubleValue()</span> of Number class converts returned value</p>
+                    <br>
+  <pre><code class="language-java">
+  @Override
+  public void actionPerformed(ActionEvent event) {
+    double totMiles = 0;
+    double hrsFly = 0;
+    double hrsDrive = 0;
+
+    // Get value from distance field
+    totMiles = ((Number) distField.getValue()).doubleValue();
+
+    // Check if miles input is positive
+    if (totMiles >= 0.0) {
+      hrsFly = totMiles / 500.0;
+      hrsDrive = totMiles / 60.0;
+
+      hrsFlyField.setText(Double.toString(hrsFly));
+      hrsDriveField.setText(Double.toString(hrsDrive));
+    }
+    else {
+      // Show failure dialog
+      JOptionPane.showMessageDialog(this, "Enter a positive distance value!");
+    }
+    return;
+  }
+  </code> </pre>
+                    <br>
+
+                    <h3>Input with JSpinners</h3>
+                    <p><span class="definition">JSpinner</span>: Swing GUI component that supports user input by enabling user to select, or enter, a specific value from within predetermined range of values. Supports dual functionalities, either entering the value into a formatted text field or cycling through available values by pressing 2 buttons.</p>
+                    <p><span class="definition">Spinner model</span>: specifies types of values that corresponding JSpinner should expect and handle.</p>
+                    <p><span class="definition">SpinnerNumberModel</span>: simple spinner model for representing finite sequence of numerical values.</p>
+                    <p><span class="definition">Change events</span>: notifies program of a change in value displayed by spinner.</p>
+                    <p><span class="definition">ChangedListener object</span>: used to handle change events, defining stateChanged() method that dictates how program should respond to a change event.</p>
+                    <br>
+  <pre><code class="language-java">
+  import javax.swing.SpinnerNumberModel;
+  import java.swing.JSpinner;
+  import javax.swing.event.ChangeEvent;
+  import javax.swing.event.ChangedListener;
+
+  // Create a spinner model, the spinner, and set the change listener
+  spinnerModel = new SpinnerNumberModel(initYear, minYear, maxYear, stepVal);
+  yearsSpinner = new JSpinner(spinnerModel);
+  yearsSpinner.addChangeListener(this);
+
+  // the stateChanged() method
+  @Override
+  public void stateChanged(ChangeEvent event) {
+    Integer dogAgeYears = 0;
+
+    dogAgeYears = (Integer) yearsSpinner.getValue();
+  }
+  </code></pre>
+                    <br>
+                    <p><span class="definition">Fill layout constraints</span> - HORIZONTAL, VERTICAL, BOTH, NONE (default preferred size)</p>
+                    <p><span class="definition">Anchor constraints</span> (location of component within component’s containing cell) - LINE_START, LINE_END, PAGE_START, PAGE_END, default CENTER</p>
+                    <br>
+
+                    <h3>Display using JTextArea</h3>
+                    <p><span class="definition">JTextArea</span>: Swing GUI component that supports display of multiple lines of text.</p>
+                    <ul>
+                      <li>Arguments to constructor stand for dimensions of number of rows and column.</li>
+                    </ul>
+                    <p><span class="definition">JScrollPane</span>: Swing GUI component providing scrollable view to the underlying component that the JScrollPane manages, also called a client.</p>
+                    <ul>
+                      <li>Arguments specify the scroll pane’s client.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  // Create output area and add it to scroll pane
+  outputArea = new JTextArea(10, 15);
+  scrollPane = new JScrollPane(outputArea);
+  outputArea.setEditable(false);
+
+  @Override
+  public void actionPerformed(ActionEvent event) {
+    int i = 0;
+    double savingsDollars = 0.0;
+    double interestRate = 0.0;
+    int numYears = 0;
+
+    // Get values from fields
+    savingsDollars = ((Number) initSavingsField.getValue()).intValue();
+    interestRate = ((Number) interestRateField.getValue()).doubleValue();
+    numYears = ((Number) yearsField.getValue()).intValue();
+
+    // Clear the text area
+    outputArea.setText("");
+
+    // Calculate savings iteratively in a while loop
+    i = 1;
+    while (i <= numYears) {
+      outputArea.append("Savings in year " + i + ": $" + savingsDollars + "\n");
+      savingsDollars = savingsDollars + (savingsDollars * interestRate);
+      i = i + 1;
+    }
+    return;
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Using tables in GUIs</h3>
+                    <p><span class="definition">JTable</span>: Swing GUI component that displays data in a table, optionally allowing the GUI user to edit the data by entering new values into the table.</p>
+                    <ul>
+                      <li>Elements given by tableVals[i][j]; is associated with the table cell in the ith row and the jth column.</li>
+                      <li>JTable provides access to elements within associated array, so any edits to cell propagate to corresponding array element.</li>
+                    </ul>
+                    <p><span class="definition">Table Model</span>: an object responsible for managing the table’s data. Interprets all table cell values using a String representation.</p>
+                    <ul>
+                      <li><span class="definition_java">import javax.swing.JTable;</span></li>
+                      <li>Table doesn’t convert a cell’s text back into the appropriate data type.</li>
+                      <li>In the following code, <span class="definition_java">arrayValsTable = new JTable(tableVals, columnDeadings);</span> the first argument takes in the array to display, the second argument contains headings of each column.</li>
+                    </ul>
+                    <p><span class="definition">Header</span>: separate area of table where table headings are contained.</p>
+                    <ul>
+                      <li>Valid not to add the header, so it's optional.</li>
+                      <li>Alternative is to use <span class="definition_java">JScrollPane = new JScrollPane(arrayValsTable);</span> and then adding scroll to frame.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  // Table headings and values
+  columnHeadings = new String[1];
+  tableVals = new String[8][1];
+
+  // Initialize column heading(s)
+  columnHeadings[0] = "Element";
+
+  // Initialize table values
+  for (i = 0; i < numElements; ++i) {
+    tableVals[i][0] = "0";
+  }
+
+  // Create a table with the specified values and column headings
+  arrayValsTable = new JTable(tableVals, columnHeadings);
+
+  // Use a GridBagLayout
+  setLayout(new GridBagLayout());
+
+  // Add a table header
+  layoutConst = new GridBagConstraints();
+  layoutConst.insets = new Insets(10, 10, 0, 0);
+  layoutConst.fill = GridBagConstraints.HORIZONTAL;
+  layoutConst.gridx = 0;
+  layoutConst.gridy = 0;
+  layoutConst.gridwidth = 2;
+  add(arrayValsTable.getTableHeader(), layoutConst);
+
+  @Override
+  public void actionPerformed(ActionEvent event) {
+    int i = 0;
+    int maxElement = 0;
+    String strElem = "";
+    int elemVal = 0;
+
+    strElem = tableVals[0][0];
+    maxelement = Integer.parseInt(strElem);
+
+    // Iterate through table values to find max
+    for (i = 1; i < numElements; ++i) {
+      strElem = tableVals[i][0];
+      elemVal = Integer.parseInt(strElem);
+      if (elemVal < maxElement) {
+        maxElement = elemVal;
+      }
+    }
+
+    // Display maximum value
+    maxField.setValue(maxElement);
+
+    return;
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Using sliders in GUIs</h3>
+                    <p><span class="definition">JSlider</span>: Swing GUI component that allows users to select a numeric value from within a predefined range. Takes argument (min, max, initial)</p>
+                    <ul>
+                      <li><span class="definition_java">import javax.swing.JSlider;</span></li>
+                      <li>By default, slider shows no tick marks.</li>
+                      <li>In the following example, slider's <span class="definition_java">setMajorTickSpacing();</span> and <span class="definition_java">setMinorTickSpacing();</span> to set the major and minor ticks. <span class="definition_java">setPaintTicks(true);</span> to show tick marks and <span class="definition_java">setPaintLabels(true);</span> to show value at major ticks.</li>
+                      <li><span class="definition_java">JSlider sourceEvent = (JSlider) event.getSource();</span> to get source of the slider and compare references since there are two.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  // Create slider that enables user to enter height in feet
+  heightFtSliter = new JSlider(feetMin, feetMax, feetInit);
+  heightFtSlider.addChangeListener(this);
+  heightFtSlider.setMajorTickSpacing(10);
+  heightFtSlider.setMinorTickSpacing(1);
+  heightFtSlider.setPaintTicks(true);
+  heightFtSlider.setPaintLabels(true);
+
+  heightFtField = new JTextField(10);
+  heightFtField.setEditable(false);
+  heightFtField.setText("5");
+
+  /* Called as slider value changes. Updates fields to display the
+        numerical representation of the slider settings. */
+  @Override
+  public void stateChanged(ChangeEvent event) {
+    int sliderVal = 0;
+    String strSliderVal = "";
+
+    // Get source of event (2 sliders in GUI)
+    JSlider sourceEvent = (JSlider) event.getSource();
+
+    if (sourceEvent == heightFtSlider) {
+      sliderVal = heightFtSlider.getValue();
+      strSliderVal = Integer.toString(sliderVal);
+      heightFtField.setText(strSliderVal);
+    }
+    else if (sourceEvent == heightInSlider) {
+      sliderVal = heightInSlider.getValue();
+      strSliderVal = Integer.toString(sliderVal);
+      heightInField.setText(strSliderVal);
+    }
+  }
+
+  /* Called when button is pressed. Converts height to cm. */
+  @Override
+  public void actionPerformed(ActionEvent event) {
+    int ftVal = 0;
+    int inVal = 0;
+    double cmVal = 0.0;
+
+    ftVal = heightFtSlider.getValue();
+    inVal = heightInSlider.getValue();
+    cmVal = HeightFtInToCm(ftVal, inVal);
+
+    heightCmField.setText(Double.toString(cmVal));
+
+    return;
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Reading files with a GUI</h3>
+                    <p><span class="definition">JFileChooser</span>: Swing GUI component that supports directory navigation and file selection.</p>
+                    <ul>
+                      <li>import java.io.File to use File class</li>
+                      <li>In the following code, <span class="definition_java">fileChooser  = new JFileChooser();</span> by default displays files within the user’s default directory (“My Documents” on Windows). Can specify initial directory using <span class="definition_java">fileChooser = new JFileChooser(pathString);</span></li>
+                      <li>A separate dialog window is usually created so that JFileChooser is not added to JFrame.</li>
+                      <li>The constant <span class="definition_java_note">APPROVE_OPTION</span> indicates that the user selected a file and pressed the “open” button. <span class="definition_java_note">CANCEL_OPTION</span> indicates that the user cancelled the operation. <span class="definition_java_note">ERROR_OPTION</span> indicates an unanticipated error.</li>
+                      <p><span class="definition_java">readFile = fileChooser.getSelectedFile();</span> to get file’s FileObject.</p>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  public class FileReadFrame extends JFrame implements ActionListener {
+    private JScrollPane scrollPane;
+    private JTextArea outputArea;
+    private JLabel selectedFileLabel;
+    private JLabel outputLabel;
+    private JTextField selectedfileField;
+    private JFileChooser fileChooser;
+    private JButton openFileButton;
+
+    /* Called when openFileButton is pressed */
+    @Override
+    public void actionPerformed(ActionEvent event) {
+      FileInputStream fileByteStream = null;
+      Scanner inFS = null;
+      String readLine = "";
+      File readFile = null;
+      int fileChooserVal = 0;
+
+      // Open file chooser dialog and get the file to open
+      fileChooserVal = fileChooser.showOpenDialog(this);
+
+      // Check if file was selected
+      if (fileChooserVal == JFileChooser.APPROVE_OPTION) {
+        readFile = fileChooser.getSelectedfile();
+
+        // Update selected file field
+        selectedFileField.setText(readFile.getName());
+
+        // Ensure file is valid
+        if (readfile.canRead()) {
+          try {
+            fileByteStream = new FileInputStream(readfile);
+            inFS = new Scanner(fileByteStream);
+
+            // Clear output area
+            outputArea.setText("");
+
+            // Read until end-of-file
+            while (inFS.hasNext()) {
+              readLine = inFS.nextLine();
+              outputArea.append(readLine = "\n");
+            }
+          } catch (IOException e) {
+            outputArea.append("\n\nError occurred while creating file stream: " + e.getMessage());
+          }
+        }
+        else {
+          // Can't read file so show failure dialog
+          JOptionPane.showMessageDialog(this, "Can't read file.");
+        }
+      }
+      return;
+    }
+  }
+  </code></pre>
+                  </div>
+
+                  <div class="section">
+                    <h2>Generics</h2>
+                    <h3>Comparable Interface</h3>
+                    <p><span class="definition">Collections</span>: provides static methods that operate on various types of lists like ArrayList.</p>
+                    <ul>
+                      <li>Comparable’s <span class="definition_java">compareTo()</span> method meant to work with any class, use generics like <span class="definition_java">Comparable&lt;EmployeeData&gt;</span></li>
+                      <li>Each primitive wrapper class (i.e. Integer, Double, etc.) implements Comparable interface, which declares compareTo() method. Classes implementing Comparable interface must define a custom implementation of compareTo().</li>
+                      <li><span class="definition_java">sort()</span> method sorts collections into ascending order provided the elements within the collection implement the Comparable interface.</li>
+                      <li>sort() calls compareTo() on each object within ArrayList, can also be used to sort list of user-defined class type but again, it must implement the Comparable interface and override compareTo().</li>
+                    </ul>
+                    <p><span class="definition_java">compareTo(otherComparable)</span>: compares Comparable object to otherComparable, returning a number indicating if the Comparable object is less than, equal to, or greater than otherComparable.</p>
+                    <ul>
+                      <li>0 = equal</li>
+                      <li>(-) = former less than latter</li>
+                      <li>(+) = former greater than latter.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  public class EmployeeData implements Comparable&lt;EmployeeData&gt; {
+    ...
+
+    @Override
+    public int compareTo(EmployeeData otherEmpl) {
+      String fullName = "";
+      String otherFullName = "";
+      int comparisonVal = 0;
+
+      // Compare based on department number first
+      comparisonVal = deptNum.compareTo(otherEmpl.deptNum);
+
+      // If in same organization, use name
+      if (comparisonVal == 0) {
+        fullName = lastName + firstName;
+        otherFullName = otherEmpl.lastName + otherEmpl.firstName;
+        comparisonVal = fullName.compareTo(otherFullName);
+      }
+      return comparisonVal;
+    }
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Generic Methods</h3>
+                    <p><span class="definition">Generic method</span>: method definition having a special type parameter that may be used in place of types in the method.</p>
+                    <p><span class="definition">Type parameter</span>: type that acts as identifier, can be used throughout method for any parameter types, return types, or local variable types.</p>
+                    <p><span class="definition">Type bound</span>: specifies class types for which a type parameter is valid. Specified using extends keyword and appears after the corresponding type parameter. The Type may only represent types that implement e.g. Comparable interface. Compiler automatically generates unique method definition for each type appearing in generic method calls.</p>
+                    <ul>
+                      <li>Type arguments can’t be primitive types, must be reference types.</li>
+                      <li>Can explicitly specify generic type as a special argument as in <span class="definition_java">ItemMinimum.&lt;Integer&gt;tripleMin(num1, num2, num3);</span>.</li>
+                      <li>In the following example, modifiers represent space-delimited list of valid modifiers like public and static.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  public class ItemMinimum {
+    public static &lt;TheType extends Comparable&lt;TheType&gt;&gt;
+    TheType tripleMin(TheType item1, TheType item2, TheType item3) {
+
+      // Holds min item value, init to first item
+      TheType minVal = item1;
+
+      if (item2.compareTo(minVal) < 0) {
+        minVal = item2;
+      }
+      if (item3.compareTo(minVal) < 0) {
+        minVal = item3;
+      }
+      return minVal;
+    }
+  }
+
+  // Method definition with multiple generics
+  modifiers &lt;Type1 extends BoundType1, Type2 extends BoundType2&gt;
+  ReturnType methodName(parameters) {
+    ...
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Class generics</h3>
+                    <p><span class="definition">Generic class</span>: class definition having special type parameter that may be used in place of types in class. Variables defined of that generic class type must indicate a specific type.</p>
+                    <p><span class="definition">Type parameter</span>: can be used throughout class for parameter types, method return types, field types.</p>
+                    <ul>
+                      <li>Each can be associated with type bounds to define data types allowed to be used for type arguments. Type bounds lets you utilize class members defined by the bounding type with variables of a generic type.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  public class TripleItem &lt;TheType extends Comparable&lt;TheType&gt;&gt; {
+    private TheType item1;
+    private TheType item2;
+    private TheType item3;
+
+    public TripleItem(TheType i1, TheType i2, TheType i3) {
+      item1 = i1;
+      item2 = i2;
+      item3 = i3;
+    }
+  }
+
+  public class TripleItemManager {
+    public static void main(String[] args) {
+
+      // TripleItem class with Integers
+      TripleItem&lt;Integer&gt; triInts = new TripleItem&lt;Integer&gt;(9999, 5555, 6666);
+
+      // TripleItem class with Shorts
+      TripleItem&lt;Short&gt; triShorts = new TripleItem&lt;Short&gt;((short)99, (short)55, (short)66);
+    }
+  }
+
+  // Generic class template with multiple parameters
+  public class ClassName &lt;Type1 extends BoundType1, Type2 extends BoundType2&gt; {
+    ...
+  }
+  </code></pre>
+                  </div>
+
+                  <div class="section">
+                    <h2>Recursion</h2>
+                    <p><span class="definition">Algorithm</span>: sequence of steps for solving a problem.</p>
+                    <p><span class="definition">Recursive algorithm</span>: solves problem by breaking it into smaller subproblems, solving subproblems, and combining solutions. An algorithm defined by repeated applications of the same algorithm on smaller problems.</p>
+                    <p><span class="definition">Base case</span>: recursive algorithm must describe how to actually do something.</p>
+                    <br>
+
+                    <h3>Recursive Methods</h3>
+                    <p><span class="definition">Recursive method</span>: a method that calls itself. Each call to the method creates a new “copy” of the executing method. Returning deletes that copy.</p>
+                    <ul>
+                      <li>Recursive methods can be debugged by indenting print statements to show depth of recursion.</li>
+                    </ul>
+                    <p><span class="definition">Binary search algorithm</span>: begins at midpoint of range and halves the range after each guess.</p>
+                    <ul>
+                      <li>After each guess, binary search algorithm is applied again but on a smaller range. The algorithm is recursive.</li>
+                    </ul>
+                    <br>
+
+                    <h3>Recursive Algorithm: Search</h3>
+                    <p><span class="definition">Base case</span>: recursive method has an if-else statement, if branch ends recursion. Else branch has recursive calls.</p>
+                    <br>
+
+                    <h3>Creating a Recursive Method</h3>
+                    <ol>
+                      <li><b>Write the base case</b>: a case that returns a value without performing a recursive call. Programmer may write that part of method first, then test. There can be multiple base cases.</li>
+                      <li><b>Write recursive case</b>: programmer adds recursive case to method</li>
+                    </ol>
+                    <p>Recursive methods accomplished in two steps - first the base case returns value without recursion, second the recursion case calls itself.</p>
+                    <br>
+
+                    <h3>Recursive Math Methods</h3>
+                    <p><span class="definition">Fibonacci sequence</span>: pattern is to compute next number by adding previous two numbers.</p>
+                    <ul>
+                      <li>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, etc.</li>
+                    </ul>
+                    <br>
+  <pre><code class="language-java">
+  // The Fibonacci sequence step-by-step
+  import java.util.Scanner;
+
+  public class FibonacciSequence {
+    public static void computeFibonacci(int fibNum1, int fibNum2, int runCnt) {
+      System.out.println(fibNum1 + " + " + fibNum2 = " = " + (fibNum1 + fibNum2));
+
+      if (runCnt <= 1) {
+        // Base Case: ran for user specified number of steps
+      } else {
+        // Recursive Case: compute next value
+        computeFibonacci(fibNum2, fibNum1 + fibNum2, runCnt - 1);
+      }
+      return;
+    }
+
+    public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      // User specified number of values computed
+      int runFor = 0;
+
+      // Prompt user for number of values to compute
+      System.out.print("How many steps would you like?");
+
+      // Output first two Fibonacci values, call recursive function
+      System.out.println("0\n1");
+      computeFibonacci(0, 1, runFor);
+
+      return;
+    }
+  }
+
+  // Alternate computeFibonacci method
+  public static int computeFibonacci(int N) {
+    if (N == 0) {
+      return 0;
+    }
+    else if (N == 1) {
+      return 1;
+    }
+    else {
+      return computeFibonacci(N - 1) + computeFibonacci(N - 2);
+    }
+  }
+  </code></pre>
+                    <br>
+                    <p><span class="definition">Greatest Common Divisor (GCD)</span>: largest number that divides evenly into two numbers. Euclid's method is to subtract smaller number from larger number until both numbers are equal.</p>
+                    <br>
+  <pre><code class="language-java">
+  public static int gcdCalculator(int inNum1, int inNum2) {
+    // Holds GCD results
+    int gcdVal = 0;
+
+    if (inNum1 == inNum2) {
+      // Base Case: numbers are equal, return value
+      gcdVal = inNum1;
+    }
+    else {
+      if (inNum1 > inNum2) {
+        gcdVal = gcdCalculator(inNum1 - inNum2, inNum2);
+      }
+      else {
+        gcdVal = gcdCalculator(inNum1, inNum2 - inNum1);
+      }
+    }
+    return gcdVal;
+  }
+  </code></pre>
+                    <br>
+
+                    <h3>Stack Overflow</h3>
+                    <p><span class="definition">Stack frame</span>: each method call places a new stack frame on the stack for local parameters, local variables, and more method items. The frame is deleted upon return.</p>
+                    <p><span class="definition">Stack overflow</span>: when stack frame extends beyond the memory region allocated for the stack. Usually causes program to crash and report error like: stack overflow error/exception.</p>
+                    <ul>
+                      <li>Deep recursion can fill stack region.</li>
+                      <li>Large objects (ArrayList, Array, String) can lead to faster overflow.</li>
+                    </ul>
+                  </div>
+
+                  <div class="section">
+                    <h2>Collections</h2>
                   </div>
                 </div>
             </div>

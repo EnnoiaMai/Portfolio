@@ -267,19 +267,19 @@ Date Created: January 2018
                         <h3><span class="applicable_files">MapViewController.swift</span> and <span class="applicable_files">ListUsersViewController.swift</span></h3>
                         <p><span class="definition">Concurrency</span>: long-running tasks shouldn't be performed on the UI thread and at the same time, UI widgets or views should not be updated on the non-UI thread (the background). The following lists some ways to achieve concurrency.</p>
                         <ul>
-                          <li><span class="definition">Threads</span> - <span class="cs646_code">performSelector(inBackground:)</span> and <span class="cs646_code">performSelector(inMainThread:)</span></li>
-                          <li><span class="definition">Dispatch Queues</span> - instantiate <span class="cs646_code">DispatchQueue</span> object and call async</li>
+                          <li><span class="definition">Threads</span> - <span class="code_method">performSelector(inBackground:)</span> and <span class="code_method">performSelector(inMainThread:)</span></li>
+                          <li><span class="definition">Dispatch Queues</span> - instantiate <span class="code_CS646">DispatchQueue</span> object and call async</li>
                           <li><span class="definition">Operation Queues</span> - executes <span class="definition">operations</span> which can be run at the same time. Operations run on a separate thread. To start the operation, add it to the queue. Can create <span class="definition">dependencies</span> so that an operation depends on the completion of other operations before it can run.</li>
                         </ul>
                         <br>
                         <p>Aside from displaying the data in a different way by adopting different protocols and implementing them, both controllers need to connect to the server and retrieve user data. The following are methods created to retrieve this data.</p>
                         <br>
                         <ul>
-                          <li><span class="cs646_code">retrieveDataFromServer()</span> - builds the URL with the appropriate parameters depending on the filter options the user had set. A block operation is added to the queue which runs code on another thread.</li>
+                          <li><span class="code_method">retrieveDataFromServer()</span> - builds the URL with the appropriate parameters depending on the filter options the user had set. A block operation is added to the queue which runs code on another thread.</li>
                           <br>
-                          <li><span class="cs646_code">getUsersFromServer()</span> takes the URL string that was built and initializes the <span class="cs646_code_sub">URL object</span>, sets the <span class="cs646_code_sub">HTTP</span> method to GET and the value for the header as "text/plain" and "Content-Type". Here, the request is sent to the server which will send back a response. For networking, the <span class="cs646_code_sub">URLSession</span> shared instance is grabbed and the <span class="cs646_code_sub">dataTask()</span> method called which takes the request and the completion handler.</li>
+                          <li><span class="code_method">getUsersFromServer()</span> takes the URL string that was built and initializes the <span class="code_CS646">URL object</span>, sets the <span class="code_CS646">HTTP</span> method to GET and the value for the header as "text/plain" and "Content-Type". Here, the request is sent to the server which will send back a response. For networking, the <span class="code_CS646">URLSession</span> shared instance is grabbed and the <span class="code_CS646">dataTask()</span> method called which takes the request and the completion handler.</li>
                           <br>
-                          <li><span class="cs646_code">getUsersFromServerHandler()</span> checks that data is not nil and that the HTTP status code is 200 before deserializing the JSON object into an array. On the main queue, the <span class="cs646_code_sub">userData</span> property is set to this deserialized array and either the annotations are reloaded for the MapViewController or the table data is reloaded for the ListUsersViewController.</li>
+                          <li><span class="code_method">getUsersFromServerHandler()</span> checks that data is not nil and that the HTTP status code is 200 before deserializing the JSON object into an array. On the main queue, the <span class="code_CS646">userData</span> property is set to this deserialized array and either the annotations are reloaded for the MapViewController or the table data is reloaded for the ListUsersViewController.</li>
                         </ul>
                         <br>
   <pre><code class="language-swift">
@@ -374,7 +374,7 @@ Date Created: January 2018
   }
   </code></pre>
                         <br>
-                        <div class="preview_div_flex_row">
+                        <div class="preview_div_portrait_portrait">
                           <div>
                             <p>The Map View that displays the locations or origin of all the users.</p>
                             <img src="../../images/screenshots/CS646_Assignment5_mapview.gif" alt="CS646 Assignment 5 MapView">
@@ -387,7 +387,7 @@ Date Created: January 2018
                         <br>
                         <hr>
                         <br>
-                        <div class="preview_div_flex_row">
+                        <div class="preview_div_portrait_portrait">
                           <div>
                             <p>The Table View that displays the nickname, year admitted into SDSU, the city, state, and country of each user on the server.</p>
                             <img src="../../images/screenshots/CS646_Assignment5_tableview.gif" alt="CS646 Assignment 5 TableView">
@@ -400,7 +400,7 @@ Date Created: January 2018
                         <br>
 
                         <h3 class="applicable_files">AddUserViewController.swift</h3>
-                        <p>If there is a validation error in the input, the border around the input field will be colored red and an AlertViewController is used to pop up the error message. The validation functions in this form are <span class="cs646_code_sub">validateData()</span>, <span class="cs646_code_sub">chooseHometownValidation()</span>, and <span class="cs646_code_sub">checkValidCity()</span>. Within this controller, there are methods that are called to both retrieve the user data and to post the user data. The reason as to why a request is sent using the GET HTTP method is to check if the nickname the user entered already exists in the server. The code to send this request and execute further code in the completion handler is similar to the code block above. For POST, the request is written similarly but the HTTP method should be set to "post" and setValue() should take in "application/json" as the content-type instead of "text/plain". The JSON string should be built using the user's inputs, which represents the new record to add.</p>
+                        <p>If there is a validation error in the input, the border around the input field will be colored red and an AlertViewController is used to pop up the error message. The validation functions in this form are <span class="code_method">validateData()</span>, <span class="code_method">chooseHometownValidation()</span>, and <span class="code_method">checkValidCity()</span>. Within this controller, there are methods that are called to both retrieve the user data and to post the user data. The reason as to why a request is sent using the GET HTTP method is to check if the nickname the user entered already exists in the server. The code to send this request and execute further code in the completion handler is similar to the code block above. For POST, the request is written similarly but the HTTP method should be set to "post" and setValue() should take in "application/json" as the content-type instead of "text/plain". The JSON string should be built using the user's inputs, which represents the new record to add.</p>
                         <br>
   <pre><code class="language-swift">
   func postDataToServer)() {
@@ -480,7 +480,7 @@ Date Created: January 2018
   }
   </code></pre>
                         <br>
-                        <div class="preview_div_flex_row">
+                        <div class="preview_div_portrait_portrait">
                           <div>
                             <p>The form that the user must fill out to add new users.</p>
                             <img src="../../images/screenshots/CS646_Assignment5_add_user_form.png" alt="Cs646 Assignment 5 Add User Form">
@@ -530,7 +530,7 @@ Date Created: January 2018
   </code></pre>
                         <br>
                         <p>An alternative to filling out the entire form is to tap on "Choose Hometown from Map" after filling out the nickname, password, and year. The example shows that a location is pinned and "done" is tapped to submit the new information to the server. This then takes the user back to the map view or the table view and refreshes the annotations or the list of users.</p>
-                        <div class="preview_div_iphone">
+                        <div class="preview_div_phone">
                           <img src="../../images/screenshots/CS646_Assignment5_choose_hometown.gif" alt="CS646 Assignment 5 Choose Hometown">
                         </div>
                     </div>

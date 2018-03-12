@@ -15,6 +15,9 @@ Date Created: March 2017
         <link rel="stylesheet" type="text/css" href="../../css/details.css">
         <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-perl.min.js"></script>
         <script type="text/javascript" src="../../js/sidebar.js"></script>
         <script type="text/javascript" src="../../js/details.js"></script>
     </head>
@@ -60,7 +63,7 @@ Date Created: March 2017
                     <div class="section">
                         <h2>Assignment Details</h2>
                         <h3>Appendum</h3>
-                        <p>When the user logs out, a new page must be displayed. This cannot be a Single-Page Application (SAP). The confirmation for normal add/edit/delete may be displayed on the same page, but the confirmation of logout must be displayed on a separate page.</p>
+                        <p>When the user logs out, a new page must be displayed. This cannot be a Single-Page Application (SPA). The confirmation for normal add/edit/delete may be displayed on the same page, but the confirmation of logout must be displayed on a separate page.</p>
                         <br>
                         <p>The entry point for your project is a file called index.html. The first page of your project (the login screen) will be displayed if the user directs the browser to http://jadran.sdsu.edu/~jadrnxxx/proj1</p>
                         <br>
@@ -185,33 +188,274 @@ Date Created: March 2017
 
                     <div class="section">
                         <h2>Additional Notes</h2>
+                        <p>For this project, function is prioritized over looks. The user must be able to logout. If the user clicks the back button after logging out, access should be denied. Note that the server can request things from the browser but it cannot force the browser to do something. Thus, the cache made by the browser should be handled. The purpose of this project is to make credentials for logging in and out bulletproof.</p>
+                        <ul>
+                          <li>The category and vendor are used to organize the products. Select elements with options can be used and hard-coded in the form.</li>
+                          <li>Have at least 5 usernames and passwords (do not hard-code anywhere).</li>
+                          <li>Use POST as the method to log in.</li>
+                          <li>Save state by managing the <span class="definition">session</span>. Every time the user sends data, the session id must be validated. Every request must be authenticated.</li>
+                        </ul>
+                        <br>
+
+                        <h4>File Upload</h4>
+                        <p>When adding an image file to the server, the method used must be POST and the entype attribute should be multipart/form-data. The action should refer to the CGI script. This allows image data to be sent. The full path on the server to where the file will be saved should be used.</p>
+                        <br>
+
+                        <h4>Database</h4>
+                        <p>Must have more tables in the database for this project compared to previous projects. The tables can be hard-coded and inserted into. Primary keys are needed. <span class="definition">Foreign keys</span>, which are primary keys from another table, are also used.</p>
+                        <ul>
+                          <li>Product table (SKU is primary key) - two foreign keys, the category and vendor number</li>
+                          <li>Vendor table (Primary key auto-incremented, is foreign key in product table)</li>
+                          <li>Category table (Primary key auto-incremented, is foreign key in product table)</li>
+                        </ul>
                     </div>
 
                     <div class="section">
                         <h2>Project Details</h2>
                         <h3>Signing In</h3>
+                        <p><span class="applicable_files">signin.cgi</span>, <span class="applicable_files">index.html</span>, and <span class="applicable_files">error.html</span></p>
+                        <p>The landing page for the application is <span class="applicable_files_sub">index.html</span>, and users are presented with two input text fields to enter their username and password. Clicking 'Sign In' will call the <span class="applicable_files_sub">signin.cgi</span> script which will authenticate users. If access is denied because the username or password was invalid, the user is returned to <span class="applicable_files_sub">error.html</span>, which is laid out like the landing page but displays an error message.</p>
+                        <br>
                         <h4>Encryption</h4>
-                        <p></p>
+                        <p><span class="applicable_files">passwords.dat</span> is a file that stores the username and encrypted passwords in pairs on each line. A perl script was made to write output out to this file. The file is created by redirecting to <span class="applicable_files_sub">passwords.dat</span>, and standard input asks to enter the username and password desired. The crucial part of the code is calling the <span class="code_web">Password</span> module's <span class="code_web">new()</span> method, which takes the <i>password</i>, the <i>salt</i>, and the <i>algorithm</i> for <span class="definition">one-way encryption</span> of the password:</p>
+    <pre><code class="language-perl">
+    use Crypt::Password;
+
+    my $salt = "..."
+    my ($user, $password, $encrypted_password);
+
+    open OUTFILE, ">passwords.dat" or die "Cannot open file.";
+    print "Enter the username and password for each entry at the prompt.\n";
+    print "Hit ENTER for the username (leaving it empty) to end the script.\n\n";
+
+    for (;;) {
+      print "Enter the username: ";
+      $user = &lt;STDIN&gt;;
+      chomp $user;
+      if (length($user) == 0) {
+        last;
+      }
+      print "Enter the password: ";
+      $password = &lt;STDIN&gt;;
+      chomp $password;
+      $encrypted_password = Crypt::Password->new($password, $salt, sha256);
+      print OUTFILE "$user" . "=" . $encrypted_password . "\n";
+    }
+    close OUTFILE;
+    </code></pre>
+                        <br>
+                        <p>In <span class="applicable_files_sub">signin.cgi</span>, the subroutine <span class="code_method">authenticate()</span> will open passwords file and for each line, split the string at the '=' separator. The username saved and the username entered is checked for equality. The passwords are checked for equality by encrypting the password the user entered and seeing if it equates to the password saved.</p>
+                        <br>
+                        <p>The following is a preview of the landing page for the user to sign in.</p>
+                        <br>
+                        <div class="preview_div">
+                          <img src="../../images/screenshots/CS645_Project1_signin.png" alt="CS645 Project 1 Sign In">
+                        </div>
                         <br>
 
                         <h3>The Inventory Tabs</h3>
+                        <p><span class="applicable_files">menu.txt</span> is the output to print to the browser if authentication is successful, and uses JQueryUI Tabs to display different forms to add, edit, or delete a product from the inventory. <span class="applicable_files">menu.js</span> contains all the code involving validation of input fields and image files as well as AJAX calls to the scripts. The logout button will call the <span class="applicable_files">logout.cgi</span> script to release the user from his/her privilege to access the app by killing the session and clobbering the cookie.</p>
+                        <br>
+
                         <h4>New Inventory Tab</h4>
-                        <p></p>
+                        <p>This tab allows the user to add a new inventory record into the database. Validation functions, called from <span class="code_method">validateForm()</span>, that were used for this tab and the edit tab include the following: <span class="code_method_sub">validateSKU()</span>, <span class="code_method_sub">validateManufacturersID()</span>, <span class="code_method_sub">validateSelect()</span>, <span class="code_method_sub">validateTextarea()</span>, <span class="code_method_sub">validateCostRetailQuantity()</span>, and <span class="code_method_sub">validateProductImage()</span>.</p>
+                        <ul>
+                          <li>Each of these functions check that the required fields aren't empty.</li>
+                          <li>Some functions use a regex to check if the input is valid, such as <span class="code_method_sub">validateSKU()</span> for SKU format (i.e. ABC-123) and <span class="code_method_sub">validateCostRetailQuantity()</span> for currency format.</li>
+                          <li><span class="code_method_sub">validateProductImage()</span> checks that a file was selected and the size less than 3MB.</li>
+                        </ul>
+                        <br>
+                        <p>The following shows the error messages that appear for each input that was invalid.</p>
+                        <br>
+                        <div class="preview_div">
+                          <img src="../../images/screenshots/CS645_Project1_validation.gif" alt="CS645 Project 1 Validation">
+                        </div>
+                        <br>
+                        <p>If validation is successful, the SKU should be checked to see if it already exists in the database before submitting the information. If there aren't any duplicates, then <span class="code_method_sub">checkForDuplicatesHandler()</span> uses the ajax utility  method to pass both the form data and the image file data to the <span class="applicable_files_sub">modify_products.cgi</span> script.</p>
+                        <ul>
+                          <li><span class="code_method">checkForDuplicates()</span> - uses the <span class="code_method_sub">$.get()</span> utility function and appends the sku to the url before calling the <span class="applicable_files_sub">check_for_duplicates.cgi</span> script.</li>
+                        </ul>
+                        <br>
+                        <p class="applicable_files">check_for_duplicates.cgi</p>
+                        <p>Executes the query statement and then accesses the <span class="code_web">row</span> property of the statement handle to check if the number of rows or matches returned was 0. If it was, then the string "ok" is sent back. Otherwise, "duplicate" is sent back.</p>
+                        <br>
+    <pre><code class="language-perl">
+    $query = "SELECT sku FROM product WHERE sku='$sku';";
+    my $sth = $dbh->prepare($query);
+    $sth->execute();
+    </code></pre>
+                        <br>
+                        <p>The following shows the error message informing the user of a duplicate found in the database after the submit button was clicked and a response was received.</p>
+                        <br>
+                        <div class="preview_div">
+                          <img src="../../images/screenshots/CS645_Project1_duplicate.gif" alt="CS645 Project 1 Duplicate">
+                        </div>
+                        <br>
+                        <p class="applicable_files">modify_products.cgi</p>
+                        <p>Depending on which form called it, this script either inserts, updates, or deletes an entry in the product table in the database. Since the form sent was the one to add a new inventory record, a new record will be inserted into the product table. <span class="definition">Placeholders</span> were used in the query statement so that the database can handle escaping single quotes that the user may have entered.</p>
+                        <br>
+    <pre><code class="language-perl">
+    $query = "INSERT INTO product (sku, manufacturerID, catID, venID, description, features, cost, retail, quantity, image)
+              VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    $sth = $dbh->prepare($query);
+    $affected_rows = $sth->execute($sku, $manufacturer_id, $category, $vendor, $description,
+        $features, $cost, $retail, $quantity, $image_file_name) or die $sth->errstr;
+    </code></pre>
+                        <br>
+                        <p>Uploading the image is done in the subroutine <span class="code_method">uploadImage()</span>. I decided to replace the name of the file with the SKU itself concatenated to the timestamp for when the image was uploaded. This made it easier to refer to the image when populating the form under the tabs and made the image directory cleaner since each image is associated with its SKU. As for the uploaded file itself, it must be written to the proper directory in binary mode.</p>
+                        <br>
+    <pre><code class="language-perl">
+    my ($name, $path, $extension) = fileparse($image_file_name, '\..*');
+    my $timestamp = getTimestamp();
+    $image_file_name = $sku . $timestamp . $extension;
+    my $file_handle = $q->upload("productImage");
+    unless ($file_handle) {
+        die "Invalid handle: $file_handle";
+    }
+    open UPLOADFILE, ">$upload_dir/$image_file_name" or die "Error, cannot save the file.";
+    binmode UPLOADFILE;
+    while (<$file_handle>) {
+        print UPLOADFILE $_;
+    }
+    close UPLOADFILE;
+    </code></pre>
+                        <br>
+                        <p>If validation failed, a duplicate entry was found, or there was an error on the server side, an error message will be displayed to alert the user.</p>
                         <br>
 
                         <h4>Edit Inventory Tab</h4>
-                        <p></p>
+                        <p>This tab allows the user to edit an existing inventory record from the product table in the database. Both this tab and the Delete Inventory Tab requires the user to first enter the SKU to update or delete so that the product can be populated in the form and shown.</p>
+                        <br>
+                        <p class="applicable_files">get_product.cgi</p>
+                        <p>After connecting to the database, following the query statement is executed to get the record matching the SKU. The values from each field are serialized using the separator '|' resulting in a single string to send back.</p>
+    <pre><code class="language-perl">
+    $query = "SELECT manufacturerID, category.name, vendor.name, description, features,
+              cost, retail, quantity, image FROM product
+              INNER JOIN category ON product.catID=category.id
+              INNER JOIN vendor ON product.venID=vendor.id WHERE sku='$sku';";
+    my $sth = $dbh->prepare($query_statement);
+    $sth->execute();
+    </code></pre>
+                        <br>
+                        <p><span class="code_method">getProductInfoEditHandler()</span> in menu.js handles the response from get_product.cgi and sets the value of each input to the corresponding value of each field from the record.</p>
+                        <br>
+                        <p><span class="code_method">editProduct()</span> calls <span class="applicable_files_sub">modify_products.cgi</span> using <span class="code_method_sub">$.ajax()</span>. if the validation succeeded. It should be noted that uploading an image file is optional in this case because the user may not want the image to change. Thus, validation will succeed whether or not an image file was uploaded. After a response is heard, a confirmation for the status of the request will be toggled.</p>
+                        <br>
+                        <p>The following shows the form under the edit tab being populated after a response is heard back from the server. The SKU is first entered and then the focus tabbed off, which will trigger the AJAX call to retrieve the product information.</p>
+                        <br>
+                        <div class="preview_div">
+                          <img src="../../images/screenshots/CS645_Project1_get_products.gif" alt="CS645 Project 1 Get Products">
+                        </div>
+                        <br>
+                        <p class="applicable_files">modify_products.cgi</p>
+                        <p>The query statement that is executed when the form of this edit tab is submitted via AJAX is one that updates the record. For the edit tab, the image may or may not have been sent along with the request. Thus, <span class="highlight">"undefined"</span> is sent as the value for the image file parameter if the user didn't choose to change the photo. This allows for only the record being updated rather than both the record being updated and the image being uploaded.</p>
+    <pre><code class="language-perl">
+    # If file name is "undefined", update the record
+    $query = "UPDATE product INNER JOIN category ON product.catID=category.id
+              INNER JOIN vendor ON product.venID=vendor.id
+              SET manufacturerID=?, category.id=?, vendor.id=?, description=?, features=?,
+              cost=?, retail=?, quantity=? WHERE sku=?;";
+    $sth = $dbh->prepare($query);
+    $affected_rows = $sth->execute($manufacturer_id, $category, $vendor, $description, $features,
+        $cost, $retail, $quantity, $sku) or die $sth->errstr;
+
+    # If file name exists, upload the image and update the record
+    $query = "UPDATE product INNER JOIN category ON product.catID=category.id
+              INNER JOIN vendor ON product.venID=vendor.id
+              SET manufacturerID=?, category.id=?, vendor.id=?, description=?, features=?,
+              cost=?, retail=?, quantity=?, image=? WHERE sku=?;";
+    $sth = $dbh->prepare($query);
+    $affected_rows = $sth->execute($manufacturer_id, $category, $vendor, $description, $features,
+        $cost, $retail, $quantity, $image_file_name, $sku) or die $sth->errstr;
+    </code></pre>
                         <br>
 
                         <h4>Delete Inventory Tab</h4>
-                        <p></p>
+                        <p>This tab allows the user to delete an existing record from the product table in the database. It has similar functionality as the edit tab in that the elements representing the input fields are populated on a successful response to an AJAX call to the server (the call to <span class="applicable_files_sub">get_products.cgi</span> is the same and will not be explained again). The difference is that the elements are &lt;p&gt; tags and the information of the product cannot be changed. After a response is heard, a confirmation for the status of the request will be toggled.</p>
+                        <br>
+                        <p class="applicable_files">modify_products.cgi</p>
+                        <p>The query statement executed when the user clicks on the delete button is the following. The image file associated with the SKU is also <span class="code_method_sub">unlinked</span>.</p>
+                        <br>
+    <pre><code class="language-perl">
+    $query = "SELECT image FROM product WHERE sku='$sku';";
+    $sth = $dbh->prepare($query);
+    $sth->execute();
+    my $old_image_file;
+    while (my @row = $sth->fetchrow_array) {
+        $old_image_file = $row[0];
+    }
+    my $file_to_delete = $upload_dir . "/" . $old_image_file;
+    unlink($file_to_delete);
+
+    $query = "DELETE FROM product WHERE sku='$sku';";
+    $sth = $dbh->prepare($query);
+    $affected_rows = $sth->execute();
+    </code></pre>
                         <br>
 
                         <h3>State Management</h3>
-                        <p></p>
+                        <p>When the user signed in, a session id was given to the client and must be passed back and forth between the client and the server to authenticate the user on every submission of form data. This prevents unauthorized users from making changes to the database. In order to achieve this, the cookie was written to in signin.cgi with the key as <span class="highlight">"jadrnxxxSID"</span> and the value as the session id. The cookie was then printed to the header to be sent back to the client. Every time an event on the client side calls a script, the cookie will be sent.</p>
+                        <br>
+                        <p>When creating a new session, an existing session id can be passed in. If the existing session id is valid, it will be the value of the id of the new session object. If not, a new session id is created. Therefore, the session id from the value of the cookie can be checked against the id property of the new session object to see if they match. If they don't, the user is denied access and is redirected to <span class="applicable_files_sub">error.html</span>.</p>
+                        <br>
+                        <p>The following shows how a new session and session id is created and set as the value of the cookie. Occurs in <span class="applicable_files_sub">signin.cgi</span>.</p>
+    <pre><code class="language-perl">
+    my $session = new CGI::Session(undef, undef, {Directory=>'/tmp'});
+    $session->expires('+1d');
+    my $cookie = $q->cookie(jadrn025SID=> $session->id);
+    print $q->header(-cookie=>$cookie);
+    </code></pre>
+                        <br>
+                        <p>The following checks for a match between the cookie's session id value and the id property of the new session object. Occurs at the beginning of every script that connects to the database.</p>
+    <pre><code class="language-perl">
+    my $q = new CGI;
+            my $cookie_sid = $q-&gt;cookie('jadrn025SID');
+            my $session = new CGI::Session(undef, $cookie_sid, {Directory=&gt;'/tmp'});
+            my $sid = $session->id;
+
+    if ($cookie_sid ne $sid) {
+    	# print error.html and exit script
+    }
+    </code></pre>
+                        <br>
+
+                        <h3>History and Location</h3>
+                        <p>Even after the user logs out and the session gets deleted and the cookie's value emptied, the inventory tabs page could still be navigated to using the back button and accessing the history. To prevent this from happening, the logout's click event handler calls the <span class="code_web">location</span> object's <span class="code_method">replace()</span> method. This causes the current page to be replaced with the output from the script. Another advantage is that the current page will not be saved in the session history so the user can't navigate back using the back button.</p>
+                        <br>
+    <pre><code class="language-javascript">
+    $('#logout_div a').on('click', function(event) {
+      event.preventDefault();
+      location.replace("/perl/jadrn025/logout.cgi");
+    });
+    </code></pre>
+                        <br>
+                        <p>Additionally, an event listener for the <span class="code_web">onpageshow</span> event is attached to the window in the case that the page was cached. This will force the page to refresh by calling <span class="code_method">location.reload(true)</span>.</p>
+    <pre><code class="language-javascript">
+    window.addEventListener("pageshow", function(event) {
+      var pageCached = event.persisted || (typeof window.performance != "undefined" &&
+          window.performance.navigation.type === 2);
+      if (pageCached) {
+          window.location.reload(true);
+      }
+    });
+    </code></pre>
+                        <br>
 
                         <h3>Logging Out</h3>
-                        <p></p>
+                        <p>Within the script <span class="applicable_files">logout.cgi</span>, the session needs to be deleted and the cookie's value needs to be cleared. The changed cookie is then printed to the header. The HTML content that is printed in this script actually redirects the user to <span class="applicable_files">logout.html</span>.</p>
+    <pre><code class="language-perl">
+    my $q = new CGI;
+            my $session_id = $q->cookie("jadrn025SID") || undef;
+            my $session = new CGI::Session(undef, $session_id, {Directory=> '/tmp'});
+            $session->delete();
+
+    my $cookie = $q->cookie(jadrn025SID=> '');
+            print $q->header(-cookie=>$cookie);
+    </code></pre>
+                        <br>
+                        <div class="preview_div">
+                          <img src="../../images/screenshots/CS645_Project1_logout.gif" alt="CS645 Project 1 Logout">
+                        </div>
                     </div>
                 </div>
             </div>

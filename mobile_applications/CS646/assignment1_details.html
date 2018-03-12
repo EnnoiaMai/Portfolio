@@ -68,16 +68,16 @@ Date Created: January 2018
                             <li>A palindrome is a string that reads the same forwards and backwards. We will call a number a palindrome if it reads the same forwards and backwards. So 191 is a palindrome. Write a function that returns the number of palindrome numbers between 0 and n.</li>
                             <br>
                             <li>If we list all the natural numbers below 20 that are multiples of 3 or 5 but not multiples both of 3 and 5, we get 3, 5, 6, 9, 10, 12, 18. The sum of these multiples is 63. Write a function, sumMultiples3_5, that returns the sum of the multiples of 3 and 5 less than N. So<br><br>
-                            <span class="cs646_code">sumMultiples3_5(20) == 63</span></li>
+                            <span class="code_CS646">sumMultiples3_5(20) == 63</span></li>
                             <br>
                             <li>Write a function patternCount with two arguments. The first arguments is a string, let's call it text, and the second argument is also a string, call it pattern. The function patternCount returns the number of times the pattern occurs in the text. For example:<br><br>
-                            <span class="cs646_code">
+                            <span class="code_CS646">
                             patternCount(string: "abababa", pattern: "aba") == 3<br>
                             patternCount(string: "aaaaa", pattern: "aa") == 4<br>
                             patternCount(string: "Abcde", pattern: "abc") == 0</span></li>
                             <br>
                             <li>Write a Swift function, call it popularClasses, that has one argument, an array of sets of courses, and returns the intersection of all the sets in the array. In the code below popularClasses would return {“CS237”}.<br><br>
-                            <span class="cs646_code">
+                            <span class="code_CS646">
                             let studentA: Set = ["CS101", "CS237", "CS520"]<br>
                             let studentB: Set = ["CS101", "Math245", "CS237"]<br>
                             let studentC: Set = ["CS237", "CS560"]<br>
@@ -88,7 +88,7 @@ Date Created: January 2018
                             <li>Write a Swift function average2 which is the same as average in problem 5 except that the input is an array of optional ints.</li>
                             <br>
                             <li>Write a Swift function cost that has one argument a dictionary. The dictionary has three keys: “name”, “price”, and “quantity”. The function cost returns the cost of the item, that is the price * quantity. The keys and values in the dictionary are all strings. The value at “price” is the string of a double like “3.45”. The string at “quantity” is the string of an integer. Note that if either the key “price” or “quantity” is not in the dictionary the function “cost” returns 0 (zero). Examples given below.<br><br>
-                            <span class="cs646_code">
+                            <span class="code_CS646">
                             let iceCreamA = ["name": "Mochie Green Tea", "quantity": "2", "price": "2.3"]<br>
                             let iceCreamB = ["name": "Mochie Green Tea", "price": "2.3"]<br>
                             <br>
@@ -96,18 +96,18 @@ Date Created: January 2018
                             cost(iceCreamB)&nbsp;&nbsp;&nbsp;&nbsp;// returns 0</span></li>
                             <br>
                             <li>Write a Swift function wordCount that has two arguments, a string and an Int. The string contains words separated by a space. For example “cat bat cat rat mouse bat”. wordCount returns a dictionary where the keys are the words in the string and the values are the number of times the word appears in the list. Only the words that occur at least as many times as the second argument are in the dictionary.<br><br>
-                            <span class="cs646_code">
+                            <span class="code_CS646">
                             wordCount(words: “cat bat cat rat mouse bat”, count: 1) returns [“cat”: 2, “bat”: 2 “rat”: 1, “mouse”: 1]<br>
                             wordCount(words: “cat bat cat rat mouse bat”, count: 2) returns [“cat”: 2, “bat”: 2 ]<br>
                             wordCount(words: “cat bat cat rat mouse bat”, count: 3) returns [:]</span></li>
                             <br>
                             <li>Write a Swift function wordCount2 that has the same arguments as wordCount in problem 7 and returns the same result. However give the second argument a default value of 2 so we can call the function with one or two arguments as shown below.<br><br>
-                            <span class="cs646_code">
+                            <span class="code_CS646">
                             wordCount2(words: “cat bat cat rat mouse bat”) returns [“cat”: 2, “bat”: 2 ]<br>
                             wordCount2(words: “cat bat cat rat mouse bat”, count: 3) returns [:]</span></li>
                             <br>
                             <li>Write a Swift function wordCount3 that has one argument an Int, which has the same role as the second argument of wordCount. wordCount3 returns a function. The return function has one argument a String that contains words. When evaluated the returned function returns the dictionary of words in the string with the number of times the word appears in the list. But as in problem 7 it only contains the words that occur as many times as the argument to wordCount3. See examples below.<br><br>
-                            <span class="cs646_code">
+                            <span class="code_CS646">
                             let testA = wordCount3(2)<br>
                             testA(words: “cat bat cat rat mouse bat”) returns [“cat”: 2, “bat”: 2 ]<br>
                             testA(words: “a a a b c c”) returns [“a”: 3, “c”: 2]<br>
@@ -120,7 +120,7 @@ Date Created: January 2018
                         <h2>Implementation Details</h2>
                         <p>The following layout shows how my original implementation and the more concise and straightforward way to implement it using higher-order functions.</p>
                         <br>
-                        <p><b>1)</b> Both implementations use the idea of looping through the range of numbers and reading it forwards and backwards to see if they match. However, the original implementation didn't make use of high-order functions. In the code, the range was established using the parameters <span class="cs646_code">from</span> and <span class="cs646_code">to</span>, and <span class="cs646_code">filter()</span> was called which took the <span class="cs646_code">isPalindrome</span> helper function as the closure. filter() was chained with the <span class="cs646_code">count</span> property. So for each number within the range that returns true as a palindrome, it would be added to an array and the array's length was returned.</p>
+                        <p><b>1)</b> Both implementations use the idea of looping through the range of numbers and reading it forwards and backwards to see if they match. However, the original implementation didn't make use of high-order functions. In the code, the range was established using the parameters <span class="code_CS646">from</span> and <span class="code_CS646">to</span>, and <span class="code_CS646">filter()</span> was called which took the <span class="code_CS646">isPalindrome</span> helper function as the closure. filter() was chained with the <span class="code_CS646">count</span> property. So for each number within the range that returns true as a palindrome, it would be added to an array and the array's length was returned.</p>
                         <br>
     <pre><code class="language-swift">
     // Original Implementation
@@ -165,7 +165,7 @@ Date Created: January 2018
     palindromes(from: 0, to: 100) == 19
     </code></pre>
                         <br>
-                        <p><b>2)</b> The original implementation was simple. Every number to n was iterated over and the modulus of 3 and 5 was taken and checked to see if it resulted in 0. If it did, then it would be added to the current sum. The second approach was more concise because it chains the <span class="cs646_code">filter()</span> and <span class="cs646_code">reduce()</span> functions together. The filter method checks if each number returned 0 when taking the modulus of 5 or 3 but not 15. The reduce method then goes through the array that filter returns to return a single value representing the sum.</p>
+                        <p><b>2)</b> The original implementation was simple. Every number to n was iterated over and the modulus of 3 and 5 was taken and checked to see if it resulted in 0. If it did, then it would be added to the current sum. The second approach was more concise because it chains the <span class="code_CS646">filter()</span> and <span class="code_CS646">reduce()</span> functions together. The filter method checks if each number returned 0 when taking the modulus of 5 or 3 but not 15. The reduce method then goes through the array that filter returns to return a single value representing the sum.</p>
                         <br>
     <pre><code class="language-swift">
     // Original Implementation
@@ -215,7 +215,7 @@ Date Created: January 2018
     sumMultiples3_5(-1) == 0
     </code></pre>
                         <br>
-                        <p><b>3)</b> The original implementation loops through the string as many times as the difference between the string's length and the pattern's length. For every loop, the offset from the beginning of the string is incremented. If the substring, which starts from the determined offset and ends at the pattern's length, matches the pattern, the variable representing the number of matches was incremented. The improved approach is to use <span class="cs646_code">filter()</span> and pass a helper method. The helper method required the offset for the string and the pattern and used the <span class="cs646_code">suffix()</span> and <span class="cs646_code">hasPrefix()</span> String methods in order to see if the pattern was contained within the subsequence after the offset.</p>
+                        <p><b>3)</b> The original implementation loops through the string as many times as the difference between the string's length and the pattern's length. For every loop, the offset from the beginning of the string is incremented. If the substring, which starts from the determined offset and ends at the pattern's length, matches the pattern, the variable representing the number of matches was incremented. The improved approach is to use <span class="code_CS646">filter()</span> and pass a helper method. The helper method required the offset for the string and the pattern and used the <span class="code_CS646">suffix()</span> and <span class="code_CS646">hasPrefix()</span> String methods in order to see if the pattern was contained within the subsequence after the offset.</p>
                         <br>
     <pre><code class="language-swift">
     // Original Implementation
@@ -269,7 +269,7 @@ Date Created: January 2018
     patternCount(text: "", pattern: "abc") == 0
     </code></pre>
                         <br>
-                        <p><b>4)</b> The original implementation used the first set as a reference. For each item in the first set, it would loop through the subsequent sets to see if those sets contained the item. If at the end of the loop the count was equal to the number of sets, then the item is concluded to intersect all sets. The second approach uses <span class="cs646_code">reduce()</span> and the Set <span class="cs646_code">intersection()</span> method to compare two sets to find a match. The function returns the intersected value if it is contained in all sets. The second approach takes into consideration multiple values that intersect the sets.</p>
+                        <p><b>4)</b> The original implementation used the first set as a reference. For each item in the first set, it would loop through the subsequent sets to see if those sets contained the item. If at the end of the loop the count was equal to the number of sets, then the item is concluded to intersect all sets. The second approach uses <span class="code_CS646">reduce()</span> and the Set <span class="code_CS646">intersection()</span> method to compare two sets to find a match. The function returns the intersected value if it is contained in all sets. The second approach takes into consideration multiple values that intersect the sets.</p>
                         <br>
     <pre><code class="language-swift">
     // Original Implementation
@@ -318,7 +318,7 @@ Date Created: January 2018
     popularClasses([studentA]) == ["CS101", "CS237", "CS520"]
     </code></pre>
                         <br>
-                        <p><b>5)</b> The original implementation loops through the elements in the array, casts it to a Double, sums it, and returns the average. The improved implementation uses <span class="cs646_code">reduce()</span> to sum up the values first, and then takes the average.</p>
+                        <p><b>5)</b> The original implementation loops through the elements in the array, casts it to a Double, sums it, and returns the average. The improved implementation uses <span class="code_CS646">reduce()</span> to sum up the values first, and then takes the average.</p>
                         <br>
     <pre><code class="language-swift">
     // Original Implementation

@@ -98,97 +98,97 @@ Date Created: January 2018
                         <br>
 
                         <h3 class="applicable_files">SportsViewController.swift</h3>
-                        <p>The view controller requires implementation of the <span class="definition">UIPickerView</span>, which is a spinning wheel that lets the user choose from a set of options. The wheels are called components and they have indexed rows. In order for the UIPicker to work, the <span class="cs646_code">UIPickerViewDataSource</span> and <span class="cs646_code">UIPickerViewDelegate</span> protocols have to be adopted.</p>
+                        <p>The view controller requires implementation of the <span class="definition">UIPickerView</span>, which is a spinning wheel that lets the user choose from a set of options. The wheels are called components and they have indexed rows. In order for the UIPicker to work, the <span class="code_CS646">UIPickerViewDataSource</span> and <span class="code_CS646">UIPickerViewDelegate</span> protocols have to be adopted.</p>
                         <br>
                         <ul>
-                          <li><span class="cs646_code">numberOfComponents()</span> - specifies how many components or wheels are being implemented. In this case, 2 components are needed.</li>
+                          <li><span class="code_method">numberOfComponents()</span> - specifies how many components or wheels are being implemented. In this case, 2 components are needed.</li>
                           <br>
-                          <li><span class="cs646_code">pickerView(UIPickerView, numberOfRowsInComponent: Int)</span> - should return the correct number of items associated with the component. For the first component of index 0, the number of countries in the dictionary should be returned. For the second component, the number of sports for the selected country should be returned.</li>
+                          <li><span class="code_method">pickerView(UIPickerView, numberOfRowsInComponent: Int)</span> - should return the correct number of items associated with the component. For the first component of index 0, the number of countries in the dictionary should be returned. For the second component, the number of sports for the selected country should be returned.</li>
                           <br>
-                          <li><span class="cs646_code">pickerView(UIPickerView, titleForRow: Int, forComponent: Int)</span> - the title, or in this case the name of the country or sport, to return for each row in each component. To do this, the component number was first filtered with a switch statement. Then the row parameter was used to access either the country name or the sports name at the correct index.</li>
+                          <li><span class="code_method">pickerView(UIPickerView, titleForRow: Int, forComponent: Int)</span> - the title, or in this case the name of the country or sport, to return for each row in each component. To do this, the component number was first filtered with a switch statement. Then the row parameter was used to access either the country name or the sports name at the correct index.</li>
                           <br>
-                          <li><span class="cs646_code">pickerView(UIPickerView, didSelectRow: Int, inComponent: Int)</span> - within component 0, or the list of countries, whenever the user selects a new country the <span class="cs646_code_sub">selectedCountry</span> variable is updated and the picker view is refreshed by reloading component 1, or the list of sports. The slider is also updated by dividing the index of the currently selected sport to the total number of sports for that country.</li>
+                          <li><span class="code_method">pickerView(UIPickerView, didSelectRow: Int, inComponent: Int)</span> - within component 0, or the list of countries, whenever the user selects a new country the <span class="code_CS646">selectedCountry</span> variable is updated and the picker view is refreshed by reloading component 1, or the list of sports. The slider is also updated by dividing the index of the currently selected sport to the total number of sports for that country.</li>
                         </ul>
                         <br>
-                        <p>Aside from setting the delegate to <span class="cs646_code_sub">self</span> and formatting the sliders, <span class="cs646_code">viewDidLoad()</span> attempts to access the Sports Property List to retrieve a dictionary in which the keys are the countries and the values are the list of sports for the countries. It takes the information from the dictionary to arrange the array of tuples which define the country and the associated sport.</p>
+                        <p>Aside from setting the delegate to <span class="code_CS646">self</span> and formatting the sliders, <span class="code_method">viewDidLoad()</span> attempts to access the Sports Property List to retrieve a dictionary in which the keys are the countries and the values are the list of sports for the countries. It takes the information from the dictionary to arrange the array of tuples which define the country and the associated sport.</p>
                         <br>
-                        <div class="preview_div_iphone">
+                        <div class="preview_div_phone">
                           <img src="../../images/screenshots/CS646_Assignment4_pickerview.gif" alt="CS646 Assignment 4 UIPickerView">
                         </div>
                         <br>
 
                         <h3 class="applicable_files">MapViewController.swift</h3>
-                        <p>In order to annotate the <span class="definition">MapView</span>, the <span class="applicable_files">MapAnnotations.swift</span> file was made. The class provides the blueprint for the annotation object with the title, info., and coordinate properties. This view controller adopts the <span class="cs646_code">MKMapViewDelegate</span> protocol.</p>
+                        <p>In order to annotate the <span class="definition">MapView</span>, the <span class="applicable_files">MapAnnotations.swift</span> file was made. The class provides the blueprint for the annotation object with the title, info., and coordinate properties. This view controller adopts the <span class="code_CS646">MKMapViewDelegate</span> protocol.</p>
                         <br>
                         <ul>
-                          <li><span class="cs646_code">mapView(MKMapView, rendererFor: MKOverlay)</span> - returns an <span class="cs646_code_sub">MKPolylineRenderer</span> object with a stroke color set to blue and line width to 5.</li>
+                          <li><span class="code_method">mapView(MKMapView, rendererFor: MKOverlay)</span> - returns an <span class="code_CS646">MKPolylineRenderer</span> object with a stroke color set to blue and line width to 5.</li>
                           <br>
-                          <li><span class="cs646_code">mapView(MKMapView, viewFor: MKAnnotation)</span> - allows annotation objects to be reused/recycled. This occurs by calling <span class="cs646_code_sub">dequeueReusableAnnotationView()</span> on the map view with a declared id. For this assignment, an <span class="cs646_code_sub">MKPinAnnotationView</span> object is returned.</li>
+                          <li><span class="code_method">mapView(MKMapView, viewFor: MKAnnotation)</span> - allows annotation objects to be reused/recycled. This occurs by calling <span class="code_method_sub">dequeueReusableAnnotationView()</span> on the map view with a declared id. For this assignment, an <span class="code_CS646">MKPinAnnotationView</span> object is returned.</li>
                           <br>
-                          <li><span class="cs646_code">viewDidLoad()</span> - the NumericConstants Property List was accessed to retrieve a dictionary containing latitude and longitude coordinates values for San Diego, El Cajon, and Escondido. <span class="cs646_code_sub">centerMap()</span> is called to initially center the map on San Diego, and then annotations were added to the map view for El Cajon and Escondido. If location services were enabled on the device, then the delegate and location accuracy is set on the <span class="cs646_code_sub">CLLocationManager</span> object.</li>
+                          <li><span class="code_method">viewDidLoad()</span> - the NumericConstants Property List was accessed to retrieve a dictionary containing latitude and longitude coordinates values for San Diego, El Cajon, and Escondido. <span class="code_method_sub">centerMap()</span> is called to initially center the map on San Diego, and then annotations were added to the map view for El Cajon and Escondido. If location services were enabled on the device, then the delegate and location accuracy is set on the <span class="code_CS646">CLLocationManager</span> object.</li>
                           <br>
-                          <li><span class="cs646_code">getDirections()</span> - an action that takes the entered coordinates from the text fields to make a <span class="cs646_code_sub">CLLocationCoordinate</span> which is used to instantiate an <span class="cs646_code_sub">MKPlacemark</span>, which is then used to instantiate an <span class="cs646_code_sub">MKMapItem</span>. After creating an <span class="cs646_code_sub">MKDirectionRequest</span> object, the source and destination is set using the <span class="cs646_code_sub">MKMapItems</span>. Lastly, the <span class="cs646_code_sub">MKDirections</span> object is instantiated which takes the request and <span class="cs646_code_sub">calculate()</span> is called on it. The first route from the response is used to prepare the polyline to be set on the map view.</li>
+                          <li><span class="code_method">getDirections()</span> - an action that takes the entered coordinates from the text fields to make a <span class="code_CS646">CLLocationCoordinate</span> which is used to instantiate an <span class="code_CS646">MKPlacemark</span>, which is then used to instantiate an <span class="code_CS646">MKMapItem</span>. After creating an <span class="code_CS646">MKDirectionRequest</span> object, the source and destination is set using the <span class="code_CS646">MKMapItems</span>. Lastly, the <span class="code_CS646">MKDirections</span> object is instantiated which takes the request and <span class="code_method_sub">calculate()</span> is called on it. The first route from the response is used to prepare the polyline to be set on the map view.</li>
                         </ul>
                         <br>
-                        <p>The <span class="cs646_code">CLLocationManagerDelegate</span> protocol is adopted and the <span class="cs646_code">locationManager(CLLocationManager, didUpdateLocations: [CLLoation])</span> method is implemented to get the user's current location and center the map on it. The "get user location" button will update the user's current location every time it is clicked, and the delegate (this view controller) will be notified of the new location data.</p>
+                        <p>The <span class="code_CS646">CLLocationManagerDelegate</span> protocol is adopted and the <span class="code_method">locationManager(CLLocationManager, didUpdateLocations: [CLLoation])</span> method is implemented to get the user's current location and center the map on it. The "get user location" button will update the user's current location every time it is clicked, and the delegate (this view controller) will be notified of the new location data.</p>
                         <br>
                         <p>The map is centered to San Diego when the application is first ran.</p>
                         <br>
-                        <div class="preview_div_iphone">
+                        <div class="preview_div_phone">
                           <img src="../../images/screenshots/CS646_Assignment4_map_default.png" alt="CS646 Assignment 4 MapView Default">
                         </div>
                         <br>
                         <p>When the user clicks on "Get Current Location", the map is then centered on the user's current location. The location was set to center on SDSU in the settings since this application was run on the simulator.</p>
                         <br>
-                        <div class="preview_div_iphone">
+                        <div class="preview_div_phone">
                           <img src="../../images/screenshots/CS646_Assignment4_map_current_location.png" alt="CS646 Assignment 4 MapView Current Location">
                         </div>
                         <br>
                         <p>When the user clicks on "Get Directions", the latitude and longitude values that were entered are used to create a polyline from the source to the destination. Here, the source was the user's current location and the destination was Los Angeles.</p>
                         <br>
-                        <div class="preview_div_iphone">
+                        <div class="preview_div_phone">
                           <img src="../../images/screenshots/CS646_Assignment4_map_directions.png" alt="CS646 Assignment 4 MapView Directions">
                         </div>
                         <br>
 
                         <h3 class="applicable_files">SegmentViewController.swift</h3>
-                        <p>Based on the selected index of the segmented control, either the Progress-, Text-, or AlertChildViewController's view will be added to the current view controller as a subview. The <span class="cs646_code_sub">selectedSegmentIndex</span> is set to 0 in <span class="cs646_code">viewDidLoad()</span>. Each instance of these child view controllers are instantiated lazily and added as children to the current view controller when it is needed. The following are helper methods that set the appropriate view controller.</p>
+                        <p>Based on the selected index of the segmented control, either the Progress-, Text-, or AlertChildViewController's view will be added to the current view controller as a subview. The <span class="code_CS646">selectedSegmentIndex</span> is set to 0 in <span class="code_method">viewDidLoad()</span>. Each instance of these child view controllers are instantiated lazily and added as children to the current view controller when it is needed. The following are helper methods that set the appropriate view controller.</p>
                         <br>
                         <ul>
-                          <li><span class="cs646_code">addChildVC()</span> - takes in a view controller instance as the parameter and adds the view controller's view as the subview of the current view controller's view. <span class="cs646_code_sub">didMove(toParentViewController)</span> is called on the child view controller to notify the transition.</li>
+                          <li><span class="code_method">addChildVC()</span> - takes in a view controller instance as the parameter and adds the view controller's view as the subview of the current view controller's view. <span class="code_method_sub">didMove(toParentViewController)</span> is called on the child view controller to notify the transition.</li>
                           <br>
-                          <li><span class="cs646_code">updateChildVC()</span> - depending on the selected segment index, the other view controllers will be hidden while the one selected will be visible. Any segment index that doesn't pull up the TextChildViewController will result in the keyboard being hidden.</li>
+                          <li><span class="code_method">updateChildVC()</span> - depending on the selected segment index, the other view controllers will be hidden while the one selected will be visible. Any segment index that doesn't pull up the TextChildViewController will result in the keyboard being hidden.</li>
                         </ul>
                         <br>
 
                         <ol>
                           <li><span class="applicable_files">ProgressChildViewController.swift</span><br>
-                            Contains a switch control that, when clicked, activates the <span class="definition">UIActivityIndicator</span>. In <span class="cs646_code">viewDidLoad()</span>, the activity indicator style and color are set and by default the indicator should not be animating. In <span class="cs646_code">switchValueChanged()</span> when the switch control is on, the indicator will animate, otherwise it will not.
+                            Contains a switch control that, when clicked, activates the <span class="definition">UIActivityIndicator</span>. In <span class="code_method">viewDidLoad()</span>, the activity indicator style and color are set and by default the indicator should not be animating. In <span class="code_method">switchValueChanged()</span> when the switch control is on, the indicator will animate, otherwise it will not.
                           </li>
                           <br>
-                          <div class="preview_div_iphone">
+                          <div class="preview_div_phone">
                             <img src="../../images/screenshots/CS646_Assignment4_progress.gif" alt="CS646 Assignment 4 UIActivityIndicator">
                           </div>
                           <br>
                           <li><span class="applicable_files">TextChildViewController.swift</span><br>
                             Contains a text view that the user can enter text into. A notable aspect of the implementation is getting the text view to adapt or change its size whenever the keyboard is brought up. In this case, the text view minimizes its height to make room for the keyboard so that text won't be blocked. The observers that listen to when the keyboard will hide or show is set in viewWillAppear() and removed in viewWillDisappear().<br><br>
 
-                            Both <span class="cs646_code">keyboardWillShow(NSNotification)</span> and <span class="cs646_code">keyboardWillHide(NSNotification)</span> will get the change in height by calling <span class="cs646_code">keyboardChangeInHeight()</span>. They will call <span class="cs646_code">moveView()</span> if the difference is between 40 and 80. The only difference is the value passed to moveView(), which is a negative value if they keyboard is being shown and a positive value if it's being hidden.<br><br>
+                            Both <span class="code_method">keyboardWillShow(NSNotification)</span> and <span class="code_method">keyboardWillHide(NSNotification)</span> will get the change in height by calling <span class="code_method">keyboardChangeInHeight()</span>. They will call <span class="code_method">moveView()</span> if the difference is between 40 and 80. The only difference is the value passed to moveView(), which is a negative value if they keyboard is being shown and a positive value if it's being hidden.<br><br>
 
-                            <span class="cs646_code">keyboardChangeInHeight()</span> - returns the change in the keyboard's height by getting the height of the keyboard's frame before and after it changed.<br><br>
+                            <span class="code_method">keyboardChangeInHeight()</span> - returns the change in the keyboard's height by getting the height of the keyboard's frame before and after it changed.<br><br>
 
-                            <span class="cs646_code">moveView()</span> - animates the transformation of the text view. The method adds to the current height of the text view.
+                            <span class="code_method">moveView()</span> - animates the transformation of the text view. The method adds to the current height of the text view.
                           </li>
                           <br>
-                          <div class="preview_div_iphone">
+                          <div class="preview_div_phone">
                             <img src="../../images/screenshots/CS646_Assignment4_text.gif" alt="CS646 Assignment 4 TextView">
                           </div>
                           <br>
                           <li><span class="applicable_files">AlertChildViewController.swift</span><br>
-                            Clicking on the button will trigger an action called <span class="cs646_code">triggerAlert()</span>. This will bring up an alert controller that asks the user if he or she likes the iphone. The user can click "yes" or "no" to dismiss the controller.
+                            Clicking on the button will trigger an action called <span class="code_method">triggerAlert()</span>. This will bring up an alert controller that asks the user if he or she likes the iphone. The user can click "yes" or "no" to dismiss the controller.
                           </li>
                           <br>
-                          <div class="preview_div_iphone">
+                          <div class="preview_div_phone">
                             <img src="../../images/screenshots/CS646_Assignment4_alert.gif" alt="CS646 Assignment 4 AlertViewController">
                           </div>
                         </ol>

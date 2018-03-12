@@ -68,25 +68,25 @@ Date Created: January 2018
                             <li>Create a linked list protocol that contains the instance methods append, prepend, removeLast removeFirst. See question 4 for more information about the methods. The protocol needs to define a read-only property count, that is an integer.</li>
                             <br>
                             <li>Using classes implement a singly linked list. Each node in the linked list holds an object of any type. A linked list can hold objects of different types. Implement the instance methods listed below on the LinkedList class. The linked list class should implement the protocol from problem 1. Make sure that the property count is properly maintained.<br><br>
-                            <span class="cs646_code">func prepend(Element)</span> - Adds the argument to the front of the list<br><br>
-                            <span class="cs646_code">func append(Element)</span> - Adds the argument to the end of the list<br><br>
-                            <span class="cs646_code">removeFirst()</span> - Removes the first item in the linked list and returns it<br><br>
-                            <span class="cs646_code">removeLast()</span> - Removes the last item in the linked list and returns it<br><br>
-                            <span class="cs646_code">[int]</span> - returns the object in the list at the given index (an integer). If the index is out of range then raise a RangeException.<br><br>
-                            <span class="cs646_code">elements(separatedBy:String)</span> - Declare this method private. The method constructs and returns an NSString object that is the result of interposing a given separator between the elements of the receiver’s list. If list contains in order the numbers 3, 5, 1, then list.elements(separatedBy: “-“) returns the string "3-5-1".<br><br>
-                            <span class="cs646_code">description</span> - Return a String that shows the contents of the linked list. If the linked list contains in order the numbers 3, 5, 1 then description should return the string (3, 5, 1).</li>
+                            <span class="code_CS646">func prepend(Element)</span> - Adds the argument to the front of the list<br><br>
+                            <span class="code_CS646">func append(Element)</span> - Adds the argument to the end of the list<br><br>
+                            <span class="code_CS646">removeFirst()</span> - Removes the first item in the linked list and returns it<br><br>
+                            <span class="code_CS646">removeLast()</span> - Removes the last item in the linked list and returns it<br><br>
+                            <span class="code_CS646">[int]</span> - returns the object in the list at the given index (an integer). If the index is out of range then raise a RangeException.<br><br>
+                            <span class="code_CS646">elements(separatedBy:String)</span> - Declare this method private. The method constructs and returns an NSString object that is the result of interposing a given separator between the elements of the receiver’s list. If list contains in order the numbers 3, 5, 1, then list.elements(separatedBy: “-“) returns the string "3-5-1".<br><br>
+                            <span class="code_CS646">description</span> - Return a String that shows the contents of the linked list. If the linked list contains in order the numbers 3, 5, 1 then description should return the string (3, 5, 1).</li>
                             <br>
                             <li>Add to your linked list class the following methods/properties:<br><br>
-                            <span class="cs646_code">init(repeating: Element, count: Int)</span> - Creates a new collection containing the specified number of a single, repeated value.<br><br>
-                            <span class="cs646_code">var isEmpty: Bool</span> - A Boolean value indicating whether the collection is empty.<br><br>
-                            <span class="cs646_code">func map&lt;T&gt;((Element) -&gt; T)</span> - Returns a linked list containing the results of mapping the given closure over the sequence’s elements.<br><br>
-                            <span class="cs646_code">func reduce&lt;Result&gt;(Result, (Result, Element) -&gt; Result)</span> - Returns the result of combining the elements of the linked list using the given closure.</li>
+                            <span class="code_CS646">init(repeating: Element, count: Int)</span> - Creates a new collection containing the specified number of a single, repeated value.<br><br>
+                            <span class="code_CS646">var isEmpty: Bool</span> - A Boolean value indicating whether the collection is empty.<br><br>
+                            <span class="code_CS646">func map&lt;T&gt;((Element) -&gt; T)</span> - Returns a linked list containing the results of mapping the given closure over the sequence’s elements.<br><br>
+                            <span class="code_CS646">func reduce&lt;Result&gt;(Result, (Result, Element) -&gt; Result)</span> - Returns the result of combining the elements of the linked list using the given closure.</li>
                             <br>
-                            <li>Add a method <span class="cs646_code">integerValues</span> to the String class. This method returns an array of optional ints. The method expects the integers in the the source string to be separated by a comma “,". Examples<br><br>
-                            <span class="cs646_code">"2, 3, 6”.integerValues()</span> - returns the array containing in order 2, 3, 6.<br>
-                            <span class="cs646_code">2”.integerValues()</span> - returns the array containing one element 2.<br>
-                            <span class="cs646_code">"cat".integerValues()</span> - returns the array containing one element nil.<br>
-                            <span class="cs646_code">"2, foo, 6”.integerValues()</span> - returns the array containing in order 2, nil, 6.<br></li>
+                            <li>Add a method <span class="code_CS646">integerValues</span> to the String class. This method returns an array of optional ints. The method expects the integers in the the source string to be separated by a comma “,". Examples<br><br>
+                            <span class="code_CS646">"2, 3, 6”.integerValues()</span> - returns the array containing in order 2, 3, 6.<br>
+                            <span class="code_CS646">2”.integerValues()</span> - returns the array containing one element 2.<br>
+                            <span class="code_CS646">"cat".integerValues()</span> - returns the array containing one element nil.<br>
+                            <span class="code_CS646">"2, foo, 6”.integerValues()</span> - returns the array containing in order 2, nil, 6.<br></li>
                             <br>
                             <li>Create an enum with associated values for Currency. We will support four currencies: Euro, US Dollar, Indian Rupee, Mexican Peso. Each currency has a three letter code (EUR, USD, INR, MXN), a symbol ("\u{20AC}", "\u{24}", "\u{20B9}", "\u{24}") and an exchange rate with respect to USD (0.8904, 1, 66.7, 18.88).</li>
                             <br>
@@ -112,13 +112,13 @@ Date Created: January 2018
 
                         <p><b>2)</b> To implement a singly linked list, the Node class was defined with property <i>element</i> of type T to hold any kind of data. The node has a pointer to the next node. The class LinkedList&lt;T&gt;: was then defined, adopting the LinkedListProtocol. The class has a property <i>head</i> which is a pointer to the current head node, and another property <i>count</i> which monitors the number of nodes currently in the list. The following explains how the methods were implemented:</p>
                         <ul>
-                            <li><span class="cs646_code">prepend(<i>Element</i>)</span> - after instantiating a new node, the new node's pointer to the next node was set to the head node. The head was then changed to refer to the new node.</li>
-                            <li><span class="cs646_code">append(<i>Element</i>)</span> - after instantiating  a new node, a variable <i>currentNode</i> was created to loop through the list and refer to the last node in the list. After getting the reference to the last node, its pointer to the next node was set to the newly instantiated node.</li>
-                            <li><span class="cs646_code">removeFirst()</span> - takes the data from the head node before setting the pointer of the head node to its next node. Returns the data.</li>
-                            <li><span class="cs646_code">removeLast()</span> - creates a variable <i>currentNode</i> to loop through the list and refer to the node before the last node in the list. This is because the last node is expected to be removed. The pointer to the last node is set to nil and the data from the last node is returned.</li>
-                            <li><span class="cs646_code">[int]</span> - subscript method that returns the data in the node at the specified index. The currentNode is referred to its next node as many times as the number of the specified index.</li>
-                            <li><span class="cs646_code">elements(<i>separatedBy: String</i>)</span> - the string is built by iterating over the linked list and concatenating the String-casted data of the node. If the currentNode's next node is not nil, then the separator is concatenated.</li>
-                            <li><span class="cs646_code">description</span> - same implementation as elements(separatedBy: String) but concatenates the ', ' string after each element except for the last.</li>
+                            <li><span class="code_CS646">prepend(<i>Element</i>)</span> - after instantiating a new node, the new node's pointer to the next node was set to the head node. The head was then changed to refer to the new node.</li>
+                            <li><span class="code_CS646">append(<i>Element</i>)</span> - after instantiating  a new node, a variable <i>currentNode</i> was created to loop through the list and refer to the last node in the list. After getting the reference to the last node, its pointer to the next node was set to the newly instantiated node.</li>
+                            <li><span class="code_CS646">removeFirst()</span> - takes the data from the head node before setting the pointer of the head node to its next node. Returns the data.</li>
+                            <li><span class="code_CS646">removeLast()</span> - creates a variable <i>currentNode</i> to loop through the list and refer to the node before the last node in the list. This is because the last node is expected to be removed. The pointer to the last node is set to nil and the data from the last node is returned.</li>
+                            <li><span class="code_CS646">[int]</span> - subscript method that returns the data in the node at the specified index. The currentNode is referred to its next node as many times as the number of the specified index.</li>
+                            <li><span class="code_CS646">elements(<i>separatedBy: String</i>)</span> - the string is built by iterating over the linked list and concatenating the String-casted data of the node. If the currentNode's next node is not nil, then the separator is concatenated.</li>
+                            <li><span class="code_CS646">description</span> - same implementation as elements(separatedBy: String) but concatenates the ', ' string after each element except for the last.</li>
                         </ul>
                         <br>
     <pre><code class="language-swift">
@@ -237,10 +237,10 @@ Date Created: January 2018
 
                         <p><b>3)</b></p>
                         <ul>
-                            <li><span class="cs646_code">init(<i>repeating: Element, count: Int</i>)</span> - a simple while loop was done as many time as the specified count. Within this loop, the append() function defined earlier was called, passing in the value to be repeated.</li>
-                            <li><span class="cs646_code">var isEmpty: Bool</span> - read-only property that returns true if the head node points to nil or false otherwise</li>
-                            <li><span class="cs646_code">func map&lt;T&gt;((Element) -&gt; T)</span> - initializes a new and empty linked list. Iterates through the current linked list, grabs the data of each node, and passes that data as the parameter to the parameter <i>function</i> before appending the new data to the new linked list.</li>
-                            <li><span class="cs646_code">func reduce&lt;Result&gt;(Result, (Result, Element) -&gt; Result)</span> - initializes a variable <i>result</i> to the variable <i>initial</i>. Then iterates through the list and passes the data of each node to the parameter <i>function</i> and captures the the return value in the <i>result</i> variable.</li>
+                            <li><span class="code_CS646">init(<i>repeating: Element, count: Int</i>)</span> - a simple while loop was done as many time as the specified count. Within this loop, the append() function defined earlier was called, passing in the value to be repeated.</li>
+                            <li><span class="code_CS646">var isEmpty: Bool</span> - read-only property that returns true if the head node points to nil or false otherwise</li>
+                            <li><span class="code_CS646">func map&lt;T&gt;((Element) -&gt; T)</span> - initializes a new and empty linked list. Iterates through the current linked list, grabs the data of each node, and passes that data as the parameter to the parameter <i>function</i> before appending the new data to the new linked list.</li>
+                            <li><span class="code_CS646">func reduce&lt;Result&gt;(Result, (Result, Element) -&gt; Result)</span> - initializes a variable <i>result</i> to the variable <i>initial</i>. Then iterates through the list and passes the data of each node to the parameter <i>function</i> and captures the the return value in the <i>result</i> variable.</li>
                         </ul>
                         <br>
     <pre><code class="language-swift">
@@ -289,7 +289,7 @@ Date Created: January 2018
                         <br>
 
                         <p><b>4)</b><br>
-                        <span class="cs646_code">integerValues()</span> - an extension of the String class, the method splits the string into an array using the separator ",". It then calls the map function, previously defined, which uses the closure that casts each element in the array to an Int. The mapped array is returned.</p>
+                        <span class="code_CS646">integerValues()</span> - an extension of the String class, the method splits the string into an array using the separator ",". It then calls the map function, previously defined, which uses the closure that casts each element in the array to an Int. The mapped array is returned.</p>
                         <br>
     <pre><code class="language-swift">
     extension String {

@@ -36,25 +36,23 @@ body > div {
 }
 #header_cs545 {
     color: #FFF;
-    /* background-color: #1E4152; */
-    background-color: rgba(72, 135, 132, 1.0);
+    background-color: rgba(72, 135, 132, 1.0); /* Teal */
 }
 #header_cs646 {
     color: #FFF;
-    background-color: rgba(53, 101, 142, 1.0);
+    background-color: rgba(53, 101, 142, 1.0); /* Cobalt Blue */
 }
 #header_cs646_01 {
   color: #FFF;
-  background-color: rgba(53, 101, 142, 1.0);;
+  background-color: rgba(53, 101, 142, 1.0); /* Cobalt Blue */
 }
 
 /*================================ CONTENT ===================================*/
 .content {
     font-size: 110%;
     width: 85%;
-    margin-top: 24px;
-    margin-left: auto;
-    margin-right: auto;
+    padding-bottom: 48px;
+    margin: 24px auto 0px auto;
     /* border: 1px dashed blue; */
 }
 .content ul, .content ol {
@@ -67,7 +65,7 @@ body > div {
     margin-bottom: 24px;
 }
 
-/*-------------------- IMAGE CONTAINER FOR GENERAL IMAGES --------------------*/
+/*-------------------- IMAGE CONTAINER FOR LARGE IMAGES --------------------*/
 .preview_div {
     width: 90%;
     max-width: 1000px;
@@ -79,157 +77,121 @@ body > div {
     width: 100%;
 }
 
-/*----------------------- IMAGE CONTAINERS FOR IPHONES -----------------------*/
-.preview_div_iphone {
+/*------------------ IMAGE CONTAINER FOR SMARTPHONES PORTRAIT ----------------*/
+.preview_div_phone {
     width: 40%;
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
 }
-.preview_div_iphone img {
+.preview_div_phone img {
     display: block;
     width: 100%;
 }
-/* For multiple images of iPhones in a row, flex */
-.preview_div_flex_row {
+
+/*------------ MULTIPLE IMAGE CONTAINERS FOR SMARTPHONES PORTRAIT ------------*/
+.preview_div_portrait_portrait {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   box-sizing: border-box;
 }
-.preview_div_flex_row > div {
+.preview_div_portrait_portrait > div {
   flex-basis: 45%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
-.preview_div_flex_row div img {
+.preview_div_portrait_portrait div img {
   display: block;
   width: 45%;
   max-width: 300px;
 }
 
-/*----------------------- IMAGE CONTAINERS FOR ANDROID -----------------------*/
-.preview_div_android {
-  width: 30%;
+/*----- MULTIPLE IMAGE CONTAINERS FOR SMARTPHONES (Portrait + landscape) -----*/
+.preview_div_portrait_landscape {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.preview_div_portrait_landscape > div {
+  flex-basis: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.preview_div_portrait_landscape > div:first-child img {
+  display: block;
+  width: 45%;
   max-width: 768px;
-  margin-left: auto;
-  margin-right: auto;
 }
-.preview_div_android img {
-    display: block;
-    width: 100%;
+.preview_div_portrait_landscape > div:nth-child(2) img {
+  display: block;
+  width: 90%;
+  max-width: 768px;
 }
-.preview_div_android_full {
+
+.preview_div_phone_both_orientations {
   width: 50%;
   max-width: 768px;
   margin-left: auto;
   margin-right: auto;
 }
-.preview_div_android_full img {
-    display: block;
-    width: 100%;
-}
-
-/* For multiple images of android phones in a row,
-considers width of landscape orientations */
-.preview_div_flex_row_orientation {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-}
-.preview_div_flex_row_orientation > div {
-  flex-basis: 45%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-.preview_div_flex_row_orientation > div:first-child img {
+.preview_div_phone_both_orientations img {
   display: block;
-  width: 45%;
-  max-width: 768px;
+  width: 100%;
 }
-.preview_div_flex_row_orientation > div:nth-child(2) img {
-  display: block;
-  width: 90%;
-  max-width: 768px;
-}
-/* For multiple images of android phones in a row, both portrait */
-/* .preview_div_flex_row_orientation {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-}
-.preview_div_flex_row_orientation > div {
-  flex-basis: 45%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-.preview_div_flex_row_orientation > div:first-child img {
-  display: block;
-  width: 45%;
-  max-width: 768px;
-}
-.preview_div_flex_row_orientation > div:nth-child(2) img {
-  display: block;
-  width: 90%;
-  max-width: 768px;
-} */
 
 /*=========================== SYNTAX COLORING ================================*/
 .definition {
-    color: rgba(69, 12, 150, 1);
-    font-weight: bold;
+  color: #664C90; /* Purple */
+  font-weight: bold;
+}
+.highlight {
+  color: #134A18; /* Dark Green */
+  font-weight: bold;
 }
 .applicable_files {
-    color: #00935c;
-}
-.cs545_code {
-    color: #664C90;
-    font-weight: bold;
-}
-.cs545_code_sub {
-    color: #BB4D4D;
-    /* font-weight: bold; */
-}
-.cs646_code {
-    color: #990000;
-}
-.cs646_code_sub {
-    color: rgba(141, 72, 168, 1);
-    /* font-weight: bold; */
-}
-.cs646_01_code {
-  color: #670000;
+  color: #00935c; /* Teal */
   font-weight: bold;
 }
-.cs646_01_code_sub {
-  color: #24567B;
+.applicable_files_sub {
+  color: #00935c; /* Teal */
+}
+.code_method {
+  color: #990000; /* Maroon */
   font-weight: bold;
 }
-.cs646_01_code_highlight {
-  color: #134A18;
+.code_method_sub {
+  color: #990000; /* Maroon */
+}
+.code_web {
+  color: #e58a18; /* Orange */
+  font-weight: bold;
+}
+.code_CS646 {
+  color: #8d48a8; /* Pale Pink */
+  /* font-weight: bold; */
+}
+.code_CS646_01 {
+  color: #24567B; /* Pale Blue */
   font-weight: bold;
 }
 
 .cs646_link:link, .cs545_link:link {
-    color: rgba(200, 0, 0, 1);
-    text-decoration-color: rgba(50, 50, 50, 1);
-    text-decoration-line: underline;
+  color: rgba(200, 0, 0, 1);
+  text-decoration-color: rgba(50, 50, 50, 1);
+  text-decoration-line: underline;
 }
 .cs646_link:visited, .cs545_link:visited {
-    color: rgba(200, 0, 0, 1);
-    text-decoration-color: rgba(50, 50, 50, 1);
-    text-decoration-line: underline;
+  color: rgba(200, 0, 0, 1);
+  text-decoration-color: rgba(50, 50, 50, 1);
+  text-decoration-line: underline;
 }
 
 /*========================== SPECIFIC FORMATTING =============================*/

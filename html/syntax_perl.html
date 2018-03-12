@@ -649,7 +649,7 @@ Date Created: January 2018
                         <p>The cookie must be printed to the header before anything is sent to the client. The statement inserts the cookie into the header, not actually printing anything. Usually, Content-type: text/html and a blank line must be sent first when sending a page. However, when this cookie is inserted into the header, it sets the Content-type automatically.</p>
     <pre><code class="language-perl">
     # Insert this cookie into the header
-    print q-&gt;header(-cookie-&gt;$cookie);
+    print $q-&gt;header(-cookie-&gt;$cookie);
     </code></pre>
                         <br>
                         <p>Cookies are used because want clients to store things on the client side in an easy manner. Must impose state on a stateless media i.e. for bank transaction. Store bits of information on the client side so that server can identify the client. Have a persistent state on server side which is a table that has a lookup number. When users log in, they get a serial number and on subsequent requests, they must send that serial number so that the server can authenticate them.</p>
