@@ -2884,6 +2884,764 @@ Date Created: January 2018
 
                   <div class="section">
                     <h2>Collections</h2>
+                    <h3>Map: HashMap</h3>
+                    <p><span class="definition">Map</span>: interface with Java Collections, framework defines a Collection that associates(or maps) keys to values.</p>
+                    <p><span class="definition">Hashmap</span>: type is an ADT implemented as a generic class that supports different types of keys and values.</p>
+                    <ul>
+                      <li><span class="definition_java">import java.util.HashMap;</span></li>
+                      <li>Instantiate example <span class="definition_java">HashMap&lt;K, V&gt; hashMap = new HashMap&lt;K, V&gt;();</span></li>
+                      <li><span class="highlight">Map associates at most one value for a key</span>.</li>
+                      <li>HashMap and TreeMap are ADTs that implement the Map interface.</li>
+                      <li><span class="definition">HashMap</span> provides faster access but doesn’t guarantee any ordering of the keys. <span class="definition">TreeMap</span> maintains ordering of keys but with slightly slower access.</li>
+                    </ul>
+                    <br>
+                    <table class="table_3_columns">
+                      <tr>
+                        <th colspan="3">Common HashMap methods</th>
+                      </tr>
+                      <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                      </tr>
+                      <tr>
+                        <td>put(key, value)</td>
+                        <td>Associates key with specified value. If key already exists, replaces previous value with specified value.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Map originally empty
+  exMap.put("Tom", 14);
+  // Map now: Tom->14
+  exMap.put("John", 86);
+  // Map now: Tom->14, John->86
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>putIfAbsent(key, value)</td>
+                        <td>Associates key with specified value if the value does not already exist.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Map is: Tom->14, John->86
+  exMap.putIfAbsent("Tom", 20);
+  // Key "Tom" already exists. Map is unchanged.
+  exMap.putIfAbsent("Mary", 13);
+  // Map is now: Tom->14, John->86, Mary->13
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>get(key)</td>
+                        <td>Returns the value associated with key. If key does not exist, return null.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Map is: Tom->14, John->86, Mary->13
+  exMap.get("Tom");   // returns 14
+  exMap.get("Bob");   // returns null
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>containsKey(key)</td>
+                        <td>Returns true if key exists, otherwise returns false.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Map is: Tom->14, John->86, Mary->13
+  exMap.containsKey("Tom");   // returns true
+  exMap.containsKey("Bob");   // returns false
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>containsValue(value)</td>
+                        <td>Returns true if at least one key is associated the specified value, otherwise returns false.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Map is: Tom->14, John->86, Mary->13
+  exMap.containsValue(86);    // returns true (key "John" associated with value 86)
+  exMap.containsValue(17);    // returns false (no key associated with value 17)
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>remove(key)</td>
+                        <td>Removes the map entry for the specified key if the key exists.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Map is: Tom->14, John->86, Mary->13
+  exMap.remove("John");
+  // Map is now: Tom->14, Mary->13
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>clear()</td>
+                        <td>Removes all map entries.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Map is: Tom->14, John->86, Mary->13
+  exMap.clear();
+  // Map is now empty
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>keySet()</td>
+                        <td>Returns a Set containing all keys within the map.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Map is: Tom->14, John->86, Mary->13
+  keys = exMap.keySet();
+  // keys contains: "Tom", "John", "Mary"
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>values()</td>
+                        <td>Returns a Collection containing all values within the map.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Map is: Tom->14, John->86, Mary->13
+  values = exMap.values();
+  // values contains: 14, 86, 13
+  </code></pre>
+                        </td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>Set: HashSet</h3>
+                    <p><span class="definition">Set</span>: interface defined within Java Collections, framework defines Collection of unique elements. Supports methods for adding and removing elements, and querying if set contains an element.</p>
+                    <p><span class="definition">HashSet</span>: type is an ADT implemented as generic class that supports different types of elements.</p>
+                    <ul>
+                      <li class="definition_java">import java.util.HashSet</li>
+                      <li>Instantiate example <span class="definition_java">HashSet&lt;T&gt; hashSet = new HashSet&lt;T&gt;();</span> where T represents HashSet’s type.</li>
+                      <li>HashSet and TreeSet are ADTs implementing Set interface.</li>
+                      <li>HashSet provides faster access but doesn’t guarantee ordering of elements. TreeSet maintains ordering of elements but with slightly slower access.</li>
+                    </ul>
+                    <br>
+                    <table>
+                      <tr>
+                        <th colspan="3">Common HashSet Methods</th>
+                      </tr>
+                      <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                      </tr>
+                      <tr>
+                        <td>add(element)</td>
+                        <td>If element does not exist, adds element to the set and returns true. If element already exists, returns false.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Set originally empty
+  exSet.add("Kasparov");  // returns true ("Kasparov" doesn't exist)
+  // Set is now: Kasparov
+  exSet.add("Kasparov");  // returns false ("Kasparov" already exists)
+  // Set is unchanged
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>remove(element)</td>
+                        <td>If element exists, removes element from the set and returns true. If the element does not exist, returns false.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Set is: Kasparov, Fisher
+  exSet.remove("Fisher");   // returns true ("Fisher" exists)
+  // Set is now: Kasparov
+  exSet.remove("Carlsen");  // returns false ("Carlsen" doesn't exist)
+  // Set is unchanged
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>contains(element)</td>
+                        <td>Returns true if element exists, otherwise returns false.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Set is: Kasparov, Fisher, Carlsen
+  exSet.contains("Carlsen");   // returns true
+  exSet.contains("Anand");   // returns false
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>clear()</td>
+                        <td>Removes all elements.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Set is: Kasparov, Fisher, Carlsen
+  exSet.clear();
+  // Set is now empty
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>isEmpty()</td>
+                        <td>Returns true if the set is empty, otherwise returns false.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume Set is: Kasparov, Fisher, Carlsen
+  exSet.clear();
+  // Set is now empty
+  exSet.isEmpty();    // returns true
+  exSet.add("Nakamura");
+  // Set is now: Nakamura
+  exSet.isEmpty();    // returns false
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>size()</td>
+                        <td>Returns the number of elements in the set.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Set originally empty
+  exSet.size();   // returns 0
+  exSet.add("Nakamura");
+  exSet.add("Carlsen");
+  // Set is now: Nakamura, Carlsen
+  exSet.size();   // returns 2
+  </code></pre>
+                        </td>
+                      </tr>
+                    </table>
+                    <br>
+
+                    <h3>List: LinkedList</h3>
+                    <p><span class="definition">List</span>: interface defined within Java Collections, framework defines a Collection of ordered elements, i.e. sequence. List interface supports methods for adding, modifying, and removing elements.</p>
+                    <p><span class="definition">LinkedList</span>: implements List interface. The LinkedList type is an ADT implemented as a generic class that supports different types of elements.</p>
+                    <ul>
+                      <li class="definition_java">import java.util.LinkedList;</li>
+                      <li>Instantiate example <span class="definition_java">LinkedList&lt;T&gt; linkedList = new LinkedList&lt;T&gt;();</span></li>
+                      <li>Problem with set() is that the list must start traversing at the first list element until reaching the element at the specified index.</li>
+                      <li>LinkedList and ArrayList are ADTs implementing List interface.</li>
+                      <li>LinkedList provides faster element insertion and removal at the list’s ends (and middle if using ListIterator). ArrayList offers faster positional access with indices.</li>
+                    </ul>
+                    <br>
+                    <table class="table_3_columns">
+                      <tr>
+                        <th colspan="3">Common LinkedList Methods</th>
+                      </tr>
+                      <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                      </tr>
+                      <tr>
+                        <td>get(index)</td>
+                        <td>Returns element at specified index.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume List is: 'x', 'b', '1'
+  exList.get(2);    // Returns '1'
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>set(index, newElement)</td>
+                        <td>Replaces element at specified index with newElement. Returns element previously at specified index.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume List is: 'x', 'b', '1'
+  exList.set(0, new Character('n'));  // Returns 'x'
+  // List is now: 'n', 'b', '1'
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>add(newElement)<br>
+                        add(index, newElement)</td>
+                        <td>Adds newElement to the end of the List. List's size is increased by one.<br><br>
+                        Adds newElement to the List at the specified index. Indices of the elements previously at that specified index and higher are increased by one. List's size is increased by one.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume List is empty
+  exList.add(new Character('a'));   // List is: 'a'
+  exList.add('s');                  // List is: 'a', 's'
+
+  exList.add(0, new Character('p'));  // List is: 'p', 'a', 's'
+  exList.add(2, '1');                 // List is: 'p', 'a', '1', 's'
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>clear()</td>
+                        <td>Removes all elements from the List.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume List is: 'p', 'a', 's', 's'
+  exList.clear();
+  // List is now empty
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>isEmpty()</td>
+                        <td>Returns true if the List does not contain any elements. Otherwise, returns false.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume List is: 'p', 'a', 's', 's'
+  exList.isEmpty();   // Returns false
+
+  exList.clear();
+  // List is now empty
+  exList.isEmpty();   // Returns true
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>size()</td>
+                        <td>Returns the number of elements in the List.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume List is empty
+  exList.size();    // Returns 0
+
+  exList.add('h');
+  exList.add('i');
+  // List is now: 'h', 'i'
+
+  exList.size();    // Returns 2
+  </code></pre>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>remove(index)<br>
+                        remove(existingElement)</td>
+                        <td>Removes element at specified index. Indices for elements from higher positions are decreased by one. List size is decreased by one. Returns reference to element removed from List.<br><br>
+                        Removes the first occurrence of an element which is equal to existingElement. Indices for elements from higher positions are decreased by one. List size is decreased by one. Returns true if specified element was found and removed.</td>
+                        <td>
+  <pre><code class="language-java">
+  // Assume List is: 'p', 'a', 's', 's'
+  exList.remove(1);   // Returns 'a'
+  // List is now: 'p', 's', 's'
+
+  exList.remove('x'); // Returns false
+  // List is still: 'p', 's', 's'
+
+  exList.remove('s'); // Returns true
+  // List is now: 'p', 's'
+  </code></pre>
+                        </td>
+                      </tr>
+                    </table>
+                    <br>
+
+                      <p><span class="definition">ListIterator</span>: an object that points to a location in a List and provides methods to access an element and advance the ListIterator to the next position in the list.</p>
+                      <ul>
+                        <li class="definition_java">import java.util.ListIterator;</li>
+                        <li><span class="definition_java">listIterator()</span> method returns ListIterator object for traversing a list.</li>
+                        <li>ListIterator’s <span class="definition_java">set()</span> method replaces the last element accessed by the iterator, e.g. element returned by prior next() call.</li>
+                      </ul>
+                      <br>
+                      <table class="table_3_columns">
+                        <tr>
+                          <th colspan="3">Common ListIterator Methods</th>
+                        </tr>
+                        <tr>
+                          <th>Method</th>
+                          <th>Description</th>
+                          <th>Example</th>
+                        </tr>
+                        <tr>
+                          <td>next()</td>
+                          <td>Returns the next element in the List and moves the ListIterator after that element.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exList is: 'a', 'b'
+  exIterator = exList.listIterator();
+  // exList is now: 'a', 'b'
+  // Iterator position: before 'a'
+
+  exIterator.next();  // Returns 'a'
+  // exList is now: 'a', 'b'
+  // Iterator position: before 'b'
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>nextIndex()</td>
+                          <td>Returns the index of the next element.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exList is: 'a', 'b'
+  // Iterator position: before 'a'
+
+  exIterator.nextIndex();   // Returns 0
+
+  exIterator.next();        // Returns 'a'
+  // exList is now: 'a', 'b'
+  // Iterator position: before 'b'
+
+  exIterator.nextIndex();   // Returns 1
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>previous()</td>
+                          <td>Returns the previous element in the List and moves the ListIterator before that element.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exList is: 'a', 'b'
+  exIterator = exList.listIterator();
+  // exList is now: 'a', 'b'
+  // Iterator position: before 'a'
+
+  exIterator.next();    // Returns 'a'
+  // exList is now: 'a', 'b'
+  // Iterator position: before 'b'
+
+  exIterator.previous();  // Returns 'a'
+  // exList is now: 'a', 'b'
+  // Iterator position: before 'a'
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>previousIndex()</td>
+                          <td>Returns the index of the previous element.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exList is: 'a', 'b', 'c'
+  // Iterator position: after 'c'
+
+  exIterator.previousIndex();   // Returns 2
+
+  exIterator.previous();        // Returns 'c'
+  // exList is now: 'a', 'b', 'c'
+  // Iterator position: after 'b'
+
+  exIterator.previousIndex();   // Returns 1
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>hasNext()</td>
+                          <td>Returns true if ListIterator has a next element. Otherwise, returns false.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exList is: 'a', 'b'
+  // Iterator position: before 'b'
+  exIterator.hasNext();   // Returns true
+
+  exIterator.next();      // Returns 'b'
+  // exList is now: 'a', 'b'
+  // Iterator Position: after 'b'
+
+  exIterator.hasNext();   // Returns false
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>hasPrevious()</td>
+                          <td>Returns true if ListIterator has a previous element. Otherwise, returns false.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exList is: 'a', 'b'
+  // Iterator position: before 'b'
+  exIterator.hasPrevious();   // Returns true
+
+  exIterator.previous();      // Returns 'a'
+  // exList is now: 'a', 'b'
+  // Iterator position: before 'a'
+
+  exIterator.hasPrevious();   // Returns false
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>add(newElement)</td>
+                          <td>Adds the newElement between the next and previous elements and moves the ListIterator after newElement.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exList is: 'b', 'c'
+  // Iterator position: before 'b'
+  exIterator.add('a');
+  // exList is now: 'a', 'b', 'c'
+  // Iterator position: before 'b'
+
+  exIterator.add('z');
+  // exList is now: 'a', 'z', 'b', 'c'
+  // Iterator position: before 'b'
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>remove()</td>
+                          <td>Removes the element returned by the prior call to next() or previous(). Fails if used more than once per call to next() or previous(). Fails if add() has already been called since the last call to next() or previous().</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exList is: 'a', 'b', 'c'
+  // Iterator position: before 'b'
+  exIterator.next();    // Returns 'b'
+  // exList is now: 'a', 'b', 'c'
+  // Iterator position: before 'c'
+
+  exIterator.remove();  // Removes 'b'
+  // exList is now: 'a', 'c'
+  // Iterator position: before 'c'
+
+  exIterator.previous();  // Returns 'a'
+  // exList is now: 'a' ,'c'
+  // Iterator position: before 'a'
+
+  exIterator.remove();    // Removes 'a'
+  // exList is now: 'c'
+  // Iterator position: before 'c'
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>set(newElement)</td>
+                          <td>Replaces the element returned by the prior call next() or previous() with newElement.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exList is: 'a', 'b', 'c'
+  // Iterator position: before 'b'
+  exIterator.next();    // Returns 'b'
+  // exList is now: 'a', 'b', 'c'
+  // Iterator position: before 'c'
+
+  exIterator.set('B');
+  // exList is now: 'a', 'B', 'c'
+  // Iterator position: before 'c'
+
+  exIterator.set('v');
+  // exList is now: 'a', 'v', 'c'
+  // Iterator position: before 'c'
+
+  exIterator.previous();  // Returns 'v'
+  // exList is now: 'a', 'v', 'c'
+  // Iterator position: before 'v'
+
+  exIterator.set('X');
+  // exList is now: 'a', 'X', 'c'
+  // Iterator position: before 'X'
+  </code></pre>
+                          </td>
+                        </tr>
+                      </table>
+                      <br>
+
+                      <h3>Queue Interface</h3>
+                      <p><span class="definition">Queue</span>: interface defined within Java Collections, framework defines a Collection of ordered elements that supports element insertion at tail and element retrieval from head.</p>
+                      <ul>
+                        <li><span class="definition_java">import java.util.LinkedList;</span> and <span class="definition_java">import java.util.Queue;</span></li>
+                        <li>LinkedList implements Queue interface so can instantiate like so <span class="definition_java">Queue&lt;T&gt; queue = new LinkedList&lt;T&gt;();</span></li>
+                        <li>Java can convert an object to a reference variable of an interface type e.g. Queue if object implements the interface.</li>
+                        <li>Other Queue implementations include <span class="definition_java_note">PriorityQueue</span>, <span class="definition_java_note">LinkedBlockingQueue</span>, and <span class="definition_java_note">ArrayBlockingQueue</span></li>
+                      </ul>
+                      <br>
+                      <table class="table_3_columns">
+                        <tr>
+                          <th colspan="3">Common Queue Methods</th>
+                        </tr>
+                        <tr>
+                          <th>Method</th>
+                          <th>Description</th>
+                          <th>Example</th>
+                        </tr>
+                        <tr>
+                          <td>add(newElement)</td>
+                          <td>Adds newElement element to the tail of the queue. The queue's size increases by one.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exQueue is: "down", "right", "A"
+  exQueue.add("B");
+  // exQueue is now: "down", "right", "A", "B"
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>remove()</td>
+                          <td>Removes and returns the element at the head of the queue. Throw an exception if the queue is empty.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exQueue is: "down", "right", "A"
+  exQueue.remove();   // Returns "down"
+  // exQueue is now: "right", "A"
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>poll()</td>
+                          <td>Removes and returns the element at the head of the queue if the queue is not empty. Otherwise, returns null.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exQueue is: "down"
+  exQueue.poll();   // Returns "down"
+  // exQueue is now empty
+  exQueue.poll();   // Returns null
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>element()</td>
+                          <td>Returns, but does not remove, the element at the head of the queue. Throws an exception if the queue is empty.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exQueue is: "down", "right", "A"
+  exQueue.element();    // Returns "down"
+  // exQueue is still: "down", "right", "A"
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>peek()</td>
+                          <td>Returns, but does not remove, the element at the head of the queue is the queue is not empty. Otherwise, returns null.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exQueue is: "down"
+  exQueue.peek();   // Returns "down"
+  // exQueue is still: "down"
+  </code></pre>
+                          </td>
+                        </tr>
+                      </table>
+                      <br>
+
+                      <h3>Deque Interface</h3>
+                      <p><span class="definition">Deque</span>: interface defined within Java Collections, framework defines a Collection of ordered elements that supports element insertion and removal at both ends (at head and tail of deque).</p>
+                      <ul>
+                        <li><span class="definition_java">import java.util.LinkedList;</span> and <span class="definition_java">import java.util.Deque;</span></li>
+                        <li>LinkedList implements Deque interface so instantiate like so <span class="definition_java">Deque&lt;T&gt; deque = new LinkedList&lt;T&gt;();</span></li>
+                      </ul>
+                      <p><span class="definition">Stack</span>: ADT in which elements are only added or removed from the top of a stack.</p>
+                      <br>
+                      <table class="table_3_columns">
+                        <tr>
+                          <th colspan="3">Common Deque Methods</th>
+                        </tr>
+                        <tr>
+                          <th>Method</th>
+                          <th>Description</th>
+                          <th>Example</th>
+                        </tr>
+                        <tr>
+                          <td>addFirst(newElement)</td>
+                          <td>Adds newElement element at the head of the deque. The deque's size increase by one.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exDeque is: 3, 5, 6
+  exDeque.addFirst(1);
+  // exDeque is now: 1, 3, 5, 6
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>addLast(newElement)</td>
+                          <td>Adds newElement element at the tail of the deque. The deque's size increase by one.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exDeque is: 3, 5, 6
+  exDeque.addLast(7);
+  // exDeque is now: 3, 5, 6, 7
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>removeFirst()</td>
+                          <td>Removes and returns the element at the head of the deque. Throws an exception if the deque is empty.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exDeque is: 3, 5, 6
+  exDeque.removeFirst();    // Returns 3
+  // exDeque is now: 5, 6
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>removeLast()</td>
+                          <td>Removes and returns the element at the tail of the deque. Throws an exception if the deque is empty.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exDeque is: 3, 5, 6
+  exDeque.removeLast();   // Returns 6
+  // exDeque is now: 3, 5
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>pollFirst()</td>
+                          <td>Removes and returns the element at the head of the deque if the deque is not empty. Otherwise, returns null.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exDeque is: 3, 5, 6
+  exDeque.pollFirst();    // Returns 3
+  // exDeque is now: 5, 6
+
+  exDeque.pollFirst();    // Returns 5
+  exDeque.pollFirst();    // Returns 6
+  // exDeque is now empty
+
+  exDeque.pollFirst();    // Returns null
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>pollLast()</td>
+                          <td>Removes and returns the element at the tail of the deque if the deque is not empty. Otherwise, returns null.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exDeque is: 3, 5, 6
+  exDeque.pollLast();   // Returns 6
+  // exDeque is now: 3, 5
+
+  exDeque.pollLast();   // Returns 5
+  exDeque.pollLast();   // Returns 3
+  // exDeque is now empty
+
+  exDeque.pollLast();   // Returns null
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>getFirst()</td>
+                          <td>Returns, but does not remove, the element at the head of the deque. Throws an exception if the deque is empty.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exDeque is: 3, 5, 6
+  exDeque.getFirst();   // Returns 3
+  // exDeque is still: 3, 5, 6
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>getLast()</td>
+                          <td>Returns, but does not remove, the element at the tail of the deque. Throws an exception if the deque is empty.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exDeque is: 3, 5, 6
+  exDeque.getLast();    // Returns 6
+  // exDeque is still   // 3, 5, 6
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>peekFirst()</td>
+                          <td>Returns, but does not remove, the element at the head of the deque if the deque is not empty. Otherwise, returns null.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exDeque is: 3, 5, 6
+  exDeque.peekFirst();  // Returns 3
+  // exDeque is still: 3, 5, 6
+  </code></pre>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>peekLast()</td>
+                          <td>Returns, but does not remove, the element at the tail of the deque if the deque is not empty. Otherwise, returns null.</td>
+                          <td>
+  <pre><code class="language-java">
+  // Assume exDeque is: 3, 5, 6
+  exDeque.peekLast();   // Returns 6
+  // exDeque is still: 3, 5, 6
+  </code></pre>
+                          </td>
+                        </tr>
+                      </table>
                   </div>
                 </div>
             </div>

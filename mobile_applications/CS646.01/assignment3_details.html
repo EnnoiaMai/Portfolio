@@ -83,7 +83,130 @@ Date Created: March 2018
 
           <div class="section">
             <h2>Implementation Details</h2>
+            <p>There are three main classes that were written for this assignment - <span class="code_CS646_01">CircleMainActivity</span>, <span class="code_CS646_01">CircleCanvasView</span>, and <span class="code_CS646_01">GrowingCircle</span>. CircleMainActivity was the activity that implemented and handled the methods for touches and gestures done on the canvas. CircleCanvasView was a subclass of View and contained most of the logic. This custom view class was responsible for adding new circles to the list of circles it kept in memory as a property, for returning any circles touched, and for setting the new positions of each circle while taking into account any that hit the wall boundaries or other circles.</p>
+            <br>
 
+            <h3 class="applicable_files">CircleMainActivity.java</h3>
+            <ul>
+              <li><span class="code_method">grow()</span> - <span class="code_CS646_01">newGrowingCircle</span> will have its mass and radius incremented repeatedly by a constant amount until the handler for this method stops it.</li>
+            </ul>
+            <br>
+            <p><u>Touch and Gesture Events</u></p>
+            <br>
+            <ul>
+              <li><span class="code_method">onTouch(View view, MotionEvent motionEvent)</span> - passes any touch events to the gesture detector prior to handling the motion event itself. The only motion event handled here is the <span class="code_CS646_01">ACTION_UP</span> event which stops the new circle from growing. The overridden <span class="code_method_sub">onDown()</span> is implemented instead of the <span class="code_CS646_01">ACTION_DOWN</span> event of the motion event from the touch listener because the gestures are handled first.</li>
+              <br>
+              <li><span class="code_method">onDown(MotionEvent motionEvent)</span> - depending on the touch coordinates, the list of circles of the <span class="code_CS646_01">canvasView</span> object will be checked for any circles containing those coordinates. If a circle wasn't returned, then a new circle is instantiated with the touch coordinates as its x and y position, with the default radius, and with the default color. Otherwise, <span class="code_CS646_01">focusedGrowingCircle</span> will refer to the circle that was touched.</li>
+              <br>
+              <li><span class="code_method">onLongPress(MotionEvent motionEvent)</span> - expected to occur after the "onDown" event, so the <span class="code_CS646_01">newGrowingCircle</span> property shouldn't be null. <span class="code_CS646_01">circleGrowthHandler</span> will run <span class="code_CS646_01">growthRunnable</span> which repeatedly calls <span class="code_method_sub">grow()</span>.</li>
+              <br>
+              <li><span class="code_method">onFling(MotionEvent motionEvent1, MotionEvent motionEvent2, float velocityX, float velocityY)</span> - for whichever circle is focused, as determined by the CircleCanvasView object's <span class="code_method_sub">returnCircleTouched()</span> method, its velocity in the x and y direction are set to the velocities of the fling.</li>
+            </ul>
+            <br>
+            <p><u>Handlers and Runnables</u></p>
+            <ul>
+              <li><span class="definition">Handler</span>: allows processing of Runnable objects. The handlers are associated with a single thread (the main queue) and that thread's message queue. The Runnable is scheduled in the Handler's message queue with every call using <span class="code_method_sub">post()</span> or <span class="code_method_sub">sendMessage()</span>.</li>
+            </ul>
+            <br>
+            <p>Two Runnable objects are created, one that is called in <span class="code_method_sub">onCreate()</span> of this activity and is expected to be called continuously until the program ends. This is <span class="code_CS646_01">positionRunnable</span>, which calls <span class="code_method_sub">updateCirclePositions()</span> of the canvas view object. The second Runnable is <span class="code_CS646_01">growthRunnable</span>, which calls <span class="code_method_sub">grow()</span> allowing a new circle object to expand in radius until the user taps up.</p>
+            <br>
+            <p>The following is code that deals with the Handler object which fires <span class="code_method_sub">postDelayed()</span> to start or stop the runnables.</p>
+            <br>
+  <pre><code class="language-java">
+  private Handler circleGrowthHandler, circlePositionHandler;
+  private static final long GROWTH_HANDLER_DELAY = 100;
+  private static final long POSITION_HANDLER_DELAY = 100;
+
+  private Runnable growthRunnable = new Runnable() {
+  	@Override
+    public void run() {
+    	grow();
+    	circleGrowthHandler.postDelayed(this, GROWTH_HANDLER_DELAY);
+    }
+  }
+
+  private Runnable positionRunnable = new Runnable() {
+  	@Override
+    public void run() {
+    	canvasView.updateCirclePositions();
+    	circlePositionHandler.postDelayed(this, POSITION_HANDLER_DELAY);
+    }
+  }
+
+  @Override
+  onCreate(Bundle savedInstanceState) {
+  	…
+  	circleGrowthHandler = new Handler();
+  	circlePositionHandler = new Handler();
+  	circlePositionHandler.postDelayed(posiitonRunnable, POSITION_HANDLER_DELAY);
+  }
+
+  @Override
+  onLongPress(MotionEvent motionEvent) {
+  	circleGrowthHandler.postDelayed(growthRunnable, GROWTH_HANDLER_DELAY);
+  }
+
+  onTouch(View view, MotionEvent motionEvent) {
+  	…
+  	switch(MotionEvent.getAction()) {
+  		case MotionEvent.ACTION_UP:
+  			circleGrowthHandler.removeCallbacks(growthRunnable);
+  	}
+  }
+  </code></pre>
+            <br>
+
+            <h3 class="applicable_files">CircleCanvasView.java</h3>
+            <p>Extends the View class so that it can draw on its own canvas. This class is responsible for keeping a list of all the circles and track their positions on the view, applying the appropriate velocities on each update loop.</p>
+            <br>
+            <ul>
+              <li><span class="code_method">addCircle()</span> - adds the circle (the argument is expected to be a reference to the new object) to listOfCircles.</li>
+              <br>
+              <li><span class="code_method">returnCircleTouched()</span> - goes through the list of circles and returns a reference to the <span class="code_CS646_01">GrowingCircle</span> object that was touched by checking to see if the x and y coordinates making up the point of touch were contained in the circle's boundaries.</li>
+              <br>
+              <li><span class="code_method">updateCirclePositions()</span> - expected to be called repeatedly by the handler in CircleMainActivity. Handles wall and circle collisions for each circle in the list and updates their velocities and positions on every call to the loop.</li>
+              <br>
+              <li><span class="code_method">onDraw()</span> - for each circle in <span class="code_CS646_01">listOfCircles</span>, the <span class="code_method_sub">drawOn()</span> method of the <span class="code_CS646_01">GrowingCircle</span> object is called.</li>
+            </ul>
+            <br>
+            <p>The following are methods that deal with collisions between two circles.</p>
+            <br>
+            <ul>
+              <li><span class="code_method">handleCollisions()</span> - iterates through the list of circles and compares each unique pair to check if any collided. Delegates to <span class="code_method_sub">detectCircleCollision()</span> in order to determine this and calls <span class="code_method_sub">setVelocitiesAfterCollision()</span> on the pair of circle objects that collided. Note that the algorithm used here is of O(n<sup>2</sup>) efficiency.</li>
+              <br>
+              <li><span class="code_method">detectCircleCollision()</span> - uses the distance formula to determine if two circles are touching or intersecting. If they do then a collision has occurred.</li>
+              <br>
+              <li><span class="code_method">setVelocitiesAfterCollision()</span> - fired after a collision occurs between two circles. The new velocities for each circle in the x and y direction are set.</li>
+            </ul>
+            <br>
+            <p>The following are methods that deal with collision between a circle and the boundaries of the canvas.</p>
+            <br>
+            <ul>
+              <li><span class="code_method">didHitWallX()</span> - returns true if the position of the circle has extended the boundary in the x direction.</li>
+              <br>
+              <li><span class="code_method">didHitWallY()</span> - returns true if the position of the circle has extended the boundary in the y direction.</li>
+              <br>
+              <li><span class="code_method">didVelocityTerminate()</span> - returns true if the velocity changed signs after either subtracting or adding it from or to the constant defined by <span class="code_CS646_01">WALL_COLLISION_SPEED_LOSS</span>. This constant was used to reduce the speed of the objects in a simple manner and was not meant to be a realistic representation of the loss in velocity or conservation of energy.</li>
+            </ul>
+            <br>
+
+            <h3 class="applicable_files">GrowingCircle.java</h3>
+            <p>Defines an object that represents a filled circle to be drawn on the canvas. This class specifies properties such as the position (positionX, positionY), the velocity (velocityX, velocityY), the radius, the mass, and the color using Paint.</p>
+            <br>
+
+            <h3>Running the App</h3>
+            <p>The following demonstrates the creation of circle objects created on user tap and hold.</p>
+            <br>
+            <div class="preview_div_phone">
+              <img src="../../images/screenshots/CS646_01_Assignment3_creating_circles.gif" alt="CS646 Assignment 3 Creating Circles">
+            </div>
+            <br>
+
+            <p>The following shows how circles collide with the walls which are the boundaries of the view, and with other circle objects.</p>
+            <br>
+            <div class="preview_div_phone">
+              <img src="../../images/screenshots/CS646_01_Assignment3_collisions.gif" alt="CS646 Assignment 3 Collisions">
+            </div>
           </div>
         </div>
       </div>
