@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: March 2018
+-->
+<html>
+  <head>
+    <title>CS646.01 Assignment 4 - SDSU Class Registration (Networks)</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="description" content="Enn's Portfolio">
+    <meta name="author" content="Enn">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/details.css">
+    <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-java.min.js"></script>
+    <script type="text/javascript" src="../../js/sidebar.js"></script>
+    <script type="text/javascript" src="../../js/details.js"></script>
+  </head>
+  <body>
+    <div>
+      <div id="sidebar">
+          <ul>
+              <li><a href="../../index.html" id="link_home">Home</a></li>
+              <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+              <div id="submenu">
+                  <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                  <div>
+                      <img src="../../images/open_submenu.png" alt="open">
+                  </div>
+              </div>
+              <li id="submenu_links">
+                  <ul>
+                      <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                      <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                      <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                      <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                      <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                      <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                      <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                      <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                      <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                      <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                      <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                      <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                      <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+
+      <div class="content_container">
+        <div class="header" id="header_cs646_01">
+          <h1>CS646.01 Assignment 4 - SDSU Class Registration (Networks)</h1>
+        </div>
+
+        <div class="content">
+          <div class="section">
+            <h2>Assignment</h2>
+            <p>The app will allow users to register for classes. A student needs to enter their personal information - first name, last name, SDSU red id, email address and a password. The user can register for up to three courses and add themselves to waitlists for courses that are full. The student can also drop classes that they are registered for or drop themselves from waitlists.</p>
+            <br>
+            <p>The app will allow students to select from a list of courses filtered via major (or subject like Computer Science, Physics, etc), level of the course (lower division - 100 & 200 level courses, upper division courses 300, 400, 500 level courses, and graduate courses (500 level and higher), and time of day (classes starting after a given time and/or ending before a given time). The server has a list of over 4,000 courses so you do not want to display all courses in one list.</p>
+            <br>
+            <p>The app should display the courses the student is enrolled in and the courses that they are waitlisted for. The app should store the students personal data on the device so that they do not have to enter the data each time they use the app.</p>
+            <br>
+
+            <h3>Server Interaction Overview</h3>
+            <p>A brief overview of the commands that you can send to the server and what they do for you.</p>
+            <br>
+            <ul>
+              <li><b>subjectlist</b> - Returns a list of majors or subjects. Includes the name of the subject, the college it is in allowing the classes to be grouped by college.</li>
+              <br>
+              <li><b>classidslist</b> - Returns a list of courses based on subject(s), level, and time. Returns just the ids of the courses.</li>
+              <br>
+              <li><b>classdetails</b> - Given a course id returns information about the course: title, instructor, meeting time and place, etc.</li>
+              <br>
+              <li><b>addstudent</b> - Given the personal information about the student, added the student to the server so they can add classes.</li>
+              <br>
+              <li><b>registerclass</b> - Given a course id, student’s red id, and password, registers the student in the class.</li>
+              <br>
+              <li><b>waitlistclass</b> - If a class is full given a course id, student’s red id and password, adds the student to the wait list of a class. If a student drops the course the server does not enroll a student from the waitlist in the course.</li>
+              <br>
+              <li><b>unregisterclass</b> - Drops a student from the course.</li>
+              <br>
+              <li><b>unwaitlistclass</b> - Removes the student from a course waitlist.</li>
+              <br>
+              <li><b>resetstudent</b> - Drops the student from all courses and removes them from all waitlists.</li>
+            </ul>
+            <br>
+
+            <h3>Server Protocol</h3>
+            <p>When a request is successful it will return a response with the HTTP status 200. If there is a problem with the request the response will have a HTTP status of 404, 400, or 500. When you request a URL that does not exists you will get a 404 response and the body of the response will be HTML. This can happen when you mistype the URL. Other errors will return a response with a 400 or 404 status and the body of the response will be JSON. This can happen if you do not include a required parameter, misspell a parameter or the wrong type. All 200 responses have JSON data as bodies.</p>
+            <br>
+            <p>If your URL is correct and all the required parameters are included the response will have HTTP status 200. If the values of your parameters are invalid, say an incorrect password, the response will contain a JSON object with the single key "error". Examples are given below.</p>
+            <br>
+            <p>All the URLs are HTTPS.</p>
+            <br>
+            <p>Note that the URLs given below are case sensitive. The path and all query parameter names are lower case.</p>
+            <br>
+
+            <h3>URLs</h3>
+            <p><b>Subject (Major) list</b>: Get a list of subject (majors) offered.</p>
+            <ul>
+              <li><b>URL</b>: https://bismarck.sdsu.edu/registration/subjectlist</li>
+              <li><b>Method</b>: GET only</li>
+              <li><b>Parameter</b>: None</li>
+              <li><b>Returns</b>: JSON array of JSON objects. Each JSON object contains 4 key-value pairs. The "title" is the name of the subject (or major or department). The "id" is used to get the list of classes in that subject (or major). "classes" is the number of classes in that subject. "college" is the college at SDSU to which the subject belongs.</li>
+            </ul>
+            <br>
+            <p>Sample return value (truncated to save space):</p>
+  <pre>
+  [{
+  "title": "Astronomy",
+  "id": 2,
+  "college": "Science",
+  "classes": 33},
+  {
+  "title": "Computer Science",
+  "id": 8,
+  "college": "Science",
+  "classes": 65}]
+  </pre>
+            <br>
+
+            <p><b>Course Ids list</b>: Get a list of IDs of courses that are in a given subject or major.</p>
+            <ul>
+              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/classidslist?subjectid=AnInteger</li>
+              <li><b>Method</b>: GET or POST</li>
+              <li><b>Parameters GET</b>: subjectid, level, starttime, endtime</li>
+              <li><b>Parameters POST</b>: subjectids, level, starttime, endtime</li>
+              <li><b>Returns</b>: JSON array of integers. The integers are the ids of the classes that are in the given subject and meet the given criteria.</li>
+            </ul>
+            <br>
+            <p><b>Parameters Explained</b></p>
+            <ul>
+              <li><u>subjectid</u> - required for GET, the id for the given subject obtained from the URL above. The request will return all the classes in the given subject that are in the subject that meet the given criteria.</li>
+              <br>
+              <li><u>subjectids</u> - required for POST, is a JSON array of subjects from the URL above. The request will return all the classes in the given subjects that are in the subject that meet the given criteria.</li>
+              <br>
+              <li><u>level</u> - optional. Three legal values: lower, upper, and graduate. lower will return classes in the given subject with course numbers between 100 and 299. upper will return classes in the given subject with course numbers between 300 and 599. graduate will return classes in the given subject with course numbers between 500 and 899.</li>
+              <br>
+              <li><u>starttime</u> - optional. Value is a string representing time in 24 hour format like "0930" and "2100". Note that in a GET URL there are no quotes around the number. If given, only courses that start at or after the given time will be returned. In the second example below all, CS courses that are graduate level (500 and above) that start at or after "1730" are returned.</li>
+              <br>
+              <li><u>endtime</u> - optional. Value is a string representing time in 24 hour format like "0930" and "2100". Note that in a GET URL there are no quotes around the number. If given only courses that end by or before the given time will be returned.</li>
+            </ul>
+            <br>
+            <p>Samples:</p>
+            <p>https://bismarck.sdsu.edu/registration/classidslist?subjectid=8</p>
+            <p>https://bismarck.sdsu.edu/registration/classidslist?subjectid=8&level=graduate&start-time=1730</p>
+            <br>
+    <pre>
+    Return value
+    [7033,7036,7038,7041,7046,7049,7051,7052]
+    </pre>
+            <br>
+            <p>Post Sample:</p>
+            <ul>
+              <li>URL: https://bismarck.sdsu.edu/registration/classidslist</li>
+              <li>Body: {"subjectids":[8], "level":"graduate", "starttime":"1730"}</li>
+              <li>Content Type: Must be application/json</li>
+            </ul>
+            <br>
+
+            <p><b>Class Details</b>: Get the details of a class.</p>
+            <ul>
+              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/classdetails?classid=AnInteger</li>
+              <li><b>Method</b>: GET or POST</li>
+              <li><b>Parameters GET</b>: classid</li>
+              <li><b>Parameters POST</b>: classids</li>
+              <li><b>Returns</b>: GET version -JSON object with 22 key-value pairs.</li>
+              <li><b>Returns</b>: POST version -A JSON array of JSON objects with 22 key-value pairs.</li>
+            </ul>
+            <br>
+            <p><b>Parameters Explained</b></p>
+            <ul>
+              <li>classid - GET only. Id (integer) of the class obtained from the course id list url.</li>
+              <li>classids - POST only. JSON array of integers - the Ids of the class obtained from the course id list url.</li>
+            </ul>
+            <br>
+            <p>GET Sample:</p>
+            <p>https://bismarck.sdsu.edu/registration/classdetails?classid=7036</p>
+            <br>
+            <p>Post Sample:</p>
+            <ul>
+              <li>URL: https://bismarck.sdsu.edu/registration/classdetails</li>
+              <li>Body: {"classids":[7036]}</li>
+              <li>Content Type: Must be application/json</li>
+            </ul>
+            <br>
+            <p>Sample output GET version. The meaning of most of the keys should be clear. "seats" is the number of students that are allowed to enroll in the course. "enrolled" is the number of students enrolled in the course. "Waitlist" is the number students in the waitlist for the class. Note that the values in quotes are strings. The values not in quotes are integers.</p>
+            <br>
+  <pre>
+    {
+      "description": "Principles, ....",
+      "department": "Computer Science",
+      "suffix": "",
+      "building": "GMCS",
+      "startTime": "1900",
+      "meetingType": "Lecture",
+      "section": "01",
+      "endTime": "2015",
+      "enrolled": 0,
+      "days": "TTH",
+      "prerequisite": "Computer Science 310.",
+      "title": "SOFTWARE INTERNATNLIZATN",
+      "id": 7036,
+      "instructor": "W. ROOT",
+      "schedule#": "21073",
+      "units": "3.0",
+      "room": "425",
+      "waitlist": 0,
+      "seats": 48,
+      "fullTitle": "Softwre Internationalization",
+      "subject": "CS",
+      "course#": "540"}
+  </pre>
+            <br>
+
+            <p><b>Register a Student</b>: Register a student for a class.</p>
+            <p>A student can only add a class once. A student can register for at most 3 classes. A student can not register for classes that meet at the same time.</p>
+            <ul>
+              <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/addstudent<br>
+                {"firstname":"Roger","lastname":"Whitney","redid":"123456003","password":"password","email":"whitney@sdsu.edu"}</li>
+              <li><b>Method</b>: POST.</li>
+              <li><b>Parameters POST</b>: firstname, lastname, redid, password, email.</li>
+              <li><b>Returns</b>: JSON object with one key, either "ok" or "error". See examples below.</li>
+            </ul>
+            <br>
+            <p><b>Parameters Explained</b></p>
+            <ul>
+              <li><u>firstname</u> - String, first name of student</li>
+              <br>
+              <li><u>lastname</u> - String, last name of student</li>
+              <br>
+              <li><u>redid</u> - String, nine characters long. Only red ids already known to the server will be accepted. To avoid conflicts between students each students has a set of assigned red ids. Your set of red ids is any 9 digit string that ends with the same three digits as your SDSU red id. So if your red id is 822326003 then any red id from 000000003 through 999999003 will work. If you use an invalid redid the value returned will be<br>
+              {"error": "Invalid Red Id"}</li>
+              <br>
+              <li><u>password</u> - String and least 8 characters long and containing 7 different characters. If the password is not valid the returned value will be an error. For example:<br>
+              {"error": "Password too short"}</li>
+              <br>
+              <li><u>email</u> - String, a valid email address. If the email is not valid the return value will be a JSON object with the key "error". For example:<br>
+              {"error": "Invalid email no @" }</li>
+            </ul>
+            <br>
+            <p>Post Sample:</p>
+            <ul>
+              <li>URL: https://bismarck.sdsu.edu/registration/addstudent</li>
+              <li>Body:<br>
+                {"firstname":"Roger","lastname":"Whitney","redid":"123456003","password":"password","email":"whitney@sdsu.edu"}</li>
+              <li>Content Type: Must be application/json</li>
+              <li>Return: {"ok": "Student Added"}</li>
+              <li>If the same request is repeated the return value is:<br>
+              {"error": "Red Id already in use"}</li>
+              <li>Other error responses include:<br>
+              {"error": "Invalid Red Id"}<br>
+              {"error": "Password too short"}<br>
+              {"error": "Invalid email no @"}</li>
+            </ul>
+            <br>
+
+            <p><b>Register for a Class</b>: Register a student in a class.</p>
+            <p>A student can only add a class once. A student can register for at most 3 classes. A student can not register for classes that meet at the same time.</p>
+            <ul>
+              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/registerclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
+              <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/registerclass<br>
+              {"redid": ARedId, "password": "APassword", "courseid":ACourseID}</li>
+              <li><b>Method</b>: GET or POST</li>
+              <li><b>Parameters</b> GET & POST: redid, password, courseid</li>
+              <li><b>Returns</b>: GET & POST version - JSON object with one key, either "ok" or "error"</li>
+            </ul>
+            <br>
+            <p><b>Parameters Explained</b></p>
+            <ul>
+              <li><u>redid</u> - String, valid red id of a student already registered with server</li>
+              <br>
+              <li><u>password</u> - String, password of the registered student.</li>
+              <br>
+              <li><u>courseid</u> - Integer, id of the course to add the student to.</li>
+            </ul>
+            <br>
+            <p>GET Sample:</p>
+            <p>https://bismarck.sdsu.edu/registration/registerclass?redid=123459003&password=password&courseid=7036</p>
+            <br>
+            <p>Sample Responses:</p>
+  <pre>
+  {"ok": "Course added"}
+  { "error": "Student already in course"}
+  </pre>
+            <br>
+
+            <p><b>Waitlist for a Class</b>: Add a student to the waitlist for a class.</p>
+            <p>A student can only be added to the waitlist of a class once and only after the class is full. To aid in testing waitlisting, the courses with id 7034, 7035 and 7036 are full. Any attempt to add those courses will fail, but you can add students to the waitlist.</p>
+            <ul>
+              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/waitlistclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
+              <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/waitlistclass<br>
+              {"redid": ARedId, "password": "APassword", "courseid":ACourseID}</li>
+              <li><b>Method</b>: GET or POST</li>
+              <li><b>Parameters</b> GET & POST: redid, password, courseid</li>
+              <li><b>Returns</b>: GET & POST version - JSON object with one key, either "ok" or "error"</li>
+            </ul>
+            <br>
+            <p><b>Parameters Explained</b></p>
+            <ul>
+              <li><u>redid</u> - String, valid red id of a student already registered with server</li>
+              <br>
+              <li><u>password</u> - String, password of the registered student.</li>
+              <br>
+              <li><u>courseid</u> - Integer, id of the course to add the student to the waitlist.</li>
+            </ul>
+            <br>
+            <p>GET Sample</p>
+            <p>https://bismarck.sdsu.edu/registration/waitlistclass?redid=123459003&password=password&courseid=7036</p>
+            <br>
+            <p>Sample Responses:</p>
+            <p>{"ok": "Course added"}</p>
+            <br>
+
+            <p><b>UnRegister a Class</b>: Unregister a student in a class.</p>
+            <ul>
+              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/unregisterclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
+              <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/unregisterclass<br>
+              {"redid": ARedId, "password": "APassword", "courseid":ACourseID}</li>
+              <li><b>Method</b>: GET or POST</li>
+              <li><b>Parameters</b> GET & POST: redid, password, courseid</li>
+              <li><b>Returns</b>: GET & POST version - JSON object with one key, either "ok" or "error"</li>
+            </ul>
+            <br>
+            <p><b>Parameters Explained</b></p>
+            <ul>
+              <li><u>redid</u> - String, valid red id of a student already registered with server</li>
+              <br>
+              <li><u>password</u> - String, password of the registered student.</li>
+              <br>
+              <li><u>courseid</u> - Integer, id of the course to remove the student from.</li>
+            </ul>
+            <br>
+            <p>GET Sample:</p>
+            <p>https://bismarck.sdsu.edu/registration/unregisterclass?redid=123459003&password=password&courseid=7036</p>
+            <br>
+            <p>Sample Responses:</p>
+            <p>{"ok": "Course dropped"}</p>
+            <br>
+
+            <p><b>Unwaitlist a Class</b>: Remove a student from the waitlist of a class.</p>
+            <ul>
+              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/unwaitlistclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
+              <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/unwaitlistclass<br>
+              {"redid": ARedId, "password": "APassword", "courseid":ACourseID}<br>
+              Rest of the details are similar to unregister.</li>
+            </ul>
+            <br>
+
+            <p><b>Student classes</b>: Returns list of class a student is registered in or in a waitlist.</p>
+            <ul>
+              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/studentclasses?redid=ARedId&password=APassword</li>
+              <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/studentclasses<br>
+              {"redid": ARedId, "password": "APassword"}</li>
+              <li><b>Method</b>: GET or POST</li>
+              <li><b>Parameters</b> GET & POST: redid, password</li>
+              <li><b>Returns</b>: GET & POST version - On success a JSON object with two keys: "classes" and "waitlist". The values are a JSON array of class ids.</li>
+              <li><b>Sample Result</b>:<br>
+              { "classes": [7036], "waitlist": [] }</li>
+            </ul>
+            <br>
+
+            <p><b>Reset Student</b>: Drops all students classes and and waitlisted classes.</p>
+            <ul>
+              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/resetstudent?redid=ARedId&password=APassword</li>
+              <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/resetstudent<br>
+              {"redid": ARedId, "password": "APassword"}</li>
+              <li><b>Method</b>: GET or POST</li>
+              <li><b>Parameters</b> GET & POST: redid, password</li>
+              <li><b>Returns</b>: GET & POST version - On success a JSON object with one key: ok or error. error is returned when the password or red id is not correct.</li>
+              <li><b>Sample Result</b>:<br>
+              {:ok "Student reset"}</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2>Implementation Details</h2>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

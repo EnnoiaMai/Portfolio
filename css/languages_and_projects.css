@@ -8,10 +8,11 @@ Date Created: December 2017
     padding: 0px;
     margin: 0px;
     font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif;
+    box-sizing: border-box;
     /* font-family: 'Source Sans Pro', sans-serif; */
     /* font-family: 'Open Sans', sans-serif; */
 }
-body {
+/* body {
     min-width: 1000px;
 }
 body > div {
@@ -20,11 +21,13 @@ body > div {
     display: flex;
     flex-direction: row;
     overflow: auto;
-}
+} */
 
 .content {
-    flex-grow: 1;
-    flex-shrink: 1;
+    margin-left: 16%;
+    /* flex-grow: 1;
+    flex-shrink: 1; */
+    /* border: 2px dashed red; */
 }
 
 .header {

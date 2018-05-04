@@ -5,27 +5,30 @@ Date Created: December 2017
 
 /*================================= General ==================================*/
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif;
+    box-sizing: border-box;
     /* font-family: 'Source Sans Pro', sans-serif; */
     /* font-family: 'Open Sans', sans-serif; */
 }
 body {
-    min-width: 1000px;
+    /* min-width: 1000px; */
 }
-body > div {
-    min-width: 840px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;
-    overflow: auto;
-}
+/* body > div { */
+    /* min-width: 840px; */
+    /* min-height: 100vh; */
+    /* display: flex; */
+    /* flex-direction: row; */
+
+    /* overflow: auto;
+} */
 
 /*=============================== Welcome Page ===============================*/
 .content {
-    flex-grow: 1;
-    flex-shrink: 1;
+  margin-left: 16%;
+    /* flex-grow: 1;
+    flex-shrink: 1; */
 }
 
 /*============================== HEADER ======================================*/
@@ -109,7 +112,6 @@ body > div {
     grid-gap: 48px;
     margin-left: auto;
     margin-right: auto;
-    box-sizing: border-box;
     /*border: 1px solid purple;*/
 }
 .grid_container > div {
@@ -210,4 +212,21 @@ body > div {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+/*==============================================================================
+
+
+                              MEDIA QUERIES
+
+
+==============================================================================*/
+@media screen and (max-width:640px) {
+  .content {
+    margin-left: 0%;
+  }
+}
+
+@media screen and (max-width:320px) {
+
 }

@@ -5,16 +5,26 @@ Date Created: December 2017
 
 /*================================= Sidebar ==================================*/
 #sidebar {
-    flex: 0 0 16%;
-    /* height: 100%; */
-    /* height: 100%; */
-    /* min-height: 100vh; */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 100%;
     background-color: rgba(33, 33, 33, 1.0);
-    overflow: auto;
-    box-sizing: border-box;
+    /* overflow: auto; */
+}
+#sidebar > div {
+    width: 50px;
+    padding: 8px 8px;
+    margin-left: 16px;
+    /* border: 1px dashed green; */
+}
+#sidebar > div img {
+    width: 100%;
+    cursor: pointer;
 }
 #sidebar ul {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     list-style-type: none;
 }
 #submenu_links ul {
@@ -23,6 +33,9 @@ Date Created: December 2017
 }
 #submenu_links ul li {
     padding-left: 24px;
+}
+#submenu_links ul li a {
+    font-size: 1.0rem;
 }
 .normal_link {
     color: white;
@@ -58,26 +71,48 @@ Date Created: December 2017
 #submenu {
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
-    box-sizing: border-box;
 }
 #submenu a {
-    /* flex-shrink: 1; */
+    flex-basis: auto;
     /* border: 1px dashed blue; */
 }
 #submenu div {
-    flex: 0 0 14%;
     align-self: center;
-    padding-left: 4px;
-    padding-right: 4px;
-    /* border: 1px dashed red; */
+    width: 50px;
+    padding: 8px;
 }
 #submenu div img {
-    /* display: inline-block; */
     width: 100%;
-    max-width: 100px;
-    /* min-width: 20px; */
-    max-width: 100px;
-    height: auto;
-    /* border: 1px dashed red; */
+    /* min-width: 24px;
+    max-width: 100px; */
+    /* height: auto; */
+    cursor: pointer;
 }
+
+/*==============================================================================
+
+
+                                MEDIA QUERIES
+
+
+==============================================================================*/
+/* @media screen and (max-width:640px) {
+#sidebar {
+width: 100%;
+height: auto;
+}
+#sidebar > div {
+width: 10%;
+min-width: 24px;
+border: 1px dashed red;
+}
+
+#submenu div {
+min-width: 24px;
+flex: 0 0 8%;
+}
+}
+
+@media screen and (max-width:320px) {
+
+} */

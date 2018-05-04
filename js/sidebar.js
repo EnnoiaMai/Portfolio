@@ -3,25 +3,24 @@ Thuc Nguyen
 Date Created: December 2017
 */
 
-/*
-    Method Prototypes:
-    // Creates a new link_saver object
-    var link = new selected_link("enn");
+/*==============================================================================
+Method Prototypes:
+// Creates a new link_saver object
+var link = new selected_link("enn");
 
-    // Returns the current link's id by getting the value of the cookie
-    link.getCurrentLink();
+// Returns the current link's id by getting the value of the cookie
+link.getCurrentLink();
 
-    // Sets the clicked link as the new current link anr writes it to the cookie
-    link.setCurrentLink(link);
-*/
-
+// Sets the clicked link as the new current link anr writes it to the cookie
+link.setCurrentLink(link);
+==============================================================================*/
 
 function link_saver(key) {
     this.key = $.trim(key);
     this.currentLink = "";
 
-////////////////////////////////////////////////////////////////////////////////
-// Do not use the following two methods;  they are private to this class
+    ////////////////////////////////////////////////////////////////////////////////
+    // Do not use the following two methods;  they are private to this class
     this.getCookieValue = function() {  // PRIVATE METHOD
         // Grab the cookie first and split each individual cookie
         var rawString = document.cookie;
@@ -50,7 +49,7 @@ function link_saver(key) {
         var toWrite = this.key + "=" + this.currentLink + "; path=/";
         document.cookie = toWrite;
     }
-////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
 
     this.getCurrentLink = function() {
         this.getCookieValue();
@@ -65,43 +64,128 @@ function link_saver(key) {
     }
 }
 
+/*============================================================================*/
+
 var linkSaver = new link_saver('enn');
-var submenuToggled = false;
+var hamburgerToggled = true;
+var submenuToggled = true;
 var sidebarImagePath = {
     INDEX: "pathIndex",
     SYNTAX: "syntax",
     PROJECT: "project"
 };
 var currentPath = sidebarImagePath.INDEX;
+
+var screenType = {
+    DESKTOP: "desktop",
+    MOBILE: "mobile"
+}
+var currentScreenType;
+var mediaQueryList;
+
 // Methods used for sidebar and submenu selection
 function initializeSidebar() {
-    $('#submenu img').on('click', toggleSubMenu);
-    $('#sidebar a').on('click', saveLink);
+    // Hamburger menu
+    $('#sidebar > div img').on('click', toggleMenu);
 
+    // Submenu
+    $('#submenu img').on('click', toggleSubMenu);
+    toggleSubMenu();
+
+    $('#sidebar a').on('click', saveLink);
     $("#sidebar a").addClass("normal_link");
     $('#sidebar a.highlighted_link').removeClass("highlighted_link");
     var currentLinkID = "#" + (linkSaver.getCurrentLink());
     if (currentLinkID != "#") {
         $(currentLinkID).addClass("highlighted_link");
+    }
+
+    // Listeners for when the screen changes size from desktop to mobile
+    mediaQueryList = window.matchMedia("(max-width:640px)");
+    mediaQueryList.addListener(changeScreenType);
+    changeScreenType();
+}
+
+function changeScreenType() {
+    if (mediaQueryList.matches) {
+        currentScreenType = screenType.MOBILE;
+        hamburgerToggled = true;
+        toggleMenu();
     } else {
-        // alert("sidebar.js - couldn't highlight current link");
+        currentScreenType = screenType.DESKTOP;
+        hamburgerToggled = false;
+        toggleMenu();
+    }
+}
+
+function toggleMenu() {
+    switch (currentScreenType) {
+        case screenType.MOBILE:
+            // Since in mobile, regardless of whether or not hambuger toggled, change css of the sidebar
+            $("#sidebar").css({
+                "width": "100%",
+                "height": "auto",
+                "min-height": "50px"
+            });
+            $('#submenu div').css("flex", "0 0 8%");
+            $('.content').css({
+                'margin-left': '0%',
+                "margin-top": "50px"
+            });
+
+            // If hamburger toggled, untoggle the menu
+            if (hamburgerToggled) {
+                hamburgerToggled = false;
+                $('#sidebar > ul').toggle(false);
+            }
+            // Else if hambuger isn't toggled, toggle the menu
+            else {
+                hamburgerToggled = true;
+                $('#sidebar > ul').toggle(true);
+            }
+            break;
+
+        case screenType.DESKTOP:
+            // If hamburger toggled, untoggle the menu
+            if (hamburgerToggled) {
+                hamburgerToggled = false;
+                $("#sidebar").css({
+                    "width": "82px",
+                    "height": "100%"
+                });
+                $('.content').css({
+                    'margin-left': '82px',
+                    "margin-top": "0px"
+                });
+                $('#sidebar > ul').toggle(false);
+            }
+            // Else if hamburger isn't toggled, toggle the menu
+            else {
+                hamburgerToggled = true;
+                $("#sidebar").css({
+                    "width": "200px",
+                    "height": "100%"
+                });
+                $('.content').css({
+                    'margin-left': '200px',
+                    "margin-top": "0px"
+                });
+                $('#sidebar > ul').toggle(true);
+            }
+            break;
+
+        default:
+            break;
     }
 }
 
 function toggleSubMenu() {
-    $('#submenu_links').children("ul").toggle();
-    if (!submenuToggled) {
-        var path;
-        if (currentPath == sidebarImagePath.INDEX) {
-            path = "images/close_submenu.png";
-        } else if (currentPath == sidebarImagePath.SYNTAX) {
-            path = "../images/close_submenu.png";
-        } else if (currentPath == sidebarImagePath.PROJECT) {
-            path = "../../images/close_submenu.png";
-        }
-        $(this).attr("src", path);
-        submenuToggled = true;
-    } else {
+    // If submenu is toggled, untoggle it
+    if (submenuToggled) {
+        submenuToggled = false;
+        $('#submenu_links').children("ul").css("display", "none");
+
+        // Change icon to open_submenu
         var path;
         if (currentPath == sidebarImagePath.INDEX) {
             path = "images/open_submenu.png";
@@ -111,7 +195,22 @@ function toggleSubMenu() {
             path = "../../images/open_submenu.png";
         }
         $(this).attr("src", path);
-        submenuToggled = false;
+    }
+    // Else if submenu is not toggled, toggle it
+    else {
+        submenuToggled = true;
+        $('#submenu_links').children("ul").css("display", "block");
+
+        // Change icon to close_submenu
+        var path;
+        if (currentPath == sidebarImagePath.INDEX) {
+            path = "images/close_submenu.png";
+        } else if (currentPath == sidebarImagePath.SYNTAX) {
+            path = "../images/close_submenu.png";
+        } else if (currentPath == sidebarImagePath.PROJECT) {
+            path = "../../images/close_submenu.png";
+        }
+        $(this).attr("src", path);
     }
 }
 
