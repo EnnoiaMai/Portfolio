@@ -68,7 +68,7 @@ function link_saver(key) {
 
 var linkSaver = new link_saver('enn');
 var hamburgerToggled = true;
-var submenuToggled = true;
+var submenuToggled = false;
 var sidebarImagePath = {
     INDEX: "pathIndex",
     SYNTAX: "syntax",
@@ -90,8 +90,8 @@ function initializeSidebar() {
 
     // Submenu
     $('#submenu img').on('click', toggleSubMenu);
-    toggleSubMenu();
 
+    // Sidebar and links
     $('#sidebar a').on('click', saveLink);
     $("#sidebar a").addClass("normal_link");
     $('#sidebar a.highlighted_link').removeClass("highlighted_link");
@@ -109,68 +109,73 @@ function initializeSidebar() {
 function changeScreenType() {
     if (mediaQueryList.matches) {
         currentScreenType = screenType.MOBILE;
-        hamburgerToggled = true;
-        toggleMenu();
+        // hamburgerToggled = true;
+        onChangeScreenType();
     } else {
         currentScreenType = screenType.DESKTOP;
-        hamburgerToggled = false;
-        toggleMenu();
+        // hamburgerToggled = false;
+        onChangeScreenType();
     }
 }
 
-function toggleMenu() {
+function onChangeScreenType() {
     switch (currentScreenType) {
         case screenType.MOBILE:
-            // Since in mobile, regardless of whether or not hambuger toggled, change css of the sidebar
+            // Regardless of whether or not hambuger toggled, change CSS of the sidebar
             $("#sidebar").css({
                 "width": "100%",
                 "height": "auto",
                 "min-height": "50px"
             });
-            $('#submenu div').css("flex", "0 0 8%");
-            $('.content').css({
+            // $('#submenu div').css("flex", "0 0 8%");
+            $('#content').css({
                 'margin-left': '0%',
                 "margin-top": "50px"
             });
 
-            // If hamburger toggled, untoggle the menu
+            // Show or display menu depending on whether menu is toggled or not
             if (hamburgerToggled) {
-                hamburgerToggled = false;
-                $('#sidebar > ul').toggle(false);
-            }
-            // Else if hambuger isn't toggled, toggle the menu
-            else {
-                hamburgerToggled = true;
-                $('#sidebar > ul').toggle(true);
+                $("#sidebar > ul").css("display", "block");
+            } else {
+                $("#sidebar > ul").css("display", "none");
             }
             break;
 
         case screenType.DESKTOP:
-            // If hamburger toggled, untoggle the menu
+            // Set appropriate CSS depending on whether menu is toggled or not
             if (hamburgerToggled) {
-                hamburgerToggled = false;
-                $("#sidebar").css({
-                    "width": "82px",
-                    "height": "100%"
-                });
-                $('.content').css({
-                    'margin-left': '82px',
-                    "margin-top": "0px"
-                });
-                $('#sidebar > ul').toggle(false);
-            }
-            // Else if hamburger isn't toggled, toggle the menu
-            else {
-                hamburgerToggled = true;
                 $("#sidebar").css({
                     "width": "200px",
-                    "height": "100%"
+                    "height": "100%",
+                    "-webkit-transition": "width 300ms",
+                    "-moz-transition": "width 300ms",
+                    "transition": "width 300ms"
                 });
-                $('.content').css({
+                $('#content').css({
                     'margin-left': '200px',
-                    "margin-top": "0px"
+                    "margin-top": "0px",
+                    "-webkit-transition": "margin-left 300ms",
+                    "-moz-transition": "margin-left 300ms",
+                    "transition": "margin-left 300ms"
                 });
-                $('#sidebar > ul').toggle(true);
+                $("#sidebar > ul").css("display", "block");
+            }
+            else {
+                $("#sidebar").css({
+                    "width": "82px",
+                    "height": "100%",
+                    "-webkit-transition": "width 300ms",
+                    "-moz-transition": "width 300ms",
+                    "transition": "width 300ms"
+                });
+                $('#content').css({
+                    'margin-left': '82px',
+                    "margin-top": "0px",
+                    "-webkit-transition": "margin-left 300ms",
+                    "-moz-transition": "margin-left 300ms",
+                    "transition": "margin-left 300ms"
+                });
+                $("#sidebar > ul").css("display", "none");
             }
             break;
 
@@ -179,36 +184,43 @@ function toggleMenu() {
     }
 }
 
-function toggleSubMenu() {
-    // If submenu is toggled, untoggle it
-    if (submenuToggled) {
-        submenuToggled = false;
-        $('#submenu_links').children("ul").css("display", "none");
+function toggleMenu() {
+    hamburgerToggled = !hamburgerToggled;
+    onChangeScreenType();
+}
 
-        // Change icon to open_submenu
+function toggleSubMenu() {
+    submenuToggled = !submenuToggled;
+
+    if (submenuToggled) {
+        // $('#submenu_links').children("ul").css("display", "block");
+        // $("#submenu_links > ul").css("display", "block");
+        $("#submenu_links > ul").toggle(true);
+
+        // Change icon to arrow drop up
         var path;
         if (currentPath == sidebarImagePath.INDEX) {
-            path = "images/open_submenu.png";
+            path = "images/ic_arrow_drop_up_white_36dp_1x.png";
         } else if (currentPath == sidebarImagePath.SYNTAX) {
-            path = "../images/open_submenu.png";
+            path = "../images/ic_arrow_drop_up_white_36dp_1x.png";
         } else if (currentPath == sidebarImagePath.PROJECT) {
-            path = "../../images/open_submenu.png";
+            path = "../../images/ic_arrow_drop_up_white_36dp_1x.png";
         }
         $(this).attr("src", path);
     }
-    // Else if submenu is not toggled, toggle it
     else {
-        submenuToggled = true;
-        $('#submenu_links').children("ul").css("display", "block");
+        // $('#submenu_links').children("ul").css("display", "none");
+        // $("#submenu_links > ul").css("display", "none");
+        $("#submenu_links > ul").toggle(false);
 
-        // Change icon to close_submenu
+        // Change icon to arrow drop down
         var path;
         if (currentPath == sidebarImagePath.INDEX) {
-            path = "images/close_submenu.png";
+            path = "images/ic_arrow_drop_down_white_36dp_1x.png";
         } else if (currentPath == sidebarImagePath.SYNTAX) {
-            path = "../images/close_submenu.png";
+            path = "../images/ic_arrow_drop_down_white_36dp_1x.png";
         } else if (currentPath == sidebarImagePath.PROJECT) {
-            path = "../../images/close_submenu.png";
+            path = "../../images/ic_arrow_drop_down_white_36dp_1x.png";
         }
         $(this).attr("src", path);
     }

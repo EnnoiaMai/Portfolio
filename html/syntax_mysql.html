@@ -24,595 +24,593 @@ Date Created: January 2018
     </head>
 
     <body>
-        <div>
-            <div id="sidebar">
+        <div id="sidebar">
+            <div>
+              <img src="../images/ic_menu_white_36dp_1x.png" alt="Menu">
+            </div>
+            <ul>
+                <li><a href="../index.html" id="link_home">Home</a></li>
+                <li><a href="projects.html" id="link_projects">Projects</a></li>
+                <div id="submenu">
+                    <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                    <div>
+                        <img src="../images/ic_arrow_drop_up_white_36dp_1x.png" alt="open">
+                    </div>
+                </div>
+                <li id="submenu_links">
+                    <ul>
+                        <li><a href="syntax_java.html" id="link_syntax_java">Java</a></li>
+                        <li><a href="syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                        <li><a href="syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                        <li><a href="syntax_html.html" id="link_syntax_html">HTML</a></li>
+                        <li><a href="syntax_css.html" id="link_syntax_css">CSS</a></li>
+                        <li><a href="syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                        <li><a href="syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                        <li><a href="syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                        <li><a href="syntax_php.html" id="link_syntax_php">PHP</a></li>
+                        <li><a href="syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                        <li><a href="syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                        <li><a href="syntax_python.html" id="link_syntax_python">Python</a></li>
+                        <li><a href="syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div id="content_header">
+                <h1>MySQL</h1>
+            </div>
+
+            <div class="section">
+                <p><span class="bold">Sources to credit: </span>Tutorials on Youtube, StackOverflow, <a href="https://www.w3schools.com/sql/">w3schools.com</a>, and <a href="https://dev.mysql.com/">MySQL Official Documentation</a></p>
+            </div>
+
+            <div class="section">
+                <h2>SQL</h2>
+                <p><span class="definition">SQL</span>: standard language for storing, manipulating, and retrieving data in databases</p>
                 <ul>
-                    <li><a href="../index.html" id="link_home">Home</a></li>
-                    <li><a href="projects.html" id="link_projects">Projects</a></li>
-                    <div id="submenu">
-                        <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
-                        <div>
-                            <img src="../images/open_submenu.png" alt="open">
-                        </div>
-                    </div>
-                    <li id="submenu_links">
-                        <ul>
-                            <li><a href="syntax_java.html" id="link_syntax_java">Java</a></li>
-                            <li><a href="syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
-                            <li><a href="syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
-                            <li><a href="syntax_html.html" id="link_syntax_html">HTML</a></li>
-                            <li><a href="syntax_css.html" id="link_syntax_css">CSS</a></li>
-                            <li><a href="syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
-                            <li><a href="syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
-                            <li><a href="syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
-                            <li><a href="syntax_php.html" id="link_syntax_php">PHP</a></li>
-                            <li><a href="syntax_perl.html" id="link_syntax_perl">Perl</a></li>
-                            <li><a href="syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
-                            <li><a href="syntax_python.html" id="link_syntax_python">Python</a></li>
-                            <li><a href="syntax_bash.html" id="link_syntax_bash">Bash</a></li>
-                        </ul>
-                    </li>
+                    <li>Keywords are NOT case-sensitive</li>
+                    <li>Place single quotes around text values but NOT around numeric fields</li>
                 </ul>
+                <br>
+                <p>SQL for website requires:</p>
+                <ol>
+                    <li>RDBMS program like MySQL</li>
+                    <li>Server-side scripting language like PHP</li>
+                    <li>SQL to get data</li>
+                    <li>HTML/CSS/JS etc.</li>
+                </ol>
+                <br>
+                <p><span class="definition">Relational Database Management System (RDBMS)</span>: basis for SQL. Data in this system is stored in database objects called tables.</p>
+                <p><span class="definition">Table</span>: a collection of related data entries consisting of columns and rows.</p>
+                <p><span class="definition">Field</span>: a column in a table describing information about every record.</p>
+                <p><span class="definition">Record</span>: a row, a single entry in a table</p>
+                <p><span class="definition">Result-set</span>: the data returned formatted as a table.</p>
+
+                <h4>Goals for Structuring a Relational Database Management System</h4>
+                <ul>
+                    <li>Don't have repeated data.</li>
+                    <li>Want system to edit fields and retain information/reuse the data.</li>
+                </ul>
+                <br>
+
+                <p><span class="definition">char</span>: fixed length, the string's length will always be same amount.</p>
+                <p><span class="definition">var_char</span>: variable length, allows you to have up to a certain number of characters and will truncate if overflow.</p>
             </div>
 
-            <div id="content_container">
+            <div class="section">
+                <h2>Comments</h2>
+                <p>Comments are not supported in Microsoft Access database</p>
+                <p>Single-line Comments: --</p>
+                <p>Multiline Comments: /* */</p>
+            </div>
+
+            <div class="section">
+                <h2>SQL Statements</h2>
+                <p>Includes utility statements, database administration statements, data definition statements, and more.</p>
+                <br>
+                <table>
+                    <tr>
+                        <th>Statement</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span class="definition_mysql">USE <i>database_name</i></span></td>
+                        <td>Tells MySQL to use the database specified. Statements after will apply to this database.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition_mysql">SHOW TABLES IN <i>database_name</i></span></td>
+                        <td>List tables in the database</td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition_mysql">DESCRIBE <i>table_name</i></span></td>
+                        <td>Provides information about the columns in the specified table.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition_mysql">DROP TABLE [IF EXISTS] <i>table_name</i></span></td>
+                        <td>Removes one or more tables, including all the table data, only if the table exists. IF EXISTS will prevent error if the table doesn't exist.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition_mysql">CREATE TABLE [IF NOT EXISTS] <i>table_name</i></span></td>
+                        <td>Creates a table with the specified name. IF NOT EXISTS prevents error from occurring if the table does exist.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition_mysql">ALTER TABLE <i>table_name</i></span></td>
+                        <td>Modifies structure of a table. The alter specifications come after the table name. Can add, delete, rename, or change the type for the column.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition_mysql">CREATE DATABASE database_name</span></td>
+                        <td>Creates a new database. Name is case-sensitive. Must do USE after to actually use database.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="definition_mysql">ALTER DATABASE</span></td>
+                        <td>Changes characteristics of a database. The alter specifications come after the database name. </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>SELECT</h2>
+                <p>Get or extracts data out of the database.</p>
+                <p><span class="definition_mysql">*</span>: wildcard, defines all fields</p>
+                <br>
+<pre><code class="language-sql">
+-- Selects specific fields from a table
+SELECT column1, column2, ... FROM table_name;
+
+-- Selects all fields from a table
+SELECT * FROM table_name;
+
+-- Example from class
+SELECT * FROM Runner, Registration WHERE Runner.runnerID = Registration.runnerID;
+
+-- Example from Project 4
+SELECT * FROM products WHERE sku='$sku';
+</code></pre>
+                <br>
+                <h4>SELECT DISTINCT</h4>
+                <p>Return distinct or different values since column can have duplicate values.</p>
+                <br>
+<pre><code class="language-sql">
+SELECT DISTINCT column1, column2, ... FROM table_name;
+
+-- Lists number of different values from the selected column(2)
+SELECT COUNT(DISTINCT column) FROM table_name;
+
+-- For Microsoft Access Databases
+SELECT COUNT (*) AS distinct_values FROM (SELECT DISTINCT column FROM table_name);
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>WHERE</h2>
+                <p>To filter records and extract records using a condition. Also used in update, delete, and other statements. Join occurs using this clause.</p>
+                <br>
+<pre><code class="language-sql">
+SELECT column1, column2, ... FROM table_name WHERE condition;
+
+// Example
+SELECT * FROM Customers WHERE Country='Mexico';
+SELECT * FROM Customers WHERE CustomerID=1;
+</code></pre>
+                <br>
+                Operators that can be used in a WHERE clause
+                <table>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Definition</th>
+                    </tr>
+                    <tr>
+                        <td>Logical operators</td>
+                        <td>=, &lt; &gt; (not equal)</td>
+                    </tr>
+                    <tr>
+                        <td>Comparison operators</td>
+                        <td>&gt;, &lt;, &gt;=, &lt;=</td>
+                    </tr>
+                    <tr>
+                        <td>BETWEEN</td>
+                        <td>Between an inclusive range</td>
+                    </tr>
+                    <tr>
+                        <td>LIKE</td>
+                        <td>Search for a pattern</td>
+                    </tr>
+                    <tr>
+                        <td>IN</td>
+                        <td>To specify multiple possible values for a column</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>AND, OR, NOT</h2>
+                <p>To be used with the WHERE clause. To filter records with multiple conditions. These can be used in combination with one another. Use parentheses to make expressions explicit.</p>
+                <p><span class="definition_mysql">AND</span>: displays a record if all the conditions separated by AND is TRUE.</p>
+                <p><span class="definition_mysql">OR</span>: displays a record if any of the conditions separated by OR is TRUE.</p>
+                <p><span class="definition_mysql">NOT</span>: displays a record if condition(s) is NOT TRUE.</p>
+                <br>
+<pre><code class="language-sql">
+SELECT column1, column2, ... FROM table_name
+WHERE condition1 AND condition2 ...;
+
+SELECT column1, column2, ... FROM table_name
+WHERE condition1 OR condition2 ...;
+
+SELECT column1, column2, ... FROM table_name
+WHERE NOT condition;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>ORDER BY</h2>
+                <p>To sort result-set in ascending or descending order. Ascending is the default order.</p>
+                <br>
+<pre><code class="language-sql">
+SELECT column... FROM table_name ORDER BY column... ASC | DESC;
+
+-- Order By Several Columns
+SELECT * FROM table_name ORDER BY column1 ASC, column2 DESC;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>INSERT INTO</h2>
+                <p>To insert new records to the table. Whatever new values are not set will be given the value <span class="definition_mysql">NULL</span> for that field.</p>
+                <ol>
+                    <li>Specify the columns affected and the values to add for each column.</li>
+                    <li>Add value for all columns of table, but must be in same order as columns.</li>
+                </ol>
+                <p>A column can be an auto-increment field, so that when a new record is inserted, the value needs not be updated.</p>
+                <br>
+<pre><code class="language-sql">
+INSERT INTO table_name (column1, column2...) VALUES (value1, value2...);
+INSERT INTO table_name VALUES (value1, value2...);
+
+-- Example from Project 3
+INSERT INTO TABLE Runner values('John', 'Smith', ...);
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>NULL</h2>
+                <p>A field with no value. Optional fields will give the value of <span class="definition_mysql">NULL</span> if no value is specified when entering or updating a new record.</p>
+                <ul>
+                    <li>Use <span class="definition_mysql">IS NULL</span> and <span class="definition_mysql">IS NOT NULL</span> to test for null values</li>
+                </ul>
+                <br>
+<pre><code class="language-sql">
+SELECT column_names FROM table_name WHERE column_name IS NULL;
+SELECT column_names FROM table_name WHERE column_name IS NOT NULL;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>UPDATE</h2>
+                <p>Updates data in a database. To modify existing records. The where clause specifies the records to be updated, without it all records will be referenced. Update multiple records at the where clause.</p>
+                <br>
+<pre><code class="language-sql">
+UPDATE table_name SET column1=value1, column2=value2... WHERE condition;
+
+-- Example
+UPDATE Customers SET ContactName='Alfred Schmidt', City='Frankfurt'
+WHERE customerID=1;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>DELETE</h2>
+                <p>Deletes existing records from a database. Omitting the where clause will affect all records.</p>
+                <br>
+<pre><code class="language-sql">
+DELETE FROM table_name WHERE condition;
+
+-- Example
+DELETE FROM Customers WHERE CustomerName='Alfreds';
+
+-- Delete all recrods, the following does the same thing
+DELETE FROM table_name;
+DELETE * FROM table_name;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>SELECT TOP</h2>
+                <p>To specify number of records to return. Useful when you have lots of records.</p>
+                <ul>
+                    <li>MySQL uses <span class="definition_mysql">LIMIT</span></li>
+                </ul>
+                <br>
+<pre><code class="language-sql">
+-- SQL Server / MS Access Sytnax
+SELECT TOP number | percent column_name(s) FROM table_name WHERE condition;
+
+-- MySQL Syntax
+SELECT column_name(s) FROM table_name WHERE condition LIMIT number;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>MIN and MAX</h2>
+                <p><span class="definition_mysql">MIN()</span>: returns smallest value of the selected column.</p>
+                <p><span class="definition_mysql">MAX()</span>: returns largest value.</p>
+                <br>
+<pre><code class="language-sql">
+SELECT MIN(column_name) FROM table_name WHERE condition;
+SELECT MAX(column_name) FROM table_name WHERE condition;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>COUNT, AVG, SUM</h2>
+                <p><span class="definition_mysql">COUNT()</span>: returns number of rows that matches a criteria.</p>
+                <p><span class="definition_mysql">AVG()</span>: returns average value of a numeric column.</p>
+                <p><span class="definition_mysql">SUM()</span>: returns sum of a numeric column.</p>
+                <br>
+<pre><code class="language-sql">
+SELECT COUNT(column_name) FROM table_name WHERE condition;
+SELECT AVG(column_name) FROM table_name WHERE condition;
+SELECT SUM(column_name) FROM table_name WHERE condition;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>LIKE and WILDCARDS</h2>
+                <p>Used in where clause to search for a pattern in a column.</p>
+                <ul>
+                    <li><span class="definition_mysql">%</span>: represents 0, 1, or multiple characters</li>
+                    <li><span class="definition_mysql">_</span>: represents a single character</li>
+                </ul>
+                <br>
+<pre><code class="language-sql">
+SELECT column1, column2... FROM table_name WHERE column LIKE pattern;
+</code></pre>
+                <br>
+                <h4>Example of Patterns</h4>
+                <p>a% - starts with a</p>
+                <p>%a - ends with a</p>
+                <p>_r% - r is second letter</p>
+                <br>
+
+                <p><span class="definition">Wildcards</span>: used to substitute any other character(s) in a string. Used with LIKE operator.<br>
+                [charlist], [^charlist] or [!charlist] Wildcard can be used for MS access and SQL Server</p>
+            </div>
+
+            <div class="section">
+                <h2>IN</h2>
+                <p>To specify multiple values in a where clause. Shorthand for multiple OR conditions. Can use with NOT operator.</p>
+                <br>
+<pre><code class="language-sql">
+SELECT column_name(s) FROM table_name
+WHERE column_name IN (value1, value2...);
+
+SELECT column_name(s) FROM table_name
+WHERE column_name IN (SELECT statement);
+
+-- Example
+SELECT * FROM Customers WHERE Country IN (SELECT Country FROM Suppliers);
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>BETWEEN</h2>
+                <p>Selects values within a given range. Values can be numbers, text, or dates. The operator is inclusive. Can use <span class="definition_mysql">NOT BETWEEN</span>.</p>
+                <br>
+<pre><code class="language-sql">
+SELECT column_name(s) FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+
+-- Example with dates
+SELECT * FROM Orders
+WHERE OrderDate BETWEEN #07/04/1996# AND #07/09/1996#;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Aliases</h2>
+                <p>To give a table or a column a temporary name. Exists for duration of query. A double quotation marks or square brackets required if alias name has spaces.</p>
+                <br>
+<pre><code class="language-sql">
+-- Alias for column
+SELECT column_name AS alias_name FROM table_name;
+
+-- Alias for table
+SELECT column_name(s) FROM table_name AS alias_name;
+
+-- Alias and Combining columns
+SELECT CustomerName, CONCAT(Address, ', ', PostalCode, ', ', City, ', ', Country)
+AS Address FROM Customers;
+
+-- Example of alias for tables
+SELECT o.OrderID, o.OrderDate, c.CustomerName
+FROM Customers AS c, Orders AS o
+WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;
+
+-- Example without alias
+SELECT Orders.OrderID, Orders.OrderDate, Customers.CustomerName
+FROM Customers, Orders
+WHERE Customers.CustomerName="Around the Horn" AND
+Customers.CustomerID=Orders.CustomerID;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>JOIN</h2>
+                <p>Combine rows from two or more tables based on a related column. Selecting columns from tables. If there are multiple tables, have to join them. Always have one fewer joins then the number of tables.</p>
+<pre><code class="language-sql">
+-- Example
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+
+-- Another Example
+SELECT Name, Phone, RaceID
+FROM Runners, Registration
+WHERE Runners.RunnerID = Registration.RunnerID;
+</code></pre>
+                <br>
+                <p><span class="definition_mysql">INNER JOIN</span>: returns records with matching values in both tables.</p>
+                <p><span class="definition_mysql">LEFT(OUTER) JOIN</span>: returns all records from left table, and matched records from right table. Result is NULL on right table if there isn't a match.</p>
+                <p><span class="definition_mysql">RIGHT(OUTER) JOIN</span>: returns all records from right table, and matched records from left table. Result is NULL from left table if there isn't a match.</p>
+                <p><span class="definition_mysql">FULL JOIN</span>: returns all records when there is a match in either left or right table. Potentially returns large result-sets.</p>
+                <p><span class="definition_mysql">SELF JOIN</span>: a regular join but table is joined with itself</p>
+                <br>
+<pre><code class="language-sql">
+-- Example Inner Join
+SELECT column_name(s) FROM table1
+INNER JOIN table2 ON table1.column_name = table2.column_name;
+
+-- Example Left Outer Join
+SELECT column_name(s) FROM table1
+LEFT JOIN table2 ON table1.column_name = table2.column_name;
+
+-- Example Right Outer Join
+SELECT column_name(s) FROM table1
+RIGHT JOIN table2 ON table1.column_name = table2.column_name;
+
+-- Example of Full Join
+SELECT column_name(s) FROM table1
+FULL OUTER JOIN table2 ON table1.column_name = table2.column_name;
+
+-- Example of Self Join
+SELECT column_name(s) FROM table1 T1, table2 T2
+WHERE condition;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>UNION</h2>
+                <p>To combine result-set of two or more SELECT statements.</p>
+                <ul>
+                    <li>Each SELECT statement within UNION must have <b>same number of columns</b>.</li>
+                    <li>Columns must have <b>similar data type</b>.</li>
+                    <li>Columns in each SELECT statement must be in the <b>same order</b>.</li>
+                </ul>
+                <br>
+<pre><code class="language-sql">
+SELECT column_name(s) FROM table1 WHERE condition UNION
+SELECT column_name(s) FROM table2 WHERE condition;
+</code></pre>
+                <br>
+                <p>To allow duplicate values since UNION returns distinct values by default, use <span class="definition_mysql">UNION ALL</span>.</p>
+            </div>
+
+            <div class="section">
+                <h2>GROUP BY</h2>
+                <p>Used with <span class="definition">aggregate functions</span> (COUNT, MAX, MIN, SUM, AVG) to group result-set by one or more columns.</p>
+                <br>
+<pre><code class="language-sql">
+SELECT column_name(s) FROM table_name WHERE condition
+GROUP BY column_name(s) ORDER BY column_name(2)
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>HAVING</h2>
+                <p>For aggregate functions</p>
+<pre><code class="language-sql">
+SELECT column_name(s) FROM table_name WHERE condition
+GROUP BY column_name(s) HAVING condition
+ORDER BY column_name(s)
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>EXISTS</h2>
+                <p>To test for existence of any record in a subquery. Returns true if subquery returns one or more records.</p>
+<pre><code class="language-sql">
+SELECT column_name(s) FROM table_name
+WHERE EXISTS (SELECT column_name FROM table_name WHERE condition);
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>ANY, ALL</h2>
+                <p>ANY and ALL used with WHERE and HAVING clause.</p>
+                <p><span class="definition_mysql">ANY</span>: returns true if any of the subquery values meet the condition.</p>
+                <p><span class="definition_mysql">ALL</span>: returns true if all of the subquery values meet the condition.</p>
+                <p><span class="definition_mysql">operator</span>: is a comparison or logical operator.</p>
+                <br>
+<pre><code class="language-sql">
+-- Example of Any
+SELECT column_name(s) FROM table_name
+WHERE column_name operator ANY
+(SELECT column_name FROM table_name WHERE condition);
+
+-- Example of All
+SELECT column_name(s) FROM table_name
+WHERE column_name operator ALL
+(SELECT column_name FROM table_name WHERE condition);
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>SELECT INTO</h2>
+                <p>Copies data from one table into a new table. The new table will be created with the fields and types of the old table. Can create new columns with AS clause.</p>
+                <br>
+<pre><code class="language-sql">
+SELECT column1, column2... INTO newtable [IN externaldb]
+FROM oldtable WHERE condition;
+
+-- Can make a backup copy
+SELECT * INTO CustomersBackupTable
+FROM CustomersTable;
+
+-- Use IN to copy table into a new table in another database
+SELECT * INTO CustomersBackupTable IN database2
+FROM CustomeresTable;
+
+-- Create a new empty table using a where clause in which
+-- the query returns no data
+SELECT * INTO newtable FROM oldtable WHERE 1=0;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>INSERT INTO SELECT</h2>
+                <p>Copies data from one table and inserts it into another.</p>
+                <ul>
+                    <li>Requires data types in source and target tables match.</li>
+                    <li>Existing records in the target table are unaffected.</li>
+                </ul>
+                <br>
+<pre><code class="language-sql">
+-- Copy all columns to another table
+INSERT INTO table2 SELECT * FROM table1 WHERE condition;
+
+-- Copy some columns to another table
+INSERT INTO table2(column1, column2...) SELECT column1, column2...
+FROM table1 WHERE condition;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Null Functions</h2>
+                <p>MySQL <span class="definition_mysql">IFNULL()</span> allows returning an alternative value if an expression is NULL</p>
+<pre><code class="language-sql">
+-- Example - UnitsOnOrder is an optional field
+SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0))
+FROM Products;
+</code></pre>
+                <br>
+                <p>Can also use <span class="definition_mysql">COALESCE()</span> function</p>
+<pre><code class="language-sql">
+SELECT ProductName, UnitPrice * (UnitsInStock + COALESCE(UnitsOnOrder, 0))
+FROM Products;
+</code></pre>
+            </div>
+        </div>
+
+        <div id="directory_container">
+            <div id="navigation_buttons">
                 <div>
-                    <h1>MySQL</h1>
+                    <img src="../images/return_top_arrow.png" alt="open" id="directory_top_arrow">
                 </div>
-
-                <div id="content">
-
-                    <div class="section">
-                        <p><span class="bold">Sources to credit: </span>Tutorials on Youtube, StackOverflow, <a href="https://www.w3schools.com/sql/">w3schools.com</a>, and <a href="https://dev.mysql.com/">MySQL Official Documentation</a></p>
-                    </div>
-
-                    <div class="section">
-                        <h2>SQL</h2>
-                        <p><span class="definition">SQL</span>: standard language for storing, manipulating, and retrieving data in databases</p>
-                        <ul>
-                            <li>Keywords are NOT case-sensitive</li>
-                            <li>Place single quotes around text values but NOT around numeric fields</li>
-                        </ul>
-                        <br>
-                        <p>SQL for website requires:</p>
-                        <ol>
-                            <li>RDBMS program like MySQL</li>
-                            <li>Server-side scripting language like PHP</li>
-                            <li>SQL to get data</li>
-                            <li>HTML/CSS/JS etc.</li>
-                        </ol>
-                        <br>
-                        <p><span class="definition">Relational Database Management System (RDBMS)</span>: basis for SQL. Data in this system is stored in database objects called tables.</p>
-                        <p><span class="definition">Table</span>: a collection of related data entries consisting of columns and rows.</p>
-                        <p><span class="definition">Field</span>: a column in a table describing information about every record.</p>
-                        <p><span class="definition">Record</span>: a row, a single entry in a table</p>
-                        <p><span class="definition">Result-set</span>: the data returned formatted as a table.</p>
-
-                        <h4>Goals for Structuring a Relational Database Management System</h4>
-                        <ul>
-                            <li>Don't have repeated data.</li>
-                            <li>Want system to edit fields and retain information/reuse the data.</li>
-                        </ul>
-                        <br>
-
-                        <p><span class="definition">char</span>: fixed length, the string's length will always be same amount.</p>
-                        <p><span class="definition">var_char</span>: variable length, allows you to have up to a certain number of characters and will truncate if overflow.</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>Comments</h2>
-                        <p>Comments are not supported in Microsoft Access database</p>
-                        <p>Single-line Comments: --</p>
-                        <p>Multiline Comments: /* */</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>SQL Statements</h2>
-                        <p>Includes utility statements, database administration statements, data definition statements, and more.</p>
-                        <br>
-                        <table>
-                            <tr>
-                                <th>Statement</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td><span class="definition_mysql">USE <i>database_name</i></span></td>
-                                <td>Tells MySQL to use the database specified. Statements after will apply to this database.</td>
-                            </tr>
-                            <tr>
-                                <td><span class="definition_mysql">SHOW TABLES IN <i>database_name</i></span></td>
-                                <td>List tables in the database</td>
-                            </tr>
-                            <tr>
-                                <td><span class="definition_mysql">DESCRIBE <i>table_name</i></span></td>
-                                <td>Provides information about the columns in the specified table.</td>
-                            </tr>
-                            <tr>
-                                <td><span class="definition_mysql">DROP TABLE [IF EXISTS] <i>table_name</i></span></td>
-                                <td>Removes one or more tables, including all the table data, only if the table exists. IF EXISTS will prevent error if the table doesn't exist.</td>
-                            </tr>
-                            <tr>
-                                <td><span class="definition_mysql">CREATE TABLE [IF NOT EXISTS] <i>table_name</i></span></td>
-                                <td>Creates a table with the specified name. IF NOT EXISTS prevents error from occurring if the table does exist.</td>
-                            </tr>
-                            <tr>
-                                <td><span class="definition_mysql">ALTER TABLE <i>table_name</i></span></td>
-                                <td>Modifies structure of a table. The alter specifications come after the table name. Can add, delete, rename, or change the type for the column.</td>
-                            </tr>
-                            <tr>
-                                <td><span class="definition_mysql">CREATE DATABASE database_name</span></td>
-                                <td>Creates a new database. Name is case-sensitive. Must do USE after to actually use database.</td>
-                            </tr>
-                            <tr>
-                                <td><span class="definition_mysql">ALTER DATABASE</span></td>
-                                <td>Changes characteristics of a database. The alter specifications come after the database name. </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="section">
-                        <h2>SELECT</h2>
-                        <p>Get or extracts data out of the database.</p>
-                        <p><span class="definition_mysql">*</span>: wildcard, defines all fields</p>
-                        <br>
-    <pre><code class="language-sql">
-    -- Selects specific fields from a table
-    SELECT column1, column2, ... FROM table_name;
-
-    -- Selects all fields from a table
-    SELECT * FROM table_name;
-
-    -- Example from class
-    SELECT * FROM Runner, Registration WHERE Runner.runnerID = Registration.runnerID;
-
-    -- Example from Project 4
-    SELECT * FROM products WHERE sku='$sku';
-    </code></pre>
-                        <br>
-                        <h4>SELECT DISTINCT</h4>
-                        <p>Return distinct or different values since column can have duplicate values.</p>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT DISTINCT column1, column2, ... FROM table_name;
-
-    -- Lists number of different values from the selected column(2)
-    SELECT COUNT(DISTINCT column) FROM table_name;
-
-    -- For Microsoft Access Databases
-    SELECT COUNT (*) AS distinct_values FROM (SELECT DISTINCT column FROM table_name);
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>WHERE</h2>
-                        <p>To filter records and extract records using a condition. Also used in update, delete, and other statements. Join occurs using this clause.</p>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT column1, column2, ... FROM table_name WHERE condition;
-
-    // Example
-    SELECT * FROM Customers WHERE Country='Mexico';
-    SELECT * FROM Customers WHERE CustomerID=1;
-    </code></pre>
-                        <br>
-                        Operators that can be used in a WHERE clause
-                        <table>
-                            <tr>
-                                <th>Operator</th>
-                                <th>Definition</th>
-                            </tr>
-                            <tr>
-                                <td>Logical operators</td>
-                                <td>=, &lt; &gt; (not equal)</td>
-                            </tr>
-                            <tr>
-                                <td>Comparison operators</td>
-                                <td>&gt;, &lt;, &gt;=, &lt;=</td>
-                            </tr>
-                            <tr>
-                                <td>BETWEEN</td>
-                                <td>Between an inclusive range</td>
-                            </tr>
-                            <tr>
-                                <td>LIKE</td>
-                                <td>Search for a pattern</td>
-                            </tr>
-                            <tr>
-                                <td>IN</td>
-                                <td>To specify multiple possible values for a column</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="section">
-                        <h2>AND, OR, NOT</h2>
-                        <p>To be used with the WHERE clause. To filter records with multiple conditions. These can be used in combination with one another. Use parentheses to make expressions explicit.</p>
-                        <p><span class="definition_mysql">AND</span>: displays a record if all the conditions separated by AND is TRUE.</p>
-                        <p><span class="definition_mysql">OR</span>: displays a record if any of the conditions separated by OR is TRUE.</p>
-                        <p><span class="definition_mysql">NOT</span>: displays a record if condition(s) is NOT TRUE.</p>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT column1, column2, ... FROM table_name
-        WHERE condition1 AND condition2 ...;
-
-    SELECT column1, column2, ... FROM table_name
-        WHERE condition1 OR condition2 ...;
-
-    SELECT column1, column2, ... FROM table_name
-        WHERE NOT condition;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>ORDER BY</h2>
-                        <p>To sort result-set in ascending or descending order. Ascending is the default order.</p>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT column... FROM table_name ORDER BY column... ASC | DESC;
-
-    -- Order By Several Columns
-    SELECT * FROM table_name ORDER BY column1 ASC, column2 DESC;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>INSERT INTO</h2>
-                        <p>To insert new records to the table. Whatever new values are not set will be given the value <span class="definition_mysql">NULL</span> for that field.</p>
-                        <ol>
-                            <li>Specify the columns affected and the values to add for each column.</li>
-                            <li>Add value for all columns of table, but must be in same order as columns.</li>
-                        </ol>
-                        <p>A column can be an auto-increment field, so that when a new record is inserted, the value needs not be updated.</p>
-                        <br>
-    <pre><code class="language-sql">
-    INSERT INTO table_name (column1, column2...) VALUES (value1, value2...);
-    INSERT INTO table_name VALUES (value1, value2...);
-
-    -- Example from Project 3
-    INSERT INTO TABLE Runner values('John', 'Smith', ...);
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>NULL</h2>
-                        <p>A field with no value. Optional fields will give the value of <span class="definition_mysql">NULL</span> if no value is specified when entering or updating a new record.</p>
-                        <ul>
-                            <li>Use <span class="definition_mysql">IS NULL</span> and <span class="definition_mysql">IS NOT NULL</span> to test for null values</li>
-                        </ul>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT column_names FROM table_name WHERE column_name IS NULL;
-    SELECT column_names FROM table_name WHERE column_name IS NOT NULL;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>UPDATE</h2>
-                        <p>Updates data in a database. To modify existing records. The where clause specifies the records to be updated, without it all records will be referenced. Update multiple records at the where clause.</p>
-                        <br>
-    <pre><code class="language-sql">
-    UPDATE table_name SET column1=value1, column2=value2... WHERE condition;
-
-    -- Example
-    UPDATE Customers SET ContactName='Alfred Schmidt', City='Frankfurt'
-        WHERE customerID=1;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>DELETE</h2>
-                        <p>Deletes existing records from a database. Omitting the where clause will affect all records.</p>
-                        <br>
-    <pre><code class="language-sql">
-    DELETE FROM table_name WHERE condition;
-
-    -- Example
-    DELETE FROM Customers WHERE CustomerName='Alfreds';
-
-    -- Delete all recrods, the following does the same thing
-    DELETE FROM table_name;
-    DELETE * FROM table_name;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>SELECT TOP</h2>
-                        <p>To specify number of records to return. Useful when you have lots of records.</p>
-                        <ul>
-                            <li>MySQL uses <span class="definition_mysql">LIMIT</span></li>
-                        </ul>
-                        <br>
-    <pre><code class="language-sql">
-    -- SQL Server / MS Access Sytnax
-    SELECT TOP number | percent column_name(s) FROM table_name WHERE condition;
-
-    -- MySQL Syntax
-    SELECT column_name(s) FROM table_name WHERE condition LIMIT number;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>MIN and MAX</h2>
-                        <p><span class="definition_mysql">MIN()</span>: returns smallest value of the selected column.</p>
-                        <p><span class="definition_mysql">MAX()</span>: returns largest value.</p>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT MIN(column_name) FROM table_name WHERE condition;
-    SELECT MAX(column_name) FROM table_name WHERE condition;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>COUNT, AVG, SUM</h2>
-                        <p><span class="definition_mysql">COUNT()</span>: returns number of rows that matches a criteria.</p>
-                        <p><span class="definition_mysql">AVG()</span>: returns average value of a numeric column.</p>
-                        <p><span class="definition_mysql">SUM()</span>: returns sum of a numeric column.</p>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT COUNT(column_name) FROM table_name WHERE condition;
-    SELECT AVG(column_name) FROM table_name WHERE condition;
-    SELECT SUM(column_name) FROM table_name WHERE condition;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>LIKE and WILDCARDS</h2>
-                        <p>Used in where clause to search for a pattern in a column.</p>
-                        <ul>
-                            <li><span class="definition_mysql">%</span>: represents 0, 1, or multiple characters</li>
-                            <li><span class="definition_mysql">_</span>: represents a single character</li>
-                        </ul>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT column1, column2... FROM table_name WHERE column LIKE pattern;
-    </code></pre>
-                        <br>
-                        <h4>Example of Patterns</h4>
-                        <p>a% - starts with a</p>
-                        <p>%a - ends with a</p>
-                        <p>_r% - r is second letter</p>
-                        <br>
-
-                        <p><span class="definition">Wildcards</span>: used to substitute any other character(s) in a string. Used with LIKE operator.<br>
-                        [charlist], [^charlist] or [!charlist] Wildcard can be used for MS access and SQL Server</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>IN</h2>
-                        <p>To specify multiple values in a where clause. Shorthand for multiple OR conditions. Can use with NOT operator.</p>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT column_name(s) FROM table_name
-        WHERE column_name IN (value1, value2...);
-
-    SELECT column_name(s) FROM table_name
-        WHERE column_name IN (SELECT statement);
-
-    -- Example
-    SELECT * FROM Customers WHERE Country IN (SELECT Country FROM Suppliers);
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>BETWEEN</h2>
-                        <p>Selects values within a given range. Values can be numbers, text, or dates. The operator is inclusive. Can use <span class="definition_mysql">NOT BETWEEN</span>.</p>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT column_name(s) FROM table_name
-        WHERE column_name BETWEEN value1 AND value2;
-
-    -- Example with dates
-    SELECT * FROM Orders
-        WHERE OrderDate BETWEEN #07/04/1996# AND #07/09/1996#;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Aliases</h2>
-                        <p>To give a table or a column a temporary name. Exists for duration of query. A double quotation marks or square brackets required if alias name has spaces.</p>
-                        <br>
-    <pre><code class="language-sql">
-    -- Alias for column
-    SELECT column_name AS alias_name FROM table_name;
-
-    -- Alias for table
-    SELECT column_name(s) FROM table_name AS alias_name;
-
-    -- Alias and Combining columns
-    SELECT CustomerName, CONCAT(Address, ', ', PostalCode, ', ', City, ', ', Country)
-        AS Address FROM Customers;
-
-    -- Example of alias for tables
-    SELECT o.OrderID, o.OrderDate, c.CustomerName
-        FROM Customers AS c, Orders AS o
-        WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;
-
-    -- Example without alias
-    SELECT Orders.OrderID, Orders.OrderDate, Customers.CustomerName
-        FROM Customers, Orders
-        WHERE Customers.CustomerName="Around the Horn" AND
-        Customers.CustomerID=Orders.CustomerID;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>JOIN</h2>
-                        <p>Combine rows from two or more tables based on a related column. Selecting columns from tables. If there are multiple tables, have to join them. Always have one fewer joins then the number of tables.</p>
-    <pre><code class="language-sql">
-    -- Example
-    SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders
-        INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
-
-    -- Another Example
-    SELECT Name, Phone, RaceID
-        FROM Runners, Registration
-        WHERE Runners.RunnerID = Registration.RunnerID;
-    </code></pre>
-                        <br>
-                        <p><span class="definition_mysql">INNER JOIN</span>: returns records with matching values in both tables.</p>
-                        <p><span class="definition_mysql">LEFT(OUTER) JOIN</span>: returns all records from left table, and matched records from right table. Result is NULL on right table if there isn't a match.</p>
-                        <p><span class="definition_mysql">RIGHT(OUTER) JOIN</span>: returns all records from right table, and matched records from left table. Result is NULL from left table if there isn't a match.</p>
-                        <p><span class="definition_mysql">FULL JOIN</span>: returns all records when there is a match in either left or right table. Potentially returns large result-sets.</p>
-                        <p><span class="definition_mysql">SELF JOIN</span>: a regular join but table is joined with itself</p>
-                        <br>
-    <pre><code class="language-sql">
-    -- Example Inner Join
-    SELECT column_name(s) FROM table1
-        INNER JOIN table2 ON table1.column_name = table2.column_name;
-
-    -- Example Left Outer Join
-    SELECT column_name(s) FROM table1
-        LEFT JOIN table2 ON table1.column_name = table2.column_name;
-
-    -- Example Right Outer Join
-    SELECT column_name(s) FROM table1
-        RIGHT JOIN table2 ON table1.column_name = table2.column_name;
-
-    -- Example of Full Join
-    SELECT column_name(s) FROM table1
-        FULL OUTER JOIN table2 ON table1.column_name = table2.column_name;
-
-    -- Example of Self Join
-    SELECT column_name(s) FROM table1 T1, table2 T2
-        WHERE condition;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>UNION</h2>
-                        <p>To combine result-set of two or more SELECT statements.</p>
-                        <ul>
-                            <li>Each SELECT statement within UNION must have <b>same number of columns</b>.</li>
-                            <li>Columns must have <b>similar data type</b>.</li>
-                            <li>Columns in each SELECT statement must be in the <b>same order</b>.</li>
-                        </ul>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT column_name(s) FROM table1 WHERE condition UNION
-        SELECT column_name(s) FROM table2 WHERE condition;
-    </code></pre>
-                        <br>
-                        <p>To allow duplicate values since UNION returns distinct values by default, use <span class="definition_mysql">UNION ALL</span>.</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>GROUP BY</h2>
-                        <p>Used with <span class="definition">aggregate functions</span> (COUNT, MAX, MIN, SUM, AVG) to group result-set by one or more columns.</p>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT column_name(s) FROM table_name WHERE condition
-        GROUP BY column_name(s) ORDER BY column_name(2)
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>HAVING</h2>
-                        <p>For aggregate functions</p>
-    <pre><code class="language-sql">
-    SELECT column_name(s) FROM table_name WHERE condition
-        GROUP BY column_name(s) HAVING condition
-        ORDER BY column_name(s)
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>EXISTS</h2>
-                        <p>To test for existence of any record in a subquery. Returns true if subquery returns one or more records.</p>
-    <pre><code class="language-sql">
-    SELECT column_name(s) FROM table_name
-        WHERE EXISTS (SELECT column_name FROM table_name WHERE condition);
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>ANY, ALL</h2>
-                        <p>ANY and ALL used with WHERE and HAVING clause.</p>
-                        <p><span class="definition_mysql">ANY</span>: returns true if any of the subquery values meet the condition.</p>
-                        <p><span class="definition_mysql">ALL</span>: returns true if all of the subquery values meet the condition.</p>
-                        <p><span class="definition_mysql">operator</span>: is a comparison or logical operator.</p>
-                        <br>
-    <pre><code class="language-sql">
-    -- Example of Any
-    SELECT column_name(s) FROM table_name
-        WHERE column_name operator ANY
-        (SELECT column_name FROM table_name WHERE condition);
-
-    -- Example of All
-    SELECT column_name(s) FROM table_name
-        WHERE column_name operator ALL
-        (SELECT column_name FROM table_name WHERE condition);
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>SELECT INTO</h2>
-                        <p>Copies data from one table into a new table. The new table will be created with the fields and types of the old table. Can create new columns with AS clause.</p>
-                        <br>
-    <pre><code class="language-sql">
-    SELECT column1, column2... INTO newtable [IN externaldb]
-        FROM oldtable WHERE condition;
-
-    -- Can make a backup copy
-    SELECT * INTO CustomersBackupTable
-        FROM CustomersTable;
-
-    -- Use IN to copy table into a new table in another database
-    SELECT * INTO CustomersBackupTable IN database2
-        FROM CustomeresTable;
-
-    -- Create a new empty table using a where clause in which
-    -- the query returns no data
-    SELECT * INTO newtable FROM oldtable WHERE 1=0;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>INSERT INTO SELECT</h2>
-                        <p>Copies data from one table and inserts it into another.</p>
-                        <ul>
-                            <li>Requires data types in source and target tables match.</li>
-                            <li>Existing records in the target table are unaffected.</li>
-                        </ul>
-                        <br>
-    <pre><code class="language-sql">
-    -- Copy all columns to another table
-    INSERT INTO table2 SELECT * FROM table1 WHERE condition;
-
-    -- Copy some columns to another table
-    INSERT INTO table2(column1, column2...) SELECT column1, column2...
-        FROM table1 WHERE condition;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Null Functions</h2>
-                        <p>MySQL <span class="definition_mysql">IFNULL()</span> allows returning an alternative value if an expression is NULL</p>
-    <pre><code class="language-sql">
-    -- Example - UnitsOnOrder is an optional field
-    SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0))
-        FROM Products;
-    </code></pre>
-                        <br>
-                        <p>Can also use <span class="definition_mysql">COALESCE()</span> function</p>
-    <pre><code class="language-sql">
-    SELECT ProductName, UnitPrice * (UnitsInStock + COALESCE(UnitsOnOrder, 0))
-        FROM Products;
-    </code></pre>
-                    </div>
+                <div>
+                    <img src="../images/directory_menu.png" alt="menu" id="directory_menu">
                 </div>
             </div>
-
-            <div id="directory_container">
-                <div id="navigation_buttons">
-                    <div>
-                        <img src="../images/return_top_arrow.png" alt="open" id="directory_top_arrow">
-                    </div>
-                    <div>
-                        <img src="../images/directory_menu.png" alt="menu" id="directory_menu">
-                    </div>
-                </div>
-                <div id="directory">
-                </div>
+            <div id="directory">
             </div>
         </div>
     </body>

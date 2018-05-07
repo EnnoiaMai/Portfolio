@@ -9,8 +9,9 @@ $(document).ready(function() {
     initializeSidebar();
 
     // Initially toggle the submenu to show the syntax pages
-    toggleSubMenu();
-    $('#submenu img').attr('src', '../images/close_submenu.png');
+    if (!submenuToggled) {
+        toggleSubMenu();
+    }
 
     // Dynamically create the id for all the h2 tags and populate it in the directory div
     createIDForSections();
@@ -47,9 +48,6 @@ function createDirectoryOfContents() {
     });
     directoryString += "</ul>";
 
-    // <div id=\"navigation_buttons\"><div><img src=\"../images/close_arrow.png\" alt=\"open\" id=\"directory_menu\"></div>" +
-    // "<div><img src=\"../images/close_arrow.png\" alt\"open\"></div></div>
-
     var handler = document.getElementById('directory');
     handler.innerHTML = directoryString;
 }
@@ -62,7 +60,6 @@ function displayDirectory() {
         // Close the directory
         directoryOpened = false;
         directory.style.transform = "translate(100%, 0%)";
-        // $(this).attr("src", "../images/open_arrow.png");
         $('#directory_top_arrow').fadeOut(500, function() {
             $(this).css("visibility", "hidden");
         });
@@ -72,7 +69,6 @@ function displayDirectory() {
         directoryOpened = true;
         // directory.style.visibility = "visible";
         directory.style.transform = "translate(0%, 0%)";
-        // $(this).attr("src", "../images/close_arrow.png");
         $('#directory_top_arrow').css("visibility", "visible").hide().fadeIn(500);
     }
 }

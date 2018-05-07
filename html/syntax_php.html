@@ -25,1591 +25,1590 @@ Date Created: December 2017
     </head>
 
     <body>
-        <div>
-            <div id="sidebar">
-                <ul>
-                    <li><a href="../index.html" id="link_home">Home</a></li>
-                    <li><a href="projects.html" id="link_projects">Projects</a></li>
-                    <div id="submenu">
-                        <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
-                        <div>
-                            <img src="../images/open_submenu.png" alt="open">
-                        </div>
+        <div id="sidebar">
+            <div>
+              <img src="../images/ic_menu_white_36dp_1x.png" alt="Menu">
+            </div>
+            <ul>
+                <li><a href="../index.html" id="link_home">Home</a></li>
+                <li><a href="projects.html" id="link_projects">Projects</a></li>
+                <div id="submenu">
+                    <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                    <div>
+                        <img src="../images/ic_arrow_drop_up_white_36dp_1x.png" alt="open">
                     </div>
-                    <li id="submenu_links">
-                        <ul>
-                            <li><a href="syntax_java.html" id="link_syntax_java">Java</a></li>
-                            <li><a href="syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
-                            <li><a href="syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
-                            <li><a href="syntax_html.html" id="link_syntax_html">HTML</a></li>
-                            <li><a href="syntax_css.html" id="link_syntax_css">CSS</a></li>
-                            <li><a href="syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
-                            <li><a href="syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
-                            <li><a href="syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
-                            <li><a href="syntax_php.html" id="link_syntax_php">PHP</a></li>
-                            <li><a href="syntax_perl.html" id="link_syntax_perl">Perl</a></li>
-                            <li><a href="syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
-                            <li><a href="syntax_python.html" id="link_syntax_python">Python</a></li>
-                            <li><a href="syntax_bash.html" id="link_syntax_bash">Bash</a></li>
-                        </ul>
-                    </li>
+                </div>
+                <li id="submenu_links">
+                    <ul>
+                        <li><a href="syntax_java.html" id="link_syntax_java">Java</a></li>
+                        <li><a href="syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                        <li><a href="syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                        <li><a href="syntax_html.html" id="link_syntax_html">HTML</a></li>
+                        <li><a href="syntax_css.html" id="link_syntax_css">CSS</a></li>
+                        <li><a href="syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                        <li><a href="syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                        <li><a href="syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                        <li><a href="syntax_php.html" id="link_syntax_php">PHP</a></li>
+                        <li><a href="syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                        <li><a href="syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                        <li><a href="syntax_python.html" id="link_syntax_python">Python</a></li>
+                        <li><a href="syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div id="content_header">
+                <h1>PHP Syntax</h1>
+            </div>
+
+            <div class="section">
+                <p><span class="bold">Sources to credit: </span>Tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/php/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
+            </div>
+
+            <div class="section">
+                <p><a href="http://php.net/manual/en/">php.net/manual/en/</a> contains the official documentation for the PHP language and syntax. This page selects and summarizes some of the topics, properties, and methods of PHP.</p>
+            </div>
+
+            <div class="section">
+                <h2>PHP</h2>
+                <p><span class="definition">PHP</span>: server-side scripting language designed primarily for web development. A loosely typed language. PHP is interpreted, not compiled, though there are compiled versions of php. The script, which has an interpreter and is cached and running inside of the web server, only needs to open the file and interpolate it, sending results to the client.</p>
+                <ul>
+                    <li>The client browser sends a request to the web server, which contains PHP files that are processed, and a new page is sent back as HTML.</li>
+                    <li>Use to handle forms, file off emails, make calls to the database, etc.</li>
+                    <li>Either find a web host with PHP and MySQL support or install your own web server and then install PHP and MySQL.</li>
+                    <li>Market Share: PHP(~83%), ASP.net(~14%), Java(~2.5%)</li>
+                    <li>File extension is <span class="definition">.php</span></li>
+                    <li>Scripts should be given 644 permissions. Executable permissions aren't necessary, only need read persmissions. This is because there is a module in Apache, the web server, that will handle PHP requests, it's reading files not executing them. </li>
+                </ul>
+                <br>
+                <p><span class="definition">PHP Interpreter</span>: runs constantly in Apache. When a request comes for a PHP page, the server spawns a thread and hands it off to the PHP interpreter. The server can deliver ~10k pages per second but will drop to hundreds if it has to start up the PHP interpreter every time.</p>
+
+                <br>
+                <p><span class="definition">XAMPP</span>: a PHP development environment, download it, navigate to htdocs subdirectory.</p>
+            </div>
+
+            <div class="section">
+                <h2>Basic PHP Syntax</h2>
+                <ul>
+                    <li>Statements end with a semicolon.</li>
+                    <li>All keywords, classes, functions, and user-defined functions are <b>NOT case-sensitive</b>.</li>
+                    <li>All variable names <b>ARE case-sensitive</b>.</li>
+                </ul>
+                <br>
+                <p>The following describes how to use the opening and closing tag for a PHP block.</p>
+
+<pre><code class="language-php">
+&lt;?php
+    echo "Hello World";
+?&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Coercion</h2>
+                <p>PHP interpreter tries to coerce variables to be the same type. It will try to coerce expressions as much as it can. Stops when finds some type that is different.</p>
+                <br>
+<pre><code class="language-php">
+// Example 1
+$x = 12;
+$y = 'foo';
+$x + $y;    // gives 12, foo changes to 0 because not valid integer
+$x * $y;    // gives 0
+$x / $y     // gives undefined (outputs nothing)
+
+// Example 2
+$x = 12;
+&y = '2foo';
+$x + $y;    // gives 14, tries to coerce $y to an integer
+
+// Example 3
+$x = 12;
+$y = 'foo2';
+$x + $y;    // gives 12, stops after checking 'f' in 'foo2'
+
+'9' == 9;       // true
+'09' == 9;      // true
+'9' === 9;      // false, checks type as well
+'9abcd' == 9;   // true
+'9abcd' === 9;  // false
+</code></pre>
+                <br>
+                <p>The following are all false in conditions:<br>
+                0 0.0 "" "0" "0.0"</p>
+                <p>'abc' coerced to a number is false, but as a string it's true.</p>
+            </div>
+
+            <div class="section">
+                <h2>Comments</h2>
+<pre><code class="language-php">
+&lt;?php
+    // A single-line comment
+    # Also a single-line comment
+    /* Multi-line comment block */
+?&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Variables</h2>
+                <h3>Naming Variables</h3>
+                <ul>
+                    <li><span class="definition_php">$</span> must be placed before every variable name.</li>
+                    <li>Can't start a name with numbers, can't use hyphens or whitespace.</li>
+                    <li>Underscores are allowed.</li>
+                    <li>Put all in lowercase or separate words with underscore.</li>
+                    <li>Don't have to define data type.</li>
+                </ul>
+
+<pre><code class="language-php">
+&lt;?php
+    $variableName = value;
+    $string_var = "This is a string";
+    $integer_var = 5;
+    echo $string_var;
+?&gt;
+</code></pre>
+
+                <h3>Variable Scope</h3>
+                <p><span class="definition">Global Scope</span>: variables declared outside a function, can only be accessed outside.</p>
+                <p><span class="definition">Local Scope</span>: variables declared within a function.</p>
+                <p><span class="definition_php">global</span> keyword: used to access a global variable from within a function.</p>
+                <br>
+                <p>Global variables are also stored by PHP in the array <span class="definition_php">$GLOBALS[<i>index</i>]</span> where index holds the name of the variable.</p>
+
+<pre><code class="language-php">
+&lt;?php
+    $x = 5;
+    $y = 10;
+    function myTest() {
+        $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
+    }
+?&gt;
+</code></pre>
+                <br>
+
+                <p><span class="definition">Static Scope</span>: use static keyword to prevent a local variable from being deleted. The variable is still local to the function.</p>
+<pre><code class="language-php">
+&lt;?php
+    function myTest() {
+        static $x = 0;
+        echo $x;
+        $x++
+    }
+    myTest()    // prints 0
+    myTest()    // prints 1
+?&gt;
+</code></pre>
+                <br>
+
+                <h3>Variable Interpolation</h3>
+                <p>Using double quotes invokes the interpreter whereas using single quotes does not.</p>
+                <ul>
+                    <li>In JS, there is no difference between single and double quotes unless there are quotes inside quotes, to which it must be distinguished.</li>
+                    <li>Variable interpolation allows for dealing with key-value pairs in PHP.</li>
+                    <li>Using single quotes is more efficient around constant strings, use it if interpolation isn't needed.</li>
+                </ul>
+                <br>
+                <p>In the following example, the single quotes around the value for a MySQL field are required, so double quotes can be used around the entire statement </p>
+                <br>
+<pre><code class="language-php">
+// No variables needed to be interpolated
+$x = 'Hello World';
+
+// Variables needed to be interpolated
+$y = "$x" . "welcome";
+
+// Interpolation to formulate sql statement
+$sql_statement = "SELECT name FROM runner WHERE name='John';";
+
+// Also works
+$sql_statement = "SELECT name FROM runner WHERE name='$_POST[fname]';";
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Scope</h2>
+                <p>Anything used inside a function is local, can refer to a variable outside of a function using <span class="definition_php">global</span> keyword.</p>
+<pre><code class="language-php">
+// Example
+$x = 12;
+function foo() {
+// Calling foo() prints "x is " necause $x is undefined
+echo "x is $x";
+}
+foo();
+
+function foo() {
+// Get the $x declared outside this function
+$GLOBALS['x'];
+
+// Use the $x variable outside
+global $x;
+
+// Changes the x outside from 12 to 14
+$x = 14;
+}
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Echo and Print</h2>
+                <p><span class="definition">echo</span>: outputs data to screen but has no return value. Can take multiple parameters. Faster than print. Use as <span class="definition_php">echo</span> or <span class="definition_php">echo()</span>. Text can contain HTML markup.</p>
+                <p><span class="definition">print</span>: outputs data to screen and has return value of 1 to be used in expressions. Can take one argument. Use as <span class="definition_php">print</span> or <span class="definition_php">print()</span>.</p>
+                <p><span class="definition">Concatenate Strings</span> by using dot(.)</p>
+
+        <pre><code class="language-php">
+&lt;?php
+    echo "&lt;h2&gt;echo Header2&lt;&frasl;h2&gt;";
+    echo "This", "string", "has", "multiple parameters.";
+
+    // Concatenate strings
+    echo $string_var_1 . $string_var_2
+
+    $txt1 = "How do";
+    $txt2 = "you do?";
+    $x = 5;
+    $y = 4;
+
+    // Prints How do you do?
+    echo "Combined text is " $.txt1 . $txt2;
+    // Prints 9
+    echo $x + $y;
+?&gt;
+        </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Here and Now Documents</h2>
+                <p><span class="definition">Here document</span>: a language construct. Used in Perl when you have to print a webpage and you don't have embedded tags like in PHP.</p>
+                <ul>
+                    <li>In the example, anything can be put for ENDB but capitalizing it is the convention.</li>
+                    <li>Normally, when printing, whitespace is ignored. However, Here document will actually preserve formatting of the source code. Makes it easy to send a large block of code.</li>
+                    <li>Can include variables in the heredoc and it will perform variable interpolation.</li>
+                    <li>If quotes are present in the heredoc, they will go.</li>
+                </ul>
+                <br>
+<pre><code class="language-php">
+print &lt;&lt;&lt;ENDB
+&lt;html&gt;
+&lt;head&gt;
+The value of x is $x    // will print whatever x is, not literal '$x'
+&lt;input type="text" .../&gt;
+ENDB;
+</code></pre>
+                <br>
+                <p><span class="definition">Now document</span>: similar to heredoc but there won't be variable interpolation.</p>
+<pre><code class="language-php">
+print &lt;&lt;&lt;'ENDB'
+$x = 2;
+echo 'The value of x is $x';    // will display this string literally
+echo "The value of x is $x";    // will get variable interpolation
+ENDB;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Data Types</h2>
+                <ol>
+                    <li><span class="definition">String</span> - sequence of characters, use single or double quotes</li>
+                    <li><span class="definition">Integer</span> - 32bits or 4 bytes, format as decimal, hexadecimal, or octal</li>
+                    <li><span class="definition">Float</span></li>
+                    <li><span class="definition">Boolean</span></li>
+                    <li><span class="definition">Array</span></li>
+                    <li><span class="definition">Object</span></li>
+                    <li><span class="definition">NULL</span> - only one value of NULL, means no value is assigned to the variable. Can use this to empty a variable.</li>
+                    <li><span class="definition">Resource</span> - not an actual type. Stores references to functions and resources external to PHP.</li>
+                </ol>
+                <p><span class="definition_php">var_dump(<i>value</i>)</span>: returns the data type and value</p>
+<pre><code class="language-php">
+&lt;?php
+    $x = number;
+    var_dump($x);
+
+    // The following defines a class
+    class Car {
+        function Car() {
+            $this-&gt;model = "VW";
+        }
+    }
+
+    // Create an object
+    $herbie = new Car();
+    // Show object properties
+    echo $herbie-&gt;model;
+?&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Strings</h2>
+
+                <table>
+                    <tr>
+                        <th colspan="2">String Functions</th>
+                    </tr>
+                    <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>strlen(<i>string</i>)</td>
+                        <td>Returns length of a string</td>
+                    </tr>
+                    <tr>
+                        <td>str_word_count(<i>string</i>)</td>
+                        <td>Counts number of words in a string</td>
+                    </tr>
+                    <tr>
+                        <td>strrev(<i>string</i>)</td>
+                        <td>Reverses a string.</td>
+                    </tr>
+                    <tr>
+                        <td>strpos(<i>string</i>, <i>string_to_search</i>)</td>
+                        <td>Searches for specific text within a string (case-sensitive). Returns character position of first match, otherwise returns FALSE.</td>
+                    </tr>
+                    <tr>
+                        <td>str_replace(<i>find</i>, <i>replace</i>, <i>string</i>, <i>count)</i></td>
+                        <td>Replaces some characters with other characters in a string. <i>count</i> counts the number of replacements and is optional.</td>
+                    </tr>
+                    <tr>
+                        <td>str_split(<i>string</i>, <i>length</i>)</td>
+                        <td>Splits a string into an array. <i>length</i> is optional, specifies length of each array element.</td>
+                    </tr>
+                    <tr>
+                        <td>parse_str(<i>string</i>, <i>array</i>)</td>
+                        <td>Parses a query string into variables. <i>array</i> is optional, parameter indicates that variables will be stored in an array.</td>
+                    </tr>
+                    <tr>
+                        <td>chop(<i>string</i>, <i>charlist</i>)</td>
+                        <td><i>charlist</i> is optional and specifies which characters to remove from string.</td>
+                    </tr>
+                    <tr>
+                        <td>trim(<i>string</i>, <i>charlist</i>)</td>
+                        <td>Removes whitespace or other characters from both sides of a string. <i>charlist</i> is optional and lists characters to remove from string.</td>
+                    </tr>
+                    <tr>
+                        <td>explode(<i>separator</i>, <i>string</i>, <i>limit</i>)</td>
+                        <td>Breaks string into an array. <i>separator</i> cannot be empty string. <i>limit</i> is optional and specifies number of array elements to return.</td>
+                    </tr>
+                    <tr>
+                        <td>implode(<i>separator</i>, <i>array</i>)</td>
+                        <td>Returns a string from the elements of an array. <i>separator</i> is optional (default is empty string).</td>
+                    </tr>
+                    <tr>
+                        <td>strcmp(<i>string1</i>, <i>string2</i>)</td>
+                        <td>Compares two strings(case-sensitive).
+<pre>
+Returns
+0 - if two strings equal
+&lt;0 - if string1 is less than string2
+&gt;0 - if string1 is greater than string2
+</pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>strncmp(<i>string1</i>, <i>string2</i>, <i>length</i>)</td>
+                        <td>String comparison of first n characters (case-sensitive).</td>
+                    </tr>
+                    <tr>
+                        <td>substr(<i>string</i>, <i>offset</i>, <i>length</i>);</td>
+                        <td>Take the string, start at the offset which is an index, and take the length which is the number of characters.</td>
+                    </tr>
+                </table>
+                <br>
+                <h4>Examples using Implode and Explode</h4>
+<pre><code class="language-php">
+// Example - Implode
+// Creates a single string, comma is the separator
+$mystring = implode(',', $values);
+
+// If array was 'one', 'two', 'three', 'four', then
+$mystring = 'one, two, three, four';
+
+/* Separator can be HTML code, so if you have 10 strings in array, get 10 rows */
+echo '&lt;tr&gt;&lt;td&gt;', implode('&lt;/td&gt;&lt;td&gt;', &array), '&lt;/tr&gt;';
+
+// Example - Explode
+// Separators will be discarded and thrown away
+$fruit_str = 'apples||peaches||pears';
+$fruit = explode('||', $fruit_str);
+$fruit[0];      // apples
+$fruit[1];      // peaches
+$fruit[2];      // pears
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Constants</h2>
+                <p><span class="definition">Constant</span>: a value that cannot be changed. The $ sign is not placed before the constant name. Global across entire script.</p>
+                <code class="language-php">
+                define(name, value, case-insensitive);
+                </code>
+                <ul>
+                    <li><i>name</i>: the name of the constant</li>
+                    <li><i>value</i>: the value of the constant</li>
+                    <li><i>case-insensitive</i>: whether the constant name should be case-insensitive. Default is false.</li>
                 </ul>
             </div>
 
-            <div id="content_container">
-                <div>
-                    <h1>PHP Syntax</h1>
-                </div>
-
-                <div id="content">
-                    <div class="section">
-                        <p><span class="bold">Sources to credit: </span>Tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/php/default.asp">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UC-JQzTHQrVA8j-tamvy66fw/featured">EJ Media</a>.</p>
-                    </div>
-
-                    <div class="section">
-                        <p><a href="http://php.net/manual/en/">php.net/manual/en/</a> contains the official documentation for the PHP language and syntax. This page selects and summarizes some of the topics, properties, and methods of PHP.</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>PHP</h2>
-                        <p><span class="definition">PHP</span>: server-side scripting language designed primarily for web development. A loosely typed language. PHP is interpreted, not compiled, though there are compiled versions of php. The script, which has an interpreter and is cached and running inside of the web server, only needs to open the file and interpolate it, sending results to the client.</p>
-                        <ul>
-                            <li>The client browser sends a request to the web server, which contains PHP files that are processed, and a new page is sent back as HTML.</li>
-                            <li>Use to handle forms, file off emails, make calls to the database, etc.</li>
-                            <li>Either find a web host with PHP and MySQL support or install your own web server and then install PHP and MySQL.</li>
-                            <li>Market Share: PHP(~83%), ASP.net(~14%), Java(~2.5%)</li>
-                            <li>File extension is <span class="definition">.php</span></li>
-                            <li>Scripts should be given 644 permissions. Executable permissions aren't necessary, only need read persmissions. This is because there is a module in Apache, the web server, that will handle PHP requests, it's reading files not executing them. </li>
-                        </ul>
-                        <br>
-                        <p><span class="definition">PHP Interpreter</span>: runs constantly in Apache. When a request comes for a PHP page, the server spawns a thread and hands it off to the PHP interpreter. The server can deliver ~10k pages per second but will drop to hundreds if it has to start up the PHP interpreter every time.</p>
-
-                        <br>
-                        <p><span class="definition">XAMPP</span>: a PHP development environment, download it, navigate to htdocs subdirectory.</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>Basic PHP Syntax</h2>
-                        <ul>
-                            <li>Statements end with a semicolon.</li>
-                            <li>All keywords, classes, functions, and user-defined functions are <b>NOT case-sensitive</b>.</li>
-                            <li>All variable names <b>ARE case-sensitive</b>.</li>
-                        </ul>
-                        <br>
-                        <p>The following describes how to use the opening and closing tag for a PHP block.</p>
-
-    <pre><code class="language-php">
-    &lt;?php
-            echo "Hello World";
-        ?&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Coercion</h2>
-                        <p>PHP interpreter tries to coerce variables to be the same type. It will try to coerce expressions as much as it can. Stops when finds some type that is different.</p>
-                        <br>
-    <pre><code class="language-php">
-    // Example 1
-    $x = 12;
-    $y = 'foo';
-    $x + $y;    // gives 12, foo changes to 0 because not valid integer
-    $x * $y;    // gives 0
-    $x / $y     // gives undefined (outputs nothing)
-
-    // Example 2
-    $x = 12;
-    &y = '2foo';
-    $x + $y;    // gives 14, tries to coerce $y to an integer
-
-    // Example 3
-    $x = 12;
-    $y = 'foo2';
-    $x + $y;    // gives 12, stops after checking 'f' in 'foo2'
-
-    '9' == 9;       // true
-    '09' == 9;      // true
-    '9' === 9;      // false, checks type as well
-    '9abcd' == 9;   // true
-    '9abcd' === 9;  // false
-    </code></pre>
-                        <br>
-                        <p>The following are all false in conditions:<br>
-                        0 0.0 "" "0" "0.0"</p>
-                        <p>'abc' coerced to a number is false, but as a string it's true.</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>Comments</h2>
-    <pre><code class="language-php">
-    &lt;?php
-            // A single-line comment
-            # Also a single-line comment
-            /* Multi-line comment block */
-        ?&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Variables</h2>
-                        <h3>Naming Variables</h3>
-                        <ul>
-                            <li><span class="definition_php">$</span> must be placed before every variable name.</li>
-                            <li>Can't start a name with numbers, can't use hyphens or whitespace.</li>
-                            <li>Underscores are allowed.</li>
-                            <li>Put all in lowercase or separate words with underscore.</li>
-                            <li>Don't have to define data type.</li>
-                        </ul>
-
-    <pre><code class="language-php">
-    &lt;?php
-            $variableName = value;
-            $string_var = "This is a string";
-            $integer_var = 5;
-            echo $string_var;
-        ?&gt;
-    </code></pre>
-
-                        <h3>Variable Scope</h3>
-                        <p><span class="definition">Global Scope</span>: variables declared outside a function, can only be accessed outside.</p>
-                        <p><span class="definition">Local Scope</span>: variables declared within a function.</p>
-                        <p><span class="definition_php">global</span> keyword: used to access a global variable from within a function.</p>
-                        <br>
-                        <p>Global variables are also stored by PHP in the array <span class="definition_php">$GLOBALS[<i>index</i>]</span> where index holds the name of the variable.</p>
-
-    <pre><code class="language-php">
-    &lt;?php
-            $x = 5;
-            $y = 10;
-            function myTest() {
-                $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-
-                        <p><span class="definition">Static Scope</span>: use static keyword to prevent a local variable from being deleted. The variable is still local to the function.</p>
-    <pre><code class="language-php">
-    &lt;?php
-            function myTest() {
-                static $x = 0;
-                echo $x;
-                $x++
-            }
-            myTest()    // prints 0
-            myTest()    // prints 1
-        ?&gt;
-    </code></pre>
-                        <br>
-
-                        <h3>Variable Interpolation</h3>
-                        <p>Using double quotes invokes the interpreter whereas using single quotes does not.</p>
-                        <ul>
-                            <li>In JS, there is no difference between single and double quotes unless there are quotes inside quotes, to which it must be distinguished.</li>
-                            <li>Variable interpolation allows for dealing with key-value pairs in PHP.</li>
-                            <li>Using single quotes is more efficient around constant strings, use it if interpolation isn't needed.</li>
-                        </ul>
-                        <br>
-                        <p>In the following example, the single quotes around the value for a MySQL field are required, so double quotes can be used around the entire statement </p>
-                        <br>
-    <pre><code class="language-php">
-    // No variables needed to be interpolated
-    $x = 'Hello World';
-
-    // Variables needed to be interpolated
-    $y = "$x" . "welcome";
-
-    // Interpolation to formulate sql statement
-    $sql_statement = "SELECT name FROM runner WHERE name='John';";
-
-    // Also works
-    $sql_statement = "SELECT name FROM runner WHERE name='$_POST[fname]';";
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Scope</h2>
-                        <p>Anything used inside a function is local, can refer to a variable outside of a function using <span class="definition_php">global</span> keyword.</p>
-    <pre><code class="language-php">
-    // Example
-    $x = 12;
-    function foo() {
-        // Calling foo() prints "x is " necause $x is undefined
-        echo "x is $x";
-    }
-    foo();
-
-    function foo() {
-        // Get the $x declared outside this function
-        $GLOBALS['x'];
-
-        // Use the $x variable outside
-        global $x;
-
-        // Changes the x outside from 12 to 14
-        $x = 14;
-    }
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Echo and Print</h2>
-                        <p><span class="definition">echo</span>: outputs data to screen but has no return value. Can take multiple parameters. Faster than print. Use as <span class="definition_php">echo</span> or <span class="definition_php">echo()</span>. Text can contain HTML markup.</p>
-                        <p><span class="definition">print</span>: outputs data to screen and has return value of 1 to be used in expressions. Can take one argument. Use as <span class="definition_php">print</span> or <span class="definition_php">print()</span>.</p>
-                        <p><span class="definition">Concatenate Strings</span> by using dot(.)</p>
-
-                <pre><code class="language-php">
-    &lt;?php
-            echo "&lt;h2&gt;echo Header2&lt;&frasl;h2&gt;";
-            echo "This", "string", "has", "multiple parameters.";
-
-            // Concatenate strings
-            echo $string_var_1 . $string_var_2
-
-            $txt1 = "How do";
-            $txt2 = "you do?";
-            $x = 5;
-            $y = 4;
-
-            // Prints How do you do?
-            echo "Combined text is " $.txt1 . $txt2;
-            // Prints 9
-            echo $x + $y;
-        ?&gt;
-                </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Here and Now Documents</h2>
-                        <p><span class="definition">Here document</span>: a language construct. Used in Perl when you have to print a webpage and you don't have embedded tags like in PHP.</p>
-                        <ul>
-                            <li>In the example, anything can be put for ENDB but capitalizing it is the convention.</li>
-                            <li>Normally, when printing, whitespace is ignored. However, Here document will actually preserve formatting of the source code. Makes it easy to send a large block of code.</li>
-                            <li>Can include variables in the heredoc and it will perform variable interpolation.</li>
-                            <li>If quotes are present in the heredoc, they will go.</li>
-                        </ul>
-                        <br>
-    <pre><code class="language-php">
-    print &lt;&lt;&lt;ENDB
-        &lt;html&gt;
-        &lt;head&gt;
-        The value of x is $x    // will print whatever x is, not literal '$x'
-        &lt;input type="text" .../&gt;
-    ENDB;
-    </code></pre>
-                        <br>
-                        <p><span class="definition">Now document</span>: similar to heredoc but there won't be variable interpolation.</p>
-    <pre><code class="language-php">
-    print &lt;&lt;&lt;'ENDB'
-        $x = 2;
-        echo 'The value of x is $x';    // will display this string literally
-        echo "The value of x is $x";    // will get variable interpolation
-    ENDB;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Data Types</h2>
-                        <ol>
-                            <li><span class="definition">String</span> - sequence of characters, use single or double quotes</li>
-                            <li><span class="definition">Integer</span> - 32bits or 4 bytes, format as decimal, hexadecimal, or octal</li>
-                            <li><span class="definition">Float</span></li>
-                            <li><span class="definition">Boolean</span></li>
-                            <li><span class="definition">Array</span></li>
-                            <li><span class="definition">Object</span></li>
-                            <li><span class="definition">NULL</span> - only one value of NULL, means no value is assigned to the variable. Can use this to empty a variable.</li>
-                            <li><span class="definition">Resource</span> - not an actual type. Stores references to functions and resources external to PHP.</li>
-                        </ol>
-                        <p><span class="definition_php">var_dump(<i>value</i>)</span>: returns the data type and value</p>
-    <pre><code class="language-php">
-    &lt;?php
-            $x = number;
-            var_dump($x);
-
-            // The following defines a class
-            class Car {
-                function Car() {
-                    $this-&gt;model = "VW";
-                }
-            }
-
-            // Create an object
-            $herbie = new Car();
-            // Show object properties
-            echo $herbie-&gt;model;
-        ?&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Strings</h2>
-
-                        <table>
-                            <tr>
-                                <th colspan="2">String Functions</th>
-                            </tr>
-                            <tr>
-                                <th>Function</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td>strlen(<i>string</i>)</td>
-                                <td>Returns length of a string</td>
-                            </tr>
-                            <tr>
-                                <td>str_word_count(<i>string</i>)</td>
-                                <td>Counts number of words in a string</td>
-                            </tr>
-                            <tr>
-                                <td>strrev(<i>string</i>)</td>
-                                <td>Reverses a string.</td>
-                            </tr>
-                            <tr>
-                                <td>strpos(<i>string</i>, <i>string_to_search</i>)</td>
-                                <td>Searches for specific text within a string (case-sensitive). Returns character position of first match, otherwise returns FALSE.</td>
-                            </tr>
-                            <tr>
-                                <td>str_replace(<i>find</i>, <i>replace</i>, <i>string</i>, <i>count)</i></td>
-                                <td>Replaces some characters with other characters in a string. <i>count</i> counts the number of replacements and is optional.</td>
-                            </tr>
-                            <tr>
-                                <td>str_split(<i>string</i>, <i>length</i>)</td>
-                                <td>Splits a string into an array. <i>length</i> is optional, specifies length of each array element.</td>
-                            </tr>
-                            <tr>
-                                <td>parse_str(<i>string</i>, <i>array</i>)</td>
-                                <td>Parses a query string into variables. <i>array</i> is optional, parameter indicates that variables will be stored in an array.</td>
-                            </tr>
-                            <tr>
-                                <td>chop(<i>string</i>, <i>charlist</i>)</td>
-                                <td><i>charlist</i> is optional and specifies which characters to remove from string.</td>
-                            </tr>
-                            <tr>
-                                <td>trim(<i>string</i>, <i>charlist</i>)</td>
-                                <td>Removes whitespace or other characters from both sides of a string. <i>charlist</i> is optional and lists characters to remove from string.</td>
-                            </tr>
-                            <tr>
-                                <td>explode(<i>separator</i>, <i>string</i>, <i>limit</i>)</td>
-                                <td>Breaks string into an array. <i>separator</i> cannot be empty string. <i>limit</i> is optional and specifies number of array elements to return.</td>
-                            </tr>
-                            <tr>
-                                <td>implode(<i>separator</i>, <i>array</i>)</td>
-                                <td>Returns a string from the elements of an array. <i>separator</i> is optional (default is empty string).</td>
-                            </tr>
-                            <tr>
-                                <td>strcmp(<i>string1</i>, <i>string2</i>)</td>
-                                <td>Compares two strings(case-sensitive).
-    <pre>
-        Returns
-        0 - if two strings equal
-        &lt;0 - if string1 is less than string2
-        &gt;0 - if string1 is greater than string2
-    </pre>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>strncmp(<i>string1</i>, <i>string2</i>, <i>length</i>)</td>
-                                <td>String comparison of first n characters (case-sensitive).</td>
-                            </tr>
-                            <tr>
-                                <td>substr(<i>string</i>, <i>offset</i>, <i>length</i>);</td>
-                                <td>Take the string, start at the offset which is an index, and take the length which is the number of characters.</td>
-                            </tr>
-                        </table>
-                        <br>
-                        <h4>Examples using Implode and Explode</h4>
-    <pre><code class="language-php">
-    // Example - Implode
-    // Creates a single string, comma is the separator
-    $mystring = implode(',', $values);
-
-    // If array was 'one', 'two', 'three', 'four', then
-    $mystring = 'one, two, three, four';
-
-    /* Separator can be HTML code, so if you have 10 strings in array, get 10 rows */
-    echo '&lt;tr&gt;&lt;td&gt;', implode('&lt;/td&gt;&lt;td&gt;', &array), '&lt;/tr&gt;';
-
-    // Example - Explode
-    // Separators will be discarded and thrown away
-    $fruit_str = 'apples||peaches||pears';
-    $fruit = explode('||', $fruit_str);
-    $fruit[0];      // apples
-    $fruit[1];      // peaches
-    $fruit[2];      // pears
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Constants</h2>
-                        <p><span class="definition">Constant</span>: a value that cannot be changed. The $ sign is not placed before the constant name. Global across entire script.</p>
-                        <code class="language-php">
-                        define(name, value, case-insensitive);
-                        </code>
-                        <ul>
-                            <li><i>name</i>: the name of the constant</li>
-                            <li><i>value</i>: the value of the constant</li>
-                            <li><i>case-insensitive</i>: whether the constant name should be case-insensitive. Default is false.</li>
-                        </ul>
-                    </div>
-
-                    <div class="section">
-                        <h2>Operators</h2>
-                        <p><span class="definition">Precedence</span>: * and /, + and -. Use parentheses to make operators explicit.</p>
-                        <br>
-                        <table>
-                            <tr>
-                                <th>Operator</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td>Arithmetic Operators</td>
-                                <td>+, -, *, /, %, **(exponentiation)</td>
-                            </tr>
-                            <tr>
-                                <td>Assignment operators</td>
-                                <td>=, +=, -=, *=, /=, %=</td>
-                            </tr>
-                            <tr>
-                                <td>Comparison operators</td>
-                                <td>==, ===, !=, &lt;&gt;(also not equal), !==, &gt;, &lt;, &gt;=, &lt;=</td>
-                            </tr>
-                            <tr>
-                                <td>Increment and Decrement operators</td>
-                                <td>++$x (pre-increment), $x++ (post-increment), --$x (pre-decrement), $x-- (post-decrement)</td>
-                            </tr>
-                            <tr>
-                                <td>Logical operators</td>
-                                <td>and, or, xor (exclusive or), &amp;&amp;, ||, !</td>
-                            </tr>
-                            <tr>
-                                <td>String operators</td>
-                                <td><b>.</b> (concatenation), <b>.=</b> (concatenation assignment)</td>
-                            </tr>
-                            <tr>
-                                <td>Array operators</td>
-                                <td>+ (union), ==, ===, !-, &lt;&gt;, !==</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="section">
-                        <h2>Conditional Statements</h2>
-                        <h3 class="definition">if, elseif, and else</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            if (condition) {
-                statements;
-            }
-            elseif (condition) {
-                statements;
-            }
-            else {
-                statements;
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-                        <h3 class="definition">Switch</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            switch (value) {
-                case value1:
-                    statements;
-                    break;
-                case value2:
-                    statements;
-                    break;
-                default:
-                    statements;
-            }
-        ?&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Loops</h2>
-                        <h3 class="definition">while</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            while (condition is true) {
-                statements;
-            }
-        ?&gt;
-    </code></pre>
-
-                        <h3 class="definition">do while</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            do {
-                statements;
-            } while (condition is true);
-        ?&gt;
-    </code></pre>
-
-                        <h3 class="definition">for</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            for (initial counter; condition; increment counter) {
-                statements;
-            }
-        ?&gt;
-    </code></pre>
-
-                        <h3 class="definition">foreach</h3>
-                        <ul>
-                            <li>For scalar arrays where indices are integers, $value gets a different value for each pass of the loop.</li>
-                        </ul>
-    <pre><code class="language-php">
-    &lt;?php
-            foreach ($array as $value) {
-                statements;
-            }
-        ?&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Functions</h2>
-                        <p>Function names are NOT case-sensitive. Can start with a letter or underscore but NOT a number.</p>
-                        <ul>
-                            <li>Useful to create utility PHP files with methods that are called frequently and then include it.</li>
-                            <li>Functions can have parameterse and parameters with default values. Can return any kind of value.</li>
-                        </ul>
-                        <br>
-    <pre><code class="language-php">
-    &lt;?php
-            function functionName($parameter, $parameterWithDefaultValue = value) {
-                statements;
-                return $variableOrValue;
-            }
-            functionName(argument);
-
-            // Example
-            function foo($bar, $car=0) {
-                statements;
-            }
-        ?&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Arrays</h2>
-                        <p>Use <span class="definition_php">array()</span> function</p>
-                        <p class="bold">Types of arrays:</p>
-                        <ol>
-                            <li><span class="definition">Indexed arrays</span>: arrays with a numeric index</li>
-                            <li><span class="definition">Associative arrays</span>: arrays with named keys</li>
-                            <ul>
-                                <li>Not hash tables but acts like it. Order is preserved and is based on when the element was inserted.</li>
-                                <li>Can only have distinct keys but values can be same or different</li>
-                            </ul>
-                            <li><span class="definition">Multidimensional arrays</span>: arrays containing one or more arrays</li>
-                        </ol>
-                        <br>
-
-                        <h3>Indexed Arrays</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            // Creating an array with automatically assigned index
-            $cars = array("Volve", "BMW", "Toyota");
-
-            // Creating an array with manually assigned index
-            $cars[0] = "Volvo";
-            $cars[1] = "BMW";
-            $cars[2] = "Toyota";
-
-            // Pushes onto end of array
-            $cars[] = "Tesla";
-
-            // Return length of array
-            count($cars);
-
-            // Loop through Indexed array
-            for ($x = 0; $x < count($cars); $x++) {
-                statements;
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-
-                        <h3>Associative Arrays</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            // Create with array() function
-            $age = array("Peter"=&gt;"35", "Ben"=&gt;"37", "Joe"=&gt;"43");
-
-            // Create manually
-            $age['Peter'] = "35";
-            $age['Ben'] = "37";
-            $age['Joe'] = "43";
-
-            // Using the named keys
-            echo "Peter is " . $age['Peter'] . " years old.";
-
-            // Loop through Associative array
-            foreach ($age as $x =&gt; $x_value) {
-                echo "Key=" . $x . ", Value=" . $x_value;
-                echo "&lt;br&gt;";
-            }
-
-            // Print all values that came from a form
-            foreach ($_POST as $K=&gt;$V) {
-                // Variable interpolation so will get actual values
-                print "Key is $K and the value is $V";
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-                        <h4>Printing out array values</h4>
-    <pre><code class="language-php">
-    // Fails because don't need single quotes in double quotes
-    echo "a mango is $fruit['mango']";
-
-    // Succeeds because nested inside double quotes
-    echo "a mango is $fruit[mango]";
-
-    // Also works
-    echo "a mango is " . $fruit['mango'];
-
-    $fruit['pau pau'] = 'orange';
-    // Fails because 2 separate words in bracket
-    echo "pau paus are $fruit[pau pau]";
-
-    // Succeeds if use curly braces
-    echo "pau paus are {$fruit[pau pau]}";
-    </code></pre>
-                        <br>
-
-                        <h3>Multidimensional Arrays</h3>
-                        <h3 class="definition">2D Array</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            $cars = array
-                (
-                array("Volvo", 22, 18),
-                array("BMW", 15, 13),
-                array("Saab", 5, 2),
-                array("Land Rover", 17, 15)
-                );
-
-            // Use nested for loop to get to the inner array
-            for ($row = 0; $row &lt; 4; $row++) {
-                for ($col = 0; $col &lt; 3; $col++) {
-                    echo $cars[$row][$col];
-                }
-            }
-        ?&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Array Methods</h2>
-                        <p>The following are some of the methods available to manipulate arrays.</p>
-                        <br>
-                        <table>
-                            <tr>
-                                <th colspan="2">Array Methods</th>
-                            </tr>
-                            <tr>
-                                <th>Function</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td><p>array(<i>value1</i>, <i>value2</i>, ...)</p>
-                                    <p>array(<i>key</i>=><i>value</i>, <i>key</i>=><i>value</i>, ...)</p>
-                                </td>
-                                <td>Creates an indexed array or an associative array.</td>
-                            </tr>
-                            <tr>
-                                <td>count(<i>array</i>, <i>mode</i>)</td>
-                                <td><i>mode</i> is optional, if mode=1, then counts array recursively (for multidimensional arrays).</td>
-                            </tr>
-                            <tr>
-                                <td>current(<i>array</i>), next(<i>array</i>), prev(<i>array</i>), end(<i>array</i>), reset(<i>array</i>)</td>
-                                <td>Returns current element in array, moves the internal pointer to the current element to the next, to the previous, to the end, and to the beginning, respectively.</td>
-                            </tr>
-                            <tr>
-                                <td>each(<i>array</i>)</td>
-                                <td>Returns current element and key value, moves internal pointer forward.</td>
-                            </tr>
-                            <tr>
-                                <td>array_combine(<i>keys</i>, <i>values</i>)</td>
-                                <td>Creates an array by using elements from one "keys" array and one "values" array.</td>
-                            </tr>
-                            <tr>
-                                <td>array_count_values(<i>array</i>)</td>
-                                <td>Counts all values of an array. Returns associative array where keys are original values, and values are # of occurrences.</td>
-                            </tr>
-                            <tr>
-                                <td>array_diff(<i>array1</i>, <i>array2</i>, ...)</td>
-                                <td>Compares arrays and returns the differences (compares values only). Returns array1 with values not present in other arrays.</td>
-                            </tr>
-                            <tr>
-                                <td>array_fill(<i>index</i>, <i>number</i>, <i>value</i>)</td>
-                                <td>Fills an array with values.</td>
-                            </tr>
-                            <tr>
-                                <td>array_intersect(<i>array1</i>, <i>array2</i>, ...)</td>
-                                <td>Compare arrays, returns matches (compares values only).</td>
-                            </tr>
-                            <tr>
-                                <td>array_filter(<i>array</i>, <i>callbackfunction</i>)</td>
-                                <td>Filters values of an array using a callback function.</td>
-                            </tr>
-                            <tr>
-                                <td>array_map(<i>function</i>, <i>array1</i>, <i>array2</i>, ...)</td>
-                                <td>Sends each value to a function, returning array with new values.</td>
-                            </tr>
-                            <tr>
-                                <td>array_reduce(<i>array</i>, <i>function</i>, <i>initial</i>)</td>
-                                <td>Sends values in array to function and returns a string.</td>
-                            </tr>
-                            <tr>
-                                <td>array_key_exists(<i>key</i>, <i>array</i>)</td>
-                                <td>Checks array for a key. TRUE if exists, FALSE if not.</td>
-                            </tr>
-                            <tr>
-                                <td>array_keys(<i>array</i>, <i>value</i>, <i>strict</i>)</td>
-                                <td>Returns an array containing keys. <i>value</i> and <i>strict</i> are optional. <i>strict</i> checks for type too.</td>
-                            </tr>
-                            <tr>
-                                <td>array_values(<i>array</i>)</td>
-                                <td>Returns array containing all values. Array will have numeric keys.</td>
-                            </tr>
-                            <tr>
-                                <td>array_merge(<i>array1</i>, <i>array2</i>, ...)</td>
-                                <td>Merges set of arrays into one array. If duplicate keys, last one overrides.</td>
-                            </tr>
-                            <tr>
-                                <td>array_pop(<i>array</i>) and array_push(<i>array</i>, <i>value1</i>, <i>value2</i>, ...)</td>
-                                <td>Deletes last element of an array. Inserts one or more elements to end of array.</td>
-                            </tr>
-                            <tr>
-                                <td>array_shift(<i>array</i>) and array_unshift(<i>array</i>, <i>value1</i>, <i>value2</i>, ...)</td>
-                                <td>Removes first element from array and returns its value. Inserts new elements to array in the beginning.</td>
-                            </tr>
-                            <tr>
-                                <td>unset(<i>array['key']</i>)</td>
-                                <td>Entirely removes the key-value pair from the array.</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="section">
-                        <h2>Sorting Arrays</h2>
-                        <table>
-                            <tr>
-                                <th colspan="2">Sort Functions for Arrays</th>
-                            </tr>
-                            <tr>
-                                <th>Function</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td>sort()</td>
-                                <td>Sorts array in ascending order.</td>
-                            </tr>
-                            <tr>
-                                <td>rsort()</td>
-                                <td>Sorts array in descending order.</td>
-                            </tr>
-                            <tr>
-                                <td>asort()</td>
-                                <td>Sort associative arrays in ascending order according to value.</td>
-                            </tr>
-                            <tr>
-                                <td>ksort()</td>
-                                <td>Sort associative arrays in ascending order according to key.</td>
-                            </tr>
-                            <tr>
-                                <td>arsort()</td>
-                                <td>Sort associative arrays in descending order, according to value.</td>
-                            </tr>
-                            <tr>
-                                <td>krsort()</td>
-                                <td>Sort associative arrays in descending order, according to key.</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="section">
-                        <h2>Superglobals</h2>
-                        <p><span class="definition">Superglobals</span>: Predefined variables in PHP and are always accessible.</p>
-                        <table>
-                            <tr>
-                                <th>Variable</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td>$GLOBALS[index]</td>
-                                <td>PHP stores all global variables in this array. <i>index</i> holds the name of the variable.</td>
-                            </tr>
-                            <tr>
-                                <td>$_SERVER['ELEMENT']</td>
-                                <td>
-                                    <p>Holds information about headers, paths, and script locations.</p>
-                                    <br>
-                                    <p>List of some of the elements:</p>
-                                    <ul>
-                                        <li>PHP_SELF: filename of currently executing script</li>
-                                        <li>SERVER_NAME: name of host server</li>
-                                        <li>SERVER_PROTOCOL: name and revision of information protocol</li>
-                                        <li>SERVER_PORT: port on the server machine being used by the web server for communication</li>
-                                        <li>REQUEST_METHOD: request method to access page (POST | GET)</li>
-                                        <li>REQUEST_TIME: timestamp of start of request</li>
-                                        <li>HTTP_HOST: host header from current request</li>
-                                        <li>HTTP_REFERER: complete URL of current page</li>
-                                        <li>SCRIPT_NAME: path of current script</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>$_REQUEST</td>
-                                <td>To collect data after submitting an HTML form. GET, POST, and cookies.</td>
-                            </tr>
-                            <tr>
-                                <td>$_POST</td>
-                                <td>To collect form data after submitting HTML form with method="post". All the POST parameters</td>
-                            </tr>
-                            <tr>
-                                <td>$_GET</td>
-                                <td>To collect form data after submitting HTML form with method="get". All the GET parameters.</td>
-                            </tr>
-                            <tr>
-                                <td>$_FILES</td>
-                                <td>An associative array of items uploaded to the current script using HTTP POST.</td>
-                            </tr>
-                            <tr>
-                                <td>$_ENV</td>
-                                <td>All of the environmental variables in context.</td>
-                            </tr>
-                            <tr>
-                                <td>$_COOKIE</td>
-                                <td>An associative array of variables passed to script using HTTP Cookeis.</td>
-                            </tr>
-                            <tr>
-                                <td>$_SESSION</td>
-                                <td>An associative array with session variables for the script.</td>
-                            </tr>
-                        </table>
-                        <br>
-
-                        <h3>$_REQUEST</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-                $name = $_REQUEST['fname'];
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-
-                        <h3>$_POST and $_GET</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-                $name = $_POST['fname'];
-            }
-            echo $_GET['parameterSent'];
-        ?&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>PHP Forms</h2>
-                        <h2>Form Handling</h2>
-                        <p>When processing forms after submission to the php file, grab the data by referring to the name attribute of the input element.</p>
-                        <p>Both <span class="definition">GET</span> and <span class="definition">POST</span> creates an array which holds key/value pairs. Keys are the names of the form controls and values are the input data. Use superglobals $_GET and $_POST to access the data.</p>
-                        <p><span class="definition_php">$_GET</span>: an array of variables passed to the current script via URL parameters.</p>
-                        <ul>
-                            <li>Information using GET is visible to others.</li>
-                            <li>Limit of 2000 characters.</li>
-                            <li>Can bookmark.</li>
-                        </ul>
-                        <p><span class="definition_php">$_POST</span>: an array of variables passed to the current script via HTTP POST method.</p>
-                        <ul>
-                            <li>Information using POST is invisible to others.</li>
-                            <li>No limits on amount of information.</li>
-                            <li>Cannot bookmark.</li>
-                        </ul>
-                    </div>
-
-                    <div class="section">
-                        <h2>Form Validation</h2>
-                        <p><code class="language-php">
-                        &lt;form method="post" action="&lt;?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?&gt;"&gt;
-                        </code></p>
-                        <br>
-                        <ul>
-                            <li><span class="definition_php">$_SERVER["PHP_SELF"]</span>: sends submitted form data to the page itself.</li>
-                            <li><span class="definition_php">htmlspecialchars()</span>: a function that converts special characters to HTML entities to prevent hacking.</li>
-                        </ul>
-                        <br>
-                        <p><span class="definition">Cross-site scripting (XSS)</span>: security vulnerability typically found in Web apps. Lets attackers inject client-side script into Web pages viewed by other users.</p>
-                        <br>
-
-                        <p>The following is an example of Validating the form</p>
-    <pre><code class="language-php">
-    &lt;?php
-            if ($_SERVER["REQUEST_METHOD"] == POST) {
-                $name = test_input($_POST["name"]);
-                $email = test_input($_POST["email"]);
-            }
-            function test_input($data) {
-                // trim extra spaces, tabs, or newline
-                $data = trim($data);
-                // remove backslashes
-                $data = stripslashes($data);
-                // convert to html entities
-                $data = htmlspecialchars($data)
-            }
-        ?&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Required Fields</h2>
-    <pre><code class="language-php">
-    &lt;?php
-                // Initialize variables
-                $nameErr = $emailErr = "";
-                $name = $email = "";
-
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    // Check if name is empty (works for radio buttons too)
-                    if (empty($_POST["name"])) {
-                        $nameErr = "Name is required";
-                    } else {
-                        $name = test_input($_POST["name"]);
-                    }
-
-                    // Check if email is empty
-                    if (empty($_POST["email"])) {
-                        $emailErr = "Email is required";
-                    } else {
-                        $email = test_input($_POST["email"]);
-                    }
-                }
-        ?&gt;
-    </code></pre>
-                        <br>
-                        <p>The following displays the error message. It uses embedded scripts, not recommended.</p>
-    <pre><code class="language-php">
-    Name: &lt;input type="text" name="name"&gt;&lt;span class="error"&gt;*&lt;?php echo $nameErr;?&gt;&lt;&frasl;span&gt;
-    Email: &lt;input type="text" name="email"&gt;&lt;span class="error"&gt;*&lt;?php echo $emailErr;?&gt;&lt;&frasl;span&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Validate Email and URL</h2>
-                        <p><span class="definition_php">preg_match()</span>: function searches a string for a pattern, like test() in JS. Returns true if pattern exists, false otherwise.</p>
-                        <br>
-
-                        <h3>Validating Name</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            $name = test_input($_POST["name"]);
-            if (!preg_match("/^[a-zA-Z]*$/", $name)) {
-                $nameErr = "Only letters and whitespace are allowed.";
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-
-                        <h3>Validating Email</h3>
-                        <p>Use <span class="definition_php">filter_var()</span> PHP function.</p>
-    <pre><code class="language-php">
-    &lt;?php
-            $email = test_input($_POST["email"]);
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $emailErr = "Invalid email format";
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-
-                        <h3>Validating Radio Button</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            if (empty($_POST["gender"])) {
-                $genderErr = "Gender is required";
-            } else {
-                $gender = test_input($POST["gender"]);
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-
-                        <h3>Preventing Form from clearing fields after submission</h3>
-                        <p>Use <span class="definition_php">isset()</span> PHP function.</p>
-    <pre><code class="language-php">
-    &lt;?php
-            if (isset($gender) &amp;&amp; $gender == "male") {
-                echo "checked";
-            }
-        ?&gt;
-    </code></pre>
-
-                    </div>
-
-                    <div class="section">
-                        <h2>PHP Advanced</h2>
-                        <h2>PHP Date and Time</h2>
-                        <h3>Date() Function</h3>
-                        <p class="definition_php">date(<i>format</i>, <i>timestamp</i>)</p>
-                        <ul>
-                            <li><i>format</i> for date: Y (year), d (day), m (month), l (lowercase L, day of week)</li>
-                            <li><i>format</i> for time: h (hours), i (minutes), s (seconds), a (am or pm)</li>
-                            <li><i>timestamp</i> is optional. Default is current time.</li>
-                        </ul>
-    <pre><code class="language-php">
-    &lt;?php
-            echo "Today is " . date("Y/m/d");
-            echo "The time is " . date("h:i:sa");
-            // Get time zone
-            date_default_timezone_set("America/New York");
-        ?&gt;
-    </code></pre>
-
-                        <h3>Creating a date</h3>
-                        <p class="definition_php">mktime(<i>hour</i>, <i>minute</i>, <i>second</i>, <i>month</i>, <i>day</i>, <i>year</i>)</p>
-    <pre><code class="language-php">
-    &lt;?php
-            $d = mktime(11, 14, 54, 8, 12, 2014);
-            echo "Created date is " . date("Y-m-d h:i:sa", $d);
-        ?&gt;
-    </code></pre>
-
-                        <h3>Creating date from string</h3>
-                        <p class="definition_php">strtotime(<i>time</i>, <i>now</i>)</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>PHP Include</h2>
-                        <p>include or require takes code in a file and copies it into a file that uses that include statement. Variables and functions in that php file will also transfer over.</p>
-                        <br>
-                        <p><span class="definition_php">require</span>: produces an error, stops the script.</p>
-                        <p><span class="definition_php">include</span>: produces a warning, the script continues.</p>
-                        <br>
-    <pre><code class="language-php">
-    &lt;?php
-            include 'filename';
-            require 'filename';
-        ?&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>File Handling</h2>
-                        <p><span class="definition_php">readfile(<i>file</i>)</span>: reads a file and writes it to the output buffer.</p>
-    <pre><code class="language-php">
-    &lt;?php
-            echo readfile("textFile.txt");
-        ?&gt;
-    </code></pre>
-                        <br>
-
-                        <p><span class="definition_php">fopen(<i>file</i>, <i>mode</i>)</span>: opens a file in a certain mode. Also creates a file if it doesn't exist.</p>
-                        <p><span class="definition_php">fread(<i>file</i>, <i>bytes</i>)</span>: reads from an open file. bytes is the maximum number of bytes to read.</p>
-                        <p><span class="definition_php">fgets(<i>file</i>)</span>: reads single line from file.</p>
-                        <p><span class="definition_php">fgetc(<i>file</i>)</span>: read a single character from file.</p>
-                        <p><span class="definition_php">feof(<i>file</i>)</span>: checks if end-of-file (EOF) reached.</p>
-                        <p><span class="definition_php">fclose(<i>file</i>)</span>: close an open file</p>
-
-    <pre><code class="language-php">
-    &lt;?php
-            $myfile = fopen("file.txt", "r") or die("Unable to open file!");
-            echo fread($myfile, filesize("file.txt"));
-            echo fgets($myfile);
-            echo fgetc($myfile);
-
-            while (!feof($myfile)) {
-                echo fgets($myfile);
-            }
-            fclose($myfile);
-        ?&gt;
-    </code></pre>
-                        <br>
-
-                        <table>
-                            <tr>
-                                <th>Mode</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td>r</td>
-                                <td>Open file for read only. File pointer starts at the beginning.</td>
-                            </tr>
-                            <tr>
-                                <td>w</td>
-                                <td>Open file for write only. Erases content of file or creates a new one if it doesn't exist. File pointer starts at the beginning.</td>
-                            </tr>
-                            <tr>
-                                <td>a</td>
-                                <td>Open file for write only. Existing data is preserved. File pointer starts at the end of the file. Creates a new file if doesn't it exist. Like appending to a file.</td>
-                            </tr>
-                            <tr>
-                                <td>x</td>
-                                <td>Creates a new file for write only. Returns FALSE and error if file already exists.</td>
-                            </tr>
-                            <tr>
-                                <td>r+, w+, a+, x+</td>
-                                <td>Same descriptions as above but allows read/write.</td>
-                            </tr>
-                        </table>
-                        <br>
-
-                        <h3>Creating a File</h3>
-                        <p>Opening an existing file for writing will ERASE the data that was there.</p>
-                        <p><code class="language-php">
-                        $myfile = fopen("file", "w");
-                        </code></p>
-                        <br>
-
-                        <h3>Writing to a File</h3>
-                        <p><span class="definition_php">fwrite(<i>file</i>, <i>string</i>)</span>: writes to a file.</p>
-                        <br>
-
-                        <h3>File Upload</h3>
-                        <p>Configure <span class="definition">php.ini</span> file to allow file uploads. Look for file_uploads directive and set to On.</p>
-                        <p class="definition_php">file_uploads = On</p>
-
-    <pre><code class="language-markup">
-    &lt;!-- HTML --&gt;
-    &lt;form action="upload.php" method="post" enctype="multipart/form-data"&gt;
-        Select image to upload:
-        &lt;input type="file" name="fileToUpload" id="fileToUpload"&gt;
-        &lt;input type="submit" value="Upload Image" name="submit"&gt;
-    &lt;&frasl;form&gt;
-    </code></pre>
-                        <p>File upload requires method <span class="definition_value">post</span> and enctype as <span class="definition_value">multipart/form-data</span></p>
-
-    <pre><code class="language-php">
-    &lt;?php
-            $target_dir = "uploads/";
-            $target_file = $target_dir . basename($FILES["fileToUpload"]["name"]);
-            $uploadOk = 1;
-
-            // Get file extension
-            $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-
-            // Check if image is actual or fake
-            if (isset($_POST["submit"])) {
-                $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-                if ($check !== false) {
-                    echo "File is an image - " . $check["mime"] . ".";
-                    $uploadOk = 1;
-                } else {
-                    echo "File is not an image.";
-                    $uploadOk = 0;
-                }
-            }
-
-            // Check if File Already Exists
-            if (file_exists($target_file)) {
-                echo "Sorry, file already exists.";
-                $uploadOk = 0;
-            }
-
-            // Limit File Size
-            if ($_FILES["fileToUpload"]["size"] > 1000000) {
-                echo "Sorry, file is larger than 1MB";
-                $uploadOk = 0;
-            }
-
-            // Limit File Type
-            if ($imageFileType != "jpg" &amp;&amp; $imageFileType != "png" &amp;&amp; $imageFileType != "jpeg") {
-                echo "Sorry, only JPG, JPEG, and PNG are allowed.";
-                $uploadOk = 0;
-            }
-
-            // Check if $uploadOk is set to 0 by an error
-            if ($uploadOk == 0) {
-                echo "Sorry, your file wasn't uploaded.";
-            } else {
-                if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                    echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
-                } else {
-                    echo "Sorry, there was an error uploading your file."
-                }
-            }
-        ?&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Cookies</h2>
-                        <p><span class="definition">Cookie</span>: identifies a user. A small file that the server embeds on a user's computer. Each time the same computer requests a page with a browser, it will send the cookie too. Can create and retrieve cookie values with PHP.</p>
-
-                        <h3>Create Cookies</h3>
-                        <p class="definition_php">setcookie(<i>name</i>, <i>value</i>, <i>expire</i>, <i>path</i>, <i>domain</i>, <i>secure</i>, <i>httponly</i>);</p>
-                        <ul>
-                            <li>only name parameter is required</li>
-                            <li>Retrieve value of cookie user by using global variable <span class="definition_php">$_COOKIE</span></li>
-                            <li><span class="definition_php">/</span> means cookie available in entire website</li>
-                            <li>function must appear before the &lt;html&gt; tag</li>
-                            <li>value of cookie is URLencoded when sending it and decoded when received</li>
-                        </ul>
-                        <br>
-
-    <pre><code class="language-php">
-    &lt;?php
-            $cookie_name = "user";
-            $cookie_value = "John Doe";
-            // 86400 is a day
-            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-        ?&gt;
-    &lt;html&gt;
-        &lt;body&gt;
-        &lt;?php
-                        if (!isset($_COOKIE[$cookie_name])) {
-                            echo "Cookie named " . $cookie_name . " is not set!";
-                        } else {
-                            echo "Cookie " . $cookie_name . " is set!";
-                            echo "Value is: " . $_COOKIE[$cookie_name];
-                        }
-                    ?&gt;
-        &lt;&frasl;body&gt;
-    &lt;&frasl;html&gt;
-    </code></pre>
-                        <br>
-                        <p><span class="bold">Modify a cookie</span> value by setting it again using setcookie() function.</p>
-                        <p><span class="bold">Delete a cookie</span> by using setcookie() function with expiration date in the past.</p>
-                        <br>
-    <pre><code class="language-php">
-    &lt;?php
-            // Set expiration date to an hour ago
-            setcookie("user", "", time() - 3600);
-        ?&gt;
-
-    /* Check if Cookies enabled by using setcookie() function and
-       checking the count of the $_COOKIE array variable. */
-    &lt;?php
-            setcookie("test_cookie", "test", time() + 3600, "/")
-        ?&gt;
-    &lt;html&gt;
-        &lt;body&gt;
-        &lt;?php
-                        if (count($_COOKIE) > 0) {
-                            echo "Cookies are enabled.";
-                        } else {
-                            echo ''Cookies are disabled.";
-                        }
-                ?&gt;
-        &lt;&frasl;body&gt;
-    &lt;&frasl;html&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Sessions</h2>
-                        <p><span class="definition">Session</span>: way to store user information in variables to be used across multiple pages.</p>
-                        <ul>
-                            <li>Unlike cookie, info. is not stored on user's computer. </li>
-                            <li>Internet is stateless, so web server doesn't know who you are or what you do.</li>
-                            <li>Lasts until user closes the browser.</li>
-                        </ul>
-                        <p><span class="definition_php">session_start()</span>: starts a PHP session</p>
-                        <p><span class="definition_php">session_unset()</span>: removes all global session variables</p>
-                        <p><span class="definition_php">session_destroy()</span>: destroys the session</p>
-                        <p><span class="definition_php">print_r($_SESSION)</span>: shows all session variable values for a user session</p>
-                        <p>Use global variable $_SESSION to set session variables. Change session variables by overwriting it.</p>
-                        <br>
-    <pre><code class="language-php">
-    &lt;?php
-            session_start();
-        ?&gt;
-    &lt;!DOCTYPE html&gt;
-    &lt;html&gt;
-        &lt;body&gt;
-        &lt;?php
-                        // Set session variables
-                        $_SESSION["favcolor" = "green"];
-                        $_SESSION["favanimal" = "cat"];
-
-                        // Get session variable values (could be from different page)
-                        echo "Favorite color is " . $_SESSION["favcolor"] . ".&lt;br&gt;";
-                        echo "Favorite animal is " . $_SESSION["favanimal] . ".";
-
-                        print_r($_SESSION);
-                        session_unset();
-                        session_destroy();
-                ?&gt;
-        &lt;&frasl;body&gt;
-    &lt;&frasl;html&gt;
-    </code></pre>
-                    </div>
-
-                    <div class="section">
-                        <h2>Filters</h2>
-                        <p><span class="definition">Validating data</span>: determining if the data is in proper form</p>
-                        <p><span class="definition">Sanitizing data</span>: removing any illegal characters from the data</p>
-                        <p><span class="definition">Filters</span>: validates and sanitizes external input. Access the filter extension by using <span class="definition_php">filter_list()</span> function.</p>
-                        <br>
-                        <p><span class="definition_php">filter_var()</span>: validates and sanitizes data. Filters a single variable with a specified filter</p>
-                        <ul>
-                            <li>takes the variable to check and the type of check to use.</li>
-                        </ul>
-                        <br>
-    <pre><code class="language-php">
-    &lt;?php
-            // Sanitize a String
-            $str = "&lt;h1&gt;Hello World!&lt;&frasl;h1&gt;";
-            $newstr = filter_var($str, FILTER_SANITIZE_STRING);
-
-            // Validate an Integer, the first check done because if $int set to 0, function will say it's invalid
-            $int = 100;
-            if (filter_var($int, FITLER_VALIDATE_INT) === 0 || !filter_var($int, FILTER_VALIDATE_INT) === false) {
-            	echo ("Integer is valid.");
-            } else {
-            	echo("Integer is not valid.")
-            }
-
-            // Validate IP Address
-            $ip = "127.0.0.1";
-
-            if (!filter_var($ip, FILTER_VALIDATE_IP) === false) {
-            	echo("$ip is a valid IP address.");
-            } else {
-            	echo("$ip is not a valid IP address");
-            }
-
-            // Sanitize and Validate Email Address
-            $email = "john.doe@example.com";
-            $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-            	echo("$email is a valid email address.");
-            } else {
-            	echo("$email is not a valid email address.");
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-                        <p>Other forms of validation and sanitizing using filter_var() include urls, integers within a range, IPv6 address, a url with a querystring, and removing HTML tags and all characters with ASCII values > 127.</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>Error Handling</h2>
-                        <ol>
-                            <li>die() statements</li>
-                            <li>Custom errors and error triggers</li>
-                            <li>Error reporting</li>
-                        </ol>
-                        <br>
-
-                        <h3>Using the die() Function</h3>
-    <pre><code class="language-php">
-    &lt;?php
-            if (!file_exists("file.txt")) {
-                die("File not found");
-            } else {
-                $file = fopen("file.txt", "r");
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-
-                        <h3>Creating a Custom Error Handler</h3>
-                        <p class="definition_php">error_function(<i>error_level</i>, <i>error_message</i>, <i>error_file</i>, <i>error_line</i>, <i>error_context</i>);</p>
-                        <ul>
-                            <li>Only error level and error message is required.</li>
-                        </ul>
-                        <br>
-                        <table>
-                            <tr>
-                                <th>Parameter</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td>error_level</td>
-                                <td>Error report level. Must be a value number.</td>
-                            </tr>
-                            <tr>
-                                <td>error_message</td>
-                                <td>Error message</td>
-                            </tr>
-                            <tr>
-                                <td>error_file</td>
-                                <td>Filename which error occurred</td>
-                            </tr>
-                            <tr>
-                                <td>error_line</td>
-                                <td>Line number in which error occurred</td>
-                            </tr>
-                            <tr>
-                                <td>error_context</td>
-                                <td>Array containing every variable, their values in use when error occurred.</td>
-                            </tr>
-                        </table>
-                        <br>
-
-                        <h3>Error Reporting</h3>
-                        <table>
-                            <tr>
-                                <th colspan="3">Error Report Levels</th>
-                            </tr>
-                            <tr>
-                                <th>Value</th>
-                                <th>Constant</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>E_WARNING</td>
-                                <td>Non-fatal runtime error, execution continues.</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>E_NOTICE</td>
-                                <td>Script found something that might be an error.</td>
-                            </tr>
-                            <tr>
-                                <td>256</td>
-                                <td>E_USER_ERROR</td>
-                                <td>Fatal user-generated error. Like E_ERROR from trigger_error().</td>
-                            </tr>
-                            <tr>
-                                <td>512</td>
-                                <td>E_USER_WARNING</td>
-                                <td>Non-fatal user-generated warning. Like E_WARNING from trigger_error().</td>
-                            </tr>
-                            <tr>
-                                <td>1024</td>
-                                <td>E_USER_NOTICE</td>
-                                <td>User-generated notice. Like E_NOTICE from trigger_error().</td>
-                            </tr>
-                            <tr>
-                                <td>4096</td>
-                                <td>E_RECOVERABLE_ERROR</td>
-                                <td>Catchable fatal error. Like E_ERROR but can be caught.</td>
-                            </tr>
-                            <tr>
-                                <td>8191</td>
-                                <td>E_ALL</td>
-                                <td>All errors and warnings.</td>
-                            </tr>
-                        </table>
-                        <br>
-                        <p><span class="definition_php">set_error_handler("<i>customErrorHandler</i>")</span>: specifies that the default error handler will be this new custom function.</p>
-                        <p><span class="definition_php">trigger_error("<i>error_message</i>", <i>error_level</i>)</span>: triggers an error</p>
-                    </div>
-
-                    <div class="section">
-                        <h2>Exception Handling</h2>
-                        <p>PHP doesn't have exceptions that will cause a crash, so program will continue even if something has failed. The database stops it from crashing and has its own controls to check against duplicate entries. Exception is not a possibility because the client expects an error. Throwing an exception will result in the client timing out, usually 2 minutes.</p>
-                        <br>
-                        <p>When an exception is triggered:</p>
-                        <ul>
-                            <li>The current code state is saved.</li>
-                            <li>Code execution switches to the exception handler function.</li>
-                            <li>The handler may resume execution, terminate, or continue the script in a different part of the code.</li>
-                        </ul>
-                        <br>
-                        <p><span class="definition">Try</span>: function using exception should be in a try block</p>
-                        <p><span class="definition">Throw</span>: how to trigger an exception, must have at least one catch</p>
-                        <p><span class="definition">Catch</span>: retrieves an exception. Creates object containing exception information.</p>
-                        <ul>
-                            <li>You can have multiple exceptions and catch blocks.</li>
-                            <li>You can re-throw Exceptions by throwing in a catch block but wrapping the original try-catch block in another try-catch block.</li>
-                        </ul>
-                        <br>
-    <pre><code class="language-php">
-    &lt;?php
-            function checkNum($number) {
-                if ($number > 1) {
-                	throw new Exception("Value must be 1 or below");
-                }
-                return true;
-            }
-
-            try {
-            	checkNum(2);
-            	echo 'Number is 1 or below.';
-            } catch (customException $e) {
-                echo 'CustomException: ' . $e-&gt;getMessage();
-            } catch (Exception $e) {
-                echo 'Message: ' . $e-&gt;getMessage();
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-                        <h3>Create a Custom Exception Class</h3>
-                        <ul>
-                            <li>The class must extend from the Exception class.</li>
-                        </ul>
-                        <br>
-    <pre><code class="language-php">
-    &lt;?php
-            class CustomException extends Exception {
-            	public function errorMessage() {
-            		// error message
-            		$errorMsg = 'Error on line ' .$this-&gt;getLine().' in '.this-&gt;getFile() .': &lt;b&gt; '.this-&gt;getMessage().'&lt;/b&gt; is not a valid Email address';
-            		return $errorMsg;
-                }
-            }
-        ?&gt;
-    </code></pre>
-                        <br>
-                        <p><span class="definition_php">set_exception_handler()</span>: sets user-defined function to handle all uncaught exceptions.</p>
-                        <ul>
-                            <li>No need for a catch block since this sets a top level exception handler.</li>
-                        </ul>
-                    </div>
-
-                    <div class="section">
-                        <h2>Database Connections</h2>
-                        <table>
-                            <tr>
-                                <th colspan="2">Mysqli Methods</th>
-                            </tr>
-                            <tr>
-                                <th>Method</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td>mysqli_fetch_row($result)</td>
-                                <td>Fetches one row from a result-set and returns it as an enumerated array.</td>
-                            </tr>
-                            <tr>
-                                <td>mysqli_fetch_array($result)</td>
-                                <td>Fetches a result row as an associative, a numeric array, or both. Both will iterate through each record based on what was returned from the query.</td>
-                            </tr>
-                            <tr>
-                                <td>mysqli_fetch_assoc()</td>
-                                <td>Fetches a result row as an associative array.</td>
-                            </tr>
-                        </table>
-                        <br>
-                        <p><span class="definition">Result-set</span> object: transient table that returns the results of the query. Can pull from table to extract information.</p>
-    <pre><code class="language-php">
-    $result = mysqli_query($db, $sql);  // returns the result object
-    $size = mysqli_affected_rows($db);  // size of result-set
-    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC(or _NUM or _BOTH));
-    foreach ($rows as $row) {
-        $row['fname'];
-        $row[i];
-    }
-    // To fetch one row at a time
-    while ($row=mysqli_fetch_array($result)) {
-        statements;
-    }
-    </code></pre>
-                    </div>
-                </div>
+            <div class="section">
+                <h2>Operators</h2>
+                <p><span class="definition">Precedence</span>: * and /, + and -. Use parentheses to make operators explicit.</p>
+                <br>
+                <table>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Arithmetic Operators</td>
+                        <td>+, -, *, /, %, **(exponentiation)</td>
+                    </tr>
+                    <tr>
+                        <td>Assignment operators</td>
+                        <td>=, +=, -=, *=, /=, %=</td>
+                    </tr>
+                    <tr>
+                        <td>Comparison operators</td>
+                        <td>==, ===, !=, &lt;&gt;(also not equal), !==, &gt;, &lt;, &gt;=, &lt;=</td>
+                    </tr>
+                    <tr>
+                        <td>Increment and Decrement operators</td>
+                        <td>++$x (pre-increment), $x++ (post-increment), --$x (pre-decrement), $x-- (post-decrement)</td>
+                    </tr>
+                    <tr>
+                        <td>Logical operators</td>
+                        <td>and, or, xor (exclusive or), &amp;&amp;, ||, !</td>
+                    </tr>
+                    <tr>
+                        <td>String operators</td>
+                        <td><b>.</b> (concatenation), <b>.=</b> (concatenation assignment)</td>
+                    </tr>
+                    <tr>
+                        <td>Array operators</td>
+                        <td>+ (union), ==, ===, !-, &lt;&gt;, !==</td>
+                    </tr>
+                </table>
             </div>
 
-            <div id="directory_container">
-                <div id="navigation_buttons">
-                    <div>
-                        <img src="../images/return_top_arrow.png" alt="open" id="directory_top_arrow">
-                    </div>
-                    <div>
-                        <img src="../images/directory_menu.png" alt="menu" id="directory_menu">
-                    </div>
+            <div class="section">
+                <h2>Conditional Statements</h2>
+                <h3 class="definition">if, elseif, and else</h3>
+<pre><code class="language-php">
+&lt;?php
+    if (condition) {
+        statements;
+    }
+    elseif (condition) {
+        statements;
+    }
+    else {
+        statements;
+    }
+?&gt;
+</code></pre>
+                <br>
+                <h3 class="definition">Switch</h3>
+<pre><code class="language-php">
+&lt;?php
+    switch (value) {
+        case value1:
+            statements;
+            break;
+        case value2:
+            statements;
+            break;
+        default:
+            statements;
+    }
+?&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Loops</h2>
+                <h3 class="definition">while</h3>
+<pre><code class="language-php">
+&lt;?php
+    while (condition is true) {
+        statements;
+    }
+?&gt;
+</code></pre>
+
+                <h3 class="definition">do while</h3>
+<pre><code class="language-php">
+&lt;?php
+    do {
+        statements;
+    } while (condition is true);
+?&gt;
+</code></pre>
+
+                <h3 class="definition">for</h3>
+<pre><code class="language-php">
+&lt;?php
+    for (initial counter; condition; increment counter) {
+        statements;
+    }
+?&gt;
+</code></pre>
+
+                <h3 class="definition">foreach</h3>
+                <ul>
+                    <li>For scalar arrays where indices are integers, $value gets a different value for each pass of the loop.</li>
+                </ul>
+<pre><code class="language-php">
+&lt;?php
+    foreach ($array as $value) {
+        statements;
+    }
+?&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Functions</h2>
+                <p>Function names are NOT case-sensitive. Can start with a letter or underscore but NOT a number.</p>
+                <ul>
+                    <li>Useful to create utility PHP files with methods that are called frequently and then include it.</li>
+                    <li>Functions can have parameterse and parameters with default values. Can return any kind of value.</li>
+                </ul>
+                <br>
+<pre><code class="language-php">
+&lt;?php
+    function functionName($parameter, $parameterWithDefaultValue = value) {
+        statements;
+        return $variableOrValue;
+    }
+    functionName(argument);
+
+    // Example
+    function foo($bar, $car=0) {
+        statements;
+    }
+?&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Arrays</h2>
+                <p>Use <span class="definition_php">array()</span> function</p>
+                <p class="bold">Types of arrays:</p>
+                <ol>
+                    <li><span class="definition">Indexed arrays</span>: arrays with a numeric index</li>
+                    <li><span class="definition">Associative arrays</span>: arrays with named keys</li>
+                    <ul>
+                        <li>Not hash tables but acts like it. Order is preserved and is based on when the element was inserted.</li>
+                        <li>Can only have distinct keys but values can be same or different</li>
+                    </ul>
+                    <li><span class="definition">Multidimensional arrays</span>: arrays containing one or more arrays</li>
+                </ol>
+                <br>
+
+                <h3>Indexed Arrays</h3>
+<pre><code class="language-php">
+&lt;?php
+    // Creating an array with automatically assigned index
+    $cars = array("Volve", "BMW", "Toyota");
+
+    // Creating an array with manually assigned index
+    $cars[0] = "Volvo";
+    $cars[1] = "BMW";
+    $cars[2] = "Toyota";
+
+    // Pushes onto end of array
+    $cars[] = "Tesla";
+
+    // Return length of array
+    count($cars);
+
+    // Loop through Indexed array
+    for ($x = 0; $x < count($cars); $x++) {
+        statements;
+    }
+?&gt;
+</code></pre>
+                <br>
+
+                <h3>Associative Arrays</h3>
+<pre><code class="language-php">
+&lt;?php
+    // Create with array() function
+    $age = array("Peter"=&gt;"35", "Ben"=&gt;"37", "Joe"=&gt;"43");
+
+    // Create manually
+    $age['Peter'] = "35";
+    $age['Ben'] = "37";
+    $age['Joe'] = "43";
+
+    // Using the named keys
+    echo "Peter is " . $age['Peter'] . " years old.";
+
+    // Loop through Associative array
+    foreach ($age as $x =&gt; $x_value) {
+        echo "Key=" . $x . ", Value=" . $x_value;
+        echo "&lt;br&gt;";
+    }
+
+    // Print all values that came from a form
+    foreach ($_POST as $K=&gt;$V) {
+        // Variable interpolation so will get actual values
+        print "Key is $K and the value is $V";
+    }
+?&gt;
+</code></pre>
+                <br>
+                <h4>Printing out array values</h4>
+<pre><code class="language-php">
+// Fails because don't need single quotes in double quotes
+echo "a mango is $fruit['mango']";
+
+// Succeeds because nested inside double quotes
+echo "a mango is $fruit[mango]";
+
+// Also works
+echo "a mango is " . $fruit['mango'];
+
+$fruit['pau pau'] = 'orange';
+// Fails because 2 separate words in bracket
+echo "pau paus are $fruit[pau pau]";
+
+// Succeeds if use curly braces
+echo "pau paus are {$fruit[pau pau]}";
+</code></pre>
+                <br>
+
+                <h3>Multidimensional Arrays</h3>
+                <h3 class="definition">2D Array</h3>
+<pre><code class="language-php">
+&lt;?php
+    $cars = array
+        (
+        array("Volvo", 22, 18),
+        array("BMW", 15, 13),
+        array("Saab", 5, 2),
+        array("Land Rover", 17, 15)
+        );
+
+    // Use nested for loop to get to the inner array
+    for ($row = 0; $row &lt; 4; $row++) {
+        for ($col = 0; $col &lt; 3; $col++) {
+            echo $cars[$row][$col];
+        }
+    }
+?&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Array Methods</h2>
+                <p>The following are some of the methods available to manipulate arrays.</p>
+                <br>
+                <table>
+                    <tr>
+                        <th colspan="2">Array Methods</th>
+                    </tr>
+                    <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><p>array(<i>value1</i>, <i>value2</i>, ...)</p>
+                            <p>array(<i>key</i>=><i>value</i>, <i>key</i>=><i>value</i>, ...)</p>
+                        </td>
+                        <td>Creates an indexed array or an associative array.</td>
+                    </tr>
+                    <tr>
+                        <td>count(<i>array</i>, <i>mode</i>)</td>
+                        <td><i>mode</i> is optional, if mode=1, then counts array recursively (for multidimensional arrays).</td>
+                    </tr>
+                    <tr>
+                        <td>current(<i>array</i>), next(<i>array</i>), prev(<i>array</i>), end(<i>array</i>), reset(<i>array</i>)</td>
+                        <td>Returns current element in array, moves the internal pointer to the current element to the next, to the previous, to the end, and to the beginning, respectively.</td>
+                    </tr>
+                    <tr>
+                        <td>each(<i>array</i>)</td>
+                        <td>Returns current element and key value, moves internal pointer forward.</td>
+                    </tr>
+                    <tr>
+                        <td>array_combine(<i>keys</i>, <i>values</i>)</td>
+                        <td>Creates an array by using elements from one "keys" array and one "values" array.</td>
+                    </tr>
+                    <tr>
+                        <td>array_count_values(<i>array</i>)</td>
+                        <td>Counts all values of an array. Returns associative array where keys are original values, and values are # of occurrences.</td>
+                    </tr>
+                    <tr>
+                        <td>array_diff(<i>array1</i>, <i>array2</i>, ...)</td>
+                        <td>Compares arrays and returns the differences (compares values only). Returns array1 with values not present in other arrays.</td>
+                    </tr>
+                    <tr>
+                        <td>array_fill(<i>index</i>, <i>number</i>, <i>value</i>)</td>
+                        <td>Fills an array with values.</td>
+                    </tr>
+                    <tr>
+                        <td>array_intersect(<i>array1</i>, <i>array2</i>, ...)</td>
+                        <td>Compare arrays, returns matches (compares values only).</td>
+                    </tr>
+                    <tr>
+                        <td>array_filter(<i>array</i>, <i>callbackfunction</i>)</td>
+                        <td>Filters values of an array using a callback function.</td>
+                    </tr>
+                    <tr>
+                        <td>array_map(<i>function</i>, <i>array1</i>, <i>array2</i>, ...)</td>
+                        <td>Sends each value to a function, returning array with new values.</td>
+                    </tr>
+                    <tr>
+                        <td>array_reduce(<i>array</i>, <i>function</i>, <i>initial</i>)</td>
+                        <td>Sends values in array to function and returns a string.</td>
+                    </tr>
+                    <tr>
+                        <td>array_key_exists(<i>key</i>, <i>array</i>)</td>
+                        <td>Checks array for a key. TRUE if exists, FALSE if not.</td>
+                    </tr>
+                    <tr>
+                        <td>array_keys(<i>array</i>, <i>value</i>, <i>strict</i>)</td>
+                        <td>Returns an array containing keys. <i>value</i> and <i>strict</i> are optional. <i>strict</i> checks for type too.</td>
+                    </tr>
+                    <tr>
+                        <td>array_values(<i>array</i>)</td>
+                        <td>Returns array containing all values. Array will have numeric keys.</td>
+                    </tr>
+                    <tr>
+                        <td>array_merge(<i>array1</i>, <i>array2</i>, ...)</td>
+                        <td>Merges set of arrays into one array. If duplicate keys, last one overrides.</td>
+                    </tr>
+                    <tr>
+                        <td>array_pop(<i>array</i>) and array_push(<i>array</i>, <i>value1</i>, <i>value2</i>, ...)</td>
+                        <td>Deletes last element of an array. Inserts one or more elements to end of array.</td>
+                    </tr>
+                    <tr>
+                        <td>array_shift(<i>array</i>) and array_unshift(<i>array</i>, <i>value1</i>, <i>value2</i>, ...)</td>
+                        <td>Removes first element from array and returns its value. Inserts new elements to array in the beginning.</td>
+                    </tr>
+                    <tr>
+                        <td>unset(<i>array['key']</i>)</td>
+                        <td>Entirely removes the key-value pair from the array.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Sorting Arrays</h2>
+                <table>
+                    <tr>
+                        <th colspan="2">Sort Functions for Arrays</th>
+                    </tr>
+                    <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>sort()</td>
+                        <td>Sorts array in ascending order.</td>
+                    </tr>
+                    <tr>
+                        <td>rsort()</td>
+                        <td>Sorts array in descending order.</td>
+                    </tr>
+                    <tr>
+                        <td>asort()</td>
+                        <td>Sort associative arrays in ascending order according to value.</td>
+                    </tr>
+                    <tr>
+                        <td>ksort()</td>
+                        <td>Sort associative arrays in ascending order according to key.</td>
+                    </tr>
+                    <tr>
+                        <td>arsort()</td>
+                        <td>Sort associative arrays in descending order, according to value.</td>
+                    </tr>
+                    <tr>
+                        <td>krsort()</td>
+                        <td>Sort associative arrays in descending order, according to key.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Superglobals</h2>
+                <p><span class="definition">Superglobals</span>: Predefined variables in PHP and are always accessible.</p>
+                <table>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>$GLOBALS[index]</td>
+                        <td>PHP stores all global variables in this array. <i>index</i> holds the name of the variable.</td>
+                    </tr>
+                    <tr>
+                        <td>$_SERVER['ELEMENT']</td>
+                        <td>
+                            <p>Holds information about headers, paths, and script locations.</p>
+                            <br>
+                            <p>List of some of the elements:</p>
+                            <ul>
+                                <li>PHP_SELF: filename of currently executing script</li>
+                                <li>SERVER_NAME: name of host server</li>
+                                <li>SERVER_PROTOCOL: name and revision of information protocol</li>
+                                <li>SERVER_PORT: port on the server machine being used by the web server for communication</li>
+                                <li>REQUEST_METHOD: request method to access page (POST | GET)</li>
+                                <li>REQUEST_TIME: timestamp of start of request</li>
+                                <li>HTTP_HOST: host header from current request</li>
+                                <li>HTTP_REFERER: complete URL of current page</li>
+                                <li>SCRIPT_NAME: path of current script</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>$_REQUEST</td>
+                        <td>To collect data after submitting an HTML form. GET, POST, and cookies.</td>
+                    </tr>
+                    <tr>
+                        <td>$_POST</td>
+                        <td>To collect form data after submitting HTML form with method="post". All the POST parameters</td>
+                    </tr>
+                    <tr>
+                        <td>$_GET</td>
+                        <td>To collect form data after submitting HTML form with method="get". All the GET parameters.</td>
+                    </tr>
+                    <tr>
+                        <td>$_FILES</td>
+                        <td>An associative array of items uploaded to the current script using HTTP POST.</td>
+                    </tr>
+                    <tr>
+                        <td>$_ENV</td>
+                        <td>All of the environmental variables in context.</td>
+                    </tr>
+                    <tr>
+                        <td>$_COOKIE</td>
+                        <td>An associative array of variables passed to script using HTTP Cookeis.</td>
+                    </tr>
+                    <tr>
+                        <td>$_SESSION</td>
+                        <td>An associative array with session variables for the script.</td>
+                    </tr>
+                </table>
+                <br>
+
+                <h3>$_REQUEST</h3>
+<pre><code class="language-php">
+&lt;?php
+    if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+        $name = $_REQUEST['fname'];
+    }
+?&gt;
+</code></pre>
+                <br>
+
+                <h3>$_POST and $_GET</h3>
+<pre><code class="language-php">
+&lt;?php
+    if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+        $name = $_POST['fname'];
+    }
+    echo $_GET['parameterSent'];
+?&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>PHP Forms</h2>
+                <h2>Form Handling</h2>
+                <p>When processing forms after submission to the php file, grab the data by referring to the name attribute of the input element.</p>
+                <p>Both <span class="definition">GET</span> and <span class="definition">POST</span> creates an array which holds key/value pairs. Keys are the names of the form controls and values are the input data. Use superglobals $_GET and $_POST to access the data.</p>
+                <p><span class="definition_php">$_GET</span>: an array of variables passed to the current script via URL parameters.</p>
+                <ul>
+                    <li>Information using GET is visible to others.</li>
+                    <li>Limit of 2000 characters.</li>
+                    <li>Can bookmark.</li>
+                </ul>
+                <p><span class="definition_php">$_POST</span>: an array of variables passed to the current script via HTTP POST method.</p>
+                <ul>
+                    <li>Information using POST is invisible to others.</li>
+                    <li>No limits on amount of information.</li>
+                    <li>Cannot bookmark.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Form Validation</h2>
+                <p><code class="language-php">
+                &lt;form method="post" action="&lt;?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?&gt;"&gt;
+                </code></p>
+                <br>
+                <ul>
+                    <li><span class="definition_php">$_SERVER["PHP_SELF"]</span>: sends submitted form data to the page itself.</li>
+                    <li><span class="definition_php">htmlspecialchars()</span>: a function that converts special characters to HTML entities to prevent hacking.</li>
+                </ul>
+                <br>
+                <p><span class="definition">Cross-site scripting (XSS)</span>: security vulnerability typically found in Web apps. Lets attackers inject client-side script into Web pages viewed by other users.</p>
+                <br>
+
+                <p>The following is an example of Validating the form</p>
+<pre><code class="language-php">
+&lt;?php
+    if ($_SERVER["REQUEST_METHOD"] == POST) {
+        $name = test_input($_POST["name"]);
+        $email = test_input($_POST["email"]);
+    }
+    function test_input($data) {
+        // trim extra spaces, tabs, or newline
+        $data = trim($data);
+        // remove backslashes
+        $data = stripslashes($data);
+        // convert to html entities
+        $data = htmlspecialchars($data)
+    }
+?&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Required Fields</h2>
+<pre><code class="language-php">
+&lt;?php
+        // Initialize variables
+        $nameErr = $emailErr = "";
+        $name = $email = "";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Check if name is empty (works for radio buttons too)
+            if (empty($_POST["name"])) {
+                $nameErr = "Name is required";
+            } else {
+                $name = test_input($_POST["name"]);
+            }
+
+            // Check if email is empty
+            if (empty($_POST["email"])) {
+                $emailErr = "Email is required";
+            } else {
+                $email = test_input($_POST["email"]);
+            }
+        }
+?&gt;
+</code></pre>
+                <br>
+                <p>The following displays the error message. It uses embedded scripts, not recommended.</p>
+<pre><code class="language-php">
+Name: &lt;input type="text" name="name"&gt;&lt;span class="error"&gt;*&lt;?php echo $nameErr;?&gt;&lt;&frasl;span&gt;
+Email: &lt;input type="text" name="email"&gt;&lt;span class="error"&gt;*&lt;?php echo $emailErr;?&gt;&lt;&frasl;span&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Validate Email and URL</h2>
+                <p><span class="definition_php">preg_match()</span>: function searches a string for a pattern, like test() in JS. Returns true if pattern exists, false otherwise.</p>
+                <br>
+
+                <h3>Validating Name</h3>
+<pre><code class="language-php">
+&lt;?php
+    $name = test_input($_POST["name"]);
+    if (!preg_match("/^[a-zA-Z]*$/", $name)) {
+        $nameErr = "Only letters and whitespace are allowed.";
+    }
+?&gt;
+</code></pre>
+                <br>
+
+                <h3>Validating Email</h3>
+                <p>Use <span class="definition_php">filter_var()</span> PHP function.</p>
+<pre><code class="language-php">
+&lt;?php
+    $email = test_input($_POST["email"]);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format";
+    }
+?&gt;
+</code></pre>
+                <br>
+
+                <h3>Validating Radio Button</h3>
+<pre><code class="language-php">
+&lt;?php
+    if (empty($_POST["gender"])) {
+        $genderErr = "Gender is required";
+    } else {
+        $gender = test_input($POST["gender"]);
+    }
+?&gt;
+</code></pre>
+                <br>
+
+                <h3>Preventing Form from clearing fields after submission</h3>
+                <p>Use <span class="definition_php">isset()</span> PHP function.</p>
+<pre><code class="language-php">
+&lt;?php
+    if (isset($gender) &amp;&amp; $gender == "male") {
+        echo "checked";
+    }
+?&gt;
+</code></pre>
+
+            </div>
+
+            <div class="section">
+                <h2>PHP Advanced</h2>
+                <h2>PHP Date and Time</h2>
+                <h3>Date() Function</h3>
+                <p class="definition_php">date(<i>format</i>, <i>timestamp</i>)</p>
+                <ul>
+                    <li><i>format</i> for date: Y (year), d (day), m (month), l (lowercase L, day of week)</li>
+                    <li><i>format</i> for time: h (hours), i (minutes), s (seconds), a (am or pm)</li>
+                    <li><i>timestamp</i> is optional. Default is current time.</li>
+                </ul>
+<pre><code class="language-php">
+&lt;?php
+    echo "Today is " . date("Y/m/d");
+    echo "The time is " . date("h:i:sa");
+    // Get time zone
+    date_default_timezone_set("America/New York");
+?&gt;
+</code></pre>
+
+                <h3>Creating a date</h3>
+                <p class="definition_php">mktime(<i>hour</i>, <i>minute</i>, <i>second</i>, <i>month</i>, <i>day</i>, <i>year</i>)</p>
+<pre><code class="language-php">
+&lt;?php
+    $d = mktime(11, 14, 54, 8, 12, 2014);
+    echo "Created date is " . date("Y-m-d h:i:sa", $d);
+?&gt;
+</code></pre>
+
+                <h3>Creating date from string</h3>
+                <p class="definition_php">strtotime(<i>time</i>, <i>now</i>)</p>
+            </div>
+
+            <div class="section">
+                <h2>PHP Include</h2>
+                <p>include or require takes code in a file and copies it into a file that uses that include statement. Variables and functions in that php file will also transfer over.</p>
+                <br>
+                <p><span class="definition_php">require</span>: produces an error, stops the script.</p>
+                <p><span class="definition_php">include</span>: produces a warning, the script continues.</p>
+                <br>
+<pre><code class="language-php">
+&lt;?php
+    include 'filename';
+    require 'filename';
+?&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>File Handling</h2>
+                <p><span class="definition_php">readfile(<i>file</i>)</span>: reads a file and writes it to the output buffer.</p>
+<pre><code class="language-php">
+&lt;?php
+    echo readfile("textFile.txt");
+?&gt;
+</code></pre>
+                <br>
+
+                <p><span class="definition_php">fopen(<i>file</i>, <i>mode</i>)</span>: opens a file in a certain mode. Also creates a file if it doesn't exist.</p>
+                <p><span class="definition_php">fread(<i>file</i>, <i>bytes</i>)</span>: reads from an open file. bytes is the maximum number of bytes to read.</p>
+                <p><span class="definition_php">fgets(<i>file</i>)</span>: reads single line from file.</p>
+                <p><span class="definition_php">fgetc(<i>file</i>)</span>: read a single character from file.</p>
+                <p><span class="definition_php">feof(<i>file</i>)</span>: checks if end-of-file (EOF) reached.</p>
+                <p><span class="definition_php">fclose(<i>file</i>)</span>: close an open file</p>
+
+<pre><code class="language-php">
+&lt;?php
+    $myfile = fopen("file.txt", "r") or die("Unable to open file!");
+    echo fread($myfile, filesize("file.txt"));
+    echo fgets($myfile);
+    echo fgetc($myfile);
+
+    while (!feof($myfile)) {
+        echo fgets($myfile);
+    }
+    fclose($myfile);
+?&gt;
+</code></pre>
+                <br>
+
+                <table>
+                    <tr>
+                        <th>Mode</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>r</td>
+                        <td>Open file for read only. File pointer starts at the beginning.</td>
+                    </tr>
+                    <tr>
+                        <td>w</td>
+                        <td>Open file for write only. Erases content of file or creates a new one if it doesn't exist. File pointer starts at the beginning.</td>
+                    </tr>
+                    <tr>
+                        <td>a</td>
+                        <td>Open file for write only. Existing data is preserved. File pointer starts at the end of the file. Creates a new file if doesn't it exist. Like appending to a file.</td>
+                    </tr>
+                    <tr>
+                        <td>x</td>
+                        <td>Creates a new file for write only. Returns FALSE and error if file already exists.</td>
+                    </tr>
+                    <tr>
+                        <td>r+, w+, a+, x+</td>
+                        <td>Same descriptions as above but allows read/write.</td>
+                    </tr>
+                </table>
+                <br>
+
+                <h3>Creating a File</h3>
+                <p>Opening an existing file for writing will ERASE the data that was there.</p>
+                <p><code class="language-php">
+                $myfile = fopen("file", "w");
+                </code></p>
+                <br>
+
+                <h3>Writing to a File</h3>
+                <p><span class="definition_php">fwrite(<i>file</i>, <i>string</i>)</span>: writes to a file.</p>
+                <br>
+
+                <h3>File Upload</h3>
+                <p>Configure <span class="definition">php.ini</span> file to allow file uploads. Look for file_uploads directive and set to On.</p>
+                <p class="definition_php">file_uploads = On</p>
+
+<pre><code class="language-markup">
+&lt;!-- HTML --&gt;
+&lt;form action="upload.php" method="post" enctype="multipart/form-data"&gt;
+Select image to upload:
+&lt;input type="file" name="fileToUpload" id="fileToUpload"&gt;
+&lt;input type="submit" value="Upload Image" name="submit"&gt;
+&lt;&frasl;form&gt;
+</code></pre>
+                <p>File upload requires method <span class="definition_value">post</span> and enctype as <span class="definition_value">multipart/form-data</span></p>
+
+<pre><code class="language-php">
+&lt;?php
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($FILES["fileToUpload"]["name"]);
+    $uploadOk = 1;
+
+    // Get file extension
+    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+    // Check if image is actual or fake
+    if (isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        if ($check !== false) {
+            echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+    }
+
+    // Check if File Already Exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+    // Limit File Size
+    if ($_FILES["fileToUpload"]["size"] > 1000000) {
+        echo "Sorry, file is larger than 1MB";
+        $uploadOk = 0;
+    }
+
+    // Limit File Type
+    if ($imageFileType != "jpg" &amp;&amp; $imageFileType != "png" &amp;&amp; $imageFileType != "jpeg") {
+        echo "Sorry, only JPG, JPEG, and PNG are allowed.";
+        $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file wasn't uploaded.";
+    } else {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file."
+        }
+    }
+?&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Cookies</h2>
+                <p><span class="definition">Cookie</span>: identifies a user. A small file that the server embeds on a user's computer. Each time the same computer requests a page with a browser, it will send the cookie too. Can create and retrieve cookie values with PHP.</p>
+
+                <h3>Create Cookies</h3>
+                <p class="definition_php">setcookie(<i>name</i>, <i>value</i>, <i>expire</i>, <i>path</i>, <i>domain</i>, <i>secure</i>, <i>httponly</i>);</p>
+                <ul>
+                    <li>only name parameter is required</li>
+                    <li>Retrieve value of cookie user by using global variable <span class="definition_php">$_COOKIE</span></li>
+                    <li><span class="definition_php">/</span> means cookie available in entire website</li>
+                    <li>function must appear before the &lt;html&gt; tag</li>
+                    <li>value of cookie is URLencoded when sending it and decoded when received</li>
+                </ul>
+                <br>
+
+<pre><code class="language-php">
+&lt;?php
+    $cookie_name = "user";
+    $cookie_value = "John Doe";
+    // 86400 is a day
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+?&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;?php
+                if (!isset($_COOKIE[$cookie_name])) {
+                    echo "Cookie named " . $cookie_name . " is not set!";
+                } else {
+                    echo "Cookie " . $cookie_name . " is set!";
+                    echo "Value is: " . $_COOKIE[$cookie_name];
+                }
+            ?&gt;
+&lt;&frasl;body&gt;
+&lt;&frasl;html&gt;
+</code></pre>
+                <br>
+                <p><span class="bold">Modify a cookie</span> value by setting it again using setcookie() function.</p>
+                <p><span class="bold">Delete a cookie</span> by using setcookie() function with expiration date in the past.</p>
+                <br>
+<pre><code class="language-php">
+&lt;?php
+    // Set expiration date to an hour ago
+    setcookie("user", "", time() - 3600);
+?&gt;
+
+/* Check if Cookies enabled by using setcookie() function and
+checking the count of the $_COOKIE array variable. */
+&lt;?php
+    setcookie("test_cookie", "test", time() + 3600, "/")
+?&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;?php
+                if (count($_COOKIE) > 0) {
+                    echo "Cookies are enabled.";
+                } else {
+                    echo ''Cookies are disabled.";
+                }
+        ?&gt;
+&lt;&frasl;body&gt;
+&lt;&frasl;html&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Sessions</h2>
+                <p><span class="definition">Session</span>: way to store user information in variables to be used across multiple pages.</p>
+                <ul>
+                    <li>Unlike cookie, info. is not stored on user's computer. </li>
+                    <li>Internet is stateless, so web server doesn't know who you are or what you do.</li>
+                    <li>Lasts until user closes the browser.</li>
+                </ul>
+                <p><span class="definition_php">session_start()</span>: starts a PHP session</p>
+                <p><span class="definition_php">session_unset()</span>: removes all global session variables</p>
+                <p><span class="definition_php">session_destroy()</span>: destroys the session</p>
+                <p><span class="definition_php">print_r($_SESSION)</span>: shows all session variable values for a user session</p>
+                <p>Use global variable $_SESSION to set session variables. Change session variables by overwriting it.</p>
+                <br>
+<pre><code class="language-php">
+&lt;?php
+    session_start();
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;?php
+                // Set session variables
+                $_SESSION["favcolor" = "green"];
+                $_SESSION["favanimal" = "cat"];
+
+                // Get session variable values (could be from different page)
+                echo "Favorite color is " . $_SESSION["favcolor"] . ".&lt;br&gt;";
+                echo "Favorite animal is " . $_SESSION["favanimal] . ".";
+
+                print_r($_SESSION);
+                session_unset();
+                session_destroy();
+        ?&gt;
+&lt;&frasl;body&gt;
+&lt;&frasl;html&gt;
+</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Filters</h2>
+                <p><span class="definition">Validating data</span>: determining if the data is in proper form</p>
+                <p><span class="definition">Sanitizing data</span>: removing any illegal characters from the data</p>
+                <p><span class="definition">Filters</span>: validates and sanitizes external input. Access the filter extension by using <span class="definition_php">filter_list()</span> function.</p>
+                <br>
+                <p><span class="definition_php">filter_var()</span>: validates and sanitizes data. Filters a single variable with a specified filter</p>
+                <ul>
+                    <li>takes the variable to check and the type of check to use.</li>
+                </ul>
+                <br>
+<pre><code class="language-php">
+&lt;?php
+    // Sanitize a String
+    $str = "&lt;h1&gt;Hello World!&lt;&frasl;h1&gt;";
+    $newstr = filter_var($str, FILTER_SANITIZE_STRING);
+
+    // Validate an Integer, the first check done because if $int set to 0, function will say it's invalid
+    $int = 100;
+    if (filter_var($int, FITLER_VALIDATE_INT) === 0 || !filter_var($int, FILTER_VALIDATE_INT) === false) {
+    	echo ("Integer is valid.");
+    } else {
+    	echo("Integer is not valid.")
+    }
+
+    // Validate IP Address
+    $ip = "127.0.0.1";
+
+    if (!filter_var($ip, FILTER_VALIDATE_IP) === false) {
+    	echo("$ip is a valid IP address.");
+    } else {
+    	echo("$ip is not a valid IP address");
+    }
+
+    // Sanitize and Validate Email Address
+    $email = "john.doe@example.com";
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+    	echo("$email is a valid email address.");
+    } else {
+    	echo("$email is not a valid email address.");
+    }
+?&gt;
+</code></pre>
+                <br>
+                <p>Other forms of validation and sanitizing using filter_var() include urls, integers within a range, IPv6 address, a url with a querystring, and removing HTML tags and all characters with ASCII values > 127.</p>
+            </div>
+
+            <div class="section">
+                <h2>Error Handling</h2>
+                <ol>
+                    <li>die() statements</li>
+                    <li>Custom errors and error triggers</li>
+                    <li>Error reporting</li>
+                </ol>
+                <br>
+
+                <h3>Using the die() Function</h3>
+<pre><code class="language-php">
+&lt;?php
+    if (!file_exists("file.txt")) {
+        die("File not found");
+    } else {
+        $file = fopen("file.txt", "r");
+    }
+?&gt;
+</code></pre>
+                <br>
+
+                <h3>Creating a Custom Error Handler</h3>
+                <p class="definition_php">error_function(<i>error_level</i>, <i>error_message</i>, <i>error_file</i>, <i>error_line</i>, <i>error_context</i>);</p>
+                <ul>
+                    <li>Only error level and error message is required.</li>
+                </ul>
+                <br>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>error_level</td>
+                        <td>Error report level. Must be a value number.</td>
+                    </tr>
+                    <tr>
+                        <td>error_message</td>
+                        <td>Error message</td>
+                    </tr>
+                    <tr>
+                        <td>error_file</td>
+                        <td>Filename which error occurred</td>
+                    </tr>
+                    <tr>
+                        <td>error_line</td>
+                        <td>Line number in which error occurred</td>
+                    </tr>
+                    <tr>
+                        <td>error_context</td>
+                        <td>Array containing every variable, their values in use when error occurred.</td>
+                    </tr>
+                </table>
+                <br>
+
+                <h3>Error Reporting</h3>
+                <table>
+                    <tr>
+                        <th colspan="3">Error Report Levels</th>
+                    </tr>
+                    <tr>
+                        <th>Value</th>
+                        <th>Constant</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>E_WARNING</td>
+                        <td>Non-fatal runtime error, execution continues.</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>E_NOTICE</td>
+                        <td>Script found something that might be an error.</td>
+                    </tr>
+                    <tr>
+                        <td>256</td>
+                        <td>E_USER_ERROR</td>
+                        <td>Fatal user-generated error. Like E_ERROR from trigger_error().</td>
+                    </tr>
+                    <tr>
+                        <td>512</td>
+                        <td>E_USER_WARNING</td>
+                        <td>Non-fatal user-generated warning. Like E_WARNING from trigger_error().</td>
+                    </tr>
+                    <tr>
+                        <td>1024</td>
+                        <td>E_USER_NOTICE</td>
+                        <td>User-generated notice. Like E_NOTICE from trigger_error().</td>
+                    </tr>
+                    <tr>
+                        <td>4096</td>
+                        <td>E_RECOVERABLE_ERROR</td>
+                        <td>Catchable fatal error. Like E_ERROR but can be caught.</td>
+                    </tr>
+                    <tr>
+                        <td>8191</td>
+                        <td>E_ALL</td>
+                        <td>All errors and warnings.</td>
+                    </tr>
+                </table>
+                <br>
+                <p><span class="definition_php">set_error_handler("<i>customErrorHandler</i>")</span>: specifies that the default error handler will be this new custom function.</p>
+                <p><span class="definition_php">trigger_error("<i>error_message</i>", <i>error_level</i>)</span>: triggers an error</p>
+            </div>
+
+            <div class="section">
+                <h2>Exception Handling</h2>
+                <p>PHP doesn't have exceptions that will cause a crash, so program will continue even if something has failed. The database stops it from crashing and has its own controls to check against duplicate entries. Exception is not a possibility because the client expects an error. Throwing an exception will result in the client timing out, usually 2 minutes.</p>
+                <br>
+                <p>When an exception is triggered:</p>
+                <ul>
+                    <li>The current code state is saved.</li>
+                    <li>Code execution switches to the exception handler function.</li>
+                    <li>The handler may resume execution, terminate, or continue the script in a different part of the code.</li>
+                </ul>
+                <br>
+                <p><span class="definition">Try</span>: function using exception should be in a try block</p>
+                <p><span class="definition">Throw</span>: how to trigger an exception, must have at least one catch</p>
+                <p><span class="definition">Catch</span>: retrieves an exception. Creates object containing exception information.</p>
+                <ul>
+                    <li>You can have multiple exceptions and catch blocks.</li>
+                    <li>You can re-throw Exceptions by throwing in a catch block but wrapping the original try-catch block in another try-catch block.</li>
+                </ul>
+                <br>
+<pre><code class="language-php">
+&lt;?php
+    function checkNum($number) {
+        if ($number > 1) {
+        	throw new Exception("Value must be 1 or below");
+        }
+        return true;
+    }
+
+    try {
+    	checkNum(2);
+    	echo 'Number is 1 or below.';
+    } catch (customException $e) {
+        echo 'CustomException: ' . $e-&gt;getMessage();
+    } catch (Exception $e) {
+        echo 'Message: ' . $e-&gt;getMessage();
+    }
+?&gt;
+</code></pre>
+                <br>
+                <h3>Create a Custom Exception Class</h3>
+                <ul>
+                    <li>The class must extend from the Exception class.</li>
+                </ul>
+                <br>
+<pre><code class="language-php">
+&lt;?php
+    class CustomException extends Exception {
+    	public function errorMessage() {
+    		// error message
+    		$errorMsg = 'Error on line ' .$this-&gt;getLine().' in '.this-&gt;getFile() .': &lt;b&gt; '.this-&gt;getMessage().'&lt;/b&gt; is not a valid Email address';
+    		return $errorMsg;
+        }
+    }
+?&gt;
+</code></pre>
+                <br>
+                <p><span class="definition_php">set_exception_handler()</span>: sets user-defined function to handle all uncaught exceptions.</p>
+                <ul>
+                    <li>No need for a catch block since this sets a top level exception handler.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Database Connections</h2>
+                <table>
+                    <tr>
+                        <th colspan="2">Mysqli Methods</th>
+                    </tr>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>mysqli_fetch_row($result)</td>
+                        <td>Fetches one row from a result-set and returns it as an enumerated array.</td>
+                    </tr>
+                    <tr>
+                        <td>mysqli_fetch_array($result)</td>
+                        <td>Fetches a result row as an associative, a numeric array, or both. Both will iterate through each record based on what was returned from the query.</td>
+                    </tr>
+                    <tr>
+                        <td>mysqli_fetch_assoc()</td>
+                        <td>Fetches a result row as an associative array.</td>
+                    </tr>
+                </table>
+                <br>
+                <p><span class="definition">Result-set</span> object: transient table that returns the results of the query. Can pull from table to extract information.</p>
+<pre><code class="language-php">
+$result = mysqli_query($db, $sql);  // returns the result object
+$size = mysqli_affected_rows($db);  // size of result-set
+$rows = mysqli_fetch_all($result, MYSQLI_ASSOC(or _NUM or _BOTH));
+foreach ($rows as $row) {
+$row['fname'];
+$row[i];
+}
+// To fetch one row at a time
+while ($row=mysqli_fetch_array($result)) {
+statements;
+}
+</code></pre>
+            </div>
+        </div>
+
+        <div id="directory_container">
+            <div id="navigation_buttons">
+                <div>
+                    <img src="../images/return_top_arrow.png" alt="open" id="directory_top_arrow">
                 </div>
-                <div id="directory">
+                <div>
+                    <img src="../images/directory_menu.png" alt="menu" id="directory_menu">
                 </div>
+            </div>
+            <div id="directory">
             </div>
         </div>
     </body>

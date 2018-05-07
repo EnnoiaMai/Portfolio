@@ -12,25 +12,12 @@ Date Created: December 2017
     /* font-family: 'Source Sans Pro', sans-serif; */
     /* font-family: 'Open Sans', sans-serif; */
 }
-/* body {
-    min-width: 1000px;
-}
-body > div {
-    min-width: 840px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;
-    overflow: auto;
-} */
 
-.content {
+/*============================== CONTENT =====================================*/
+#content {
     margin-left: 16%;
-    /* flex-grow: 1;
-    flex-shrink: 1; */
-    /* border: 2px dashed red; */
 }
-
-.header {
+#content_header {
     color: #FFF;
     background-color: rgba(103, 103, 103, 1.0);
     /* min-height: 40%; */
@@ -41,6 +28,7 @@ body > div {
     align-items: center;
     /* border: 1px solid green; */
 }
+
 .list {
     width: 80%;
     display: flex;
