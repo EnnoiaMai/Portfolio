@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: May 2018
+-->
+<html>
+    <head>
+        <title>Project 3 - Google Web Toolkit (GWT)</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Thuc's Portfolio">
+        <meta name="author" content="Thuc Nguyen">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../css/details.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-java.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/details.js"></script>
+    </head>
+
+    <body>
+        <div id="sidebar">
+            <div id="menu_icon">
+                <img src="../../images/ic_menu_white_36dp_1x.png" alt="Menu">
+                <img src="../../images/ic_menu_highlighted_36dp_1x.png" alt="Menu">
+            </div>
+            <ul>
+                <li><a href="../../index.html" id="link_home">Home</a></li>
+                <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                <div id="submenu">
+                    <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                    <div>
+                        <img src="../../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
+                    </div>
+                </div>
+                <li id="submenu_links">
+                    <ul>
+                        <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                        <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                        <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                        <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                        <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                        <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                        <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                        <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                        <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                        <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                        <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                        <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                        <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div id="content_header" class="header_cs545">
+                <h1>Project 3 - Google Web Toolkit (GWT)</h1>
+            </div>
+
+            <div class="section">
+                <h2>Assignment Details</h2>
+                <p>Deployment is done by placing all files in the /war directory onto the top level in gwtxxx folder on jadran. Application would be accessed at http://jadran.sdsu.edu/gwtxxx/Whiteboard.html (unavailable).</p>
+                <br>
+
+                <h3>Assignment</h3>
+                <p>For this assignment, you will develop an online white board application using the Google Web Toolkit. All parts of this project should be created within the Google Web Toolkit. This application is designed to allow users to have an online editable writing space where they can note important reminders, or keep a to-do list, or communicate with others.</p>
+                <br>
+
+                <h3>Details</h3>
+                <p>Since the application is online, it must be protected. You must start with a login screen to authenticate the user. There is no need to add user login management functionality; nor do you really need a username/password. Just a password will be sufficient to keep unauthorized troublemakers out, as the security requirements are minimal. One login password must be:</p>
+                <ul>
+                    <li>password: sp2018</li>
+                </ul>
+                <br>
+                <p>Your application will display a page where users may add, edit/modify, or delete any text. The page contents (data) must be stored on the jadran server, and must be persistent. Should the server crash, or be rebooted, no data should be lost. Thus, you will have to commit any changes in the data to disk on the server. Thus, the minimum specifications require a single editable page. You should have two buttons: SAVE and RELOAD.</p>
+                <br>
+                <p>Since the application is multi-user, you should synchronize any critical sections to prevent corruption.</p>
+            </div>
+
+            <div class="section">
+                <h2>Additional Notes</h2>
+                <p><b>Note</b>: the code was written by Professor Riggins and there were only a few changes I made to the code, including the following:</p>
+                <ul>
+                    <li>Changes made in the CSS</li>
+                    <li>Customizing the RichTextArea and buttons by using a FlowPanel that has its CSS properties set to act like a horizontal panel. HorizontalPanel class wasn't used because width of the children couldn't be specified.</li>
+                </ul>
+                <br>
+                <p>Because of this, the code will be unavailable on my Github, and I will only show snippets of the code on this page.</p>
+                <br>
+                <p>References for this application include the <a href="http://www.gwtproject.org/doc/latest/RefWidgetGallery.html">GWT Widget Gallery</a>, and the <a href="http://www.gwtproject.org/javadoc/latest/index.html">GWT API</a>.</p>
+                <br>
+
+                <p><span class="definition">GWT</span>: an integrated client-to-server solution in which code is written in Java. The client-side uses Javascript, which is cross-compiled from Java. On the server-side, servlets are used but they do not need to be manually deployed.</p>
+                <br>
+
+                <p>Some advantages that GWT offers:</p>
+                <ul>
+                    <li>A closed system in which everything is written in Java - not HTML, CSS, or JS. However, an exception is CSS because it can be used to style GWT widgets.</li>
+                    <li>Differences seen across browsers diminishes. GWT works nicely on different kinds of browsers because it generates multiple versions of the code for those browsers.</li>
+                </ul>
+                <br>
+
+                <p>Some disadvantages include:</p>
+                <ul>
+                    <li>Porting to another system is not trivial.</li>
+                    <li>When making changes, the developer must go back to the code base, load the system, recompile, and redeploy. So he/she must go through the entire development process again.</li>
+                </ul>
+                <br>
+
+                <p>GWT attempts to</p>
+                <ol>
+                    <li>Handle overloading the client side with JS.</li>
+                    <li>Handle AJAX in another way.</li>
+                    <li>Solve or side-step serialization. JSON isn't needed. Developer can use same platform for both the client and the server.</li>
+                </ol>
+                <br>
+                <p><span class="definition">Remote Procedure Calls</span>: calling a method on the client when the code is actually on the server. The caller is the client, the executor is the server.</p>
+                <br>
+
+                <p>Before starting the project, the <a href="http://www.gwtproject.org/download.html">GWT SDK</a> and <a href="https://ant.apache.org/">ANT</a> program were downloaded and installed.</p>
+                <br>
+                <p><span class="definition">ANT</span>: a tool for building Java projects, a make utility which recompiles source files and redeploys it using a build file (build.xml). Commands -</p>
+                <ol>
+                    <li><b>ant clean</b>: remove all compiled files</li>
+                    <li><b>ant build</b>: build and compiles the files</li>
+                    <li><b>ant devmode</b>: development mode, initiates mini environment on computer</li>
+                </ol>
+                <p><span class="definition">Jetty</span>: development environment which uses your browser but runs a web server on the local machine. Essentially a local server.</p>
+                <ul>
+                    <li>To deploy, transfer files from war directory to server. </li>
+                    <li>Change permissions of any files on the server that is being written to.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Project Details</h2>
+                <p><b>Note</b>: the code was written by Professor Riggins. This is an explanation of that written code and of how the assignment was completed.</p>
+                <br>
+
+                <h3>Login Panel</h3>
+                <p>Since this application was designed as a single-page application, visiting the page or refreshing it will always require authentication via password.</p>
+                <br>
+
+                <p class="applicable_files">Whiteboard.java</p>
+                <p>As noted by implementing <span class="code_web">EntryPoint</span>, this file is the entry point into the application and <span class="code_method_sub">onModuleLoad()</span> is analogous to the main() method in Java.</p>
+                <br>
+                <p>Import any packages required to use the GWT widgets and the AsyncCallback.</p>
+    <pre><code class="language-java">
+    package edu.sdsu.cs645.client;
+
+    import com.google.gwt.core.client.*;
+    import com.google.gwt.event.dom.client.*;
+    import com.google.gwt.user.client.rpc.AsyncCallback;
+    ...
+    </code></pre>
+                <br>
+
+                <p>Class Level Variables.</p>
+    <pre><code class="language-java">
+    public class Whiteboard implements EntryPoint {
+
+        private final WhiteboardServiceAsync whiteboardService = GWT.create(WhiteboardService.class);
+        private HTML status;
+        private RichTextArea board;
+    }
+    </code></pre>
+                <br>
+                <ul>
+                    <li>Creating a <span class="code_web">WhiteboardServiceAsync</span> object allows for communication with the server.</li>
+                    <li>The status, an <span class="code_web">HTML</span> object, is used to inform the user.</li>
+                    <li>The <span class="code_web">RichTextArea</span> object will hold the content, or anything that will be read from or written to a text file.</li>
+                </ul>
+                <br>
+
+                <p><span class="code_method">onModuleLoad()</span> - initialize the status HTML object and set any class names to style it, then call <span class="code_method_sub">buildLogin()</span>.</p>
+    <pre><code class="language-java">
+    public void onModuleLoad() {
+        status = new HTML();
+        status.getElement().setId("status_message");
+        buildLogin();
+    }
+    </code></pre>
+                <br>
+
+                <p><span class="code_method">buildLogin()</span> - builds the login panel by using Flow Panels. Sets any class names or id attributes for styling. Add a label and the <span class="code_web">PasswordTextBox</span> to a <span class="code_web">FlowPanel</span>, the clear and login buttons to another FlowPanel. Add the click handlers for the login and clear button. Clicking clear will empty the text in the PasswordTextBox, while clicking login will call <span class="code_method_sub">validateLogin()</span>. Add the FlowPanels to the <span class="code_web">RootPanel</span>.</p>
+    <pre><code class="language-java">
+    private void buildLogin() {
+        FlowPanel loginPanel = new FlowPanel();
+        FlowPanel passwordPanel = new FlowPanel();
+
+        final PasswordTextBox password = new PasswordTextBox();
+        passwordPanel.add(password);
+
+        ...
+
+        Button loginButton = new Button();
+        Button clearButton = new Button();
+
+        loginButton.addClickHandler(new ClickHandler(){
+            public void onClick(ClickEvent e) {
+                validateLogin(password.getText());
+            }
+        });
+        clearButton.addClickHandler(new ClickHandler(){
+            public void onClick(ClickEvent e) {
+                status.setText("");
+                password.setText("");
+            }
+        });
+
+        ...
+
+        RootPanel.get().add(loginPanel);
+    }
+    </code></pre>
+                <br>
+
+                <p><span class="code_method">validateLogin()</span> - initializes a new <span class="code_web">AsyncCallback</span> object which in onSuccess() will clear the status and call <span class="code_method">buildWhiteboard()</span> while in onFailure(), will set the error message to the status and print the stack trace. <span class="code_method_sub">validateLogin()</span> of the WhiteboardServiceAsync remote service object will then be fired, passing in the arguments for the login password the user had typed in and the callback that was just created.</p>
+                <br>
+    <pre><code class="language-java">
+    private void validateLogin(String login) {
+        AsyncCallback callback = new AsyncCallback() {
+            public void onSuccess(Object results) {
+                String answer = (String) results;
+                if (answer.equals("OK")) {
+                    buildWhiteboard();
+                }
+            }
+            public void onFailure(Throwable error) {
+                error.printStackTrace();
+            };
+        };
+        whiteboardService.validateLogin(login, callback);
+    }
+    </code></pre>
+                <br>
+
+                <p class="applicable_files">WhiteboardService.java</p>
+                <p>An interface wherein each method declared will specify the type of argument it takes, if any, and the String object to be returned. This is usually the place to declare the methods for any AJAX-like called (though this file is the synchronous version).</p>
+                <br>
+    <pre><code class="language-java">
+    @RemoteServiceRelativePath("whiteboard")
+    public interface WhiteboardService extends RemoteService {
+        String validateLogin(String name) throws IllegalArgumentException;
+        ...
+    }
+    </code></pre>
+                <br>
+
+                <p class="applicable_files">WhiteboardServiceAsync.java</p>
+                <p>The actual asynchronous version of <span class="applicable_files_sub">WhiteboardService.java</span>. Declared methods must return void, and the arguments are specified as needed although the AsyncCallback object must be included.</p>
+                <br>
+    <pre><code class="language-java">
+    public interface WhiteboardServiceAsync {
+        void validateLogin(String input, AsyncCallback&lt;String&gt; callback)
+            throws IllegalArgumentException;
+        ...
+    }
+    </code></pre>
+                <br>
+
+                <p class="applicable_files">WhiteboardServiceImpl.java</p>
+                <p>The file in which to implement the declared interface methods. <span class="code_method_sub">validateLogin()</span> checks to see if the input String simply equals "sp2018" as only 1 password is allowed, and returns "OK" if there is a match and "INVALID" if there isn't.</p>
+                <br>
+    <pre><code class="language-java">
+    public class WhiteboardServiceImpl extends RemoteServiceServlet implements
+        WhiteboardService {
+
+        public String validateLogin(String input) throws IllegalArgumentException {
+            if (input.equals("sp2018")) {
+                return "OK";
+            }
+            return "INVALID";
+        }
+    }
+    </code></pre>
+                <br>
+                <p>The following shows how a user would login to the application.</p>
+                <br>
+                <div class="preview_div">
+                    <img src="../../images/screenshots/CS645_Project3_login.gif" alt="CS645 Project 3 Login Preview">
+                </div>
+                <br>
+
+                <h3>Whiteboard Panel</h3>
+                <p class="applicable_files">Whiteboard.java</p>
+                <p><span class="code_method">buildWhiteboard()</span> - layout the page by using FlowPanels and styling the CSS. Add the title, the RichTextArea, the button panels (by calling <span class="code_method_sub">getButtonPanel()</span>), and the status to a FlowPanel. Clear the RootPanel and then add that new FlowPanel. Call <span class="code_method_sub">loadPanel()</span>.</p>
+                <br>
+
+                <p><span class="code_method">getButtonPanel()</span> - sets up the clear, load, and save buttons as well as set the click handlers for them:</p>
+                <ol>
+                    <li><b>clear</b> - removes the text in the RichTextArea and the status</li>
+                    <li><b>load</b> - calls loadPanel()</li>
+                    <li><b>save</b> - calls savePanel()</li>
+                </ol>
+                <br>
+
+                <p><span class="code_method">savePanel()</span> - similar to <span class="code_method_sub">validateLogin()</span> in that this method creates a new AsyncCallback object and calls <span class="code_method_sub">save()</span> on the WhiteboardServiceAsync object. If "OK" is returned, display success message in status, else display the error message</p>
+                <br>
+
+                <p><span class="code_method">loadPanel()</span> - similar to <span class="code_method_sub">valdiateLogin()</span> in that this method creates a new AsyncCallback object and calls <span class="code_method_sub">load()</span> on the WhiteboardServiceAsync object. The onSuccess() parameter is the content that was saved, and so the RichTextArea has its HTML set to this.</p>
+                <br>
+
+                <p class="applicable_files">WhiteboardServiceImpl.java</p>
+                <p>The following is a snippet of writing to a file named "data.txt" on the server, which acts as a way to persist data. The Servlet context is retrieved to get the path before appending the String "data.txt" to it.</p>
+                <br>
+    <pre><code class="language-java">
+    String path = getServletContext().getRealPath("/");
+    String fileName = path + "/data.txt";
+    try {
+        PrintWriter out = new PrintWriter(new FileWriter(filename));
+        // contents is the parameter passed in
+        out.print(contents);
+        out.close();
+    } catch(Exception error) {
+        return "ERROR";
+    }
+    return "OK";
+    </code></pre>
+                <br>
+
+                <p>Reading the file when the user clicks the load button triggers code similar to writing in the contents to the data file, except that a BufferedReader object is used to read in each line of the file.</p>
+                <br>
+
+                <!-- [gif] Example of clearing RichTextArea -->
+                <p>The following shows the text in the RichTextArea being cleared.</p>
+                <div class="preview_div">
+                    <img src="../../images/screenshots/CS645_Project3_clear.gif" alt="CS645 Project 3 Clear Preview">
+                </div>
+                <br>
+
+                <!-- [gif] Example of Saving the text, clearing, and Loading -->
+                <p>The following shows saving the contents to disk, clearing the content, and loading the content from disk back onto the RichTextArea.</p>
+                <div class="preview_div">
+                    <img src="../../images/screenshots/CS645_Project3_save_clear_load.gif" alt="CS645 Project 3 Save, Clear, and Load Preview">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
