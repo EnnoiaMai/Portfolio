@@ -86,7 +86,11 @@ var mediaQueryList;
 // Methods used for sidebar and submenu selection
 function initializeSidebar() {
     // Hamburger menu
-    $('#sidebar > div img').on('click', toggleMenu);
+    // $('#menu_icon img').on('click', toggleMenu);
+    // Mousing over and out, and clicking, of hamburger icon
+    $('#menu_icon').on('mouseenter', toggleOverMenuAnimation);
+    $('#menu_icon').on('mouseleave', toggleOutMenuAnimation)
+    $('#menu_icon').on('click', toggleMenu);
 
     // Submenu
     $('#submenu img').on('click', toggleSubMenu);
@@ -159,6 +163,9 @@ function onChangeScreenType() {
                     "transition": "margin-left 300ms"
                 });
                 $("#sidebar > ul").css("display", "block");
+
+                $('#menu_icon img:nth-child(1)').css("z-index", "0");
+                $('#menu_icon img:nth-child(2)').css("z-index", "10");
             }
             else {
                 $("#sidebar").css({
@@ -176,6 +183,9 @@ function onChangeScreenType() {
                     "transition": "margin-left 300ms"
                 });
                 $("#sidebar > ul").css("display", "none");
+
+                $('#menu_icon img:nth-child(1)').css("z-index", "10");
+                $('#menu_icon img:nth-child(2)').css("z-index", "0");
             }
             break;
 
@@ -187,6 +197,31 @@ function onChangeScreenType() {
 function toggleMenu() {
     hamburgerToggled = !hamburgerToggled;
     onChangeScreenType();
+}
+
+/*
+    On mouse enter and mouse leave over the div, smoothly animate
+    the top image's opacity.
+*/
+function toggleOverMenuAnimation() {
+    if (!hamburgerToggled) {
+        $('#menu_icon img:nth-child(1)').stop().animate({
+            opacity: 0.0
+        }, 300);
+        $('#menu_icon img:nth-child(2)').stop().animate({
+            opacity: 1.0
+        }, 300);
+    }
+}
+function toggleOutMenuAnimation() {
+    if (!hamburgerToggled) {
+        $('#menu_icon img:nth-child(1)').stop().animate({
+            opacity: 1.0
+        }, 300);
+        $('#menu_icon img:nth-child(2)').stop().animate({
+            opacity: 0.0
+        }, 300);
+    }
 }
 
 function toggleSubMenu() {

@@ -8,61 +8,57 @@ Date Created: December 2017
     padding: 0px;
     margin: 0px;
     font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif;
-    line-height: 148%;
-}
-body {
-    min-width: 1000px;
-}
-body > div {
-    min-width: 840px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;
-    overflow: auto;
-}
-/* Container that holds the Header and the Content */
-.content_container {
-    flex-grow: 1;
-    flex-shrink: 1;
+    box-sizing: border-box;
 }
 
-/*================================== HEADER ==================================*/
-.header {
+/*================================ CONTENT ===================================*/
+#content {
+    margin-left: 16%;
+    line-height: 148%;
+    /* border: 2px dashed red; */
+}
+
+#content_header {
     height: 300px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 24px;
 }
-#header_cs545 {
+.header_cs545 {
     color: #FFF;
     background-color: rgba(72, 135, 132, 1.0); /* Teal */
 }
-#header_cs646 {
+.header_cs646 {
     color: #FFF;
     background-color: rgba(53, 101, 142, 1.0); /* Cobalt Blue */
 }
-#header_cs646_01 {
-  color: #FFF;
-  background-color: rgba(53, 101, 142, 1.0); /* Cobalt Blue */
+.header_cs646_01 {
+    color: #FFF;
+    background-color: rgba(53, 101, 142, 1.0); /* Cobalt Blue */
 }
 
-/*================================ CONTENT ===================================*/
-.content {
+#content > div:nth-child(n+2) {
     font-size: 110%;
     width: 85%;
-    padding-bottom: 48px;
-    margin: 24px auto 0px auto;
-    /* border: 1px dashed blue; */
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-bottom: 48px;
+    margin: 24px auto 0px auto; */
 }
-.content ul, .content ol {
+
+#content ul, #content ol {
     padding-left: 32px;
 }
-.content pre, .content code {
+#content pre, #content code {
     font-size: 94%;
 }
 .section {
     margin-bottom: 24px;
+}
+.section > h2 {
+    padding: 24px 0px;
 }
 
 /*-------------------- IMAGE CONTAINER FOR LARGE IMAGES --------------------*/
@@ -95,7 +91,6 @@ body > div {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  box-sizing: border-box;
 }
 .preview_div_portrait_portrait > div {
   flex-basis: 45%;
@@ -116,7 +111,6 @@ body > div {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  box-sizing: border-box;
 }
 .preview_div_portrait_landscape > div {
   flex-basis: 45%;

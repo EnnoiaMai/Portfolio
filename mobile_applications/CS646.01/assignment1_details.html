@@ -23,15 +23,18 @@ Date Created: January 2018
     <script type="text/javascript" src="../../js/details.js"></script>
   </head>
   <body>
-    <div>
       <div id="sidebar">
+          <div id="menu_icon">
+              <img src="../../images/ic_menu_white_36dp_1x.png" alt="Menu">
+              <img src="../../images/ic_menu_highlighted_36dp_1x.png" alt="Menu">
+          </div>
           <ul>
               <li><a href="../../index.html" id="link_home">Home</a></li>
               <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
               <div id="submenu">
                   <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
                   <div>
-                      <img src="../../images/open_submenu.png" alt="open">
+                      <img src="../../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
                   </div>
               </div>
               <li id="submenu_links">
@@ -54,12 +57,11 @@ Date Created: January 2018
           </ul>
       </div>
 
-      <div class="content_container">
-        <div class="header" id="header_cs646_01">
-          <h1>CS646.01 Assignment 1 - Converting Currencies</h1>
-        </div>
+        <div id="content">
+            <div id="content_header" class="header_cs646_01">
+              <h1>CS646.01 Assignment 1 - Converting Currencies</h1>
+            </div>
 
-        <div class="content">
           <div class="section">
             <h2>Assignment</h2>
             <p><b>Convert</b></p>
@@ -93,15 +95,15 @@ Date Created: January 2018
             <h3 class="applicable_files">ConvertActivity.java</h3>
             <p>An enum called <span class="code_CS646_01">FocusedEditText</span> was declared and the property <span class="code_CS646_01">currentFocusedEditText</span> was instantiated to <span class="code_CS646_01">.NONE</span>. The property is used to mark which edit text field the user just tapped on, or is in focus. This allows the unfocused text field to be cleared of text to make it more clear to the user which currency is being converted.</p>
             <br>
-  <pre><code class="language-java">
-  private FocusedEditText currentFocusedEditText = FocusedEditText.NONE;
+    <pre><code class="language-java">
+    private FocusedEditText currentFocusedEditText = FocusedEditText.NONE;
 
-  private enum FocusedEditText {
+    private enum FocusedEditText {
     USD,
     INR,
     NONE
-  }
-  </code></pre>
+    }
+    </code></pre>
             <br>
 
             <ul>
@@ -109,9 +111,9 @@ Date Created: January 2018
               <br>
               <li><span class="code_method">convertInputValue()</span> - takes the value of the currently focused edit text field, converts it to a float, and calculates the new amount converted to the other currency. Something interesting to note was that a formatted string with the proper locale had to be used to set the edit text field.</li>
               <br>
-  <pre><code class="language-java">
-  useEditText.setText(String.format(Locale.US, "%.2f", (usdInputValue * usdRate)));
-  </code></pre>
+    <pre><code class="language-java">
+    useEditText.setText(String.format(Locale.US, "%.2f", (usdInputValue * usdRate)));
+    </code></pre>
             </ul>
             <br>
 
@@ -135,7 +137,5 @@ Date Created: January 2018
             </div>
           </div>
         </div>
-      </div>
-    </div>
   </body>
 </html>

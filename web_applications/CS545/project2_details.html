@@ -20,95 +20,95 @@ Date Created: December 2017
     </head>
 
     <body>
-        <div>
-            <div id="sidebar">
-                <ul>
-                    <li><a href="../../index.html" id="link_home">Home</a></li>
-                    <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
-                    <div id="submenu">
-                        <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
-                        <div>
-                            <img src="../../images/open_submenu.png" alt="open">
-                        </div>
+        <div id="sidebar">
+            <div id="menu_icon">
+                <img src="../../images/ic_menu_white_36dp_1x.png" alt="Menu">
+                <img src="../../images/ic_menu_highlighted_36dp_1x.png" alt="Menu">
+            </div>
+            <ul>
+                <li><a href="../../index.html" id="link_home">Home</a></li>
+                <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                <div id="submenu">
+                    <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                    <div>
+                        <img src="../../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
                     </div>
-                    <li id="submenu_links">
-                        <ul>
-                            <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
-                            <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
-                            <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
-                            <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
-                            <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
-                            <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
-                            <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
-                            <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
-                            <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
-                            <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
-                            <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
-                            <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
-                            <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
-                        </ul>
-                    </li>
+                </div>
+                <li id="submenu_links">
+                    <ul>
+                        <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                        <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                        <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                        <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                        <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                        <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                        <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                        <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                        <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                        <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                        <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                        <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                        <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div id="content_header" class="header_cs545">
+                <h1>Project 2 - Marathon (Client-side)</h1>
+            </div>
+
+            <div class="section">
+                <h2>Assignment Details</h2>
+                <p>The first part of a two-part assignment which will use HTML5, CSS, and Javascript to build the application. The purpose of the assignment is to let users sign up for a fictitious marathon. The information for the run is all fictional, but users must be able to fill out a form, submit the information, receive a confirmation, and the roster of runners should be available for viewing. The second part of the assignment uses PHP, AJAX, and MySQL to allow user information to be processed on the server and stored in the database. There will be two levels of validation - the first on the client side using javascript and the second on the server side.</p>
+                <br>
+                <p>The project must contain the following:</p>
+                <ul>
+                    <li>A landing HTML5 page which provides specific details about the marathon and contains links for the user to sign up for the marathon and for the user to view the roster.</li>
+                    <li>A signup page which is a form with the following fields:</li>
+                    <ol>
+                        <li>Runner's Image</li>
+                        <li>First, Middle, and Last Name</li>
+                        <li>Address, City, State, and Zip Code (2 lines total)</li>
+                        <li>Primary Phone Number</li>
+                        <li>Email Address</li>
+                        <li>Gender</li>
+                        <li>Date of Birth</li>
+                        <li>Medical Conditions (use textarea element)</li>
+                        <li>Experience Level (Expert, Experienced, Novice)</li>
+                        <li>Category (Teen, Adult, Senior)</li>
+                    </ol>
                 </ul>
             </div>
 
-            <div class="content_container">
-                <div class="header" id="header_cs545">
-                    <h1>Project 2 - Marathon (Client-side)</h1>
+            <div class="section">
+                <h2>Project Details</h2>
+                <br>
+                <h4>CSS</h4>
+                <p>The layout of the landing page was simple and straightforward, with the information about the race divided into subsections, color-coded by background color. The menu was made using a flexbox. To dim the brightness of the header image, a container was laid above it with a dark background color that was slightly transparent.</p>
+                <br>
+                <div class="preview_div">
+                    <img src="../../images/screenshots/CS545_Project2_3_home_preview.gif" alt="CS545 Project 2-3 Home Preview">
                 </div>
-
-                <div class="content">
-                    <div class="section">
-                        <h2>Assignment Details</h2>
-                        <p>The first part of a two-part assignment which will use HTML5, CSS, and Javascript to build the application. The purpose of the assignment is to let users sign up for a fictitious marathon. The information for the run is all fictional, but users must be able to fill out a form, submit the information, receive a confirmation, and the roster of runners should be available for viewing. The second part of the assignment uses PHP, AJAX, and MySQL to allow user information to be processed on the server and stored in the database. There will be two levels of validation - the first on the client side using javascript and the second on the server side.</p>
-                        <br>
-                        <p>The project must contain the following:</p>
-                        <ul>
-                            <li>A landing HTML5 page which provides specific details about the marathon and contains links for the user to sign up for the marathon and for the user to view the roster.</li>
-                            <li>A signup page which is a form with the following fields:</li>
-                            <ol>
-                                <li>Runner's Image</li>
-                                <li>First, Middle, and Last Name</li>
-                                <li>Address, City, State, and Zip Code (2 lines total)</li>
-                                <li>Primary Phone Number</li>
-                                <li>Email Address</li>
-                                <li>Gender</li>
-                                <li>Date of Birth</li>
-                                <li>Medical Conditions (use textarea element)</li>
-                                <li>Experience Level (Expert, Experienced, Novice)</li>
-                                <li>Category (Teen, Adult, Senior)</li>
-                            </ol>
-                        </ul>
-                    </div>
-
-                    <div class="section">
-                        <h2>Project Details</h2>
-                        <br>
-                        <h4>CSS</h4>
-                        <p>The layout of the landing page was simple and straightforward, with the information about the race divided into subsections, color-coded by background color. The menu was made using a flexbox. To dim the brightness of the header image, a container was laid above it with a dark background color that was slightly transparent.</p>
-                        <br>
-                        <div class="preview_div">
-                            <img src="../../images/screenshots/CS545_Project2_3_home_preview.gif" alt="CS545 Project 2-3 Home Preview">
-                        </div>
-                        <br>
-                        <p>The form was also laid out using flexboxes.</p>
-                        <br>
-                        <div class="preview_div">
-                            <img src="../../images/screenshots/CS545_Project2_3_form_preview.gif" alt="CS545 Project 2-3 Form Preview">
-                        </div>
-                        <br>
-
-                        <h4>Validation (Javascript)</h4>
-                        <p>Applicable files: <span class="applicable_files">registration_jquery.js</span></p>
-                        <br>
-                        <p>The on click event handler was attached to the submit button, which called a function that checked if all the input fields in the form was valid. If at least one field was invalid, the form would be prevented from submitting. The form elements that did not validate were indicated by a red border, and a brief description of what went wrong was set to visible. Clicking the reset input would clear the data in the form along with the red borders and error descriptions. The most recent error was also indicated by giving focus to that input box.</p>
-                        <br>
-                        <div class="preview_div">
-                            <img src="../../images/screenshots/CS545_Project2_3_form_error_preview.gif" alt="CS545 Project 2-3 Form Error Preview">
-                        </div>
-                        <br>
-                        <p>The first and last names were validated by checking for no input or an empty field, done by trimming the input data. The middle name was not validated because it can be optional. All of the fields for the address were checked for empty input by trimming, and the select element (dropdown) was checked against null. Furthermore, a regular expression of a 5-digit number was used for the zip code and tested against using the test() method. This method of validation in which input was trimmed and checked against a regex was done for the phone number, email, and date of birth as well. However, what was interesting was the way in which the date of birth was valdiated. In order to check that the date provided by the user was a real date, the input arguments were passed to the Date parameters when instantiating a new Date object. The Date library would then create a new object in which the date was potentially shifted because the parameters provided were incorrect. The month, day, and year of this new object was checked for equality against the user's inputs. The gender, experience, and age category were all radio buttons, and were validated by checking if at least one of the radio buttons were actually checked.</p>
-                    </div>
+                <br>
+                <p>The form was also laid out using flexboxes.</p>
+                <br>
+                <div class="preview_div">
+                    <img src="../../images/screenshots/CS545_Project2_3_form_preview.gif" alt="CS545 Project 2-3 Form Preview">
                 </div>
+                <br>
+
+                <h4>Validation (Javascript)</h4>
+                <p>Applicable files: <span class="applicable_files">registration_jquery.js</span></p>
+                <br>
+                <p>The on click event handler was attached to the submit button, which called a function that checked if all the input fields in the form was valid. If at least one field was invalid, the form would be prevented from submitting. The form elements that did not validate were indicated by a red border, and a brief description of what went wrong was set to visible. Clicking the reset input would clear the data in the form along with the red borders and error descriptions. The most recent error was also indicated by giving focus to that input box.</p>
+                <br>
+                <div class="preview_div">
+                    <img src="../../images/screenshots/CS545_Project2_3_form_error_preview.gif" alt="CS545 Project 2-3 Form Error Preview">
+                </div>
+                <br>
+                <p>The first and last names were validated by checking for no input or an empty field, done by trimming the input data. The middle name was not validated because it can be optional. All of the fields for the address were checked for empty input by trimming, and the select element (dropdown) was checked against null. Furthermore, a regular expression of a 5-digit number was used for the zip code and tested against using the test() method. This method of validation in which input was trimmed and checked against a regex was done for the phone number, email, and date of birth as well. However, what was interesting was the way in which the date of birth was valdiated. In order to check that the date provided by the user was a real date, the input arguments were passed to the Date parameters when instantiating a new Date object. The Date library would then create a new object in which the date was potentially shifted because the parameters provided were incorrect. The month, day, and year of this new object was checked for equality against the user's inputs. The gender, experience, and age category were all radio buttons, and were validated by checking if at least one of the radio buttons were actually checked.</p>
             </div>
         </div>
     </body>

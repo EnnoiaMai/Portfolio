@@ -23,450 +23,450 @@ Date Created: January 2018
     </head>
 
     <body>
-        <div>
-            <div id="sidebar">
-                <ul>
-                    <li><a href="../../index.html" id="link_home">Home</a></li>
-                    <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
-                    <div id="submenu">
-                        <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
-                        <div>
-                            <img src="../../images/open_submenu.png" alt="open">
-                        </div>
+        <div id="sidebar">
+            <div id="menu_icon">
+                <img src="../../images/ic_menu_white_36dp_1x.png" alt="Menu">
+                <img src="../../images/ic_menu_highlighted_36dp_1x.png" alt="Menu">
+            </div>
+            <ul>
+                <li><a href="../../index.html" id="link_home">Home</a></li>
+                <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                <div id="submenu">
+                    <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                    <div>
+                        <img src="../../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
                     </div>
-                    <li id="submenu_links">
-                        <ul>
-                            <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
-                            <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
-                            <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
-                            <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
-                            <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
-                            <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
-                            <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
-                            <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
-                            <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
-                            <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
-                            <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
-                            <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
-                            <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                </div>
+                <li id="submenu_links">
+                    <ul>
+                        <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                        <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                        <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                        <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                        <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                        <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                        <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                        <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                        <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                        <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                        <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                        <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                        <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div id="content_header" class="header_cs646">
+                <h1>CS646 Assignment 2 - LinkedList, High-order Functions</h1>
             </div>
 
-            <div class="content_container">
-                <div class="header" id="header_cs646">
-                    <h1>CS646 Assignment 2 - LinkedList, High-order Functions</h1>
-                </div>
+            <div class="section">
+                <h2>Assignment</h2>
+                <p>The assignment, like the first one, attempts to develop understanding of the Swift 4.0 language. Primarily, this assignment focuses on classes, enums, structs, protocols, and extensions.</p>
+                <br>
+                <ol>
+                    <li>Create a linked list protocol that contains the instance methods append, prepend, removeLast removeFirst. See question 4 for more information about the methods. The protocol needs to define a read-only property count, that is an integer.</li>
+                    <br>
+                    <li>Using classes implement a singly linked list. Each node in the linked list holds an object of any type. A linked list can hold objects of different types. Implement the instance methods listed below on the LinkedList class. The linked list class should implement the protocol from problem 1. Make sure that the property count is properly maintained.<br><br>
+                    <span class="code_CS646">func prepend(Element)</span> - Adds the argument to the front of the list<br><br>
+                    <span class="code_CS646">func append(Element)</span> - Adds the argument to the end of the list<br><br>
+                    <span class="code_CS646">removeFirst()</span> - Removes the first item in the linked list and returns it<br><br>
+                    <span class="code_CS646">removeLast()</span> - Removes the last item in the linked list and returns it<br><br>
+                    <span class="code_CS646">[int]</span> - returns the object in the list at the given index (an integer). If the index is out of range then raise a RangeException.<br><br>
+                    <span class="code_CS646">elements(separatedBy:String)</span> - Declare this method private. The method constructs and returns an NSString object that is the result of interposing a given separator between the elements of the receiver’s list. If list contains in order the numbers 3, 5, 1, then list.elements(separatedBy: “-“) returns the string "3-5-1".<br><br>
+                    <span class="code_CS646">description</span> - Return a String that shows the contents of the linked list. If the linked list contains in order the numbers 3, 5, 1 then description should return the string (3, 5, 1).</li>
+                    <br>
+                    <li>Add to your linked list class the following methods/properties:<br><br>
+                    <span class="code_CS646">init(repeating: Element, count: Int)</span> - Creates a new collection containing the specified number of a single, repeated value.<br><br>
+                    <span class="code_CS646">var isEmpty: Bool</span> - A Boolean value indicating whether the collection is empty.<br><br>
+                    <span class="code_CS646">func map&lt;T&gt;((Element) -&gt; T)</span> - Returns a linked list containing the results of mapping the given closure over the sequence’s elements.<br><br>
+                    <span class="code_CS646">func reduce&lt;Result&gt;(Result, (Result, Element) -&gt; Result)</span> - Returns the result of combining the elements of the linked list using the given closure.</li>
+                    <br>
+                    <li>Add a method <span class="code_CS646">integerValues</span> to the String class. This method returns an array of optional ints. The method expects the integers in the the source string to be separated by a comma “,". Examples<br><br>
+                    <span class="code_CS646">"2, 3, 6”.integerValues()</span> - returns the array containing in order 2, 3, 6.<br>
+                    <span class="code_CS646">2”.integerValues()</span> - returns the array containing one element 2.<br>
+                    <span class="code_CS646">"cat".integerValues()</span> - returns the array containing one element nil.<br>
+                    <span class="code_CS646">"2, foo, 6”.integerValues()</span> - returns the array containing in order 2, nil, 6.<br></li>
+                    <br>
+                    <li>Create an enum with associated values for Currency. We will support four currencies: Euro, US Dollar, Indian Rupee, Mexican Peso. Each currency has a three letter code (EUR, USD, INR, MXN), a symbol ("\u{20AC}", "\u{24}", "\u{20B9}", "\u{24}") and an exchange rate with respect to USD (0.8904, 1, 66.7, 18.88).</li>
+                    <br>
+                    <li>Create a Money struct. Creating a new money instance requires an amount and a type of currency, which is indicated by using the enum from problem 5. Once created a money instance does not change in value. Each instance of Money needs access to the same instance of a Currency enum to access the same conversion rate. The Money struct needs three methods: +, - and description. Both - and + operate on two Money instances. They return a new Money instance. If the two instances are of different currencies the result is in the first (left operand) currency. The method description returns a string representation of the money instance. The string starts with the currency symbol, followed by the amount, followed by a space and ends with the three character symbol for the currency. For example $123.12 USD. Do not worry about formatting the amount.</li>
+                </ol>
+            </div>
 
-                <div class="content">
-                    <div class="section">
-                        <h2>Assignment</h2>
-                        <p>The assignment, like the first one, attempts to develop understanding of the Swift 4.0 language. Primarily, this assignment focuses on classes, enums, structs, protocols, and extensions.</p>
-                        <br>
-                        <ol>
-                            <li>Create a linked list protocol that contains the instance methods append, prepend, removeLast removeFirst. See question 4 for more information about the methods. The protocol needs to define a read-only property count, that is an integer.</li>
-                            <br>
-                            <li>Using classes implement a singly linked list. Each node in the linked list holds an object of any type. A linked list can hold objects of different types. Implement the instance methods listed below on the LinkedList class. The linked list class should implement the protocol from problem 1. Make sure that the property count is properly maintained.<br><br>
-                            <span class="code_CS646">func prepend(Element)</span> - Adds the argument to the front of the list<br><br>
-                            <span class="code_CS646">func append(Element)</span> - Adds the argument to the end of the list<br><br>
-                            <span class="code_CS646">removeFirst()</span> - Removes the first item in the linked list and returns it<br><br>
-                            <span class="code_CS646">removeLast()</span> - Removes the last item in the linked list and returns it<br><br>
-                            <span class="code_CS646">[int]</span> - returns the object in the list at the given index (an integer). If the index is out of range then raise a RangeException.<br><br>
-                            <span class="code_CS646">elements(separatedBy:String)</span> - Declare this method private. The method constructs and returns an NSString object that is the result of interposing a given separator between the elements of the receiver’s list. If list contains in order the numbers 3, 5, 1, then list.elements(separatedBy: “-“) returns the string "3-5-1".<br><br>
-                            <span class="code_CS646">description</span> - Return a String that shows the contents of the linked list. If the linked list contains in order the numbers 3, 5, 1 then description should return the string (3, 5, 1).</li>
-                            <br>
-                            <li>Add to your linked list class the following methods/properties:<br><br>
-                            <span class="code_CS646">init(repeating: Element, count: Int)</span> - Creates a new collection containing the specified number of a single, repeated value.<br><br>
-                            <span class="code_CS646">var isEmpty: Bool</span> - A Boolean value indicating whether the collection is empty.<br><br>
-                            <span class="code_CS646">func map&lt;T&gt;((Element) -&gt; T)</span> - Returns a linked list containing the results of mapping the given closure over the sequence’s elements.<br><br>
-                            <span class="code_CS646">func reduce&lt;Result&gt;(Result, (Result, Element) -&gt; Result)</span> - Returns the result of combining the elements of the linked list using the given closure.</li>
-                            <br>
-                            <li>Add a method <span class="code_CS646">integerValues</span> to the String class. This method returns an array of optional ints. The method expects the integers in the the source string to be separated by a comma “,". Examples<br><br>
-                            <span class="code_CS646">"2, 3, 6”.integerValues()</span> - returns the array containing in order 2, 3, 6.<br>
-                            <span class="code_CS646">2”.integerValues()</span> - returns the array containing one element 2.<br>
-                            <span class="code_CS646">"cat".integerValues()</span> - returns the array containing one element nil.<br>
-                            <span class="code_CS646">"2, foo, 6”.integerValues()</span> - returns the array containing in order 2, nil, 6.<br></li>
-                            <br>
-                            <li>Create an enum with associated values for Currency. We will support four currencies: Euro, US Dollar, Indian Rupee, Mexican Peso. Each currency has a three letter code (EUR, USD, INR, MXN), a symbol ("\u{20AC}", "\u{24}", "\u{20B9}", "\u{24}") and an exchange rate with respect to USD (0.8904, 1, 66.7, 18.88).</li>
-                            <br>
-                            <li>Create a Money struct. Creating a new money instance requires an amount and a type of currency, which is indicated by using the enum from problem 5. Once created a money instance does not change in value. Each instance of Money needs access to the same instance of a Currency enum to access the same conversion rate. The Money struct needs three methods: +, - and description. Both - and + operate on two Money instances. They return a new Money instance. If the two instances are of different currencies the result is in the first (left operand) currency. The method description returns a string representation of the money instance. The string starts with the currency symbol, followed by the amount, followed by a space and ends with the three character symbol for the currency. For example $123.12 USD. Do not worry about formatting the amount.</li>
-                        </ol>
-                    </div>
+            <div class="section">
+                <h2>Implementation Details</h2>
+                <p><b>1)</b> In order to define a protocol that use generics, the associatedtype keyword was used to declare type T to be specified when the protocol is adopted.</p>
+                <br>
+<pre><code class="language-swift">
+protocol LinkedListProtocol {
+associatedType T
+var count: Int { get }
+func append(object: T)
+func prepend(object: T)
+func removeLast() -&gt; T?
+func removeFirst() -&gt; T?
+}
+</code></pre>
+                <br>
 
-                    <div class="section">
-                        <h2>Implementation Details</h2>
-                        <p><b>1)</b> In order to define a protocol that use generics, the associatedtype keyword was used to declare type T to be specified when the protocol is adopted.</p>
-                        <br>
-    <pre><code class="language-swift">
-    protocol LinkedListProtocol {
-        associatedType T
-        var count: Int { get }
-        func append(object: T)
-        func prepend(object: T)
-        func removeLast() -&gt; T?
-        func removeFirst() -&gt; T?
-    }
-    </code></pre>
-                        <br>
+                <p><b>2)</b> To implement a singly linked list, the Node class was defined with property <i>element</i> of type T to hold any kind of data. The node has a pointer to the next node. The class LinkedList&lt;T&gt;: was then defined, adopting the LinkedListProtocol. The class has a property <i>head</i> which is a pointer to the current head node, and another property <i>count</i> which monitors the number of nodes currently in the list. The following explains how the methods were implemented:</p>
+                <ul>
+                    <li><span class="code_CS646">prepend(<i>Element</i>)</span> - after instantiating a new node, the new node's pointer to the next node was set to the head node. The head was then changed to refer to the new node.</li>
+                    <li><span class="code_CS646">append(<i>Element</i>)</span> - after instantiating  a new node, a variable <i>currentNode</i> was created to loop through the list and refer to the last node in the list. After getting the reference to the last node, its pointer to the next node was set to the newly instantiated node.</li>
+                    <li><span class="code_CS646">removeFirst()</span> - takes the data from the head node before setting the pointer of the head node to its next node. Returns the data.</li>
+                    <li><span class="code_CS646">removeLast()</span> - creates a variable <i>currentNode</i> to loop through the list and refer to the node before the last node in the list. This is because the last node is expected to be removed. The pointer to the last node is set to nil and the data from the last node is returned.</li>
+                    <li><span class="code_CS646">[int]</span> - subscript method that returns the data in the node at the specified index. The currentNode is referred to its next node as many times as the number of the specified index.</li>
+                    <li><span class="code_CS646">elements(<i>separatedBy: String</i>)</span> - the string is built by iterating over the linked list and concatenating the String-casted data of the node. If the currentNode's next node is not nil, then the separator is concatenated.</li>
+                    <li><span class="code_CS646">description</span> - same implementation as elements(separatedBy: String) but concatenates the ', ' string after each element except for the last.</li>
+                </ul>
+                <br>
+<pre><code class="language-swift">
+class Node&lt;T&gt; {
+var element: T
+var next: Node&lt;T&gt;?
 
-                        <p><b>2)</b> To implement a singly linked list, the Node class was defined with property <i>element</i> of type T to hold any kind of data. The node has a pointer to the next node. The class LinkedList&lt;T&gt;: was then defined, adopting the LinkedListProtocol. The class has a property <i>head</i> which is a pointer to the current head node, and another property <i>count</i> which monitors the number of nodes currently in the list. The following explains how the methods were implemented:</p>
-                        <ul>
-                            <li><span class="code_CS646">prepend(<i>Element</i>)</span> - after instantiating a new node, the new node's pointer to the next node was set to the head node. The head was then changed to refer to the new node.</li>
-                            <li><span class="code_CS646">append(<i>Element</i>)</span> - after instantiating  a new node, a variable <i>currentNode</i> was created to loop through the list and refer to the last node in the list. After getting the reference to the last node, its pointer to the next node was set to the newly instantiated node.</li>
-                            <li><span class="code_CS646">removeFirst()</span> - takes the data from the head node before setting the pointer of the head node to its next node. Returns the data.</li>
-                            <li><span class="code_CS646">removeLast()</span> - creates a variable <i>currentNode</i> to loop through the list and refer to the node before the last node in the list. This is because the last node is expected to be removed. The pointer to the last node is set to nil and the data from the last node is returned.</li>
-                            <li><span class="code_CS646">[int]</span> - subscript method that returns the data in the node at the specified index. The currentNode is referred to its next node as many times as the number of the specified index.</li>
-                            <li><span class="code_CS646">elements(<i>separatedBy: String</i>)</span> - the string is built by iterating over the linked list and concatenating the String-casted data of the node. If the currentNode's next node is not nil, then the separator is concatenated.</li>
-                            <li><span class="code_CS646">description</span> - same implementation as elements(separatedBy: String) but concatenates the ', ' string after each element except for the last.</li>
-                        </ul>
-                        <br>
-    <pre><code class="language-swift">
-    class Node&lt;T&gt; {
-        var element: T
-        var next: Node&lt;T&gt;?
+init(element: T) {
+    self.element = element
+}
+}
 
-        init(element: T) {
-            self.element = element
-        }
-    }
+class LinkedList&lt;T&gt;: LinkedListProtocol {
+var head: Node&lt;T&gt;?
+var count = 0
 
-    class LinkedList&lt;T&gt;: LinkedListProtocol {
-        var head: Node&lt;T&gt;?
-        var count = 0
+func prepend(object: T) {
+    let newNode = Node(element: object)
+    newNode.next = head
+    head = newNode
 
-        func prepend(object: T) {
-            let newNode = Node(element: object)
-            newNode.next = head
-            head = newNode
+    count += 1
+}
 
-            count += 1
-        }
-
-        func append(object: T) {
-            guard (head != nil) else {
-                prepend(object: object)
-                return
-            }
-
-            let newNode = Node(element: object)
-            var currentNode = head
-
-            while (currentNode?.next != nil) {
-                currentNode = currentNode?.next
-            }
-            currentNode?.next = newNode
-
-            count += 1
-        }
-
-        func removeFirst() -&gt; T? {
-            if (head == nil) {
-                return nil
-            }
-
-            let data: T? = head?.element
-            head = head?.next
-
-            count -= 1
-            return data
-        }
-
-        func removeLast() -&gt; T? {
-            if (head == nil) {
-                return nil
-            }
-            if (head?.next == nil) {
-                let data = head?.element
-                head = nil
-                return data
-            }
-
-            var currentNode = head
-            while (currentNode?.next?.next != nil) {
-                currentNode = currentNode?.next
-            }
-            let data = currentNode?.next?.element
-            currentNode?.next = nil
-
-            count -= 1
-            return data
-        }
-
-        subscript(index: Int) -&gt; T? {
-            assert((index &gt;= 0 && index &lt; count), "Index out of range")
-            var indexNum = index
-            var currentNode = head
-            while (indexNum &gt; 0) {
-                currentNode  currentNode?.next
-                indexNum -= 1
-            }
-            return currentNode?.element
-        }
-
-        fileprivate func elements(separatedBy: String) -&gt; NSString? {
-            var stringFromList = ""
-            var currentNode = head
-            while (currentNode != nil) {
-                stringFromList += String(describing: currentNode!.element)
-                currentNode = currentNode?.next
-                if (currentNode != nil) {
-                    stringFromList += separatedBy
-                }
-            }
-
-            return StringFromList as NSString
-        }
-
-        func description() -&gt; String {
-            var contents = "["
-            var currentNode = head
-            while (currentNode != nil) {
-                contents += String(describing: currentNode!.element)
-                currentNode = currentNode?.next
-                if (currentNode != nil) {
-                    contents += ", "
-                }
-            }
-            contents += "]"
-            return contents
-        }
-    }
-    </code></pre>
-                        <br>
-
-                        <p><b>3)</b></p>
-                        <ul>
-                            <li><span class="code_CS646">init(<i>repeating: Element, count: Int</i>)</span> - a simple while loop was done as many time as the specified count. Within this loop, the append() function defined earlier was called, passing in the value to be repeated.</li>
-                            <li><span class="code_CS646">var isEmpty: Bool</span> - read-only property that returns true if the head node points to nil or false otherwise</li>
-                            <li><span class="code_CS646">func map&lt;T&gt;((Element) -&gt; T)</span> - initializes a new and empty linked list. Iterates through the current linked list, grabs the data of each node, and passes that data as the parameter to the parameter <i>function</i> before appending the new data to the new linked list.</li>
-                            <li><span class="code_CS646">func reduce&lt;Result&gt;(Result, (Result, Element) -&gt; Result)</span> - initializes a variable <i>result</i> to the variable <i>initial</i>. Then iterates through the list and passes the data of each node to the parameter <i>function</i> and captures the the return value in the <i>result</i> variable.</li>
-                        </ul>
-                        <br>
-    <pre><code class="language-swift">
-    init() {
-        self.count = 0
+func append(object: T) {
+    guard (head != nil) else {
+        prepend(object: object)
+        return
     }
 
-    init(repeating: T, count: Int) {
-        self.count = count
-        var index: Int = 0
-        while (index &lt; count) {
-            append(object: repeating)
-            index += 1
+    let newNode = Node(element: object)
+    var currentNode = head
+
+    while (currentNode?.next != nil) {
+        currentNode = currentNode?.next
+    }
+    currentNode?.next = newNode
+
+    count += 1
+}
+
+func removeFirst() -&gt; T? {
+    if (head == nil) {
+        return nil
+    }
+
+    let data: T? = head?.element
+    head = head?.next
+
+    count -= 1
+    return data
+}
+
+func removeLast() -&gt; T? {
+    if (head == nil) {
+        return nil
+    }
+    if (head?.next == nil) {
+        let data = head?.element
+        head = nil
+        return data
+    }
+
+    var currentNode = head
+    while (currentNode?.next?.next != nil) {
+        currentNode = currentNode?.next
+    }
+    let data = currentNode?.next?.element
+    currentNode?.next = nil
+
+    count -= 1
+    return data
+}
+
+subscript(index: Int) -&gt; T? {
+    assert((index &gt;= 0 && index &lt; count), "Index out of range")
+    var indexNum = index
+    var currentNode = head
+    while (indexNum &gt; 0) {
+        currentNode  currentNode?.next
+        indexNum -= 1
+    }
+    return currentNode?.element
+}
+
+fileprivate func elements(separatedBy: String) -&gt; NSString? {
+    var stringFromList = ""
+    var currentNode = head
+    while (currentNode != nil) {
+        stringFromList += String(describing: currentNode!.element)
+        currentNode = currentNode?.next
+        if (currentNode != nil) {
+            stringFromList += separatedBy
         }
     }
 
-    var isEmpty: Bool {
-        get {
-            return (head == nil)
+    return StringFromList as NSString
+}
+
+func description() -&gt; String {
+    var contents = "["
+    var currentNode = head
+    while (currentNode != nil) {
+        contents += String(describing: currentNode!.element)
+        currentNode = currentNode?.next
+        if (currentNode != nil) {
+            contents += ", "
         }
     }
+    contents += "]"
+    return contents
+}
+}
+</code></pre>
+                <br>
 
-    func map&lt;T&gt;(function: (T) -&gt; T) -&gt; LinkedList&lt;T&gt; {
-        let newLinkedList = LinkedList&lt;T&gt;()
+                <p><b>3)</b></p>
+                <ul>
+                    <li><span class="code_CS646">init(<i>repeating: Element, count: Int</i>)</span> - a simple while loop was done as many time as the specified count. Within this loop, the append() function defined earlier was called, passing in the value to be repeated.</li>
+                    <li><span class="code_CS646">var isEmpty: Bool</span> - read-only property that returns true if the head node points to nil or false otherwise</li>
+                    <li><span class="code_CS646">func map&lt;T&gt;((Element) -&gt; T)</span> - initializes a new and empty linked list. Iterates through the current linked list, grabs the data of each node, and passes that data as the parameter to the parameter <i>function</i> before appending the new data to the new linked list.</li>
+                    <li><span class="code_CS646">func reduce&lt;Result&gt;(Result, (Result, Element) -&gt; Result)</span> - initializes a variable <i>result</i> to the variable <i>initial</i>. Then iterates through the list and passes the data of each node to the parameter <i>function</i> and captures the the return value in the <i>result</i> variable.</li>
+                </ul>
+                <br>
+<pre><code class="language-swift">
+init() {
+self.count = 0
+}
 
-        var currentNode = head
-        while (currentNode != nil) {
-            let data: T = function(currentNode!.element as! T)
-            newLinkedList.append(object: data)
-            currentNode = currentNode!.next
-        }
+init(repeating: T, count: Int) {
+self.count = count
+var index: Int = 0
+while (index &lt; count) {
+    append(object: repeating)
+    index += 1
+}
+}
 
-        return newLinkedList
+var isEmpty: Bool {
+get {
+    return (head == nil)
+}
+}
+
+func map&lt;T&gt;(function: (T) -&gt; T) -&gt; LinkedList&lt;T&gt; {
+let newLinkedList = LinkedList&lt;T&gt;()
+
+var currentNode = head
+while (currentNode != nil) {
+    let data: T = function(currentNode!.element as! T)
+    newLinkedList.append(object: data)
+    currentNode = currentNode!.next
+}
+
+return newLinkedList
+}
+
+func reduce&lt;Result&gt;(initial: Result, function: (Result, T) -&gt; Result) -&gt; Result {
+var result = initial
+var currentNode = head
+while (currentNode != nil) {
+    result = function(result, currentNode!.element)
+    currentNode = currentNode!.next
+}
+return result
+}
+</code></pre>
+                <br>
+
+                <p><b>4)</b><br>
+                <span class="code_CS646">integerValues()</span> - an extension of the String class, the method splits the string into an array using the separator ",". It then calls the map function, previously defined, which uses the closure that casts each element in the array to an Int. The mapped array is returned.</p>
+                <br>
+<pre><code class="language-swift">
+extension String {
+func integerValues() -&gt; [Int?] {
+    let array = self.components(separatedBy: ",")
+    let mappedArray = array.map({Int($0)})
+    return mappedArray
+}
+}
+</code></pre>
+                <br>
+                <p><b>Note</b>: For problems 5 and 6, the code block shows repetitive and inefficient use of code. A better way to code the solution is shown at the bottom of the page.</p>
+                <br>
+                <p><b>5)</b> The enum was created with each declared constant having associated values. The associated values were of type (String, String, Double) corresponding to the 3-letter code, the symbol, and the exchange rate. Extension class was to allow the enum to be equatable for the follow-up question that requires overloading operators.</p>
+                <br>
+<pre><code class="language-swift">
+enum Currency {
+// Notice the code repetition here
+case Euro (String, String, Double)
+case Dollar (String, String, Double)
+case Rupee (String, String, Double)
+case Peso (String, String, Double)
+}
+let EuroCurrency = currency.Euro("EUR", "\u{20AC}", 0.8904)
+let USCurrency = currency.Dollar("USD", "\u{24}", 1)
+let IndCurrency = currency.Rupee("INR", "\u{20B9}", 66.7)
+let MexCurrency = currency.Euro("MXN", "\u{24}", 18.88)
+
+extension Currency: Equatable {
+static func ==(left: Currency, right: Currency) -&gt; Bool {
+    switch (left, right) {
+        case let (.Euro(code1, _, _), .Euro(code2, _, _)):
+            return code1 == code2
+        case let (.Dollar(code1, _, _), .Dollar(code2, _, _)):
+            return code1 == code2
+        case let (.Rupee(code1, _, _), .Rupee(code2, _, _)):
+            return code1 == code2
+        case let (.Peso(code1, _, _), .Peso(code2, _, _)):
+            return code1 == code2
+        default:
+            return false
     }
+}
+}
+</code></pre>
+                <br>
 
-    func reduce&lt;Result&gt;(initial: Result, function: (Result, T) -&gt; Result) -&gt; Result {
-        var result = initial
-        var currentNode = head
-        while (currentNode != nil) {
-            result = function(result, currentNode!.element)
-            currentNode = currentNode!.next
-        }
-        return result
+                <p><b>6)</b> The struct has properties <i>currency</i> of type Currency from question 5, and <i>amount</i> which represents a number converted to the currency being used for that struct value. The + and - methods, which were operators that the struct overloaded, were implemented similarly. The parameters took <i>left</i> and <i>right</i> operands of type Money, and checked to see if the type of currency was the same for each operand. If they were, the amounts were simply added or subtracted together. If they weren't, then the right operand had to be converted to the left operand's currency before being added or subtracted.</p>
+                <br>
+<pre><code class="language-swift">
+struct Money {
+let amount: Double
+let currency: Currency
+
+init(amount: Double, currencyType: Currency) {
+    self.amount = amount
+    currency = currencyType
+}
+
+static func + (left: Money, right: Money) -&gt; Money {
+    if (left.currency == right.currency) {
+        return Money(amount: (left.amount + right.amount), currencyType: left.currency)
     }
-    </code></pre>
-                        <br>
-
-                        <p><b>4)</b><br>
-                        <span class="code_CS646">integerValues()</span> - an extension of the String class, the method splits the string into an array using the separator ",". It then calls the map function, previously defined, which uses the closure that casts each element in the array to an Int. The mapped array is returned.</p>
-                        <br>
-    <pre><code class="language-swift">
-    extension String {
-        func integerValues() -&gt; [Int?] {
-            let array = self.components(separatedBy: ",")
-            let mappedArray = array.map({Int($0)})
-            return mappedArray
-        }
+    else {
+        let newAmount: Double = left.amount + ( (right.amount * getExchangeRate(currency: left.currency))  /
+            (getExchangeRate(currency: right.currency)) )
+        return Money(amount: newAmount, currencyType: left.currency)
     }
-    </code></pre>
-                        <br>
-                        <p><b>Note</b>: For problems 5 and 6, the code block shows repetitive and inefficient use of code. A better way to code the solution is shown at the bottom of the page.</p>
-                        <br>
-                        <p><b>5)</b> The enum was created with each declared constant having associated values. The associated values were of type (String, String, Double) corresponding to the 3-letter code, the symbol, and the exchange rate. Extension class was to allow the enum to be equatable for the follow-up question that requires overloading operators.</p>
-                        <br>
-    <pre><code class="language-swift">
-    enum Currency {
-        // Notice the code repetition here
-        case Euro (String, String, Double)
-        case Dollar (String, String, Double)
-        case Rupee (String, String, Double)
-        case Peso (String, String, Double)
+}
+
+static func - (left: Money, right: Money) -&gt; Money {
+    if (left.currency == right.currency) {
+        return Money(amount: (left.amount - right.amount), currencyType: left.currency)
     }
-    let EuroCurrency = currency.Euro("EUR", "\u{20AC}", 0.8904)
-    let USCurrency = currency.Dollar("USD", "\u{24}", 1)
-    let IndCurrency = currency.Rupee("INR", "\u{20B9}", 66.7)
-    let MexCurrency = currency.Euro("MXN", "\u{24}", 18.88)
-
-    extension Currency: Equatable {
-        static func ==(left: Currency, right: Currency) -&gt; Bool {
-            switch (left, right) {
-                case let (.Euro(code1, _, _), .Euro(code2, _, _)):
-                    return code1 == code2
-                case let (.Dollar(code1, _, _), .Dollar(code2, _, _)):
-                    return code1 == code2
-                case let (.Rupee(code1, _, _), .Rupee(code2, _, _)):
-                    return code1 == code2
-                case let (.Peso(code1, _, _), .Peso(code2, _, _)):
-                    return code1 == code2
-                default:
-                    return false
-            }
-        }
+    else {
+        let newAmount: Double = left.amount - ( (right.amount * getExchangeRate(currency: left.currency)) /
+            (getExchangeRate(currency: right.currency)) )
+        return Money(amount: newAmount, currencyType: left.currency)
     }
-    </code></pre>
-                        <br>
+}
 
-                        <p><b>6)</b> The struct has properties <i>currency</i> of type Currency from question 5, and <i>amount</i> which represents a number converted to the currency being used for that struct value. The + and - methods, which were operators that the struct overloaded, were implemented similarly. The parameters took <i>left</i> and <i>right</i> operands of type Money, and checked to see if the type of currency was the same for each operand. If they were, the amounts were simply added or subtracted together. If they weren't, then the right operand had to be converted to the left operand's currency before being added or subtracted.</p>
-                        <br>
-    <pre><code class="language-swift">
-    struct Money {
-        let amount: Double
-        let currency: Currency
-
-        init(amount: Double, currencyType: Currency) {
-            self.amount = amount
-            currency = currencyType
-        }
-
-        static func + (left: Money, right: Money) -&gt; Money {
-            if (left.currency == right.currency) {
-                return Money(amount: (left.amount + right.amount), currencyType: left.currency)
-            }
-            else {
-                let newAmount: Double = left.amount + ( (right.amount * getExchangeRate(currency: left.currency))  /
-                    (getExchangeRate(currency: right.currency)) )
-                return Money(amount: newAmount, currencyType: left.currency)
-            }
-        }
-
-        static func - (left: Money, right: Money) -&gt; Money {
-            if (left.currency == right.currency) {
-                return Money(amount: (left.amount - right.amount), currencyType: left.currency)
-            }
-            else {
-                let newAmount: Double = left.amount - ( (right.amount * getExchangeRate(currency: left.currency)) /
-                    (getExchangeRate(currency: right.currency)) )
-                return Money(amount: newAmount, currencyType: left.currency)
-            }
-        }
-
-        // Helper method (Notice the repetition here)
-        static func getExchangeRate(currency: Currency) -&gt; Double {
-            switch (currency) {
-                case let .Euro(_, _, rate):
-                    return rate
-                case let .Dollar(_, _, rate):
-                    return rate
-                case let .Rupee(_, _, rate):
-                    return rate
-                case let .Peso(_, _, rate):
-                    return rate
-            }
-        }
-
-        // Notice the code repetition here
-        func description() -&gt; String {
-            var stringDesc: String = ""
-            switch currency {
-                case let .Euro(code, symbol, _):
-                    stringDesc = "\(symbol)\(amount) \(code)"
-                case let .Dollar(code, symbol, _):
-                    stringDesc = "\(symbol)\(amount) \(code)"
-                case let .Rupee(code, symbol, _):
-                    stringDesc = "\(symbol)\(amount) \(code)"
-                case let .Peso(code, symbol, _):
-                    stringDesc = "\(symbol)\(amount) \(code)"
-            }
-            return stringDesc
-        }
+// Helper method (Notice the repetition here)
+static func getExchangeRate(currency: Currency) -&gt; Double {
+    switch (currency) {
+        case let .Euro(_, _, rate):
+            return rate
+        case let .Dollar(_, _, rate):
+            return rate
+        case let .Rupee(_, _, rate):
+            return rate
+        case let .Peso(_, _, rate):
+            return rate
     }
-    </code></pre>
-                        <br>
+}
 
-                        <p><b>Note</b>: The following is a more efficient and less repetitive way of coding the enum and struct for problems 5 and 6 and was written by Professor Roger Whitney.</p>
-    <pre><code class="language-swift">
-    enum Currency {
-        case Value(String, String, Double)
-
-        func rate() -&gt; Double {
-            switch self {
-            case let.Value(_, _, rate):
-                return rate
-            }
-        }
-
-        func symbol() -&gt; String {
-            switch self {
-            case let .Value(_, symbol, _):
-                return symbol
-            }
-        }
-
-        func currency() -&gt; String {
-            switch self {
-            case let .Value(currency, _, _):
-                return currency
-            }
-        }
+// Notice the code repetition here
+func description() -&gt; String {
+    var stringDesc: String = ""
+    switch currency {
+        case let .Euro(code, symbol, _):
+            stringDesc = "\(symbol)\(amount) \(code)"
+        case let .Dollar(code, symbol, _):
+            stringDesc = "\(symbol)\(amount) \(code)"
+        case let .Rupee(code, symbol, _):
+            stringDesc = "\(symbol)\(amount) \(code)"
+        case let .Peso(code, symbol, _):
+            stringDesc = "\(symbol)\(amount) \(code)"
     }
-    let eur = Currency.Value("EUR", "\u{20AC}", 0.8904)
-    let usd = Currency.Value("USD", "\u{24}", 1)
-    let inr = Currency.Value("INR", "\u{20B9}", 66.7)
-    let mxn = Currency.Value("MXN", "\u{24}", 18.88)
+    return stringDesc
+}
+}
+</code></pre>
+                <br>
 
-    struct Money {
-        var currencyType: Currency
-        var amount: Double
-        static let EUR = Currency.Value("EUR", "\u{20AC}", 0.8904)
-        static let USD = Currency.Value("USD", "\u{24}", 1)
-        static let INR = Currency.Value("INR", "\u{20B9}", 66.7)
-        static let MXN = Currency.Value("MXN", "\u{24}", 18.88)
+                <p><b>Note</b>: The following is a more efficient and less repetitive way of coding the enum and struct for problems 5 and 6 and was written by Professor Roger Whitney.</p>
+<pre><code class="language-swift">
+enum Currency {
+case Value(String, String, Double)
 
-        init(currencyType: Currency, amount: Double) {
-            self.amount = amount
-            self.currencyType = currencyType
-        }
-
-        private func rate() -&gt; Double {
-            return currencyType.rate()
-        }
-
-        static func +(left: Money, right: Money) -&gt; Money {
-            return Money(currencyType: left.currencyType,
-                amount: left.amount + right.amount * (left.rate() / right.rate()) )
-        }
-        static func -(left: Money, right: Money) -&gt; Money {
-            return Money(currencyType: left.currencyType,
-                amount: left.amount - right.amount * (left.rate() / right.rate()) )
-        }
-        func description() -&gt; String {
-            return "\(self.currencyType.symbol())\(self.amount)"
-        }
+func rate() -&gt; Double {
+    switch self {
+    case let.Value(_, _, rate):
+        return rate
     }
-    </code></pre>
-                    </div>
-                </div>
+}
+
+func symbol() -&gt; String {
+    switch self {
+    case let .Value(_, symbol, _):
+        return symbol
+    }
+}
+
+func currency() -&gt; String {
+    switch self {
+    case let .Value(currency, _, _):
+        return currency
+    }
+}
+}
+let eur = Currency.Value("EUR", "\u{20AC}", 0.8904)
+let usd = Currency.Value("USD", "\u{24}", 1)
+let inr = Currency.Value("INR", "\u{20B9}", 66.7)
+let mxn = Currency.Value("MXN", "\u{24}", 18.88)
+
+struct Money {
+var currencyType: Currency
+var amount: Double
+static let EUR = Currency.Value("EUR", "\u{20AC}", 0.8904)
+static let USD = Currency.Value("USD", "\u{24}", 1)
+static let INR = Currency.Value("INR", "\u{20B9}", 66.7)
+static let MXN = Currency.Value("MXN", "\u{24}", 18.88)
+
+init(currencyType: Currency, amount: Double) {
+    self.amount = amount
+    self.currencyType = currencyType
+}
+
+private func rate() -&gt; Double {
+    return currencyType.rate()
+}
+
+static func +(left: Money, right: Money) -&gt; Money {
+    return Money(currencyType: left.currencyType,
+        amount: left.amount + right.amount * (left.rate() / right.rate()) )
+}
+static func -(left: Money, right: Money) -&gt; Money {
+    return Money(currencyType: left.currencyType,
+        amount: left.amount - right.amount * (left.rate() / right.rate()) )
+}
+func description() -&gt; String {
+    return "\(self.currencyType.symbol())\(self.amount)"
+}
+}
+</code></pre>
             </div>
         </div>
     </body>

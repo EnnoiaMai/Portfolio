@@ -20,7 +20,6 @@ Date Created: December 2017
 #content_header {
     color: #FFF;
     background-color: rgba(103, 103, 103, 1.0);
-    /* min-height: 40%; */
     height: 300px;
     display: flex;
     flex-direction: row;
@@ -29,7 +28,8 @@ Date Created: December 2017
     /* border: 1px solid green; */
 }
 
-.list {
+/*================================= LANGUAGES AND SYNTAX =================================*/
+#projects_list, #languages_list {
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -39,19 +39,24 @@ Date Created: December 2017
     padding-bottom: 48px;
     /* border: 1px solid red; */
 }
-.list > div h2 {
+#projects_list > div > h2 {
     text-align: center;
     padding: 12px;
+    /* border: 1px dashed black; */
 }
-.list > div {
+#mobile_applications_heading, #bash_scripts_heading {
+    margin-top: 24px;
+}
+
+#projects_list > div, #languages_list > div {
     width: 50%;
     /* border: 1px dashed purple; */
 }
-.list > div ul {
+#projects_list > div > ul, #languages_list > div > ul {
     list-style-type: none;
     /* border: 1px dashed red; */
 }
-.list > div ul a, .list table td > a {
+#languages_list > div > ul a {
     color: #000;
     display: inline-block;
     font-size: 110%;
@@ -60,81 +65,73 @@ Date Created: December 2017
     padding-bottom: 6px;
     /* padding-left: 18px; */
 }
-.list > div ul a:hover, .list table td > a:hover {
+#projects_list table td > a {
+    color: #000;
+    /* font-size: 110%; */
+    text-decoration: none;
+}
+#languages_list > div > ul a:hover, #projects_list table td > a:hover {
     color: #6A0000;
     text-decoration-color: #6A0000;
     text-decoration-line: underline;
 }
-.list > div ul a:visited, .list table td > a:visited {
+#languages_list > div > ul a:visited, #projects_list table td > a:visited {
     color: #000;
 }
-.list > div:first-child {
+#languages_list > div:first-child, #projects_list > div:first-child {
     border-right: 1px solid #BBB;
 }
 
 /*================================= PROJECTS =================================*/
-.list table {
+#projects_list table {
     width: 80%;
     border-collapse: collapse;
     /* border: 1px solid blue; */
-    /* margin-left: 0px; */
-    /* margin-right: auto; */
 }
-.list table tr td {
+#projects_list table tr td {
     padding-top: 4px;
     padding-bottom: 4px;
     /* border: 1px solid red; */
 }
 
-.list table tr td:first-child {
+#projects_list table tr td:first-child {
     width: 70%;
 }
-.list table tr td:nth-child(2) {
-    /* width: 50%; */
-    /* display: flex; */
-    /* border: 1px dashed purple; */
-}
-.list table tr td > div:not(.testing) {
-    background-color: rgba(220, 220, 220, 1.0);
-    width: 25%;
-    max-width: 20px;
-    margin-left: 10px;
-    /* margin-right: auto; */
-    padding: 4px;
-    border-radius: 20%;
-    /* border: 1px dashed orange; */
-}
-.list table tr td > div > a {
-    display: block;
-    width: 100%;
+
+#projects_list table tr td > a {
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: text-top;
     /* border: 1px dashed green; */
 }
-.list table td img, .testing > div > a > img {
-    width: 100%;
-    max-width: 100px;
+#projects_list table tr td > a i {
+    /* border: 1px dashed blue; */
 }
 
-/* .td_flex {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.external_link_container {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: text-top;
+    /* border: 1px dashed brown; */
 }
-.testing {
-    background-color: #FFF;
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.external_link_container img {
+    /* border: 1px dashed red; */
 }
-.testing > div {
-    background-color: rgba(220, 220, 220, 1.0);
-    width: 20%;
-    margin-left: 10px;
-    padding: 4px;
-    border-radius: 20%;
+
+/*================================= ICONS =================================*/
+.fa-github {
+    color: #000;
+    width: 36px;
+    font-size: 36px;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
 }
-.testing > div > a {
-    display: block;
-    width: 100%;
-} */
+.fa-github:hover {
+    color: rgba(231, 123, 27, 1.0);
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}

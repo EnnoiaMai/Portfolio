@@ -21,8 +21,13 @@ Date Created: December 2017
 #content_header {
     color: #FFF;
     background-color: #6A0000;
-    text-align: center;
-    padding: 24px;
+    /* text-align: center; */
+    /* padding: 24px; */
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 #content_header > h1 {
     padding: 12px;
@@ -207,7 +212,7 @@ Date Created: December 2017
 
 
 ==============================================================================*/
-@media screen and (max-width:640px) {
+/* @media screen and (max-width:640px) {
   .content {
     margin-left: 0%;
   }
@@ -215,4 +220,4 @@ Date Created: December 2017
 
 @media screen and (max-width:320px) {
 
-}
+} */
