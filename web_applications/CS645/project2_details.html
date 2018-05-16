@@ -118,6 +118,105 @@ Date Created: March 2018
 
             <div class="section">
                 <h2>Project Details</h2>
+                <br>
+                <p class="applicable_files">DBHelper.java</p>
+                <p>Throughout this project, there were connections that had to be made to the database on Opatija in order to manage data on the server. This class is a helper class containing static methods whenever something needs to be added, updated, and essentially executed on and to the database. Note that <span class="code_method_sub">runQuery()</span> and <span class="code_method_sub">doQuery()</span> was written by <b>Professor Riggins</b>. I based <span class="code_method_sub">runUpdate()</span> and <span class="code_method_sub">runSearch()</span> off of his examples.</p>
+                <br>
+                <ol>
+                    <li><span class="code_method">runQuery()</span> - takes the String parameter expected to be a sql statement and executes it, placing all the details (fields) of each record into an array, and building a vector of those arrays. The vector of array of Strings is returned.</li>
+                    <br>
+    <pre><code class="language-java">
+    public static Vector&lt;String[]&gt; runQuery(String query) {
+        String answer = "";
+        Vector&lt;String []&gt; answerVector = null;
+
+    	try {
+        	Class.forName("com.mysql.jdbc.Driver").newInstance();
+        	connection = DriverManager.getConnection(connectionURL);
+        	statement = connection.createStatement();
+        	resultSet = statement.executeQuery(query);
+
+            ResultSetMetaData rsmd = resultSet.getMetaData();
+            answerVector = new Vector&lt;String []&gt;();
+
+    	    while(resultSet.next()) {
+                String [] row = new String[rsmd.getColumnCount()];
+                for(int i = 0; i < rsmd.getColumnCount(); i++) {
+                    row[i] = resultSet.getString(i + 1);
+                }
+                answerVector.add(row);
+    		}
+    	}
+    	catch(Exception error) {
+    	    error.printStackTrace();
+    	}
+
+        // Closes resources if open.
+        ...
+        return answerVector;
+    }
+    </code></pre>
+                    <br>
+                    <li><span class="code_method">doQuery()</span> - similar to <span class="code_method_sub">runQuery()</span> except that a serialized String of all the records and their fields is returned. For each field being traversed, the type is checked and categorized using a switch statement in order to parse out the potential types into Strings.</li>
+                    <br>
+    <pre><code class="language-java">
+    public static String doQuery() {
+        String answer = "";
+        ...
+        while(resultSet.next()) {
+            int columns = rsmd.getColumnCount();
+
+            for(int i = 1; i <= columns; i++) {
+
+                switch (rsmd.getColumnType(i)) {
+                    case Types.CHAR:
+                    case Types.VARCHAR:
+                        answer += resultSet.getString(i);
+                        break;
+                    case Types.DECIMAL:
+                        answer += String.format("%.2f", resultSet.getBigDecimal(i).doubleValue());
+                        break;
+                    case Types.INTEGER:
+                        answer += resultSet.getInt(i);
+                        break;
+                    default:
+                        break;
+                }
+                if (i < columns) {
+                    answer += "|";
+                }
+            }
+            answer += "||";
+        }
+        ...
+        return answer;
+    }
+    </code></pre>
+                    <br>
+                    <li><span class="code_method">runUpdate()</span> - the sql statement expected is one that updates the database, so a prepared statement and <span class="code_web">executeUpdate()</span> are used instead of the usual <span class="code_web">createStatement()</span> and <span class="code_web">executeQuery()</span> for the SELECT statements.</li>
+                    <br>
+    <pre><code class="language-java">
+    public static String runUpdate() {
+        String answer = "";
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            connection = DriverManager.getConnection(connectionURL);
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.executeUpdate();
+
+            answer = "ok";
+        }
+        ...
+        return answer;
+    }
+    </code></pre>
+                    <br>
+                    <li><span class="code_method">runSearch()</span> - takes the search term from the argument and implants it between wildcards (*) in order to search for products (from the vendor, category, and description) that match or contain the term. Note that a prepared statement and binding values should have been used for security purposes. This method is explained under "Search Functionality".</li>
+                    <br>
+                </ol>
+                <br>
+
                 <h3>Contact</h3>
                 <p>The JSP file, <span class="applicable_files_sub">contact.jsp</span>, contains static content describing customer service hours and fictional information including the phone and email that users can use for inquiries.</p>
                 <br>
@@ -227,7 +326,7 @@ Date Created: March 2018
                 </div>
                 <br>
                 <h4><u>Trending Products</u></h4>
-                <p>An AJAX call is performed, which expects a response from the servlet TrendingProducts.java on the server. The response is a serialized String containing four randomized products along with the product details that are available for sale. After receiving a successful response, the images are set in their respective containers as well as the large image preview. For each click of a trending image, the details are populated in the details pane, including the product vendor, manufacturer id, and description.</p>
+                <p>An AJAX call is performed, which expects a response from the servlet <span class="applicable_files_sub">TrendingProducts.java</span> on the server. The response is a serialized String containing four randomized products along with the product details that are available for sale. After receiving a successful response, the images are set in their respective containers as well as the large image preview. For each click of a trending image, the details are populated in the details pane, including the product vendor, manufacturer id, and description.</p>
                 <br>
     <pre><code class="language-javascript">
     $(document).ready(function() {
@@ -269,7 +368,7 @@ Date Created: March 2018
     }
     </code></pre>
                 <br>
-                <p>Furthermore, because the id attribute was set for each trending image, it can be used as the value for the parameter, sku, whenever the user clicks on the product name, which sends a GET request to ProductDetails.java</p>
+                <p>Furthermore, because the id attribute was set for each trending image, it can be used as the value for the parameter, sku, whenever the user clicks on the product name, which sends a GET request to <span class="applicable_files_sub">ProductDetails.java</span></p>
                 <br>
     <pre><code class="language-javascript">
     function navigateToProductDetails() {
@@ -285,8 +384,8 @@ Date Created: March 2018
                     <img src="../../images/screenshots_cs645/CS645_Project2_home_trending_products_1240.gif" alt="CS645 Project 2 Trending Products">
                 </div>
                 <br>
-                <p class="applicable_files_sub">TrendingProducts.java</p>
-                <p>Runs the following query by calling static method runQuery of the DBHelper class - </p>
+                <p class="applicable_files">TrendingProducts.java</p>
+                <p>Runs the following query by calling static method runQuery of the <span class="code_web">DBHelper</span> class - </p>
                 <br>
     <pre><code class="language-java">
     public class TrendingProducts extends HttpServlet {
@@ -343,7 +442,7 @@ Date Created: March 2018
                 <p>Lists all the products available for purchase in a grid, with each grid item displaying the product vendor, manufacturer id, trimmed description, status, quantity, and price. The status will show as "In stock" with a green text color or "Coming soon" with a red text color, depending on whether or not the quantity is greater than 0. The sidebar contain checkboxes, each with a set of names which define the kind of filter to use for displaying the items, and the values for those names (expected to be laid out in an array). This means that the products and each grid item will be dynamically generated based on the filters checked.</p>
                 <br>
 
-                <p>In the <span class="applicable_files_sub">browse.js</span> file, a click event is added to each checkbox, so that whenever one is checked or unchecked, the handler filterOptionChecked will be fired.</p>
+                <p>In the <span class="applicable_files_sub">browse.js</span> file, a click event is added to each checkbox, so that whenever one is checked or unchecked, the handler <span class="code_method_sub">filterOptionChecked</span> will be fired.</p>
                 <br>
                 <ul>
                     <li><span class="code_method">filterOptionChecked()</span> - sends an AJAX request to the servlet <span class="applicable_files_sub">ProductsFilter.java</span>. On success, the response is sent as an argument to <span class="code_method_sub">updateGrid()</span>.</li>
@@ -914,7 +1013,7 @@ Date Created: March 2018
                 <h3>Checkout</h3>
                 <p><span class="applicable_files">checkout.jsp</span> displays a form in which the user fills out in order to make a purchase. The form requires that the name, address, phone number, payment type, and credit cart information be completed. <span class="applicable_files">checkout.js</span> contains the methods to validate these fields, and use the same logic, implementation, and regex to achieve this. The code is very similar to the code for CS545 Project 4, and so will not be explained here. However, it should be noted that on successful validation, the form calls <span class="applicable_files_sub">OrderConfirmation.java</span>.</p>
                 <br>
-                <p>The following shows the checkout form and submitting valid information, which ultimately navigates to OrderConfirmation.jsp.</p>
+                <p>The following shows the checkout form and submitting valid information, which ultimately navigates to <span class="applicable_files_sub">OrderConfirmation.jsp</span>.</p>
                 <br>
                 <div class="preview_div">
                     <img src="../../images/screenshots_cs645/CS645_Project2_checkout_1240.gif" alt="CS645 Project 2 Checkout">
@@ -943,7 +1042,7 @@ Date Created: March 2018
         ...
 
         // skyQuantityPairs array is retrieved from the cookie, represents sku and quantity of the user's purchases
-        // productDetauksVector contains the product details of each of the products from the cookie.
+        // productDetailsVector contains the product details of each of the products from the cookie.
 
         // Call methods that return appropriate strings to populate jsp file
         String estimatedDelivery = buildEstimatedDelivery();
@@ -1102,13 +1201,15 @@ Date Created: March 2018
                 <br>
 
                 <h3>Multithreading - Handling changes in quantity of a product</h3>
-                <p class="applicable_files">PlaceOrder.java</p>
                 <br>
-                <p>Servlet expected to be called using AJAX from OrderConfirmation.jsp. The methods in this class are responsible for changing the value for the quantity of any products that the user purchased from the database.</p>
-                <p>To begin, placeOrderAndChangeQuantity() takes from the cookie passed in multiple sku and quantity values, checks against the database to see if each sku's quantity is valid, then adds any that aren't to an ArrayList of invalid skus. A valid sku is one in which its quantity, when subtracted from the quantity in the database, is greater than 0.</p>
+                <p class="applicable_files">PlaceOrder.java</p>
+                <p>Servlet expected to be called using AJAX from <span class="applicable_files_sub">OrderConfirmation.jsp</span>. The methods in this class are responsible for changing the value for the quantity of any products that the user purchased from the database.</p>
+                <br>
+                <p>To begin, <span class="code_method">placeOrderAndChangeQuantity()</span> takes from the cookie passed in multiple sku and quantity values, checks against the database to see if each sku's quantity is valid, then adds any that aren't to an ArrayList of invalid skus. A valid sku is one in which its quantity, when subtracted from the quantity in the database, is greater than 0.</p>
+                <br>
                 <p>If there aren't any invalid purchases, the change in the quantity is made for each product via an update query. The entire process must be synchronized in order to avoid data corruption due to race conditions. From comparing quantities of the cookie and quantities in the database, to subtracting the amount from the database, this entire process must occur subsequently from other client requests to the same servlet.</p>
                 <br>
-                <p>The following shows either executing the update sql statement in the DBHelper class or serializing the String of invalid skus and sending it back as a response.</p>
+                <p>The following shows either creating the update sql statement and sending it to the <span class="code_web">DBHelper</span> class or serializing the String of invalid skus and sending it back as a response.</p>
                 <br>
     <pre><code class="language-java">
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -1151,7 +1252,7 @@ Date Created: March 2018
                 <h3>Search Functionality</h3>
                 <br>
                 <p class="applicable_files">SearchProducts.java</p>
-                <p>Expected to be called from menu_search.js when the user brought focus to the search bar, entered in a search keyword, and pressed enter on the keyboard. buildResults() in this class calls the static method runSearch() from the DBHelper class and passes the search term. The vector of arrays of String objects are expected to be returned, which is then iterated over to construct an HTML String. This String is the same as the one used for the grid items when browsing and filtering products. The String is forwarded as the value for an attribute to search_products.jsp to plugged in and displayed.</p>
+                <p>Expected to be called from <span class="applicable_files_sub">menu_search.js</span> when the user brought focus to the search bar, entered in a search keyword, and pressed enter on the keyboard. <span class="code_method">buildResults()</span> in this class calls the static method <span class="code_method_sub">runSearch()</span> from the <span class="code_web">DBHelper</span> class and passes the search term. The vector of arrays of String objects are expected to be returned, which is then iterated over to construct an HTML String. This String is the same as the one used for the grid items when browsing and filtering products. The String is forwarded as the value for an attribute to <span class="applicable_files_sub">search_products.jsp</span> to plugged in and displayed.</p>
                 <br>
                 <p><b>NOTE</b>: the following contains code that leads to a security risk. This is elaborated further under "Improvements to consider".</p>
                 <br>

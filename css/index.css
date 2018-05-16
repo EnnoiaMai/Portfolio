@@ -12,6 +12,9 @@ Date Created: December 2017
     /* font-family: 'Source Sans Pro', sans-serif; */
     /* font-family: 'Open Sans', sans-serif; */
 }
+body {
+    min-width: 320;
+}
 
 /*============================== CONTENT ======================================*/
 #content {
@@ -70,7 +73,7 @@ Date Created: December 2017
     text-align: center;
     padding: 12px;
 }
-#content > div:nth-child(2)>  p {
+#content > div:nth-child(2) > p {
     font-size: 120%;
     line-height: 36px;
     width: 75%;
@@ -79,7 +82,7 @@ Date Created: December 2017
     margin-right: auto;
 }
 
-/*============================ PROJECTS ======================================*/
+/*============================== PROJECTS ====================================*/
 #content > div:nth-child(3) {
     background-color: #FFF;
     padding: 24px;
@@ -90,7 +93,7 @@ Date Created: December 2017
     padding: 24px;
 }
 
-/*----------------------------- Grid Container -------------------------------*/
+/*============================= Grid Container ===============================*/
 .grid_container {
     display: grid;
     width: 75%;
@@ -153,6 +156,8 @@ Date Created: December 2017
     -moz-transition-duration: 500ms;
     transition-duration: 500ms;
 }
+
+/*-------------------------- Languages and Syntax ----------------------------*/
 .grid_container > div:nth-child(1) {
     grid-area: language;
     background-color: rgba(103, 103, 103, 1.0);
@@ -161,6 +166,8 @@ Date Created: December 2017
 .grid_container > div:nth-child(1):hover {
     background-color: rgba(49, 49, 49, 1.0);
 }
+
+/*---------------------------- Web Applications ------------------------------*/
 .grid_container > div:nth-child(2) {
     grid-area: web;
     background-color: rgba(91, 116, 114, 1.0);
@@ -169,6 +176,8 @@ Date Created: December 2017
 .grid_container > div:nth-child(2):hover {
     background-color: rgba(72, 135, 132, 1.0);
 }
+
+/*----------------------------- Python Scripts -------------------------------*/
 .grid_container > div:nth-child(3) {
     grid-area: python;
     background-color: rgba(136, 108, 116, 1.0);
@@ -177,6 +186,8 @@ Date Created: December 2017
 .grid_container > div:nth-child(3):hover {
     background-color: rgba(158, 86, 106, 1.0);
 }
+
+/*--------------------------- Mobile Applications ----------------------------*/
 .grid_container > div:nth-child(4) {
     grid-area: mobile;
     background-color: rgba(79, 99, 116, 1.0);
@@ -185,6 +196,8 @@ Date Created: December 2017
 .grid_container > div:nth-child(4):hover {
     background-color: rgba(53, 101, 142, 1.0);
 }
+
+/*----------------------------- Python Scripts -------------------------------*/
 .grid_container > div:nth-child(5) {
     grid-area: bash;
     background-color: rgba(187, 159, 125, 1.0);
@@ -194,11 +207,13 @@ Date Created: December 2017
     background-color: rgba(213, 161, 100, 1.0);
 }
 
+/*---------------------------- Grid Item Images ------------------------------*/
 .grid_image_container {
     /* border: 1px solid black; */
 }
 .grid_image_container img {
     width: 70%;
+    min-width: 120px;
     max-width: 400px;
     display: block;
     margin-left: auto;
@@ -212,12 +227,24 @@ Date Created: December 2017
 
 
 ==============================================================================*/
-/* @media screen and (max-width:640px) {
-  .content {
-    margin-left: 0%;
-  }
+@media screen and (max-width:880px) {
+    #content > div:nth-child(2) > p {
+        font-size: 100%;
+    }
+    .grid_container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "language"
+            "web"
+            "mobile"
+            "python"
+            "bash";
+    }
+    .grid_container > div p {
+        font-size: 94%;
+    }
 }
 
-@media screen and (max-width:320px) {
+/* @media screen and (max-width:320px) {
 
 } */

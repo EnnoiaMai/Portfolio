@@ -15,64 +15,76 @@ Date Created: December 2017
 #content {
     margin-left: 16%;
     line-height: 148%;
+    /* border: 2px dashed red; */
 }
 #content_header {
     color: #FFF;
     background-color: #002132;
-    height: 300px;
+    height: 200px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-bottom: 24px;
+}
+#content_header > h1 {
+    width: 80%;
+    /* height: 80px; */
+    /* position: sticky;
+    top: 200px; */
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+    /* border: 1px dashed green; */
+    /* margin-top: 80px; */
 }
 
-#content > div:nth-child(n+2) {
+#content > div:nth-child(n+3) {
     width: 85%;
     margin-left: auto;
     margin-right: auto;
+    /* border: 2px dashed orange; */
 }
-#content h2 {
+#content .section h2 {
     padding-top: 16px;
     padding-bottom: 16px;
 }
-#content h4 {
+#content .section h4 {
     padding-top: 8px;
     padding-bottom: 8px;
 }
-#content p, li, td {
+#content .section p, li, td {
     font-size: 104%;
 }
-#content ul, ol {
+#content .section ul, ol {
     margin-left: 40px;
 }
-#content pre, code {
+#content .section pre, code {
     font-size: 94%;
     /* white-space: pre-wrap; */
     overflow: auto;
 }
-#content pre {
+#content .section pre {
     /* white-space: pre-wrap; */
 }
-#content table {
+#content .section table {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
 }
-#content th, td {
+#content .section th, td {
     padding: 8px 16px;
 }
-#content th {
+#content .section th {
     background-color: rgba(206, 212, 210, 0.5);
     font-size: 116%;
 }
-#content tr:nth-child(odd) {
+#content .section tr:nth-child(odd) {
     /*background-color: rgba(208, 237, 255, 0.5);*/
     /*background-color: #f2f2f2*/
     /*background-color: #CFD8DC;*/
     background-color: #E4EAED;
 }
-#content tr:nth-child(even) {
+#content .section tr:nth-child(even) {
     background-color: white;
 }
 #content iframe {
@@ -84,17 +96,98 @@ Date Created: December 2017
 #iframe_link_div {
     text-align: center;
 }
-#content a:link {
+#content .section a:link {
     color: rgba(200, 0, 0, 1);
     /*box-shadow: 0px 0px 10px 1px rgba(50, 50, 50, 1) inset;*/
     /*background-color: rgba(223, 229, 232, 1);*/
     text-decoration-color: rgba(50, 50, 50, 1);
     text-decoration-line: underline;
 }
-#content a:visited {
+#content .section a:visited {
     color: rgba(200, 0, 0, 1);
     text-decoration-color: rgba(50, 50, 50, 1);
     text-decoration-line: underline;
+}
+
+/*=========================== NAVIGATION HEADER ==============================*/
+#navigation_header {
+    background-color: #002132;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    /* top: 100px; */
+    /* transform: translateY(-100px); */
+}
+#navigation_header h1 {
+    color: #FFF;
+    opacity: 0.0;
+    /* border: 1px dashed red; */
+}
+#toc_drop_down {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    bottom: 22px;
+    right: 36px;
+}
+#scroll_to_top_arrow {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    bottom: 22px;
+    right: 108px;
+}
+#scroll_to_top_arrow img, #toc_drop_down img {
+    width: 100%;
+    cursor: pointer;
+}
+
+/*====================== DIRECTORY (TABLE OF CONTENTS) =======================*/
+#directory {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    height: 0px;
+    /* background-color: #FFF; */
+    background-color: #DDD;
+    overflow: auto;
+    z-index: 10;
+}
+#directory > div {
+    flex-basis: 50%;
+}
+#directory ul {
+    color: #000;
+    font-size: 1.0rem;
+    list-style-type: none;
+    padding-left: 24px;
+}
+#directory ul li {
+    padding-top: 4px;
+}
+#directory a {
+    font-size: 110%;
+    color: #000;
+    text-decoration: none;
+    -webkit-transition-duration: 300ms;
+    -moz-transition-duration: 300ms;
+    transition-duration: 300ms;
+    /* border: 1px dashed green; */
+}
+#directory a:hover {
+    /* color: #6A0000; */
+    color: #00ABFF;
+    -webkit-transition-duration: 300ms;
+    -moz-transition-duration: 300ms;
+    transition-duration: 300ms;
 }
 
 /*============================ HIGHLIGHTED WORDS =============================*/
@@ -169,81 +262,6 @@ Date Created: December 2017
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-}
-
-/*================================ DIRECTORY ===================================*/
-/* The Topic Links Sidebar */
-#directory_container {
-    width: 10%;
-    min-width: 180px;
-    height: 96%;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    position: fixed;
-    top: 4%;
-    right: 0px;
-    /* border: 1px solid purple; */
-}
-
-/* Navigation Buttons */
-#navigation_buttons {
-    width: 72%;
-    height: 8%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* border: 1px solid blue; */
-}
-#navigation_buttons div {
-    width: auto;
-    height: 90%;
-    /* border: 1px dashed purple; */
-}
-#navigation_buttons div img {
-    width: auto;
-    height: 100%;
-    max-height: 100px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-#directory_menu {
-    visibility: hidden;
-}
-#directory_top_arrow {
-    visibility: hidden;
-}
-
-/* Topics List */
-#directory {
-    height: 85%;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 1px 0px 5px 0px rgba(220, 220, 220, 1.0) inset;
-    overflow: auto;
-    padding: 16px;
-    transform: translate(100%, 0%);
-    /* border: 1px solid grey; */
-}
-#directory ul {
-    font-size: 0.8rem;
-    list-style-type: none;
-}
-#directory ul ul {
-    font-size: 1rem;
-}
-#directory ul li {
-    padding-top: 4px;
-}
-#directory a {
-    color: #000;
-    text-decoration: none;
-    /* border: 1px dashed green; */
-}
-#directory a:hover {
-    color: #6A0000;
 }
 
 /*=============================== SECTIONS ===================================*/

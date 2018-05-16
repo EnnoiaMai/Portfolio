@@ -13,7 +13,10 @@ Date Created: December 2017
     left: 0px;
     padding-top: 12px;
     overflow: auto;
+    z-index: 20;
 }
+
+/*---------------------------- Menu (Hamburger) ------------------------------*/
 #menu_icon {
     width: 36px;
     height: 36px;
@@ -38,6 +41,7 @@ Date Created: December 2017
     z-index: 10;
 }
 
+/*------------------------------ Menu Options --------------------------------*/
 #sidebar ul {
     list-style-type: none;
     margin-top: 12px;
@@ -45,6 +49,26 @@ Date Created: December 2017
 #sidebar > ul > li > a {
     font-size: 1.0rem;
 }
+
+/*----------------- Submenu Options (Languages and Syntax) -------------------*/
+#submenu {
+    display: flex;
+    flex-direction: row;
+}
+#submenu a {
+    font-size: 1.0rem;
+    display: block;
+    flex: 1 1 auto;
+}
+#submenu div {
+    width: 50px;
+    padding: 8px;
+}
+#submenu div img {
+    width: 100%;
+    cursor: pointer;
+}
+
 #submenu_links ul {
     display: none;
 }
@@ -54,6 +78,8 @@ Date Created: December 2017
 #submenu_links ul li a {
     font-size: 1.0rem;
 }
+
+/*------------------------ Background Color of Links -------------------------*/
 .normal_link {
     color: white;
     background-color: rgba(255, 255, 255, 0.0);
@@ -83,24 +109,7 @@ Date Created: December 2017
     transition-duration: 500ms;
 }
 
-#submenu {
-    display: flex;
-    flex-direction: row;
-}
-#submenu a {
-    font-size: 1.0rem;
-    display: block;
-    flex: 1 1 auto;
-}
-#submenu div {
-    width: 50px;
-    padding: 8px;
-}
-#submenu div img {
-    width: 100%;
-    cursor: pointer;
-}
-
+/*------------------------------- Scrollbar ----------------------------------*/
 body::-webkit-scrollbar {
     /* width: 1em; */
     width: 5px;
@@ -128,31 +137,3 @@ body::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   /* outline: 1px solid slategrey; */
 }
-
-/*==============================================================================
-
-
-                                MEDIA QUERIES
-
-
-==============================================================================*/
-/* @media screen and (max-width:640px) {
-#sidebar {
-width: 100%;
-height: auto;
-}
-#sidebar > div {
-width: 10%;
-min-width: 24px;
-border: 1px dashed red;
-}
-
-#submenu div {
-min-width: 24px;
-flex: 0 0 8%;
-}
-}
-
-@media screen and (max-width:320px) {
-
-} */

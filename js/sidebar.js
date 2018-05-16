@@ -113,7 +113,7 @@ function initializeSidebar() {
 function changeScreenType() {
     if (mediaQueryList.matches) {
         currentScreenType = screenType.MOBILE;
-        // hamburgerToggled = true;
+        hamburgerToggled = false;
         onChangeScreenType();
     } else {
         currentScreenType = screenType.DESKTOP;

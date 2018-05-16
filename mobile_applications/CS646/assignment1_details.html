@@ -120,7 +120,7 @@ Date Created: January 2018
 
             <div class="section">
                 <h2>Implementation Details</h2>
-                <p><b>Note</b>: The following layout shows how my original implementation and the more concise and straightforward way, written by Professor Roger Whitney, to implement it using higher-order functions.</p>
+                <p><b>Note</b>: The following layout shows how my original implementation and the more concise and straightforward way, written by <b>Professor Whitney</b>, to implement it using higher-order functions.</p>
                 <br>
                 <p><b>1)</b> Both implementations use the idea of looping through the range of numbers and reading it forwards and backwards to see if they match. However, the original implementation didn't make use of high-order functions. In the code, the range was established using the parameters <span class="code_CS646">from</span> and <span class="code_CS646">to</span>, and <span class="code_CS646">filter()</span> was called which took the <span class="code_CS646">isPalindrome</span> helper function as the closure. filter() was chained with the <span class="code_CS646">count</span> property. So for each number within the range that returns true as a palindrome, it would be added to an array and the array's length was returned.</p>
                 <br>

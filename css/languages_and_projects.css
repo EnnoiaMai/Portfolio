@@ -12,6 +12,9 @@ Date Created: December 2017
     /* font-family: 'Source Sans Pro', sans-serif; */
     /* font-family: 'Open Sans', sans-serif; */
 }
+body {
+    min-width: 320px;
+}
 
 /*============================== CONTENT =====================================*/
 #content {
@@ -28,30 +31,29 @@ Date Created: December 2017
     /* border: 1px solid green; */
 }
 
-/*================================= LANGUAGES AND SYNTAX =================================*/
+/*===================== PROJECTS AND LANGUAGES AND SYNTAX ====================*/
 #projects_list, #languages_list {
     width: 80%;
     display: flex;
     flex-direction: row;
-    margin-top: 24px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 48px;
+    margin: 48px auto 0px;
+    padding: 8px 8px 48px 8px;
     /* border: 1px solid red; */
+    /* border: 1px dashed red; */
 }
 #projects_list > div > h2 {
     text-align: center;
     padding: 12px;
     /* border: 1px dashed black; */
 }
-#mobile_applications_heading, #bash_scripts_heading {
-    margin-top: 24px;
-}
 
+/*------------------- Width for each column list initially -------------------*/
 #projects_list > div, #languages_list > div {
     width: 50%;
     /* border: 1px dashed purple; */
 }
+
+/*---------------------- Lists and links for Languages -----------------------*/
 #projects_list > div > ul, #languages_list > div > ul {
     list-style-type: none;
     /* border: 1px dashed red; */
@@ -63,13 +65,15 @@ Date Created: December 2017
     text-decoration: none;
     padding-top: 6px;
     padding-bottom: 6px;
-    /* padding-left: 18px; */
+    padding-left: 18px;
 }
 #projects_list table td > a {
     color: #000;
     /* font-size: 110%; */
     text-decoration: none;
 }
+
+/*---------------------- Hovering over links both lists ----------------------*/
 #languages_list > div > ul a:hover, #projects_list table td > a:hover {
     color: #6A0000;
     text-decoration-color: #6A0000;
@@ -79,12 +83,22 @@ Date Created: December 2017
     color: #000;
 }
 #languages_list > div:first-child, #projects_list > div:first-child {
+    padding-right: 12px;
     border-right: 1px solid #BBB;
 }
 
 /*================================= PROJECTS =================================*/
+/*------------------- Margin-top for each heading initially ------------------*/
+#python_scripts_heading {
+    margin-top: 0px;
+}
+#mobile_applications_heading, #bash_scripts_heading {
+    margin-top: 24px;
+}
+
+/*------------------------- Projects Table and Links -------------------------*/
 #projects_list table {
-    width: 80%;
+    width: 100%;
     border-collapse: collapse;
     /* border: 1px solid blue; */
 }
@@ -108,18 +122,6 @@ Date Created: December 2017
     /* border: 1px dashed blue; */
 }
 
-.external_link_container {
-    width: 36px;
-    height: 36px;
-    display: inline-block;
-    margin-left: 8px;
-    vertical-align: text-top;
-    /* border: 1px dashed brown; */
-}
-.external_link_container img {
-    /* border: 1px dashed red; */
-}
-
 /*================================= ICONS =================================*/
 .fa-github {
     color: #000;
@@ -134,4 +136,40 @@ Date Created: December 2017
     -webkit-transition-duration: 500ms;
     -moz-transition-duration: 500ms;
     transition-duration: 500ms;
+}
+
+.external_link_container {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: text-top;
+    /* border: 1px dashed brown; */
+}
+.external_link_container img {
+    /* border: 1px dashed red; */
+}
+
+/*==============================================================================
+
+
+                              MEDIA QUERIES
+
+
+==============================================================================*/
+
+@media screen and (max-width:880px) {
+    #projects_list, #languages_list {
+        flex-direction: column;
+    }
+    #projects_list > div, #languages_list > div {
+        width: 100%;
+    }
+    #languages_list > div:first-child, #projects_list > div:first-child {
+        padding-right: 0px;
+        border-right: none;
+    }
+    #python_scripts_heading {
+        margin-top: 24px;
+    }
 }
