@@ -248,6 +248,10 @@ Date Created: December 2017
   color: #C8601A; /* Orange */
   font-weight: bold;
 }
+.definition_python {
+    color: #2054BC;
+    font-weight: bold;
+}
 .highlight {
   color: #134A18; /* Dark Green */
   font-weight: bold;

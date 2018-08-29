@@ -14,10 +14,11 @@ Date Created: January 2018
         <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
         <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
         <script src="../js/sidebar.js"></script>
         <script src="../js/syntax.js"></script>
     </head>
@@ -74,7 +75,787 @@ Date Created: January 2018
             </div>
 
             <div class="section">
+                <p><span class="bold">Sources to credit: </span>Tutorials on youtube, StackOverflow, <a href="https://www.w3schools.com/python/">w3schools.com</a>, and <a href="https://www.youtube.com/channel/UCxX9wt5FWQUAAz4UrysqK9A">CS Dojo</a>.</p>
+            </div>
 
+            <div class="section">
+                <p><a href="https://docs.python.org/3/tutorial/">docs.python.org/3/tutorial/</a> contains the official documentation for the Python language and syntax.</p>
+            </div>
+
+            <div class="section">
+                <h2>Python</h2>
+                <p>Python is an interpreted and object-oriented language. The language uses newlines to complete a command and indentations to define scope. Instead of braces, the language uses 4 spaces as an indent to act as collective statements to execute.</p>
+                <br>
+
+                <p class="bold">Checking the Python Version (command line)</p>
+                <pre><code>
+                python --version
+                </code></pre>
+                <br>
+
+                <p class="bold">Running a Python Script from the same directory (command line)</p>
+                <pre><code>
+                python filename.py
+                </code></pre>
+                <br>
+
+                <p class="bold">Run Python as command line</p>
+                <pre><code>
+                python
+                </code></pre>
+                <br>
+
+    <p class="bold">Providing the path of the Python interpreter</p>
+    <pre><code class="language-python">
+    #!/bin/python3
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Comments</h2>
+    <pre><code class="language-python">
+    # For single line comments
+    """ For multi-line comments (triple quotes) """
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Variables</h2>
+                <p>Created the moment you assign a value to it, don't have to define a data type.</p>
+                <ul>
+                    <li>Variable names start with a letter or underscore. They can't start with a number, can only contain alphanumeric characters and underscores, and are case-sensitive.</li>
+                </ul>
+                <br>
+
+    <pre><code class="language-python">
+    a = 1    # type int
+    a = "some string"    # type str
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Null</h2>
+                <p>In Python, the singleton <span class="definition_python">None</span> is equivalent to null which means it has no value.</p>
+            </div>
+
+            <div class="section">
+                <h2>Print</h2>
+                <p>Can also concatenate using the '+' operator. However, an error occurs when attempting to combin a string and a number.</p>
+                <br>
+    <pre><code class="language-python">
+    print(literal)
+    print(variable)
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Numbers</h2>
+                <p>The <span class="definition_python">type()</span> function verifies the type of any object</p>
+                <br>
+                <table class="table_3_columns">
+                    <tr>
+                        <th>Numeric Types</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>int</td>
+                        <td>Whole number of unlimited length</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>float</td>
+                        <td>Number with one or more decimals. Use 'e' for power of 10.</td>
+                        <td>
+                            <p>2.8</p>
+                            <p>35e3</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>complex</td>
+                        <td>Written with "j" as the imaginary part</td>
+                        <td>1j</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Casting</h2>
+                <p>To specify a type on a variable.</p>
+                <br>
+                <table class="table_3_to_7">
+                    <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>int()</td>
+                        <td>Constructs an integer number from an integer, float, or string literal.</td>
+                    </tr>
+                    <tr>
+                        <td>float()</td>
+                        <td>Constructs a float number from an integer, float, or string literal.</td>
+                    </tr>
+                    <tr>
+                        <td>str()</td>
+                        <td>Constructs a string from many data types including strings, integer, and float literals.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>String Literals</h2>
+                <p>Strings are arrays of bytes of unicode characters. Python doesn't have a character data type.</p>
+                <ul>
+                    <li>Square brackets are used to access elements of the string.</li>
+                    <li>Can use single or double quotes.</li>
+                </ul>
+                <br>
+
+    <pre><code class="language-python">
+    # Accessing the character at a position of the string
+    a = "Hello, World!"
+    a[1]    # is 'e'
+
+    # Getting a substring
+    b = "Hello, World!"
+    b[2:5]    # Gets substring of string from position 2 to 5
+    </code></pre>
+                <br>
+
+                <table>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>strip()</td>
+                        <td>Removes any whitespace from the beginning or end.</td>
+                        <td>
+    <pre><code class="language-python">
+    a.strip()
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>len()</td>
+                        <td>Returns length of a string</td>
+                        <td>
+    <pre><code class="language-python">
+    len(a)
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>lower()</td>
+                        <td>Returns the string in lower case.</td>
+                        <td>
+    <pre><code class="language-python">
+    a.lower()
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>upper()</td>
+                        <td>Returns the string in upper case.</td>
+                        <td>
+    <pre><code class="language-python">
+    a.upper()
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>replace()</td>
+                        <td>Replaces a string with another string.</td>
+                        <td>
+    <pre><code class="language-python">
+    a.replace("H", "J")
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>split()</td>
+                        <td>Splits the string into substrings if it finds instances of the separator.</td>
+                        <td>
+    <pre><code class="language-python">
+    a = "Hello, World!"
+    a.split(",")
+    # returns ['Hello', 'World']
+    </code></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Asking for user input</h2>
+                <p>User the <span class="definition_python">input()</span> method</p>
+                <br>
+
+    <pre><code class="language-python">
+    # The input from the user will be stored in variable x
+    x = input()
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Operators</h2>
+                <br>
+                <table class="table_3_to_7">
+                    <tr>
+                        <th>Operator</th>
+                        <th>Symbol</th>
+                    </tr>
+                    <tr>
+                        <td>Arithmetic</td>
+                        <td>+, -, *, /, %, ** (Exponentiation), // (Floor Division)</td>
+                    </tr>
+                    <tr>
+                        <td>Assignment</td>
+                        <td>=, +=, -=, *=, /=, %=, //=, **=, &amp;=, |=, ^=, &gt;&gt;=, &lt;&lt;=</td>
+                    </tr>
+                    <tr>
+                        <td>Comparison</td>
+                        <td>==, !=, &gt;, &lt;, &gt;= , &lt;=</td>
+                    </tr>
+                    <tr>
+                        <td>Logical</td>
+                        <td>and, or, not</td>
+                    </tr>
+                    <tr>
+                        <td>Identity (or ===)</td>
+                        <td>is, is not</td>
+                    </tr>
+                    <tr>
+                        <td>Membership (to test if a sequence is present in another object)</td>
+                        <td>
+                            <p>in, not in</p>
+    <pre><code class="language-python">
+    x = ["apple", "banana"]
+    "banana" in x    # returns True
+    </code></pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bitwise</td>
+                        <td>&amp;, |, ^, ~, &lt;&lt;, &gt;&gt;</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Booleans</h2>
+                <p><span class="definition_python">True</span> or <span class="definition_python">False</span></p>
+                <p>Can use the constructor <span class="definition_python">bool(<i>boolean</i>)</span> to evaluate the boolean value of an expression.</p>
+            </div>
+
+            <div class="section">
+                <h2>Python Collections</h2>
+                <p><span class="definition">List</span>: collection which is ordered and changeable. Allows duplicate members.</p>
+                <p><span class="definition">Tuple</span>: collection which is ordered and unchangeable. Allows duplicate members.</p>
+                <p><span class="definition">Set</span>: collection which is unordered and unindexed. No duplicate members.</p>
+                <p><span class="definition">Dictionary</span>: collection which is unordered, changeable, and indexed. No duplicate members.</p>
+                <br>
+
+                <p class="bold">List</p>
+                <p>Written with square brackets</p>
+                <ul>
+                    <li>Elements inside a list can have different types.</li>
+                    <li>Lists can contain other lists.</li>
+                    <li>Loop through a list using a <span class="definition_python">for in</span> loop</li>
+                </ul>
+                <br>
+    <pre><code class="language-python">
+    # Accessing/Retrieving an element of a list
+    list[index]    # index is a number
+
+    # Modifying the value at a position in the list
+    list[index] = newValue    # index is a number
+
+    # Example of appending
+    a = [3, 10, -1]
+    a.append(1)
+    a.append([1, 2])
+    </code></pre>
+                <br>
+
+                <table class="table_3_to_7">
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>len(list)</td>
+                        <td>Returns number of items in the list</td>
+                    </tr>
+                    <tr>
+                        <td>list.append(element)</td>
+                        <td>Adds a new element to the end of the list</td>
+                    </tr>
+                    <tr>
+                        <td>list.insert(position, element)</td>
+                        <td>Adds a new element to a specific index of the list</td>
+                    </tr>
+                    <tr>
+                        <td>remove(element)</td>
+                        <td>Removes a specific element</td>
+                    </tr>
+                    <tr>
+                        <td>list.pop(index)</td>
+                        <td>Removes element at a specific index, or the last item if index is not specified.</td>
+                    </tr>
+                    <tr>
+                        <td>del list[index]</td>
+                        <td>del keyword removes the specified index</td>
+                    </tr>
+                    <tr>
+                        <td>del list</td>
+                        <td>del keyword can be used to delete the list completely</td>
+                    </tr>
+                    <tr>
+                        <td>list.clear()</td>
+                        <td>Empties the list</td>
+                    </tr>
+                    <tr>
+                        <td>list.reverse()</td>
+                        <td>Reverses the order of the list</td>
+                    </tr>
+                    <tr>
+                        <td>list.sort()</td>
+                        <td>Sorts the list</td>
+                    </tr>
+                </table>
+                <br>
+
+                <p class="bold">Tuple</p>
+                <p>Written with round brackets. In a tuple, values <u>cannot</u> be changed.</p>
+                <br>
+    <pre><code class="language-python">
+    tuple_ex = ("apple", "banana", "cherry")
+    tuple_ex[1]    # Returns item at position 1
+    tuple_ex[1] = "pear"    # Value at position 1 does not change
+    len(tuple_ex)    # Returns the length of the tuple
+    </code></pre>
+                <br>
+
+                <p class="bold">Set</p>
+                <p>Written with curly brackets.</p>
+                <br>
+    <pre><code class="language-python">
+    set_ex = {"apple", "banana", "cherry"}    # Items appear in random order
+
+    # Adding item to the set
+    set_ex.add("pear")
+
+    # Removing item from the set
+    set_ex.remove("apple")
+
+    # Return size of set
+    len(set_ex)
+    </code></pre>
+                <br>
+
+                <p class="bold">Dictionary</p>
+                <p><span class="definition">Dictionaries</span>: like a lookup table (hash table) or a collection of key-value pairs.</p>
+                <ul>
+                    <li>Keys are commonly strings or numbers.</li>
+                    <li>Written wtih curly brackets.</li>
+                </ul>
+                <br>
+    <pre><code class="language-python">
+    # Instantiating a new dictionary
+    dictionary_ex = {}    # Dictionary is empty
+    dictionary_ex = {
+        "George": 24,
+        "Tom": 32
+    }
+
+    # Accessing a dictionary element
+    # (Throws error if key doesn't exist)
+    dictionary_ex[key]
+
+    # Adding/Overwriting a key-value pair
+    dictionary_ex[key] = value
+
+    # Remove an element with del() function
+    del(dictionary_ex["George"])
+
+    # Iterating over a dictionary
+    for key, value in dictionary_ex.items():
+        statement
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>If, else if, else</h2>
+                <ul>
+                    <li>Can also nest if-else clauses</li>
+                </ul>
+                <br>
+    <pre><code class="language-python">
+    if condition:
+        statements
+    elif condition:
+        statements
+    else:
+        statements
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Loops</h2>
+                <ul>
+                    <li>Use <span class="definition_python">break</span> keyword to exit out lloop.</li>
+                    <li>Use <span class="definition_python">continue</span> keyword to stop current iteration and continue with the next.</li>
+                </ul>
+                <br>
+
+                <p class="bold">While Loops</p>
+                <p>Can include multiple conditions</p>
+                <br>
+    <pre><code class="language-python">
+    while condition:
+        statements
+        # increment index
+
+    # Example of a while loop
+    total = 0
+    j = 1
+    while j < 5:
+        total += j
+        j += 1
+    print(total)    # prints 10
+
+    # Example of multiple conditions
+    while i < len(given_list) and given_list[i] > 0:
+        statements
+        # increment index
+
+    # Example with for loop and break
+    for element in given_list:
+        if element &lt;= 0:
+            break
+        total += element
+
+    # To continuously run a loop until a condition is reached
+    while True:
+        statements
+        # if certain condition fulfilled, break
+    </code></pre>
+                <br>
+
+                <p class="bold">For in Loop</p>
+                <p>Used to iterate over a sequence like a list, a tuple, or a string</p>
+                <ul>
+                    <li>Can use <span class="definition_python">break</span> and <span class="definition_python">continue</span> to exit out of loop or stop the current iteration, respectively.</li>
+                </ul>
+                <br>
+    <pre><code class="language-python">
+    for element in list:
+        statements
+
+    # Example 1
+    for element in fruits:
+        print(element)
+
+    # Example 2
+    b = [20, 10, 5]
+    total = 0
+    for e in b:
+        total += e
+    print(total)
+    </code></pre>
+                <br>
+
+                <p><span class="definition">Range Function</span>: creates a range of numbers starting at the first argument(inclusive) and ending at the second argument(exclusive).</p>
+                <ul>
+                    <li>Also used to loop through the code a certain number of times.</li>
+                    <li>The <span class="definition_python">range(number)</span> function defaults to 0 as the starting value, but two arguments can be given to specify the range.</li>
+                    <li>An optional third argument can be given to change the incremental value.</li>
+                </ul>
+                <br>
+    <pre><code class="language-python">
+    range(6)    # 0 to 5
+    range(1, 5)    # 1 to 4
+
+    # Convert to a list by passing the range to the constructor
+    list(range(1, 5))
+
+    # Using ranges in a for loop
+    for i in range(1, 5):
+        print(i)
+
+    for x in range(2, 30, 3):
+        print(x)
+    </code></pre>
+                <br>
+
+                <p class="bold">Enumerating</p>
+                <br>
+    <pre><code class="language-python">
+    for index, value in enumerate(collection):
+        statements
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Functions</h2>
+    <pre><code class="language-python">
+    def function_name():
+        statements
+
+    # To execute functions
+    function_name()
+    function_name(parameter1, parameter2)
+
+    # Mapping a function, takes an input or an argument
+    def function2(x):
+        return 2 * x
+    a = function2(3)    # a has value of 6
+
+    # Multiple arguments
+    def function3(x, y):
+        return x + y
+    e = function3(1, 2)    # e has value of 3
+
+    # Default parameter value
+    def function_default(country = "America"):
+        print("I am from " + country)
+    function_default("Sweden")    # Returns "I am from Sweden"
+    function_default()    # Returns "I am from America"
+    </code></pre>
+                <br>
+
+                <p class="bold">Swapping Elements</p>
+                <p>There are two ways to do this - with a temporary variable or with something similar to tuple notation.</p>
+                <br>
+    <pre><code class="language-python">
+    # Given the followin list
+    fruits = ['pears', 'apples', 'banana']
+
+    # Example with temporary variable
+    temp = fruits[0]
+    fruits[0] = fruits[2]
+    fruits[2] = temp
+
+    # Example with tuple notation
+    fruits[0], fruits[2] = fruits[2], fruits[0]
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Lambda</h2>
+                <p><span class="definition">Lambda</span>: a small anonymous function. Can take any number of arguments but can only have one expression. Usually used as anonymous function inside another function.</p>
+    <pre><code>
+    lambda arguments : expression
+    </code></pre>
+                <br>
+    <pre><code class="language-python">
+    # The following adds 10 to the number passed in as an argument
+    # and prints the result
+    x = lambda a : a + 10
+    print(x(5))    # prints 15
+
+    x = lambda a, b : a * b
+    print(x(5, 6))    # prints 30
+
+    # Using lambdas in another function
+    def my_func(n):
+        return lambda a : a * n
+
+    # double_func is now a lambda that takes a number as an argument
+    # and multiplies it by 2 (since the lambda was returned)
+    double_func = my_func(2)
+
+    print(double_func(11))    # prints 22
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Classes and Objects</h2>
+                <ul>
+                    <li>Capitalize the class name.</li>
+                    <li>Keyword <span class="definition_python">self</span> is similar to this in Java.</li>
+                    <li>Functions within a class, or methods, must have an additional argument called <span class="definition_python">self</span>. It is a reference to the class itself and allows access to variables belonging to the class.</li>
+                    <li>If an attribute or property doesn't exist and a method is ran which expects that attribute, an error will be thrown. To avoid this, it's better to use a constructor to assign values to object properties. The keyword for this constructor is <span class="definition_python">__init__</span></li>
+                    <li>The convention is to name the parameters to the constructor the same as the attributes that you want to set.</li>
+                    <li>Once a custom constructor is defined in the class, the default constructor won't work anymore.</li>
+                    <li>Remember to pass self as the first argument to the constructor's parameters.</li>
+                </ul>
+                <br>
+
+    <pre><code class="language-python">
+    class Robot:
+        x = 5    # a property of the class
+
+        def introduce_self(self):
+            print("My name is " + self.name)
+
+    # Using default constructor for Robot class
+    r1 = Robot()
+
+    # Set attributes
+    r1.name = "Tom"
+    r1.color = "red"
+    r1.weight = 30
+    r1.introduce_self()    # prints "My name is Tom"
+
+    r2 = Robot()
+    r2.name = "Jerry"
+    r2.color = "blue"
+    r2.weight = 40
+    r2.introduce_self()    # prints "My name is Jerry"
+
+    # Delete object properties
+    del r1.weight
+
+    # Delete entire objects
+    del r1
+
+    # Custom constructor
+    class Robot:
+        def __init__(self, name, color, weight):
+            self.name = name
+            self.color = color
+            self.weight = weight
+
+    r1 = Robot("Tom", "red", 30)
+    r2 = Robot("Jerry", "blue", 40)
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Iterators</h2>
+                <p><span class="definition">Iterator</span>: an object that contains a countable number of values, and can be traversed upon through all the values.</p>
+                <p>An iterator is an object that implements the iterator protocol, so it must implement the methods - </p>
+                <ul>
+                    <li><span class="definition_python">__iter__()</span></li>
+                    <li><span class="definition_python">__next__()</span></li>
+                </ul>
+                <br>
+                <p>Collections and strings are iterable objects. Use the <span class="definition_python">iter()</span> method to get an iterator.</p>
+                <br>
+
+    <pre><code class="language-python">
+    my_tuple = ("apple", "banana", "cherry")
+    my_iter = iter(my_tuple)
+    print(next(my_iter))    # prints "apple"
+    print(next(my_iter))    # prints "banana"
+    print(next(my_iter))    # prints "cherry"
+    </code></pre>
+                <br>
+
+                <p class="bold">Creating an Iterator</p>
+                <p><span class="definition_python">__iter__()</span>: must always return the iterator object itself. Can initialize values here too.</p>
+                <p><span class="definition_python">__next__()</span>: must return the next item in the sequence.</p>
+                <p><span class="definition_python">StopIteration</span>: statement that terminates the iteration, raises the error.</p>
+                <br>
+    <pre><code class="language-python">
+    class MyNumbers:
+        def __iter__(self):
+            self.a = 1
+            return self
+
+        def __next__(self):
+            if self.a <= 20:
+                x = self.a
+                self.a += 1
+                return x
+            else:
+                raise StopIteration
+
+    my_class = MyNumbers()
+    my_iter = iter(my_class)
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Enums</h2>
+    <pre><code class="language-python">
+    from enum import Enum
+
+    class Animal(Enum):
+        ant = 1
+        bee = 2
+        cat = 3
+        dog = 4
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Try, Except</h2>
+                <p>A <span class="definition_python">try</span> block tests a block of code for errors, an <span class="definition_python">except</span> block handles the error, and a <span class="definition_python">finally</span> block lets you execute the code regardless of the try and catch blocks (useful for closing objects and cleaning up resources). Can use <span class="definition_python">else</span> to define block of code if no errors were raised.</p>
+                <br>
+    <pre><code class="language-python">
+    try:
+        print(x)
+    except NameError:
+        print("Variable x is not defined")
+    except:
+        print("Something else went wrong")
+    else:
+        print("Nothing went wrong")
+    finally:
+        print("The 'try except' is finished")
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Modules</h2>
+                <p><span class="definition">Module</span>: a code library, a file containing a set of functions that you want to include in your application.</p>
+                <ul>
+                    <li>Create one by saving code in a file with the <span class="definition">.py</span> extension</li>
+                    <li>Use module by using the <span class="definition_python">import</span> statement. Use <span class="definition_python">from</span> keyword to import only parts of a module. If we do import using from, don't use module name to refer to elements in the module since it is not needed.</li>
+                    <li>Can use alias when importing a module by using the <span class="definition_python">as</span> keyword.</li>
+                    <li>Can use built-in modules such as platform</li>
+                    <li>Use <span class="definition_python">dir()</span> function to list the function names or variable names in a module.</li>
+                </ul>
+                <br>
+    <pre><code class="language-python">
+    # Example of importing
+    import mymodule
+
+    # To use function from a module: module_name.function_name
+    mymodule.greeting("Jonathan")
+
+    # Accessing a variable from a module
+    module_name.variable
+
+    # Using an alias when importing
+    import mymodule as mx
+    </code></pre>
+            </div>
+
+            <div class="section">
+                <h2>Termination</h2>
+                <p>To exit a script, the following can be done which raises a <span class="definition_python">SystemExit</span> exception. This will also terminate all associated python scripts.</p>
+                <br>
+    <pre><code class="language-python">
+    import sys
+
+    sys.exit()
+    </code></pre>
+                <br>
+                <p>Can also use <span class="definition_python">quit()</span> to terminate. Don't need to import and the function will only terminate the script that spawned it.</p>
+            </div>
+
+            <div class="section">
+                <h2>global keyword</h2>
+                <p><span class="definition_python">global</span> is used to access and modify variables outside of a function, or within the module.</p>
+                <br>
+    <pre><code class="language-python">
+    some_variable = 0
+
+    def change_value():
+        global some_variable
+
+        some_variable = 5
+
+    print(some_variable)    # prints 0
+    change_value()
+    print(some_variable)    # prints 5
+    </code></pre>
             </div>
         </div>
     </body>
