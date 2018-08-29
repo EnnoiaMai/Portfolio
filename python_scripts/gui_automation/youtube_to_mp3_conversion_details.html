@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: August 2018
+-->
+<html>
+    <head>
+        <title>GUI (Browser) Automation with Selenium - Youtube to Mp3 Conversion</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Thuc Nguyen's Portfolio">
+        <meta name="author" content="Thuc Nguyen">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../css/details.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/details.js"></script>
+    </head>
+
+    <body>
+        <div id="sidebar">
+            <div id="menu_icon">
+                <img src="../../images/ic_menu_white_36dp_1x.png" alt="Menu">
+                <img src="../../images/ic_menu_highlighted_36dp_1x.png" alt="Menu">
+            </div>
+            <ul>
+                <li><a href="../../index.html" id="link_home">Home</a></li>
+                <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                <div id="submenu">
+                    <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                    <div>
+                        <img src="../../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
+                    </div>
+                </div>
+                <li id="submenu_links">
+                    <ul>
+                        <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                        <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                        <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                        <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                        <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                        <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                        <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                        <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                        <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                        <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                        <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                        <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                        <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div id="content_header" class="header_python">
+                <h1>GUI (Browser) Automation with Selenium - Youtube to Mp3 Conversion</h1>
+            </div>
+
+            <div class="section">
+                <h2>Selenium</h2>
+                <p><span class="definition">Selenium</span> is a framework that provides the tools for automating web browsers and web applications. The Selenium WebDriver will drive the browser, and provide functions to use to get handles on elements of an HTML document. Actions can then be performed on that element. This framework helps facilitate the completion of mundane tasks.</p>
+                <br>
+                <p><span class="red_alert"><u>NOTE</u></span>: This project was completed for educational purposes only, and is just a script that I wrote to apply and test the framework. I have not in any way released the script nor have I sold it to anyone. To prevent this, I have only pasted some parts of the code that I wrote in the implementation details. The video is also unlisted on Youtube.</p>
+            </div>
+
+            <div class="section">
+                <h2>Purpose / Goal</h2>
+                <p>The purpose of the script is to automate the process of downloading music from Youtube using a conversion program online at <a href="https://ytmp3.cc">https://ytmp3.cc</a>. The user can enter in the songs to download from a console or from a text file. These options were made available in order to learn and test the <span class="code_python">input()</span> method of Python and also <b>reading files</b> in Python.</p>
+                <br>
+                <p>The idea is that there will be several instances that will take on the role of managing the conversion and downloading of the sogns. For this script, there will be 5 at a time. The script will, one by one, go through the songs in a list and delegate to the managers to handle the conversion. Throughout the script, there are sleep() functions called just in case the DOM have not completely loaded, or for some odd reason Selenium wasn't able to detect the visibility of the elements. At the end of the script, the driver will signal the browser to quit.</p>
+            </div>
+
+            <div class="section">
+                <h2>Implementation Details</h2>
+                <p>The explanation of the process of instantiating the driver and getting the adblock to be installed will be skipped.</p>
+                <br>
+                <p>There are five "sections" or blocks within this script:</p>
+                <ol>
+                    <li><b><i>Set up the tabs</i></b></li>
+                    <li><b><i>Set the list of songs</i></b></li>
+                    <li><b><i>Start converting</i></b></li>
+                    <li><b><i>Poll the progress</i></b></li>
+                    <li><b><i>Quit</i></b></li>
+                </ol>
+                <br>
+
+                <p>The following snippet asks the user which option they would like to pick to provide the list of songs to download -</p>
+    <pre><code class="language-python">
+    # Prompt user to get songs from console or from file
+    while True:
+        try:
+            response_input = input(PROMPT_INPUT_STREAM)
+            if response_input == 'c' or response == 'f':
+                break
+        except TypeError:
+            print("Input was invalid")
+            continue
+        else:
+            continue
+
+    if response_input == 'c':
+        operate_on_console()
+    elif response_input == 'f':
+        operate_on_file()
+    else:
+        print(ERROR_UNEXPECTED)
+    </code></pre>
+                <br>
+
+                <p>The following snippet reads the songs from a file -</p>
+    <pre><code class="language-python">
+    # Read input file and populate list_of_songs array
+    while True:
+        try:
+            file_name = input(PROMPT_INPUT_FILE)
+            file = open(file_name, "rt")
+            for line in file:
+                list_of_songs.append(line)
+            break
+        except IOError:
+            print("Unable to read file or file doesn't exist")
+        except:
+            print(ERROR_UNEXPECTED)
+    </code></pre>
+                <br>
+
+                <h3 class="applicable_files">Driver Class</h3>
+                <p>The tabs were set up so that the first tab would be the "youtube" tab, and the next 5 tabs would be the "converter" tabs.</p>
+                <br>
+                <p>The following is a snippet of the <span class="code_python">setup_tabs(self)</span> method. It uses a for in loop within a range. It only executes a Javascript statement to open a tab four times because the first tab is already on youtube and the second was previously redirected to the conversion site. To manage the converters, each new instance was appended to an array.</p>
+    <pre><code class="language-python">
+    for i in range(1, 6):
+        if i > 1:
+            self.driver.execute_script("window.open('');")
+
+        self.driver.switch_to.window(self.driver.window_handles[i])
+        self.driver.get(self.conversion_site_url)
+
+        new_converter = Converter(self.driver)
+        self.list_of_converters.append(new_converter)
+    </code></pre>
+                <br>
+
+                <p>Setting the list of songs was done simply by setting the argument to a property of the class.</p>
+                <br>
+
+                <p>The <span class="code_python">start_converting(self)</span> method just iterates through the list of songs and passes the song name to <span class="code_python">download_song(self, song_name)</span>.</p>
+                <br>
+
+                <p>Each iteration of <span class="code_python">download_song()</span> will always first switch back to the youtube tab. We get a handle on the search box, the song name is entered, and the ENTER key is clicked. After the search, the very first thumbnail is clicked on and the url is stored. The youtube logo is clicked immediately after in order to return to the home page. A loop is then executed and the converter state for each converter(equivalent to each tab in which the url is the conversion site) is noted. If the state is BUSY, <span class="code_python">check_conversion_progress()</span> of the Converter class is triggered. If the state is READY, then <span class="code_python">convert_to_mp3()</span> is fired.</p>
+                <br>
+
+                <p>The following is a snippet of the loop -</p>
+    <pre><code class="language-python">
+    while converted is False:
+        # ...
+
+        if converter_state == Converter.ConversionState.BUSY:
+            converter.check_conversion_progress()
+        else:
+            converter.set_url(link_to_song)
+            converter.convert_to_mp3()
+            converted = True
+
+        # ...
+    </code></pre>
+                <br>
+
+                <p>Converting the song is explained under Converter Class. Polling for the state of the converters is still done in the Driver class. Polling in this case is implemented via, again, a while loop except that the number of Converter instances that is in the READY state is noted. If at any time the state of a Converter object is BUSY, the count is reset to 0. The loop will break once the count is equal to the number of converters instantiated (in this case it was fixed at 5).</p>
+                <br>
+
+                <p>Here is a snippet of the loop for polling -</p>
+    <pre><code class="language-python">
+    while progress < len(self.list_of_converters):
+        # ...
+
+        if converter.get_state() == Converter.ConversionState.BUSY:
+            converter.check_conversion_progress()
+            progress = 0
+        else:
+            progress += 1
+
+        #...
+    </code></pre>
+                <br>
+
+                <h3 class="applicable_files">Converter Class</h3>
+                <ul>
+                    <li><span class="code_python">convert_to_mp3()</span> - To convert, we get a handle on the search box on the conversion site, send in the url, and click on the submit button. The state of the current Converter instance is then changed to BUSY.</li>
+                    <br>
+                    <li><span class="code_python">check_conversion_progress()</span> - To check the progress of the Converter instance and whether it has completed converting the song, the visibility of the download button is checked for. If it is there, download_song() is fired.</li>
+                    <br>
+                    <li><span class="code_python">download_song()</span> - The download button is clicked. The state of the current Converter instance is changed back to READY.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Selenium - Youtube to Mp3 - Console Demo</h2>
+
+            </div>
+
+            <div class="section">
+                <h2>Selenium - Youtube to Mp3 - File Demo</h2>
+
+            </div>
+        </div>
+    </body>
+</html>

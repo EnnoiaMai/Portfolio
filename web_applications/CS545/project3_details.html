@@ -143,13 +143,13 @@ DESCRIBE table_name;
 USE jadrnxxx;
 DROP TABLE IF EXISTS person;
 CREATE TABLE person(
-id int AUTO_INCREMENT PRIMARY KEY,  -- don't need this
-name varchar(50) NOT NULL,          -- can't be blank
-address varchar(100) NOT NULL,
-city varchar(30) NOT NULL,
-state char(2) NOT NULL,
-zip char(5) NOT NULL,
-email varchar(50) NOT NULL
+    id int AUTO_INCREMENT PRIMARY KEY,  -- don't need this
+    name varchar(50) NOT NULL,          -- can't be blank
+    address varchar(100) NOT NULL,
+    city varchar(30) NOT NULL,
+    state char(2) NOT NULL,
+    zip char(5) NOT NULL,
+    email varchar(50) NOT NULL
 );
 INSERT INTO person VALUES(0, 'Jim Robeson', '3456 Market St', 'San Diego', 'CA', '92104');
 ...

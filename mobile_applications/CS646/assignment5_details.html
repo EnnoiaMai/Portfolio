@@ -290,89 +290,89 @@ in a method for code resuability */
 /*====================================*/
 let mainQueue = OperationQueue.main
 mainQueue.addOperation {
-self.retrievingData = false
+    self.retrievingData = false
 }
 /*====================================*/
 
 func retrieveDataFromServer() {
-retrievingData = true
+    retrievingData = true
 
-var urlString = ""
-switch currentFilterParameter {
-case .ALL:
-urlString = "https://bismarck.sdsu.edu/hometown/users"
-case .COUNTRY:
-urlString = "https://bismarck.sdsu.edu/hometown/users?country=\(countryFilter)"
-case .YEAR:
-urlString = "https://bismarck.sdsu.edu/hometown/users?year=\(yearFilter)"
-case .COUNTRY_AND_YEAR:
-urlString = "https://bismarck.sdsu.edu/hometown/users?country=\(coutnryFilter)&amp;year=\(yearFilter)"
-}
+    var urlString = ""
+    switch currentFilterParameter {
+        case .ALL:
+        urlString = "https://bismarck.sdsu.edu/hometown/users"
+        case .COUNTRY:
+        urlString = "https://bismarck.sdsu.edu/hometown/users?country=\(countryFilter)"
+        case .YEAR:
+        urlString = "https://bismarck.sdsu.edu/hometown/users?year=\(yearFilter)"
+        case .COUNTRY_AND_YEAR:
+        urlString = "https://bismarck.sdsu.edu/hometown/users?country=\(coutnryFilter)&amp;year=\(yearFilter)"
+    }
 
-let operation = BlockOperation.init(block: {self.getUsersFromServer(urlString: urlString)})
-let queue = OperationQueue.init()
-queue.addOperation(operation)
+    let operation = BlockOperation.init(block: {self.getUsersFromServer(urlString: urlString)})
+    let queue = OperationQueue.init()
+    queue.addOperation(operation)
 }
 
 func getUsersFromServer(urlString: String) {
-if let url = URL.init(string: urlString) {
-var urlUsersRequest= URLRequest.init(url: url)
-urlUsersRequest.httpMethod = "GET"
-urlUsersRequest.setValue("text/plain", forHTTPHeaderField: "Content-Type")
-let session = URLSession.shared
-let task = session.dataTask(with: urlUsersRequest, completionHandler: getUsersFromServerHandler)
-task.resume()
-}
-else {
-let mainQueue = OperationQueue.main
-mainQueue.addOperation {
-self.retrievingData = false
-}
-}
+    if let url = URL.init(string: urlString) {
+        var urlUsersRequest= URLRequest.init(url: url)
+        urlUsersRequest.httpMethod = "GET"
+        urlUsersRequest.setValue("text/plain", forHTTPHeaderField: "Content-Type")
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlUsersRequest, completionHandler: getUsersFromServerHandler)
+        task.resume()
+    }
+    else {
+        let mainQueue = OperationQueue.main
+        mainQueue.addOperation {
+            self.retrievingData = false
+        }
+    }
 }
 
 func getUsersFromServerHandler(data: Data?, response: URLResponse?, error: Error?) -&gt; Void {
-guard (error == nil) else {
-print(error!.localizedDescription)
-let mainQueue = OperationQueue.main
-mainQueue.addOperation {
-self.retrievingData = false
-}
-return
-}
-let httpResponse = response as? HTTPURLResponse
-let status: Int = httpResponse!.statusCode
+    guard (error == nil) else {
+        print(error!.localizedDescription)
+        let mainQueue = OperationQueue.main
+        mainQueue.addOperation {
+            self.retrievingData = false
+        }
+        return
+    }
+    let httpResponse = response as? HTTPURLResponse
+    let status: Int = httpResponse!.statusCode
 
-guard (data != nil) && (status == 200) else {
-let mainQueue = OperationQueue.main
-mainQueue.addOperation {
-self.retrievingData = false
-}
-return
-}
+    guard (data != nil) && (status == 200) else {
+        let mainQueue = OperationQueue.main
+        mainQueue.addOperation {
+            self.retrievingData = false
+        }
+        return
+    }
 
-do {
-let json: Any = try JSONSerialization.jsonObject(with: data!)
-let jsonNSArray = json as! NSArray
+    do {
+        let json: Any = try JSONSerialization.jsonObject(with: data!)
+        let jsonNSArray = json as! NSArray
 
-let mainQueue = OperationQueue.main
-mainQueue.addOperation {
-self.usersData = jsonNSArray as! Array&lt;Dictionary&lt;String, Any&gt;&gt;
+        let mainQueue = OperationQueue.main
+        mainQueue.addOperation {
+            self.usersData = jsonNSArray as! Array&lt;Dictionary&lt;String, Any&gt;&gt;
 
-// If in MapViewController
-self.reloadAnnotations()
-// If in ListUsersViewController
-self.listTableView.reloadData()
+            // If in MapViewController
+            self.reloadAnnotations()
+            // If in ListUsersViewController
+            self.listTableView.reloadData()
 
-self.retrievingData = false;
-}
-}
-catch {
-let mainQueue = OperationQueue.main
-mainQueue.addOperation {
-self.retrievingData = false
-}
-}
+            self.retrievingData = false;
+        }
+    }
+    catch {
+        let mainQueue = OperationQueue.main
+        mainQueue.addOperation {
+            self.retrievingData = false
+        }
+    }
 }
 </code></pre>
                 <br>
@@ -406,79 +406,79 @@ self.retrievingData = false
                 <br>
 <pre><code class="language-swift">
 func postDataToServer)() {
-guard let nicknameText = nicknameTextField.text, let password = passwordTextField.text,
-let country = countryButton.currentTitle, let state = stateButton.currentTitle, let city = cityTextField.text,
-let year = yearButton.currentTitle, let yearInt = Int(year) else {
-isNetworking = false;
-return
-}
+    guard let nicknameText = nicknameTextField.text, let password = passwordTextField.text,
+    let country = countryButton.currentTitle, let state = stateButton.currentTitle, let city = cityTextField.text,
+    let year = yearButton.currentTitle, let yearInt = Int(year) else {
+        isNetworking = false;
+        return
+    }
 
-let nickname = nicknameText.trimmingCharacters(in: .whitespacesAndNewlines)
+    let nickname = nicknameText.trimmingCharacters(in: .whitespacesAndNewlines)
 
-let jsonRecordString = "{\"nickname\":\"\(nickname)\",\"password\":\"\(password)\",\"country\":\"\(country)\",
-\"state\":\"\(state)\",\"city\":\"\(city)\",\"year\":\(yearInt)}"
-let jsonRecord: Data? = jsonRecordString.data(using: .utf8)
+    let jsonRecordString = "{\"nickname\":\"\(nickname)\",\"password\":\"\(password)\",\"country\":\"\(country)\",
+    \"state\":\"\(state)\",\"city\":\"\(city)\",\"year\":\(yearInt)}"
+    let jsonRecord: Data? = jsonRecordString.data(using: .utf8)
 
-let operation = BlockOperation.init(block: { self.postUser(jsonRecord: jsonRecord) })
-let queue = OperationQueue.init()
-queue.addOperation(operation)
+    let operation = BlockOperation.init(block: { self.postUser(jsonRecord: jsonRecord) })
+    let queue = OperationQueue.init()
+    queue.addOperation(operation)
 }
 
 func postUser(jsonRecord: Data?) {
-if let url = URL.init(string: "https://bismarck.sdsu.edu/hometown/adduser") {
-var urlPostUserRequest = URLRequest.init(url: url)
-urlPostUserRequest.httpMethod = "POST"
-urlPostUserRequest.httpBody = jsonRecord
-urlPostUserRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    if let url = URL.init(string: "https://bismarck.sdsu.edu/hometown/adduser") {
+        var urlPostUserRequest = URLRequest.init(url: url)
+        urlPostUserRequest.httpMethod = "POST"
+        urlPostUserRequest.httpBody = jsonRecord
+        urlPostUserRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-let session = URLSession.shared
-let task = session.uploadTask(with: urlPostUserRequest, from: jsonRecord, completionHandler: postUserHandler)
-task.resume()
-}
-else {
-let mainQueue = OperationQueue.main
-mainQueue.addOperation({
-self.isNetworking = false
-})
-}
+        let session = URLSession.shared
+        let task = session.uploadTask(with: urlPostUserRequest, from: jsonRecord, completionHandler: postUserHandler)
+        task.resume()
+    }
+    else {
+        let mainQueue = OperationQueue.main
+        mainQueue.addOperation({
+            self.isNetworking = false
+        })
+    }
 }
 
 func postUserHandler(data: Data?, response: URLResponse?, error: Error?) -&gt; Void {
-guard (error == nil) else {
-let mainQueue = OperationQueue.main
-mainQueue.addOperation({
-self.isNetworking = false
-})
-return
-}
+    guard (error == nil) else {
+        let mainQueue = OperationQueue.main
+        mainQueue.addOperation({
+            self.isNetworking = false
+        })
+        return
+    }
 
-let httpResponse = response as? HTTPURLResponse
-let status: Int = httpResponse!.statusCode
+    let httpResponse = response as? HTTPURLResponse
+    let status: Int = httpResponse!.statusCode
 
-guard (status == 200) else {
-let statusError = String(data: data!, encoding: String.Encoding.utf8)
-print("\(statusError ?? "some status error") and statusCode: \(status)")
-let mainQueue = OperationQueue.main
-mainQueue.addOperation({
-self.isNetworking = false
-})
-return
-}
+    guard (status == 200) else {
+        let statusError = String(data: data!, encoding: String.Encoding.utf8)
+        print("\(statusError ?? "some status error") and statusCode: \(status)")
+        let mainQueue = OperationQueue.main
+        mainQueue.addOperation({
+            self.isNetworking = false
+        })
+        return
+    }
 
-let mainQueue = OperationQueue.main
-mainQueue.addOperation({
-self.isNetworking = false
-if (self.currentSource == .MAP) {
-self.currentSource = .NONE
-self.posted = true
-self.performSegue(withIdentifier: self.unwindToMapSegue, sender: self)
-}
-else if (self.currentSource == .LIST_USERS) {
-self.currentSource = .NONE
-self.posted = true
-self.performSegue(withIdentifier: self.unwindToListUsersSegue, sender: self)
-}
-})
+    let mainQueue = OperationQueue.main
+    mainQueue.addOperation({
+        self.isNetworking = false
+        if (self.currentSource == .MAP) {
+            self.currentSource = .NONE
+            self.posted = true
+            self.performSegue(withIdentifier: self.unwindToMapSegue, sender: self)
+        }
+        else if (self.currentSource == .LIST_USERS) {
+            self.currentSource = .NONE
+            self.posted = true
+            self.performSegue(withIdentifier: self.unwindToListUsersSegue, sender: self)
+        }
+    })
 }
 </code></pre>
                 <br>
@@ -499,35 +499,35 @@ self.performSegue(withIdentifier: self.unwindToListUsersSegue, sender: self)
                 <br>
 <pre><code class="language-swift">
 func reverseGeocodeCoordinates() {
-guard let coordinates = userCoordinates else {
-isNetworking = false
-return
-}
-let location = CLLocation.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
-let locator = CLGeocoder()
-locator.reverseGeocodeLocation(location) { (placemarks, errors) in
-if let place = placemarks?[0] {
-self.userCity = place.locality
-self.userCountry = place.country
+    guard let coordinates = userCoordinates else {
+        isNetworking = false
+        return
+    }
+    let location = CLLocation.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
+    let locator = CLGeocoder()
+    locator.reverseGeocodeLocation(location) { (placemarks, errors) in
+        if let place = placemarks?[0] {
+            self.userCity = place.locality
+            self.userCountry = place.country
 
-if (place.country == "United States") {
-  self.userState = UnabbreviatedStateOrProvidence.returnUnabbreviated(country: "United States",
-    administrativeArea: place.administrativeArea)
-  self.userCountry = "USA"
-}
-else if (place.country == "Mexico") {
-  self.userState = UnabbreviatedStateOrProvidence.returnUnabbreviated(country: "Mexico",
-    administrativeArea: place.administrativeArea)
-}
-else {
-  self.userState = place.administrativeArea
-}
-self.postDataToServer()
-}
-else {
-self.isNetworking = false
-}
-}
+            if (place.country == "United States") {
+              self.userState = UnabbreviatedStateOrProvidence.returnUnabbreviated(country: "United States",
+                administrativeArea: place.administrativeArea)
+              self.userCountry = "USA"
+            }
+            else if (place.country == "Mexico") {
+              self.userState = UnabbreviatedStateOrProvidence.returnUnabbreviated(country: "Mexico",
+                administrativeArea: place.administrativeArea)
+            }
+            else {
+              self.userState = place.administrativeArea
+            }
+            self.postDataToServer()
+        }
+        else {
+            self.isNetworking = false
+        }
+    }
 }
 </code></pre>
                 <br>

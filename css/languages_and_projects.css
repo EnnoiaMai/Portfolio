@@ -83,8 +83,11 @@ body {
     color: #000;
 }
 #languages_list > div:first-child, #projects_list > div:first-child {
-    padding-right: 12px;
+    /* padding-right: 12px; */
     border-right: 1px solid #BBB;
+}
+#languages_list > div, #projects_list > div {
+    padding: 12px;
 }
 
 /*================================= PROJECTS =================================*/

@@ -231,17 +231,17 @@ Date Created: March 2018
     print "Hit ENTER for the username (leaving it empty) to end the script.\n\n";
 
     for (;;) {
-    print "Enter the username: ";
-    $user = &lt;STDIN&gt;;
-    chomp $user;
-    if (length($user) == 0) {
-    last;
-    }
-    print "Enter the password: ";
-    $password = &lt;STDIN&gt;;
-    chomp $password;
-    $encrypted_password = Crypt::Password->new($password, $salt, sha256);
-    print OUTFILE "$user" . "=" . $encrypted_password . "\n";
+        print "Enter the username: ";
+        $user = &lt;STDIN&gt;;
+        chomp $user;
+        if (length($user) == 0) {
+            last;
+        }
+        print "Enter the password: ";
+        $password = &lt;STDIN&gt;;
+        chomp $password;
+        $encrypted_password = Crypt::Password->new($password, $salt, sha256);
+        print OUTFILE "$user" . "=" . $encrypted_password . "\n";
     }
     close OUTFILE;
     </code></pre>
@@ -298,10 +298,10 @@ Date Created: March 2018
                 <br>
     <pre><code class="language-perl">
     $query = "INSERT INTO product (sku, manufacturerID, catID, venID, description, features, cost, retail, quantity, image)
-          VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                                VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     $sth = $dbh->prepare($query);
     $affected_rows = $sth->execute($sku, $manufacturer_id, $category, $vendor, $description,
-    $features, $cost, $retail, $quantity, $image_file_name) or die $sth->errstr;
+                $features, $cost, $retail, $quantity, $image_file_name) or die $sth->errstr;
     </code></pre>
                 <br>
                 <p>Uploading the image is done in the subroutine <span class="code_method">uploadImage()</span>. I decided to replace the name of the file with the SKU itself concatenated to the timestamp for when the image was uploaded. This made it easier to refer to the image when populating the form under the tabs and made the image directory cleaner since each image is associated with its SKU. As for the uploaded file itself, it must be written to the proper directory in binary mode.</p>
@@ -312,12 +312,12 @@ Date Created: March 2018
     $image_file_name = $sku . $timestamp . $extension;
     my $file_handle = $q->upload("productImage");
     unless ($file_handle) {
-    die "Invalid handle: $file_handle";
+        die "Invalid handle: $file_handle";
     }
     open UPLOADFILE, ">$upload_dir/$image_file_name" or die "Error, cannot save the file.";
     binmode UPLOADFILE;
     while (<$file_handle>) {
-    print UPLOADFILE $_;
+        print UPLOADFILE $_;
     }
     close UPLOADFILE;
     </code></pre>
@@ -332,9 +332,9 @@ Date Created: March 2018
                 <p>After connecting to the database, following the query statement is executed to get the record matching the SKU. The values from each field are serialized using the separator '|' resulting in a single string to send back.</p>
     <pre><code class="language-perl">
     $query = "SELECT manufacturerID, category.name, vendor.name, description, features,
-          cost, retail, quantity, image FROM product
-          INNER JOIN category ON product.catID=category.id
-          INNER JOIN vendor ON product.venID=vendor.id WHERE sku='$sku';";
+                            cost, retail, quantity, image FROM product
+                            INNER JOIN category ON product.catID=category.id
+                            INNER JOIN vendor ON product.venID=vendor.id WHERE sku='$sku';";
     my $sth = $dbh->prepare($query_statement);
     $sth->execute();
     </code></pre>
@@ -354,21 +354,21 @@ Date Created: March 2018
     <pre><code class="language-perl">
     # If file name is "undefined", update the record
     $query = "UPDATE product INNER JOIN category ON product.catID=category.id
-          INNER JOIN vendor ON product.venID=vendor.id
-          SET manufacturerID=?, category.id=?, vendor.id=?, description=?, features=?,
-          cost=?, retail=?, quantity=? WHERE sku=?;";
+                        INNER JOIN vendor ON product.venID=vendor.id
+                        SET manufacturerID=?, category.id=?, vendor.id=?, description=?, features=?,
+                        cost=?, retail=?, quantity=? WHERE sku=?;";
     $sth = $dbh->prepare($query);
     $affected_rows = $sth->execute($manufacturer_id, $category, $vendor, $description, $features,
-    $cost, $retail, $quantity, $sku) or die $sth->errstr;
+                        $cost, $retail, $quantity, $sku) or die $sth->errstr;
 
     # If file name exists, upload the image and update the record
     $query = "UPDATE product INNER JOIN category ON product.catID=category.id
-          INNER JOIN vendor ON product.venID=vendor.id
-          SET manufacturerID=?, category.id=?, vendor.id=?, description=?, features=?,
-          cost=?, retail=?, quantity=?, image=? WHERE sku=?;";
+                        INNER JOIN vendor ON product.venID=vendor.id
+                        SET manufacturerID=?, category.id=?, vendor.id=?, description=?, features=?,
+                        cost=?, retail=?, quantity=?, image=? WHERE sku=?;";
     $sth = $dbh->prepare($query);
     $affected_rows = $sth->execute($manufacturer_id, $category, $vendor, $description, $features,
-    $cost, $retail, $quantity, $image_file_name, $sku) or die $sth->errstr;
+                        $cost, $retail, $quantity, $image_file_name, $sku) or die $sth->errstr;
     </code></pre>
                 <br>
 
@@ -384,7 +384,7 @@ Date Created: March 2018
     $sth->execute();
     my $old_image_file;
     while (my @row = $sth->fetchrow_array) {
-    $old_image_file = $row[0];
+        $old_image_file = $row[0];
     }
     my $file_to_delete = $upload_dir . "/" . $old_image_file;
     unlink($file_to_delete);
@@ -416,7 +416,7 @@ Date Created: March 2018
         my $sid = $session->id;
 
     if ($cookie_sid ne $sid) {
-    # print error.html and exit script
+        # print error.html and exit script
     }
     </code></pre>
                 <br>
@@ -426,19 +426,19 @@ Date Created: March 2018
                 <br>
     <pre><code class="language-javascript">
     $('#logout_div a').on('click', function(event) {
-    event.preventDefault();
-    location.replace("/perl/jadrn025/logout.cgi");
+        event.preventDefault();
+        location.replace("/perl/jadrn025/logout.cgi");
     });
     </code></pre>
                 <br>
                 <p>Additionally, an event listener for the <span class="code_web">onpageshow</span> event is attached to the window in the case that the page was cached. This will force the page to refresh by calling <span class="code_method">location.reload(true)</span>.</p>
     <pre><code class="language-javascript">
     window.addEventListener("pageshow", function(event) {
-    var pageCached = event.persisted || (typeof window.performance != "undefined" &&
-      window.performance.navigation.type === 2);
-    if (pageCached) {
-      window.location.reload(true);
-    }
+        var pageCached = event.persisted || (typeof window.performance != "undefined" &&
+          window.performance.navigation.type === 2);
+        if (pageCached) {
+          window.location.reload(true);
+        }
     });
     </code></pre>
                 <br>

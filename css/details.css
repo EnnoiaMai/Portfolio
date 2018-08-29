@@ -38,6 +38,10 @@ Date Created: December 2017
     color: #FFF;
     background-color: rgba(53, 101, 142, 1.0); /* Cobalt Blue */
 }
+.header_python {
+    color: #FFF;
+    background-color: rgba(158, 86, 106, 1.0); /* Maroon */
+}
 
 #content > div:nth-child(n+2) {
     font-size: 110%;
@@ -150,6 +154,10 @@ Date Created: December 2017
   color: #134A18; /* Dark Green */
   font-weight: bold;
 }
+.red_alert {
+    color: #D61E1E;
+    font-weight: bold;
+}
 .applicable_files {
   color: #00935c; /* Teal */
   font-weight: bold;
@@ -175,6 +183,10 @@ Date Created: December 2017
 .code_CS646_01 {
   color: #24567B; /* Pale Blue */
   font-weight: bold;
+}
+.code_python {
+    color: #2054BC; /* Navy Blue */
+    font-weight: bold;
 }
 
 .cs646_link:link, .cs545_link:link {

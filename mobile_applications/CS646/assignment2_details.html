@@ -102,12 +102,12 @@ Date Created: January 2018
                 <br>
 <pre><code class="language-swift">
 protocol LinkedListProtocol {
-associatedType T
-var count: Int { get }
-func append(object: T)
-func prepend(object: T)
-func removeLast() -&gt; T?
-func removeFirst() -&gt; T?
+    associatedType T
+    var count: Int { get }
+    func append(object: T)
+    func prepend(object: T)
+    func removeLast() -&gt; T?
+    func removeFirst() -&gt; T?
 }
 </code></pre>
                 <br>
@@ -125,114 +125,114 @@ func removeFirst() -&gt; T?
                 <br>
 <pre><code class="language-swift">
 class Node&lt;T&gt; {
-var element: T
-var next: Node&lt;T&gt;?
+    var element: T
+    var next: Node&lt;T&gt;?
 
-init(element: T) {
-    self.element = element
-}
+    init(element: T) {
+        self.element = element
+    }
 }
 
 class LinkedList&lt;T&gt;: LinkedListProtocol {
-var head: Node&lt;T&gt;?
-var count = 0
+    var head: Node&lt;T&gt;?
+    var count = 0
 
-func prepend(object: T) {
-    let newNode = Node(element: object)
-    newNode.next = head
-    head = newNode
+    func prepend(object: T) {
+        let newNode = Node(element: object)
+        newNode.next = head
+        head = newNode
 
-    count += 1
-}
-
-func append(object: T) {
-    guard (head != nil) else {
-        prepend(object: object)
-        return
+        count += 1
     }
 
-    let newNode = Node(element: object)
-    var currentNode = head
+    func append(object: T) {
+        guard (head != nil) else {
+            prepend(object: object)
+            return
+        }
 
-    while (currentNode?.next != nil) {
-        currentNode = currentNode?.next
+        let newNode = Node(element: object)
+        var currentNode = head
+
+        while (currentNode?.next != nil) {
+            currentNode = currentNode?.next
+        }
+        currentNode?.next = newNode
+
+        count += 1
     }
-    currentNode?.next = newNode
 
-    count += 1
-}
+    func removeFirst() -&gt; T? {
+        if (head == nil) {
+            return nil
+        }
 
-func removeFirst() -&gt; T? {
-    if (head == nil) {
-        return nil
-    }
+        let data: T? = head?.element
+        head = head?.next
 
-    let data: T? = head?.element
-    head = head?.next
-
-    count -= 1
-    return data
-}
-
-func removeLast() -&gt; T? {
-    if (head == nil) {
-        return nil
-    }
-    if (head?.next == nil) {
-        let data = head?.element
-        head = nil
+        count -= 1
         return data
     }
 
-    var currentNode = head
-    while (currentNode?.next?.next != nil) {
-        currentNode = currentNode?.next
-    }
-    let data = currentNode?.next?.element
-    currentNode?.next = nil
-
-    count -= 1
-    return data
-}
-
-subscript(index: Int) -&gt; T? {
-    assert((index &gt;= 0 && index &lt; count), "Index out of range")
-    var indexNum = index
-    var currentNode = head
-    while (indexNum &gt; 0) {
-        currentNode  currentNode?.next
-        indexNum -= 1
-    }
-    return currentNode?.element
-}
-
-fileprivate func elements(separatedBy: String) -&gt; NSString? {
-    var stringFromList = ""
-    var currentNode = head
-    while (currentNode != nil) {
-        stringFromList += String(describing: currentNode!.element)
-        currentNode = currentNode?.next
-        if (currentNode != nil) {
-            stringFromList += separatedBy
+    func removeLast() -&gt; T? {
+        if (head == nil) {
+            return nil
         }
-    }
-
-    return StringFromList as NSString
-}
-
-func description() -&gt; String {
-    var contents = "["
-    var currentNode = head
-    while (currentNode != nil) {
-        contents += String(describing: currentNode!.element)
-        currentNode = currentNode?.next
-        if (currentNode != nil) {
-            contents += ", "
+        if (head?.next == nil) {
+            let data = head?.element
+            head = nil
+            return data
         }
+
+        var currentNode = head
+        while (currentNode?.next?.next != nil) {
+            currentNode = currentNode?.next
+        }
+        let data = currentNode?.next?.element
+        currentNode?.next = nil
+
+        count -= 1
+        return data
     }
-    contents += "]"
-    return contents
-}
+
+    subscript(index: Int) -&gt; T? {
+        assert((index &gt;= 0 && index &lt; count), "Index out of range")
+        var indexNum = index
+        var currentNode = head
+        while (indexNum &gt; 0) {
+            currentNode  currentNode?.next
+            indexNum -= 1
+        }
+        return currentNode?.element
+    }
+
+    fileprivate func elements(separatedBy: String) -&gt; NSString? {
+        var stringFromList = ""
+        var currentNode = head
+        while (currentNode != nil) {
+            stringFromList += String(describing: currentNode!.element)
+            currentNode = currentNode?.next
+            if (currentNode != nil) {
+                stringFromList += separatedBy
+            }
+        }
+
+        return StringFromList as NSString
+    }
+
+    func description() -&gt; String {
+        var contents = "["
+        var currentNode = head
+        while (currentNode != nil) {
+            contents += String(describing: currentNode!.element)
+            currentNode = currentNode?.next
+            if (currentNode != nil) {
+                contents += ", "
+            }
+        }
+        contents += "]"
+        return contents
+    }
 }
 </code></pre>
                 <br>
@@ -247,45 +247,45 @@ func description() -&gt; String {
                 <br>
 <pre><code class="language-swift">
 init() {
-self.count = 0
+    self.count = 0
 }
 
 init(repeating: T, count: Int) {
-self.count = count
-var index: Int = 0
-while (index &lt; count) {
-    append(object: repeating)
-    index += 1
-}
+    self.count = count
+    var index: Int = 0
+    while (index &lt; count) {
+        append(object: repeating)
+        index += 1
+    }
 }
 
 var isEmpty: Bool {
-get {
-    return (head == nil)
-}
+    get {
+        return (head == nil)
+    }
 }
 
 func map&lt;T&gt;(function: (T) -&gt; T) -&gt; LinkedList&lt;T&gt; {
-let newLinkedList = LinkedList&lt;T&gt;()
+    let newLinkedList = LinkedList&lt;T&gt;()
 
-var currentNode = head
-while (currentNode != nil) {
-    let data: T = function(currentNode!.element as! T)
-    newLinkedList.append(object: data)
-    currentNode = currentNode!.next
-}
+    var currentNode = head
+    while (currentNode != nil) {
+        let data: T = function(currentNode!.element as! T)
+        newLinkedList.append(object: data)
+        currentNode = currentNode!.next
+    }
 
-return newLinkedList
+    return newLinkedList
 }
 
 func reduce&lt;Result&gt;(initial: Result, function: (Result, T) -&gt; Result) -&gt; Result {
-var result = initial
-var currentNode = head
-while (currentNode != nil) {
-    result = function(result, currentNode!.element)
-    currentNode = currentNode!.next
-}
-return result
+    var result = initial
+    var currentNode = head
+    while (currentNode != nil) {
+        result = function(result, currentNode!.element)
+        currentNode = currentNode!.next
+    }
+    return result
 }
 </code></pre>
                 <br>
@@ -295,11 +295,11 @@ return result
                 <br>
 <pre><code class="language-swift">
 extension String {
-func integerValues() -&gt; [Int?] {
-    let array = self.components(separatedBy: ",")
-    let mappedArray = array.map({Int($0)})
-    return mappedArray
-}
+    func integerValues() -&gt; [Int?] {
+        let array = self.components(separatedBy: ",")
+        let mappedArray = array.map({Int($0)})
+        return mappedArray
+    }
 }
 </code></pre>
                 <br>
@@ -309,11 +309,11 @@ func integerValues() -&gt; [Int?] {
                 <br>
 <pre><code class="language-swift">
 enum Currency {
-// Notice the code repetition here
-case Euro (String, String, Double)
-case Dollar (String, String, Double)
-case Rupee (String, String, Double)
-case Peso (String, String, Double)
+    // Notice the code repetition here
+    case Euro (String, String, Double)
+    case Dollar (String, String, Double)
+    case Rupee (String, String, Double)
+    case Peso (String, String, Double)
 }
 let EuroCurrency = currency.Euro("EUR", "\u{20AC}", 0.8904)
 let USCurrency = currency.Dollar("USD", "\u{24}", 1)
@@ -321,20 +321,20 @@ let IndCurrency = currency.Rupee("INR", "\u{20B9}", 66.7)
 let MexCurrency = currency.Euro("MXN", "\u{24}", 18.88)
 
 extension Currency: Equatable {
-static func ==(left: Currency, right: Currency) -&gt; Bool {
-    switch (left, right) {
-        case let (.Euro(code1, _, _), .Euro(code2, _, _)):
-            return code1 == code2
-        case let (.Dollar(code1, _, _), .Dollar(code2, _, _)):
-            return code1 == code2
-        case let (.Rupee(code1, _, _), .Rupee(code2, _, _)):
-            return code1 == code2
-        case let (.Peso(code1, _, _), .Peso(code2, _, _)):
-            return code1 == code2
-        default:
-            return false
+    static func ==(left: Currency, right: Currency) -&gt; Bool {
+        switch (left, right) {
+            case let (.Euro(code1, _, _), .Euro(code2, _, _)):
+                return code1 == code2
+            case let (.Dollar(code1, _, _), .Dollar(code2, _, _)):
+                return code1 == code2
+            case let (.Rupee(code1, _, _), .Rupee(code2, _, _)):
+                return code1 == code2
+            case let (.Peso(code1, _, _), .Peso(code2, _, _)):
+                return code1 == code2
+            default:
+                return false
+        }
     }
-}
 }
 </code></pre>
                 <br>
@@ -343,65 +343,65 @@ static func ==(left: Currency, right: Currency) -&gt; Bool {
                 <br>
 <pre><code class="language-swift">
 struct Money {
-let amount: Double
-let currency: Currency
+    let amount: Double
+    let currency: Currency
 
-init(amount: Double, currencyType: Currency) {
-    self.amount = amount
-    currency = currencyType
-}
+    init(amount: Double, currencyType: Currency) {
+        self.amount = amount
+        currency = currencyType
+    }
 
-static func + (left: Money, right: Money) -&gt; Money {
-    if (left.currency == right.currency) {
-        return Money(amount: (left.amount + right.amount), currencyType: left.currency)
+    static func + (left: Money, right: Money) -&gt; Money {
+        if (left.currency == right.currency) {
+            return Money(amount: (left.amount + right.amount), currencyType: left.currency)
+        }
+        else {
+            let newAmount: Double = left.amount + ( (right.amount * getExchangeRate(currency: left.currency))  /
+                (getExchangeRate(currency: right.currency)) )
+            return Money(amount: newAmount, currencyType: left.currency)
+        }
     }
-    else {
-        let newAmount: Double = left.amount + ( (right.amount * getExchangeRate(currency: left.currency))  /
-            (getExchangeRate(currency: right.currency)) )
-        return Money(amount: newAmount, currencyType: left.currency)
-    }
-}
 
-static func - (left: Money, right: Money) -&gt; Money {
-    if (left.currency == right.currency) {
-        return Money(amount: (left.amount - right.amount), currencyType: left.currency)
+    static func - (left: Money, right: Money) -&gt; Money {
+        if (left.currency == right.currency) {
+            return Money(amount: (left.amount - right.amount), currencyType: left.currency)
+        }
+        else {
+            let newAmount: Double = left.amount - ( (right.amount * getExchangeRate(currency: left.currency)) /
+                (getExchangeRate(currency: right.currency)) )
+            return Money(amount: newAmount, currencyType: left.currency)
+        }
     }
-    else {
-        let newAmount: Double = left.amount - ( (right.amount * getExchangeRate(currency: left.currency)) /
-            (getExchangeRate(currency: right.currency)) )
-        return Money(amount: newAmount, currencyType: left.currency)
-    }
-}
 
-// Helper method (Notice the repetition here)
-static func getExchangeRate(currency: Currency) -&gt; Double {
-    switch (currency) {
-        case let .Euro(_, _, rate):
-            return rate
-        case let .Dollar(_, _, rate):
-            return rate
-        case let .Rupee(_, _, rate):
-            return rate
-        case let .Peso(_, _, rate):
-            return rate
+    // Helper method (Notice the repetition here)
+    static func getExchangeRate(currency: Currency) -&gt; Double {
+        switch (currency) {
+            case let .Euro(_, _, rate):
+                return rate
+            case let .Dollar(_, _, rate):
+                return rate
+            case let .Rupee(_, _, rate):
+                return rate
+            case let .Peso(_, _, rate):
+                return rate
+        }
     }
-}
 
-// Notice the code repetition here
-func description() -&gt; String {
-    var stringDesc: String = ""
-    switch currency {
-        case let .Euro(code, symbol, _):
-            stringDesc = "\(symbol)\(amount) \(code)"
-        case let .Dollar(code, symbol, _):
-            stringDesc = "\(symbol)\(amount) \(code)"
-        case let .Rupee(code, symbol, _):
-            stringDesc = "\(symbol)\(amount) \(code)"
-        case let .Peso(code, symbol, _):
-            stringDesc = "\(symbol)\(amount) \(code)"
+    // Notice the code repetition here
+    func description() -&gt; String {
+        var stringDesc: String = ""
+        switch currency {
+            case let .Euro(code, symbol, _):
+                stringDesc = "\(symbol)\(amount) \(code)"
+            case let .Dollar(code, symbol, _):
+                stringDesc = "\(symbol)\(amount) \(code)"
+            case let .Rupee(code, symbol, _):
+                stringDesc = "\(symbol)\(amount) \(code)"
+            case let .Peso(code, symbol, _):
+                stringDesc = "\(symbol)\(amount) \(code)"
+        }
+        return stringDesc
     }
-    return stringDesc
-}
 }
 </code></pre>
                 <br>
@@ -409,28 +409,28 @@ func description() -&gt; String {
                 <p><b>Note</b>: The following is a more efficient and less repetitive way of coding the enum and struct for problems 5 and 6 and was written by <b>Professor Whitney</b>.</p>
 <pre><code class="language-swift">
 enum Currency {
-case Value(String, String, Double)
+    case Value(String, String, Double)
 
-func rate() -&gt; Double {
-    switch self {
-    case let.Value(_, _, rate):
-        return rate
+    func rate() -&gt; Double {
+        switch self {
+        case let.Value(_, _, rate):
+            return rate
+        }
     }
-}
 
-func symbol() -&gt; String {
-    switch self {
-    case let .Value(_, symbol, _):
-        return symbol
+    func symbol() -&gt; String {
+        switch self {
+        case let .Value(_, symbol, _):
+            return symbol
+        }
     }
-}
 
-func currency() -&gt; String {
-    switch self {
-    case let .Value(currency, _, _):
-        return currency
+    func currency() -&gt; String {
+        switch self {
+        case let .Value(currency, _, _):
+            return currency
+        }
     }
-}
 }
 let eur = Currency.Value("EUR", "\u{20AC}", 0.8904)
 let usd = Currency.Value("USD", "\u{24}", 1)
@@ -438,33 +438,33 @@ let inr = Currency.Value("INR", "\u{20B9}", 66.7)
 let mxn = Currency.Value("MXN", "\u{24}", 18.88)
 
 struct Money {
-var currencyType: Currency
-var amount: Double
-static let EUR = Currency.Value("EUR", "\u{20AC}", 0.8904)
-static let USD = Currency.Value("USD", "\u{24}", 1)
-static let INR = Currency.Value("INR", "\u{20B9}", 66.7)
-static let MXN = Currency.Value("MXN", "\u{24}", 18.88)
+    var currencyType: Currency
+    var amount: Double
+    static let EUR = Currency.Value("EUR", "\u{20AC}", 0.8904)
+    static let USD = Currency.Value("USD", "\u{24}", 1)
+    static let INR = Currency.Value("INR", "\u{20B9}", 66.7)
+    static let MXN = Currency.Value("MXN", "\u{24}", 18.88)
 
-init(currencyType: Currency, amount: Double) {
-    self.amount = amount
-    self.currencyType = currencyType
-}
+    init(currencyType: Currency, amount: Double) {
+        self.amount = amount
+        self.currencyType = currencyType
+    }
 
-private func rate() -&gt; Double {
-    return currencyType.rate()
-}
+    private func rate() -&gt; Double {
+        return currencyType.rate()
+    }
 
-static func +(left: Money, right: Money) -&gt; Money {
-    return Money(currencyType: left.currencyType,
-        amount: left.amount + right.amount * (left.rate() / right.rate()) )
-}
-static func -(left: Money, right: Money) -&gt; Money {
-    return Money(currencyType: left.currencyType,
-        amount: left.amount - right.amount * (left.rate() / right.rate()) )
-}
-func description() -&gt; String {
-    return "\(self.currencyType.symbol())\(self.amount)"
-}
+    static func +(left: Money, right: Money) -&gt; Money {
+        return Money(currencyType: left.currencyType,
+            amount: left.amount + right.amount * (left.rate() / right.rate()) )
+    }
+    static func -(left: Money, right: Money) -&gt; Money {
+        return Money(currencyType: left.currencyType,
+            amount: left.amount - right.amount * (left.rate() / right.rate()) )
+    }
+    func description() -&gt; String {
+        return "\(self.currencyType.symbol())\(self.amount)"
+    }
 }
 </code></pre>
             </div>

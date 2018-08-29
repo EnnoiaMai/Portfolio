@@ -127,38 +127,38 @@ Date Created: January 2018
 <pre><code class="language-swift">
 // Original Implementation
 func findPalindromes(n: Int) -&gt; Int {
-var numberOfPalindromes = 0
+    var numberOfPalindromes = 0
 
-for number in 0...n {
-    var reverseNumber = 0
-    var modifiedNumber = number
+    for number in 0...n {
+        var reverseNumber = 0
+        var modifiedNumber = number
 
-    while (modifiedNumber &gt; 0) {
-        let remainder = modifiedNumber % 10
-        reverseNumber = (reverseNumber * 10) + remainder
-        modifiedNumber /= 10
+        while (modifiedNumber &gt; 0) {
+            let remainder = modifiedNumber % 10
+            reverseNumber = (reverseNumber * 10) + remainder
+            modifiedNumber /= 10
+        }
+        if (reverseNumber == number) {
+            numberOfPalindromes += 1
+        }
     }
-    if (reverseNumber == number) {
-        numberOfPalindromes += 1
-    }
-}
-return numberOfPalindromes
+    return numberOfPalindromes
 }
 
 // Improved Implementation
 func isPalindrome(_ value: String) -&gt; Bool {
-return value == String(value.reversed())
+    return value == String(value.reversed())
 }
 
 func isPalindrome(_ value: Int) -&gt; Bool {
-return isPalindrome(String(value))
+    return isPalindrome(String(value))
 }
 
 func palindromes(from: Int, to: Int) -&gt; Int {
-guard from &gt;= 0 && to &gt;= from else {
-    return 0
-}
-return (from...to).filter(isPalindrome).count
+    guard from &gt;= 0 && to &gt;= from else {
+        return 0
+    }
+    return (from...to).filter(isPalindrome).count
 }
 
 // Testing Output
@@ -172,42 +172,42 @@ palindromes(from: 0, to: 100) == 19
 <pre><code class="language-swift">
 // Original Implementation
 func sumMultiples3_5(n: Int) -&gt; Int {
-guard (n &gt; 0) else {
-    return 0
-}
-
-var sum = 0
-
-for number in 0...(n-1) {
-    if ((number % 3) == 0) && ((number % 5) == 0) {
-        continue
+    guard (n &gt; 0) else {
+        return 0
     }
-    if (number % 3 == 0) || (number % 5 == 0) {
-        sum += number
+
+    var sum = 0
+
+    for number in 0...(n-1) {
+        if ((number % 3) == 0) && ((number % 5) == 0) {
+            continue
+        }
+        if (number % 3 == 0) || (number % 5 == 0) {
+            sum += number
+        }
     }
-}
-return sum
+    return sum
 }
 
 // Improved Implementation
 func isMultiple3or5not15(n : Int) -&gt; Bool {
-switch n {
-case let x where (x % 15 == 0):
-    return false
-case let x where (x % 3 == 0):
-    return true
-case let x where (x % 5 == 0):
-    return true
-default:
-    return false
-}
+    switch n {
+    case let x where (x % 15 == 0):
+        return false
+    case let x where (x % 3 == 0):
+        return true
+    case let x where (x % 5 == 0):
+        return true
+    default:
+        return false
+    }
 }
 
 func sumMultiples3_5(_ n: Int) -&gt; Int {
-guard n &gt; 0 else {
-    return 0
-}
-return (3..&lt;n).filter(isMultiple3or5not15).reduce(0, +)
+    guard n &gt; 0 else {
+        return 0
+    }
+    return (3..&lt;n).filter(isMultiple3or5not15).reduce(0, +)
 }
 
 // Testing Output
@@ -222,43 +222,43 @@ sumMultiples3_5(-1) == 0
 <pre><code class="language-swift">
 // Original Implementation
 func patternCount(text: String, pattern: String) -&gt; Int {
-var count = 0
-var index = 0
-let textLength = text.count
-let patternLength = pattern.count
+    var count = 0
+    var index = 0
+    let textLength = text.count
+    let patternLength = pattern.count
 
-if (patternLength > textLength) {
-    return 0
-}
-
-while (index &lt;= (textLength - patternLength)) {
-    let start = text.index(text.startIndex, offsetBy: index)
-    let end = text.index(text.startIndex, offsetBy: (index + patternLength))
-    let range = start..&lt;end
-
-    let textSubString: Substring = text[range]
-
-    if (textSubString == pattern) {
-        count += 1
+    if (patternLength > textLength) {
+        return 0
     }
-    index += 1
-}
-return count
+
+    while (index &lt;= (textLength - patternLength)) {
+        let start = text.index(text.startIndex, offsetBy: index)
+        let end = text.index(text.startIndex, offsetBy: (index + patternLength))
+        let range = start..&lt;end
+
+        let textSubString: Substring = text[range]
+
+        if (textSubString == pattern) {
+            count += 1
+        }
+        index += 1
+    }
+    return count
 }
 
 // Improved Implementation
 extension String {
-func midfix(start: String.Index, text: String) -&gt; Bool {
-    return self.suffix(from: start).hasPrefix(text)
-}
+    func midfix(start: String.Index, text: String) -&gt; Bool {
+        return self.suffix(from: start).hasPrefix(text)
+    }
 }
 
 func patternCount(text: String, pattern: String) -&gt; Int {
-guard text.count &gt; 0 && pattern.count &gt; 0 &&
-    pattern.count &lt;= text.count else {
-        return 0
-    }
-return text.indices.filter({text.midfix(start: $0, text: pattern)}).count
+    guard text.count &gt; 0 && pattern.count &gt; 0 &&
+        pattern.count &lt;= text.count else {
+            return 0
+        }
+    return text.indices.filter({text.midfix(start: $0, text: pattern)}).count
 }
 
 // Testing Output
@@ -276,34 +276,34 @@ patternCount(text: "", pattern: "abc") == 0
 <pre><code class="language-swift">
 // Original Implementation
 func popularClasses(classSets: [Set&lt;String&gt;]) -&gt; String {
-let emptyString: String = ""
+    let emptyString: String = ""
 
-if (classSets.isEmpty) || (classSets.count == 1) {
-    return emptyString
-}
+    if (classSets.isEmpty) || (classSets.count == 1) {
+        return emptyString
+    }
 
-let firstSet: Set&lt;String&gt; = classSets[0]
-for classes in firstSet {
-    var count = 1
+    let firstSet: Set&lt;String&gt; = classSets[0]
+    for classes in firstSet {
+        var count = 1
 
-    for sets in classSets[1...] {
-        if sets.contains(classes) {
-            count += 1
+        for sets in classSets[1...] {
+            if sets.contains(classes) {
+                count += 1
+            }
+        }
+        if (count == classSets.count) {
+            return classes
         }
     }
-    if (count == classSets.count) {
-        return classes
-    }
-}
-return emptyString
+    return emptyString
 }
 
 // Improved Implementation
 func popularClasses(_ students: [Set&lt;String&gt;]) -&gt; Set&lt;String&gt; {
-guard students.count &gt; 0 else {
-    return []
-}
-return students.reduce(students[0], {$0.intersection($1)})
+    guard students.count &gt; 0 else {
+        return []
+    }
+    return students.reduce(students[0], {$0.intersection($1)})
 }
 
 // Testing Output
@@ -325,25 +325,25 @@ popularClasses([studentA]) == ["CS101", "CS237", "CS520"]
 <pre><code class="language-swift">
 // Original Implementation
 func average(array: [Int]) -&gt; Double? {
-if array.isEmpty {
-    return nil
-}
+    if array.isEmpty {
+        return nil
+    }
 
-var sum: Double = 0
-for number in array {
-    let numberD = Double(number)
-    sum += numberD
-}
-return (sum / 2)
+    var sum: Double = 0
+    for number in array {
+        let numberD = Double(number)
+        sum += numberD
+    }
+    return (sum / 2)
 }
 
 // Improved Implementation
 func average(_ data: [Int]) -&gt; Double? {
-guard data.count &gt; 0 else {
-    return nil
-}
-let sum = data.reduce(0, +)
-return Double(sum) / Double(data.count)
+    guard data.count &gt; 0 else {
+        return nil
+    }
+    let sum = data.reduce(0, +)
+    return Double(sum) / Double(data.count)
 }
 </code></pre>
                 <br>
@@ -352,29 +352,29 @@ return Double(sum) / Double(data.count)
 <pre><code class="language-swift">
 // Original Implementation
 func average2(array: [Int?]) -&gt; Double? {
-if array.isEmpty {
-    return nil
-}
-if array.contains(where: {$0 == nil}) == true {
-    return nil
-}
+    if array.isEmpty {
+        return nil
+    }
+    if array.contains(where: {$0 == nil}) == true {
+        return nil
+    }
 
-var sum: Double = 0
-for number in array {
-    let numberD = Double(number!)
-    sum += numberD
-}
-return (sum / 2)
+    var sum: Double = 0
+    for number in array {
+        let numberD = Double(number!)
+        sum += numberD
+    }
+    return (sum / 2)
 }
 
 // Improved Implementation
 func average2(_ data: [Int?]) -&gt; Double? {
-guard data.count &gt; 0 &&
-    data.contains(where: {$0 == nil}) == false else {
-    return nil
-}
-let sum = data.reduce(0, {$0 + $1!})
-return Double(sum) / Double(data.count)
+    guard data.count &gt; 0 &&
+        data.contains(where: {$0 == nil}) == false else {
+        return nil
+    }
+    let sum = data.reduce(0, {$0 + $1!})
+    return Double(sum) / Double(data.count)
 }
 </code></pre>
                 <br>
@@ -383,28 +383,28 @@ return Double(sum) / Double(data.count)
 <pre><code class="language-swift">
 // Original Implementation
 func cost(dictionary: Dictionary&lt;String, String&gt;) -&gt; Double {
-guard let priceValue = dictionary["price"], let quantityValue = dictionary["quantity"] else {
-    return 0
-}
+    guard let priceValue = dictionary["price"], let quantityValue = dictionary["quantity"] else {
+        return 0
+    }
 
-guard let priceNum = Double(priceValue), let quantityNum = Double(quantityValue) else {
-    return 0
-}
-return priceNum * quantityNum
+    guard let priceNum = Double(priceValue), let quantityNum = Double(quantityValue) else {
+        return 0
+    }
+    return priceNum * quantityNum
 }
 
 // Improved Implementation
 func cost(of order: Dictionary&lt;String, String&gt;) -&gt; Double? {
-guard (order.count &gt; 0) else {
-    return nil
-}
-guard let quantityString = order["quantity"],
-        let quantity = Double(quantityString),
-        let priceString = order["price"],
-        let price = Double(priceString) else {
-    return 0.0
-}
-return quantity * price
+    guard (order.count &gt; 0) else {
+        return nil
+    }
+    guard let quantityString = order["quantity"],
+            let quantity = Double(quantityString),
+            let priceString = order["price"],
+            let price = Double(priceString) else {
+        return 0.0
+    }
+    return quantity * price
 }
 </code></pre>
                 <br>
@@ -412,39 +412,8 @@ return quantity * price
                 <br>
 <pre><code class="language-swift">
 func wordCount(words: String, minimum: Int) -&gt; Dictionary&lt;String, Int&gt; {
-let wordsArray = words.components(separatedBy: " ")
-var dictionary = [String : Int]()
-
-for word in wordsArray {
-    if (dictionary.keys.contains(word)) {
-        if var number = dictionary[word] {
-            number += 1
-            dictionary[word] = number
-        }
-    }
-    else {
-        dictionary[word] = 1
-    }
-}
-for (key, value) in dictionary {
-    if (value &lt; minimum) {
-        dictionary.removeValue(forKey: key)
-    }
-}
-return dictionary
-}
-</code></pre>
-                <br>
-                <p><b>9)</b> was straightforward, the second parameter only needed to be given a default value, so the implementation details are skipped.</p>
-                <br>
-                <p><b>10)</b> The only difference between this question and question 8 is that the implementation occurs in a nested function. This makes it possible for the function to return a function containing the implementation.</p>
-                <br>
-<pre><code class="language-swift">
-func wordCount3(minimum: Int) -&gt; (String) -&gt; Dictionary&lt;String, Int&gt; {
-
-func wordCountReturn(words: String) -&gt; Dictionary&lt;String, Int&gt; {
     let wordsArray = words.components(separatedBy: " ")
-    var dictionary = [String: Int]()
+    var dictionary = [String : Int]()
 
     for word in wordsArray {
         if (dictionary.keys.contains(word)) {
@@ -464,8 +433,39 @@ func wordCountReturn(words: String) -&gt; Dictionary&lt;String, Int&gt; {
     }
     return dictionary
 }
+</code></pre>
+                <br>
+                <p><b>9)</b> was straightforward, the second parameter only needed to be given a default value, so the implementation details are skipped.</p>
+                <br>
+                <p><b>10)</b> The only difference between this question and question 8 is that the implementation occurs in a nested function. This makes it possible for the function to return a function containing the implementation.</p>
+                <br>
+<pre><code class="language-swift">
+func wordCount3(minimum: Int) -&gt; (String) -&gt; Dictionary&lt;String, Int&gt; {
 
-return wordCountReturn
+    func wordCountReturn(words: String) -&gt; Dictionary&lt;String, Int&gt; {
+        let wordsArray = words.components(separatedBy: " ")
+        var dictionary = [String: Int]()
+
+        for word in wordsArray {
+            if (dictionary.keys.contains(word)) {
+                if var number = dictionary[word] {
+                    number += 1
+                    dictionary[word] = number
+                }
+            }
+            else {
+                dictionary[word] = 1
+            }
+        }
+        for (key, value) in dictionary {
+            if (value &lt; minimum) {
+                dictionary.removeValue(forKey: key)
+            }
+        }
+        return dictionary
+    }
+
+    return wordCountReturn
 }
 </code></pre>
             </div>
