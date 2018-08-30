@@ -3,12 +3,12 @@ Thuc Nguyen
 Date Created: December 2017
 */
 
-/*================================= General ==================================*/
+/*================================= MACRO ==================================*/
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif;
     box-sizing: border-box;
+    /* font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif; */
     /* font-family: 'Source Sans Pro', sans-serif; */
     /* font-family: 'Open Sans', sans-serif; */
 }
@@ -20,81 +20,107 @@ body {
 #content {
   margin-left: 16%;
 }
-
 #content_header {
-    color: #FFF;
-    background-color: #6A0000;
-    /* text-align: center; */
-    /* padding: 24px; */
-    height: 300px;
+    background-image: url("../images/index_content_header.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 480px;
+}
+.dim_image {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.0), rgba(40, 40, 40, 0.8));
+    width: 100%;
+    height: 100%;
+}
+
+/*============================ ABOUT ME ======================================*/
+#about_me_container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-#content_header > h1 {
-    padding: 12px;
-}
-#content_header > h3 {
-    padding: 4px;
-}
-#content_header > h4 {
-    font-size: 110%;
-    padding: 8px;
-}
-
-#header_image_container {
-    background-image: url("../images/otter_400x400.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    margin: 12px 0px;
-    /* border: 1px solid black; */
-}
-#header_image_container > div {
-    width: 400px;
-    height: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    /* border: 1px dashed orange; */
-}
-#header_image_container img {
-    width: 100%;
-    max-width: 400px;
-    /* border: 1px dashed green; */
-}
-
-/*============================ ABOUT ME ======================================*/
-#content > div:nth-child(2) {
+    flex-wrap: wrap;
     background-color: #F2F2F2;
-    padding: 24px;
+    padding: 48px 24px;
 }
-#content > div:nth-child(2) > h2 {
+#about_me_container h2 {
     text-align: center;
+    padding: 16px;
+}
+#about_me_container p {
+    color: #444;
+    line-height: 36px;
+    padding: 16px;
+}
+#about_me_container > div:nth-child(1) {
+    flex-basis: 50%;
+}
+#about_me_container > div:nth-child(2) {
+    flex-basis: 25%;
     padding: 12px;
 }
-#content > div:nth-child(2) > p {
-    font-size: 120%;
-    line-height: 36px;
-    width: 75%;
+#about_me_container > div:nth-child(2) > img {
+    width: 100%;
+    min-width: 144px;
+    max-width: 688px;
+}
+
+/*============================== LANGAUGES ====================================*/
+#languages_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgba(103, 103, 103, 1.0);
+    padding: 48px 24px;
+}
+#languages_container h2 {
+    color: #EEE;
+    text-align: center;
     padding: 16px;
-    margin-left: auto;
-    margin-right: auto;
+}
+#languages_container p {
+    color: #CCC;
+    line-height: 36px;
+    padding: 16px;
 }
 
 /*============================== PROJECTS ====================================*/
-#content > div:nth-child(3) {
+#projects_container {
     background-color: #FFF;
-    padding: 24px;
+    padding: 24px 24px 48px 24px;
+    border: 1px dashed red;
 }
-#content > div:nth-child(3) > h2 {
+#projects_container > h2 {
     text-align: center;
-    padding: 12px 12px 24px 12px;
-    padding: 24px;
+    /* padding: 12px 12px 24px 12px; */
+    padding: 16px 16px 24px 16px;
+}
+#projects_container > div {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px dashed blue;
+}
+.project_box {
+    flex-basis: 15%;
+    min-width: 44px;
+    max-width: 360px;
+    padding: 12px
+}
+.project_box p {
+    text-align: center;
+    /* line-height: 24px; */
 }
 
 /*============================= Grid Container ===============================*/
-.grid_container {
+/* .grid_container {
     display: grid;
     width: 75%;
     grid-template-columns: 1fr 1fr;
@@ -106,7 +132,6 @@ body {
     grid-gap: 48px;
     margin-left: auto;
     margin-right: auto;
-    /*border: 1px solid purple;*/
 }
 .grid_container > div {
     display: flex;
@@ -156,12 +181,12 @@ body {
     -moz-transition-duration: 500ms;
     transition-duration: 500ms;
 }
+*/
 
 /*-------------------------- Languages and Syntax ----------------------------*/
 .grid_container > div:nth-child(1) {
     grid-area: language;
     background-color: rgba(103, 103, 103, 1.0);
-    /*border: 1px dashed grey;*/
 }
 .grid_container > div:nth-child(1):hover {
     background-color: rgba(49, 49, 49, 1.0);
@@ -171,7 +196,6 @@ body {
 .grid_container > div:nth-child(2) {
     grid-area: web;
     background-color: rgba(91, 116, 114, 1.0);
-    /*border: 1px dashed blue;*/
 }
 .grid_container > div:nth-child(2):hover {
     background-color: rgba(72, 135, 132, 1.0);
@@ -181,7 +205,6 @@ body {
 .grid_container > div:nth-child(3) {
     grid-area: python;
     background-color: rgba(136, 108, 116, 1.0);
-    /*border: 1px dashed red;*/
 }
 .grid_container > div:nth-child(3):hover {
     background-color: rgba(158, 86, 106, 1.0);
@@ -191,7 +214,6 @@ body {
 .grid_container > div:nth-child(4) {
     grid-area: mobile;
     background-color: rgba(79, 99, 116, 1.0);
-    /*border: 1px dashed brown;*/
 }
 .grid_container > div:nth-child(4):hover {
     background-color: rgba(53, 101, 142, 1.0);
@@ -201,16 +223,12 @@ body {
 .grid_container > div:nth-child(5) {
     grid-area: bash;
     background-color: rgba(187, 159, 125, 1.0);
-    /*border: 1px dashed purple;*/
 }
 .grid_container > div:nth-child(5):hover {
     background-color: rgba(213, 161, 100, 1.0);
 }
 
 /*---------------------------- Grid Item Images ------------------------------*/
-.grid_image_container {
-    /* border: 1px solid black; */
-}
 .grid_image_container img {
     width: 70%;
     min-width: 120px;
