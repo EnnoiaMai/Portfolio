@@ -69,33 +69,110 @@ body {
 #languages_container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    background-color: rgba(103, 103, 103, 1.0);
-    padding: 48px 24px;
+    /* background-color: rgba(103, 103, 103, 1.0); */
+    /* background-color: #3B393A; */
+    background-color: rgba(51, 51, 51, 1.0);
+    /* padding: 48px 0px; */
 }
 #languages_container h2 {
     color: #EEE;
     text-align: center;
     padding: 16px;
+    /* text-decoration-line: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.0);
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms; */
+}
+#languages_container h2:hover {
+    /* cursor: pointer;
+    text-decoration-color: rgba(255, 255, 255, 1.0);
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms; */
 }
 #languages_container p {
     color: #CCC;
     line-height: 36px;
     padding: 16px;
 }
+#languages_container > div:nth-child(1) {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px dashed green; */
+    /* padding: 24px; */
+    /* border: 1px dashed red; */
+}
+#languages_container > div:nth-child(1) > div {
+    width: 70%;
+    background-color: rgba(110, 110, 110, 0.3);
+    padding: 48px 24px;
+    /* border: 1px dashed green; */
+}
+#languages_container > div:nth-child(2) {
+    flex-basis: 40%;
+    /* background-image: url("../images/language_background_half.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; */
+}
+#languages_container > div:nth-child(2) > img {
+    width: 100%;
+}
 
 /*============================== PROJECTS ====================================*/
 #projects_container {
     background-color: #FFF;
     padding: 24px 24px 48px 24px;
-    border: 1px dashed red;
+    /* border: 1px dashed red; */
 }
 #projects_container > h2 {
     text-align: center;
     /* padding: 12px 12px 24px 12px; */
     padding: 16px 16px 24px 16px;
+}
+#projects_container > h2:hover {
+    /* cursor: pointer;
+    text-decoration-color: rgba(0, 0, 0, 1.0); */
+}
+#projects_container a, #languages_container a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+#languages_container a {
+    color: #FFF;
+    text-decoration-line: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.0);
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+#languages_container a:hover {
+    text-decoration-color: rgba(255, 255, 255, 1.0);
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+#projects_container a {
+    color: #000;
+    text-decoration-line: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.0);
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+#projects_container a:hover {
+    text-decoration-color: rgba(0, 0, 0, 1.0);
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 #projects_container > div {
     width: 80%;
@@ -106,18 +183,54 @@ body {
     flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
 }
 .project_box {
-    flex-basis: 15%;
+    flex-basis: 20%;
     min-width: 44px;
     max-width: 360px;
     padding: 12px
+}
+.project_box > div {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.project_box > div > img {
+    width: 100%;
+    min-width: 88px;
+    max-width: 640px;
 }
 .project_box p {
     text-align: center;
     /* line-height: 24px; */
 }
+.project_box p:nth-of-type(1) {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.project_box p:nth-of-type(2) {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 20px;
+}
+#project_web > p:nth-of-type(1) {
+    color: rgba(54, 102, 99, 1.0);
+}
+#project_mobile > p:nth-of-type(1) {
+    color: rgba(41, 77, 109, 1.0);
+}
+#project_python > p:nth-of-type(1) {
+    color: rgba(113, 61, 76, 1.0);
+}
+#project_bash > p:nth-of-type(1) {
+    color: rgba(189, 126, 51, 1.0);
+}
+/* #project_web > p:nth-of-type(2) {
+    color: ;
+} */
 
 /*============================= Grid Container ===============================*/
 /* .grid_container {
@@ -219,7 +332,7 @@ body {
     background-color: rgba(53, 101, 142, 1.0);
 }
 
-/*----------------------------- Python Scripts -------------------------------*/
+/*----------------------------- Bash Scripts -------------------------------*/
 .grid_container > div:nth-child(5) {
     grid-area: bash;
     background-color: rgba(187, 159, 125, 1.0);
