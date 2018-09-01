@@ -14,7 +14,8 @@ Date Created: December 2017
         <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans|Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/content_style_default.css">
         <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css">
+
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/components/prism-swift.min.js"></script>
@@ -202,14 +203,14 @@ name.elem1    // Accessing values by tuple name
 <pre><code class="language-swift">
 var name: Type?    // value is nil
 if (name != nil) {
-print(name!)
+    print(name!)
 }
 </code></pre>
 
                 <h4>Optional Binding</h4>
 <pre><code class="language-swift">
 if let constantName = someOptional, var = otherOptional {
-statements    // No need to unwrap constantName
+    statements    // No need to unwrap constantName
 }
 </code></pre>
 
@@ -223,13 +224,13 @@ let name: Type!    // Runtime error if nil
                 <p>Lets you determine the cause of the error. If function can throw an error, wrap it in a <span class="definition_swift">try</span> expression, then wrap it in a <span class="definition_swift">do</span> statement to propagate error to <span class="definition_swift">catch</span> clauses.</p>
 <pre><code class="language-swift">
 func canThrowAnError() throws {
-statements
+    statements
 }
 
 do {
-try canThrowAnError()    // no error thrown
+    try canThrowAnError()    // no error thrown
 } catch {
-statements    // error thrown
+    statements    // error thrown
 }
 </code></pre>
 
@@ -379,7 +380,7 @@ string.count
                         <td>
 <pre><code class="language-swift">
 for character in "string" {
-statements
+    statements
 }
 </code></pre>
                         </td>
@@ -423,7 +424,7 @@ someString[index]
 
 // indices property to access index of individual characters
 for index in someString.indices {
-statements
+    statements
 }
 </code></pre>
                         </td>
@@ -509,12 +510,12 @@ array.remove(at:)
                         <td>
 <pre><code class="language-swift">
 for item in array {
-statements
+    statements
 }
 
 // Iterates giving both the index and value
 for (index, value) in array.enumerated() {
-statements
+    statements
 }
 </code></pre>
                         </td>
@@ -564,12 +565,12 @@ set.contains(value)
                         <td>
 <pre><code class="language-swift">
 for item in set {
-statements
+    statements
 }
 
 // Iterate over an ordered set
 for item in set.sorted() {
-statements
+    statements
 }
 </code></pre>
                         </td>
@@ -669,17 +670,17 @@ dictionary.removeValue(forKey:)
                         <td>
 <pre><code class="language-swift">
 for (key, value) in dictionary {
-statements
+    statements
 }
 
 // Iterate over dictionary's keys
 for key in dictionary.keys {
-statements
+    statements
 }
 
 // Iterate over dictionary's values
 for values in dictionary.values {
-statements
+    statements
 }
 
 // Initialize a new array with keys or values property
@@ -697,22 +698,22 @@ let valuesArray = [Type](dictionary.values)
 <pre><code class="language-swift">
 // Iterate over collection
 for value in collection {
-statements
+    statements
 }
 
 // Iterate over range
 for value in a...b {
-statements
+    statements
 }
 
 // Ignore value from a sequence
 for _ in a...b {
-statements
+    statements
 }
 
 // Skips unwanted values
 for value in stride(from:to:by:){
-statements
+    statements
 }
 </code></pre>
                 <br>
@@ -721,12 +722,12 @@ statements
 <pre><code class="language-swift">
 // While loop
 while (condition) {
-statements
+    statements
 }
 
 // Repeat-while loop
 repeat {
-statements
+    statements
 }
 while (condition)
 </code></pre>
@@ -736,23 +737,23 @@ while (condition)
                 <p><span class="definition">if statement</span>: to evaluate simple conditions with a few outcomes.</p>
 <pre><code class="language-swift">
 if (condition) {
-statements
+    statements
 } else if (condition) {
-statements
+    statements
 } else {
-statements
+    statements
 }
 </code></pre>
                 <br>
                 <p><span class="definition">switch statement</span>: for more complex conditions with multiple outcomes. Compares value against one or more of same type. Must be exhaustive which means it must consider every possible value. No implicit fallthrough.</p>
 <pre><code class="language-swift">
 switch (somevalue) {
-case value1:
-statements
-case value2, value3:
-statements
-default:
-statements
+    case value1:
+        statements
+    case value2, value3:
+        statements
+    default:
+        statements
 }
 </code></pre>
 
@@ -763,42 +764,42 @@ statements
 <pre><code class="language-swift">
 // Interval Matching
 switch (number) {
-case 0:
-statements
-case 1..&lt;10
-statements
-default:
-statements
+    case 0:
+        statements
+    case 1..&lt;10
+        statements
+    default:
+        statements
 }
 
 // Tuples
 switch (number) {
-case (0, 0):
-statements
-case (_, 0):
-statements
-default:
-statements
+    case (0, 0):
+        statements
+    case (_, 0):
+        statements
+    default:
+        statements
 }
 
 // Value Bindings
 switch (somePoint) {
-case (let x, 0):
-statements
-case (0, let y):
-statements
-case let (x, y):
-statements
+    case (let x, 0):
+        statements
+    case (0, let y):
+        statements
+    case let (x, y):
+        statements
 }
 
 // where clause
 switch (anotherPoint) {
-case let (x, y) where x == y:
-statements
-case let (x, y) where x == -y:
-statements
-case let (x, y):
-statements
+    case let (x, y) where x == y:
+        statements
+    case let (x, y) where x == -y:
+        statements
+    case let (x, y):
+        statements
 }
 </code></pre>
                 <br>
@@ -817,7 +818,7 @@ statements
     <p>Can break or continue out of labeled loops, can break out of conditional statements.</p>
 <pre><code class="language-swift">
 (label name): while (condition) {
-statements
+    statements
 }
 </code></pre>
                 <br>
@@ -831,8 +832,8 @@ statements
 
 <pre><code class="language-swift">
 guard (condition) else {
-statements
-transfer control statement
+    statements
+    transfer control statement
 }
 </code></pre>
             </div>
@@ -845,7 +846,7 @@ transfer control statement
                 <h3>Defining Functions</h3>
 <pre><code class="language-swift">
 func name(parameterName1: Type, parameterName2: Type) -> Type {
-return Type
+    return Type
 }
 </code></pre>
                 <br>
@@ -853,7 +854,7 @@ return Type
                 <h3>Functions with Multiple Return Values</h3>
 <pre><code class="language-swift">
 func name(parameterName: Type) -> (tupleLabel1: Type, tupleLabel2: Type) {
-return (value1, value2)
+    return (value1, value2)
 }
 
 // Use dot syntax to access the values
@@ -862,10 +863,10 @@ constant.tupleLabel1
 
 // Can return optional tuple and access using optional binding
 func name(parameter) -> (tupleLabel1: Type, tupleLabel2: Type)? {
-statements
+    statements
 }
 if let constant = name(argument) {
-statements
+    statements
 }
 </code></pre>
                 <br>
@@ -877,27 +878,27 @@ statements
 <pre><code class="language-swift">
 // Specifying Argument Labels
 func someFunction(argumentLabel parameter: Type) {
-statements
+    statements
 }
 
 // Omitting Argument Labels
 func someFunction(_ parameter1: Type, parameter2: Type) {
-statements
+    statements
 }
 
 // Default Parameter Values
 func someFunction(parameter: Type = value) {
-statements
+    statements
 }
 
 // Variadic Parameters
 func someFunction(_ parameter: Type...) -> Type {
-statements
+    statements
 }
 
 // In-Out Parameters
 func someFunction(_ parameter1: inout Type, _ parameter2: inout Type) {
-statements
+    statements
 }
 someFunction(&amp;someVariable, &amp;anotherVariable)
 </code></pre>
@@ -919,7 +920,7 @@ var variable: (Type1, Type2) -> Type = function
                 <p>Lets you leave some aspects of a function's implementation for the function's caller to provide.</p>
 <pre><code class="language-swift">
 func outerFunc(_someFunc: (Type, Type) -> Type, _ param1: Type, param2: Type) {
-print(someFunc(param1, param2))
+    print(someFunc(param1, param2))
 }
 outerFunc(function, arg1, arg2)
 </code></pre>
@@ -929,7 +930,7 @@ outerFunc(function, arg1, arg2)
                 <p>Lets you pass function back and have it be determined by the parameters passed in.</p>
 <pre><code class="language-swift">
 func chooseStepFunction(backward: Bool) -> (Int) -> Int {
-return (backward) ? stepBackward : stepForward
+    return (backward) ? stepBackward : stepForward
 }
 // stepBackward and stepForward are functions with type (Int) -> Int
 </code></pre>
@@ -952,7 +953,7 @@ return (backward) ? stepBackward : stepForward
                 <h3>Closure Expression Syntax</h3>
 <pre><code class="language-swift">
 { (parameters: Type) -> Type in
-statements
+    statements
 }
 </code></pre>
                 <br>
@@ -962,7 +963,7 @@ statements
 <pre><code class="language-swift">
 // Closure example
 reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
-return s1 > s2
+    return s1 > s2
 })
 
 // Inferring type from context
@@ -980,12 +981,12 @@ reversedNames = names.sorted(by: {$0 > $1})
                 <p>Use if need to pass a closure expression to a function as the function's final argument and closure is long.</p>
 <pre><code class="language-swift">
 func someFunctionThatTakesAClosure(closure: () -> Void) {
-// function body
+    // function body
 }
 
 // Calling function with trailing closure
 someFunctionThatTakesAClosure() {
-// trailing closure's body
+    // trailing closure's body
 }
 
 // Example
@@ -998,12 +999,12 @@ reversedNames = names.sorted() {}
 <pre><code class="language-swift">
 // Inner function here can capture reference to runningTotal and amount
 func makeIncrementer(forIncrement amount: Int) -> () -> Int {
-var runningTotal = 0
-func incrementer() -> Int {
-    runningTotal += amount
-    return runningTotal
-}
-return incrementer
+    var runningTotal = 0
+    func incrementer() -> Int {
+        runningTotal += amount
+        return runningTotal
+    }
+    return incrementer
 }
 </code></pre>
                 <br>
@@ -1017,18 +1018,18 @@ return incrementer
 <pre><code class="language-swift">
 var completionHandlers: [() -> Void] = []
 func someFunctionwithEscapingClosure(completionHandler: @escaping () -> Void) {
-completionHandlers.append(completionHandler)
+    completionHandlers.append(completionHandler)
 }
 func someFunctionWithNonescapingClosure(closure: () -> Void) {
-closure()
+    closure()
 }
 
 class SomeClass {
-var x = 10
-func doSomething() {
-    someFunctionWithEscapingClosure { self.x = 100 }
-    someFunctionWithNonescapingClosure { x = 200}
-}
+    var x = 10
+    func doSomething() {
+        someFunctionWithEscapingClosure { self.x = 100 }
+        someFunctionWithNonescapingClosure { x = 200}
+    }
 }
 </code></pre>
                 <br>
@@ -1037,13 +1038,13 @@ func doSomething() {
                 <p>Use <span class="definition_swift">@autoclosure</span> keyword, created to wrap an expression being passed in as an argument to a function. Lets you omit braces around a function's parameter by writing a normal expression instead of an explicit closure. Lets you delay evaluation.</p>
 <pre><code class="language-swift">
 func serve(customer customerProvider: () -> String) {
-print("Now serving \(customerProvider()).")
+    print("Now serving \(customerProvider()).")
 }
 serve(customer: { customersArray.remove(at: 0) })
 
 // Same as above but with autoclosure
 func serve(customer customerProvider: @autoclosure () -> String) {
-print("Now serving \(customerProvider()).")
+    print("Now serving \(customerProvider()).")
 }
 serve(customer: customersArray.remove(at: 0))
 </code></pre>
@@ -1056,21 +1057,21 @@ serve(customer: customersArray.remove(at: 0))
                 <h3>Enumeration Syntax</h3>
 <pre><code class="language-swift">
 enum SomeEnumeration {
-case one
-case two
-case three, four, five
+    case one
+    case two
+    case three, four, five
 }
 
 // Can set an enum case to a variable and match enum values
 var aCase = SomeEnumeration.one
 aCase = .two
 switch aCase {
-case .one:
-statements
-case .two:
-statements
-default:
-statements
+    case .one:
+        statements
+    case .two:
+        statements
+    default:
+        statements
 }
 </code></pre>
                 <br>
@@ -1079,20 +1080,20 @@ statements
                 <p>Can store additional custom info along with the case value, and information can vary each time the case is used.</p>
 <pre><code class="language-swift">
 enum SomeEnum {
-case one(Type1, Type2, Type3)
-case two(Type)
+    case one(Type1, Type2, Type3)
+    case two(Type)
 }
 var aCase = SomeEnum.one(value1, value2, value3)
 
 // Extraction of associated values
 switch aCase {
-case .one(let constant1, let constant2, let constant3):
-statements
-// shorthand if all associated values are constants
-case let .one(constant1, constant2, constant3):
-statements
-case .two(let constant)
-statements
+    case .one(let constant1, let constant2, let constant3):
+        statements
+    // shorthand if all associated values are constants
+    case let .one(constant1, constant2, constant3):
+        statements
+    case .two(let constant)
+        statements
 }
 </code></pre>
                 <br>
@@ -1106,19 +1107,19 @@ statements
                 <p>When integers are used for raw values, implicit value for each case is one more than the previous case. When strings are used for raw values, implicit value for each case is the text of the case's name.</p>
 <pre><code class="language-swift">
 enum SomeEnum: Character {
-case tab = "\t"
-case lineFeed = "\n"
+    case tab = "\t"
+    case lineFeed = "\n"
 }
 // Access raw value of the case
 let aRawValue = SomeEnum.tab.rawValue
 
 // Implicitly assigned raw values
 enum SomeEnum: Int {
-case mercury = 1, venus, earth, mars
+    case mercury = 1, venus, earth, mars
 }
 
 enum SomeEnum: String {
-case north, south, east, west
+    case north, south, east, west
 }
 </code></pre>
                 <br>
@@ -1134,12 +1135,12 @@ let possiblePlanet = Planet(rawValue: 7)
                 <p>An enum that has another intance of the enum as the associated value for one or more enum cases. Use <span class="definition_swift">indirect</span> keyword before the case. Can write before enum introducer to enable indirection of all cases.</p>
 <pre><code class="language-swift">
 enum ArithmeticExpression {
-case number(Int)
-indirect case addition(ArithmeticExpression, ArithmeticExpression)
+    case number(Int)
+    indirect case addition(ArithmeticExpression, ArithmeticExpression)
 }
 // All cases are indirect in the following
 indirect enum ArithmeticExpression {
-case...
+    case...
 }
 </code></pre>
 
@@ -1236,14 +1237,14 @@ lazy var importer = DataImpoter()
                 </ul>
 <pre><code class="language-swift">
 struct {
-var center: Point {
-    get {
-        statements
+    var center: Point {
+        get {
+            statements
+        }
+        set (newValue) {
+            statements
+        }
     }
-    set (newValue) {
-        statements
-    }
-}
 }
 </code></pre>
                 <br>
@@ -1262,12 +1263,12 @@ var center: Point {
                 </ul>
 <pre><code class="language-swift">
 var totalSteps: Int = 0 {
-willSet(newTotalSteps) {
-    statements
-}
-didSet {
-    // access old value via oldValue
-}
+    willSet(newTotalSteps) {
+        statements
+    }
+    didSet {
+        // access old value via oldValue
+    }
 }
 </code></pre>
                 <br>
@@ -1285,10 +1286,10 @@ didSet {
                 </ul>
 <pre><code class="language-swift">
 class|struct|enum SomeClass|Struct|Enum {
-static var storedTypeProperty = "Some Value"
-static var computedTypeProperty: Int {
-    get {}; set {}
-}
+    static var storedTypeProperty = "Some Value"
+    static var computedTypeProperty: Int {
+        get {}; set {}
+    }
 }
 </code></pre>
             </div>
@@ -1306,31 +1307,31 @@ static var computedTypeProperty: Int {
 
 <pre><code class="language-swift">
 struct Point {
-properties
-mutating func moveBy(){
-    statements modifying properties
-}
+    properties
+    mutating func moveBy(){
+        statements modifying properties
+    }
 }
 </code></pre>
 
                 <p>Mutating methods can assign a new instance to the implicit <span class="definition_swift">self</span> property.</p>
 <pre><code class="language-swift">
 mutating func moveBy(x deltaX: Double, y deltaY: Double) {
-self = Point(x: x + deltaX, y: y + deltaY)    // creates new struct
+    self = Point(x: x + deltaX, y: y + deltaY)    // creates new struct
 }
 </code></pre>
                 <p>An example of the mutating method with enums</p>
 <pre><code class="language-swift">
 enum State {
-case off, low, high
-mutating func next() {
-    switch self {
-        case enumConstant:
-            statements
-        default:
-            statements
+    case off, low, high
+    mutating func next() {
+        switch self {
+            case enumConstant:
+                statements
+            default:
+                statements
+        }
     }
-}
 }
 </code></pre>
                 <br>
@@ -1339,10 +1340,10 @@ mutating func next() {
                 <p>Similar to static in C, denotes that the properties and methods belong to the that class and not its instances. Use <span class="definition_swift">static</span> keyword before <span class="definition_swift">func</span> keyword. Can use <span class="definition_swift">class</span> keyword to let subclasses override superclass's implementation of that method.</p>
 <pre><code class="language-swift">
 static func(){
-statements
+    statements
 }
 static Class {
-statements
+    statements
 }
 </code></pre>
 
@@ -1360,12 +1361,12 @@ statements
                 </ul>
 <pre><code class="language-swift">
 subscript(index: Int) -> Int {
-get {
-    statements
-}
-set (newValue) {
-    statements
-}
+    get {
+        statements
+    }
+    set (newValue) {
+        statements
+    }
 }
 </code></pre>
             </div>
@@ -1379,9 +1380,9 @@ set (newValue) {
 <pre><code class="language-swift">
 // Example of subclassing, overriding, and using super
 class SomeSubclass: SomeSuperclass {
-override func superClassMethod() {
-    super.methodInSuperclass();
-}
+    override func superClassMethod() {
+        super.methodInSuperclass();
+    }
 }
 </code></pre>
                 <h4>Override Property Getters and Setters</h4>
@@ -1407,20 +1408,20 @@ override func superClassMethod() {
                 </ul>
 <pre><code class="language-swift">
 init(param: Type) {
-// initialize properties
+    // initialize properties
 }
 
 // Default property value, Initializer with parameter and argument
 struct SomeStruct {
-var someVariable = 10
-let someConstant: Int
-// Optional property initializes to nil
-var someOptional: Type?
+    var someVariable = 10
+    let someConstant: Int
+    // Optional property initializes to nil
+    var someOptional: Type?
 
-init(arg param: Type) {
-    // Assigning constant properties
-    someConstant = 20
-}
+    init(arg param: Type) {
+        // Assigning constant properties
+        someConstant = 20
+    }
 }
 let constant = SomeStruct(arg: argumentToInit)
 
@@ -1446,10 +1447,10 @@ init (_ param: Type) {...}
                 <p><span class="definition">Convenience Initializers</span>: supporting initializers, can use to call designated initializer or to create instance for specific use case.</p>
 <pre><code class="language-swift">
 init (parameters) {
-statements
+    statements
 }
 convenience init (parameters) {
-statements
+    statements
 }
 </code></pre>
                 <br>
@@ -1483,10 +1484,10 @@ statements
                 <p>Subclasses don't inherit superclass initializers by default. If subclass initializer matches superclass designated initializer, must write <span class="definition_swift">overwrite</span> modifier.</p>
 <pre><code class="language-swift">
 class Bicycle: Vehicle {
-override init() {
-    super.init()
-    numberOfwheels = 2
-}
+    override init() {
+        super.init()
+        numberOfwheels = 2
+    }
 }
 </code></pre>
                 <br>
@@ -1508,19 +1509,19 @@ override init() {
                 <p>Enumerations with raw values automatically receive failable initializer.</p>
 <pre><code class="language-swift">
 enum SomeEnum {
-case one, two, three
-init?(param: Type) {
-    switch param {
-    case value1:
-        self = .one
-    case value2:
-        self = .two
-    case value3:
-        self = .three
-    default:
-        return nil
+    case one, two, three
+    init?(param: Type) {
+        switch param {
+        case value1:
+            self = .one
+        case value2:
+            self = .two
+        case value3:
+            self = .three
+        default:
+            return nil
+        }
     }
-}
 }
 // Failable inits for enums with raw values
 init?(rawValue:)
@@ -1538,14 +1539,14 @@ init?(rawValue:)
                 <p>Use <span class="definition_swift">required</span> keyword. Indicates that every subclass of that class must implement that initializer. Must also write <span class="definition_swift">required</span> modifier before every subclass implementation of a required initializer.</p>
 <pre><code class="language-swift">
 class SomeClass {
-required init() {
-    // initialize properties
-}
+    required init() {
+        // initialize properties
+    }
 }
 class SomeSubclass: SomeClass {
-required init() {
-    // initialize properties
-}
+    required init() {
+        // initialize properties
+    }
 }
 </code></pre>
                 <br>
@@ -1553,11 +1554,11 @@ required init() {
                 <h3>Setting Default Property Value with a Closure of Function</h3>
 <pre><code class="language-swift">
 class SomeClass {
-let someProperty: SomeType = {
-    // create default value for someProperty inside this closure
-    // someValue must be same type as SomeType
-    return someValue
-}()
+    let someProperty: SomeType = {
+        // create default value for someProperty inside this closure
+        // someValue must be same type as SomeType
+        return someValue
+    }()
 }
 </code></pre>
 
@@ -1568,8 +1569,8 @@ let someProperty: SomeType = {
                 <p>Called immediately before class instance is deallocated. Only for class types. Swift uses automatic reference counting to handle memory management. Can use <span class="definition_swift">deinit</span> to clean up resources like closing an opened file. Can't call a deinitializer. Superclass deinitializers are inherited by subclasses and are called automatically at the end of the subclass deinitializer implementation.</p>
 <pre><code class="language-swift">
 deinit {
-/* For example, can make a player instance an optional and set it to nil indicating that player has left.
-    deinit of player instance will then be called.*/
+    /* For example, can make a player instance an optional and set it to nil indicating that player has left.
+        deinit of player instance will then be called.*/
 }
 </code></pre>
             </div>
@@ -1580,7 +1581,7 @@ deinit {
 <pre><code class="language-swift">
 /* roomCount is of type Int?, residence is an optional, numberOfRooms is nonoptional. Optional binding and optional chaining. */
 if let roomcount = john.residence?.numberOfRooms {
-statements
+    statements
 }
 </code></pre>
                 <br>
@@ -1592,11 +1593,11 @@ statements
                 <h3>Calling Methods through Optional Chaining</h3>
 <pre><code class="language-swift">
 if john.residence?.printNumberOfRooms() != nil {
-statements
+    statements
 }
 // Example of setting property through optional chaining
 if (john.residence?.address = someAddress) != nil {
-statements
+    statements
 }
 </code></pre>
                 <br>
@@ -1604,7 +1605,7 @@ statements
                 <h3>Accessing Subscripts through Optional Chaining and Subscripts of Optional type</h3>
 <pre><code class="language-swift">
 if let firstRoomName = john.residence?[0].name {
-statements
+    statements
 }
 // Setting new value using optional chaining
 john.residence?[0] = Room(name: "Bathroom")
@@ -1622,7 +1623,7 @@ testScores["Dave"]?[0] = 91
                 </ul>
 <pre><code class="language-swift">
 if let johnsStreet = john.residence?.address?.street {
-// street is an optional string
+    // street is an optional string
 }
 </code></pre>
                 <p>Can also chain on methods with optional return values.</p>
@@ -1633,9 +1634,9 @@ if let johnsStreet = john.residence?.address?.street {
                 <p>Errors are represented by values of types that conform to the <span class="definition_swift">Error</span> protocol.</p>
 <pre><code class="language-swift">
 enum VendingMachineError: Error {
-case invalidSelection
-case insufficientFunds(coinsNeeded: Int)
-case outOfStock
+    case invalidSelection
+    case insufficientFunds(coinsNeeded: Int)
+    case outOfStock
 }
 
 // Throwing an error
@@ -1655,11 +1656,11 @@ throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
                 <h3>Propagating Errors using Throwing Functions</h3>
 <pre><code class="language-swift">
 func canThrowErrors() throws -> String {
-statements
-throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
+    statements
+    throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
 }
 func someFunc() {
-try instance.canThrowErrors()
+    try instance.canThrowErrors()
 }
 </code></pre>
                 <br>
@@ -1667,14 +1668,14 @@ try instance.canThrowErrors()
                 <h3>Handle Errors using Do-Catch</h3>
 <pre><code class="language-swift">
 do {
-try expression
-statements
+    try expression
+    statements
 } catch pattern1 {
-statements
+    statements
 } catch pattern2 where (condition) {
-statements
+    statements
 } catch {
-// An example of catch all, error bound to local constant named error
+    // An example of catch all, error bound to local constant named error
 }
 </code></pre>
                 <br>
@@ -1683,7 +1684,7 @@ statements
                 <p>Use <span class="definition_swift">try?</span> to handle errors by converting it to an optional value. If the error is thrown while evaluating the <span class="definition_swift">try?</span> expression, the value of the expression is nil.</p>
 <pre><code class="language-swift">
 func someThrowingFunction() throws -> Int {
-statements
+    statements
 }
 
 let x = try? someThrowingFunction()
@@ -1701,10 +1702,10 @@ let photo = try! loadImage(atPath: "")
                 <p>Use <span class="definition_swift">defer</span> to execute a set of statements regardless of how code execution leaves the current block of code. It delays execution until the scope is exited. The first defer block executes last.</p>
 <pre><code class="language-swift">
 if exists(filename) {
-let file = open(filename)
-defer {
-    close(file)
-}
+    let file = open(filename)
+    defer {
+        close(file)
+    }
 }
 </code></pre>
             </div>
@@ -1716,15 +1717,15 @@ defer {
                 <p><span class="definition">Type cast operator</span> (<span class="definition_swift">as</span>): referring to an instance of a subclass behind the scenes. <span class="definition_swift">as?</span> returns optional type, <span class="definition_swift">as!</span> force-unwraps the result.</p>
 <pre><code class="language-swift">
 if instance is Subclass1 {
-statements
+    statements
 } else if instance is Subclass2 {
-statements
+    statements
 }
 
 if let movie = instance as? Movie {
-// statements using unwrapped movie
+    // statements using unwrapped movie
 } else if let song = instance as? Song {
-// statements using unwrapped song
+    // statements using unwrapped song
 }
 </code></pre>
                 <br>
@@ -1762,40 +1763,40 @@ let heartsSymbol = BlackjackCard.Suit.hearts.rawValue
                 <h3>Extension Syntax</h3>
 <pre><code class="language-swift">
 extension SomeType {
-statements
+    statements
 }
 
 // Extension adopting one or more protocols
 extension SomeType: SomeProtocol, AnotherProtocol {
-statements
+    statements
 }
 
 // Adding computed properties
 extension Double {
-var km:Double {
-    return self * 1000.0
-}
+    var km:Double {
+        return self * 1000.0
+    }
 }
 
 // Adding new inits
 extension Rect {
-init(center: Point, size: Size) {
-    let originX = center.x - (size.width / 2)
-    let originY = center.y - (size.height / 2)
-    // Call designated initializer
-    self.init(origin: Point(x: originX, y: originY), size: size)
-}
+    init(center: Point, size: Size) {
+        let originX = center.x - (size.width / 2)
+        let originY = center.y - (size.height / 2)
+        // Call designated initializer
+        self.init(origin: Point(x: originX, y: originY), size: size)
+    }
 }
 
 // Extension with subscripts
 extension Int {
-subscript(digitIndex: Int) -> Int {
-    var decimalBase = 1
-    for _ in 0..&lt;digitIndex {
-        decimalBase *= 10
+    subscript(digitIndex: Int) -> Int {
+        var decimalBase = 1
+        for _ in 0..&lt;digitIndex {
+            decimalBase *= 10
+        }
+        return (self / decimalBase) % 10
     }
-    return (self / decimalBase) % 10
-}
 }
 </code></pre>
             </div>
@@ -1808,10 +1809,10 @@ subscript(digitIndex: Int) -> Int {
                 <h3>Protocol Syntax</h3>
 <pre><code class="language-swift">
 protocol SomeProtocol {
-// protocol definition
+    // protocol definition
 }
 struct SomeStruct: SomeSuperClass, FirstProtocol, AnotherProtocol {
-// struct definition
+    // struct definition
 }
 </code></pre>
                 <p>Protocol only specifies required property name and type to conform. Specifies if property is gettable or gettable and settable. Always declared as <b>variable</b> properties.</p>
@@ -1820,35 +1821,35 @@ struct SomeStruct: SomeSuperClass, FirstProtocol, AnotherProtocol {
                 </ul>
 <pre><code class="language-swift">
 protocol SomeProtocol {
-var mustBeSettable: Int { get set }
-var doesntNeedToBesettable: Int {get }
+    var mustBeSettable: Int { get set }
+    var doesntNeedToBesettable: Int {get }
 
-// Type property requirement
-static var someTypeProperty: Int { get set }
+    // Type property requirement
+    static var someTypeProperty: Int { get set }
 
-// Method requirements
-static func someTypeMethod()
+    // Method requirements
+    static func someTypeMethod()
 
-// Mutating Method
-mutating func toggle()
+    // Mutating Method
+    mutating func toggle()
 
-// Initializer Requirements
-init(someParameter: Int)
+    // Initializer Requirements
+    init(someParameter: Int)
 }
 </code></pre>
                 <p>Conforming class that implement the initializer can have it be be designated or convenience. Must mark with <span class="definition_swift">required</span>.</p>
 <pre><code class="language-swift">
 class SomeClass: SomeProtocol {
-required init(someParameter: Int) {
-    // initializer implementation
-}
+    required init(someParameter: Int) {
+        // initializer implementation
+    }
 }
 
 // Subclass overriding a designated initializer and implementing matching initializer from a protocol
 class SomeSubClass: SomeSuperClass, SomeProtocol {
-required override init() {
-    // initializer implementation
-}
+    required override init() {
+        // initializer implementation
+    }
 }
 </code></pre>
                 <p>Protocols can act as types. Like calling an interface method. You don't know what instance is passed in, but you do know it must conform to the protocol type, which means it'll have the protocol methods and requirements implemented.</p>
@@ -1863,24 +1864,24 @@ required override init() {
 
 <pre><code class="language-swift">
 protocol DiceGame {
-var dice: Dice { get }
-func play()
+    var dice: Dice { get }
+    func play()
 }
 protocol DiceGameDelegate {
-func gameDidStart(_ game: DiceGame)
+    func gameDidStart(_ game: DiceGame)
 }
 
 class SomeClass: DiceGame {
-var delegate: DiceGameDelegate?
+    var delegate: DiceGameDelegate?
 
-func someFunc() {
-    delegate?.gameDidStart(self)
-}
+    func someFunc() {
+        delegate?.gameDidStart(self)
+    }
 }
 class DiceGameTracker: DiceGameDelegate {
-func gameDidState(_ game: DiceGame) {
-    // implementation
-}
+    func gameDidState(_ game: DiceGame) {
+        // implementation
+    }
 }
 </code></pre>
                 <br>
@@ -1889,12 +1890,12 @@ func gameDidState(_ game: DiceGame) {
                 <p>Extend existing type to conform to a new protocol.</p>
 <pre><code class="language-swift">
 protocol TextRepresentable {
-var textualDescription: String { get }
+    var textualDescription: String { get }
 }
 extension Dice: TextRepresentable {
-var textualDescription: String {
-    // implementation
-}
+    var textualDescription: String {
+        // implementation
+    }
 }
 </code></pre>
                 <br>
@@ -1905,7 +1906,7 @@ var textualDescription: String {
 let things: [TextRepresentable] = [game, d12, hamster]
 
 for thing in things {
-print(thing.textualDescription)
+    print(thing.textualDescription)
 }
 </code></pre>
                 <br>
@@ -1914,7 +1915,7 @@ print(thing.textualDescription)
                 <p>To add further requirements on top of the requirements it inherits.</p>
 <pre><code class="language-swift">
 protocol InheritingProtocol: SomeProtocol, AnotherProtocol {
-// protocol definition
+    // protocol definition
 }
 </code></pre>
                 <br>
@@ -1923,7 +1924,7 @@ protocol InheritingProtocol: SomeProtocol, AnotherProtocol {
                 <p>To limit protocol adoption to class types. Use <span class="definition_swift">AnyObject</span>.</p>
 <pre><code class="language-swift">
 protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol {
-// class-only protocol definitions
+    // class-only protocol definitions
 }
 </code></pre>
                 <br>
@@ -1948,17 +1949,17 @@ func wishHappyBirthday(toCelebrator: Named &amp; Aged)
                 <p>When requirements don't have to be implemented by types that conform to the protocol. Prefixed by <span class="definition_swift">optional</span> modifier as part of protocol's definition. Both protocol and the optional requirement must be marked with <span class="definition_swift">@objc</span> attribute. <span class="definition_swift">@objc</span> protocols can only be adopted by classes, not structs or enums.</p>
 <pre><code class="language-swift">
 @objc protocol CounterDataSource {
-@objc optional func increment(forCount count: Int) -> Int
-@objc optional var fixedIncrement: Int { get }
+    @objc optional func increment(forCount count: Int) -> Int
+    @objc optional var fixedIncrement: Int { get }
 }
 class Counter {
-var dataSource: CounterDataSource?
-func increment() {
-    // the entire increment function is optional
-    if let amount = dataSource?.increment?(forCount: count) {
-        count += amount
+    var dataSource: CounterDataSource?
+    func increment() {
+        // the entire increment function is optional
+        if let amount = dataSource?.increment?(forCount: count) {
+            count += amount
+        }
     }
-}
 }
 </code></pre>
                 <br>
@@ -1967,9 +1968,9 @@ func increment() {
                 <p>To define behaviors on protocols themselves, rather than in each type's individual conformance. All conforming types will gain this method implementation. Can be used to provide default implementation (can be overridden).</p>
 <pre><code class="language-swift">
 extension RandomNumberGenerator {
-func randomBool() -> Bool {
-    return random() > 0.5
-}
+    func randomBool() -> Bool {
+        return random() > 0.5
+    }
 }
 generator = LinearCongruentGenerator()
 print("\(generator.random())")
@@ -1981,9 +1982,9 @@ print("\(generator.random())")
                 <p>For reusability, to avoid duplication, and for abstraction.</p>
 <pre><code class="language-swift">
 func swapTwoValues&lt;T&gt;(_ a: inout T, _ b: inout T) {
-let temporaryA = a
-a = b
-b = temporaryA
+    let temporaryA = a
+    a = b
+    b = temporaryA
 }
 </code></pre>
                 <p><span class="definition">Type parameter</span>: a placeholder type such as <span class="definition_swift">T</span> in the example above. Written in brackets after a function's name. After defining it, you can use it as parameters, in function body, or as return type.</p>
@@ -1996,13 +1997,13 @@ b = temporaryA
                 </ul>
 <pre><code class="language-swift">
 struct Stack&lt;Element&gt; {
-var items = [Element]()
-mutating func push(_ item: Element) {
-    items.append(item)
-}
-mutating func pop() -> Element {
-    return items.removeLast()
-}
+    var items = [Element]()
+    mutating func push(_ item: Element) {
+        items.append(item)
+    }
+    mutating func pop() -> Element {
+        return items.removeLast()
+    }
 }
 // Create instance by writing type to be stored
 var stackOfStrings = Stack&lt;String&gt;()
@@ -2013,9 +2014,9 @@ var stackOfStrings = Stack&lt;String&gt;()
                 <p>Don't provide type parameter list as part of extension's definition, the original type parameter will be used.</p>
 <pre><code class="language-swift">
 extension Stack {
-var topItem: Element? {
-    return items.isEmpty ? nil : items[items.count - 1]
-}
+    var topItem: Element? {
+        return items.isEmpty ? nil : items[items.count - 1]
+    }
 }
 </code></pre>
                 <br>
@@ -2028,16 +2029,16 @@ var topItem: Element? {
                 </ul>
 <pre><code class="language-swift">
 func someFunction&lt;T: SomeClass, U: SomeProtocol&gt;(someT: T, someU: U) {
-// function body
+    // function body
 }
 
 func findIndex&lt;T: Equatable&gt;(of valueToFind: T, in array: [T]) -> Int? {
-for (index, value) in array.enumerated() {
-    if value == valueToFind {
-        return index
+    for (index, value) in array.enumerated() {
+        if value == valueToFind {
+            return index
+        }
     }
-}
-return nil
+    return nil
 }
 </code></pre>
                 <br>
@@ -2049,10 +2050,10 @@ return nil
                 </ul>
 <pre><code class="language-swift">
 protocol Container {
-associatedtype Item
-mutating func append(_ item: Item)
-var count: Int { get }
-subscript(i: Int) -> Item { get }
+    associatedtype Item
+    mutating func append(_ item: Item)
+    var count: Int { get }
+    subscript(i: Int) -> Item { get }
 }
 
 // Extending an Existing Type
@@ -2060,9 +2061,9 @@ extension Array: Container {}
 
 // Using Type Annotations to constrain an Associated Type
 protocol Container {
-associatedtype Item: Equatable
-mutating func append(_ item: Item)
-...
+    associatedtype Item: Equatable
+    mutating func append(_ item: Item)
+    ...
 }
 </code></pre>
                 <br>
@@ -2076,7 +2077,7 @@ func allItemsMatch&lt;C1: container, C2: Container&gt;
 (_ someContainer: C1, _ anotherContainer: C2) -> Bool
 where C1.Item == C2.Item, C1.Item: Equatable {
 
-// check if each type of container hold the same type of items
+    // check if each type of container hold the same type of items
 }
 </code></pre>
                 <br>
@@ -2085,19 +2086,19 @@ where C1.Item == C2.Item, C1.Item: Equatable {
                 <p>In the following example, the Stack didn't require Item to be Equatable. However, since we're using equality operators, we must specify that the Element conforms to that protocol for it to compile correctly.</p>
 <pre><code class="language-swift">
 extension Stack where Element: Equatable {
-func isTop(_ item: Element) -> Bool {
-    guard let topItem = items.last else {
-        return false
+    func isTop(_ item: Element) -> Bool {
+        guard let topItem = items.last else {
+            return false
+        }
+        return topItem == item
     }
-    return topItem == item
-}
 }
 
 // Where clause with extensions to a protocol
 extension Container where Item: Equatable {
-func startWith(_ item: Item) -> Bool {
-    return count >= 1 &amp;&amp; self[0] ==item
-}
+    func startWith(_ item: Item) -> Bool {
+        return count >= 1 &amp;&amp; self[0] ==item
+    }
 }
 </code></pre>
                 <br>
@@ -2106,10 +2107,10 @@ func startWith(_ item: Item) -> Bool {
                 <p>In the following example, the clause requires that the iterator can only traverse over elements that are of the same item type as the container's items.</p>
 <pre><code class="language-swift">
 protocol Container {
-associatedtype Item
-...
-associatedtype Iterator: IteratorProtocol where Iterator.Element == Item
-func makeIterator() -> Iterator
+    associatedtype Item
+    ...
+    associatedtype Iterator: IteratorProtocol where Iterator.Element == Item
+    func makeIterator() -> Iterator
 }
 </code></pre>
             </div>
@@ -2128,7 +2129,7 @@ reference3 = reference1
 
 // 1 strong reference
 reference1 = nil
-refernece2 = nil
+reference2 = nil
 </code></pre>
                 <br>
                 <p><span class="definition">Strong Reference Cycle</span>: when two class instances hold a strong reference to each other.</p>
@@ -2147,17 +2148,17 @@ refernece2 = nil
 <pre><code class="language-swift">
 // Example with strong reference error
 lazy var asHTML: () -> String = {
-if let text = self.text {
-    return "&lt;\(self.name)&gt;\(text)&lt;\(self.name)&gt;"
-} else {
-    return "&lt;\(self.name)&gt;"
-}
+    if let text = self.text {
+        return "&lt;\(self.name)&gt;\(text)&lt;\(self.name)&gt;"
+    } else {
+        return "&lt;\(self.name)&gt;"
+    }
 }
 
 // Example with resolving it by capture list
 lazy var someClosure: (Int, String) -> String = {
-[unowned self, weak delegate = self.delegate!] (index: Int, stringToProcess: String) -> String in
-// closure body
+    [unowned self, weak delegate = self.delegate!] (index: Int, stringToProcess: String) -> String in
+    // closure body
 }
 </code></pre>
             </div>
@@ -2179,7 +2180,7 @@ lazy var someClosure: (Int, String) -> String = {
 <pre><code class="language-swift">
 var stepSize = 1
 func incrementInPlace(_ number: inout Int) {
-number += stepSize
+    number += stepSize
 }
 incrementInPlace(&amp;stepSize)
 </code></pre>
@@ -2187,9 +2188,9 @@ incrementInPlace(&amp;stepSize)
                 <p>The following balance function produces a conflict because it's performing accesses to same location in memory simultaneously.</p>
 <pre><code class="language-swift">
 func balance(_ x: inout Int, _ y: inout Int) {
-let sum = x + y
-x = sum / 2
-y = sum - x
+    let sum = x + y
+    x = sum / 2
+    y = sum - x
 }
 var playerOneScore = 42
 var playerTwoScore = 30
@@ -2202,10 +2203,10 @@ balance(&amp;playerOneScore, &amp;playerOneScore)
                 <p>The following code produces a conflict because both <i>self</i> (due to it being a mutating function) and <i>teammate</i> refer to the same location in memory.</p>
 <pre><code class="language-swift">
 struct Player {
-var health: Int
-mutating func shareHealth(with teammate: inout Player) {
-    balance(&amp;teammate.health, &amp;health)
-}
+    var health: Int
+    mutating func shareHealth(with teammate: inout Player) {
+        balance(&amp;teammate.health, &amp;health)
+    }
 }
 var oscar = Player(health: 10)
 oscar.shareHealth(with: &amp;oscar)
@@ -2306,12 +2307,12 @@ private class SomePrivateClass {}
                 <p>In the following example, left and right represents the instances on the left and right side of the + operator.</p>
 <pre><code class="language-swift">
 struct Vector2D {
-var x = 0.0, y = 0.0
+    var x = 0.0, y = 0.0
 }
 extension Vector2D {
-static func + (left: Vector2D, right: Vector2D) -> Vector 2D {
-    return Vector2D(x: left.x + right.x, y: left.y + right.y)
-}
+    static func + (left: Vector2D, right: Vector2D) -> Vector 2D {
+        return Vector2D(x: left.x + right.x, y: left.y + right.y)
+    }
 }
 let vector = Vector2D(x: 3.0, y: 1.0)
 let anotherVector = Vector2D(x: 2.0, y: 4.0)
@@ -2323,12 +2324,12 @@ let combinedVector = vector + anotherVector
                 <p>Use equivalence operators to check for equivalence of your own custom type.</p>
 <pre><code class="language-swift">
 extension Vector2D {
-static func == (left: Vector2D, right: Vector2D) -> Bool {
-    return (left.x == right.x) &amp;&amp; (left.y == right.y)
-}
-static func != (left: Vector2D, right: Vector2D) -> Bool {
-    return !(left == right)
-}
+    static func == (left: Vector2D, right: Vector2D) -> Bool {
+        return (left.x == right.x) &amp;&amp; (left.y == right.y)
+    }
+    static func != (left: Vector2D, right: Vector2D) -> Bool {
+        return !(left == right)
+    }
 }
 </code></pre>
                 <br>
@@ -2340,10 +2341,10 @@ static func != (left: Vector2D, right: Vector2D) -> Bool {
 prefix operator +++
 
 extension Vector2D {
-static prefix func +++ (vector: inout Vector2D) -> Vector2D {
-    vector += vector
-    return vector
-}
+    static prefix func +++ (vector: inout Vector2D) -> Vector2D {
+        vector += vector
+        return vector
+    }
 }
 var toBeDoubled = Vector2D(x: 1.0, y: 4.0)
 let afterDoubling = +++toBeDoubled

@@ -198,32 +198,32 @@ Date Created: January 2018
                 <p>getServerMessage will be a JS call attached to some event object in HTML/JS. Calls hello.php and when returned, the handler is fired. req.send() is asynchronous. Must not directly call the handler function, this will produce an error (like calling handleData()).</p>
 <pre><code class="language-javascript">
 function HttpRequest(sURL, fpCallback) {
-// If it works, check the readyState and the status
-function requestReadyStateChange() {
-    if (tempRequest.readyState == 4) {
-        if (tempRequest.status == 200) {
-            // invoke the handler
-            fpCallback(tempRequest.responseText);
+    // If it works, check the readyState and the status
+    function requestReadyStateChange() {
+        if (tempRequest.readyState == 4) {
+            if (tempRequest.status == 200) {
+                // invoke the handler
+                fpCallback(tempRequest.responseText);
+            }
+        }
+        else {
+            alert("Error occurred while trying to communicate with the server." +
+            "readyState: " + tempRequest.readyState +
+            "status: " + tempRequest.status);
         }
     }
-    else {
-        alert("Error occurred while trying to communicate with the server." +
-        "readyState: " + tempRequest.readyState +
-        "status: " + tempRequest.status);
-    }
-}
 }
 
 function getServerMessage() {
-var req = new HttpRequest("hello.php", handleData);
-req.send();
+    var req = new HttpRequest("hello.php", handleData);
+    req.send();
 }
 
 // s is the data or string that is sent back from the server
 function handleData(s) {
-var handle = document.getElementbById("statusLine");
-handle.innerHTML = s;
-alert(s);
+    var handle = document.getElementbById("statusLine");
+    handle.innerHTML = s;
+    alert(s);
 }
 </code></pre>
                 <br>
@@ -232,25 +232,25 @@ alert(s);
 <pre><code class="language-javascript">
 // Format
 function someFunction() {
-$.get(url, handler);
+    $.get(url, handler);
 }
 function handler(msg) {
-// statements
+    // statements
 }
 
 // Example
 function getServerMessage() {
-$.get("hello.php", handleData);
+    $.get("hello.php", handleData);
 }
 function handleData(s) {
-var handle = document.getElementbById("statusLine");
-handle.innerHTML;
+    var handle = document.getElementbById("statusLine");
+    handle.innerHTML;
 }
 
 /* If using GET, you must build the URL string
 For POST, also build the string but use parameters*/
 function sendName() {
-$.post(url, data, handleData);
+    $.post(url, data, handleData);
 }
 </code> </pre>
                 <br>
@@ -258,12 +258,12 @@ $.post(url, data, handleData);
                 <h4>AJAX Method</h4>
 <pre><code class="language-javascript">
 $.ajax({
-property1: value1,
-property2: value2,
-url: value,
-type: get | post,
-success: function(response) {},
-error: function(e) {}
+    property1: value1,
+    property2: value2,
+    url: value,
+    type: get | post,
+    success: function(response) {},
+    error: function(e) {}
 }).done | .fail | .always;
 </code></pre>
                 <br>

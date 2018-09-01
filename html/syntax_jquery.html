@@ -130,7 +130,7 @@ $("parentSelector childSelector").method();
                 <p>The following is in an external javascript file.</p>
 <pre><code class="language-javascript">
 $(document).ready(function () {
-$("selector").method();
+    $("selector").method();
 });
 </code></pre>
                 <br>
@@ -226,8 +226,8 @@ $("selector").css("property", "value(s)");
 
 // For multiple rules
 $("selector").css({
-"property": "value(s)",
-"property": "value(s)"
+    "property": "value(s)",
+    "property": "value(s)"
 });
 </code></pre>
                         </td>
@@ -253,7 +253,7 @@ $("selector").text("Content");
                         <td>
 <pre><code class="language-javascript">
 $("selector").each(function() {
-$(this).method();
+    $(this).method();
 });
 </code></pre>
                         </td>
@@ -373,9 +373,9 @@ $("selector").removeAttr("attribute");
                         <td>
 <pre><code class="language-javascript">
 $("selector").hover(function() {
-statements;
+    statements;
 }, function() {
-statements;
+    statements;
 });
 </code></pre>
                         </td>
@@ -428,7 +428,7 @@ $("selector").hide();
 <pre><code class="language-javascript">
 // The following is an anonymous call to a function
 $("selector").on("event", function() {
-statements;
+    statements;
 });
 
 // The following is using the function name, usually for reusability
@@ -445,11 +445,11 @@ $("selector").on("event", functionName);
                         <td>
 <pre><code class="language-javascript">
 $("selector").click(function() {
-statements;
+    statements;
 });
 
 $("selector").on("click", function() {
-statements;
+    statements;
 });
 </code></pre>
                         </td>
@@ -459,7 +459,7 @@ statements;
                         <td>
 <pre><code class="language-javascript">
 $("selector").mouseover(function() {
-statements;
+    statements;
 });
 </code></pre>
                         </td>
@@ -469,7 +469,7 @@ statements;
                         <td>
 <pre><code class="language-javascript">
 $("selector").load(function() {
-statements;
+    statements;
 });
 </code></pre>
                         </td>
@@ -500,7 +500,7 @@ $("selector").on("event", "selector", functionHandler);
 
 // Example
 $("div").on("click", "a", function(event) {
-// statements
+    // statements
 });
 
 // Another example
@@ -517,8 +517,8 @@ var id = $("selector").attr("id");
 
 // Returns the id in Javascript (handler function previously attached to an event listener)
 function someFunction(event) {
-var id = event.target.id;
-var id = this.id;   // also returns the id
+    var id = event.target.id;
+    var id = this.id;   // also returns the id
 }
 </code></pre>
             </div>
@@ -528,13 +528,13 @@ var id = this.id;   // also returns the id
                 <p>The href attribute contains the id for the element to scroll to, so it is grabbed and used to determine the offset from the top of the browser window.</p>
 <pre><code class="language-javascript">
 $('a[href^="#"]').on('click', function(event) {
-var anchorHandle = $(this.getAttribute('href'));
-if (anchorHandle.length) {
-    event.preventDefault();
-    $('html, body').stop().animate({
-        scrollTop: anchorHandle.offset().top
-    }, milliseconds);
-}
+    var anchorHandle = $(this.getAttribute('href'));
+    if (anchorHandle.length) {
+        event.preventDefault();
+        $('html, body').stop().animate({
+            scrollTop: anchorHandle.offset().top
+        }, milliseconds);
+    }
 });
 </code></pre>
             </div>

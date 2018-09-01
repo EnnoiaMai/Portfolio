@@ -7,7 +7,7 @@ Date Created: December 2017
 * {
     padding: 0px;
     margin: 0px;
-    font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif;
+    /* font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif; */
     box-sizing: border-box;
 }
 
@@ -53,13 +53,13 @@ Date Created: December 2017
     padding-bottom: 8px;
 }
 #content .section p, li, td {
-    font-size: 104%;
+    font-size: 1.0em;
 }
 #content .section ul, ol {
     margin-left: 40px;
 }
 #content .section pre, code {
-    font-size: 94%;
+    font-size: 0.95em;
     /* white-space: pre-wrap; */
     overflow: auto;
 }
@@ -348,4 +348,15 @@ Date Created: December 2017
 }
 .table_3_columns_even td {
   width: 30%;
+}
+
+@media screen and (max-width: 992px) {
+    #content .section p, li, td {
+        font-size: 0.9em;
+    }
+    #content_header > h1 {
+        font-size: 1.4em;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }

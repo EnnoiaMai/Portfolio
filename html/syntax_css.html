@@ -116,11 +116,11 @@ Date Created: December 2017
                 <p>Each selector and statements within brackets define a rule.</p>
 <pre><code class="language-css">
 Selector {
-property1: value1;
-property2: value2;
+    property1: value1;
+    property2: value2;
 }
 Selector1, Selector2, ... {
-property: value;
+    property: value;
 }
 </code></pre>
             </div>
@@ -137,7 +137,7 @@ property: value;
                 <td>
 <pre><code class="language-css">
 #id {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -147,7 +147,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 .class {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -157,7 +157,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 tag {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -167,7 +167,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 div li a {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -177,7 +177,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 selector>childElement {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -187,7 +187,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 selector+siblingElement {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -197,7 +197,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 selector~siblingElement {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -207,7 +207,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 selector[attribute] {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -217,7 +217,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 selector[attribute="value"] {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -227,7 +227,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 selector[attribute^="value"] {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -237,7 +237,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 selector[attribute$="value"] {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -247,7 +247,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 selector[attribute*="value"] {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -257,7 +257,7 @@ property: value;
                         <td>
 <pre><code class="language-css">
 * {
-property: value;
+    property: value;
 }
 </code></pre>
                         </td>
@@ -279,7 +279,7 @@ property: value;
                 <p>Defines special state of an element. Gives you behavior in CSS without JavaScript.</p>
 <pre><code class="language-css">
 selector:pseudo-class {
-property: value;
+    property: value;
 }
 </code></pre>
                 <br>
@@ -467,8 +467,8 @@ property: value;
                         <td>
 <pre><code class="language-css">
 @font-face {
-font-family: customFont;
-src: url();
+    font-family: customFont;
+    src: url();
 }
 </code></pre>
                         </td>
@@ -649,23 +649,23 @@ display: value;
 <pre><code class="language-markup">
 &lt;!-- HTML: --&gt;
 &lt;div class="flex-container"&gt;
-&lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
-&lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
-&lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
+    &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
+    &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
+    &lt;div class="flex-item"&gt;Content&lt;&frasl;div&gt;
 &lt;&frasl;div&gt;
 </code></pre>
 <pre><code class="language-css">
 /* CSS: */
 .flex-container {
-display: flex;
-width: 500px;
-height: 250px;
+    display: flex;
+    width: 500px;
+    height: 250px;
 }
 .flex-item {
-width: 100px;
-height: 100px;
-margin: 10px;
-background-color: blue;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-color: blue;
 }
 </code></pre>
                         </td>
@@ -677,10 +677,10 @@ background-color: blue;
                 <h2>Media Queries</h2>
 <pre><code class="language-css">
 @media not|only mediatype and (media feature) {
-<i>CSS code</i>
+    <i>CSS code</i>
 }
 @media screen and (min-width: 480px) {
-<i>CSS code</i>
+    <i>CSS code</i>
 }
 </code></pre>
                 <br>
@@ -800,24 +800,24 @@ background-color: blue;
 <pre><code class="language-css">
 /* General Syntax */
 selector {
-transition: [property] [duration] [transition-timing-function] [delay];
+    transition: [property] [duration] [transition-timing-function] [delay];
 }
 
 /* Example */
 div {
-width: 100px;
-height: 100px;
-background: red;
-transition: width 2s linear 1s;
+    width: 100px;
+    height: 100px;
+    background: red;
+    transition: width 2s linear 1s;
 }
 div:hover {
-width: 300px;
+    width: 300px;
 }
 
 /* Example of setting multiple transition effects */
 selector {
-transition: background-color 0.5s linear 0s,
-        width 1s ease 0.5s;
+    transition: background-color 0.5s linear 0s,
+            width 1s ease 0.5s;
 }
 </code></pre>
                 <br>
@@ -870,10 +870,10 @@ transition: background-color 0.5s linear 0s,
                         <td>
 <pre><code class="language-css">
 selector {
-transition: transform 1s;
+    transition: transform 1s;
 }
 selector:hover {
-transform: scale(2);
+    transform: scale(2);
 }
 </code></pre>
                         </td>
@@ -884,10 +884,10 @@ transform: scale(2);
                         <td>
 <pre><code class="language-css">
 selector {
-transition: transform 1s;
+    transition: transform 1s;
 }
 selector:hover {
-transform: rotate(1080deg);
+    transform: rotate(1080deg);
 }
 </code></pre>
                         </td>
@@ -898,10 +898,10 @@ transform: rotate(1080deg);
                         <td>
 <pre><code class="language-css">
 selector {
-transition: transform 1s;
+    transition: transform 1s;
 }
 selector:hover {
-transform: translate(20px, 20px);
+    transform: translate(20px, 20px);
 }
 </code></pre>
                         </td>
@@ -998,24 +998,24 @@ transform: translate(20px, 20px);
 <pre><code class="language-css">
 /* The body will be the outer container that holds the menu, the content, and the footer */
 body {
-display: flex;
-flex-direction: column;
-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 /* Set the position to fixed so that the menu is out of the flow */
 .menu {
-position: fixed;
-top: 0px;
-left: 0px;
-z-index: 10;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
 }
 /* Content should grow to fill the remaining space, but shouldn't shrink */
 .content {
-flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 /* Footer should not shrink */
 .footer {
-flex-shrink: 0;
+    flex-shrink: 0;
 }
 </code></pre>
             </div>
@@ -1117,13 +1117,13 @@ flex-shrink: 0;
                 <br>
 <pre><code class="language-css">
 .grid_container {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-grid-gap: 36px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 36px 24px;
 }
 .grid_container div {
-background-color: #FFFCF8;
-box-shadow: 0px 0px 1px 0px grey;
+    background-color: #FFFCF8;
+    box-shadow: 0px 0px 1px 0px grey;
 }
 </code></pre>
             </div>
@@ -1134,31 +1134,31 @@ box-shadow: 0px 0px 1px 0px grey;
 <pre><code class="language-markup">
 &lt;!-- Html: --&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=""&gt;First Link&lt;&frasl;a&gt;
-&lt;li&gt;&lt;a href=""&gt;Second Link&lt;&frasl;a&gt;
-&lt;li&gt;&lt;a href=""&gt;Third Link&lt;&frasl;a&gt;
+    &lt;li&gt;&lt;a href=""&gt;First Link&lt;&frasl;a&gt;
+    &lt;li&gt;&lt;a href=""&gt;Second Link&lt;&frasl;a&gt;
+    &lt;li&gt;&lt;a href=""&gt;Third Link&lt;&frasl;a&gt;
 &lt;&frasl;ul&gt;
 </code></pre>
                 <br>
                 <p>2) Change display property to inline. Set min-width property so that menu doesn't fall apart when browser is resized or minimized.</p>
 <pre><code class="language-css">
 ul {
-text-align: center;
+    text-align: center;
 }
 ul li {
-display: inline;
-list-style-type: none;
+    display: inline;
+    list-style-type: none;
 }
 ul li a {
-color: #005;
-background-color: white;
-font-weight: bold;
-text-decoration: none;
-padding: 5px 10px 5px 10px;
+    color: #005;
+    background-color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 10px 5px 10px;
 }
 ul li a:hover {
-color: white;
-background-color: #005;
+    color: white;
+    background-color: #005;
 }
 </code></pre>
             </div>
@@ -1168,15 +1168,15 @@ background-color: #005;
                 <p>1) Get rid of all margins and padding.</p>
 <pre><code class="language-css">
 * {
-margin: 0;
-padding: 0;
+    margin: 0;
+    padding: 0;
 }
 </code></pre>
     <br>
     <p>2) Set height to 100% for html and body.</p>
 <pre><code class="language-css">
 html, body {
-height: 100%;
+    height: 100%;
 }
 </code></pre>
                 <br>
@@ -1184,20 +1184,20 @@ height: 100%;
 <pre><code class="language-markup">
 &lt;!-- Html: --&gt;
 &lt;div id="sidebar"&gt;
-<i>Content for sidebar</i>
+    <i>Content for sidebar</i>
 &lt;&frasl;div&gt;
 </code></pre>
 <pre><code class="language-css">
 /* CSS: */
 #sidebar {
-width: 300px;
-height: 100%;
-position: fixed;
-top: 0px;
-left: 0px;
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
 }
 body {
-margin-left: 300px;
+    margin-left: 300px;
 }
 </code></pre>
             </div>
@@ -1213,12 +1213,12 @@ margin-left: 300px;
                 </div>
 <pre><code class="language-css">
 div {
-box-sizing: border-box;
-padding: 4px 16px;
-border: 1px solid grey;
+    box-sizing: border-box;
+    padding: 4px 16px;
+    border: 1px solid grey;
 }
 input {
-width: 100%;
+    width: 100%;
 }
 </code></pre>
             </div>

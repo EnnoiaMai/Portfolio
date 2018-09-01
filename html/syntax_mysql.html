@@ -245,13 +245,13 @@ SELECT * FROM Customers WHERE CustomerID=1;
                 <br>
 <pre><code class="language-sql">
 SELECT column1, column2, ... FROM table_name
-WHERE condition1 AND condition2 ...;
+    WHERE condition1 AND condition2 ...;
 
 SELECT column1, column2, ... FROM table_name
-WHERE condition1 OR condition2 ...;
+    WHERE condition1 OR condition2 ...;
 
 SELECT column1, column2, ... FROM table_name
-WHERE NOT condition;
+    WHERE NOT condition;
 </code></pre>
             </div>
 
@@ -307,7 +307,7 @@ UPDATE table_name SET column1=value1, column2=value2... WHERE condition;
 
 -- Example
 UPDATE Customers SET ContactName='Alfred Schmidt', City='Frankfurt'
-WHERE customerID=1;
+    WHERE customerID=1;
 </code></pre>
             </div>
 
@@ -395,13 +395,14 @@ SELECT column1, column2... FROM table_name WHERE column LIKE pattern;
                 <br>
 <pre><code class="language-sql">
 SELECT column_name(s) FROM table_name
-WHERE column_name IN (value1, value2...);
+    WHERE column_name IN (value1, value2...);
 
 SELECT column_name(s) FROM table_name
-WHERE column_name IN (SELECT statement);
+    WHERE column_name IN (SELECT statement);
 
 -- Example
-SELECT * FROM Customers WHERE Country IN (SELECT Country FROM Suppliers);
+SELECT * FROM Customers
+    WHERE Country IN (SELECT Country FROM Suppliers);
 </code></pre>
             </div>
 
@@ -411,11 +412,11 @@ SELECT * FROM Customers WHERE Country IN (SELECT Country FROM Suppliers);
                 <br>
 <pre><code class="language-sql">
 SELECT column_name(s) FROM table_name
-WHERE column_name BETWEEN value1 AND value2;
+    WHERE column_name BETWEEN value1 AND value2;
 
 -- Example with dates
 SELECT * FROM Orders
-WHERE OrderDate BETWEEN #07/04/1996# AND #07/09/1996#;
+    WHERE OrderDate BETWEEN #07/04/1996# AND #07/09/1996#;
 </code></pre>
             </div>
 
@@ -432,18 +433,18 @@ SELECT column_name(s) FROM table_name AS alias_name;
 
 -- Alias and Combining columns
 SELECT CustomerName, CONCAT(Address, ', ', PostalCode, ', ', City, ', ', Country)
-AS Address FROM Customers;
+    AS Address FROM Customers;
 
 -- Example of alias for tables
 SELECT o.OrderID, o.OrderDate, c.CustomerName
-FROM Customers AS c, Orders AS o
-WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;
+    FROM Customers AS c, Orders AS o
+    WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;
 
 -- Example without alias
 SELECT Orders.OrderID, Orders.OrderDate, Customers.CustomerName
-FROM Customers, Orders
-WHERE Customers.CustomerName="Around the Horn" AND
-Customers.CustomerID=Orders.CustomerID;
+    FROM Customers, Orders
+    WHERE Customers.CustomerName="Around the Horn" AND
+    Customers.CustomerID=Orders.CustomerID;
 </code></pre>
             </div>
 
@@ -452,13 +453,14 @@ Customers.CustomerID=Orders.CustomerID;
                 <p>Combine rows from two or more tables based on a related column. Selecting columns from tables. If there are multiple tables, have to join them. Always have one fewer joins then the number of tables.</p>
 <pre><code class="language-sql">
 -- Example
-SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders
-INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+    FROM Orders
+    INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
 
 -- Another Example
 SELECT Name, Phone, RaceID
-FROM Runners, Registration
-WHERE Runners.RunnerID = Registration.RunnerID;
+    FROM Runners, Registration
+    WHERE Runners.RunnerID = Registration.RunnerID;
 </code></pre>
                 <br>
                 <p><span class="definition_mysql">INNER JOIN</span>: returns records with matching values in both tables.</p>
@@ -470,23 +472,23 @@ WHERE Runners.RunnerID = Registration.RunnerID;
 <pre><code class="language-sql">
 -- Example Inner Join
 SELECT column_name(s) FROM table1
-INNER JOIN table2 ON table1.column_name = table2.column_name;
+    INNER JOIN table2 ON table1.column_name = table2.column_name;
 
 -- Example Left Outer Join
 SELECT column_name(s) FROM table1
-LEFT JOIN table2 ON table1.column_name = table2.column_name;
+    LEFT JOIN table2 ON table1.column_name = table2.column_name;
 
 -- Example Right Outer Join
 SELECT column_name(s) FROM table1
-RIGHT JOIN table2 ON table1.column_name = table2.column_name;
+    RIGHT JOIN table2 ON table1.column_name = table2.column_name;
 
 -- Example of Full Join
 SELECT column_name(s) FROM table1
-FULL OUTER JOIN table2 ON table1.column_name = table2.column_name;
+    FULL OUTER JOIN table2 ON table1.column_name = table2.column_name;
 
 -- Example of Self Join
 SELECT column_name(s) FROM table1 T1, table2 T2
-WHERE condition;
+    WHERE condition;
 </code></pre>
             </div>
 
@@ -513,7 +515,7 @@ SELECT column_name(s) FROM table2 WHERE condition;
                 <br>
 <pre><code class="language-sql">
 SELECT column_name(s) FROM table_name WHERE condition
-GROUP BY column_name(s) ORDER BY column_name(2)
+    GROUP BY column_name(s) ORDER BY column_name(2)
 </code></pre>
             </div>
 
@@ -522,8 +524,8 @@ GROUP BY column_name(s) ORDER BY column_name(2)
                 <p>For aggregate functions</p>
 <pre><code class="language-sql">
 SELECT column_name(s) FROM table_name WHERE condition
-GROUP BY column_name(s) HAVING condition
-ORDER BY column_name(s)
+    GROUP BY column_name(s) HAVING condition
+    ORDER BY column_name(s)
 </code></pre>
             </div>
 
@@ -532,7 +534,7 @@ ORDER BY column_name(s)
                 <p>To test for existence of any record in a subquery. Returns true if subquery returns one or more records.</p>
 <pre><code class="language-sql">
 SELECT column_name(s) FROM table_name
-WHERE EXISTS (SELECT column_name FROM table_name WHERE condition);
+    WHERE EXISTS (SELECT column_name FROM table_name WHERE condition);
 </code></pre>
             </div>
 
@@ -546,13 +548,13 @@ WHERE EXISTS (SELECT column_name FROM table_name WHERE condition);
 <pre><code class="language-sql">
 -- Example of Any
 SELECT column_name(s) FROM table_name
-WHERE column_name operator ANY
-(SELECT column_name FROM table_name WHERE condition);
+    WHERE column_name operator ANY
+    (SELECT column_name FROM table_name WHERE condition);
 
 -- Example of All
 SELECT column_name(s) FROM table_name
-WHERE column_name operator ALL
-(SELECT column_name FROM table_name WHERE condition);
+    WHERE column_name operator ALL
+    (SELECT column_name FROM table_name WHERE condition);
 </code></pre>
             </div>
 
@@ -562,15 +564,15 @@ WHERE column_name operator ALL
                 <br>
 <pre><code class="language-sql">
 SELECT column1, column2... INTO newtable [IN externaldb]
-FROM oldtable WHERE condition;
+    FROM oldtable WHERE condition;
 
 -- Can make a backup copy
 SELECT * INTO CustomersBackupTable
-FROM CustomersTable;
+    FROM CustomersTable;
 
 -- Use IN to copy table into a new table in another database
 SELECT * INTO CustomersBackupTable IN database2
-FROM CustomeresTable;
+    FROM CustomeresTable;
 
 -- Create a new empty table using a where clause in which
 -- the query returns no data
@@ -588,11 +590,12 @@ SELECT * INTO newtable FROM oldtable WHERE 1=0;
                 <br>
 <pre><code class="language-sql">
 -- Copy all columns to another table
-INSERT INTO table2 SELECT * FROM table1 WHERE condition;
+INSERT INTO table2 SELECT *
+    FROM table1 WHERE condition;
 
 -- Copy some columns to another table
 INSERT INTO table2(column1, column2...) SELECT column1, column2...
-FROM table1 WHERE condition;
+    FROM table1 WHERE condition;
 </code></pre>
             </div>
 
@@ -602,13 +605,13 @@ FROM table1 WHERE condition;
 <pre><code class="language-sql">
 -- Example - UnitsOnOrder is an optional field
 SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0))
-FROM Products;
+    FROM Products;
 </code></pre>
                 <br>
                 <p>Can also use <span class="definition_mysql">COALESCE()</span> function</p>
 <pre><code class="language-sql">
 SELECT ProductName, UnitPrice * (UnitsInStock + COALESCE(UnitsOnOrder, 0))
-FROM Products;
+    FROM Products;
 </code></pre>
             </div>
         </div>

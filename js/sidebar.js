@@ -93,7 +93,9 @@ function initializeSidebar() {
     $('#menu_icon').on('click', toggleMenu);
 
     // Submenu
-    $('#submenu img').on('click', toggleSubMenu);
+    $('#submenu img').on('click', function() {
+        toggleSubMenu(this);
+    });
 
     // Sidebar and links
     $('#sidebar a').on('click', saveLink);
@@ -115,6 +117,9 @@ function changeScreenType() {
         currentScreenType = screenType.MOBILE;
         hamburgerToggled = false;
         onChangeScreenType();
+        if (submenuToggled) {
+            toggleSubMenu("#submenu img");
+        }
     } else {
         currentScreenType = screenType.DESKTOP;
         // hamburgerToggled = false;
@@ -137,11 +142,26 @@ function onChangeScreenType() {
                 "margin-top": "50px"
             });
 
+            // $('#submenu_links').css({
+            //     "overflow": "scroll"
+            // });
+
             // Show or display menu depending on whether menu is toggled or not
             if (hamburgerToggled) {
                 $("#sidebar > ul").css("display", "block");
             } else {
                 $("#sidebar > ul").css("display", "none");
+            }
+
+            if (!hamburgerToggled) {
+                $('body').css("overflow", "auto");
+                $('#submenu_links').css("overflow", "auto");
+            } else if (hamburgerToggled && submenuToggled) {
+                $('body').css("overflow", "hidden");
+                $('#submenu_links').css("overflow", "scroll");
+                $("#sidebar").css({
+                    "height": "100%"
+                });
             }
             break;
 
@@ -164,6 +184,11 @@ function onChangeScreenType() {
                 });
                 $("#sidebar > ul").css("display", "block");
 
+                // $('#submenu_links').css({
+                //     "overflow": "auto"
+                // });
+                $('body').css("overflow", "auto");
+
                 $('#menu_icon img:nth-child(1)').css("z-index", "0");
                 $('#menu_icon img:nth-child(2)').css("z-index", "10");
             }
@@ -184,11 +209,19 @@ function onChangeScreenType() {
                 });
                 $("#sidebar > ul").css("display", "none");
 
+                // $('#submenu_links').css({
+                //     "overflow": "auto"
+                // });
+                $('body').css("overflow", "auto");
+
                 $('#menu_icon img:nth-child(1)').css("z-index", "10");
                 $('#menu_icon img:nth-child(2)').css("z-index", "0");
             }
-            break;
 
+            $('body').css("overflow", "auto");
+            $('#submenu_links').css("overflow", "auto");
+
+            break;
         default:
             break;
     }
@@ -224,13 +257,21 @@ function toggleOutMenuAnimation() {
     }
 }
 
-function toggleSubMenu() {
+function toggleSubMenu(clickedObject) {
     submenuToggled = !submenuToggled;
 
     if (submenuToggled) {
         // $('#submenu_links').children("ul").css("display", "block");
         // $("#submenu_links > ul").css("display", "block");
         $("#submenu_links > ul").toggle(true);
+
+        if (currentScreenType == screenType.MOBILE) {
+            $('body').css("overflow", "hidden");
+            $('#submenu_links').css("overflow", "scroll");
+            $("#sidebar").css({
+                "height": "100%"
+            });
+        }
 
         // Change icon to arrow drop up
         var path;
@@ -241,12 +282,26 @@ function toggleSubMenu() {
         } else if (currentPath == sidebarImagePath.PROJECT) {
             path = "../../images/ic_arrow_drop_up_white_36dp_1x.png";
         }
-        $(this).attr("src", path);
+        // $(this).attr("src", path);
+        $(clickedObject).attr("src", path);
     }
     else {
         // $('#submenu_links').children("ul").css("display", "none");
         // $("#submenu_links > ul").css("display", "none");
         $("#submenu_links > ul").toggle(false);
+
+        $('body').css("overflow", "auto");
+        $('#submenu_links').css("overflow", "auto");
+
+        if (currentScreenType == screenType.MOBILE) {
+            $("#sidebar").css({
+                "height": "auto"
+            });
+        } else {
+            $("#sidebar").css({
+                "height": "100%"
+            });
+        }
 
         // Change icon to arrow drop down
         var path;
@@ -257,7 +312,8 @@ function toggleSubMenu() {
         } else if (currentPath == sidebarImagePath.PROJECT) {
             path = "../../images/ic_arrow_drop_down_white_36dp_1x.png";
         }
-        $(this).attr("src", path);
+        // $(this).attr("src", path);
+        $(clickedObject).attr("src", path);
     }
 }
 

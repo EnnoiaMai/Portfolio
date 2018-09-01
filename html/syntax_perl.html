@@ -217,7 +217,7 @@ $colors[0]
 <pre><code class="language-perl">
 # Example
 sub foo {
-my ($a, $b, $c) = @_;
+    my ($a, $b, $c) = @_;
 }
 foo('cat', 'dog', 'frog');
 </code></pre>
@@ -264,16 +264,16 @@ END
 <pre><code class="language-perl">
 # The following will not work
 if ($x > 0)
-print "It is positive";
+    print "It is positive";
 # The following will work
 if ($x > 0) {
-print "It is positive";
+    print "It is positive";
 }
 # else if is not 2 words, and there is no 'e' in it
 elsif (condition) {
-# statements
+    # statements
 } else {
-# statements
+    # statements
 }
 </code></pre>
             </div>
@@ -286,12 +286,12 @@ elsif (condition) {
 <pre><code class="language-perl">
 # foreach loop - safer to use
 foreach $item (@inventory) {
-print $item;
+    print $item;
 }
 
 # until loop - same as while not
 until (condition) {
-# loop while false
+    # loop while false
 }
 </code></pre>
             </div>
@@ -303,9 +303,9 @@ until (condition) {
                 </ul>
 <pre><code class="language-perl">
 sub hello {
-# @_ is the array of parameters passed in
-my $name = shift @_;
-print "Hello $name";
+    # @_ is the array of parameters passed in
+    my $name = shift @_;
+    print "Hello $name";
 }
 hello("John");
 </code></pre>
@@ -348,14 +348,14 @@ push @colors, 'purple';
 
 # prints all elements in colors array
 foreach $color (@colors) {
-print $color;
+    print $color;
 }
 
 # same as exploding array elements into variables
 ($one, $two, $three, $four) = @colors;
 foreach (@colors) {
-# special variable $_ to specify the local variable
-print $_;
+    # special variable $_ to specify the local variable
+    print $_;
 }
 </code></pre>
 
@@ -410,27 +410,27 @@ $colors{black} = '000';     # bear word
                 <br>
 <pre><code class="language-perl">
 foreach $K (Keys %colors) {
-# print all key-value pairs in that hash
-print "$K = $colors{$K}\n";
+    # print all key-value pairs in that hash
+    print "$K = $colors{$K}\n";
 }
 
 # Alternatively, can pull out the key-value that each goes through,
 # and returns both
 while (($K, $V) = each(%colors)) {
-# prints everything in hash table
-print "$K = $V\n";
+    # prints everything in hash table
+    print "$K = $V\n";
 }
 
 # The same thing except using values
 foreach $V (values %colors) {
-# prints all the values and ignores the keys
-print "$V\n";
+    # prints all the values and ignores the keys
+    print "$V\n";
 }
 
 # To sort by keys, can insert Sort before Keys. By default,
 # hashes won't be printed in order.
 foreach $K (Sort Keys %colors) {
-print "$K = $colors{$K}\n";
+    print "$K = $colors{$K}\n";
 }
 
 # To get the keys and values as an array
@@ -462,8 +462,8 @@ $len = %colors;
 my $fname = 'John';     # lexically-scoped
 $lname = 'Smith';
 {
-my $fname = 'Henry';    # shadow variable
-$lname = 'Jones';       # global
+    my $fname = 'Henry';    # shadow variable
+    $lname = 'Jones';       # global
 }
 print "$fname $lname\n";    # prints 'John Jones'
 </code></pre>
@@ -509,7 +509,7 @@ my ($X, %Y, $Z);
 # fh is the file handle
 open($fh, "&lt;data.txt");
 if (!fh) {
-die "Could not open file";
+    die "Could not open file";
 }
 # like getcontents in PHP, each line is an array element here
 </code></pre>
@@ -611,8 +611,8 @@ my @keys = $qu-&gt;param;
 
 # Printing all the parameters out
 foreach $key (@keys) {
-# can dig out the values associated with the keys
-print "$key = $qu-&gt;param($key)";
+    # can dig out the values associated with the keys
+    print "$key = $qu-&gt;param($key)";
 }
 
 # Works with both GET or POST. Can disallow one and not the other.
@@ -708,8 +708,8 @@ my $sth = $dbh-&gt;prepare("SELECT * FROM products WHERE sku='$sku';");
 $sth-&gt;execute();
 
 while (@row=$sth-&gt;fetchrow_array()) {
-# The first column for that record
-$row[0]
+    # The first column for that record
+    $row[0]
 }
 # Free up that resource by closing the statement handle
 $sth-&gt;finish();

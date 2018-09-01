@@ -7,7 +7,7 @@ Date Created: December 2017
 * {
     padding: 0px;
     margin: 0px;
-    font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif;
+    /* font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif; */
     box-sizing: border-box;
     /* font-family: 'Source Sans Pro', sans-serif; */
     /* font-family: 'Open Sans', sans-serif; */
@@ -62,25 +62,37 @@ body {
     color: #000;
     display: inline-block;
     font-size: 110%;
-    text-decoration: none;
     padding-top: 6px;
     padding-bottom: 6px;
     padding-left: 18px;
+    text-decoration-color: rgba(255, 255, 255, 1.0);
+    text-decoration-line: underline;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 #projects_list table td > a {
     color: #000;
     /* font-size: 110%; */
-    text-decoration: none;
+    text-decoration-color: rgba(255, 255, 255, 1.0);
+    text-decoration-line: underline;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 
 /*---------------------- Hovering over links both lists ----------------------*/
 #languages_list > div > ul a:hover, #projects_list table td > a:hover {
-    color: #6A0000;
-    text-decoration-color: #6A0000;
-    text-decoration-line: underline;
+    color: rgba(231, 123, 27, 1.0);
+    text-decoration-color: rgba(231, 123, 27, 1.0);
+    /* color: #6A0000; */
+    /* text-decoration-color: #6A0000; */
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 #languages_list > div > ul a:visited, #projects_list table td > a:visited {
-    color: #000;
+    /* color: #000; */
 }
 #languages_list > div:first-child, #projects_list > div:first-child {
     /* padding-right: 12px; */

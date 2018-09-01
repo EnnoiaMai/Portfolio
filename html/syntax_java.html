@@ -481,13 +481,13 @@ randGen.nextInt(6) + 1;
 <pre><code class="language-java">
 // if-else branches and multiple branches
 if (expression) {
-// statements
+    // statements
 }
 else if (expression) {
-// statements
+    // statements
 }
 else {
-// statements
+    // statements
 }
 </code></pre>
             <br>
@@ -562,15 +562,15 @@ else {
             <br>
 <pre><code class="language-java">
 switch (expression) {
-case constantExpr1:
-// statements
-break;
-case constantExpr2:
-// statements
-break;
-default:
-// statements
-break;
+    case constantExpr1:
+        // statements
+        break;
+    case constantExpr2:
+        // statements
+        break;
+    default:
+        // statements
+        break;
 }
 </code></pre>
             <br>
@@ -755,17 +755,17 @@ condition ? exprWhenTrue : exprWhenFalse;
 <pre><code class="language-java">
 // While Loop
 while (expression) {
-// Loop body
+    // Loop body
 }
 
 // For Loop
 for (initialExpression; conditionExpression; updateExpression) {
-// Loop body
+    // Loop body
 }
 
 // Enhanced for loop
 for each (Type item : collection) {
-// Loop body
+    // Loop body
 }
 </code></pre>
             <br>
@@ -777,13 +777,13 @@ for each (Type item : collection) {
 // Example
 first:
 for (int i = 0; i < 10; i++) {
-second:
-for (int j = i; j < 10; j++) {
-System.out.println(j);
-if (i == 5) {
-break first;
-}
-}
+    second:
+    for (int j = i; j < 10; j++) {
+        System.out.println(j);
+        if (i == 5) {
+            break first;
+        }
+    }
 }
 </code></pre>
             <br>
@@ -792,14 +792,14 @@ break first;
             <p><span class="definition">Enumeration type</span>: defines name for a new type and possible values for that type, so that they can be used like built-in types. <span class="definition">Constants</span> are items inside braces. Must include enumeration type and enumerator within that type.</p>
 <pre><code class="language-java">
 public enum identifier {
-enumerator1,
-enumerator2,
-...
+    enumerator1,
+    enumerator2,
+    ...
 }
 
 // Example
 public enum LightState {
-RED, GREEN, YELLOW, DONE
+    RED, GREEN, YELLOW, DONE
 }
 LightState lightVal = LightState.RED;
 </code></pre>
@@ -828,13 +828,13 @@ variableName.memberMethod();
 
 // Class Example
 public class ClassName {
-// Private fields
-private type fieldName;
+    // Private fields
+    private type fieldName;
 
-// Public member methods
-public type memberMethod(parameters) {
+    // Public member methods
+    public type memberMethod(parameters) {
 
-}
+    }
 }
 </code></pre>
             <br>
@@ -859,20 +859,20 @@ public type memberMethod(parameters) {
 <pre><code class="language-java">
 // Example
 public class RunnerInfo {
-private int timeRun;
-private double distanceRun;
+    private int timeRun;
+    private double distanceRun;
 
-// Default Constructor
-public RunnerInfo() {
-timeRun = 0;
-distanceRun = 0.0;
-}
+    // Default Constructor
+    public RunnerInfo() {
+        timeRun = 0;
+        distanceRun = 0.0;
+    }
 
-// A second constructor
-public RunnerInfo(int timeRunSecs, double distRunMiles) {
-timeRun = timeRunSecs;
-distanceRun = distRunMiles;
-}
+    // A second constructor
+    public RunnerInfo(int timeRunSecs, double distRunMiles) {
+        timeRun = timeRunSecs;
+        distanceRun = distRunMiles;
+    }
 }
 </code></pre>
             <br>
@@ -1060,7 +1060,7 @@ type[] identifier = {val0, val1, ..., valN - 1};
 
 // Iterating through arrays
 for (i = 0; i < numElements; ++i) {
-// Loop body acccessing myArray[i];
+    // Loop body acccessing myArray[i];
 }
 </code></pre>
             <br>
@@ -1070,9 +1070,9 @@ for (i = 0; i < numElements; ++i) {
 <pre><code class="language-java">
 // Reverse array's elements
 for (i = 0; i < (NUM_ELEMENTS / 2); ++i) {
-tempVal = userVals[i];
-userVals[i] = userVals[NUM_ELEMENTS - 1 - i];
-userVals[NUM_ELEMENTS - 1 - i] = tempVal;
+    tempVal = userVals[i];
+    userVals[i] = userVals[NUM_ELEMENTS - 1 - i];
+    userVals[NUM_ELEMENTS - 1 - i] = tempVal;
 }
 </code></pre>
             <br>
@@ -1086,9 +1086,9 @@ int[][] numVals = { {22, 44, 66}, {97, 98, 99} };
 
 // Use multiple lines to make rows more visible
 int[][] numVals = {
-{22, 44, 66},
-{97, 98, 99}
-}
+    {22, 44, 66},
+    {97, 98, 99}
+    }
 </code></pre>
             <br>
 
@@ -1180,9 +1180,9 @@ ArrayList&lt;T&gt; arrayList = new ArrayList&lt;T&gt;();
 import java.io.IOException;
 
 public class InputStreamReader {
-public static void main (String[] args) throws IOException {
-int userInput = 0;
-}
+    public static void main (String[] args) throws IOException {
+        int userInput = 0;
+    }
 }
 
 // Instantiating a Scanner object
@@ -1393,25 +1393,25 @@ printf("%.1f", myFloat);
 import java.util.Scanner;
 
 public class StringInputStream {
-public static void main(String[] args) {
-Scanner inSS = null;
-String userInfo = "Amy Smith 19";
-String firstName = "";
-String lastName = "";
-int userAge = 0;
+    public static void main(String[] args) {
+        Scanner inSS = null;
+        String userInfo = "Amy Smith 19";
+        String firstName = "";
+        String lastName = "";
+        int userAge = 0;
 
-// Initialize scanner object with string
-firstName = inSS.next();
-lastName = inSS.next();
-userAge = inSS.nextInt();
+        // Initialize scanner object with string
+        firstName = inSS.next();
+        lastName = inSS.next();
+        userAge = inSS.nextInt();
 
-// Output parsed values
-System.out.println("First name: " + firstName);
-System.out.println("Last name: " + lastName);
-System.out.println("Age: " + userAge);
+        // Output parsed values
+        System.out.println("First name: " + firstName);
+        System.out.println("Last name: " + lastName);
+        System.out.println("Age: " + userAge);
 
-return;
-}
+        return;
+    }
 }
 </code></pre>
             <br>
@@ -1432,30 +1432,30 @@ System.out.println("(\"Exit\" as firstname exits).\n");
 
 // Grab data as long as "Exit" is not entered
 while (!inputDone) {
-// Entire line into lineString
-lineString = scnr.nextLine();
+    // Entire line into lineString
+    lineString = scnr.nextLine();
 
-// Create new input string stream
-inSS = new Scanner(lineString);
+    // Create new input string stream
+    inSS = new Scanner(lineString);
 
-// Now process the line
-firstName = inSS.next();
+    // Now process the line
+    firstName = inSS.next();
 
-// Output parsed values
-if (firstName.equals("Exit")) {
-System.out.println("    Exiting.");
+    // Output parsed values
+    if (firstName.equals("Exit")) {
+        System.out.println("    Exiting.");
 
-inputDone = true;
-}
-else {
-lastName = inSS.next();
-userAge = inSS.nextInt();
+        inputDone = true;
+    }
+    else {
+        lastName = inSS.next();
+        userAge = inSS.nextInt();
 
-System.out.println("    First name: " + firstName);
-System.out.println("    Last name: " + lastName);
-System.out.println("    Age: " + userAge);
-System.out.println();
-}
+        System.out.println("    First name: " + firstName);
+        System.out.println("    Last name: " + lastName);
+        System.out.println("    Age: " + userAge);
+        System.out.println();
+    }
 }
 </code></pre>
             <br>
@@ -1469,34 +1469,34 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class FileReadNums {
-public static void main(String[] args) throws IOException {
-FileInputStream fileByteStream = null;
-Scanner inFS = null;
-int fileNum1 = 0;
-int fileNum2 = 0;
+    public static void main(String[] args) throws IOException {
+        FileInputStream fileByteStream = null;
+        Scanner inFS = null;
+        int fileNum1 = 0;
+        int fileNum2 = 0;
 
-// Try to open file
-System.out.println("Opening file myfile.txt");
-fileByteStream = new FileInputStream("myfile.txt");
-inFS = new Scanner(fileByteStream);
+        // Try to open file
+        System.out.println("Opening file myfile.txt");
+        fileByteStream = new FileInputStream("myfile.txt");
+        inFS = new Scanner(fileByteStream);
 
-// File is open and valid so far, myfile.txt should contain two integers,
-// else problems
-System.out.println("Reading two ingegers.");
-fileNum1 = inFS.nextInt();
-fileNum2 = inFS.nextInt();
+        // File is open and valid so far, myfile.txt should contain two integers,
+        // else problems
+        System.out.println("Reading two ingegers.");
+        fileNum1 = inFS.nextInt();
+        fileNum2 = inFS.nextInt();
 
-// Output values read from file
-System.out.println("num1: " + fileNum1);
-System.out.println("num2: " + fileNum2);
-System.out.println("num1+num2: " + (fileNum1 + fileNum2));
+        // Output values read from file
+        System.out.println("num1: " + fileNum1);
+        System.out.println("num2: " + fileNum2);
+        System.out.println("num1+num2: " + (fileNum1 + fileNum2));
 
-// Try to close file, can throw IOException if fails
-System.out.println("Closing file myfile.txt");
-fileByteStream.close()
+        // Try to close file, can throw IOException if fails
+        System.out.println("Closing file myfile.txt");
+        fileByteStream.close()
 
-return;
-}
+        return;
+    }
 }
 </code></pre>
             <br>
@@ -1512,9 +1512,9 @@ System.out.println("Reading and printing numbers.");
 fileNum = inFS.nextInt();
 
 while (inFS.hasNextInt()) {
-System.out.println("num: " + fileNum);
+    System.out.println("num: " + fileNum);
 
-fileNum = inFS.nextInt();
+    fileNum = inFS.nextInt();
 }
 System.out.println("num: " + fileNum);
 
@@ -1533,24 +1533,24 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class FileWriteSample {
-public static void main(String[] args) throws IOException {
-FileOutputStream fileByteStream = null;
-PrintWriter outFS = null;
+    public static void main(String[] args) throws IOException {
+        FileOutputStream fileByteStream = null;
+        PrintWriter outFS = null;
 
-// Try to open file
-fileByteStream = new FileOutputStream("myoutfile.txt");
-outFS = new PrintWriter(fileByteStream);
+        // Try to open file
+        fileByteStream = new FileOutputStream("myoutfile.txt");
+        outFS = new PrintWriter(fileByteStream);
 
-// Can now write to file
-outFS.println("Hello");
-outFS.println("1 2 3");
-outFS.flush();
+        // Can now write to file
+        outFS.println("Hello");
+        outFS.println("1 2 3");
+        outFS.flush();
 
-// Try to close file, may throw IOException if fails
-fileByteStream.close();
+        // Try to close file, may throw IOException if fails
+        fileByteStream.close();
 
-return;
-}
+        return;
+    }
 }
 </code></pre>
           </div>
@@ -1578,22 +1578,22 @@ return;
 import java.util.ArrayList;
 
 public class PolymorphismExample {
-public static void main(String[] args) {
-ArrayList&lt;Shape&gt; shapesList = new ArrayList&lt;Shape&gt;();
+    public static void main(String[] args) {
+        ArrayList&lt;Shape&gt; shapesList = new ArrayList&lt;Shape&gt;();
 
-Circle circle = new Circle(new Point(0.0, 0.0), 1.0);
-shapesList.add(circle);
+        Circle circle = new Circle(new Point(0.0, 0.0), 1.0);
+        shapesList.add(circle);
 
-Rectangle rectangle = new Rectangle(new Point(0.0, 0.0), new Point(2.0, 2.0));
-shapesList.add(rectangle);
+        Rectangle rectangle = new Rectangle(new Point(0.0, 0.0), new Point(2.0, 2.0));
+        shapesList.add(rectangle);
 
-for (Shape shape : shapesList) {
-System.out.println("Shape is: " + shape.getClass() + " and area is: " +
-  shape.computeArea());
-}
+        for (Shape shape : shapesList) {
+            System.out.println("Shape is: " + shape.getClass() + " and area is: " +
+              shape.computeArea());
+        }
 
-return;
-}
+        return;
+    }
 }
 </code></pre>
             <br>
@@ -1622,11 +1622,11 @@ return;
 import java.awt.Graphics2D;
 
 public interface Drawable {
-public void draw(Graphics2D graphicsObject);
+    public void draw(Graphics2D graphicsObject);
 }
 
 public interface DrawableASCII {
-public void drawASCII(char drawChar);
+    public void drawASCII(char drawChar);
 }
 </code></pre>
           </div>
@@ -1702,12 +1702,12 @@ public void drawASCII(char drawChar);
 <pre><code class="language-java">
 // Example of method calling overridden method of base class (i.e. superclass)
 public class ProduceItem extends GenericItem {
-@Override
-public void printItem() {
-super printItem();
-System.out.println(" (Expires: " + expirationDate + ")");
-return;
-}
+    @Override
+    public void printItem() {
+        super printItem();
+        System.out.println(" (Expires: " + expirationDate + ")");
+        return;
+    }
 }
 </code></pre>
             <br>
@@ -1734,21 +1734,21 @@ return;
 <pre><code class="language-java">
 public class ItemInventory {
 
-public static void main(String[] args) {
-GenericItem genericItem1;
-ProduceItem produceItem1;
-ArrayList&lt;GenericItem&gt; inventoryList = new ArrayList&lt;GenericItem&gt;();
-int i = 0;
+    public static void main(String[] args) {
+        GenericItem genericItem1;
+        ProduceItem produceItem1;
+        ArrayList&lt;GenericItem&gt; inventoryList = new ArrayList&lt;GenericItem&gt;();
+        int i = 0;
 
-// Polymorphism - the correct printItem() will be called
-inventoryList.add(genericItem1);
-inventoryList.add(produceItem1);
-System.out.println("\nInventory: ");
-for (i = 0; i < inventoryList.size(); ++i) {
-inventoryList.get(i).printItem();
-}
-return;
-}
+        // Polymorphism - the correct printItem() will be called
+        inventoryList.add(genericItem1);
+        inventoryList.add(produceItem1);
+        System.out.println("\nInventory: ");
+        for (i = 0; i < inventoryList.size(); ++i) {
+            inventoryList.get(i).printItem();
+        }
+        return;
+    }
 }
 </code></pre>
             <br>
@@ -1762,30 +1762,30 @@ return;
             <br>
 <pre><code class="language-java">
 public class ArrayPrinter {
-// Method prints an ArrayList of Objects
-public static void PrintArrayList(ArrayList&lt;Object&gt; objList) {
-int i = 0;
+    // Method prints an ArrayList of Objects
+    public static void PrintArrayList(ArrayList&lt;Object&gt; objList) {
+        int i = 0;
 
-for (i = 0; i < objList.size(); ++i) {
-System.out.println(objList.get(i));
-}
-return;
-}
+        for (i = 0; i < objList.size(); ++i) {
+            System.out.println(objList.get(i));
+        }
+        return;
+    }
 
-public static void main(String[] args) {
-ArrayList&lt;Object&gt; objList = new ArrayList&lt;Object&gt;();
+    public static void main(String[] args) {
+        ArrayList&lt;Object&gt; objList = new ArrayList&lt;Object&gt;();
 
-// Add new instances of various classes to objList
-objList.add(new Integer(12));
-objList.add(new IntegerWithBase(10, 2));
-objList.add(new Double(3.14));
-objList.add(new String("Hello!"));
-objList.add(new Object());
+        // Add new instances of various classes to objList
+        objList.add(new Integer(12));
+        objList.add(new IntegerWithBase(10, 2));
+        objList.add(new Double(3.14));
+        objList.add(new String("Hello!"));
+        objList.add(new Object());
 
-// Call method to print list of objects
-PrintArrayList(objList);
-return;
-}
+        // Call method to print list of objects
+        PrintArrayList(objList);
+        return;
+    }
 }
 </code></pre>
             <br>
@@ -1821,11 +1821,11 @@ return;
             <br>
 <pre><code class="language-java">
 try {
-// If error detected
-throw objectOfExceptionType;
+    // If error detected
+    throw objectOfExceptionType;
 }
 catch (exceptionType excptObj) {
-// Handle exception
+    // Handle exception
 }
 </code></pre>
             <br>
@@ -1837,35 +1837,35 @@ catch (exceptionType excptObj) {
 <pre><code class="language-java">
 // Example
 public static int getWeight() throws Exception {
-Scanner scnr = new Scanner(System.in);
-int weightParam = 0;
+    Scanner scnr = new Scanner(System.in);
+    int weightParam = 0;
 
-// Get user data
-System.out.print("Enter weight (in pounds): ");
-weightParam = scnr.nextInt();
+    // Get user data
+    System.out.print("Enter weight (in pounds): ");
+    weightParam = scnr.nextInt();
 
-// Error checking, non-negative weight
-if (weightParam < 0) {
-throw new Exception("Invalid weight.");
-}
-return weightParam;
+    // Error checking, non-negative weight
+    if (weightParam < 0) {
+        throw new Exception("Invalid weight.");
+    }
+    return weightParam;
 }
 
 while (quitCmd != 'q') {
-try {
-// Get user data
-weightVal = getWeight();
-heightVal = getHeight();
+    try {
+        // Get user data
+        weightVal = getWeight();
+        heightVal = getHeight();
 
-// Calculate BMI and print user health info if no input error
-bmiCalc = ((float) weightVal / (float) (heightVal * heightVal)) * 703.0f;
-System.out.println("BMI: " + bmiCalc);
-System.out.println("(CDC: 18.6-24.9 normal)");
-} catch (Exception excpt) {
-// Prints the error message passed by throw statement
-System.out.println(excpt.getMessage());
-System.out.println("Cannot compute health info");
-}
+        // Calculate BMI and print user health info if no input error
+        bmiCalc = ((float) weightVal / (float) (heightVal * heightVal)) * 703.0f;
+        System.out.println("BMI: " + bmiCalc);
+        System.out.println("(CDC: 18.6-24.9 normal)");
+    } catch (Exception excpt) {
+        // Prints the error message passed by throw statement
+        System.out.println(excpt.getMessage());
+        System.out.println("Cannot compute health info");
+    }
 }
 </code></pre>
             <br>
@@ -1919,21 +1919,21 @@ System.out.println("Cannot compute health info");
             <br>
 <pre><code class="language-java">
 try {
-throw objOfExcptType1;
-...
-throw objOfExcptType1;
-...
-throw objOfExcptType1;
-...
+    throw objOfExcptType1;
+    ...
+    throw objOfExcptType1;
+    ...
+    throw objOfExcptType1;
+    ...
 }
 catch (excptType1 excptObj) {
-// Handle type1
+    // Handle type1
 }
 catch (excptType2 excptObj) {
-// Handle type2
+    // Handle type2
 }
 catch (Throwable throwObj) {
-// Handle others
+    // Handle others
 }
 </code></pre>
             <br>
@@ -1948,25 +1948,25 @@ catch (Throwable throwObj) {
             <br>
 <pre><code class="language-java">
 try {
-// Prompt user for input, FileReader constructor may throw FileNotFoundException
-System.out.println("Opening file " + fileName + ".");
-fileCharStream = new FileReader(fileName);
+    // Prompt user for input, FileReader constructor may throw FileNotFoundException
+    System.out.println("Opening file " + fileName + ".");
+    fileCharStream = new FileReader(fileName);
 
-// Use file input stream which may throw IOException if read() fails
-// -1 means end of file has been reached
-System.out.print("Reading character values: ");
-while (charRead != -1) {
-charRead = fileCharStream.read();
-System.out.print(charRead + " ");
-}
+    // Use file input stream which may throw IOException if read() fails
+    // -1 means end of file has been reached
+    System.out.print("Reading character values: ");
+    while (charRead != -1) {
+        charRead = fileCharStream.read();
+        System.out.print(charRead + " ");
+    }
 
-// Done with file, so try to close it which may throw IOException if fails
-if (fileCharStream != null) {
-System.out.println("\nClosing file " + fileName + ".");
-fileCharStream.close()
-}
+    // Done with file, so try to close it which may throw IOException if fails
+    if (fileCharStream != null) {
+        System.out.println("\nClosing file " + fileName + ".");
+        fileCharStream.close()
+    }
 } catch (IOException excpt) {
-System.out.println("Caught IOException: " + excpt.getMessage());
+    System.out.println("Caught IOException: " + excpt.getMessage());
 }
 </code></pre>
           </div>
@@ -1988,25 +1988,25 @@ System.out.println("Caught IOException: " + excpt.getMessage());
 import javax.swing.JFrame;
 
 public class EmptryFrame {
-public static void main(String[] args) {
+    public static void main(String[] args) {
 
-// Construct the JFrame object
-JFrame appFrame = new JFrame();
+        // Construct the JFrame object
+        JFrame appFrame = new JFrame();
 
-// Set the frame's width (400) and height (250) in pixels
-appFrame.setSize(400, 250);
+        // Set the frame's width (400) and height (250) in pixels
+        appFrame.setSize(400, 250);
 
-// Set the frame's title
-appFrame.setTitle("An Empty Frame");
+        // Set the frame's title
+        appFrame.setTitle("An Empty Frame");
 
-// Set the program to exit when the user closes the frame
-appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Set the program to exit when the user closes the frame
+        appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-// Make the frame visible to the user
-appFrame.setVisible(true);
+        // Make the frame visible to the user
+        appFrame.setVisible(true);
 
-return;
-}
+        return;
+    }
 }
 </code></pre>
             <br>
@@ -2023,40 +2023,40 @@ import java.awt.Graphics;
 import javax.swing.JComponent;
 
 public class MyCustomJComponent extends JComponent {
-public void paintComponent(Graphics g) {
-// Cast to Graphics2D
-Graphics2D graphicsObj = (Graphics2D)g;
+    public void paintComponent(Graphics g) {
+        // Cast to Graphics2D
+        Graphics2D graphicsObj = (Graphics2D)g;
 
-// Drawing instructions
-// Draw 1st bin as olive-colored rectangle at (10, 10) with
-// width = 200 and height = 50
-Rectangle binRectangle1 = new Rectangle(10, 10, 200, 50);
-Color binColor1 = new Color(128, 128, 0);
-graphicsObj.setColor(binColor1);
-graphicsObj.fill(binRectangle1);
-}
+        // Drawing instructions
+        // Draw 1st bin as olive-colored rectangle at (10, 10) with
+        // width = 200 and height = 50
+        Rectangle binRectangle1 = new Rectangle(10, 10, 200, 50);
+        Color binColor1 = new Color(128, 128, 0);
+        graphicsObj.setColor(binColor1);
+        graphicsObj.fill(binRectangle1);
+    }
 }
 
 // Another example
 import java.swing.JFrame;
 
 public class HistogramViewer {
-public static void main(String[] args) {
-JFrame appFrame = new JFrame();
-HistogramComponent histogramComponent = new HistogramComponent();
+    public static void main(String[] args) {
+        JFrame appFrame = new JFrame();
+        HistogramComponent histogramComponent = new HistogramComponent();
 
-appFrame.setSize(400, 250);
-appFrame.setTitle("Histogram Viewer");
-appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        appFrame.setSize(400, 250);
+        appFrame.setTitle("Histogram Viewer");
+        appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-// Add the HistogramComponent object to the frame
-appFrame.add(histogramComponent);
+        // Add the HistogramComponent object to the frame
+        appFrame.add(histogramComponent);
 
-// Set the frame and its contents visible
-appFrame.setVisible(true);
+        // Set the frame and its contents visible
+        appFrame.setVisible(true);
 
-return;
-}
+        return;
+    }
 }
 </code></pre>
             <br>
@@ -2137,77 +2137,77 @@ import javax.swing.JTextField;
 
 public class SalaryLabelGUI {
 
-public static void main(String[] args) {
-int hourlyWage = 0;
-JFrame topFrame = null;
-JLabel wageLAbel = null;
-JLabel salLabel = null;
-JTextField salField = null;
-JTextField wageField = null;
-GridBagConstraints layoutConst = null;
+    public static void main(String[] args) {
+        int hourlyWage = 0;
+        JFrame topFrame = null;
+        JLabel wageLAbel = null;
+        JLabel salLabel = null;
+        JTextField salField = null;
+        JTextField wageField = null;
+        GridBagConstraints layoutConst = null;
 
-hourlyWage = 20;
+        hourlyWage = 20;
 
-// Set hourly and yearly salary
-wageLabel = new JLabel("Hourly wage:");
-salLabel = new JLabel("Yearly salary:");
+        // Set hourly and yearly salary
+        wageLabel = new JLabel("Hourly wage:");
+        salLabel = new JLabel("Yearly salary:");
 
-wageField = new JTextField(15);
-wageField.setEditable(false);
-wageField.setText(Integer.toString(hourlyWage));
+        wageField = new JTextField(15);
+        wageField.setEditable(false);
+        wageField.setText(Integer.toString(hourlyWage));
 
-salField = new JTextField(15);
-salField.setEditable(false);
-salField.setText(Integer.toString((hourlyWage * 40 * 50)));
+        salField = new JTextField(15);
+        salField.setEditable(false);
+        salField.setText(Integer.toString((hourlyWage * 40 * 50)));
 
-// Create frame and add components using GridBagLayout
-topFrame = new JFrame("Salary");
+        // Create frame and add components using GridBagLayout
+        topFrame = new JFrame("Salary");
 
-// Use a GridBagLayout
-topFrame.setLayout(new GridBagLayout());
+        // Use a GridBagLayout
+        topFrame.setLayout(new GridBagLayout());
 
-// Create GridBagConstraints
-layoutConst = new GridBagConstraints();
+        // Create GridBagConstraints
+        layoutConst = new GridBagConstraints();
 
-// Specify component's grid location
-layoutConst.gridx = 0;
-layoutConst.gridy = 0;
+        // Specify component's grid location
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 0;
 
-// 10 pixels of padding around component
-layoutConst.insets = new Insets(10, 10, 10, 10);
+        // 10 pixels of padding around component
+        layoutConst.insets = new Insets(10, 10, 10, 10);
 
-// Add component using the specified constraints
-topFrame.add(wageLabel, layoutConst);
+        // Add component using the specified constraints
+        topFrame.add(wageLabel, layoutConst);
 
-layoutConst = new GridBagConstraints();
-layoutConst.gridx = 1;
-layoutConst.gridy = 0;
-layoutConst.insets = new Insets(10, 10, 10, 10);
-topFrame.add(wageField, layoutConst);
+        layoutConst = new GridBagConstraints();
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 0;
+        layoutConst.insets = new Insets(10, 10, 10, 10);
+        topFrame.add(wageField, layoutConst);
 
-layoutConst = new GridBagConstraints();
-layoutConst.gridx = 0;
-layoutConst.gridy = 1;
-layoutConst.insets = new Insets(10, 10, 10, 10);
-topFrame.add(salLabel, layoutConst);
+        layoutConst = new GridBagConstraints();
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 1;
+        layoutConst.insets = new Insets(10, 10, 10, 10);
+        topFrame.add(salLabel, layoutConst);
 
-layoutConst = new GridBagConstraints();
-layoutConst.gridx = 1;
-layoutConst.gridy = 1;
-layoutConst.insets = new Insets(10, 10, 10, 10);
-topFrame.add(salField, layoutConst);
+        layoutConst = new GridBagConstraints();
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 1;
+        layoutConst.insets = new Insets(10, 10, 10, 10);
+        topFrame.add(salField, layoutConst);
 
-// Terminate program when window closes
-topFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Terminate program when window closes
+        topFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-// Resize window to fit components
-topFrame.pack();
+        // Resize window to fit components
+        topFrame.pack();
 
-// Display window
-topFrame.setVisible(true);
+        // Display window
+        topFrame.setVisible(true);
 
-return;
-}
+        return;
+    }
 }
 </code></pre>
             <br>
@@ -2246,35 +2246,35 @@ return;
             <br>
 <pre><code class="language-java">
 public class SalaryLabelFrame extends JFrame {
-private JLabel wageLabel;
-private JLabel salLabel;
-private JTextField salField;
-private JTextField wageField;
+    private JLabel wageLabel;
+    private JLabel salLabel;
+    private JTextField salField;
+    private JTextField wageField;
 
-// Constructor initializes the SalaryLabelFrame, creates GUI components, and
-// adds them using a GridBagLayout
-SalaryLabelFrame() {
-int hourlyWage = 20;
-GridBagConstraints layoutConst;
+    // Constructor initializes the SalaryLabelFrame, creates GUI components, and
+    // adds them using a GridBagLayout
+    SalaryLabelFrame() {
+        int hourlyWage = 20;
+        GridBagConstraints layoutConst;
 
-// Set frame's title
-setTitle("Salary");
+        // Set frame's title
+        setTitle("Salary");
 
-// Set hourly and yearly salary
-wageLabel = new JLabel("Hourly wage:");
-salLabel = new JLabel("Yearly salary:");
+        // Set hourly and yearly salary
+        wageLabel = new JLabel("Hourly wage:");
+        salLabel = new JLabel("Yearly salary:");
 
-wageField = new JTextField(15);
-wageField.setEditable(false);
-wageField.setText(Integer.toString(hourlyWage));
+        wageField = new JTextField(15);
+        wageField.setEditable(false);
+        wageField.setText(Integer.toString(hourlyWage));
 
-salField = new JTextField(15);
-salField.setEditable(false);
-salField.setText(Integer.toString((hourlyWage * 40 * 50)));
+        salField = new JTextField(15);
+        salField.setEditable(false);
+        salField.setText(Integer.toString((hourlyWage * 40 * 50)));
 
-// Use a GridBagLayout
-setLayout(new GridBagLayout());
-}
+        // Use a GridBagLayout
+        setLayout(new GridBagLayout());
+    }
 }
 </code></pre>
             <br>
@@ -2292,19 +2292,19 @@ setLayout(new GridBagLayout());
 (e.g. Enter key is pressed) */
 @Override
 public void actionPerformed(ActionEvent event) {
-String userInput = "";
-int hourlyWage = 0;
+    String userInput = "";
+    int hourlyWage = 0;
 
-// Get user's wage input
-userInput = wageField.getText();
+    // Get user's wage input
+    userInput = wageField.getText();
 
-// Convert from String to an integer
-hourlyWage = Integer.parseInt(userInput);
+    // Convert from String to an integer
+    hourlyWage = Integer.parseInt(userInput);
 
-// Display calculated salary
-setfield.setText(Integer.toString(hourlyWage * 40 * 50));
+    // Display calculated salary
+    setfield.setText(Integer.toString(hourlyWage * 40 * 50));
 
-return;
+    return;
 }
 </code></pre>
             <br>
@@ -2362,26 +2362,26 @@ return;
 <pre><code class="language-java">
 @Override
 public void actionPerformed(ActionEvent event) {
-double totMiles = 0;
-double hrsFly = 0;
-double hrsDrive = 0;
+    double totMiles = 0;
+    double hrsFly = 0;
+    double hrsDrive = 0;
 
-// Get value from distance field
-totMiles = ((Number) distField.getValue()).doubleValue();
+    // Get value from distance field
+    totMiles = ((Number) distField.getValue()).doubleValue();
 
-// Check if miles input is positive
-if (totMiles >= 0.0) {
-hrsFly = totMiles / 500.0;
-hrsDrive = totMiles / 60.0;
+    // Check if miles input is positive
+    if (totMiles >= 0.0) {
+        hrsFly = totMiles / 500.0;
+        hrsDrive = totMiles / 60.0;
 
-hrsFlyField.setText(Double.toString(hrsFly));
-hrsDriveField.setText(Double.toString(hrsDrive));
-}
-else {
-// Show failure dialog
-JOptionPane.showMessageDialog(this, "Enter a positive distance value!");
-}
-return;
+        hrsFlyField.setText(Double.toString(hrsFly));
+        hrsDriveField.setText(Double.toString(hrsDrive));
+    }
+    else {
+        // Show failure dialog
+        JOptionPane.showMessageDialog(this, "Enter a positive distance value!");
+    }
+    return;
 }
 </code> </pre>
             <br>
@@ -2407,9 +2407,9 @@ yearsSpinner.addChangeListener(this);
 // the stateChanged() method
 @Override
 public void stateChanged(ChangeEvent event) {
-Integer dogAgeYears = 0;
+    Integer dogAgeYears = 0;
 
-dogAgeYears = (Integer) yearsSpinner.getValue();
+    dogAgeYears = (Integer) yearsSpinner.getValue();
 }
 </code></pre>
             <br>
@@ -2435,27 +2435,27 @@ outputArea.setEditable(false);
 
 @Override
 public void actionPerformed(ActionEvent event) {
-int i = 0;
-double savingsDollars = 0.0;
-double interestRate = 0.0;
-int numYears = 0;
+    int i = 0;
+    double savingsDollars = 0.0;
+    double interestRate = 0.0;
+    int numYears = 0;
 
-// Get values from fields
-savingsDollars = ((Number) initSavingsField.getValue()).intValue();
-interestRate = ((Number) interestRateField.getValue()).doubleValue();
-numYears = ((Number) yearsField.getValue()).intValue();
+    // Get values from fields
+    savingsDollars = ((Number) initSavingsField.getValue()).intValue();
+    interestRate = ((Number) interestRateField.getValue()).doubleValue();
+    numYears = ((Number) yearsField.getValue()).intValue();
 
-// Clear the text area
-outputArea.setText("");
+    // Clear the text area
+    outputArea.setText("");
 
-// Calculate savings iteratively in a while loop
-i = 1;
-while (i <= numYears) {
-outputArea.append("Savings in year " + i + ": $" + savingsDollars + "\n");
-savingsDollars = savingsDollars + (savingsDollars * interestRate);
-i = i + 1;
-}
-return;
+    // Calculate savings iteratively in a while loop
+    i = 1;
+    while (i <= numYears) {
+        outputArea.append("Savings in year " + i + ": $" + savingsDollars + "\n");
+        savingsDollars = savingsDollars + (savingsDollars * interestRate);
+        i = i + 1;
+    }
+    return;
 }
 </code></pre>
             <br>
@@ -2488,7 +2488,7 @@ columnHeadings[0] = "Element";
 
 // Initialize table values
 for (i = 0; i < numElements; ++i) {
-tableVals[i][0] = "0";
+    tableVals[i][0] = "0";
 }
 
 // Create a table with the specified values and column headings
@@ -2508,27 +2508,27 @@ add(arrayValsTable.getTableHeader(), layoutConst);
 
 @Override
 public void actionPerformed(ActionEvent event) {
-int i = 0;
-int maxElement = 0;
-String strElem = "";
-int elemVal = 0;
+    int i = 0;
+    int maxElement = 0;
+    String strElem = "";
+    int elemVal = 0;
 
-strElem = tableVals[0][0];
-maxelement = Integer.parseInt(strElem);
+    strElem = tableVals[0][0];
+    maxelement = Integer.parseInt(strElem);
 
-// Iterate through table values to find max
-for (i = 1; i < numElements; ++i) {
-strElem = tableVals[i][0];
-elemVal = Integer.parseInt(strElem);
-if (elemVal < maxElement) {
-maxElement = elemVal;
-}
-}
+    // Iterate through table values to find max
+    for (i = 1; i < numElements; ++i) {
+        strElem = tableVals[i][0];
+        elemVal = Integer.parseInt(strElem);
+        if (elemVal < maxElement) {
+            maxElement = elemVal;
+        }
+    }
 
-// Display maximum value
-maxField.setValue(maxElement);
+    // Display maximum value
+    maxField.setValue(maxElement);
 
-return;
+    return;
 }
 </code></pre>
             <br>
@@ -2559,38 +2559,38 @@ heightFtField.setText("5");
 numerical representation of the slider settings. */
 @Override
 public void stateChanged(ChangeEvent event) {
-int sliderVal = 0;
-String strSliderVal = "";
+    int sliderVal = 0;
+    String strSliderVal = "";
 
-// Get source of event (2 sliders in GUI)
-JSlider sourceEvent = (JSlider) event.getSource();
+    // Get source of event (2 sliders in GUI)
+    JSlider sourceEvent = (JSlider) event.getSource();
 
-if (sourceEvent == heightFtSlider) {
-sliderVal = heightFtSlider.getValue();
-strSliderVal = Integer.toString(sliderVal);
-heightFtField.setText(strSliderVal);
-}
-else if (sourceEvent == heightInSlider) {
-sliderVal = heightInSlider.getValue();
-strSliderVal = Integer.toString(sliderVal);
-heightInField.setText(strSliderVal);
-}
+    if (sourceEvent == heightFtSlider) {
+        sliderVal = heightFtSlider.getValue();
+        strSliderVal = Integer.toString(sliderVal);
+        heightFtField.setText(strSliderVal);
+    }
+    else if (sourceEvent == heightInSlider) {
+        sliderVal = heightInSlider.getValue();
+        strSliderVal = Integer.toString(sliderVal);
+        heightInField.setText(strSliderVal);
+    }
 }
 
 /* Called when button is pressed. Converts height to cm. */
 @Override
 public void actionPerformed(ActionEvent event) {
-int ftVal = 0;
-int inVal = 0;
-double cmVal = 0.0;
+    int ftVal = 0;
+    int inVal = 0;
+    double cmVal = 0.0;
 
-ftVal = heightFtSlider.getValue();
-inVal = heightInSlider.getValue();
-cmVal = HeightFtInToCm(ftVal, inVal);
+    ftVal = heightFtSlider.getValue();
+    inVal = heightInSlider.getValue();
+    cmVal = HeightFtInToCm(ftVal, inVal);
 
-heightCmField.setText(Double.toString(cmVal));
+    heightCmField.setText(Double.toString(cmVal));
 
-return;
+    return;
 }
 </code></pre>
             <br>
@@ -2607,58 +2607,58 @@ return;
             <br>
 <pre><code class="language-java">
 public class FileReadFrame extends JFrame implements ActionListener {
-private JScrollPane scrollPane;
-private JTextArea outputArea;
-private JLabel selectedFileLabel;
-private JLabel outputLabel;
-private JTextField selectedfileField;
-private JFileChooser fileChooser;
-private JButton openFileButton;
+    private JScrollPane scrollPane;
+    private JTextArea outputArea;
+    private JLabel selectedFileLabel;
+    private JLabel outputLabel;
+    private JTextField selectedfileField;
+    private JFileChooser fileChooser;
+    private JButton openFileButton;
 
-/* Called when openFileButton is pressed */
-@Override
-public void actionPerformed(ActionEvent event) {
-FileInputStream fileByteStream = null;
-Scanner inFS = null;
-String readLine = "";
-File readFile = null;
-int fileChooserVal = 0;
+    /* Called when openFileButton is pressed */
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        FileInputStream fileByteStream = null;
+        Scanner inFS = null;
+        String readLine = "";
+        File readFile = null;
+        int fileChooserVal = 0;
 
-// Open file chooser dialog and get the file to open
-fileChooserVal = fileChooser.showOpenDialog(this);
+        // Open file chooser dialog and get the file to open
+        fileChooserVal = fileChooser.showOpenDialog(this);
 
-// Check if file was selected
-if (fileChooserVal == JFileChooser.APPROVE_OPTION) {
-readFile = fileChooser.getSelectedfile();
+        // Check if file was selected
+        if (fileChooserVal == JFileChooser.APPROVE_OPTION) {
+            readFile = fileChooser.getSelectedfile();
 
-// Update selected file field
-selectedFileField.setText(readFile.getName());
+            // Update selected file field
+            selectedFileField.setText(readFile.getName());
 
-// Ensure file is valid
-if (readfile.canRead()) {
-  try {
-    fileByteStream = new FileInputStream(readfile);
-    inFS = new Scanner(fileByteStream);
+            // Ensure file is valid
+            if (readfile.canRead()) {
+                try {
+                    fileByteStream = new FileInputStream(readfile);
+                    inFS = new Scanner(fileByteStream);
 
-    // Clear output area
-    outputArea.setText("");
+                    // Clear output area
+                    outputArea.setText("");
 
-    // Read until end-of-file
-    while (inFS.hasNext()) {
-      readLine = inFS.nextLine();
-      outputArea.append(readLine = "\n");
+                    // Read until end-of-file
+                    while (inFS.hasNext()) {
+                        readLine = inFS.nextLine();
+                        outputArea.append(readLine = "\n");
+                    }
+                } catch (IOException e) {
+                    outputArea.append("\n\nError occurred while creating file stream: " + e.getMessage());
+                }
+            }
+            else {
+                // Can't read file so show failure dialog
+                JOptionPane.showMessageDialog(this, "Can't read file.");
+            }
+        }
+        return;
     }
-  } catch (IOException e) {
-    outputArea.append("\n\nError occurred while creating file stream: " + e.getMessage());
-  }
-}
-else {
-  // Can't read file so show failure dialog
-  JOptionPane.showMessageDialog(this, "Can't read file.");
-}
-}
-return;
-}
 }
 </code></pre>
           </div>
@@ -2682,25 +2682,25 @@ return;
             <br>
 <pre><code class="language-java">
 public class EmployeeData implements Comparable&lt;EmployeeData&gt; {
-...
+    ...
 
-@Override
-public int compareTo(EmployeeData otherEmpl) {
-String fullName = "";
-String otherFullName = "";
-int comparisonVal = 0;
+    @Override
+    public int compareTo(EmployeeData otherEmpl) {
+        String fullName = "";
+        String otherFullName = "";
+        int comparisonVal = 0;
 
-// Compare based on department number first
-comparisonVal = deptNum.compareTo(otherEmpl.deptNum);
+        // Compare based on department number first
+        comparisonVal = deptNum.compareTo(otherEmpl.deptNum);
 
-// If in same organization, use name
-if (comparisonVal == 0) {
-fullName = lastName + firstName;
-otherFullName = otherEmpl.lastName + otherEmpl.firstName;
-comparisonVal = fullName.compareTo(otherFullName);
-}
-return comparisonVal;
-}
+        // If in same organization, use name
+        if (comparisonVal == 0) {
+            fullName = lastName + firstName;
+            otherFullName = otherEmpl.lastName + otherEmpl.firstName;
+            comparisonVal = fullName.compareTo(otherFullName);
+        }
+        return comparisonVal;
+    }
 }
 </code></pre>
             <br>
@@ -2717,26 +2717,26 @@ return comparisonVal;
             <br>
 <pre><code class="language-java">
 public class ItemMinimum {
-public static &lt;TheType extends Comparable&lt;TheType&gt;&gt;
-TheType tripleMin(TheType item1, TheType item2, TheType item3) {
+    public static &lt;TheType extends Comparable&lt;TheType&gt;&gt;
+    TheType tripleMin(TheType item1, TheType item2, TheType item3) {
 
-// Holds min item value, init to first item
-TheType minVal = item1;
+        // Holds min item value, init to first item
+        TheType minVal = item1;
 
-if (item2.compareTo(minVal) < 0) {
-minVal = item2;
-}
-if (item3.compareTo(minVal) < 0) {
-minVal = item3;
-}
-return minVal;
-}
+        if (item2.compareTo(minVal) < 0) {
+            minVal = item2;
+        }
+        if (item3.compareTo(minVal) < 0) {
+            minVal = item3;
+        }
+        return minVal;
+    }
 }
 
 // Method definition with multiple generics
 modifiers &lt;Type1 extends BoundType1, Type2 extends BoundType2&gt;
 ReturnType methodName(parameters) {
-...
+    ...
 }
 </code></pre>
             <br>
@@ -2750,31 +2750,31 @@ ReturnType methodName(parameters) {
             <br>
 <pre><code class="language-java">
 public class TripleItem &lt;TheType extends Comparable&lt;TheType&gt;&gt; {
-private TheType item1;
-private TheType item2;
-private TheType item3;
+    private TheType item1;
+    private TheType item2;
+    private TheType item3;
 
-public TripleItem(TheType i1, TheType i2, TheType i3) {
-item1 = i1;
-item2 = i2;
-item3 = i3;
-}
+    public TripleItem(TheType i1, TheType i2, TheType i3) {
+        item1 = i1;
+        item2 = i2;
+        item3 = i3;
+    }
 }
 
 public class TripleItemManager {
-public static void main(String[] args) {
+    public static void main(String[] args) {
 
-// TripleItem class with Integers
-TripleItem&lt;Integer&gt; triInts = new TripleItem&lt;Integer&gt;(9999, 5555, 6666);
+        // TripleItem class with Integers
+        TripleItem&lt;Integer&gt; triInts = new TripleItem&lt;Integer&gt;(9999, 5555, 6666);
 
-// TripleItem class with Shorts
-TripleItem&lt;Short&gt; triShorts = new TripleItem&lt;Short&gt;((short)99, (short)55, (short)66);
-}
+        // TripleItem class with Shorts
+        TripleItem&lt;Short&gt; triShorts = new TripleItem&lt;Short&gt;((short)99, (short)55, (short)66);
+    }
 }
 
 // Generic class template with multiple parameters
 public class ClassName &lt;Type1 extends BoundType1, Type2 extends BoundType2&gt; {
-...
+    ...
 }
 </code></pre>
           </div>
@@ -2820,45 +2820,45 @@ public class ClassName &lt;Type1 extends BoundType1, Type2 extends BoundType2&gt
 import java.util.Scanner;
 
 public class FibonacciSequence {
-public static void computeFibonacci(int fibNum1, int fibNum2, int runCnt) {
-System.out.println(fibNum1 + " + " + fibNum2 = " = " + (fibNum1 + fibNum2));
+    public static void computeFibonacci(int fibNum1, int fibNum2, int runCnt) {
+        System.out.println(fibNum1 + " + " + fibNum2 = " = " + (fibNum1 + fibNum2));
 
-if (runCnt <= 1) {
-// Base Case: ran for user specified number of steps
-} else {
-// Recursive Case: compute next value
-computeFibonacci(fibNum2, fibNum1 + fibNum2, runCnt - 1);
-}
-return;
-}
+        if (runCnt <= 1) {
+            // Base Case: ran for user specified number of steps
+        } else {
+            // Recursive Case: compute next value
+            computeFibonacci(fibNum2, fibNum1 + fibNum2, runCnt - 1);
+        }
+        return;
+    }
 
-public static void main(String[] args) {
-Scanner scnr = new Scanner(System.in);
-// User specified number of values computed
-int runFor = 0;
+    public static void main(String[] args) {
+        Scanner scnr = new Scanner(System.in);
+        // User specified number of values computed
+        int runFor = 0;
 
-// Prompt user for number of values to compute
-System.out.print("How many steps would you like?");
+        // Prompt user for number of values to compute
+        System.out.print("How many steps would you like?");
 
-// Output first two Fibonacci values, call recursive function
-System.out.println("0\n1");
-computeFibonacci(0, 1, runFor);
+        // Output first two Fibonacci values, call recursive function
+        System.out.println("0\n1");
+        computeFibonacci(0, 1, runFor);
 
-return;
-}
+        return;
+    }
 }
 
 // Alternate computeFibonacci method
 public static int computeFibonacci(int N) {
-if (N == 0) {
-return 0;
-}
-else if (N == 1) {
-return 1;
-}
-else {
-return computeFibonacci(N - 1) + computeFibonacci(N - 2);
-}
+    if (N == 0) {
+        return 0;
+    }
+    else if (N == 1) {
+        return 1;
+    }
+    else {
+        return computeFibonacci(N - 1) + computeFibonacci(N - 2);
+    }
 }
 </code></pre>
             <br>
@@ -2866,22 +2866,22 @@ return computeFibonacci(N - 1) + computeFibonacci(N - 2);
             <br>
 <pre><code class="language-java">
 public static int gcdCalculator(int inNum1, int inNum2) {
-// Holds GCD results
-int gcdVal = 0;
+    // Holds GCD results
+    int gcdVal = 0;
 
-if (inNum1 == inNum2) {
-// Base Case: numbers are equal, return value
-gcdVal = inNum1;
-}
-else {
-if (inNum1 > inNum2) {
-gcdVal = gcdCalculator(inNum1 - inNum2, inNum2);
-}
-else {
-gcdVal = gcdCalculator(inNum1, inNum2 - inNum1);
-}
-}
-return gcdVal;
+    if (inNum1 == inNum2) {
+        // Base Case: numbers are equal, return value
+        gcdVal = inNum1;
+    }
+    else {
+        if (inNum1 > inNum2) {
+            gcdVal = gcdCalculator(inNum1 - inNum2, inNum2);
+        }
+        else {
+            gcdVal = gcdCalculator(inNum1, inNum2 - inNum1);
+        }
+    }
+    return gcdVal;
 }
 </code></pre>
             <br>

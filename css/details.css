@@ -7,7 +7,7 @@ Date Created: December 2017
 * {
     padding: 0px;
     margin: 0px;
-    font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif;
+    /* font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif; */
     box-sizing: border-box;
 }
 
@@ -56,13 +56,18 @@ Date Created: December 2017
     padding-left: 32px;
 }
 #content pre, #content code {
-    font-size: 94%;
+    /* font-size: 94%; */
+    font-size: 0.9em;
 }
 .section {
     margin-bottom: 24px;
 }
 .section > h2 {
+    /* font-size: 1.0em; */
     padding: 24px 0px;
+}
+.section p {
+    font-size: 1.0em;
 }
 
 /*-------------------- IMAGE CONTAINER FOR LARGE IMAGES --------------------*/
@@ -97,11 +102,13 @@ Date Created: December 2017
   flex-wrap: wrap;
 }
 .preview_div_portrait_portrait > div {
+    width: 100%;
   flex-basis: 45%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin: none;
 }
 .preview_div_portrait_portrait div img {
   display: block;
@@ -117,7 +124,8 @@ Date Created: December 2017
   flex-wrap: wrap;
 }
 .preview_div_portrait_landscape > div {
-  flex-basis: 45%;
+    width: 100%;
+    flex-basis: 45%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -259,4 +267,42 @@ Date Created: December 2017
 }
 #cs545_proj4_table tr:first-child td {
     font-weight: bold;
+}
+
+@media screen and (max-width: 640px) {
+    #content_header > h1 {
+        font-size: 1.4em;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .section p {
+        font-size: 0.9em;
+    }
+
+    #content pre, #content code {
+        font-size: 0.8em;
+    }
+
+    .preview_div_portrait_portrait {
+        flex-direction: column;
+    }
+    .preview_div_portrait_portrait > div {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .preview_div_portrait_landscape {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .preview_div_portrait_landscape > div {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 639px) {
+
 }

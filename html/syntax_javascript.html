@@ -83,11 +83,11 @@ Date Created: December 2017
                 <p>Place in <span class="definition_element">&lt;script&gt;</span> element tag within <span class="definition_element">&lt;head&gt;</span> and either allow page to load before calling JS functions or use JQuery's <span class="definition_javascript">document.ready()</span> function.</p>
 <pre><code class="language-markup">
 &lt;html&gt;
-&lt;head&gt;
-    &lt;script src="javascript_file.js"&gt;&lt;&frasl;script&gt;
-&lt;&frasl;head&gt;
-&lt;body&gt;
-&lt;&frasl;body&gt;
+    &lt;head&gt;
+        &lt;script src="javascript_file.js"&gt;&lt;&frasl;script&gt;
+    &lt;&frasl;head&gt;
+    &lt;body&gt;
+    &lt;&frasl;body&gt;
 &lt;&frasl;html&gt;
 </code></pre>
             </div>
@@ -191,13 +191,13 @@ callingFunction(parameter);    // Call function and pass in parameters
                 <h2>Conditions</h2>
 <pre><code class="language-javascript">
 if (conditions){
-statements;
+    statements;
 }
 else if (conditions){
-statements;
+    statements;
 }
 else {
-statements;
+    statements;
 }
 </code></pre>
             </div>
@@ -213,22 +213,22 @@ statements;
 <pre><code class="language-javascript">
 // The while loop
 while (conditions) {
-statements;
+    statements;
 }
 
 // Standard for loop
 for (counter; condition; incrementor) {
-statements;
+    statements;
 }
 
 // The for...in loop
 for (variable in object) {
-statements;
+    statements;
 }
 
 // The for...of loop
 for (variable of iterable) {
-statements;
+    statements;
 }
 </code></pre>
             </div>
@@ -249,28 +249,28 @@ statements;
                 <h4>Function Syntax</h4>
 <pre><code class="language-javascript">
 function name (parameter1, parameter2, parameter3) {
-statements;
+    statements;
 }
 </code></pre>
 <br>
                 <h4>Examples of Functions</h4>
 <pre><code class="language-javascript">
 function addTogether(num, str){
-var add = num + str;
-alert(add);
+    var add = num + str;
+    alert(add);
 }
 addTogether(100, " things I like");
 
 // Can return from function and store it in a variable
 function add(x, y){
-result = x + y;
-return result;
+    result = x + y;
+    return result;
 }
 var sum = add(2, 3);
 
 // Accessing Arguments
 function someFunction(){
-alert(arguments[0]);
+    alert(arguments[0]);
 }
 </code></pre>
                 <br>
@@ -278,7 +278,7 @@ alert(arguments[0]);
                 <p>Use an anonymous function that calls the defined function.</p>
 <pre><code class="language-javascript">
 element.addEventListener("event", function() {
-myFunction(p1, p2);
+    myFunction(p1, p2);
 });
 </code></pre>
             </div>
@@ -303,9 +303,9 @@ confirm();    // asks user if want to confirm, returns true or false value
 <pre><code class="language-javascript">
 // Example of creating an enum
 var SomeEnum = {
-PROPERTY_1: value,
-PROPERTY_2: value,
-PROPERTY_3: value
+    PROPERTY_1: value,
+    PROPERTY_2: value,
+    PROPERTY_3: value
 };
 // Setting a variable to an enum value
 var currentValue = SomeEnum.PROPERTY_1;
@@ -317,9 +317,9 @@ var currentValue = SomeEnum.PROPERTY_1;
                 <p>An object serving as a generic template for new objects to use.</p>
 <pre><code class="language-javascript">
 function someClass(param1, param2, param3){
-this.property1 = param1;
-this.property2 = param2;
-this.property3 = param3;
+    this.property1 = param1;
+    this.property2 = param2;
+    this.property3 = param3;
 }
 </code></pre>
             </div>
@@ -379,11 +379,11 @@ array.splice(2, 1);     // removes one item at index posiiton 2
                 <p><span class="definition_javascript">delete</span> keyword: deletes property.</p>
 <pre><code class="language-javascript">
 var otter = {
-color: "grey",
-animalClass: "mammalia",
-swim: function(){
-    document.write("The otter swam.");
-}
+    color: "grey",
+    animalClass: "mammalia",
+    swim: function(){
+        document.write("The otter swam.");
+    }
 }
 </code></pre>
                 <br>
@@ -538,7 +538,7 @@ window.location="url"
                 </ul>
 <pre><code class="language-javascript">
 window.setTimeout(function() {
-window.location.href="...";
+    window.location.href="...";
 }, ms);
 </code></pre>
             </div>
@@ -562,10 +562,10 @@ window.location.href="...";
 document.addEventListener("DocumentContentLoaded", domLoaded, false);
 window.addEventListener("load", pageLoaded, false);
 function domLoaded() {
-statements;
+    statements;
 }
 function pageLoaded() {
-statements;
+    statements;
 }
 </code></pre>
             </div>
@@ -717,7 +717,7 @@ var objectURL = URL.createObjectURL(object);
 var file = URL.createObjectURL(event.target.files[0]);
 
 if ( !(trim($('input[name="fileHandle"]').val())) ) {
-// did not validate, do something here
+    // did not validate, do something here
 }
 </code></pre>
                 <br>
@@ -820,11 +820,11 @@ var regexObj = new RegExp(pattern, flags);
 <pre><code class="language-javascript">
 var id = setInterval(someFunction, time);
 function someFunction() {
-if (condition_for_completion) {
-    clearInterval(id);
-} else {
-    // change element style
-}
+    if (condition_for_completion) {
+        clearInterval(id);
+    } else {
+        // change element style
+    }
 }
 </code></pre>
                 <br>
@@ -842,7 +842,7 @@ element.style.transition = "width 1s ease 0s";
                 <br>
 <pre><code class="language-javascript">
 element.addEventListener("transitionend", function() {
-alert("transition ended");
+    alert("transition ended");
 });
 </code></pre>
             </div>
@@ -851,23 +851,23 @@ alert("transition ended");
                 <h2>Using the Local Storage of the Browser</h2>
 <pre><code class="language-javascript">
 function process(){
-if(!localStorage){
-    alert("Your browser doesn't support local storage.");
-    return;
-}
-var theKey = document.getElementById("key").value;
-var theValue = document.getElementById("value").value;
-localStorage.setItem("theKey", "theValue");
+    if(!localStorage){
+        alert("Your browser doesn't support local storage.");
+        return;
+    }
+    var theKey = document.getElementById("key").value;
+    var theValue = document.getElementById("value").value;
+    localStorage.setItem("theKey", "theValue");
 }
 function findIt(){
-if (!localStorage){
-    alert("Your browser doesn't support local storage.");
-    return;
-}
-var theKey = document.getElementById("findKey").value;
-var theValue = localStorage.getItem("theKey");
-var handle = document.getElementById("results");
-handle.innerHTML = theValue;
+    if (!localStorage){
+        alert("Your browser doesn't support local storage.");
+        return;
+    }
+    var theKey = document.getElementById("findKey").value;
+    var theValue = localStorage.getItem("theKey");
+    var handle = document.getElementById("results");
+    handle.innerHTML = theValue;
 }
 </code></pre>
             </div>

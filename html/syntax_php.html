@@ -247,20 +247,20 @@ $sql_statement = "SELECT name FROM runner WHERE name='$_POST[fname]';";
 // Example
 $x = 12;
 function foo() {
-// Calling foo() prints "x is " necause $x is undefined
-echo "x is $x";
+    // Calling foo() prints "x is " necause $x is undefined
+    echo "x is $x";
 }
 foo();
 
 function foo() {
-// Get the $x declared outside this function
-$GLOBALS['x'];
+    // Get the $x declared outside this function
+    $GLOBALS['x'];
 
-// Use the $x variable outside
-global $x;
+    // Use the $x variable outside
+    global $x;
 
-// Changes the x outside from 12 to 14
-$x = 14;
+    // Changes the x outside from 12 to 14
+    $x = 14;
 }
 </code></pre>
             </div>
@@ -304,19 +304,19 @@ $x = 14;
                 <br>
 <pre><code class="language-php">
 print &lt;&lt;&lt;ENDB
-&lt;html&gt;
-&lt;head&gt;
-The value of x is $x    // will print whatever x is, not literal '$x'
-&lt;input type="text" .../&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+    The value of x is $x    // will print whatever x is, not literal '$x'
+    &lt;input type="text" .../&gt;
 ENDB;
 </code></pre>
                 <br>
                 <p><span class="definition">Now document</span>: similar to heredoc but there won't be variable interpolation.</p>
 <pre><code class="language-php">
 print &lt;&lt;&lt;'ENDB'
-$x = 2;
-echo 'The value of x is $x';    // will display this string literally
-echo "The value of x is $x";    // will get variable interpolation
+    $x = 2;
+    echo 'The value of x is $x';    // will display this string literally
+    echo "The value of x is $x";    // will get variable interpolation
 ENDB;
 </code></pre>
             </div>
@@ -1190,9 +1190,9 @@ Email: &lt;input type="text" name="email"&gt;&lt;span class="error"&gt;*&lt;?php
 <pre><code class="language-markup">
 &lt;!-- HTML --&gt;
 &lt;form action="upload.php" method="post" enctype="multipart/form-data"&gt;
-Select image to upload:
-&lt;input type="file" name="fileToUpload" id="fileToUpload"&gt;
-&lt;input type="submit" value="Upload Image" name="submit"&gt;
+    Select image to upload:
+    &lt;input type="file" name="fileToUpload" id="fileToUpload"&gt;
+    &lt;input type="submit" value="Upload Image" name="submit"&gt;
 &lt;&frasl;form&gt;
 </code></pre>
                 <p>File upload requires method <span class="definition_value">post</span> and enctype as <span class="definition_value">multipart/form-data</span></p>
@@ -1600,12 +1600,12 @@ $result = mysqli_query($db, $sql);  // returns the result object
 $size = mysqli_affected_rows($db);  // size of result-set
 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC(or _NUM or _BOTH));
 foreach ($rows as $row) {
-$row['fname'];
-$row[i];
+    $row['fname'];
+    $row[i];
 }
 // To fetch one row at a time
 while ($row=mysqli_fetch_array($result)) {
-statements;
+    statements;
 }
 </code></pre>
             </div>
