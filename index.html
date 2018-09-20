@@ -17,6 +17,7 @@ Date Created: December 2017
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/sidebar.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/animation_scroll.js"></script>
     </head>
 
     <body>
@@ -55,29 +56,29 @@ Date Created: December 2017
         </div>
 
         <div id="content">
-            <div id="content_header">
+            <div id="content_header" class="scrollAnimationElement fadeIn">
                 <div class="dim_image">
                 </div>
             </div>
 
             <div id="about_me_container">
-                <div>
+                <div class="scrollAnimationElement slideRight">
                     <h2>Thuc Nguyen</h2>
                     <p>I graduated from UCSD in 2017 with a Human Biology major. During the years as an undergraduate, I grew a strong interest in Computer Science and started learning how to program offhand. I looked into C++ as my first programming language to gain some fundamental understanding of how to code. Thereafter, I sought to learn a multitude of languages and coded some mobile applications along the way. I've taken a few computer science classes during my undergraduate years including a class on Java and a class on Basic Data Structures. I have recently completed a post-baccalaureate program for Web and Mobile Application Development at SDSU. Despite not obtaining a C.S degree, I am still motivated to pursue this field. This is a portfolio of all the work I've done and am able to show.</p>
                 </div>
-                <div>
+                <div class="scrollAnimationElement fadeIn">
                     <img src="images/portrait_bubble.png" alt="Thuc Nguyen">
                 </div>
             </div>
 
             <div id="languages_container">
                 <div>
-                    <div>
+                    <div class="scrollAnimationElement slideUpAndFade">
                         <h2><a href="html/languages_and_syntax.html">Languages and Syntax</a></h2>
                         <p>Programming languages I have learned so far. Most of these pages contain class notes, but they also contain summaries, code snippets, and code blocks from various sites and Youtube videos. These act more as personal references and are not intended to cover all topics of the languages.</p>
                     </div>
                 </div>
-                <div>
+                <div class="scrollAnimationElement slideLeft">
                     <img src="images/language_background_half.png" alt="">
                 </div>
             </div>
@@ -85,78 +86,37 @@ Date Created: December 2017
             <div id="projects_container">
                 <h2><a href="html/projects.html">Projects</a></h2>
                 <div>
-                    <div class="project_box" id="project_web">
+                    <div class="project_box scrollAnimationElement bounce" id="project_web">
                         <div>
                             <img src="images/project_icon_web.png" alt="">
                         </div>
                         <p>Web Applications</p>
-                        <p>Completed websites and web applications. Most of these were assigned in CS545 and CS645 at SDSU.</p>
+                        <p class="scrollAnimationElement fadeIn">Completed websites and web applications. Most of these were assigned in CS545 and CS645 at SDSU.</p>
                     </div>
-                    <div class="project_box" id="project_mobile">
+                    <div class="project_box scrollAnimationElement bounce" id="project_mobile">
                         <div>
                             <img src="images/project_icon_mobile.png" alt="">
                         </div>
                         <p>Mobile Applications</p>
-                        <p>Completed and in-progress mobile applications for Android and iOS. Most of these were assigned in CS646 and CS646.01 at SDSU.</p>
+                        <p class="scrollAnimationElement fadeIn">Completed and in-progress mobile applications for Android and iOS. Most of these were assigned in CS646 and CS646.01 at SDSU.</p>
                     </div>
-                    <div class="project_box" id="project_python">
+                    <div class="project_box scrollAnimationElement bounce" id="project_python">
                         <div>
                             <img src="images/project_icon_python.png" alt="">
                         </div>
                         <p>Python Scripts</p>
-                        <p>Completed scripts and projects written in Python.</p>
+                        <p class="scrollAnimationElement fadeIn">Completed scripts and projects written in Python.</p>
                     </div>
-                    <div class="project_box" id="project_bash">
+                    <div class="project_box scrollAnimationElement bounce" id="project_bash">
                         <div>
                             <img src="images/project_icon_bash.png" alt="">
                         </div>
                         <p>Bash Scripts</p>
-                        <p><i>(Will update soon)</i></p>
+                        <p class="scrollAnimationElement fadeIn"><i>(Will update soon)</i></p>
                     </div>
                 </div>
-                <!-- <div class="grid_container">
-                    <div>
-                        <h3><a href="html/languages_and_syntax.html">Languages and Syntax</a></h3>
-                        <p>All of the programming languages I have learned so far. Most of the pages contain notes from classes I've attended, but they also contain summaries and code snippets and blocks from various sites and from Youtube videos. These pages act more as notes or references and are not intended to be a full coverage of the languages.</p>
-                    </div>
-                    <div id="container_web">
-                        <div>
-                            <h3><a href="html/projects.html">Web Applications</a></h3>
-                            <p>Contains the websites that I have completed. Most of these web projects were assigned in my CS545 and CS645 classes.</p>
-                        </div>
-                        <div class="grid_image_container">
-                            <img src="images/web_blurred.png" alt="Web">
-                        </div>
-                    </div>
-                    <div id="container_python">
-                        <div>
-                            <h3><a href="html/projects.html">Python Scripts</a></h3>
-                            <p>Will contain random python scripts that I am looking to complete. (Currently contains nothing)</p>
-                        </div>
-                        <div class="grid_image_container">
-                            <img src="images/python_blurred.png" alt="Python">
-                        </div>
-                    </div>
-                    <div id="container_mobile">
-                        <div>
-                            <h3><a href="html/projects.html">Mobile Applications</a></h3>
-                            <p>Contains the applications that I have completed or am in the process of completing. Most of these projects were assigned in my CS646 and CS646.01 classes.</p>
-                        </div>
-                        <div class="grid_image_container">
-                            <img src="images/mobile_blurred.png" alt="Mobile">
-                        </div>
-                    </div>
-                    <div id="container_bash">
-                        <div>
-                            <h3><a href="html/projects.html">Bash Scripts</a></h3>
-                            <p>Will contain random bash scripts that I am looking to complete. (Currently contains nothing)</p>
-                        </div>
-                        <div class="grid_image_container">
-                            <img src="images/bash_blurred.png" alt="Bash">
-                        </div>
-                    </div>
-                </div> -->
             </div>
+
         </div>
     </body>
 
