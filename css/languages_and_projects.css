@@ -27,7 +27,7 @@ body {
         tranquil: #eecda3 to #ef629f
         celestial: #c33764 to #1d2671
 */
-#content_header {
+#content_header_project {
     color: #FFF;
     height: 300px;
     display: flex;
@@ -43,8 +43,18 @@ body {
     -moz-animation: content-gradient 30s ease infinite;
     animation: content-gradient 30s ease infinite;
 }
+#content_header_languages {
+    color: #FFF;
+    background-color: rgba(110, 110, 110, 1.0);
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 /* The sun */
-#content > div:nth-of-type(2) {
+#sun {
     position: absolute;
     top: 100px;
     left: -100px;
@@ -57,7 +67,7 @@ body {
     -webkit-animation: day-orbit 30s linear infinite;
 }
 /* The moon */
-#content > div:nth-of-type(3) {
+#moon {
     position: absolute;
     top: 100px;
     left: -100px;
@@ -105,39 +115,13 @@ body {
 /* Orbiting of the sun */
 @keyframes day-orbit {
     0% {
-        transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
-    }
-    100% {
-        transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
-    }
-}
-@-moz-keyframes day-orbit {
-    0% {
-        -moz-transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
-    }
-    100% {
-        -moz-transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
-    }
-}
-@-webkit-keyframes day-orbit {
-    0% {
-        -webkit-transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
-    }
-}
-
-/* Orbiting of the moon */
-@keyframes night-orbit {
-    0% {
         transform: rotate(0deg) translate(240px, 0px) rotate(0deg);
     }
     100% {
         transform: rotate(-360deg) translate(240px, 0px) rotate(360deg);
     }
 }
-@-moz-keyframes night-orbit {
+@-moz-keyframes day-orbit {
     0% {
         -moz-transform: rotate(0deg) translate(240px, 0px) rotate(0deg);
     }
@@ -145,12 +129,38 @@ body {
         -moz-transform: rotate(-360deg) translate(240px, 0px) rotate(360deg);
     }
 }
-@-webkit-keyframes night-orbit {
+@-webkit-keyframes day-orbit {
     0% {
         -webkit-transform: rotate(0deg) translate(240px, 0px) rotate(0deg);
     }
     100% {
         -webkit-transform: rotate(-360deg) translate(240px, 0px) rotate(360deg);
+    }
+}
+
+/* Orbiting of the moon */
+@keyframes night-orbit {
+    0% {
+        transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
+    }
+}
+@-moz-keyframes night-orbit {
+    0% {
+        -moz-transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
+    }
+}
+@-webkit-keyframes night-orbit {
+    0% {
+        -webkit-transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
     }
 }
 
