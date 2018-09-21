@@ -250,12 +250,6 @@ body {
     -webkit-transform: translate(0px, 80px);
 }
 .scrollAnimationElement.slideUpAndFade.inView {
-    /* animation-name: slideUp;
-    animation-duration: 400ms;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards; */
-
     -webkit-animation:
         slideUp 400ms linear 0s 1 forwards,
         fadeTransparentToGrey 400ms linear 400ms 1 forwards;
@@ -296,7 +290,24 @@ body {
         -webkit-transform: translate(0px, 0px);
     }
 }
+
 @keyframes fadeTransparentToGrey {
+    0% {
+        background-color: rgba(0, 0, 0, 0.0);
+    }
+    100% {
+        background-color: rgba(110, 110, 110, 0.3);
+    }
+}
+@-moz-keyframes fadeTransparentToGrey {
+    0% {
+        background-color: rgba(0, 0, 0, 0.0);
+    }
+    100% {
+        background-color: rgba(110, 110, 110, 0.3);
+    }
+}
+@-webkit-keyframes fadeTransparentToGrey {
     0% {
         background-color: rgba(0, 0, 0, 0.0);
     }

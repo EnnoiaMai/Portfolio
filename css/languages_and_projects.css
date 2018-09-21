@@ -18,28 +18,159 @@ body {
 
 /*============================== CONTENT =====================================*/
 #content {
+    position: relative;
     margin-left: 16%;
 }
+/*
+    Gradient Colors
+        horizon: #003973 to #e5e5be
+        tranquil: #eecda3 to #ef629f
+        celestial: #c33764 to #1d2671
+*/
 #content_header {
     color: #FFF;
-    background-color: rgba(103, 103, 103, 1.0);
     height: 300px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid green; */
+    position: relative;
+    z-index: 0;
+
+    background: linear-gradient(135deg, #003973, #e5e5be, #eecda3, #ef629f, #c33764, #1d2671, #003973, #e5e5be);
+    background-size: 800% 800%;
+    -webkit-animation: content-gradient 30s ease infinite;
+    -moz-animation: content-gradient 30s ease infinite;
+    animation: content-gradient 30s ease infinite;
 }
+/* The sun */
+#content > div:nth-of-type(2) {
+    position: absolute;
+    top: 100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    z-index: 5;
+
+    animation: day-orbit 30s linear infinite;
+    -moz-animation: day-orbit 30s linear infinite;
+    -webkit-animation: day-orbit 30s linear infinite;
+}
+/* The moon */
+#content > div:nth-of-type(3) {
+    position: absolute;
+    top: 100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    z-index: 5;
+
+    animation: night-orbit 30s linear infinite;
+    -moz-animation: night-orbit 30s linear infinite;
+    -webkit-animation: night-orbit 30s linear infinite;
+}
+
+#content > div > img {
+    width: 100%;
+    height: 100%;
+}
+
+/*------------------------- CONTENT HEADER ANIMATION -------------------------*/
+/* Gradient */
+@keyframes content-gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+@-moz-keyframes content-gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+@-webkit-keyframes content-gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Orbiting of the sun */
+@keyframes day-orbit {
+    0% {
+        transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
+    }
+}
+@-moz-keyframes day-orbit {
+    0% {
+        -moz-transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
+    }
+}
+@-webkit-keyframes day-orbit {
+    0% {
+        -webkit-transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
+    }
+}
+
+/* Orbiting of the moon */
+@keyframes night-orbit {
+    0% {
+        transform: rotate(0deg) translate(240px, 0px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg) translate(240px, 0px) rotate(360deg);
+    }
+}
+@-moz-keyframes night-orbit {
+    0% {
+        -moz-transform: rotate(0deg) translate(240px, 0px) rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(-360deg) translate(240px, 0px) rotate(360deg);
+    }
+}
+@-webkit-keyframes night-orbit {
+    0% {
+        -webkit-transform: rotate(0deg) translate(240px, 0px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(-360deg) translate(240px, 0px) rotate(360deg);
+    }
+}
+
 
 /*===================== PROJECTS AND LANGUAGES AND SYNTAX ====================*/
 #projects_list, #languages_list {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    margin: 48px auto 0px;
-    padding: 8px 8px 48px 8px;
+    /* margin: 48px auto 0px; */
+    /* padding: 8px 8px 48px 8px; */
+    padding: 48px 120px 48px;
+
     /* border: 1px solid red; */
     /* border: 1px dashed red; */
+}
+#projects_list {
+    background-color: #FFF;
+    position: relative;
+    z-index: 10;
 }
 #projects_list > div > h2 {
     text-align: center;
@@ -165,6 +296,9 @@ body {
     /* border: 1px dashed red; */
 }
 
+/*========================= TRANSITIONS AND ANIMATIONS ===============================*/
+
+
 /*==============================================================================
 
 
@@ -186,5 +320,10 @@ body {
     }
     #python_scripts_heading {
         margin-top: 24px;
+    }
+
+    #content > div > img {
+        width: 50%;
+        height: 50%;
     }
 }
