@@ -58,8 +58,8 @@ body {
     position: absolute;
     top: 100px;
     left: -100px;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     z-index: 5;
 
     animation: day-orbit 30s linear infinite;
@@ -71,8 +71,8 @@ body {
     position: absolute;
     top: 100px;
     left: -100px;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     z-index: 5;
 
     animation: night-orbit 30s linear infinite;
@@ -191,13 +191,14 @@ body {
 /*------------------- Width for each column list initially -------------------*/
 #projects_list > div, #languages_list > div {
     width: 50%;
+    padding: 12px;
     /* border: 1px dashed purple; */
 }
 
 /*---------------------- Lists and links for Languages -----------------------*/
 #projects_list > div > ul, #languages_list > div > ul {
     list-style-type: none;
-    /* border: 1px dashed red; */
+    /* border: 1px dashed green; */
 }
 #languages_list > div > ul a {
     color: #000;
@@ -214,7 +215,7 @@ body {
 }
 #projects_list table td > a {
     color: #000;
-    /* font-size: 110%; */
+    font-size: 1.0em;
     text-decoration-color: rgba(255, 255, 255, 1.0);
     text-decoration-line: underline;
     -webkit-transition-duration: 500ms;
@@ -239,9 +240,9 @@ body {
     /* padding-right: 12px; */
     border-right: 1px solid #BBB;
 }
-#languages_list > div, #projects_list > div {
+/* #languages_list > div, #projects_list > div {
     padding: 12px;
-}
+} */
 
 /*================================= PROJECTS =================================*/
 /*------------------- Margin-top for each heading initially ------------------*/
@@ -320,6 +321,7 @@ body {
 @media screen and (max-width:880px) {
     #projects_list, #languages_list {
         flex-direction: column;
+        padding: 48px 48px 48px;
     }
     #projects_list > div, #languages_list > div {
         width: 100%;
@@ -330,6 +332,13 @@ body {
     }
     #python_scripts_heading {
         margin-top: 24px;
+    }
+
+    #languages_list > div > ul a {
+        font-size: 96%;
+    }
+    #projects_list table td > a {
+        font-size: 0.96em;
     }
 
     #content > div > img {
