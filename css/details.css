@@ -7,7 +7,6 @@ Date Created: December 2017
 * {
     padding: 0px;
     margin: 0px;
-    /* font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif; */
     box-sizing: border-box;
 }
 
@@ -193,7 +192,7 @@ iframe {
   color: #8d48a8; /* Pale Pink */
   /* font-weight: bold; */
 }
-.code_CS646_01 {
+.code_CS646_01, .code_CSE11 {
   color: #24567B; /* Pale Blue */
   font-weight: bold;
 }

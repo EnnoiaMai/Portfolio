@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: September 2018
+-->
+<html>
+    <head>
+        <title>CSE11 Assignment 2 - DoubleArray11</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Thuc Nguyen's Portfolio">
+        <meta name="author" content="Thuc Nguyen">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="../../css/details.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-java.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/details.js"></script>
+    </head>
+
+    <body>
+        <div id="sidebar">
+            <div id="menu_icon">
+                <img src="../../images/ic_menu_white_36dp_1x.png" alt="Menu">
+                <img src="../../images/ic_menu_highlighted_36dp_1x.png" alt="Menu">
+            </div>
+            <ul>
+                <li><a href="../../index.html" id="link_home">Home</a></li>
+                <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                <div id="submenu">
+                    <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                    <div>
+                        <img src="../../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
+                    </div>
+                </div>
+                <li id="submenu_links">
+                    <ul>
+                        <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                        <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                        <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                        <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                        <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                        <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                        <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                        <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                        <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                        <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                        <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                        <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                        <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div id="content_header" class="header_cs646_01">
+                <h1>CSE11 Assignment 2 - DoubleArray11</h1>
+            </div>
+
+            <div class="section">
+                <h2>Assignment</h2>
+                <p><b><u>Task 1: The DoubleArray11 class</u></b></p>
+                <p>You are being provided a skeleton of the DoubleArray11 class. It has been commented using Javadoc-style comments.</p>
+                <ol>
+                    <li>Download DoubleArray11.java</li>
+                    <li>Generate the documentation using the javadoc command-line tool, to see the details of each constructor and public method.</li>
+                    <li>Go through the signature of all the methods defined in the Javadoc and carefully read method description to understand its operation on the internal array.</li>
+                    <li>Implement all methods correctly.</li>
+                    <li>Put your name in the file after the existing Javadoc @author tag (replace YOUR NAME HERE)</li>
+                </ol>
+                <br>
+                <p><u>When you implement DoubleArray11. You may NOT:</u></p>
+                <ol>
+                    <li>Change the signature of any <i>public</i> method</li>
+                    <li>Change the return type of any <i>public</i> method</li>
+                    <li>Add any new <i>public</i> methods. You may add as many <i>private</i> methods as you desire</li>
+                    <li>Add any <i>public</i> instance or class variables. All class/instance variables should declared <i>private</i></li>
+                    <li>Use any other pre-defined classes (e.g., Arrays, ArrayList,...) that provide similar functionality. Your implementation of <i>DoubleArray11</i> should not have any other import statements than what has been provided to you in the skeleton</li>
+                </ol>
+                <br>
+                <p><u>You are allowed to add any number of your own private​ methods and variables.</u></p>
+                <br>
+                <p>As you look at the DoubleArray11 definition, it should be clear that:</p>
+                <ol>
+                    <li><b>An instance of the class​</b> internally stores an <b>array of ​doubles</b>​. This instance variable makes up a key component of the state of an DoubleArray11 object.</li>
+                    <li>The class must also <b>define methods that manipulate an instance’s internally-stored array​.</b></li>
+                    <li>For this assignment, the capacity of the internal array may be larger than the number of active elements. The first <i>size</i> elements of the internal array are considered active.</li>
+                    <li>You should also note, that in the skeleton, <i>boolean</i> methods <b>always return false</b>​. That is <b>clearly incorrect​</b> in the full implementation. Those return values in the skeleton are present so that the initial code will compile.</li>
+                    <li>Note the return types of the methods.</li>
+                </ol>
+                <br>
+
+                <p><b>Methods that return ​boolean</b>​ should return true if method was successful, false if an error would occur. For example, if you attempted to insert at improper index is out of bounds, you should return false.</p>
+                <br>
+
+                <p><b>Note : Your​ DoubleArray11​ implementation should never generate a runtime error</b>. ​It must not print any error messages to the screen (though you will find such error messages ​useful during debugging). That means that you will need to check your arguments for valid values. Be sure to check that object references passed to your methods are not null.</p>
+                <br>
+
+                <p>In the case of a constructor, if passed a null object pointer, you should create a valid instance in which the internal array has no capacity to store elements.</p>
+                <br>
+
+                <p>Some hints for solving Task 1:</p>
+                <br>
+                <ol>
+                    <li>You may find an internal helper method that copies the contents of one array into another to be useful.</li>
+                    <li>If the <i>insert</i> method is invoked, and your internal array is full, you should create a new internal array with expanded capacity. Don’t forget to copy the original elements to your new internal array.</li>
+                </ol>
+                <br>
+
+                <p><b><u>Task 2: The DoubleArray11Main Program</u></b></p>
+                <p>This is a java program and therefore defines a <i>main()</i> method. You are being provided a <i>DoubleArrayMain</i> class that allows you to utilize/test instances of DoubleArray11. You will extend the DoubleArrayMain class to allow testing of all of the methods in DoubleArray11.</p>
+                <br>
+                <p>You are being provided a partially-completed <i>DoubleArrayMain</i> program. Don’t forget to put your name in the file after the existing Javadoc @author tag (replace YOUR NAME HERE)</p>
+                <br>
+                <p>The main method contains a loop that processes commands that create and use methods of the DoubleArray11 class. Each command is a string input by the user, which is then interpreted by the loop, and causes some action to happen.</p>
+                <br>
+                <p>The start of the interpreter sets up some initial variables, and the first thing the loop does is print a > character and wait for input:</p>
+                <br>
+    <pre><code class="language-java">
+    DoubleArray11 currentArray = new DoubleArray11();
+    Scanner scan = new Scanner(System.in);
+    String cmd = "";
+
+    while (true) {
+        System.err.print("> ");
+        cmd = scan.nextLine();
+        String[] parts = cmd.split("\\s+");
+    }
+    </code></pre>
+                <br>
+
+                <p>The input is stored in cmd, and then it is split apart on whitespace. The expression cmd.split("\\s+")returns an array of strings, where each string returned is a fragment of cmd separated by whitespace from the others. So, for example</p>
+                <br>
+                <p>"set 10 1.7".split("\\s+")</p>
+                <br>
+                <p>would produce the array {"set", "10", "1.7"}</p>
+                <br>
+                <p>The rest of the loop processes the array produced:</p>
+    <pre><code class="language-java">
+    if (parts.length == 0) { continue; }
+    switch (parts[0]) {
+        case "show":
+            System.out.println(currentArray.toString());
+            continue;
+        case "create":
+            if (parts.length != 2 || !isInt(parts[1])) {
+                printCreateUsage();
+                continue;
+            }
+            currentArray = new DoubleArray11(Integer.parseInt(parts[1]));
+            continue;
+    }
+    </code></pre>
+                <br>
+
+                <p>In particular, it matches the string in the first position in the array to see what command to run. In this snippet, we see that if the array starts with “show,” the current array will be printed (using its toString method). If the array starts with “create,” the interpreter expects the array to have a second element (index 1), which is an integer. If it doesn’t, it prints an error message and goes back to the top of the loop. If it does, it uses that as an argument to the constructor for <i>DoubleArray11</i>. This will have the effect up updating the currentArray for future iterations of the loop.</p>
+                <br>
+
+                <p>You will use these commands in two ways. First, you will extend the set of commands to cover all the methods on DoubleArray11. Second, you will use the commands to test your implementation and make sure it does what you expect.</p>
+                <br>
+
+                <p><b>Adding Commands</b></p>
+                <p>There are several commands already implemented that call methods, print values, and otherwise manipulate and inspect the array. You will add several more commands, using the examples given to develop the code that calls out to a method.</p>
+                <br>
+
+                <p>These commands <u>should not print anything, just have the indicated effect:</u></p>
+                <ul>
+                    <li>delete n -- deletes the item at index n in the current array using the delete method</li>
+                    <li>insert n d -- adds the element d at index n by using the insert method</li>
+                    <li>reverse-from start stop -- uses the reverse method to reverse the array from start to stop (which should be valid indices)</li>
+                    <li>reverse -- uses the reverse method to reverse the whole array</li>
+                    <li>swap n m -- uses the swap method to switch the values in n and m</li>
+                </ul>
+                <br>
+
+                <p>These commands should print their answer:</p>
+                <ul>
+                    <li>min -- uses the min method to print the min</li>
+                    <li>max -- uses the max method to print the max</li>
+                    <li>size -- uses the getSize method to print the current size of the array</li>
+                </ul>
+                <br>
+
+                <p><b>Using Commands to Test</b></p>
+                <p>Running the program DoubleArrayMain after compiling it will allow you to quickly test particular methods. For example, you might have an interaction like this:</p>
+                <br>
+    <pre>
+    $ java DoubleArrayMain
+    > show
+    []
+    > create 5
+    > append 2.3
+    > show
+    [ 2.30]
+    > append 4.4
+    > show
+    [ 2.30, 4.40]
+    </pre>
+                <br>
+
+                <p>This would cause the toString() method to be called 3 times (once for each use of show), the constructor to be called once (for create), and append to be called twice. You could be confident in the basic behavior of append and the constructor after doing this, though there may be more cases to consider.</p>
+                <br>
+
+                <p>It’s useful, once you’ve written a good test, to have a way to verify that it doesn’t break later. One way you can do this is by using a feature of the shell (the thing running in your terminal), to save a test and then run it later. You can create a file with one command per line, ending in exit, for example the test above would be written as:</p>
+                <br>
+
+    <pre>
+    show
+    create 5
+    append 2.3
+    show
+    append 4.4
+    show
+    exit
+    </pre>
+                <br>
+                <p>Then you can use the < shell operator to send that file to a program instead of user input (assuming the file was saved in test.txt):</p>
+                <br>
+                <p>$ java DoubleArrayMain < test.txt</p>
+                <br>
+                <p>This has the effect of running DoubleArrayMain, while treating the lines in test.txt as though you had typed them yourself. Each use of <i>scan.nextLine()</i> will read a full line of the input file and process it as user input. This makes it so you can save the above test in a file, and re-run it easily without having to retype all the commands.</p>
+                <br>
+                <p>It’s also useful to be able to run a number of tests at once, if you’ve saved several different files. We’ve given you some support for doing this with the script run_tests. If you run the command:</p>
+                <br>
+                <p>$ ./run_tests</p>
+                <br>
+                <p>The script will look for pairs of files named testinput1.txt, testoutput1.txt, testinput2.txt, testoutput2.txt, and so on. <b>It will run the main program on the inputs in the files named testinput, and compare the output to the corresponding testoutput file</b>​. That is, DoubleArrayMain when reading testinput is expected to give output identical to the testoutput file. The run_tests program will report a success if they match, and a test error if they don’t. For example, success would look like:</p>
+                <br>
+    <pre>
+    $ ./run_tests
+    Success for test tests/testinput1.txt
+    1 tests passed, 0 failed
+    </pre>
+                <br>
+                <p>while failure would look like:</p>
+                <br>
+    <pre>
+    $ ./run_tests
+    Test tests/testinput1.txt failed, expected:
+    [ 2.30]
+    [ 2.30, 4.40]
+
+    but got:
+    []
+    []
+
+    0 tests passed, 1 failed
+    </pre>
+                <br>
+                <p>We’ve provided one test to get you started, and starting out, this kind of failure is what you’ll see.</p>
+                <br>
+                <p><b>You are required</b> to submit test files along with your submission, and you will be graded on whether or not your tests are correct and thorough. Your tests, when taken together, should cover every command at least once in a meaningful way. “Meaningful” means, for example, that you if you want to test append, you should use it and then later use show to make sure that the element is present. You might use append without show to check that e.g. size works correctly, but you should also include a meaningful test for append. You should also check for error conditions – for example, test for getElement on an empty array, or for inserting at an invalid index.</p>
+                <br>
+                <p>Submit exactly 6 different test files (testinput1.txt through testinput6.txt) with corresponding expected outputs (testoutput1.txt through testoutput6.txt), and among those files have at least one meaningful test for each command. In order to do so, you will actually use each command many times.</p>
+                <br>
+                <p><i>Note</i>: Testing also helps you make sure that your program is correct, and is a huge aid in debugging. We recommend that you run ./run_tests quite frequently when developing -- running it after each time you compile your program is not too often. Once you get a small number of tests passing, it becomes easy and fun to build on them and see how robust your implementation is, and you get the added benefit of being able to tell if anything breaks later when you go back to make other edits.</p>
+                <br>
+                <p><b>To emphasize: The goal of this part of the assignment is for you to practice writing code that helps you in debugging. A good test should have a known outcome that you can verify​.</b></p>
+            </div>
+
+            <div class="section">
+                <h2>Implementation Details</h2>
+
+            </div>
+        </div>
+    </body>
+</html>

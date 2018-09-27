@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: September 2018
+-->
+<html>
+    <head>
+        <title>CSE11 Assignment 3 - Trains</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Thuc Nguyen's Portfolio">
+        <meta name="author" content="Thuc Nguyen">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="../../css/details.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-java.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/details.js"></script>
+    </head>
+
+    <body>
+        <div id="sidebar">
+            <div id="menu_icon">
+                <img src="../../images/ic_menu_white_36dp_1x.png" alt="Menu">
+                <img src="../../images/ic_menu_highlighted_36dp_1x.png" alt="Menu">
+            </div>
+            <ul>
+                <li><a href="../../index.html" id="link_home">Home</a></li>
+                <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                <div id="submenu">
+                    <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                    <div>
+                        <img src="../../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
+                    </div>
+                </div>
+                <li id="submenu_links">
+                    <ul>
+                        <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                        <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                        <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                        <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                        <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                        <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                        <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                        <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                        <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                        <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                        <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                        <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                        <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div id="content_header" class="header_cs646_01">
+                <h1>CSE11 Assignment 3 - Trains</h1>
+            </div>
+
+            <div class="section">
+                <h2>Assignment</h2>
+                <p>This assignment will hone your skills for</p>
+                <ol>
+                    <li>Working with java interfaces</li>
+                    <li>Working with arrays one and two-dimensional</li>
+                    <li>Using public methods in classes for communication</li>
+                </ol>
+                <br>
+
+                <p>There are four “kinds” of objects in this assignment</p>
+                <ol>
+                    <li><b>TrainCar</b>​. These are cars of a cargo-carrying train. Each car has maximum weight to hold cargo.</li>
+                    <li><b>Trains</b>.​ Trains have multiple cars. Cars may have identical cargo capacity or differing cargo capacities</li>
+                    <li><b>Items</b>​. These are various kinds of goods that we want to be able to load onto a cargo train. An item could be any object that support a specific and formal java interface.</li>
+                    <li><b>Loader</b> - ​A person (actually algorithm) that decides if an an item can be loaded onto a train. Different Loaders use different algorithms. For example, one might load from the front to the back, another might load from back to front. You will be implementing four different loading algorithms.</li>
+                </ol>
+                <br>
+
+                <p>In addition to these four kinds of objects, we are supplying you with a java program that allows you to write tests to see how your program, similar to assignment #2. We want you to focus mostly on four objects above.</p>
+                <br>
+
+                <p>So how do things fit together (Again, in English, more programmatic details follow in this assignment)</p>
+                <br>
+                <ul>
+                    <li>a <b>Train​</b> is created with a specific <b>Loader</b>​ algorithm</li>
+                    <li><b>Train Cars</b> ​are added to the train to give it cargo capacity</li>
+                    <li><b>Items</b> ​are loaded onto the train</li>
+                </ul>
+                <br>
+
+                <p>Some things to note: When a particular train is created, the loader algorithm never changes for that Train. There might be multiple trains, each with their own loader. Train cars can be added at anytime to a Train. Items can be loaded at any time. This means that I might create a Train, add some cars, load some items, add some more cars and load some more items. Cars are never removed from a train. Items are never removed. Cars are numbered starting at 0. The first car added is Car 0, then next car is Car 1, etc.</p>
+                <br>
+
+                <p>Once a Train has been loaded I might request the following of the Train:</p>
+                <ul>
+                    <li>What is the total weight of Cargo in the train</li>
+                    <li>What is the total weight of Cargo of a particular car in the train</li>
+                    <li>Give me a 2D array of all the items in the train. The row index is the car#, the columns of that row reference the Items in the order in which they were loaded</li>
+                    <li>Give me a 1D array of all the items of a single car in the train</li>
+                    <li>Tell how many item of a particular type are loaded in the car, or train.</li>
+                </ul>
+                <br>
+
+                <p><b><u>TASK 1 : Read The definition of the Item interface and implement TrainCar</u></b></p>
+                <br>
+                <p>Your are being provided with</p>
+                <ol>
+                    <li>Item.java</li>
+                    <li>Automobile.java</li>
+                    <li>Ford.java</li>
+                    <li>javadoc of TrainCar.java</li>
+                </ol>
+                <br>
+                <p>You will not need to change or turn in Item, Automobile, or Ford. You cannot​ redefine Item.java. It is a formal interface definition and that is the interface for which we will test your homework. Automobile and Ford are classes that implement the Item interface. You should be able to answer the following questions about this code</p>
+                <br>
+                <p><b>Implementing TrainCar</b></p>
+                <p>TrainCar implements some straightforward methods. Its job is to store references to objects of type Item. Since Item is an interface, this means store objects that implement the Item interface.</p>
+                <ul>
+                    <li>A TrainCar has a maximum weight.</li>
+                    <li>It has a method, canLoad() that returns a boolean to say if an item can be loaded</li>
+                    <li>Is has a method, load(), that adds an item to the “contents” of the TrainCar. load() should check the result of canLoad() before loading.</li>
+                    <li>Items are stored sequentially (in an internal array or ArrayList). The first item loaded is index 0, second is index 1, etc.</li>
+                    <li>getContents() returns an array of Items that have been successfully loaded. It returns in the order in which they were loaded.</li>
+                    <li>getWeight() returns the sum of the weights of all the Items it contains</li>
+                    <li>See the TrainCar.pdf for the javadoc generated from our implementation.</li>
+                </ul>
+                <br>
+
+                <p>You are being provided javadoc for TrainCar, but no starter code. We expect your version of TrainCar to reasonably reproduce the javadoc, that means that you have to write your own javadoc comments in your version of TrainCar.java. We are <b>not concerned about character-by-character reproduction</b> ​of your javadoc comments when compared to the supplied javadoc webpage. However,</p>
+                <ol>
+                    <li>All methods and constructors must be documented in the javadoc style</li>
+                    <li>% javadoc TrainCar.java should produce no errors or warnings about missing documentation.</li>
+                </ol>
+                <br>
+
+                <p><b>Other requirements of TrainCar:</b></p>
+                <ol>
+                    <li>Implement all of the public methods</li>
+                    <li>Define no other public methods, constructors, or fields</li>
+                    <li>You may use ArrayList or the Arrays class internally to your implementation, but that is not required. The assignment is easily done with standard arrays.</li>
+                    <li>You may add any number of private variables or methods</li>
+                    <li>To compile TrainCar, only Item.class should need to already be compiled.</li>
+                </ol>
+                <br>
+
+                <p>A strategy for developing and testing TrainCar</p>
+                <p>You should create a small program that creates a TrainCar instance, some instances of Ford and then loads the TrainCar with your Automobile (Ford) instances. Finally it should print out the item descriptions. We are not grading this and you are not handing in the small program. It’s up to you to figure out what you want to test to verify that your TrainCar methods are working properly. You shouldn’t skip this step, or other parts of the assignment will take longer. Your small program will allow you to become familiar with the Item interface. Don’t forget to test edge conditions, like trying to load more into already full car, or trying to load into a car with no cargo capacity.</p>
+                <br>
+
+                <p>order to get started with the file TrainCar.java, you should make sure to write a working “stub” for each method in the javadoc. That is, write a method that returns some (probably incorrect) value that matches the return type, like -1 for an int, or null for an array. This will make sure you have a class definition that can compile with the other pieces of the project sooner rather than later.</p>
+                <br>
+
+                <p><b><u>Task 2 - Create an Electronics class that Implements Item</u></b></p>
+                <p>You are to create an Electronics class that implements Item. The constructor should have the following signature:</p>
+    <pre>
+    public Electronics (String description, double weight)
+    </pre>
+                <br>
+                <p>You should override the toString() method of Object so that the string returned has the following format:</p>
+    <pre>
+    “Electronics: &lt;description&gt; (&lt;weight&gt; KG)”
+    </pre>
+                <br>
+                <p>Where &lt;description&gt; and &lt;weight&gt; are the String description passed in the constructor and &lt;weight&gt; is the weight passed into the constructor. Example toString Output:</p>
+    <pre>
+    “Electronics: SystemZ-Desktop (6.2 KG)”
+    </pre>
+                <p>would the String return with the following statement</p>
+    <pre>
+    new Electronics(“SystemZ-Desktop”, 6.2).toString()
+    </pre>
+                <br>
+                <p>There are no other requirements of the Electronics class.</p>
+                <br>
+
+                <p><b>Suggested testing of Electronics</b></p>
+                <p>modify your small test program above and add the creation of some number of Electronics objects and add them to the TrainCar instance. (TrainCar itself should need NO modification to accommodate Electronics, why?) You should only need to modify a few lines of code of your test program to construct a TrainCar instance that now has Fords and Electronics packed.</p>
+                <br>
+
+                <p><b><u>Task 3: Train.java and TrainMain.java</u></b></p>
+                <p>We are providing you with a starter <i>Train.java</i>. It has been documented using javadoc comments and you should look at these and (if it helps you) generate the doc for reference. We are also providing <i>FrontLoader.java</i> and <i>Loader.java</i>. FrontLoader.java is simple Loader algorithm. You should develop Train.java in steps. It’s important to reason about how the Loader is being used, how to add TrainCars to the Train instance, how to return the various Item [] and Item [][] arrays being asked for, computing total weight of the train, and the like.</p>
+                <br>
+
+                <p>TrainMain.java is testing program that requires Train, TrainCar, one or more classes the implement Loader, one or more classes that implement Item. It is pretty complete, but you need to read it. Like PR#2 you will turnin in some testing scenarios that use the commands defined in TrainMain.java. There are several lines marked FIXME in TrainMain.java -- these indicate places where, once you implement some other piece, you can remove the comments and enable some new functionality. For example, when you implement the Electronics class, you can then use the code in the electronics command to construct and load those items. The same goes for the different loaders.</p>
+                <br>
+                <p>TrainMain has several commands you can use; a few examples are in testinput1.txt:</p>
+                <br>
+                <ul>
+                    <li>manifest -- Prints out the number of cars, total train weight, and a summary for each car containing the number of items and total weight (using the methods you implement to get this information, so if you haven’t implemented one of the appropriate methods, the wrong information will print)</li>
+                    <li>manifest n -- Prints out all the items in the car at index n</li>
+                    <li>add-cars n w -- Adds n cars each with weight capacity w to the train</li>
+                    <li>electronics desc w n -- Attempts to load n electronics items, each with weight w and description desc (you can enable this once you implement Electronics)</li>
+                    <li>ford model n -- Attempts to load n Fords of the given model onto the train, each with the given model</li>
+                </ul>
+                <br>
+
+                <p>When TrainMain starts up, it prompts the user which of the four loaders they’d like to use. One of the given loader type is instantiated, and the Train constructor is called with the given loader. Initially, only FrontLoader is available; you can enable the other three as you implement them (see below for more on loaders).</p>
+                <br>
+                <p>We suggest the following order of development</p>
+                <ul>
+                    <li>Put in default values for the return of each existing method</li>
+                    <li>Implement/Debug the Train Constructor</li>
+                    <li>Implement/Debug addCars (test by just adding a single car)</li>
+                    <li>create and add some items to the Train (since it is a single car at stage is should behave just like adding items in Task 1).</li>
+                    <li>Implement/Debug the getContents(int car) method</li>
+                    <li>Implement/Debug the getWeight(int car) method</li>
+                    <li>Add multiple cars to the train.</li>
+                    <li>Create and add items to the Train. add enough items that the FrontLoader will have to eventually choose to load items into the second and third car.</li>
+                    <li>Verify that getContents/getWeight work for all cars</li>
+                    <li>Implement/Debug getWeight() - weight of all cargo</li>
+                    <li>Implement/Debug getContents() - All contents, car by car.</li>
+                </ul>
+                <br>
+                <p>Note that all of this testing is being done with just a single Loader algorithm, the FrontLoader. You should be able to manually verify the output.</p>
+                <br>
+
+                <p><b><u>Task 4: Develop three more Classes that implement Loader</u></b></p>
+                <p>There are three more classes that you are to define to implement different loaders</p>
+                <p>They are</p>
+                <ul>
+                    <li>RearLoader.java</li>
+                    <li>RoundRobinLoader.java</li>
+                    <li>FairLoader.java</li>
+                </ul>
+                <br>
+
+                <p>Since these are just “strategies” for which car to choose when loading, they each have different goals. Note that Train.java, TrainCar.java, Item.java, Ford.java, Automobile.java. Electronics.java do not have to change at all as you create new classes that implement Loader. In our setup only TrainMain.java needs to know how to create a specific Loader and then instantiate a Train with that loader. Please re-read this paragraph, understanding why this works (via runtime polymorphism) is key to gaining insight into a key feature of any object-oriented language.</p>
+                <br>
+
+                <p>The following gives rules/examples of how each Loader strategy fills a train. For this example:</p>
+                <p>Train has 5 cars, Cars have the following weight Capacities:</p>
+    <pre>
+    0: 10 KG
+    1: 8 KG
+    2: 6 KG
+    3: 4 KG
+    4: 3 KG
+    </pre>
+                <br>
+
+                <p>We will load Items A-Z, in that order. All items are 3KG in weight. The train has a maximum capacity of 31 KG.</p>
+                <br>
+
+                <p><b>RearLoader -- Loads from rear of the Train first</b></p>
+                <p>Loading A - Z (we cannot load all), the train will loaded as follows. This is the output from a simple test program that loads electronics classes into a train with cargo capacities above</p>
+                <br>
+    <pre>
+    === Train Weighs 27.000000 KG ===
+    ==== CAR 0 (9.000000 KG) ====
+    Electronics: G (3.000000 KG)
+    Electronics: H (3.000000 KG)
+    Electronics: I (3.000000 KG)
+    ==== CAR 1 (6.000000 KG) ====
+    Electronics: E (3.000000 KG)
+    Electronics: F (3.000000 KG)
+    ==== CAR 2 (6.000000 KG) ====
+    Electronics: C (3.000000 KG)
+    Electronics: D (3.000000 KG)
+    ==== CAR 3 (3.000000 KG) ====
+    Electronics: B (3.000000 KG)
+    ==== CAR 4 (3.000000 KG) ====
+    Electronics: A (3.000000 KG)
+    </pre>
+                <br>
+
+                <p><b>RoundRobinLoader</b> ​-- Starting from the front it loads the first item in car 0, next item in car 1, ... when it gets to car 4, the next car loaded is 0. If there is no capacity in the car that should be next, it keeps trying in round-robin fashion until it exhausts all possibilities. The RoundRobinLoader must remember the last car it selected for chooseCar. Below is output of one of our simple test programs that is loading electronics using the RoundRobinLoader</p>
+                <br>
+    <pre>
+    == Train Weighs 27.000000 KG ===
+    ==== CAR 0 (9.000000 KG) ====
+    Electronics: A (3.000000 KG)
+    Electronics: F (3.000000 KG)
+    Electronics: I (3.000000 KG)
+    ==== CAR 1 (6.000000 KG) ====
+    Electronics: B (3.000000 KG)
+    Electronics: G (3.000000 KG)
+    ==== CAR 2 (6.000000 KG) ====
+    Electronics: C (3.000000 KG)
+    Electronics: H (3.000000 KG)
+    ==== CAR 3 (3.000000 KG) ====
+    Electronics: D (3.000000 KG)
+    ==== CAR 4 (3.000000 KG) ====
+    Electronics: E (3.000000 KG)
+    </pre>
+                <br>
+
+                <p>FairLoader - ​Each time chooseCar is invoked, FairLoader starts at the front of the train (car 0) and finds the first least-loaded car in which the cargo will also fit. In the example A-Z and cars, FairLoader will give the identical results as RoundRobinLoader. However, that is not always True. Suppose we now load a sequence of items:</p>
+                <p>A, A1, B, B1, C, C1, D, D1, E, E1, F, F1,....</p>
+                <p>Where the “1” versions of the items are 1KG, but we have the same Car capacity as before. In our test program that generated the following output, it stopped adding items the first time it encountered an item that would not fit in any car.</p>
+            </div>
+
+            <div class="section">
+                <h2>Implementation Details</h2>
+
+            </div>
+        </div>
+    </body>
+</html>

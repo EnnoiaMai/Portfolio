@@ -74,11 +74,9 @@ Date Created: December 2017
 }
 #submenu_links ul li {
     padding-left: 24px;
-    /* border: 1px dashed red; */
 }
 #submenu_links ul li a {
     font-size: 1.0rem;
-    /* border: 1px dashed green; */
 }
 
 /*------------------------ Background Color of Links -------------------------*/

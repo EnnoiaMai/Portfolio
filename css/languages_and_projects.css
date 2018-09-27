@@ -7,10 +7,7 @@ Date Created: December 2017
 * {
     padding: 0px;
     margin: 0px;
-    /* font-family: 'Alegreya Sans', "Times New Roman", Arial, sans-serif; */
     box-sizing: border-box;
-    /* font-family: 'Source Sans Pro', sans-serif; */
-    /* font-family: 'Open Sans', sans-serif; */
 }
 body {
     min-width: 320px;
@@ -42,6 +39,13 @@ body {
     -webkit-animation: content-gradient 30s ease infinite;
     -moz-animation: content-gradient 30s ease infinite;
     animation: content-gradient 30s ease infinite;
+}
+/* Only do animation of heading when on mobile */
+#content_header_project h1 {
+    opacity: 1;
+    /* -webkit-animation: alternating-opacity 30s linear infinite;
+    -moz-animation: alternating-opacity 30s linear infinite;
+    animation: alternating-opacity 30s linear infinite; */
 }
 #content_header_languages {
     color: #FFF;
@@ -79,89 +83,78 @@ body {
     -moz-animation: night-orbit 30s linear infinite;
     -webkit-animation: night-orbit 30s linear infinite;
 }
-
+/* sun and moon images */
 #content > div > img {
     width: 100%;
     height: 100%;
 }
 
-/*------------------------- CONTENT HEADER ANIMATION -------------------------*/
+/*------------------------- TRANSITIONS AND ANIMATIONS -------------------------*/
 /* Gradient */
 @keyframes content-gradient {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
 }
 @-moz-keyframes content-gradient {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
 }
 @-webkit-keyframes content-gradient {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
 }
 
 /* Orbiting of the sun */
 @keyframes day-orbit {
-    0% {
-        transform: rotate(0deg) translate(240px, 0px) rotate(0deg);
-    }
-    100% {
-        transform: rotate(-360deg) translate(240px, 0px) rotate(360deg);
-    }
+    0% { transform: rotate(0deg) translate(240px, 0px) rotate(0deg); }
+    100% { transform: rotate(-360deg) translate(240px, 0px) rotate(360deg); }
 }
 @-moz-keyframes day-orbit {
-    0% {
-        -moz-transform: rotate(0deg) translate(240px, 0px) rotate(0deg);
-    }
-    100% {
-        -moz-transform: rotate(-360deg) translate(240px, 0px) rotate(360deg);
-    }
+    0% { -moz-transform: rotate(0deg) translate(240px, 0px) rotate(0deg); }
+    100% { -moz-transform: rotate(-360deg) translate(240px, 0px) rotate(360deg); }
 }
 @-webkit-keyframes day-orbit {
-    0% {
-        -webkit-transform: rotate(0deg) translate(240px, 0px) rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(-360deg) translate(240px, 0px) rotate(360deg);
-    }
+    0% { -webkit-transform: rotate(0deg) translate(240px, 0px) rotate(0deg); }
+    100% { -webkit-transform: rotate(-360deg) translate(240px, 0px) rotate(360deg); }
 }
 
 /* Orbiting of the moon */
 @keyframes night-orbit {
-    0% {
-        transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
-    }
-    100% {
-        transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
-    }
+    0% { transform: rotate(0deg) translate(-240px, 0px) rotate(0deg); }
+    100% { transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg); }
 }
 @-moz-keyframes night-orbit {
-    0% {
-        -moz-transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
-    }
-    100% {
-        -moz-transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
-    }
+    0% { -moz-transform: rotate(0deg) translate(-240px, 0px) rotate(0deg); }
+    100% { -moz-transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg); }
 }
 @-webkit-keyframes night-orbit {
-    0% {
-        -webkit-transform: rotate(0deg) translate(-240px, 0px) rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg);
-    }
+    0% { -webkit-transform: rotate(0deg) translate(-240px, 0px) rotate(0deg); }
+    100% { -webkit-transform: rotate(-360deg) translate(-240px, 0px) rotate(360deg); }
+}
+
+/* Disappearance and reappearance of "Project" heading */
+@keyframes alternating-opacity {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    40% { opacity: 1; }
+    50% { opacity: 0; }
+    60% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@-moz-keyframes alternating-opacity {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    50% { opacity: 0; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@-webkit-keyframes alternating-opacity {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    50% { opacity: 0; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 
@@ -170,35 +163,31 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* margin: 48px auto 0px; */
-    /* padding: 8px 8px 48px 8px; */
     padding: 48px 120px 48px;
-
-    /* border: 1px solid red; */
-    /* border: 1px dashed red; */
 }
 #projects_list {
     background-color: #FFF;
     position: relative;
     z-index: 10;
 }
+/* Project Titles */
 #projects_list > div > h2 {
     text-align: center;
     padding: 12px;
-    /* border: 1px dashed black; */
 }
 
 /*------------------- Width for each column list initially -------------------*/
 #projects_list > div, #languages_list > div {
     width: 50%;
     padding: 12px;
-    /* border: 1px dashed purple; */
+}
+#projects_list > div:first-child, #languages_list > div:first-child {
+    border-right: 1px solid #BBB;
 }
 
 /*---------------------- Lists and links for Languages -----------------------*/
 #projects_list > div > ul, #languages_list > div > ul {
     list-style-type: none;
-    /* border: 1px dashed green; */
 }
 #languages_list > div > ul a {
     color: #000;
@@ -222,33 +211,19 @@ body {
     -moz-transition-duration: 500ms;
     transition-duration: 500ms;
 }
-
-/*---------------------- Hovering over links both lists ----------------------*/
-#languages_list > div > ul a:hover, #projects_list table td > a:hover {
+#projects_list table td > a:hover, #languages_list > div > ul a:hover {
     color: rgba(231, 123, 27, 1.0);
     text-decoration-color: rgba(231, 123, 27, 1.0);
-    /* color: #6A0000; */
-    /* text-decoration-color: #6A0000; */
     -webkit-transition-duration: 500ms;
     -moz-transition-duration: 500ms;
     transition-duration: 500ms;
 }
-#languages_list > div > ul a:visited, #projects_list table td > a:visited {
-    /* color: #000; */
-}
-#languages_list > div:first-child, #projects_list > div:first-child {
-    /* padding-right: 12px; */
-    border-right: 1px solid #BBB;
-}
-/* #languages_list > div, #projects_list > div {
-    padding: 12px;
-} */
 
 /*================================= PROJECTS =================================*/
 /*------------------- Margin-top for each heading initially ------------------*/
-#python_scripts_heading {
+/* #python_scripts_heading {
     margin-top: 0px;
-}
+} */
 #mobile_applications_heading, #bash_scripts_heading {
     margin-top: 24px;
 }
@@ -257,26 +232,18 @@ body {
 #projects_list table {
     width: 100%;
     border-collapse: collapse;
-    /* border: 1px solid blue; */
 }
 #projects_list table tr td {
     padding-top: 4px;
     padding-bottom: 4px;
-    /* border: 1px solid red; */
 }
-
 #projects_list table tr td:first-child {
     width: 70%;
 }
-
 #projects_list table tr td > a {
     display: inline-block;
     margin-left: 8px;
     vertical-align: text-top;
-    /* border: 1px dashed green; */
-}
-#projects_list table tr td > a i {
-    /* border: 1px dashed blue; */
 }
 
 /*================================= ICONS =================================*/
@@ -301,13 +268,7 @@ body {
     display: inline-block;
     margin-left: 8px;
     vertical-align: text-top;
-    /* border: 1px dashed brown; */
 }
-.external_link_container img {
-    /* border: 1px dashed red; */
-}
-
-/*========================= TRANSITIONS AND ANIMATIONS ===============================*/
 
 
 /*==============================================================================
@@ -317,23 +278,32 @@ body {
 
 
 ==============================================================================*/
-
 @media screen and (max-width:880px) {
+    /* Change list direction to column */
     #projects_list, #languages_list {
         flex-direction: column;
-        padding: 48px 48px 48px;
+        padding: 48px 24px 48px;
     }
     #projects_list > div, #languages_list > div {
         width: 100%;
     }
+    /* Get rid of vertical line in the middle */
     #languages_list > div:first-child, #projects_list > div:first-child {
         padding-right: 0px;
         border-right: none;
     }
+    /* Add spacing to python heading now that direction is column */
     #python_scripts_heading {
         margin-top: 24px;
     }
 
+    /* Decrease font size */
+    #content_header_project h1 {
+        font-size: 1.5em;
+    }
+    #content_header_languages h1 {
+        font-size: 1.5em;
+    }
     #languages_list > div > ul a {
         font-size: 96%;
     }
@@ -341,8 +311,19 @@ body {
         font-size: 0.96em;
     }
 
+    /* Decrease size of sun and moon */
     #content > div > img {
         width: 50%;
         height: 50%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    #content_header_project h1 {
+        opacity: 0;
+        -webkit-animation: alternating-opacity 30s linear infinite;
+        -moz-animation: alternating-opacity 30s linear infinite;
+        animation: alternating-opacity 30s linear infinite;
     }
 }
