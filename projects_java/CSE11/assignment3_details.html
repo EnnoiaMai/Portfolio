@@ -289,9 +289,67 @@ Date Created: September 2018
     </pre>
                 <br>
 
-                <p>FairLoader - ​Each time chooseCar is invoked, FairLoader starts at the front of the train (car 0) and finds the first least-loaded car in which the cargo will also fit. In the example A-Z and cars, FairLoader will give the identical results as RoundRobinLoader. However, that is not always True. Suppose we now load a sequence of items:</p>
+                <p><b>FairLoader</b> - ​Each time chooseCar is invoked, FairLoader starts at the front of the train (car 0) and finds the first least-loaded car in which the cargo will also fit. In the example A-Z and cars, FairLoader will give the identical results as RoundRobinLoader. However, that is not always True. Suppose we now load a sequence of items:</p>
                 <p>A, A1, B, B1, C, C1, D, D1, E, E1, F, F1,....</p>
                 <p>Where the “1” versions of the items are 1KG, but we have the same Car capacity as before. In our test program that generated the following output, it stopped adding items the first time it encountered an item that would not fit in any car.</p>
+                <br>
+
+                <pre>
+                <b>RoundRobinLoader</b>
+                === Train Weighs 28.000000 KG ===
+                ==== CAR 0 (8.000000 KG) ====
+                Electronics: A (3.000000 KG)
+                Electronics: C1 (1.000000 KG)
+                Electronics: E1 (1.000000 KG)
+                Electronics: G (3.000000 KG)
+                ==== CAR 1 (8.000000 KG) ====
+                Electronics: A1 (1.000000 KG)
+                Electronics: D (3.000000 KG)
+                Electronics: F (3.000000 KG)
+                Electronics: G1 (1.000000 KG)
+                ==== CAR 2 (5.000000 KG) ====
+                Electronics: B (3.000000 KG)
+                Electronics: D1 (1.000000 KG)
+                Electronics: F1 (1.000000 KG)
+                ==== CAR 3 (4.000000 KG) ====
+                Electronics: B1 (1.000000 KG)
+                Electronics: E (3.000000 KG)
+                ==== CAR 4 (3.000000 KG) ====
+                Electronics: C (3.000000 KG)
+
+                <b>FairLoader</b>
+                === Train Weighs 31.000000 KG ===
+                ==== CAR 0 (10.000000 KG) ====
+                Electronics: A (3.000000 KG)
+                Electronics: E (3.000000 KG)
+                Electronics: G1 (1.000000 KG)
+                Electronics: H (3.000000 KG)
+                ==== CAR 1 (8.000000 KG) ====
+                Electronics: A1 (1.000000 KG)
+                Electronics: C1 (1.000000 KG)
+                Electronics: D1 (1.000000 KG)
+                Electronics: E1 (1.000000 KG)
+                Electronics: F1 (1.000000 KG)
+                Electronics: G (3.000000 KG)
+                ==== CAR 2 (6.000000 KG) ====
+                Electronics: B (3.000000 KG)
+                Electronics: F (3.000000 KG)
+                ==== CAR 3 (4.000000 KG) ====
+                Electronics: B1 (1.000000 KG)
+                Electronics: D (3.000000 KG)
+                ==== CAR 4 (3.000000 KG) ====
+                Electronics: C (3.000000 KG)
+                </pre>
+                <br>
+
+                <p>Hint: Think about what you need to calculate each time FairLoader is trying to figure out which car should be loaded. One way to go about this is to create an array of current car weights. Then walk through the array of TrainCars passed to chooseCar and determine if the item could be loaded into the car, If so, record the current weight of the car (what method would you invoke on a TrainCar instance to determine current weight and ability to load? -- USE those methods). If it could not be loaded, record a nonsense weight. With that in hand, you can then walk the array of weights looking for the minimum weight that isn’t nonsense. Record the index of that minimum weight, and you have found your car. Remember to take care of the case when the item fits in no car.</p>
+                <br>
+
+                <p><b><u>TASK 5 : Test Cases</u></b></p>
+                <p>Just as in PR2, you will use input and output files, along with TrainMain.java, to test your program. The script is slightly smarter this time, and will trim beginning and ending whitespace from both before comparing. Submit exactly 5 different test files (testinput1.txt through testinput5.txt) with corresponding expected outputs (testoutput1.txt through testoutput5.txt).</p>
+                <br>
+                <p>To emphasize: The goal of this part of the assignment is for you to practice writing code that helps you in debugging. A good test should have a known outcome that you can verify​.</p>
+
             </div>
 
             <div class="section">

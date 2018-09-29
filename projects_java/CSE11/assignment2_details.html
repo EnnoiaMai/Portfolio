@@ -265,7 +265,372 @@ Date Created: September 2018
 
             <div class="section">
                 <h2>Implementation Details</h2>
+                <p class="applicable_files">DoubleArray11.java</p>
+                <br>
+                <p><b>Constructors</b></p>
+                <p>1) The default constructor without any arguments will initialize the instance variable <i>internal</i> to a new array of doubles with no elements, <i>size</i> to 0, and will increment the class variable nArray.</p>
+                <br>
+                <p>2) The other constructor with argument capacity of type int, will initialize <i>internal</i> as a new array of doubles whose size is the capacity.</p>
+                <br>
+                <p>3) The third constructor which takes an array of type double will copy the elements in that array into <i>internal</i>.</p>
+                <br>
+                <p><b>Note</b> that the constant EXPANSION is used whenever a new expanded array is needed due to appending or inserting. The new array will have a size of the current size added to the constant, which was arbitrarily set at 10.</p>
+                <br>
+    <pre><code class="language-java">
+    public class DoubleArray11 {
 
+        public final int EXPANSION = 10;
+        ...
+        public DoubleArray11() {
+            internal = new double[0];
+            size = 0;
+            nArrays += 1;
+        }
+
+        public DoubleArray11(int capacity) {
+            internal = new double[capacity];
+            size = 0;
+            nArrays += 1;
+        }
+
+        public DoubleArray11(double[] dArray) {
+            size = dArray.length;
+            internal = new double[dArray.length];
+            for (int i = 0; i < dArray.length; ++i) {
+                internal[i] = dArray[i]
+            }
+            nArrays += 1;
+        }
+    }
+    </code></pre>
+                <br>
+                <p><span class="code_method">toString()</span> - makes a String representation of the elements of the internal array.</p>
+                <br>
+
+                <p><b>Getters and Setters</b></p>
+                <p><span class="code_method">getSize()</span> - returns number of elements in array by returning instance variable <i>size</i></p>
+                <br>
+                <p><span class="code_method">getCapacity()</span> - returns capacity of internally stored array by returning <i>internal.length</i></p>
+                <br>
+                <p><span class="code_method">getNArrays()</span> - returns instance variable nArray, which was incremented every time any of the constructors of the class was called.</p>
+                <br>
+                <p><span class="code_method">getElement(int index)</span> - returns element at the valid index. If invalid, returns Double.NaN</p>
+                <br>
+    <pre><code class="language-java">
+    public double getElement(int index) {
+        if ( (index >= 0) && (index <= (size - 1)) &&
+            (size > 0) && (internal != null) ) {
+
+            return internal[index];
+        }
+        else {
+            return Double.NaN;
+        }
+    }
+    </code></pre>
+                <br>
+
+                <p><span class="code_method">getArray()</span> - retrieves a copy of the internal stored array, note that this is a deep copy.</p>
+                <br>
+    <pre><code class="language-java">
+    public double[] getArray() {
+        double[] toReturn = new double[size];
+        for (int i = 0; i < size; ++i) {
+            toReturn[i] = internal[i];
+        }
+        return toReturn;
+    }
+    </code></pre>
+                <br>
+
+                <p><span class="code_method">setElement()</span> - sets value of an element in the internal array</p>
+                <br>
+    <pre><code class="language-java">
+    public boolean setElement(int index, double element) {
+        if ( (index >= 0) && (index <= (size - 1)) &&
+            (size > 0) && (internal != null) ) {
+            internal[index] = element;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    </code></pre>
+                <br>
+
+                <p><b>Array manipulation methods</b></p>
+                <ul>
+                    <li><span class="code_method">append(double element)</span> - appends the element given as the argument to the end of the array. Returns true if operation is successful. If internal array has no more capacity, then creates a new internal array.</li>
+                    <br>
+                    <li><span class="code_method">delete(int index)</span> - deletes an element at the index given as the argument. Returns true if operation was successful.</li>
+                    <br>
+                    <li><span class="code_method">insert(int index, double element)</span> - inserts an element to the array at the specified index. Expands capacity of internal array if needed. Returns true if operation was successful.</li>
+                    <br>
+                    <li><span class="code_method">reverse()</span> - reverses the order of the first size elements in the internal array</li>
+                    <br>
+                    <li><span class="code_method">reverse(int start, int end)</span> - reverses the order of the elements in the array from start to end, specified in the arguments. Valid indices are [0, (size - 1)], and start can be larger, smaller, or equal to end. Returns true if start and end index are valid.</li>
+                    <br>
+                    <li><span class="code_method">swap(int index1, int index2)</span> - swaps two elements in the array. Returns true if index1 and index2 are valid.</li>
+                    <br>
+                    <li><span class="code_method">min()</span> - returns the minimum value of the elements in the array. If there are no elements, returns Double.NaN</li>
+                    <br>
+                    <li><span class="code_method">max()</span> - returns the maximum value of the elements in the array. If there are no elements, returns Double.NaN</li>
+                </ul>
+                <br>
+    <pre><code class="language-java">
+    public boolean append(double element) {
+        if (internal != null) {
+            if ( (internal.length <= size) || (size == 0) ) {
+                internal = newExpandedArray(size + EXPANSION);
+            }
+            internal[size] = element;
+            size += 1;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean delete(int index) {
+        if ( (index >= 0) && (index <= (size - 1)) &&
+            (size > 0) && (internal != null) ) {
+            internal = newDeletedArray(index);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean insert(int index, double element) {
+        if ( (index >= 0) && (index <= size) &&
+            (internal != null) ) {
+            if ( (size == 0) || (index == size) ) {
+                append(element);
+                return true;
+            }
+            else {
+                if (size == internal.length) {
+                    internal = newExpandedArray(size + EXPANSION);
+                }
+                internal = newInsertedArray(index, element);
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
+    public void reverse() {
+        for (int i = 0; i < (size / 2); ++i) {
+            double temp = internal[i];
+            internal[i] = internal[(size - 1) - i];
+            internal[(size - 1) - i] = temp;
+        }
+    }
+
+    public boolean reverse(int start, int end) {
+        if ( (start >= 0) && (start <= (size - 1)) &&
+            (end >= 0) && (end <= (size - 1)) &&
+            (size > 0) && (internal != null) ) {
+
+            // if size is only 1, or start and end indices are
+            // the same, return true without changes
+            if ( (size == 1) || (start == end) ) {
+                return true;
+            }
+
+            // Sort so that the smaller number index is at start
+            int startIndex = 0;
+            int endIndex = 0;
+            if (start <= end) {
+                startIndex = start;
+                endIndex = end;
+            }
+            else {
+                startIndex = end;
+                endIndex = start;
+            }
+
+            // Range is relative
+            int rangeSize = ((endIndex - startIndex) + 1);
+            for (int i = startIndex; i < (startIndex +
+                (rangeSize / 2)); ++i) {
+                double temp = internal[i];
+                internal[i] = internal[endIndex - (i - startIndex)];
+                internal[endIndex - (i - startIndex)] = temp;
+            }
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean swap(int index1, int index2) {
+        if ( (index1 >= 0) && (index1 < size) &&
+            (index2 >= 0) && (index2 < size) &&
+            (size > 1) && (internal != null) ) {
+            if (index1 == index2) {
+                return true;
+            }
+
+            double tempValue = internal[index1];
+            internal[index1] = internal[index2];
+            internal[index2] = tempValue;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public double min() {
+        if (size > 0) {
+            double minimum = internal[0];
+            for (int i = 1; i < size; ++ i) {
+                if (internal[i] < minimum) {
+                    minimum = internal[i];
+                }
+            }
+            return minimum;
+        }
+        else {
+            return Double.NaN;
+        }
+    }
+
+    public double max() {
+        if (size > 0) {
+            double maximum = internal[0];
+            for (int i = 1; i < size; ++ i) {
+                if (internal[i] < maximum) {
+                    maximum = internal[i];
+                }
+            }
+            return maximum;
+        }
+        else {
+            return Double.NaN;
+        }
+    }
+    </code></pre>
+                <br>
+
+                <p>The following are private helper methods that the public methods call. More specifically, the append method calls <i>newExpandedArray()</i>, the delete method calls <i>newDeletedArray()</i>, and the insert method calls <i>newInsertedArray()</i>.</p>
+                <br>
+                <ul>
+                    <li><span class="code_method">newExpandedArray()</span> - if the internal array's size has reached the capacity, this method expands that capacity.</li>
+                    <br>
+                    <li><span class="code_method">newDeletedArray()</span> - copies the elements of the internal array to a new array up until the index argument is reached. When it is reached, an iteration is skipped. Because the iteration was skipped, the subsequent elements of the internal array are set to the new array at the previous index. Before the method returns the new array of doubles, <i>size</i> is decremented.</li>
+                    <br>
+                    <li><span class="code_method">newInsertedArray()</span> - copies the elements of the internal array to a new array up until the index argument is reached. When it is reached, the new element is inserted at that position. The elements of the internal array are reached by using the previous iteration, which are then set to the new array at the current iteration. Before the method returns the new array of doubles, <i>size</i> is decremented.</li>
+                </ul>
+                <br>
+    <pre><code class="language-java">
+    private double[] newExpandedArray(int newSize) {
+        double[] expandedArray = new double[newSize];
+        for (int i = 0; i < size; ++i) {
+            expandedArray[i] = internal[i];
+        }
+        return expandedArray;
+    }
+
+    private double[] newDeletedArray(int index) {
+        double[] deletedArray = new double[size];
+        for (int i = 0; i < size; ++i) {
+            if (i == index) {
+                continue;
+            }
+            else if (i < index) {
+                deletedArray[i - 1] = internal[i];
+            }
+            else {
+                deletedArray[i] = internal[i];
+            }
+        }
+        size -= 1;
+        return deletedArray;
+    }
+
+    private double[] newInsertedArray(int index, double element) {
+        double[] insertedArray = new double[size + 1];
+        for (int i = 0; i < (size + 1); ++i) {
+            if (i == index) {
+                insertedArray[i] = element;
+            }
+            else if (i > index) {
+                insertedArray[i] = internal[i - 1];
+            }
+            else {
+                insertedArray[i] = internal[i];
+            }
+        }
+        size += 1;
+        return insertedArray;
+    }
+    </code></pre>
+                <br>
+
+                <p class="applicable_files">DoubleArrayMain.java</p>
+                <p>This class contains methods that check that the input from the user has the correct number of arguments, and that the arguments are of the correct type depending on the command. It also contains methods that describe to the user what commands he or she can input, and how to input those commands.</p>
+                <br>
+    <pre><code class="language-java">
+    // Example of methods checking for bad usage
+    private boolean checkBadCreateUsage(String[] parts) {
+        return parts.length != 2 || !isInt(parts[1]);
+    }
+    ...
+
+    // Example of methods pringing usage
+    private void printCreateUsage() {
+        System.out.println("Usage: create n\n Creates a new array with
+            capacity n; n must be a number");
+    }
+    ...
+    </code></pre>
+                <br>
+
+                <p><span class="code_method">runInterpreter()</span> - the method that manages runs the bulk of the functionality. After getting the user input from the command line, it splits the String by detecting whitespace. It then checks equality of the String value of each part of the array to predetermined commands, and also checks that the arguments are of the expected type.</p>
+                <br>
+    <pre><code class="language-java">
+    // Example of commands "create" and "append"
+    private void runInterpreter() {
+
+        DoubleArray11 currentArray = new DoubleArray11();
+        Scanner scan = new Scanner(System.in);
+        String cmd = "";
+
+        while (true) {
+            System.err.print("> ");
+            cmd = scan.nextLine();
+            String[] parts = cmd.split("\\s+");
+            if (parts.length == 0) { continue; }
+
+            switch (parts[0]) {
+                ...
+                case "create":
+                    if (checkBadCreateUsage(parts)) {
+                        printCreateUsage();
+                        continue;
+                    }
+                    currentArray = new DoubleArray11(Integer.parseInt(parts[1]));
+                    continue;
+                case "append":
+                    if (checkBadAppendUsage(parts)) {
+                        printAppendUsage();
+                        continue;
+                    }
+                    currentArray.append(Double.parseDouble(parts[1]));
+                    continue;
+                ...
+            }
+        }
+    }
+    </code></pre>
             </div>
         </div>
     </body>
