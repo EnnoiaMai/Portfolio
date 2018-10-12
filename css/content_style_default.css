@@ -397,6 +397,29 @@ Date Created: December 2017
 }
 
 
+.flex_table_row_1_1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px dashed purple; */
+}
+.flex_table_row_1_1 > div {
+    display: flex;
+    flex-direction: row;
+}
+.flex_table_row_1_1 > div> div:nth-of-type(1) {
+    flex-basis: 50%;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    padding: 8px 16px;
+}
+.flex_table_row_1_1 > div> div:nth-of-type(2) {
+    flex-basis: 50%;
+    justify-content: flex-start;
+    padding: 8px 16px;
+    overflow: auto;
+}
+
 @media screen and (max-width: 992px) {
     .section p, .section li, .section td {
         font-size: 0.9em;
@@ -409,20 +432,28 @@ Date Created: December 2017
         padding-left: 16px;
         padding-right: 16px;
     }
+    #navigation_header {
+        justify-content: flex-start;
+    }
+    #navigation_header h1 {
+        font-size: 1.4em;
+        margin-left: 16px;
+        /* align-self: flex-start; */
+    }
 
-    .flex_table_row_3_7 > div {
+    .flex_table_row_3_7 > div, .flex_table_row_1_1 > div {
         flex-direction: column;
     }
-    .flex_table_row_3_7 > div> div:nth-of-type(1) {
+    .flex_table_row_3_7 > div> div:nth-of-type(1), .flex_table_row_1_1 > div > div:nth-of-type(1) {
         /* flex-basis: 100%; */
         /* justify-content: flex-start; */
         background-color: #E4EAED;
         align-items: flex-start;
         /* flex-shrink: 0; */
-        font-weight: bold;
+        /* font-weight: bold; */
         padding: 8px 16px;
     }
-    .flex_table_row_3_7 > div> div:nth-of-type(2) {
+    .flex_table_row_3_7 > div> div:nth-of-type(2), .flex_table_row_1_1 > div > div:nth-of-type(2) {
         /* flex-basis: 70%; */
         /* justify-content: flex-start; */
         align-items: flex-start;
@@ -441,7 +472,8 @@ Date Created: December 2017
         font-size: 0.8em;
     }
 
-    .flex_table_row_3_7 > div> div:nth-of-type(1), .flex_table_row_3_7 > div> div:nth-of-type(2) {
+    .flex_table_row_3_7 > div> div:nth-of-type(1), .flex_table_row_3_7 > div> div:nth-of-type(2),
+    .flex_table_row_1_1 > div > div:nth-of-type(1), .flex_table_row_1_1 > div > div:nth-of-type(2) {
         font-size: 0.8em;
     }
 

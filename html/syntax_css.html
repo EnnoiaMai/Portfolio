@@ -33,7 +33,7 @@ Date Created: December 2017
                 <div id="submenu">
                     <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
                     <div>
-                        <img src="../images/ic_arrow_drop_up_white_36dp_1x.png" alt="open">
+                        <img src="../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
                     </div>
                 </div>
                 <li id="submenu_links">
@@ -80,35 +80,35 @@ Date Created: December 2017
                 <h2>CSS</h2>
                 <p><span class="definition">CSS (Cascading Style Sheets)</span>: style sheets that describe the look or format of a document. It adds style or appearance to HTML.</p>
                 <br>
-                <table>
-                    <tr>
-                        <th colspan="2">3 Ways to define style sheets</th>
-                    </tr>
-                    <tr>
-                        <td>External Style sheets</td>
-                        <td>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div colspan="2">3 Ways to define style sheets</div>
+                    </div>
+                    <div>
+                        <div>External Style sheets</div>
+                        <div>
 <pre><code class="language-markup">
 &lt;link rel="stylesheet" type="text/css" href="mycssfile.css"&gt;
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Internal Style sheets</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Internal Style sheets</div>
+                        <div>
 <pre><code class="language-markup">
 &lt;style&gt;h1 {color: blue; }&lt;&frasl;style&gt;
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Inline</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Inline</div>
+                        <div>
 <pre><code class="language-markup">
 &lt;h1 style="color: blue;"&gt;Header 1&lt;&frasl;style&gt;
 </code></pre>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
@@ -127,143 +127,144 @@ Selector1, Selector2, ... {
 
             <div class="section">
                 <h2>Selectors</h2>
-                <table class="table_1_to_1">
-                    <tr>
+                <div class="flex_table_row_1_1">
+                    <!-- <tr>
                         <th>Selector</th>
                         <th>Code</th>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">ID Selector</span>: one-of-a-kind thing, gives specific id to element to target.</td>
-                <td>
+                    </tr> -->
+                    <div>
+                        <div><span class="definition">ID Selector</span>: one-of-a-kind thing, gives specific id to element to target.</div>
+                        <div>
 <pre><code class="language-css">
 #id {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Class Selector</span>: rules that apply to a group of elements, for mass changes. When applying multiple classes to an element, if the same properties are set, then the last class (most recent) in the css file will override that property.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Class Selector</span>: rules that apply to a group of elements, for mass changes. When applying multiple classes to an element, if the same properties are set, then the last class (most recent) in the css file will override that property.</div>
+                        <div>
 <pre><code class="language-css">
 .class {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Tag Selector</span>: selects all elements of a certain tag.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Tag Selector</span>: selects all elements of a certain tag.</div>
+                        <div>
 <pre><code class="language-css">
 tag {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Descendant Selectors</span>: steps down the HTML tree and applies it to selectors within a specific path.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Descendant Selectors</span>: steps down the HTML tree and applies it to selectors within a specific path.</div>
+                        <div>
 <pre><code class="language-css">
 div li a {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Child Selector</span>: selects direct child of an element.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Child Selector</span>: selects direct child of an element.</div>
+                        <div>
 <pre><code class="language-css">
 selector>childElement {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Adjacent Sibling Selector</span>: chooses only the element's next sibling. More specifically, selects all elements placed immediately after the selector.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Adjacent Sibling Selector</span>: chooses only the element's next sibling. More specifically, selects all elements placed immediately after the selector.</div>
+                        <div>
 <pre><code class="language-css">
 selector+siblingElement {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">General Sibling Selector</span>: chooses all siblings of selected element. More specifically, selects all elements preceded by the selector.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">General Sibling Selector</span>: chooses all siblings of selected element. More specifically, selects all elements preceded by the selector.</div>
+                        <div>
 <pre><code class="language-css">
 selector~siblingElement {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Attribute Selector</span>: chooses elements with the attribute.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Attribute Selector</span>: chooses elements with the attribute.</div>
+                        <div>
 <pre><code class="language-css">
 selector[attribute] {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Attribute with Value Selector</span>: selects elements with attribute and specific value.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Attribute with Value Selector</span>: selects elements with attribute and specific value.</div>
+                        <div>
 <pre><code class="language-css">
 selector[attribute="value"] {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Attribute with Beginning Value</span>: selects element with attribute that begins with the value</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Attribute with Beginning Value</span>: selects element with attribute that begins with the value</div>
+                        <div>
 <pre><code class="language-css">
 selector[attribute^="value"] {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Attribute with Ending Value</span>: match any value that ends with a specific value</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Attribute with Ending Value</span>: match any value that ends with a specific value</div>
+                        <div>
 <pre><code class="language-css">
 selector[attribute$="value"] {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Attribute Containing Value</span>: selects a value anywhere within attribute value</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Attribute Containing Value</span>: selects a value anywhere within attribute value</div>
+                        <div>
 <pre><code class="language-css">
 selector[attribute*="value"] {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Wildcard Selector</span>: selects every element.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Wildcard Selector</span>: selects every element.</div>
+                        <div>
 <pre><code class="language-css">
 * {
     property: value;
 }
 </code></pre>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
                 <br>
+
                 <p>If you are familiar with regular expressions, the use of ^ and $ are applied when filtering the values of the above attribute selectors.</p>
             </div>
 

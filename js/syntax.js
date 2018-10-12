@@ -10,9 +10,9 @@ $(document).ready(function() {
     initializeSidebar();
 
     // Initially toggle the submenu to show the syntax pages
-    if (!submenuToggled) {
-        toggleSubMenu();
-    }
+    // if (!submenuToggled) {
+    //     toggleSubMenu();
+    // }
 
     // Dynamically create the id for all the h2 tags and populate it in the directory div
     createIDForSections();
