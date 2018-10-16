@@ -36,7 +36,7 @@ Date Created: December 2017
                 <div id="submenu">
                     <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
                     <div>
-                        <img src="../images/ic_arrow_drop_up_white_36dp_1x.png" alt="open">
+                        <img src="../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
                     </div>
                 </div>
                 <li id="submenu_links">
@@ -357,79 +357,80 @@ ENDB;
             <div class="section">
                 <h2>Strings</h2>
 
-                <table>
-                    <tr>
-                        <th colspan="2">String Functions</th>
-                    </tr>
-                    <tr>
-                        <th>Function</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>strlen(<i>string</i>)</td>
-                        <td>Returns length of a string</td>
-                    </tr>
-                    <tr>
-                        <td>str_word_count(<i>string</i>)</td>
-                        <td>Counts number of words in a string</td>
-                    </tr>
-                    <tr>
-                        <td>strrev(<i>string</i>)</td>
-                        <td>Reverses a string.</td>
-                    </tr>
-                    <tr>
-                        <td>strpos(<i>string</i>, <i>string_to_search</i>)</td>
-                        <td>Searches for specific text within a string (case-sensitive). Returns character position of first match, otherwise returns FALSE.</td>
-                    </tr>
-                    <tr>
-                        <td>str_replace(<i>find</i>, <i>replace</i>, <i>string</i>, <i>count)</i></td>
-                        <td>Replaces some characters with other characters in a string. <i>count</i> counts the number of replacements and is optional.</td>
-                    </tr>
-                    <tr>
-                        <td>str_split(<i>string</i>, <i>length</i>)</td>
-                        <td>Splits a string into an array. <i>length</i> is optional, specifies length of each array element.</td>
-                    </tr>
-                    <tr>
-                        <td>parse_str(<i>string</i>, <i>array</i>)</td>
-                        <td>Parses a query string into variables. <i>array</i> is optional, parameter indicates that variables will be stored in an array.</td>
-                    </tr>
-                    <tr>
-                        <td>chop(<i>string</i>, <i>charlist</i>)</td>
-                        <td><i>charlist</i> is optional and specifies which characters to remove from string.</td>
-                    </tr>
-                    <tr>
-                        <td>trim(<i>string</i>, <i>charlist</i>)</td>
-                        <td>Removes whitespace or other characters from both sides of a string. <i>charlist</i> is optional and lists characters to remove from string.</td>
-                    </tr>
-                    <tr>
-                        <td>explode(<i>separator</i>, <i>string</i>, <i>limit</i>)</td>
-                        <td>Breaks string into an array. <i>separator</i> cannot be empty string. <i>limit</i> is optional and specifies number of array elements to return.</td>
-                    </tr>
-                    <tr>
-                        <td>implode(<i>separator</i>, <i>array</i>)</td>
-                        <td>Returns a string from the elements of an array. <i>separator</i> is optional (default is empty string).</td>
-                    </tr>
-                    <tr>
-                        <td>strcmp(<i>string1</i>, <i>string2</i>)</td>
-                        <td>Compares two strings(case-sensitive).
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>String Functions</div>
+                    </div>
+                    <div>
+                        <div>Function</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>strlen(<i>string</i>)</div>
+                        <div>Returns length of a string</div>
+                    </div>
+                    <div>
+                        <div>str_word_count(<i>string</i>)</div>
+                        <div>Counts number of words in a string</div>
+                    </div>
+                    <div>
+                        <div>strrev(<i>string</i>)</div>
+                        <div>Reverses a string.</div>
+                    </div>
+                    <div>
+                        <div>strpos(<i>string</i>, <i>string_to_search</i>)</div>
+                        <div>Searches for specific text within a string (case-sensitive). Returns character position of first match, otherwise returns FALSE.</div>
+                    </div>
+                    <div>
+                        <div>str_replace(<i>find</i>, <i>replace</i>, <i>string</i>, <i>count)</i></div>
+                        <div>Replaces some characters with other characters in a string. <i>count</i> counts the number of replacements and is optional.</div>
+                    </div>
+                    <div>
+                        <div>str_split(<i>string</i>, <i>length</i>)</div>
+                        <div>Splits a string into an array. <i>length</i> is optional, specifies length of each array element.</div>
+                    </div>
+                    <div>
+                        <div>parse_str(<i>string</i>, <i>array</i>)</div>
+                        <div>Parses a query string into variables. <i>array</i> is optional, parameter indicates that variables will be stored in an array.</div>
+                    </div>
+                    <div>
+                        <div>chop(<i>string</i>, <i>charlist</i>)</div>
+                        <div><i>charlist</i> is optional and specifies which characters to remove from string.</div>
+                    </div>
+                    <div>
+                        <div>trim(<i>string</i>, <i>charlist</i>)</div>
+                        <div>Removes whitespace or other characters from both sides of a string. <i>charlist</i> is optional and lists characters to remove from string.</div>
+                    </div>
+                    <div>
+                        <div>explode(<i>separator</i>, <i>string</i>, <i>limit</i>)</div>
+                        <div>Breaks string into an array. <i>separator</i> cannot be empty string. <i>limit</i> is optional and specifies number of array elements to return.</div>
+                    </div>
+                    <div>
+                        <div>implode(<i>separator</i>, <i>array</i>)</div>
+                        <div>Returns a string from the elements of an array. <i>separator</i> is optional (default is empty string).</div>
+                    </div>
+                    <div>
+                        <div>strcmp(<i>string1</i>, <i>string2</i>)</div>
+                        <div>Compares two strings(case-sensitive).
 <pre>
 Returns
 0 - if two strings equal
 &lt;0 - if string1 is less than string2
 &gt;0 - if string1 is greater than string2
 </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>strncmp(<i>string1</i>, <i>string2</i>, <i>length</i>)</td>
-                        <td>String comparison of first n characters (case-sensitive).</td>
-                    </tr>
-                    <tr>
-                        <td>substr(<i>string</i>, <i>offset</i>, <i>length</i>);</td>
-                        <td>Take the string, start at the offset which is an index, and take the length which is the number of characters.</td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                    <div>
+                        <div>strncmp(<i>string1</i>, <i>string2</i>, <i>length</i>)</div>
+                        <div>String comparison of first n characters (case-sensitive).</div>
+                    </div>
+                    <div>
+                        <div>substr(<i>string</i>, <i>offset</i>, <i>length</i>);</div>
+                        <div>Take the string, start at the offset which is an index, and take the length which is the number of characters.</div>
+                    </div>
+                </div>
                 <br>
+
                 <h4>Examples using Implode and Explode</h4>
 <pre><code class="language-php">
 // Example - Implode
@@ -469,40 +470,40 @@ $fruit[2];      // pears
                 <h2>Operators</h2>
                 <p><span class="definition">Precedence</span>: * and /, + and -. Use parentheses to make operators explicit.</p>
                 <br>
-                <table>
-                    <tr>
-                        <th>Operator</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>Arithmetic Operators</td>
-                        <td>+, -, *, /, %, **(exponentiation)</td>
-                    </tr>
-                    <tr>
-                        <td>Assignment operators</td>
-                        <td>=, +=, -=, *=, /=, %=</td>
-                    </tr>
-                    <tr>
-                        <td>Comparison operators</td>
-                        <td>==, ===, !=, &lt;&gt;(also not equal), !==, &gt;, &lt;, &gt;=, &lt;=</td>
-                    </tr>
-                    <tr>
-                        <td>Increment and Decrement operators</td>
-                        <td>++$x (pre-increment), $x++ (post-increment), --$x (pre-decrement), $x-- (post-decrement)</td>
-                    </tr>
-                    <tr>
-                        <td>Logical operators</td>
-                        <td>and, or, xor (exclusive or), &amp;&amp;, ||, !</td>
-                    </tr>
-                    <tr>
-                        <td>String operators</td>
-                        <td><b>.</b> (concatenation), <b>.=</b> (concatenation assignment)</td>
-                    </tr>
-                    <tr>
-                        <td>Array operators</td>
-                        <td>+ (union), ==, ===, !-, &lt;&gt;, !==</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Operator</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>Arithmetic Operators</div>
+                        <div>+, -, *, /, %, **(exponentiation)</div>
+                    </div>
+                    <div>
+                        <div>Assignment operators</div>
+                        <div>=, +=, -=, *=, /=, %=</div>
+                    </div>
+                    <div>
+                        <div>Comparison operators</div>
+                        <div>==, ===, !=, &lt;&gt;(also not equal), !==, &gt;, &lt;, &gt;=, &lt;=</div>
+                    </div>
+                    <div>
+                        <div>Increment and Decrement operators</div>
+                        <div>++$x (pre-increment), $x++ (post-increment), --$x (pre-decrement), $x-- (post-decrement)</div>
+                    </div>
+                    <div>
+                        <div>Logical operators</div>
+                        <div>and, or, xor (exclusive or), &amp;&amp;, ||, !</div>
+                    </div>
+                    <div>
+                        <div>String operators</div>
+                        <div><b>.</b> (concatenation), <b>.=</b> (concatenation assignment)</div>
+                    </div>
+                    <div>
+                        <div>Array operators</div>
+                        <div>+ (union), ==, ===, !-, &lt;&gt;, !==</div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
@@ -719,147 +720,147 @@ echo "pau paus are {$fruit[pau pau]}";
                 <h2>Array Methods</h2>
                 <p>The following are some of the methods available to manipulate arrays.</p>
                 <br>
-                <table>
-                    <tr>
-                        <th colspan="2">Array Methods</th>
-                    </tr>
-                    <tr>
-                        <th>Function</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td><p>array(<i>value1</i>, <i>value2</i>, ...)</p>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Array Methods</div>
+                    </div>
+                    <div>
+                        <div>Function</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div><p>array(<i>value1</i>, <i>value2</i>, ...)</p>
                             <p>array(<i>key</i>=><i>value</i>, <i>key</i>=><i>value</i>, ...)</p>
-                        </td>
-                        <td>Creates an indexed array or an associative array.</td>
-                    </tr>
-                    <tr>
-                        <td>count(<i>array</i>, <i>mode</i>)</td>
-                        <td><i>mode</i> is optional, if mode=1, then counts array recursively (for multidimensional arrays).</td>
-                    </tr>
-                    <tr>
-                        <td>current(<i>array</i>), next(<i>array</i>), prev(<i>array</i>), end(<i>array</i>), reset(<i>array</i>)</td>
-                        <td>Returns current element in array, moves the internal pointer to the current element to the next, to the previous, to the end, and to the beginning, respectively.</td>
-                    </tr>
-                    <tr>
-                        <td>each(<i>array</i>)</td>
-                        <td>Returns current element and key value, moves internal pointer forward.</td>
-                    </tr>
-                    <tr>
-                        <td>array_combine(<i>keys</i>, <i>values</i>)</td>
-                        <td>Creates an array by using elements from one "keys" array and one "values" array.</td>
-                    </tr>
-                    <tr>
-                        <td>array_count_values(<i>array</i>)</td>
-                        <td>Counts all values of an array. Returns associative array where keys are original values, and values are # of occurrences.</td>
-                    </tr>
-                    <tr>
-                        <td>array_diff(<i>array1</i>, <i>array2</i>, ...)</td>
-                        <td>Compares arrays and returns the differences (compares values only). Returns array1 with values not present in other arrays.</td>
-                    </tr>
-                    <tr>
-                        <td>array_fill(<i>index</i>, <i>number</i>, <i>value</i>)</td>
-                        <td>Fills an array with values.</td>
-                    </tr>
-                    <tr>
-                        <td>array_intersect(<i>array1</i>, <i>array2</i>, ...)</td>
-                        <td>Compare arrays, returns matches (compares values only).</td>
-                    </tr>
-                    <tr>
-                        <td>array_filter(<i>array</i>, <i>callbackfunction</i>)</td>
-                        <td>Filters values of an array using a callback function.</td>
-                    </tr>
-                    <tr>
-                        <td>array_map(<i>function</i>, <i>array1</i>, <i>array2</i>, ...)</td>
-                        <td>Sends each value to a function, returning array with new values.</td>
-                    </tr>
-                    <tr>
-                        <td>array_reduce(<i>array</i>, <i>function</i>, <i>initial</i>)</td>
-                        <td>Sends values in array to function and returns a string.</td>
-                    </tr>
-                    <tr>
-                        <td>array_key_exists(<i>key</i>, <i>array</i>)</td>
-                        <td>Checks array for a key. TRUE if exists, FALSE if not.</td>
-                    </tr>
-                    <tr>
-                        <td>array_keys(<i>array</i>, <i>value</i>, <i>strict</i>)</td>
-                        <td>Returns an array containing keys. <i>value</i> and <i>strict</i> are optional. <i>strict</i> checks for type too.</td>
-                    </tr>
-                    <tr>
-                        <td>array_values(<i>array</i>)</td>
-                        <td>Returns array containing all values. Array will have numeric keys.</td>
-                    </tr>
-                    <tr>
-                        <td>array_merge(<i>array1</i>, <i>array2</i>, ...)</td>
-                        <td>Merges set of arrays into one array. If duplicate keys, last one overrides.</td>
-                    </tr>
-                    <tr>
-                        <td>array_pop(<i>array</i>) and array_push(<i>array</i>, <i>value1</i>, <i>value2</i>, ...)</td>
-                        <td>Deletes last element of an array. Inserts one or more elements to end of array.</td>
-                    </tr>
-                    <tr>
-                        <td>array_shift(<i>array</i>) and array_unshift(<i>array</i>, <i>value1</i>, <i>value2</i>, ...)</td>
-                        <td>Removes first element from array and returns its value. Inserts new elements to array in the beginning.</td>
-                    </tr>
-                    <tr>
-                        <td>unset(<i>array['key']</i>)</td>
-                        <td>Entirely removes the key-value pair from the array.</td>
-                    </tr>
-                </table>
+                        </div>
+                        <div>Creates an indexed array or an associative array.</div>
+                    </div>
+                    <div>
+                        <div>count(<i>array</i>, <i>mode</i>)</div>
+                        <div><i>mode</i> is optional, if mode=1, then counts array recursively (for multidimensional arrays).</div>
+                    </div>
+                    <div>
+                        <div>current(<i>array</i>), next(<i>array</i>), prev(<i>array</i>), end(<i>array</i>), reset(<i>array</i>)</div>
+                        <div>Returns current element in array, moves the internal pointer to the current element to the next, to the previous, to the end, and to the beginning, respectively.</div>
+                    </div>
+                    <div>
+                        <div>each(<i>array</i>)</div>
+                        <div>Returns current element and key value, moves internal pointer forward.</div>
+                    </div>
+                    <div>
+                        <div>array_combine(<i>keys</i>, <i>values</i>)</div>
+                        <div>Creates an array by using elements from one "keys" array and one "values" array.</div>
+                    </div>
+                    <div>
+                        <div>array_count_values(<i>array</i>)</div>
+                        <div>Counts all values of an array. Returns associative array where keys are original values, and values are # of occurrences.</div>
+                    </div>
+                    <div>
+                        <div>array_diff(<i>array1</i>, <i>array2</i>, ...)</div>
+                        <div>Compares arrays and returns the differences (compares values only). Returns array1 with values not present in other arrays.</div>
+                    </div>
+                    <div>
+                        <div>array_fill(<i>index</i>, <i>number</i>, <i>value</i>)</div>
+                        <div>Fills an array with values.</div>
+                    </div>
+                    <div>
+                        <div>array_intersect(<i>array1</i>, <i>array2</i>, ...)</div>
+                        <div>Compare arrays, returns matches (compares values only).</div>
+                    </div>
+                    <div>
+                        <div>array_filter(<i>array</i>, <i>callbackfunction</i>)</div>
+                        <div>Filters values of an array using a callback function.</div>
+                    </div>
+                    <div>
+                        <div>array_map(<i>function</i>, <i>array1</i>, <i>array2</i>, ...)</div>
+                        <div>Sends each value to a function, returning array with new values.</div>
+                    </div>
+                    <div>
+                        <div>array_reduce(<i>array</i>, <i>function</i>, <i>initial</i>)</div>
+                        <div>Sends values in array to function and returns a string.</div>
+                    </div>
+                    <div>
+                        <div>array_key_exists(<i>key</i>, <i>array</i>)</div>
+                        <div>Checks array for a key. TRUE if exists, FALSE if not.</div>
+                    </div>
+                    <div>
+                        <div>array_keys(<i>array</i>, <i>value</i>, <i>strict</i>)</div>
+                        <div>Returns an array containing keys. <i>value</i> and <i>strict</i> are optional. <i>strict</i> checks for type too.</div>
+                    </div>
+                    <div>
+                        <div>array_values(<i>array</i>)</div>
+                        <div>Returns array containing all values. Array will have numeric keys.</div>
+                    </div>
+                    <div>
+                        <div>array_merge(<i>array1</i>, <i>array2</i>, ...)</div>
+                        <div>Merges set of arrays into one array. If duplicate keys, last one overrides.</div>
+                    </div>
+                    <div>
+                        <div>array_pop(<i>array</i>) and array_push(<i>array</i>, <i>value1</i>, <i>value2</i>, ...)</div>
+                        <div>Deletes last element of an array. Inserts one or more elements to end of array.</div>
+                    </div>
+                    <div>
+                        <div>array_shift(<i>array</i>) and array_unshift(<i>array</i>, <i>value1</i>, <i>value2</i>, ...)</div>
+                        <div>Removes first element from array and returns its value. Inserts new elements to array in the beginning.</div>
+                    </div>
+                    <div>
+                        <div>unset(<i>array['key']</i>)</div>
+                        <div>Entirely removes the key-value pair from the array.</div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
                 <h2>Sorting Arrays</h2>
-                <table>
-                    <tr>
-                        <th colspan="2">Sort Functions for Arrays</th>
-                    </tr>
-                    <tr>
-                        <th>Function</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>sort()</td>
-                        <td>Sorts array in ascending order.</td>
-                    </tr>
-                    <tr>
-                        <td>rsort()</td>
-                        <td>Sorts array in descending order.</td>
-                    </tr>
-                    <tr>
-                        <td>asort()</td>
-                        <td>Sort associative arrays in ascending order according to value.</td>
-                    </tr>
-                    <tr>
-                        <td>ksort()</td>
-                        <td>Sort associative arrays in ascending order according to key.</td>
-                    </tr>
-                    <tr>
-                        <td>arsort()</td>
-                        <td>Sort associative arrays in descending order, according to value.</td>
-                    </tr>
-                    <tr>
-                        <td>krsort()</td>
-                        <td>Sort associative arrays in descending order, according to key.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Sort Functions for Arrays</div>
+                    </div>
+                    <div>
+                        <div>Function</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>sort()</div>
+                        <div>Sorts array in ascending order.</div>
+                    </div>
+                    <div>
+                        <div>rsort()</div>
+                        <div>Sorts array in descending order.</div>
+                    </div>
+                    <div>
+                        <div>asort()</div>
+                        <div>Sort associative arrays in ascending order according to value.</div>
+                    </div>
+                    <div>
+                        <div>ksort()</div>
+                        <div>Sort associative arrays in ascending order according to key.</div>
+                    </div>
+                    <div>
+                        <div>arsort()</div>
+                        <div>Sort associative arrays in descending order, according to value.</div>
+                    </div>
+                    <div>
+                        <div>krsort()</div>
+                        <div>Sort associative arrays in descending order, according to key.</div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
                 <h2>Superglobals</h2>
                 <p><span class="definition">Superglobals</span>: Predefined variables in PHP and are always accessible.</p>
-                <table>
-                    <tr>
-                        <th>Variable</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>$GLOBALS[index]</td>
-                        <td>PHP stores all global variables in this array. <i>index</i> holds the name of the variable.</td>
-                    </tr>
-                    <tr>
-                        <td>$_SERVER['ELEMENT']</td>
-                        <td>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Variable</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>$GLOBALS[index]</div>
+                        <div>PHP stores all global variables in this array. <i>index</i> holds the name of the variable.</div>
+                    </div>
+                    <div>
+                        <div>$_SERVER['ELEMENT']</div>
+                        <div>
                             <p>Holds information about headers, paths, and script locations.</p>
                             <br>
                             <p>List of some of the elements:</p>
@@ -874,37 +875,37 @@ echo "pau paus are {$fruit[pau pau]}";
                                 <li>HTTP_REFERER: complete URL of current page</li>
                                 <li>SCRIPT_NAME: path of current script</li>
                             </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>$_REQUEST</td>
-                        <td>To collect data after submitting an HTML form. GET, POST, and cookies.</td>
-                    </tr>
-                    <tr>
-                        <td>$_POST</td>
-                        <td>To collect form data after submitting HTML form with method="post". All the POST parameters</td>
-                    </tr>
-                    <tr>
-                        <td>$_GET</td>
-                        <td>To collect form data after submitting HTML form with method="get". All the GET parameters.</td>
-                    </tr>
-                    <tr>
-                        <td>$_FILES</td>
-                        <td>An associative array of items uploaded to the current script using HTTP POST.</td>
-                    </tr>
-                    <tr>
-                        <td>$_ENV</td>
-                        <td>All of the environmental variables in context.</td>
-                    </tr>
-                    <tr>
-                        <td>$_COOKIE</td>
-                        <td>An associative array of variables passed to script using HTTP Cookeis.</td>
-                    </tr>
-                    <tr>
-                        <td>$_SESSION</td>
-                        <td>An associative array with session variables for the script.</td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                    <div>
+                        <div>$_REQUEST</div>
+                        <div>To collect data after submitting an HTML form. GET, POST, and cookies.</div>
+                    </div>
+                    <div>
+                        <div>$_POST</div>
+                        <div>To collect form data after submitting HTML form with method="post". All the POST parameters</div>
+                    </div>
+                    <div>
+                        <div>$_GET</div>
+                        <div>To collect form data after submitting HTML form with method="get". All the GET parameters.</div>
+                    </div>
+                    <div>
+                        <div>$_FILES</div>
+                        <div>An associative array of items uploaded to the current script using HTTP POST.</div>
+                    </div>
+                    <div>
+                        <div>$_ENV</div>
+                        <div>All of the environmental variables in context.</div>
+                    </div>
+                    <div>
+                        <div>$_COOKIE</div>
+                        <div>An associative array of variables passed to script using HTTP Cookeis.</div>
+                    </div>
+                    <div>
+                        <div>$_SESSION</div>
+                        <div>An associative array with session variables for the script.</div>
+                    </div>
+                </div>
                 <br>
 
                 <h3>$_REQUEST</h3>
@@ -1144,32 +1145,32 @@ Email: &lt;input type="text" name="email"&gt;&lt;span class="error"&gt;*&lt;?php
 </code></pre>
                 <br>
 
-                <table>
-                    <tr>
-                        <th>Mode</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>r</td>
-                        <td>Open file for read only. File pointer starts at the beginning.</td>
-                    </tr>
-                    <tr>
-                        <td>w</td>
-                        <td>Open file for write only. Erases content of file or creates a new one if it doesn't exist. File pointer starts at the beginning.</td>
-                    </tr>
-                    <tr>
-                        <td>a</td>
-                        <td>Open file for write only. Existing data is preserved. File pointer starts at the end of the file. Creates a new file if doesn't it exist. Like appending to a file.</td>
-                    </tr>
-                    <tr>
-                        <td>x</td>
-                        <td>Creates a new file for write only. Returns FALSE and error if file already exists.</td>
-                    </tr>
-                    <tr>
-                        <td>r+, w+, a+, x+</td>
-                        <td>Same descriptions as above but allows read/write.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Mode</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>r</div>
+                        <div>Open file for read only. File pointer starts at the beginning.</div>
+                    </div>
+                    <div>
+                        <div>w</div>
+                        <div>Open file for write only. Erases content of file or creates a new one if it doesn't exist. File pointer starts at the beginning.</div>
+                    </div>
+                    <div>
+                        <div>a</div>
+                        <div>Open file for write only. Existing data is preserved. File pointer starts at the end of the file. Creates a new file if doesn't it exist. Like appending to a file.</div>
+                    </div>
+                    <div>
+                        <div>x</div>
+                        <div>Creates a new file for write only. Returns FALSE and error if file already exists.</div>
+                    </div>
+                    <div>
+                        <div>r+, w+, a+, x+</div>
+                        <div>Same descriptions as above but allows read/write.</div>
+                    </div>
+                </div>
                 <br>
 
                 <h3>Creating a File</h3>
@@ -1429,80 +1430,80 @@ checking the count of the $_COOKIE array variable. */
                     <li>Only error level and error message is required.</li>
                 </ul>
                 <br>
-                <table>
-                    <tr>
-                        <th>Parameter</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>error_level</td>
-                        <td>Error report level. Must be a value number.</td>
-                    </tr>
-                    <tr>
-                        <td>error_message</td>
-                        <td>Error message</td>
-                    </tr>
-                    <tr>
-                        <td>error_file</td>
-                        <td>Filename which error occurred</td>
-                    </tr>
-                    <tr>
-                        <td>error_line</td>
-                        <td>Line number in which error occurred</td>
-                    </tr>
-                    <tr>
-                        <td>error_context</td>
-                        <td>Array containing every variable, their values in use when error occurred.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7_60">
+                    <div>
+                        <div>Parameter</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>error_level</div>
+                        <div>Error report level. Must be a value number.</div>
+                    </div>
+                    <div>
+                        <div>error_message</div>
+                        <div>Error message</div>
+                    </div>
+                    <div>
+                        <div>error_file</div>
+                        <div>Filename which error occurred</div>
+                    </div>
+                    <div>
+                        <div>error_line</div>
+                        <div>Line number in which error occurred</div>
+                    </div>
+                    <div>
+                        <div>error_context</div>
+                        <div>Array containing every variable, their values in use when error occurred.</div>
+                    </div>
+                </div>
                 <br>
 
                 <h3>Error Reporting</h3>
-                <table>
-                    <tr>
-                        <th colspan="3">Error Report Levels</th>
-                    </tr>
-                    <tr>
-                        <th>Value</th>
-                        <th>Constant</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>E_WARNING</td>
-                        <td>Non-fatal runtime error, execution continues.</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>E_NOTICE</td>
-                        <td>Script found something that might be an error.</td>
-                    </tr>
-                    <tr>
-                        <td>256</td>
-                        <td>E_USER_ERROR</td>
-                        <td>Fatal user-generated error. Like E_ERROR from trigger_error().</td>
-                    </tr>
-                    <tr>
-                        <td>512</td>
-                        <td>E_USER_WARNING</td>
-                        <td>Non-fatal user-generated warning. Like E_WARNING from trigger_error().</td>
-                    </tr>
-                    <tr>
-                        <td>1024</td>
-                        <td>E_USER_NOTICE</td>
-                        <td>User-generated notice. Like E_NOTICE from trigger_error().</td>
-                    </tr>
-                    <tr>
-                        <td>4096</td>
-                        <td>E_RECOVERABLE_ERROR</td>
-                        <td>Catchable fatal error. Like E_ERROR but can be caught.</td>
-                    </tr>
-                    <tr>
-                        <td>8191</td>
-                        <td>E_ALL</td>
-                        <td>All errors and warnings.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_2_4_4">
+                    <div>
+                        <div>Error Report Levels</div>
+                    </div>
+                    <div>
+                        <div>Value</div>
+                        <div>Constant</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>2</div>
+                        <div>E_WARNING</div>
+                        <div>Non-fatal runtime error, execution continues.</div>
+                    </div>
+                    <div>
+                        <div>8</div>
+                        <div>E_NOTICE</div>
+                        <div>Script found something that might be an error.</div>
+                    </div>
+                    <div>
+                        <div>256</div>
+                        <div>E_USER_ERROR</div>
+                        <div>Fatal user-generated error. Like E_ERROR from trigger_error().</div>
+                    </div>
+                    <div>
+                        <div>512</div>
+                        <div>E_USER_WARNING</div>
+                        <div>Non-fatal user-generated warning. Like E_WARNING from trigger_error().</div>
+                    </div>
+                    <div>
+                        <div>1024</div>
+                        <div>E_USER_NOTICE</div>
+                        <div>User-generated notice. Like E_NOTICE from trigger_error().</div>
+                    </div>
+                    <div>
+                        <div>4096</div>
+                        <div>E_RECOVERABLE_ERROR</div>
+                        <div>Catchable fatal error. Like E_ERROR but can be caught.</div>
+                    </div>
+                    <div>
+                        <div>8191</div>
+                        <div>E_ALL</div>
+                        <div>All errors and warnings.</div>
+                    </div>
+                </div>
                 <br>
                 <p><span class="definition_php">set_error_handler("<i>customErrorHandler</i>")</span>: specifies that the default error handler will be this new custom function.</p>
                 <p><span class="definition_php">trigger_error("<i>error_message</i>", <i>error_level</i>)</span>: triggers an error</p>
@@ -1572,27 +1573,27 @@ checking the count of the $_COOKIE array variable. */
 
             <div class="section">
                 <h2>Database Connections</h2>
-                <table>
-                    <tr>
-                        <th colspan="2">Mysqli Methods</th>
-                    </tr>
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>mysqli_fetch_row($result)</td>
-                        <td>Fetches one row from a result-set and returns it as an enumerated array.</td>
-                    </tr>
-                    <tr>
-                        <td>mysqli_fetch_array($result)</td>
-                        <td>Fetches a result row as an associative, a numeric array, or both. Both will iterate through each record based on what was returned from the query.</td>
-                    </tr>
-                    <tr>
-                        <td>mysqli_fetch_assoc()</td>
-                        <td>Fetches a result row as an associative array.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Mysqli Methods</div>
+                    </div>
+                    <div>
+                        <div>Method</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>mysqli_fetch_row($result)</div>
+                        <div>Fetches one row from a result-set and returns it as an enumerated array.</div>
+                    </div>
+                    <div>
+                        <div>mysqli_fetch_array($result)</div>
+                        <div>Fetches a result row as an associative, a numeric array, or both. Both will iterate through each record based on what was returned from the query.</div>
+                    </div>
+                    <div>
+                        <div>mysqli_fetch_assoc()</div>
+                        <div>Fetches a result row as an associative array.</div>
+                    </div>
+                </div>
                 <br>
                 <p><span class="definition">Result-set</span> object: transient table that returns the results of the query. Can pull from table to extract information.</p>
 <pre><code class="language-php">

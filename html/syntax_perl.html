@@ -33,7 +33,7 @@ Date Created: January 2018
                 <div id="submenu">
                     <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
                     <div>
-                        <img src="../images/ic_arrow_drop_up_white_36dp_1x.png" alt="open">
+                        <img src="../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
                     </div>
                 </div>
                 <li id="submenu_links">
@@ -193,27 +193,27 @@ $colors[0]
 
             <div class="section">
                 <h2>Special Variables</h2>
-                <table class="table_3_to_7">
-                    <tr>
-                        <th>Variable</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>$_</td>
-                        <td>Default input and pattern matching.<br>
-                        Ex. in a loop, print $_ will print the last thing that you referenced rather than listing the element itself.</td>
-                    </tr>
-                    <tr>
-                        <td>@ARGV</td>
-                        <td>Command line arguments</td>
-                    </tr>
-                    <tr>
-                        <td>@INC</td>
-                        <td>Paths where libraries are stored. Can add own perl modules to the environment. Would push a path onto this array, which will be used to search for modules.</td>
-                    </tr>
-                    <tr>
-                        <td>@_</td>
-                        <td>Parameters that are passed into a function. There are no formal parameters to a function. It pulls parameters out of the @_ array<br>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Variable</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>$_</div>
+                        <div>Default input and pattern matching.<br>
+                        Ex. in a loop, print $_ will print the last thing that you referenced rather than listing the element itself.</div>
+                    </div>
+                    <div>
+                        <div>@ARGV</div>
+                        <div>Command line arguments</div>
+                    </div>
+                    <div>
+                        <div>@INC</div>
+                        <div>Paths where libraries are stored. Can add own perl modules to the environment. Would push a path onto this array, which will be used to search for modules.</div>
+                    </div>
+                    <div>
+                        <div>@_</div>
+                        <div>Parameters that are passed into a function. There are no formal parameters to a function. It pulls parameters out of the @_ array<br>
 <pre><code class="language-perl">
 # Example
 sub foo {
@@ -221,13 +221,13 @@ sub foo {
 }
 foo('cat', 'dog', 'frog');
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>%ENV</td>
-                        <td>Environmental variables</td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                    <div>
+                        <div>%ENV</div>
+                        <div>Environmental variables</div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
@@ -315,28 +315,28 @@ hello("John");
                 <h2>Arrays</h2>
                 <p>There is an empty space/buffer in the front and end of the array to use. So a method like <span class="definition_perl">shift</span> causes the pointer to move one memory location. This means that shifting is not inefficient because it's essentially just moving the pointers to different memory locations.</p>
                 <br>
-                <table class="table_80">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>shift</td>
-                        <td>Removes the first element in the array, the element at index 0.</td>
-                    </tr>
-                    <tr>
-                        <td>unshift</td>
-                        <td>Inserts a new element at index 0.</td>
-                    </tr>
-                    <tr>
-                        <td>pop</td>
-                        <td>Removes from the end.</td>
-                    </tr>
-                    <tr>
-                        <td>push</td>
-                        <td>Adds to the end.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7_60">
+                    <div>
+                        <div>Method</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>shift</div>
+                        <div>Removes the first element in the array, the element at index 0.</div>
+                    </div>
+                    <div>
+                        <div>unshift</div>
+                        <div>Inserts a new element at index 0.</div>
+                    </div>
+                    <div>
+                        <div>pop</div>
+                        <div>Removes from the end.</div>
+                    </div>
+                    <div>
+                        <div>push</div>
+                        <div>Adds to the end.</div>
+                    </div>
+                </div>
                 <br>
 
                 <h4>Looping through Arrays</h4>
@@ -469,26 +469,22 @@ print "$fname $lname\n";    # prints 'John Jones'
 </code></pre>
                 <br>
                 <p><span class="definition_perl">my</span> is local and lexically-scoped, it depends on the brackets in the file and is a compile-time thing. <span class="definition_perl">local</span> is dynamically scoped and is a run-time thing</p>
-                <table class="table_1_to_1">
-                    <tr>
-                        <td>
-                        File 1<br>
+                <br>
+                <p>File 1</p>
 <pre><code class="language-perl">
 local $X;
 foo();
 </code></pre>
-                        </td>
-                        <td>
-                        File 2<br>
+                <br>
+                <p>File 2</p>
+                <br>
 <pre><code class="language-perl">
 # $X is visible in this fieldset
 foo() {...}
 # foo is in use so $X is still visible. Scope is carried forward.
 </code></pre>
-                        </td>
-                    </tr>
-                </table>
                 <br>
+
                 <p>Don't make global variables, declare them all using <span class="definition_perl">my</span>. Refer to variables as <span class="definition_perl">my</span>, if have list of them put them in parentheses.</p>
 <pre><code class="language-perl">
 my ($X, %Y, $Z);
@@ -538,49 +534,49 @@ $str = join('||', @colors);
                 <h2>Sanitizing Data</h2>
                 <p>The following displays functions that are useful for sanitizing input data from users.</p>
                 <br>
-                <table class="table_3_to_7">
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>chomp $line</td>
-                        <td>Removes all end of line characters.</td>
-                    </tr>
-                    <tr>
-                        <td>chop $line</td>
-                        <td>Removes last character of a line no matter what it is.</td>
-                    </tr>
-                    <tr>
-                        <td>die</td>
-                        <td>Kills the script and sends a message, can use die and call a function.</td>
-                    </tr>
-                    <tr>
-                        <td>split and join</td>
-                        <td>explodes and implodes</td>
-                    </tr>
-                    <tr>
-                        <td>tr ///</td>
-                        <td>Translate, has a return value and can be captured<br>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Method</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>chomp $line</div>
+                        <div>Removes all end of line characters.</div>
+                    </div>
+                    <div>
+                        <div>chop $line</div>
+                        <div>Removes last character of a line no matter what it is.</div>
+                    </div>
+                    <div>
+                        <div>die</div>
+                        <div>Kills the script and sends a message, can use die and call a function.</div>
+                    </div>
+                    <div>
+                        <div>split and join</div>
+                        <div>explodes and implodes</div>
+                    </div>
+                    <div>
+                        <div>tr ///</div>
+                        <div>Translate, has a return value and can be captured<br>
 <pre><code class="language-perl">
 # Example, will uppercase the string, takes a regular expression
 tr /a-z/A-Z/
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>up $str</td>
-                        <td>uppercase a string</td>
-                    </tr>
-                    <tr>
-                        <td>lc $str</td>
-                        <td>lowercase a string</td>
-                    </tr>
-                    <tr>
-                        <td>s ///</td>
-                        <td>Substitute one set of things for another set of things</td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                    <div>
+                        <div>up $str</div>
+                        <div>uppercase a string</div>
+                    </div>
+                    <div>
+                        <div>lc $str</div>
+                        <div>lowercase a string</div>
+                    </div>
+                    <div>
+                        <div>s ///</div>
+                        <div>Substitute one set of things for another set of things</div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">

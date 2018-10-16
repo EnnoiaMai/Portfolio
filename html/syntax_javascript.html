@@ -33,7 +33,7 @@ Date Created: December 2017
                 <div id="submenu">
                     <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
                     <div>
-                        <img src="../images/ic_arrow_drop_up_white_36dp_1x.png" alt="open">
+                        <img src="../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
                     </div>
                 </div>
                 <li id="submenu_links">
@@ -96,39 +96,40 @@ Date Created: December 2017
                 <h2>JavaScript Types</h2>
                 <p>The following table shows primitive types and their primitive values all of which are immutable except object types.</p>
                 <br>
-                <table>
-                    <tr>
-                        <th>Type</th>
-                        <th>True</th>
-                        <th>False</th>
-                    </tr>
-                    <tr>
-                        <td>Undefined</td>
-                        <td>undefined</td>
-                        <td>False</td>
-                    </tr>
-                    <tr>
-                        <td>Boolean</td>
-                        <td>true</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td>String</td>
-                        <td>nonempty</td>
-                        <td>""</td>
-                    </tr>
-                    <tr>
-                        <td>Number</td>
-                        <td>nonzero</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Object</td>
-                        <td>any</td>
-                        <td>null</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_1_1_1_60">
+                    <div>
+                        <div>Type</div>
+                        <div>True</div>
+                        <div>False</div>
+                    </div>
+                    <div>
+                        <div>Undefined</div>
+                        <div>undefined</div>
+                        <div>False</div>
+                    </div>
+                    <div>
+                        <div>Boolean</div>
+                        <div>true</div>
+                        <div>false</div>
+                    </div>
+                    <div>
+                        <div>String</div>
+                        <div>nonempty</div>
+                        <div>""</div>
+                    </div>
+                    <div>
+                        <div>Number</div>
+                        <div>nonzero</div>
+                        <div>0</div>
+                    </div>
+                    <div>
+                        <div>Object</div>
+                        <div>any</div>
+                        <div>null</div>
+                    </div>
+                </div>
                 <br>
+
                 <h4>Difference between undefined and null</h4>
                 <p><span class="definition">undefined</span>: a variable has been declared but not yet assigned a value. It is a type itself.</p>
                 <p><span class="definition">null</span>: an assignment value representing no value. It is an object.</p>
@@ -159,32 +160,32 @@ callingFunction(parameter);    // Call function and pass in parameters
                 <h2>JavaScript Operators</h2>
                 <p><span class="definition">Precedence</span>: (* and /) is performed before (+ and -)</p>
                 <br>
-                <table>
-                    <tr>
-                        <th>Type</th>
-                        <th>Operators</th>
-                    </tr>
-                    <tr>
-                        <td>Arithmetic Operators</td>
-                        <td>+, -, *, /, %, ++, --</td>
-                    </tr>
-                    <tr>
-                        <td>Assignment Operators</td>
-                        <td>=, +=, -=, *=, /=, %=</td>
-                    </tr>
-                    <tr>
-                        <td>Comparison Operators</td>
-                        <td>==, == (equal value and equal type), !=, !==, &gt;, &lt;, &gt;=, &lt;=, ?</td>
-                    </tr>
-                    <tr>
-                        <td>Logical Operators</td>
-                        <td>&amp;&amp;, ||, !</td>
-                    </tr>
-                    <tr>
-                        <td>Type Operators</td>
-                        <td><span class="definition_javascript">typeof()</span> returns type of variable, <span class="definition_javascript">instanceof()</span> returns true if object is an instance of the object type</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Type</div>
+                        <div>Operators</div>
+                    </div>
+                    <div>
+                        <div>Arithmetic Operators</div>
+                        <div>+, -, *, /, %, ++, --</div>
+                    </div>
+                    <div>
+                        <div>Assignment Operators</div>
+                        <div>=, +=, -=, *=, /=, %=</div>
+                    </div>
+                    <div>
+                        <div>Comparison Operators</div>
+                        <div>==, == (equal value and equal type), !=, !==, &gt;, &lt;, &gt;=, &lt;=, ?</div>
+                    </div>
+                    <div>
+                        <div>Logical Operators</div>
+                        <div>&amp;&amp;, ||, !</div>
+                    </div>
+                    <div>
+                        <div>Type Operators</div>
+                        <div><span class="definition_javascript">typeof()</span> returns type of variable, <span class="definition_javascript">instanceof()</span> returns true if object is an instance of the object type</div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
@@ -334,35 +335,35 @@ array[index] = newValue;    // set value at position/index
 var multiDimArray = [ [x, x, x], [y, y, y] ];    // 2D array
 </code></pre>
                 <br>
-                <table class="table_3_to_7">
-                    <tr>
-                        <th colspan="2">Array Methods</th>
-                    </tr>
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>push()</td>
-                        <td>Adds new elements to end of array.</td>
-                    </tr>
-                    <tr>
-                        <td>pop()</td>
-                        <td>Removes last element in array.</td>
-                    </tr>
-                    <tr>
-                        <td>shift()</td>
-                        <td>Removes first element in array.</td>
-                    </tr>
-                    <tr>
-                        <td>unshift()</td>
-                        <td>Adds new element to beginning of array.</td>
-                    </tr>
-                    <tr>
-                        <td>splice(start, deleteCount, item...)</td>
-                        <td>Changes the content of the array by removing existing elements or adding new elements.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Array Methods</div>
+                    </div>
+                    <div>
+                        <div>Method</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div>push()</div>
+                        <div>Adds new elements to end of array.</div>
+                    </div>
+                    <div>
+                        <div>pop()</div>
+                        <div>Removes last element in array.</div>
+                    </div>
+                    <div>
+                        <div>shift()</div>
+                        <div>Removes first element in array.</div>
+                    </div>
+                    <div>
+                        <div>unshift()</div>
+                        <div>Adds new element to beginning of array.</div>
+                    </div>
+                    <div>
+                        <div>splice(start, deleteCount, item...)</div>
+                        <div>Changes the content of the array by removing existing elements or adding new elements.</div>
+                    </div>
+                </div>
                 <br>
                 <p>Example using <span class="definition_javascript">splice()</span></p>
 <pre><code class="language-javascript">
@@ -416,31 +417,31 @@ delete otter.numLimbs;    // deleted property numLimbs
 var strObject = "some text";
 </code></pre>
                 <br>
-                <table class="table_60">
-                    <tr>
-                        <th colspan="3">Methods</th>
-                    </tr>
-                    <tr>
-                        <td>toUppercase();</td>
-                        <td>toLowerCase();</td>
-                        <td>length;</td>
-                    </tr>
-                    <tr>
-                        <td>substring();</td>
-                        <td>charAt();</td>
-                        <td>concat();</td>
-                    </tr>
-                    <tr>
-                        <td>indexOf();</td>
-                        <td>lastInstanceOf();</td>
-                        <td>replace(<i>string1</i>, <i>string2</i>);</td>
-                    </tr>
-                    <tr>
-                        <td>bold();</td>
-                        <td>italics();</td>
-                        <td>split(separator);</td>
-                    </tr>
-                </table>
+                <div class="flex_table_3_columns_60">
+                    <div>
+                        <div>Methods</div>
+                    </div>
+                    <div>
+                        <div>toUppercase();</div>
+                        <div>toLowerCase();</div>
+                        <div>length;</div>
+                    </div>
+                    <div>
+                        <div>substring();</div>
+                        <div>charAt();</div>
+                        <div>concat();</div>
+                    </div>
+                    <div>
+                        <div>indexOf();</div>
+                        <div>lastInstanceOf();</div>
+                        <div>replace(<i>string1</i>, <i>string2</i>);</div>
+                    </div>
+                    <div>
+                        <div>bold();</div>
+                        <div>italics();</div>
+                        <div>split(separator);</div>
+                    </div>
+                </div>
                 <br>
                 <p>The <span class="definition_javascript">indexOf(<i>searchValue, fromIndex</i>)</span> method   returns the index in the String of the first occurrence of the specified value. Starts at fromIndex and returns -1 if the value isn't found.</p>
                 <p>The <span class="definition_javascript">split(<i>separator</i>)</span> method splits a String object into an array of strings using a specified separator to divide the content.</p>
@@ -454,20 +455,21 @@ var strObject = "some text";
 var numberObj = 5.0;
 </code></pre>
                 <br>
-                <table class="table_60">
-                    <th colspan="3">Methods</th>
-                    <tr>
-                        <td>Math.round(numberObj);</td>
-                        <td>Math.ceil(numberObj);</td>
-                        <td>Math.floor(numberObj);</td>
-                    </tr>
-                    <tr>
-                        <td>Math.sqrt(numberObj);</td>
-                        <td>Math.random();</td>
-                        <td></td>
-                    </tr>
-                </table>
+                <div class="flex_table_3_columns_60">
+                    <div>Methods</div>
+                    <div>
+                        <div>Math.round(numberObj);</div>
+                        <div>Math.ceil(numberObj);</div>
+                        <div>Math.floor(numberObj);</div>
+                    </div>
+                    <div>
+                        <div>Math.sqrt(numberObj);</div>
+                        <div>Math.random();</div>
+                        <div></div>
+                    </div>
+                </div>
                 <br>
+
                 <h4>Example of using a Random Number Generator</h4>
                 <ul>
                     <li><span class="definition_javascript">Math.random()</span> returns a random number between 0(inclusive) and 1(exclusive)</li>
@@ -495,26 +497,26 @@ var dateObj = new Date();    // Returns current date and time
 var dateObj = new Date(year, month, day, hrs, min, sec, millis);
 </code></pre>
                 <br>
-                <table>
-                    <tr>
-                        <th colspan="3">Methods</th>
-                    </tr>
-                    <tr>
-                        <td>toDateString();</td>
-                        <td>getTime();</td>
-                        <td>setTime(millis);</td>
-                    </tr>
-                    <tr>
-                        <td>getFullYear();</td>
-                        <td>setFullYear(year);</td>
-                        <td>getMonth(); (0-11)</td>
-                    </tr>
-                    <tr>
-                        <td>setMonth(); (0-11)</td>
-                        <td>getDate();</td>
-                        <td>setDate(date);</td>
-                    </tr>
-                </table>
+                <div class="flex_table_3_columns_60">
+                    <div>
+                        <div>Methods</div>
+                    </div>
+                    <div>
+                        <div>toDateString();</div>
+                        <div>getTime();</div>
+                        <div>setTime(millis);</div>
+                    </div>
+                    <div>
+                        <div>getFullYear();</div>
+                        <div>setFullYear(year);</div>
+                        <div>getMonth(); (0-11)</div>
+                    </div>
+                    <div>
+                        <div>setMonth(); (0-11)</div>
+                        <div>getDate();</div>
+                        <div>setDate(date);</div>
+                    </div>
+                </div>
                 <br>
                 <h4 class="definition">parseInt() and parseFloat()</h4>
                 <p><span class="definition_javascript">parseInt(<i>string, radix</i>)</span>: parses String and returns integer of specified radix, the base</p>
@@ -742,69 +744,69 @@ RegExpObject.test(string);
 var regexObj = new RegExp(pattern, flags);
 </code></pre>
                 <br>
-                <table class="table_3_to_7">
-                    <tr>
-                        <th colspan="2">Regex Modifiers</th>
-                    </tr>
-                    <tr>
-                        <td>i</td>
-                        <td>Matching will be case-insensitive.</td>
-                    </tr>
-                    <tr>
-                        <td>g</td>
-                        <td>Matching will be global.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Regex Modifiers</div>
+                    </div>
+                    <div>
+                        <div>i</div>
+                        <div>Matching will be case-insensitive.</div>
+                    </div>
+                    <div>
+                        <div>g</div>
+                        <div>Matching will be global.</div>
+                    </div>
+                </div>
                 <br>
-                <table class="table_3_to_7">
-                    <tr>
-                        <th colspan="2">Regex Patterns</th>
-                    </tr>
-                    <tr>
-                        <td>[abc]</td>
-                        <td>Find any character that matches the ones in the bracket.</td>
-                    </tr>
-                    <tr>
-                        <td>[0-9]</td>
-                        <td>Find any digits matching the ones within the brackets.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Regex Patterns</div>
+                    </div>
+                    <div>
+                        <div>[abc]</div>
+                        <div>Find any character that matches the ones in the bracket.</div>
+                    </div>
+                    <div>
+                        <div>[0-9]</div>
+                        <div>Find any digits matching the ones within the brackets.</div>
+                    </div>
+                </div>
                 <br>
-                <table class="table_3_to_7">
-                    <tr>
-                        <th colspan="2">Regex Metacharacters</th>
-                    </tr>
-                    <tr>
-                        <td>\d</td>
-                        <td>Finds a digit.</td>
-                    </tr>
-                    <tr>
-                        <td>\s</td>
-                        <td>Finds a whitespace character.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Regex Metacharacters</div>
+                    </div>
+                    <div>
+                        <div>\d</div>
+                        <div>Finds a digit.</div>
+                    </div>
+                    <div>
+                        <div>\s</div>
+                        <div>Finds a whitespace character.</div>
+                    </div>
+                </div>
                 <br>
-                <table class="table_3_to_7">
-                    <tr>
-                        <th colspan="2">Regex Quantifiers</th>
-                    </tr>
-                    <tr>
-                        <td>n+</td>
-                        <td>At least one n.</td>
-                    </tr>
-                    <tr>
-                        <td>n*</td>
-                        <td>Zero or more occurrences of n.</td>
-                    </tr>
-                    <tr>
-                        <td>n?</td>
-                        <td>Zero or one occurrences of n.</td>
-                    </tr>
-                    <tr>
-                        <td>{...}</td>
-                        <td>Repeat preceding character for as many times as the value inside the bracket.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Regex Quantifiers</div>
+                    </div>
+                    <div>
+                        <div>n+</div>
+                        <div>At least one n.</div>
+                    </div>
+                    <div>
+                        <div>n*</div>
+                        <div>Zero or more occurrences of n.</div>
+                    </div>
+                    <div>
+                        <div>n?</div>
+                        <div>Zero or one occurrences of n.</div>
+                    </div>
+                    <div>
+                        <div>{...}</div>
+                        <div>Repeat preceding character for as many times as the value inside the bracket.</div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">

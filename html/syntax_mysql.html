@@ -35,7 +35,7 @@ Date Created: January 2018
                 <div id="submenu">
                     <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
                     <div>
-                        <img src="../images/ic_arrow_drop_up_white_36dp_1x.png" alt="open">
+                        <img src="../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
                     </div>
                 </div>
                 <li id="submenu_links">
@@ -122,44 +122,44 @@ Date Created: January 2018
                 <h2>SQL Statements</h2>
                 <p>Includes utility statements, database administration statements, data definition statements, and more.</p>
                 <br>
-                <table>
-                    <tr>
-                        <th>Statement</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td><span class="definition_mysql">USE <i>database_name</i></span></td>
-                        <td>Tells MySQL to use the database specified. Statements after will apply to this database.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition_mysql">SHOW TABLES IN <i>database_name</i></span></td>
-                        <td>List tables in the database</td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition_mysql">DESCRIBE <i>table_name</i></span></td>
-                        <td>Provides information about the columns in the specified table.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition_mysql">DROP TABLE [IF EXISTS] <i>table_name</i></span></td>
-                        <td>Removes one or more tables, including all the table data, only if the table exists. IF EXISTS will prevent error if the table doesn't exist.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition_mysql">CREATE TABLE [IF NOT EXISTS] <i>table_name</i></span></td>
-                        <td>Creates a table with the specified name. IF NOT EXISTS prevents error from occurring if the table does exist.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition_mysql">ALTER TABLE <i>table_name</i></span></td>
-                        <td>Modifies structure of a table. The alter specifications come after the table name. Can add, delete, rename, or change the type for the column.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition_mysql">CREATE DATABASE database_name</span></td>
-                        <td>Creates a new database. Name is case-sensitive. Must do USE after to actually use database.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition_mysql">ALTER DATABASE</span></td>
-                        <td>Changes characteristics of a database. The alter specifications come after the database name. </td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Statement</div>
+                        <div>Description</div>
+                    </div>
+                    <div>
+                        <div><span class="definition_mysql">USE <i>database_name</i></span></div>
+                        <div>Tells MySQL to use the database specified. Statements after will apply to this database.</div>
+                    </div>
+                    <div>
+                        <div><span class="definition_mysql">SHOW TABLES IN <i>database_name</i></span></div>
+                        <div>List tables in the database</div>
+                    </div>
+                    <div>
+                        <div><span class="definition_mysql">DESCRIBE <i>table_name</i></span></div>
+                        <div>Provides information about the columns in the specified table.</div>
+                    </div>
+                    <div>
+                        <div><span class="definition_mysql">DROP TABLE [IF EXISTS] <i>table_name</i></span></div>
+                        <div>Removes one or more tables, including all the table data, only if the table exists. IF EXISTS will prevent error if the table doesn't exist.</div>
+                    </div>
+                    <div>
+                        <div><span class="definition_mysql">CREATE TABLE [IF NOT EXISTS] <i>table_name</i></span></div>
+                        <div>Creates a table with the specified name. IF NOT EXISTS prevents error from occurring if the table does exist.</div>
+                    </div>
+                    <div>
+                        <div><span class="definition_mysql">ALTER TABLE <i>table_name</i></span></div>
+                        <div>Modifies structure of a table. The alter specifications come after the table name. Can add, delete, rename, or change the type for the column.</div>
+                    </div>
+                    <div>
+                        <div><span class="definition_mysql">CREATE DATABASE database_name</span></div>
+                        <div>Creates a new database. Name is case-sensitive. Must do USE after to actually use database.</div>
+                    </div>
+                    <div>
+                        <div><span class="definition_mysql">ALTER DATABASE</span></div>
+                        <div>Changes characteristics of a database. The alter specifications come after the database name. </div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
@@ -208,32 +208,32 @@ SELECT * FROM Customers WHERE CustomerID=1;
 </code></pre>
                 <br>
                 Operators that can be used in a WHERE clause
-                <table>
-                    <tr>
-                        <th>Operator</th>
-                        <th>Definition</th>
-                    </tr>
-                    <tr>
-                        <td>Logical operators</td>
-                        <td>=, &lt; &gt; (not equal)</td>
-                    </tr>
-                    <tr>
-                        <td>Comparison operators</td>
-                        <td>&gt;, &lt;, &gt;=, &lt;=</td>
-                    </tr>
-                    <tr>
-                        <td>BETWEEN</td>
-                        <td>Between an inclusive range</td>
-                    </tr>
-                    <tr>
-                        <td>LIKE</td>
-                        <td>Search for a pattern</td>
-                    </tr>
-                    <tr>
-                        <td>IN</td>
-                        <td>To specify multiple possible values for a column</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7_60">
+                    <div>
+                        <div>Operator</div>
+                        <div>Definition</div>
+                    </div>
+                    <div>
+                        <div>Logical operators</div>
+                        <div>=, &lt; &gt; (not equal)</div>
+                    </div>
+                    <div>
+                        <div>Comparison operators</div>
+                        <div>&gt;, &lt;, &gt;=, &lt;=</div>
+                    </div>
+                    <div>
+                        <div>BETWEEN</div>
+                        <div>Between an inclusive range</div>
+                    </div>
+                    <div>
+                        <div>LIKE</div>
+                        <div>Search for a pattern</div>
+                    </div>
+                    <div>
+                        <div>IN</div>
+                        <div>To specify multiple possible values for a column</div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">

@@ -34,7 +34,7 @@ Date Created: December 2017
                 <div id="submenu">
                     <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
                     <div>
-                        <img src="../images/ic_arrow_drop_up_white_36dp_1x.png" alt="open">
+                        <img src="../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
                     </div>
                 </div>
                 <li id="submenu_links">
@@ -161,41 +161,42 @@ var formData = new FormData($('form')[0]);
 $("selector:pesudoclass").method();
 </code></pre>
                 <br>
-                <table>
-                    <tr>
-                        <th>Pseudo Element</th>
-                        <th>Definition</th>
-                    </tr>
-                    <tr>
-                        <td>:first and :last</td>
-                        <td>Selects first and last element, respectively.</td>
-                    </tr>
-                    <tr>
-                        <td>:empty</td>
-                        <td>Selects elements or filtered elements that are empty.</td>
-                    </tr>
-                    <tr>
-                        <td>:even and :odd</td>
-                        <td>Selects all even numbered or odd numbered elements or filtered elements, respectively.</td>
-                    </tr>
-                    <tr>
-                        <td>:nth-child(n)</td>
-                        <td>Selects child element by index n, it not zero-based.</td>
-                    </tr>
-                    <tr>
-                        <td>:not()</td>
-                        <td>Applies to all elements or filtered elements that aren't within the not parameter.</td>
-                    </tr>
-                    <tr>
-                        <td>:contains()</td>
-                        <td>Selects all elements or filtered elements containing the text.</td>
-                    </tr>
-                    <tr>
-                        <td>:has()</td>
-                        <td>Selects elements that have specified child element.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div>
+                        <div>Pseudo Element</div>
+                        <div>Definition</div>
+                    </div>
+                    <div>
+                        <div>:first and :last</div>
+                        <div>Selects first and last element, respectively.</div>
+                    </div>
+                    <div>
+                        <div>:empty</div>
+                        <div>Selects elements or filtered elements that are empty.</div>
+                    </div>
+                    <div>
+                        <div>:even and :odd</div>
+                        <div>Selects all even numbered or odd numbered elements or filtered elements, respectively.</div>
+                    </div>
+                    <div>
+                        <div>:nth-child(n)</div>
+                        <div>Selects child element by index n, it not zero-based.</div>
+                    </div>
+                    <div>
+                        <div>:not()</div>
+                        <div>Applies to all elements or filtered elements that aren't within the not parameter.</div>
+                    </div>
+                    <div>
+                        <div>:contains()</div>
+                        <div>Selects all elements or filtered elements containing the text.</div>
+                    </div>
+                    <div>
+                        <div>:has()</div>
+                        <div>Selects elements that have specified child element.</div>
+                    </div>
+                </div>
                 <br>
+
                 <h4>Differences between this and $(this)</h4>
                 <p>The <span class="definition_javascript">this</span> keyword is the specific DOM element associated with the event that was triggered.</p>
                 <br>
@@ -212,14 +213,15 @@ Ex.
 $("selector").css("property", "value").css("property", "value")...
 </code></pre>
                 <br>
-                <table class="table_1_to_1">
-                    <tr>
-                        <th>Method</th>
-                        <th>Code</th>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">css()</span>: sets values to the properties of the selector</td>
-                        <td>
+
+                <div class="flex_table_row_1_1">
+                    <div>
+                        <div>Method</div>
+                        <div>Code</div>
+                    </div>
+                    <div>
+                        <div><span class="definition">css()</span>: sets values to the properties of the selector</div>
+                        <div>
 <pre><code class="language-javascript">
 // For single rule
 $("selector").css("property", "value(s)");
@@ -230,55 +232,55 @@ $("selector").css({
     "property": "value(s)"
 });
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">html()</span>: replaces html element along with any applicable text. Can use this method to return the HTML contents of the element.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">html()</span>: replaces html element along with any applicable text. Can use this method to return the HTML contents of the element.</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").html("&lt;tag&gt;Content&lt;tag&gt;");
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">text()</span>: like html method but only replaces the text.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">text()</span>: like html method but only replaces the text.</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").text("Content");
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">each()</span> and <span class="definition">this</span>: each lets looping through elements of selector, a DOM looping construct. <span class="definition_javascript">this</span> keyword is the current element of the loop.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">each()</span> and <span class="definition">this</span>: each lets looping through elements of selector, a DOM looping construct. <span class="definition_javascript">this</span> keyword is the current element of the loop.</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").each(function() {
     $(this).method();
 });
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">eq()</span>: returns the specific JQuery object at the specified index in the collection of JQuery objects.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">eq()</span>: returns the specific JQuery object at the specified index in the collection of JQuery objects.</div>
+                        <div>
 <pre><code class="language-javascript">
 // index is an integer
 var jqueryObj = $("selector").eq(index);
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">get()</span>: similar to eq() but returns the DOM element itself.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">get()</span>: similar to eq() but returns the DOM element itself.</div>
+                        <div>
 <pre><code class="language-javascript">
 // index is an integer
 var domElement = $("selector").get(index);
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">val()</span>: gets the current value of the element or sets the value of every matched element. Usually used to get value of form elements.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">val()</span>: gets the current value of the element or sets the value of every matched element. Usually used to get value of form elements.</div>
+                        <div>
 <pre><code class="language-javascript">
 // Get the value
 var theValue = $("selector").val();
@@ -286,53 +288,53 @@ var theValue = $("selector").val();
 // Set the value
 $("selector").val(value);
 </code> </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">children(<i>selector</i>)</span>: matches the children of the element but only a single level down the DOM tree.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">children(<i>selector</i>)</span>: matches the children of the element but only a single level down the DOM tree.</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").children("selector");
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">find(<i>selector</i>)</span>: matches the children of the element(s) but goes through its descendants.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">find(<i>selector</i>)</span>: matches the children of the element(s) but goes through its descendants.</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").find("selector");
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">closest(selector)</span>: get the first element that matches the selector by testing the element itself and then traversing up the tree to the ancestors.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">closest(selector)</span>: get the first element that matches the selector by testing the element itself and then traversing up the tree to the ancestors.</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").closest("selector");
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">parents()</span>: also traverses up the tree to find a match but begins with the parent element and continues to find all the ancestors that matches, instead of stopping when finding the first match.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">parents()</span>: also traverses up the tree to find a match but begins with the parent element and continues to find all the ancestors that matches, instead of stopping when finding the first match.</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").parents("selector");
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Add</span>, <span class="definition">Remove</span>, and <span class="definition">Toggle Classes</span>: adds or removes class attribute to elements, or toggle the class on and off</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Add</span>, <span class="definition">Remove</span>, and <span class="definition">Toggle Classes</span>: adds or removes class attribute to elements, or toggle the class on and off</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").addClass("className");
 $("selector").removeClass("className");
 $("selector").toggleClass("className")
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Append</span>, <span class="definition">Prepend</span>, <span class="definition">After</span>, and <span class="definition">Before</span>: append of prepend selected element with the new element along with its content within the selector (after or before its first child element). After and Before will place the element outside of the selector.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Append</span>, <span class="definition">Prepend</span>, <span class="definition">After</span>, and <span class="definition">Before</span>: append of prepend selected element with the new element along with its content within the selector (after or before its first child element). After and Before will place the element outside of the selector.</div>
+                        <div>
 <pre><code class="language-javascript">
 // Append or Prepend
 $("selector").append("&lt;tag&gt;Content&lt;&frasl;tag&gt;");
@@ -342,11 +344,11 @@ $("selector").prepend("&lt;tag&gt;content&lt;&frasl;tag&gt;");
 $("selector").after("&lt;tag&gt;Content&lt;&frasl;tag&gt;");
 $("selector").before("&lt;tag&gt;Content&lt;&frasl;tag&gt;");
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Replace</span> and <span class="definition">Remove</span>: replaces selector with new element or removes if completely.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Replace</span> and <span class="definition">Remove</span>: replaces selector with new element or removes if completely.</div>
+                        <div>
 <pre><code class="language-javascript">
 // Replace
 $("selector").replace("&lt;tag&gt;Content&lt;&frasl;tag&gt;");
@@ -354,11 +356,11 @@ $("selector").replace("&lt;tag&gt;Content&lt;&frasl;tag&gt;");
 // Remove
 $("selector").remove();
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Attribute</span>: sets or removes the attribute to and from the selector. Examples include src= for img tag, pattern= for input, etc.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Attribute</span>: sets or removes the attribute to and from the selector. Examples include src= for img tag, pattern= for input, etc.</div>
+                        <div>
 <pre><code class="language-javascript">
 // Add Attribute
 $("selector").attr("attribute", value"");
@@ -366,11 +368,11 @@ $("selector").attr("attribute", value"");
 // Remove Attribute
 $("selector").removeAttr("attribute");
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Hover</span>: methods takes two functions, one for hover on and the other for hover off.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Hover</span>: methods takes two functions, one for hover on and the other for hover off.</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").hover(function() {
     statements;
@@ -378,11 +380,11 @@ $("selector").hover(function() {
     statements;
 });
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Fade In</span>, <span class="definition">Fade Out</span>, <span class="definition">Toggling Fade</span>, and <span class="definition">Fade To</span>: fades in or fades out the element. Toggle fading on and off, or fade to a specific opacity</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Fade In</span>, <span class="definition">Fade Out</span>, <span class="definition">Toggling Fade</span>, and <span class="definition">Fade To</span>: fades in or fades out the element. Toggle fading on and off, or fade to a specific opacity</div>
+                        <div>
 <pre><code class="language-javascript">
 // Fade In, Fade Out, Toggle
 // value = slow, fast, or specific milliseconds(ms)
@@ -395,21 +397,21 @@ $("selector").fadeToggle(value);
 // value2 = opacity (0.0-1.0)
 $("selector").fadeTo(value1, value2);
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Slide Effects</span> and <span class="definition">Toggling</span></td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Slide Effects</span> and <span class="definition">Toggling</span></div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").slideUp();
 $("selector").slideDown();
 $("selector").slideToggle();
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Show</span> and <span class="definition">Hide</span>: usually for images and menus</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Show</span> and <span class="definition">Hide</span>: usually for images and menus</div>
+                        <div>
 <pre><code class="language-javascript">
 // Show the selected element
 $("selector").show();
@@ -417,9 +419,9 @@ $("selector").show();
 // Hide the selected element
 $("selector").hide();
 </code></pre>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
@@ -435,14 +437,15 @@ $("selector").on("event", function() {
 $("selector").on("event", functionName);
 </code></pre>
                 <br>
-                <table class="table_1_to_1">
-                    <tr>
-                        <th>Events</th>
-                        <th>Code</th>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Click</span>: event is fired when user clicks on the html element.</td>
-                        <td>
+
+                <div class="flex_table_row_1_1">
+                    <div>
+                        <div>Events</div>
+                        <div>Code</div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Click</span>: event is fired when user clicks on the html element.</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").click(function() {
     statements;
@@ -452,30 +455,31 @@ $("selector").on("click", function() {
     statements;
 });
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Mouseover</span>: event is fired when user mouses over html element.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Mouseover</span>: event is fired when user mouses over html element.</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").mouseover(function() {
     statements;
 });
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Load</span>: event that is sent to an element when it and all sub-elements have been completely loaded. Sent to element associated with a URL: images, scripts, frames, iframes, and window object.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Load</span>: event that is sent to an element when it and all sub-elements have been completely loaded. Sent to element associated with a URL: images, scripts, frames, iframes, and window object.</div>
+                        <div>
 <pre><code class="language-javascript">
 $("selector").load(function() {
     statements;
 });
 </code></pre>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
                 <br>
+
                 <h4>Event Object</h4>
                 <p><span class="definition_javascript">event.preventDefault()</span>: prevents the default action of the event from triggering.</p>
                 <ul>
