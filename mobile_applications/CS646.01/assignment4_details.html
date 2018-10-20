@@ -227,7 +227,7 @@ Date Created: March 2018
             <p>A student can only add a class once. A student can register for at most 3 classes. A student can not register for classes that meet at the same time.</p>
             <ul>
               <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/addstudent<br>
-                {"firstname":"Roger","lastname":"Whitney","redid":"123456003","password":"password","email":"whitney@sdsu.edu"}</li>
+                {"firstname":"Roger", "lastname":"Whitney", "redid":"123456003", "password":"password", "email":"whitney@sdsu.edu"}</li>
               <li><b>Method</b>: POST.</li>
               <li><b>Parameters POST</b>: firstname, lastname, redid, password, email.</li>
               <li><b>Returns</b>: JSON object with one key, either "ok" or "error". See examples below.</li>
@@ -253,7 +253,7 @@ Date Created: March 2018
             <ul>
               <li>URL: https://bismarck.sdsu.edu/registration/addstudent</li>
               <li>Body:<br>
-                {"firstname":"Roger","lastname":"Whitney","redid":"123456003","password":"password","email":"whitney@sdsu.edu"}</li>
+                {"firstname":"Roger", "lastname":"Whitney", "redid":"123456003", "password":"password", "email":"whitney@sdsu.edu"}</li>
               <li>Content Type: Must be application/json</li>
               <li>Return: {"ok": "Student Added"}</li>
               <li>If the same request is repeated the return value is:<br>
@@ -268,7 +268,7 @@ Date Created: March 2018
             <p><b>Register for a Class</b>: Register a student in a class.</p>
             <p>A student can only add a class once. A student can register for at most 3 classes. A student can not register for classes that meet at the same time.</p>
             <ul>
-              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/registerclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
+              <li class="long_url"><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/registerclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
               <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/registerclass<br>
               {"redid": ARedId, "password": "APassword", "courseid":ACourseID}</li>
               <li><b>Method</b>: GET or POST</li>
@@ -286,7 +286,7 @@ Date Created: March 2018
             </ul>
             <br>
             <p>GET Sample:</p>
-            <p>https://bismarck.sdsu.edu/registration/registerclass?redid=123459003&password=password&courseid=7036</p>
+            <p class="long_url">https://bismarck.sdsu.edu/registration/registerclass?redid=123459003&password=password&courseid=7036</p>
             <br>
             <p>Sample Responses:</p>
   <pre>
@@ -298,7 +298,7 @@ Date Created: March 2018
             <p><b>Waitlist for a Class</b>: Add a student to the waitlist for a class.</p>
             <p>A student can only be added to the waitlist of a class once and only after the class is full. To aid in testing waitlisting, the courses with id 7034, 7035 and 7036 are full. Any attempt to add those courses will fail, but you can add students to the waitlist.</p>
             <ul>
-              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/waitlistclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
+              <li class="long_url"><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/waitlistclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
               <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/waitlistclass<br>
               {"redid": ARedId, "password": "APassword", "courseid":ACourseID}</li>
               <li><b>Method</b>: GET or POST</li>
@@ -316,7 +316,7 @@ Date Created: March 2018
             </ul>
             <br>
             <p>GET Sample</p>
-            <p>https://bismarck.sdsu.edu/registration/waitlistclass?redid=123459003&password=password&courseid=7036</p>
+            <p class="long_url">https://bismarck.sdsu.edu/registration/waitlistclass?redid=123459003&password=password&courseid=7036</p>
             <br>
             <p>Sample Responses:</p>
             <p>{"ok": "Course added"}</p>
@@ -324,7 +324,7 @@ Date Created: March 2018
 
             <p><b>UnRegister a Class</b>: Unregister a student in a class.</p>
             <ul>
-              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/unregisterclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
+              <li class="long_url"><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/unregisterclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
               <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/unregisterclass<br>
               {"redid": ARedId, "password": "APassword", "courseid":ACourseID}</li>
               <li><b>Method</b>: GET or POST</li>
@@ -342,7 +342,7 @@ Date Created: March 2018
             </ul>
             <br>
             <p>GET Sample:</p>
-            <p>https://bismarck.sdsu.edu/registration/unregisterclass?redid=123459003&password=password&courseid=7036</p>
+            <p class="long_url">https://bismarck.sdsu.edu/registration/unregisterclass?redid=123459003&password=password&courseid=7036</p>
             <br>
             <p>Sample Responses:</p>
             <p>{"ok": "Course dropped"}</p>
@@ -350,7 +350,7 @@ Date Created: March 2018
 
             <p><b>Unwaitlist a Class</b>: Remove a student from the waitlist of a class.</p>
             <ul>
-              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/unwaitlistclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
+              <li class="long_url"><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/unwaitlistclass?redid=ARedId&password=APassword&courseid=ACourseID</li>
               <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/unwaitlistclass<br>
               {"redid": ARedId, "password": "APassword", "courseid":ACourseID}<br>
               Rest of the details are similar to unregister.</li>
@@ -359,7 +359,7 @@ Date Created: March 2018
 
             <p><b>Student classes</b>: Returns list of class a student is registered in or in a waitlist.</p>
             <ul>
-              <li><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/studentclasses?redid=ARedId&password=APassword</li>
+              <li class="long_url"><b>URL (GET)</b>: https://bismarck.sdsu.edu/registration/studentclasses?redid=ARedId&password=APassword</li>
               <li><b>URL (POST)</b>: https://bismarck.sdsu.edu/registration/studentclasses<br>
               {"redid": ARedId, "password": "APassword"}</li>
               <li><b>Method</b>: GET or POST</li>

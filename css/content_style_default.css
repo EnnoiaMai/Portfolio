@@ -51,13 +51,13 @@ Date Created: December 2017
     padding-top: 8px;
     padding-bottom: 8px;
 }
-.section p, .section li, .section td {
+.section p, .section li {
     font-size: 1.0em;
 }
-.section pre, code {
+.section pre, .section code {
     font-size: 0.9em;
 }
-.section ul, ol {
+.section ul, .section ol {
     margin-left: 40px;
 }
 .section a:link {
@@ -489,10 +489,10 @@ Date Created: December 2017
 
 
 @media screen and (max-width: 992px) {
-    .section p, .section li, .section td {
+    .section p, .section li {
         font-size: 0.9em;
     }
-    pre, code {
+    .section pre, .section code {
         font-size: 0.9em;
     }
     #content_header > h1 {
@@ -562,13 +562,13 @@ Date Created: December 2017
 }
 
 @media screen and (max-width: 640px) {
-    #content .section h2 {
+    .section h2 {
         font-size: 1.2em;
     }
-    .section p, .section li, .section td {
+    .section p, .section li {
         font-size: 0.8em;
     }
-    pre, code {
+    .section pre, .section code {
         font-size: 0.8em;
     }
     #directory a {

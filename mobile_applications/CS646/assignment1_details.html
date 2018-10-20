@@ -111,10 +111,13 @@ Date Created: January 2018
                     <li>Write a Swift function wordCount3 that has one argument an Int, which has the same role as the second argument of wordCount. wordCount3 returns a function. The return function has one argument a String that contains words. When evaluated the returned function returns the dictionary of words in the string with the number of times the word appears in the list. But as in problem 7 it only contains the words that occur as many times as the argument to wordCount3. See examples below.<br><br>
                     <span class="code_CS646">
                     let testA = wordCount3(2)<br>
-                    testA(words: “cat bat cat rat mouse bat”) returns [“cat”: 2, “bat”: 2 ]<br>
-                    testA(words: “a a a b c c”) returns [“a”: 3, “c”: 2]<br>
+                    testA(words: “cat bat cat rat mouse bat”)<br>
+                    // returns [“cat”: 2, “bat”: 2 ]<br>
+                    testA(words: “a a a b c c”)<br>
+                    // returns [“a”: 3, “c”: 2]<br>
                     let testB = wordCount3(3)<br>
-                    testB(words: “a a a b c c”) returns [“a”: 3]</span></li>
+                    testB(words: “a a a b c c”)<br>
+                    // returns [“a”: 3]</span></li>
                 </ol>
             </div>
 
