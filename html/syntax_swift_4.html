@@ -34,7 +34,7 @@ Date Created: December 2017
                 <div id="submenu">
                     <a href="languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
                     <div>
-                        <img src="../images/ic_arrow_drop_up_white_36dp_1x.png" alt="open">
+                        <img src="../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
                     </div>
                 </div>
                 <li id="submenu_links">
@@ -110,20 +110,20 @@ print("Printing string and value of \()")
 </code></pre>
 
                 <h4>Comments</h4>
-                <table>
-                    <tr>
-                        <td>Single-line comment</td>
-                        <td>&frasl; &frasl;</td>
-                    </tr>
-                    <tr>
-                        <td>Multiline comment</td>
-                        <td>&frasl;* *&frasl;</td>
-                    </tr>
-                    <tr>
-                        <td>Nested Multiline comments</td>
-                        <td>&frasl;* &frasl;**&frasl; *&frasl;</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_1_1_60">
+                    <div>
+                        <div>Single-line comment</div>
+                        <div>&frasl; &frasl;</div>
+                    </div>
+                    <div>
+                        <div>Multiline comment</div>
+                        <div>&frasl;* *&frasl;</div>
+                    </div>
+                    <div>
+                        <div>Nested Multiline comments</div>
+                        <div>&frasl;* &frasl;**&frasl; *&frasl;</div>
+                    </div>
+                </div>
 
                 <h4>Integer</h4>
                 <p>Type <span class="definition">Int</span> has the same size as the current platform's native word size</p>
@@ -144,32 +144,32 @@ print("Printing string and value of \()")
                 <p>Type Inference: compiler deduces type of expression by examining values, usually occurs for literal values. No loss of precision in the Double when adding Int and Double assuming Int is casted.</p>
 
                 <h4>Numeric Literals</h4>
-                <table class="table_60">
-                    <tr>
-                        <th>Literal</th>
-                        <th>Prefix</th>
-                    </tr>
-                    <tr>
-                        <td>Decimal number</td>
-                        <td>no prefix</td>
-                    </tr>
-                    <tr>
-                        <td>Binary number</td>
-                        <td>0b prefix</td>
-                    </tr>
-                    <tr>
-                        <td>Octal number</td>
-                        <td>0o prefix</td>
-                    </tr>
-                    <tr>
-                        <td>Hexadecimal number</td>
-                        <td>0x prefix</td>
-                    </tr>
-                    <tr>
-                        <td>Exponents</td>
-                        <td>e(number) of p(number) for Hex</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_1_1_60">
+                    <div class="flex_table_subtitles">
+                        <div>Literal</div>
+                        <div>Prefix</div>
+                    </div>
+                    <div>
+                        <div>Decimal number</div>
+                        <div>no prefix</div>
+                    </div>
+                    <div>
+                        <div>Binary number</div>
+                        <div>0b prefix</div>
+                    </div>
+                    <div>
+                        <div>Octal number</div>
+                        <div>0o prefix</div>
+                    </div>
+                    <div>
+                        <div>Hexadecimal number</div>
+                        <div>0x prefix</div>
+                    </div>
+                    <div>
+                        <div>Exponents</div>
+                        <div>e(number) of p(number) for Hex</div>
+                    </div>
+                </div>
 
                 <h4>Numeric Type Conversion to prevent errors</h4>
                 <p>Swift type initializers: <span class="definition_swift">SomeType(ofInitialValue)</span></p>
@@ -245,54 +245,54 @@ assertionFailure("message")    // Indicates that assertions failed
 
             <div class="section">
                 <h2>Basic Operators</h2>
-                <table>
-                    <tr>
-                        <th>Type</th>
-                        <th>Operators</th>
-                    </tr>
-                    <tr>
-                        <td>Unary</td>
-                        <td>+, -</td>
-                    </tr>
-                    <tr>
-                        <td>Binary</td>
-                        <td>+, -, *, /, %</td>
-                    </tr>
-                    <tr>
-                        <td>Ternary</td>
-                        <td>(a ? b : c)</td>
-                    </tr>
-                    <tr>
-                        <td>Assignment Operators</td>
-                        <td>=, +=, -=, *=, &frasl;=, %=</td>
-                    </tr>
-                    <tr>
-                        <td>Comparison Operators</td>
-                        <td>==, !=, &gt;, &lt;, &gt;=, &lt;=</td>
-                    </tr>
-                    <tr>
-                        <td>Identity Operators</td>
-                        <td>===(identical to), !==(not identical to)</td>
-                    </tr>
-                    <tr>
-                        <td>Logical Operators</td>
-                        <td>!, &amp;&amp;, ||</td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">Nil-Coalescing Operator</span>: unwraps an optional a if it contains a value, or returns default value b if a is nil. Expression a is optional, and b must match the type stored in a.</td>
-                        <td>(a ?? b)</td>
-                    </tr>
-                    <tr>
-                        <td>Range Operators</td>
-                        <td>
+                <div class="flex_table_row_1_1">
+                    <div class="flex_table_subtitles">
+                        <div>Type</div>
+                        <div>Operators</div>
+                    </div>
+                    <div>
+                        <div>Unary</div>
+                        <div>+, -</div>
+                    </div>
+                    <div>
+                        <div>Binary</div>
+                        <div>+, -, *, /, %</div>
+                    </div>
+                    <div>
+                        <div>Ternary</div>
+                        <div>(a ? b : c)</div>
+                    </div>
+                    <div>
+                        <div>Assignment Operators</div>
+                        <div>=, +=, -=, *=, &frasl;=, %=</div>
+                    </div>
+                    <div>
+                        <div>Comparison Operators</div>
+                        <div>==, !=, &gt;, &lt;, &gt;=, &lt;=</div>
+                    </div>
+                    <div>
+                        <div>Identity Operators</div>
+                        <div>===(identical to), !==(not identical to)</div>
+                    </div>
+                    <div>
+                        <div>Logical Operators</div>
+                        <div>!, &amp;&amp;, ||</div>
+                    </div>
+                    <div>
+                        <div><span class="definition">Nil-Coalescing Operator</span>: unwraps an optional a if it contains a value, or returns default value b if a is nil. Expression a is optional, and b must match the type stored in a.</div>
+                        <div>(a ?? b)</div>
+                    </div>
+                    <div>
+                        <div>Range Operators</div>
+                        <div>
 <pre>
 <span class="definition">Closed Range operator</span>: (a...b)
 <span class="definition">Half-open Range operator</span>: (a..&lt;b)
 <span class="definition">One-sided Ranges</span>: (a...) | (...b), (a..&lt;) | (..&lt;b)
 </pre>
-                </td>
-                    </tr>
-                </table>
+                </div>
+                    </div>
+                </div>
                 <br>
                 <p>The assignment operator can be used to decompose a tuple. Tuples can be compared using comparison operator and each corresponding pair of values are checked left-to-right returning a boolean. If the pair is equal, the next pair is checked. Only works if operator can be applied to each value in respective tuples.</p>
 
@@ -314,99 +314,99 @@ text
 var emptyString = String()
 </code></pre>
                 <br>
-                <table class="table_60 center_table_data">
-                    <tr>
-                        <th colspan="2">Special Characters (Escape Characters)</th>
-                    </tr>
-                    <tr>
-                        <th>Character</th>
-                        <th>Definition</th>
-                    </tr>
-                    <tr>
-                        <td>\0</td>
-                        <td>null character</td>
-                    </tr>
-                    <tr>
-                        <td>\\</td>
-                        <td>backslash</td>
-                    </tr>
-                    <tr>
-                        <td>\t</td>
-                        <td>horizontal tab</td>
-                    </tr>
-                    <tr>
-                        <td>\n</td>
-                        <td>line feed</td>
-                    </tr>
-                    <tr>
-                        <td>\r</td>
-                        <td>carriage return</td>
-                    </tr>
-                    <tr>
-                        <td>\"</td>
-                        <td>double quote</td>
-                    </tr>
-                    <tr>
-                        <td>\'</td>
-                        <td>single quote</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_1_1_60">
+                    <div class="flex_table_title_full">
+                        <div>Special Characters (Escape Characters)</div>
+                    </div>
+                    <div class="flex_table_subtitles">
+                        <div>Character</div>
+                        <div>Definition</div>
+                    </div>
+                    <div>
+                        <div>\0</div>
+                        <div>null character</div>
+                    </div>
+                    <div>
+                        <div>\\</div>
+                        <div>backslash</div>
+                    </div>
+                    <div>
+                        <div>\t</div>
+                        <div>horizontal tab</div>
+                    </div>
+                    <div>
+                        <div>\n</div>
+                        <div>line feed</div>
+                    </div>
+                    <div>
+                        <div>\r</div>
+                        <div>carriage return</div>
+                    </div>
+                    <div>
+                        <div>\"</div>
+                        <div>double quote</div>
+                    </div>
+                    <div>
+                        <div>\'</div>
+                        <div>single quote</div>
+                    </div>
+                </div>
                 <br>
 
                 <h4>Manipulating Strings and Methods</h4>
-                <table class="table_3_to_7">
-                    <tr>
-                        <th>Subject</th>
-                        <th>Code</th>
-                    </tr>
-                    <tr>
-                        <td>Check if string is empty</td>
-                        <td>
+                <div class="flex_table_row_3_7">
+                    <div class="flex_table_subtitles">
+                        <div>Subject</div>
+                        <div>Code</div>
+                    </div>
+                    <div>
+                        <div>Check if string is empty</div>
+                        <div>
 <pre><code class="language-swift">
 emptyString.isEmpty
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Get count of characters</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Get count of characters</div>
+                        <div>
 <pre><code class="language-swift">
 string.count
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Iterating over String</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Iterating over String</div>
+                        <div>
 <pre><code class="language-swift">
 for character in "string" {
     statements
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">String Concatenation</span>: constructing new strings by adding string values together.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">String Concatenation</span>: constructing new strings by adding string values together.</div>
+                        <div>
 <pre><code class="language-swift">
 var newString = string1 + string2
 newString += string2
 newString.append(character)
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="definition">String Interpolation</span>: constructing new string from a mix of constants, variables, literals, and expressions.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><span class="definition">String Interpolation</span>: constructing new string from a mix of constants, variables, literals, and expressions.</div>
+                        <div>
 <pre><code class="language-swift">
 let multiplier = 3
 let message = "\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>String Indices</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>String Indices</div>
+                        <div>
 <pre><code class="language-swift">
 let someString = "This is a String"
 // Returns first character of string
@@ -427,11 +427,11 @@ for index in someString.indices {
     statements
 }
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Inserting and Removing</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Inserting and Removing</div>
+                        <div>
 <pre><code class="language-swift">
 // Inserting character or word at index
 someString.insert("c", at: someString.endIndex)
@@ -441,9 +441,9 @@ someString.insert(contentsOf: " word", at: someString.index(before: someString.e
 someString.remove(at: index)
 someString.removeSubrange(range)
 </code></pre>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
 
                 <h4>Substring</h4>
                 <p><span class="definition">Substring</span>: different type but short-lived and has same methods as String. Has region of memory that is resused from what was stored in original string.</p>
@@ -462,14 +462,14 @@ let subString = someString[range]
                 <h3>Array</h3>
                 <p><span class="definition">Array</span>: stores values of the same type in an ordered list.</p>
                 <br>
-                <table class="table_3_to_7">
-                    <tr>
-                        <th>Subject</th>
-                        <th>Code</th>
-                    </tr>
-                    <tr>
-                        <td>Initializing an array</td>
-                        <td>
+                <div class="flex_table_row_3_7">
+                    <div class="flex_table_subtitles">
+                        <div>Subject</div>
+                        <div>Code</div>
+                    </div>
+                    <div>
+                        <div>Initializing an array</div>
+                        <div>
 <pre><code class="language-swift">
 // Initialize an empty array
 var array = [Type]()
@@ -480,11 +480,11 @@ var array = Array(repeating: count)
 // Initialize array with array literal
 var array: [Type] = [value1, value2]
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Accessing and Modifying an Array</b>: any gaps in an array are closed when an item is removed.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div><b>Accessing and Modifying an Array</b>: any gaps in an array are closed when an item is removed.</div>
+                        <div>
 <pre><code class="language-swift">
 // Number of items in array
 array.count
@@ -503,11 +503,11 @@ array[index]
 array.insert(_:at:)
 array.remove(at:)
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Iterating over an array</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Iterating over an array</div>
+                        <div>
 <pre><code class="language-swift">
 for item in array {
     statements
@@ -518,9 +518,9 @@ for (index, value) in array.enumerated() {
     statements
 }
 </code></pre>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
 
                 <h3>Set</h3>
                 <p><span class="definition">Set</span>: stores distinct values of the same type in a collection with no defined ordering. A type must be <b>hashable</b> to be stored in a set. String, Int, Double, Bool, and enums are by default. Conform to Hashable and Equatable protocol for custom sets and dictionaries.</p>
@@ -528,14 +528,14 @@ for (index, value) in array.enumerated() {
                 <p><span class="definition">Hash value</span>: an Int value that is the same for objects that compare equally. If <span class="definition_swift">a==b</span> then <span class="definition_swift">a.hashValue = b.hashValue</span>.</p>
                 <br>
 
-                <table class="table_3_to_7">
-                    <tr>
-                        <th>Subject</th>
-                        <th>Code</th>
-                    </tr>
-                    <tr>
-                        <td>Initializing a Set</td>
-                        <td>
+                <div class="flex_table_row_3_7">
+                    <div class="flex_table_subtitles">
+                        <div>Subject</div>
+                        <div>Code</div>
+                    </div>
+                    <div>
+                        <div>Initializing a Set</div>
+                        <div>
 <pre><code class="language-swift">
 // Initialize empty set
 var set = Set&lt;Type&gt;()
@@ -546,11 +546,11 @@ var set: Set&lt;Type&gt; = [value1, value2]
 // Set already created set to empty using empty array literal
 setVariable = []
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Accessing and Modifying a Set</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Accessing and Modifying a Set</div>
+                        <div>
 <pre><code class="language-swift">
 /* Other methods and properties include
 .insert(_:), .remove(_:), removeAll(), .count, and isEmpty */
@@ -558,11 +558,11 @@ setVariable = []
 // Check if the set contains a value
 set.contains(value)
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Iterating over a Set</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Iterating over a Set</div>
+                        <div>
 <pre><code class="language-swift">
 for item in set {
     statements
@@ -573,69 +573,69 @@ for item in set.sorted() {
     statements
 }
 </code></pre>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
                 <br>
 
-                <table class="table_80">
-                    <tr>
-                        <th colspan="2">Set Operations</th>
-                    </tr>
-                    <tr>
-                        <th>Operation</th>
-                        <th>Definition</th>
-                    </tr>
-                    <tr>
-                        <td>intersection(_:)</td>
-                        <td>Creates a new set with common values to both.</td>
-                    </tr>
-                    <tr>
-                        <td>symmetricDifference(_:)</td>
-                        <td>Creates a new set with values in either set but not both.</td>
-                    </tr>
-                    <tr>
-                        <td>union(_:)</td>
-                        <td>Creates a new set with all values in both sets.</td>
-                    </tr>
-                    <tr>
-                        <td>subtracting(_:)</td>
-                        <td>Creates a new set with values not in the specified set.</td>
-                    </tr>
-                    <tr>
-                        <td>==</td>
-                        <td>If two sets contain all the same values.</td>
-                    </tr>
-                    <tr>
-                        <td>isSubset(of:)</td>
-                        <td>Whether all of the values of a set are contained in the specified set.</td>
-                    </tr>
-                    <tr>
-                        <td>isSuperset(of:)</td>
-                        <td>Whether a set contains all of the values in a specified set.</td>
-                    </tr>
-                    <tr>
-                        <td>isStrictSubset(of:) or isStrictSuperset(of:)</td>
-                        <td>Same as above but checks if they are not equal to the specified set.</td>
-                    </tr>
-                    <tr>
-                        <td>isDisjoint(with:)</td>
-                        <td>Whether two sets have no values in common.</td>
-                    </tr>
-                </table>
+                <div class="flex_table_row_3_7">
+                    <div class="flex_table_title_full">
+                        <div>Set Operations</div>
+                    </div>
+                    <div class="flex_table_subtitles">
+                        <div>Operation</div>
+                        <div>Definition</div>
+                    </div>
+                    <div>
+                        <div>intersection(_:)</div>
+                        <div>Creates a new set with common values to both.</div>
+                    </div>
+                    <div>
+                        <div>symmetricDifference(_:)</div>
+                        <div>Creates a new set with values in either set but not both.</div>
+                    </div>
+                    <div>
+                        <div>union(_:)</div>
+                        <div>Creates a new set with all values in both sets.</div>
+                    </div>
+                    <div>
+                        <div>subtracting(_:)</div>
+                        <div>Creates a new set with values not in the specified set.</div>
+                    </div>
+                    <div>
+                        <div>==</div>
+                        <div>If two sets contain all the same values.</div>
+                    </div>
+                    <div>
+                        <div>isSubset(of:)</div>
+                        <div>Whether all of the values of a set are contained in the specified set.</div>
+                    </div>
+                    <div>
+                        <div>isSuperset(of:)</div>
+                        <div>Whether a set contains all of the values in a specified set.</div>
+                    </div>
+                    <div>
+                        <div>isStrictSubset(of:) or isStrictSuperset(of:)</div>
+                        <div>Same as above but checks if they are not equal to the specified set.</div>
+                    </div>
+                    <div>
+                        <div>isDisjoint(with:)</div>
+                        <div>Whether two sets have no values in common.</div>
+                    </div>
+                </div>
                 <br>
 
                 <h3>Dictionary</h3>
                 <p><span class="definition">Dictionary</span>: stores associations between keys of same type and values of same type with no defined ordering. Keys must be unique. Subscript syntax which is used for a dictionary returns a value as an optional, so it must be unwrapped.</p>
                 <br>
-                <table class="table_3_to_7">
-                    <tr>
-                        <th>Subject</th>
-                        <th>Code</th>
-                    </tr>
-                    <tr>
-                        <td>Initializing a Dictionary</td>
-                        <td>
+                <div class="flex_table_row_3_7">
+                    <div class="flex_table_subtitles">
+                        <div>Subject</div>
+                        <div>Code</div>
+                    </div>
+                    <div>
+                        <div>Initializing a Dictionary</div>
+                        <div>
 <pre><code class="language-swift">
 // Initialize an empty dictionary
 var dictionary = [KeyType: ValueType]()
@@ -646,11 +646,11 @@ var dictionary = [key1: value1, key2: value2]
 // Empty dictionary literal
 dictionaryVariable = [:]
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Accessing and Modifying a Dictionary</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Accessing and Modifying a Dictionary</div>
+                        <div>
 <pre><code class="language-swift">
 /* Methods and properties include .count, .isEmpty */
 
@@ -663,11 +663,11 @@ dictionary.updateValue(_:forkey:)
 dictionary[key] = nil
 dictionary.removeValue(forKey:)
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Iterating over a Dictionary</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Iterating over a Dictionary</div>
+                        <div>
 <pre><code class="language-swift">
 for (key, value) in dictionary {
     statements
@@ -687,9 +687,9 @@ for values in dictionary.values {
 let keyArray = [Type](dictionary.keys)
 let valuesArray = [Type](dictionary.values)
 </code></pre>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
@@ -2241,54 +2241,54 @@ balance(&amp;playerInformation.health, &amp;playerInformation.energy)
                 <br>
 
                 <h3>Access Levels</h3>
-                <table class="table_3_columns">
-                    <tr>
-                        <th>Level</th>
-                        <th>Description</th>
-                        <th>Modifier (place before entity's introducer)</th>
-                    </tr>
-                    <tr>
-                        <td>Open access and Public access</td>
-                        <td>
+                <div class="flex_table_row_2_4_4">
+                    <div class="flex_table_subtitles">
+                        <div>Level</div>
+                        <div>Description</div>
+                        <div>Modifier (place before entity's introducer)</div>
+                    </div>
+                    <div>
+                        <div>Open access and Public access</div>
+                        <div>
                             <p>Entities can be used within any source file and in a source file from another module that imports the defining module. Usually for public interface to a framework.</p>
                             <br>
-                            <p>Public access defines that classes and class members can only be subclassed from within a module. Open access lets subclassing across modules.</p></td>
-                        <td>
+                            <p>Public access defines that classes and class members can only be subclassed from within a module. Open access lets subclassing across modules.</p></div>
+                        <div>
 <pre><code class="language-swift">
 open class SomePublicClass {}
 
 public class SomePublicClass {}
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Internal access</td>
-                        <td>Entities can be used within any source file from a defining module but not across modules. Usually for defining an app's or framework's internal structure.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Internal access</div>
+                        <div>Entities can be used within any source file from a defining module but not across modules. Usually for defining an app's or framework's internal structure.</div>
+                        <div>
 <pre><code class="language-swift">
 internal class SomeInternalClass {}
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>File-private access</td>
-                        <td>Entity can only be used in its own defining source file. Usually to hide implementation details of functionality when the details are used within the entire file.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>File-private access</div>
+                        <div>Entity can only be used in its own defining source file. Usually to hide implementation details of functionality when the details are used within the entire file.</div>
+                        <div>
 <pre><code class="language-swift">
 fileprivate class SomeFilePrivateClass {}
 </code></pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Private access</td>
-                        <td>Entity is restricted to the enclosing declaration when the details of functionality are used within a single declaration.</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Private access</div>
+                        <div>Entity is restricted to the enclosing declaration when the details of functionality are used within a single declaration.</div>
+                        <div>
 <pre><code class="language-swift">
 private class SomePrivateClass {}
 </code></pre>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
                 <br>
 
                 <p>The default access level for all entities are <span class="definition_swift">internal</span>.</p>
