@@ -69,27 +69,15 @@ Date Created: December 2017
 .section pre {
     overflow: auto;
 }
-.long_url {
-    /* font-size: 0.5em !important; */
-
-    /* These are technically the same, but use both */
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-
-    /* Instead use this non-standard one: */
-    word-break: break-word;
-}
-/* .section li {
-    overflow: auto;
-} */
 .section ul, .section ol {
     padding-left: 24px;
 }
-
-/* Youtube videos */
-iframe {
-
+.long_url {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
+
 
 /*-------------------- IMAGE CONTAINER FOR LARGE IMAGES --------------------*/
 .preview_div {
@@ -294,6 +282,13 @@ iframe {
 }
 
 
+/*==============================================================================
+
+
+                              MEDIA QUERIES
+
+
+==============================================================================*/
 @media screen and (max-width: 992px) {
     .section p, .section li {
         font-size: 0.9em;
