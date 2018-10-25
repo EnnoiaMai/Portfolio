@@ -84,10 +84,10 @@ body {
     -webkit-animation: night-orbit 30s linear infinite;
 }
 /* sun and moon images */
-#content > div > img {
+/* #content > div > img {
     width: 100%;
     height: 100%;
-}
+} */
 
 /*------------------------- TRANSITIONS AND ANIMATIONS -------------------------*/
 /* Gradient */
@@ -192,7 +192,7 @@ body {
 #languages_list > div > ul a {
     color: #000;
     display: inline-block;
-    font-size: 110%;
+    font-size: 1.0em;
     padding-top: 6px;
     padding-bottom: 6px;
     padding-left: 18px;
@@ -305,10 +305,10 @@ body {
         font-size: 1.5em;
     }
     #languages_list > div > ul a {
-        font-size: 96%;
+        font-size: 0.9em;
     }
-    #projects_list table td > a {
-        font-size: 0.96em;
+    #projects_list table td > a, #projects_list table td {
+        font-size: 0.9em;
     }
 
     /* Decrease size of sun and moon */
@@ -325,5 +325,22 @@ body {
         -webkit-animation: alternating-opacity 30s linear infinite;
         -moz-animation: alternating-opacity 30s linear infinite;
         animation: alternating-opacity 30s linear infinite;
+    }
+    #projects_list h2 {
+        font-size: 1.1em;
+    }
+    #projects_list h4, #projects_list p {
+        font-size: 0.9em;
+    }
+
+    .fa-github {
+        width: 24px;
+        font-size: 24px;
+    }
+
+    .external_link_container {
+        width: 24px;
+        height: 24px;
+        margin-left: 4px;
     }
 }

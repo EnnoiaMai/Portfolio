@@ -108,7 +108,7 @@ Date Created: September 2018
 
                 <p><b><u>TASK 1 : Read The definition of the Item interface and implement TrainCar</u></b></p>
                 <br>
-                <p>Your are being provided with</p>
+                <p>You are being provided with</p>
                 <ol>
                     <li>Item.java</li>
                     <li>Automobile.java</li>
@@ -229,7 +229,7 @@ Date Created: September 2018
                 </ul>
                 <br>
 
-                <p>Since these are just “strategies” for which car to choose when loading, they each have different goals. Note that Train.java, TrainCar.java, Item.java, Ford.java, Automobile.java. Electronics.java do not have to change at all as you create new classes that implement Loader. In our setup only TrainMain.java needs to know how to create a specific Loader and then instantiate a Train with that loader. Please re-read this paragraph, understanding why this works (via runtime polymorphism) is key to gaining insight into a key feature of any object-oriented language.</p>
+                <p>Since these are just “strategies” for which car to choose when loading, they each have different goals. Note that Train.java, TrainCar.java, Item.java, Ford.java, Automobile.java, Electronics.java do not have to change at all as you create new classes that implement Loader. In our setup only TrainMain.java needs to know how to create a specific Loader and then instantiate a Train with that loader. Please re-read this paragraph, understanding why this works (via runtime polymorphism) is key to gaining insight into a key feature of any object-oriented language.</p>
                 <br>
 
                 <p>The following gives rules/examples of how each Loader strategy fills a train. For this example:</p>
@@ -294,52 +294,52 @@ Date Created: September 2018
                 <p>Where the “1” versions of the items are 1KG, but we have the same Car capacity as before. In our test program that generated the following output, it stopped adding items the first time it encountered an item that would not fit in any car.</p>
                 <br>
 
-                <pre>
-                <b>RoundRobinLoader</b>
-                === Train Weighs 28.000000 KG ===
-                ==== CAR 0 (8.000000 KG) ====
-                Electronics: A (3.000000 KG)
-                Electronics: C1 (1.000000 KG)
-                Electronics: E1 (1.000000 KG)
-                Electronics: G (3.000000 KG)
-                ==== CAR 1 (8.000000 KG) ====
-                Electronics: A1 (1.000000 KG)
-                Electronics: D (3.000000 KG)
-                Electronics: F (3.000000 KG)
-                Electronics: G1 (1.000000 KG)
-                ==== CAR 2 (5.000000 KG) ====
-                Electronics: B (3.000000 KG)
-                Electronics: D1 (1.000000 KG)
-                Electronics: F1 (1.000000 KG)
-                ==== CAR 3 (4.000000 KG) ====
-                Electronics: B1 (1.000000 KG)
-                Electronics: E (3.000000 KG)
-                ==== CAR 4 (3.000000 KG) ====
-                Electronics: C (3.000000 KG)
+    <pre>
+    <b>RoundRobinLoader</b>
+    === Train Weighs 28.000000 KG ===
+    ==== CAR 0 (8.000000 KG) ====
+    Electronics: A (3.000000 KG)
+    Electronics: C1 (1.000000 KG)
+    Electronics: E1 (1.000000 KG)
+    Electronics: G (3.000000 KG)
+    ==== CAR 1 (8.000000 KG) ====
+    Electronics: A1 (1.000000 KG)
+    Electronics: D (3.000000 KG)
+    Electronics: F (3.000000 KG)
+    Electronics: G1 (1.000000 KG)
+    ==== CAR 2 (5.000000 KG) ====
+    Electronics: B (3.000000 KG)
+    Electronics: D1 (1.000000 KG)
+    Electronics: F1 (1.000000 KG)
+    ==== CAR 3 (4.000000 KG) ====
+    Electronics: B1 (1.000000 KG)
+    Electronics: E (3.000000 KG)
+    ==== CAR 4 (3.000000 KG) ====
+    Electronics: C (3.000000 KG)
 
-                <b>FairLoader</b>
-                === Train Weighs 31.000000 KG ===
-                ==== CAR 0 (10.000000 KG) ====
-                Electronics: A (3.000000 KG)
-                Electronics: E (3.000000 KG)
-                Electronics: G1 (1.000000 KG)
-                Electronics: H (3.000000 KG)
-                ==== CAR 1 (8.000000 KG) ====
-                Electronics: A1 (1.000000 KG)
-                Electronics: C1 (1.000000 KG)
-                Electronics: D1 (1.000000 KG)
-                Electronics: E1 (1.000000 KG)
-                Electronics: F1 (1.000000 KG)
-                Electronics: G (3.000000 KG)
-                ==== CAR 2 (6.000000 KG) ====
-                Electronics: B (3.000000 KG)
-                Electronics: F (3.000000 KG)
-                ==== CAR 3 (4.000000 KG) ====
-                Electronics: B1 (1.000000 KG)
-                Electronics: D (3.000000 KG)
-                ==== CAR 4 (3.000000 KG) ====
-                Electronics: C (3.000000 KG)
-                </pre>
+    <b>FairLoader</b>
+    === Train Weighs 31.000000 KG ===
+    ==== CAR 0 (10.000000 KG) ====
+    Electronics: A (3.000000 KG)
+    Electronics: E (3.000000 KG)
+    Electronics: G1 (1.000000 KG)
+    Electronics: H (3.000000 KG)
+    ==== CAR 1 (8.000000 KG) ====
+    Electronics: A1 (1.000000 KG)
+    Electronics: C1 (1.000000 KG)
+    Electronics: D1 (1.000000 KG)
+    Electronics: E1 (1.000000 KG)
+    Electronics: F1 (1.000000 KG)
+    Electronics: G (3.000000 KG)
+    ==== CAR 2 (6.000000 KG) ====
+    Electronics: B (3.000000 KG)
+    Electronics: F (3.000000 KG)
+    ==== CAR 3 (4.000000 KG) ====
+    Electronics: B1 (1.000000 KG)
+    Electronics: D (3.000000 KG)
+    ==== CAR 4 (3.000000 KG) ====
+    Electronics: C (3.000000 KG)
+    </pre>
                 <br>
 
                 <p>Hint: Think about what you need to calculate each time FairLoader is trying to figure out which car should be loaded. One way to go about this is to create an array of current car weights. Then walk through the array of TrainCars passed to chooseCar and determine if the item could be loaded into the car, If so, record the current weight of the car (what method would you invoke on a TrainCar instance to determine current weight and ability to load? -- USE those methods). If it could not be loaded, record a nonsense weight. With that in hand, you can then walk the array of weights looking for the minimum weight that isn’t nonsense. Record the index of that minimum weight, and you have found your car. Remember to take care of the case when the item fits in no car.</p>
@@ -354,7 +354,396 @@ Date Created: September 2018
 
             <div class="section">
                 <h2>Implementation Details</h2>
-                
+                <h3>TrainCar</h3>
+                <p>The following shows how the methods of TrainCar were implemented.</p>
+                <br>
+    <pre><code class="language-java">
+    import java.util.ArrayList;
+
+    public class TrainCar {
+        private double maxWeight;
+        private double totalWeight;
+        private ArrayList&lt;Item&gt; listOfItems;
+
+        // Constructor
+        public TrainCar(double maxW) {
+            maxWeight = (maxW <= 0) ? 0 : maxW;
+            totalWeight = 0;
+            listOfItems = new ArrayList&lt;Item&gt;();
+        }
+
+        // Determine if item can be loaded in car
+        public boolean canLoad(Item item) {
+            if (item == null) {
+                return false;
+            }
+            if (item.getWeight() <= 0) {
+                return false;
+            }
+            if ( (totalWeight + item.getWeight()) <= maxWeight ) {
+                return true;
+            }
+            return false;
+        }
+
+        // Return an array of Item references of what is loaded in this car
+        public Item[] getContents() {
+            Item[] returnList = new Item[listOfItems.size()];
+            for (int i = 0; i < listOfItems.size(); ++i) {
+                returnList[i] = listOfItems.get(i);
+            }
+            return returnList;
+        }
+
+        // Getter - return max weight of cargo in this TrainnCar
+        public double getMaxWeight() {
+            return maxWeight;
+        }
+
+        // Determine how many of a particular Item is in this TrainCar
+        public int getQuantity(Item item) {
+            if (item == null) {
+                return 0;
+            }
+            int counter = 0;
+            for (int i = 0; i < listOfItems.size(); ++i) {
+                if (listOfItems.get(i) == item) {
+                    counter += 1;
+                }
+            }
+            return counter;
+        }
+
+        // Getter - return current weight of cargo in this TrainCar
+        public double getWeight() {
+            return totalWeight;
+        }
+
+        // Load an item into the TrainCar
+        public int load(Item item) {
+            if (item == null) {
+                return 0;
+            }
+            if ( !canLoad(item) ) {
+                return 0;
+            }
+            listOfItems.add(item);
+            totalWeight += item.getWeight();
+            return 1;
+        }
+    }
+    </code></pre>
+                <br>
+
+                <h3>Electronics</h3>
+                <br>
+                <p>An Electronics class was made, which implements the Item interface.</p>
+                <br>
+    <pre><code class="language-java">
+    public class Electronics implements Item {
+        private String description;
+        private double weight;
+
+        // Constructor
+        public Electronics() {
+            this.description = description;
+            this.weight = weight;
+        }
+
+        @Override
+        public String toString() {
+            return description();
+        }
+
+        public double getWeight() {
+            return weight;
+        }
+
+        public String description() {
+            return "Electronics: " + description + " (" + weight + " KG)";
+        }
+    }
+    </code></pre>
+                <br>
+
+                <h3>Train</h3>
+                <br>
+                <p>As was described in the assignment details, a train has a loader algorithm as well as a list of train cars, in which each contains a list of items. The following shows the implementation of methods specified for the Train class.</p>
+                <br>
+    <pre><code class="language-java">
+    import java.util.ArrayList;
+
+    public class Train {
+        private Loader loader;
+        private ArrayList&lt;TrainCar&gt; trainCars;
+
+        // Constructor
+        public Train(Loader loadMaster) {
+            loader = loadMaster;
+            trainCars = new ArrayList&lt;TrainCar&gt;();
+        }
+
+        // Getter - return number of TrainCars in this Train
+        public int getNumCars() {
+            return trainCars.size();
+        }
+
+        // Getter - return the total weight of all cargo in all TrainCars
+        public double getWeight() {
+            double weightToReturn = 0;
+            for (TrainCar c : trainCars) {
+                weightToReturn += c.getWeight();
+            }
+            return weightToReturn;
+        }
+        // Getter - return the weight of all cargo in a particular TrainCar
+        public double getWeight(int car) {
+            if ( (car < 0) || (car >= trainCars.size()) ) {
+                return 0;
+            }
+            double weightToReturn = trainCars.get(car).getWeight();
+            return weightToReturn;
+        }
+
+        // Getter - 2D array of Items that lists all cargo
+        public Item[][] getContents() {
+            int max = findMaxItemsAmongCars();
+            // If max is 0, then return empty 2D array
+            if (max == 0) {
+                return new Item[0][0];
+            }
+
+            Item[][] listToReturn = new Item[trainCars.size()][max];
+            for (int i = 0; i < trainCars.size(); ++i) {
+                Item[] itemList = trainCars.get(i).getContents();
+
+                for (int j = 0; j < itemList.length; ++j) {
+                    listToReturn[i][j] = itemList[j];
+                }
+            }
+            return listToReturn;
+        }
+        private int findMaxItemsAmongCars() {
+            if (trainCars.size() <= 0) {
+                return 0;
+            }
+
+            int max = trainCars.get(0).getContents().length;
+            for (int i = 1; i < trainCars.size(); ++i) {
+                if (trainCars.get(i).getContents().length > max) {
+                    max = trainCars.get(i).getContents().length;
+                }
+            }
+            return max;
+        }
+
+        // Getter - 1D array of Items that lists all cargo
+        // of a particular TrainCar
+        public Item[] getContents(int car) {
+            if ( (car < 0) || (car >= trainCars.size()) ) {
+                return null;
+            }
+            return trainCars.get(car).getContents();
+        }
+
+        // Getter - return TrainCar reference for specific car #
+        public TrainCar getTrainCar(int car) {
+            if ( (car < 0) || (car >= trainCars.size()) ) {
+                return null;
+            }
+            return trainCars.get(car);
+        }
+
+        // Add TrainCars to the train, all with identical capacity
+        public void addCars(int nCars, double maxWeight) {
+            if ( (nCars <= 0) || (maxWeight < 0) ) {
+                return;
+            }
+            for (int i = 0; i < nCars; ++i) {
+                trainCars.add(new TrainCar(maxWeight));
+            }
+        }
+
+        // Load item onto train, uses Loader to determine which car
+        // to load an item.
+        public int load(Item item) {
+            if (item == null) {
+                return 0;
+            }
+
+            TrainCar[] arrayOfTrainCars = toTrainCarArray();
+            int carIndex = loader.chooseCar(arrayOfTrainCars, item);
+            if (carIndex != -1) {
+                trainCars.get(carIndex).load(item);
+                return 1;
+            }
+            return 0;
+        }
+        private TrainCar[] toTrainCarArray() {
+            TrainCar[] arrayToReturn = new TrainCar[trainCars.size()];
+            for (int i = 0; i < trainCars.size(); ++i){
+                arrayToReturn[i] = trainCars.get(i);
+            }
+            return arrayToReturn;
+        }
+
+        // Convenience wrapper method around load
+        public int load(int qty, Item item) {
+            if (item == null) {
+                return 0;
+            }
+
+            int qtyPassed = 0;
+            for (int i = 0; i < qty; i++) {
+                int loadReturn = load(item);
+                if (loadReturn == 1) {
+                    qtyPassed += 1;
+                }
+            }
+            return qtyPassed;
+        }
+    }
+    </code></pre>
+                <br>
+
+                <h3>TrainMain</h3>
+                <br>
+                <p>TrainMain.java contains methods to interpret the input coming in from the user as commands to make to the current Train instance. Like the earlier assignments, it calls runInterpreter() and uses a switch statement to check against the inputs, parsing the Strings to match the argument types of class methods from Train and TrainCar. The code will not be shown here since the implementation is similar. However, the user is asked for which loader to use for the Train, and this occurs before the user can input in commands.</p>
+                <br>
+
+                <h3>FrontLoader</h3>
+                <br>
+                <p>The following is the algorithm of the FrontLoader, which loads an item into the first can what will fit and will always start from the front of the train.</p>
+                <br>
+    <pre><code class="language-java">
+    public class FrontLoader implements Loader {
+
+        public int chooseCar(TrainCar[] cars, Item item) {
+            if (cars == null) {
+                return Loader.NOCAR;
+            }
+            if (item == null) {
+                return Loader.NOCAR;
+            }
+            for (int car = 0; car < cars.length; car++) {
+                if (cars[car].canLoad(item)) {
+                    return car;
+                }
+            }
+            return Loader.NOCAR;   // no car found
+        }
+    }
+    </code></pre>
+                <br>
+
+                <h3>RearLoader</h3>
+                <br>
+                <p>The algorithm of the RearLoader loads an item into the first car that will fit starting from the end of the train and going towards the front of the train.</p>
+                <br>
+    <pre><code class="language-java">
+    public class ReadLoader implements Loader {
+        public int chooseCar(TrainCar[] cars, Item item) {
+            if (cars == null) {
+                return Loader.NOCAR;
+            }
+            if (item == null) {
+                return Loader.NOCAR;
+            }
+            for (int car = cars.length - 1; car >= 0; car--) {
+                if (cars[car].canLoad(item)) {
+                    return car;
+                }
+            }
+            return Loader.NOCAR;   // no car found
+        }
+    }
+    </code></pre>
+                <br>
+
+                <h3>RoundRobinLoader</h3>
+                <br>
+                <p>The code below shows how to add items in round robin fashion. It keeps note of the lastCarIndex (which will be the first index to use to check against when an item is to be added to a train car).</p>
+                <br>
+    <pre><code class="language-java">
+    public class RoundRobinLoader implements Loader {
+        private int lastCarIndex = 0;
+
+        public int chooseCar(TrainCar[] cars, Item item) {
+            if (cars == null) {
+                return Loader.NOCAR;
+            }
+            if (item == null) {
+                return Loader.NOCAR;
+            }
+
+            int numberOfCars = cars.length;
+            int count = 0;
+            int i = lastCarIndex;
+            while (count < numberOfCars) {
+                int iModulo = i % numberOfCars;
+                if (cars[iModulo].canLoad(item)) {
+                    lastCarIndex = (iModulo + 1) % numberOfCars;
+                    return iModulo;
+                }
+                count += 1;
+                ++i;
+            }
+            return Loader.NOCAR;
+        }
+    }
+    </code></pre>
+                <br>
+
+                <h3>FairLoader</h3>
+                <br>
+                <p>Similar to RoundRobinLoader's algorithm except that this loader goes through the train cars to see which car has the lowest weight to add the item to.</p>
+                <br>
+    <pre><code class="language-java">
+    public class FairLoader implements Loader {
+
+        public int chooseCar(TrainCar[] cars, Item item) {
+            if (cars == null) {
+                return Loader.NOCAR;
+            }
+            if (item == null) {
+                return Loader.NOCAR;
+            }
+
+            double[] weights = trainCarweights(cars);
+            int minIndex = findMinIndex(cars, item, weights);
+            if (minIndex == -1) {
+                return Loader.NOCAR;   // no car found because can't load
+            }
+            return minIndex;
+        }
+
+        // returns an array in which the value of each index matches
+        // the weight of the train car
+        private double[] trainCarWeights(TrainCar[] cars) {
+            double[] arrayToReturn = new double[cars.length];
+            for (int i = 0; i < cars.length; ++i) {
+                arrayToReturn[i] = cars[i].getweight();
+            }
+            return arrayToReturn;
+        }
+
+        // -1 is a nonsense value, which is set initially
+        private int findMinIndex(TrainCar[] cars, Item item, double[] weights) {
+
+            int index = -1;
+            for (int i = 0; i < cars.length; ++i) {
+                if (cars[i].canLoad(item)) {
+                    if ( (index == -1) || (weights[i] < weights[index]) ) {
+                        index = i;
+                    }
+                }
+            }
+            return index;
+        }
+
+    }
+    </code></pre>
+
             </div>
         </div>
     </body>
