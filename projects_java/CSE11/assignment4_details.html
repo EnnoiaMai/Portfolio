@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<!--
+Thuc Nguyen
+Date Created: December 2018
+-->
+<html>
+    <head>
+        <title>CSE11 Assignment 4 - Rydr</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="description" content="Thuc Nguyen's Portfolio">
+        <meta name="author" content="Thuc Nguyen">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="../../css/details.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-java.min.js"></script>
+        <script type="text/javascript" src="../../js/sidebar.js"></script>
+        <script type="text/javascript" src="../../js/details.js"></script>
+    </head>
+
+    <body>
+        <div id="sidebar">
+            <div id="menu_icon">
+                <img src="../../images/ic_menu_white_36dp_1x.png" alt="Menu">
+                <img src="../../images/ic_menu_highlighted_36dp_1x.png" alt="Menu">
+            </div>
+            <ul>
+                <li><a href="../../index.html" id="link_home">Home</a></li>
+                <li><a href="../../html/projects.html" id="link_projects">Projects</a></li>
+                <div id="submenu">
+                    <a href="../../html/languages_and_syntax.html" id="link_languages_and_syntax">Languages and Syntax</a>
+                    <div>
+                        <img src="../../images/ic_arrow_drop_down_white_36dp_1x.png" alt="open">
+                    </div>
+                </div>
+                <li id="submenu_links">
+                    <ul>
+                        <li><a href="../../html/syntax_java.html" id="link_syntax_java">Java</a></li>
+                        <li><a href="../../html/syntax_swift_4.html" id="link_syntax_swift">Swift 4.0</a></li>
+                        <li><a href="../../html/syntax_cpp.html" id="link_syntax_cpp">C/C++</a></li>
+                        <li><a href="../../html/syntax_html.html" id="link_syntax_html">HTML</a></li>
+                        <li><a href="../../html/syntax_css.html" id="link_syntax_css">CSS</a></li>
+                        <li><a href="../../html/syntax_javascript.html" id="link_syntax_js">JavaScript</a></li>
+                        <li><a href="../../html/syntax_jquery.html" id="link_syntax_jquery">JQuery</a></li>
+                        <li><a href="../../html/syntax_ajax.html" id="link_syntax_ajax">AJAX</a></li>
+                        <li><a href="../../html/syntax_php.html" id="link_syntax_php">PHP</a></li>
+                        <li><a href="../../html/syntax_perl.html" id="link_syntax_perl">Perl</a></li>
+                        <li><a href="../../html/syntax_mysql.html" id="link_syntax_mysql">MySQL</a></li>
+                        <li><a href="../../html/syntax_python.html" id="link_syntax_python">Python</a></li>
+                        <li><a href="../../html/syntax_bash.html" id="link_syntax_bash">Bash</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div id="content_header" class="header_cs646_01">
+                <h1>CSE11 Assignment 4 - Rydr</h1>
+            </div>
+
+            <div class="section">
+                <h2>Assignment</h2>
+                <p>For this assignment, you’ll implement a simulation/game of drivers picking up passengers on a map, and bringing them to their destination. There will be a user-controlled driver and a number of computer-controlled drivers, all of which you will implement.</p>
+                <br>
+                <p>You will design and implement classes for:</p>
+                <br>
+                <ul>
+                    <li>Cars</li>
+                    <li>Riders</li>
+                    <li>Obstacles</li>
+                    <li>A grid-shaped map that holds the above three kinds of objects</li>
+                    <li>Coordinates on the map used to represent the locations of cars, riders, and obstacles</li>
+                    <li>Strategies for cars moving around automatically</li>
+                </ul>
+                <br>
+                <p>You will also:</p>
+                <br>
+                <ul>
+                    <li>Produce both graphical and a text-based output for a given state of the simulation, displaying the riders</li>
+                    <li>Implement a manual controller for the user’s car that reacts to keyboard input</li>
+                    <li>Make the simulation update based on a timer to produce an animation</li>
+                </ul>
+                <br>
+                <p>See the following screenshot, mid-game</p>
+                <br>
+
+                <div class="preview_div_phone">
+                    <img src="../../images/screenshots_cse11/cse11_assignment4_summary_01.png" alt="Summary Image 01">
+                </div>
+                <br>
+
+                <h3>Simulation State</h3>
+                <br>
+                <p>At any given moment in the simulation, we need to represent the grid and all the components on it. That is, we need data that stores</p>
+                <ul>
+                    <li>The location of each car</li>
+                    <li>The direction each car is traveling in</li>
+                    <li>The location of the rider (if there is one)</li>
+                    <li>The location of the obstacles</li>
+                </ul>
+                <br>
+                <p>You should represent all the locations and directions with a Coord class, that stores a row and column for representing a position on the grid.</p>
+                <br>
+
+                <h3>Stage 1 - The Coord Class</h3>
+                <br>
+                <p>The very first class that we need is a uniform way to represent where objects are located on a grid. Once we’ve decided on how to represent where, it will be handy to have a number of operations on the objects. For this assignment, you will be building a coordinate class called Coord. There are two reasonable ways to think about coordinates on a plane: (x,y) and (row,column). This coordinate class is implementing the (row,column) version.</p>
+
+                <br>
+                <p><i>row</i> and <i>col</i> are declared public final and that there are no setters or getters. This is one of those cases when direct field access makes code more readable and usable. Also notice that these fields are declared final. That means that their values can only be set at construction time and can never be changed.</p>
+                <br>
+                <p>There are a number of operations that need to be defined, including:</p>
+                <br>
+                <ul>
+                    <li>Determine if two Coord instances are the same (row,column) coordinate. Override equals()</li>
+                    <li>Add two coordinates together, return a new coordinate</li>
+                    <li>Define the difference between coordinates</li>
+                    <li>Define the distance between two coordinates.</li>
+                    <li>toString with format “Coord:(row=%d,col=%d)”</li>
+                </ul>
+                <br>
+                <p><b>Requirements of Coord (you will turn in Coord.java)</b></p>
+                <ul>
+                    <li>You should not add any other public methods or fields, change any signatures or modify any return types for Coord.</li>
+                    <li>Your Coord.java does NOT have to reproduce the javadoc.</li>
+                </ul>
+                <br>
+                <p><b>Testing Coord.java</b></p>
+                <p>You should test Coord.java as you see fit. An automated testing suite to validate your Coord class will be available.</p>
+                <br>
+
+                <h3>Stage 2 - GridObject.java and Obstacle.java</h3>
+                <br>
+                <p>You are being supplied GridObject.java, which is a class that represents one of the game entities on the grid (a car, rider, obstacle, or blank space). You should read this class definition. For example, UP is defined to logically mean “facing in the up direction”.</p>
+                <br>
+                <p><b>Obstacle extends GridObject</b>.​ The only difference between a GridObject and an Obstacle is that default color. Obstacles must be some color other than java.awt.Color.WHITE.</p>
+                <br>
+                <p><b>You will turn in Obstacle.java​</b>. GridObject should remain unchanged.</p>
+                <br>
+
+                <h3>Stage 3 - The GridInfo and CoordInfo Interfaces</h3>
+                <p>The interface GridInfo and CoordInfo interfaces are being supplied to you. You should look at them while reading this section. There isn’t anything to “Code” for this section, this is to start you down the path of thinking logically about different pieces of information that are needed to successfully perform a simulation. (You might look at the diagram in the FAQ)</p>
+                <ul>
+                    <li>coordFree(Coord c) - an object that implements a CoordInfo interface can respond true/false if the argument (c) is “free”. A free coordinate is one that is on the grid, and doesn’t contain a car or obstacle. In the class implementing coordFree, an invalid coordinate c should logically return false. This tells the caller whether the coordinate could have something placed there, for example whether a car could move into that space or not.</li>
+                    <li>claim(SharedCar car, Coord loc) - A SharedCar (detailed in Stage 4) car is attempting to claim the coordinate location loc. If successful, claim returns true and the car should set its location to loc. If not successful, claim returns false and the car should not change its location. The class implementing claim may, optionally, set the location of the SharedCar to a particular location during the claim.</li>
+                    <li>riderLoaded(SharedCar car) -- returns true if the rider was loaded into the SharedCar car.</li>
+                </ul>
+                <br>
+                <p><b>You should not change either of these interfaces. And, you have nothing to turn in for this stage.</b></p>
+                <br>
+
+                <h3>Stage 4 - CarController.java and SharedCar.java</h3>
+                <br>
+                <p>Both of these files are being supplied to you, but you must take the time to understand them A CarController is an object that returns directions that a car should go based upon its own rules. You will eventually implement several CarControllers. CarController is an abstract class.</p>
+                <br>
+
+                <div class="preview_div_phone">
+                    <img src="../../images/screenshots_cse11/cse11_assignment4_summary_02.png" alt="Summary Image 02">
+                </div>
+                <br>
+
+                <p>Notice that CarController creates constants that are NORTH, SOUTH, EAST, and WEST and their types are Coord. These constants are chosen so that they map to a 2D array, where moving South increases your row index by 1, moving north decreases your row index by one.</p>
+                <br>
+                <p>In particular if you are at Coord (row, col) and you want the Coord to the WEST of the coord you simply invoke Coord.add(WEST). This will return to you the coordinate (row, col-1). In other words, NORTH, SOUTH, EAST, and WEST are (unit) direction vectors.</p>
+                <br>
+                <p>The key methods in CarController are <i>drive()</i> and <i>roam()</i>.</p>
+                <ul>
+                    <li>roam(Coord current) - the CarController is to return the direction (NORTH,SOUTH,EAST,WEST) when there is no particular destination.</li>
+                    <li>drive(Coord current, Coord goal) - the CarController is to return the direction when it is attempting to get to a particular goal coordinate. The particular implementation of a controller determines what it means to “try” to get to a particular coordinate (discussed more below).</li>
+                </ul>
+                <br>
+                <p>Notice that the constructor of CarController takes an object that implements the CoordInfo interface. When you subclass CarController, you need to make sure to invoke this constructor in your subclass’s constructor using super.</p>
+                <br>
+
+                <p><b>SharedCar.java</b></p>
+                <p>SharedCar.java is being supplied to you and you should not change it. But you need to understand its contents. SharedCar.java is a subclass of GridObject. Just like Obstacle is a subclass of GridObject.</p>
+                <br>
+                <p>Constructor: SharedCar (CarController, GridInfo) - to Construct an instance of SharedCar you will need to implement a non-abstract subclass of CarController. You will also need a class that implements GridInfo (more on these two in just a few lines).</p>
+                <br>
+                <p>Let’s look at some of the other methods of SharedCar</p>
+                <ul>
+                    <li>drive() - based upon the boolean wantRider, drive either invokes roam() of its controller to get a direction or invokes drive() of its controller to get a direction. When a direction is given by the controller, it attempts to claim the space in that direction. If successful, the SharedCar updates its location.</li>
+                    <li>newRider() - tells this sharedCar that there is a new rider to seek</li>
+                    <li>roam() - tells this car that it should roam (there is no rider).</li>
+                </ul>
+                <br>
+                <p>At this point in development, you should now write a couple of stand-in classes so that you could create a SharedCar instance. You might create two simple classes</p>
+                <ul>
+                    <li>DummyController - does nothing of any substance internally, but is a subclass of CarController. For example, DummyController’s drive() and roam() methods could always return NORTH.</li>
+                    <li>DummyGrid - implements the GridInfo interface. Its claim() method could always return true. Its riderLoaded() method could always return false.</li>
+                </ul>
+                <br>
+
+                <p>And finally, you should create a simple main program that creates a SharedCar instance, tells it to drive several times, and then prints out the SharedCar’s location after every move (How can you get the SharedCar’s location?). These kinds of small programs allow you to become familiar with some new classes. You could then modify DummyController to move NORTH the first 5 times it was called, then EAST the next 5, then WEST the next 5, then WEST the next 5, printing the Car’s location after every move. Where should your car be after this?</p>
+                <br>
+                <p>Another thing to note, some of your coordinates had negative components if you started at (0,0). Notice that Coords only store (row,col) with no constraints on positive/negative. SharedCars also have no idea how their Coordinates would be constrained. In other words, SharedCars need to know very little about the world in which they are “driving”.</p>
+                <br>
+
+                <h3>Stage 5 - Rider.java</h3>
+                <br>
+                <p>You only need to look at Rider.java (notice that it is also a GridObject). Riders can be constructed, they can return if they are still waiting or that they are being picked up, and can return which SharedCar picked them up.</p>
+                <br>
+                <p>There is nothing to code in this section. But look at the methods in Rider. Try to make sense of how they might be used.</p>
+                <br>
+
+                <h3>Stage 6 - Grid.java - Part 1. Add Objects and Print the Grid</h3>
+                <br>
+                <p>Grid.java is where the state of our simulation is kept. (By the way, have you seen anything about the graphics so far? There’s a reason why the answer is no). Grid.java must be developed in stages.​ We’re not giving you any code for this, but there will be plenty of hints. This part is going to take a while, and as you add more capability, you will add functionality. Let’s write down the critical things that Grid.java must do</p>
+                <ol>
+                    <li>In the constructor, it needs to be told the dimensions of its grid (row x col)</li>
+                    <li>Cars, Obstacles, and Riders all must be able to be added to the Grid. The Grid must also keep track of all the Cars, Obstacles, and Riders. (You might use several ArrayLists internally to keep track of these)</li>
+                    <ul>
+                        <li>You might build methods like addRider(..), addCar(..), addObstacle(..)</li>
+                        <li>You might want to overload these methods to have different signatures.</li>
+                        <li>It’s convenient for these to return booleans for success or failure. For example adding a Car at either an out-of-bounds coordinate or an already-taken coordinate should return false (and not add the car).</li>
+                    </ul>
+                    <li>Grids need to implement both the GridInfo and CoordInfo interfaces. In the FAQ there is a picture of some of the inter-class messaging/invocation. Mostly, cars will need to claim spaces on the grid. CarControllers use the CoordInfo to determine if a space is free.</li>
+                    <li>Some external source of input (maybe a user typing a command, maybe a timer) may want to tell a Grid to tell all the SharedCars to drive(). So a method that causes all cars to drive() is important.</li>
+                    <li>A toString() method that pretty prints what’s on the grid. You can use your own format, but note that all GridObjects have the getSymbol() method.</li>
+                    <li>Our Grid constructor only needed to be told how big it should be (rows x cols).</li>
+                </ol>
+                <br>
+
+                <p><b>Some recommended steps for developing Grid (and using the GridSetup class)</b></p>
+                <p>You should create Grid.java and a main method in your DummyGrid.java() file that creates a Grid Object and then prints it. Don’t add anything, just make sure that you can create and print a grid. That is “% java DummyGrid” at the command line should create some sort of grid and print it.</p>
+                <ol>
+                    <li>Create a text file with the following contents (call it gridtest1)</li>
+                    <br>
+                    <pre>
+                    dimension 10 10
+                    robocar 5 6 east
+                    rider 1 1
+                    obstacle 7 2
+                    </pre>
+                    <br>
+                    <li>
+                        <p>Look at GridSetup.java and create an instance of GridSetup to read this information from the file. When you construct an instance of GridSetup, it opens the file passed into its constructor, and parses the lines. Any format that is doesn’t recognize is just skipped. After the file is read, getters can be called to return arrays of particular Coord references.</p>
+                        <br>
+                        <p>Using the methods available on the GridSetup instance, create a grid, add a car, add a rider, add an obstacle. In order to add those, you will need to modify Grid.java to have your add methods defined.​ You will also need to decide how to store the information you need to keep track. Yo​u might use a 2D array, you might use ArrayLists. You might need some other internal information. This part is up to you. When doing this for our testing purposes, this is the kind of output we achieved (you should have similar results at this stage)</p>
+                    </li>
+                </ol>
+                <br>
+
+                <div class="preview_div_phone">
+                    <img src="../../images/screenshots_cse11/cse11_assignment4_summary_03.png" alt="Summary Image 03">
+                </div>
+                <br>
+
+                <p>Once you achieved this level of success, you should make a copy of all your files and store them for safekeeping. At this point, you’ve learned how some of your classes interact, created a test file that added objects to a grid and then printed a grid.</p>
+                <br>
+                <p>You should try other setups with multiple cars and/or multiple obstacles so that you feel comfortable with the state of your program at this stage.</p>
+                <br>
+
+                <h3>Stage 7 - Grid.java - claim()</h3>
+                <br>
+                <p>Recall that you created a DummyController in a previous stage. The next thing to do is to see if you get a Car to “move” on your grid. If you first set your DummyController to always return NORTH as a direction, you can do some preliminary testing:</p>
+                <ol>
+                    <li>Implement claim() in Grid.java</li>
+                    <li>Modify your DummyGrid.main file to read lines from standard in, each time your code reads a new line, tell your SharedCar to “drive”, then print the grid. You will know things are working, when you see the position of the Car change each time you print the grid. You can try different setups - make sure that the car doesn’t claim a space that is already taken by an obstacle. Make sure the car does not go out of bounds. Don’t just test NORTH, test all the directions. Iterate and test until you are satisfied that claim() is working correctly.</li>
+                    <li>Once you are past step 2, it’s time to tell all SharedCars indirectly to drive. Add several cars to your grid, and then modify Grid.java to have a drive() method. When you invoke Grid.drive() all of the cars should move forward.</li>
+                </ol>
+                <br>
+
+                <h3>Stage 8 - coordFree() and EastWestController.java (Part 1)</h3>
+                <br>
+                <p>OK, you’ve made it this far. Now you have two simultaneous tasks that need to be developed together. <b>You need to implement coordFree() in Grid.java and build your first version of EastWestController</b>.​ This first version should only fully implement the roam() algorithm. In the controller, it should use coordFree to determine if the coordinate in its current direction is free, if it is free, roam() should keep going in the same direction. If it is not free, roam() should reverse direction. Modify DummyGrid to create car(s) with EastWestControllers and verify that when running into an object, or the end of the grid, the car reverses direction. Remember, all of this is still under keyboard control. You should be able to check things step by step. Use print statements as you see fit to debug. Also, really check with multiple cars that they all start in different columns, you should create a different controller instance for each car and verify that they reverse direction independently.</p>
+                <br>
+
+                <h3>Stage 9 - riderLoaded() and EastWestController.java (Part 2)</h3>
+                <br>
+                <p>Now it’s time to get your controller to seek a specific location. You will need to have a way to inform your car(s) that a rider is available. This should change SharedCars to use the drive() mode of their controller instead of roam() mode (See SharedCar.java).</p>
+                <br>
+                <p>Your grid needs to implement a riderLoaded() method. Think about riderLoaded() when a particular car has successfully loaded a rider, the rider is picked up (look at Rider.java -- for the methods to tell the rider which car he/she is in). riderLoaded() needs to also tell all the other cars to go back to roam() mode. Only the Grid knows about all the cars, cars don’t know about each other.</p>
+                <br>
+                <p>EastWestController drive() method: EastWestControllers first try to reduce the distance in the east-west direction and then reduce the north-south direction. Your car needs to react when an obstacle is in the way and attempt to go around it. Really good controllers almost never get stuck, good controllers get stuck in one particular case, and bad controllers get stuck often. We’re aiming for at least a “good” controller. If you want to try to do a “really good” controller, finish the assignment and then come back to this.</p>
+                <br>
+
+                <h3>Stage 10 - Standard input driven testing</h3>
+                <br>
+                <p>At this stage, you have a real controller (EastWest) and you’ve been testing individual pieces. The next step is to write a small command “interpreter” that reads “commands” from the keyboard and does things to the grid. Some commands that you might support are</p>
+                <ul>
+                    <li>Drive</li>
+                    <li>Car &lt;row&gt;&lt;col&gt;</li>
+                    <li>Rider &lt;row&gt;&lt;col&gt;</li>
+                    <li>Obstacle &lt;row&gt;&lt;col&gt;</li>
+                </ul>
+                <p>After each command print the state of grid. You might shorten the commands to accept just the first letter (saves on typing). The idea is the following, you should be able to execute any of the commands in any order and the “right” things should happen. You shouldn’t be able to add objects out of bounds or on top of existing objects. If you hit “d &lt;return&gt;” successively, your grid should “animate” in a flip-book style animation. If all this feels like it’s working well, make a copy of your files.</p>
+                <br>
+
+                <h3>Stage 11 - First Graphics Display</h3>
+                <br>
+                <p>The first thing is to look at GraphicsGrid.java. We are supplying you this class to simplify the graphics part of the assignment. GraphicsGrid is a subclass of JPanel, which allows it to participate in swing graphical layouts and take up some space on the screen.</p>
+                <br>
+                <p>When you construct a GraphicsGrid instance, you tell it how many rows and columns (this is not pixels, it is logical just like Grid). The default is that each block of the GraphicsGrid is 10x10 pixels. The class will resize these blocks if you resize the window.</p>
+                <br>
+                <p>Next, how does GraphicsGrid know what to display? The method addGridObject allows you to add a GridObject to be displayed. GraphicsGrid doesn’t do any error checking, you can give a GraphicsGrid object with negative coordinates -- it might or might not crash. It is expecting the Coords of the GridObjects to already be in range.</p>
+                <br>
+                <p>Write a small program that creates and displays a GraphicsGrid. Just get to know the class and build the start of the interface.</p>
+                <br>
+                <p>Now, where you were at the end of Stage 10, whenever you add an object to the Grid (Car, Rider, Obstacle) add the very same object to the GraphicsGrid. By very same, we mean the same object reference. You can have text and graphics at the same time. Everytime you hit “d &lt;return&gt;” in your stage 10 version, tell your grid to update() itself and tell your GraphicsGrid to repaint(). If you have it right, your Graphics display should be a graphical version of your grid.</p>
+                <br>
+                <p>Notice that GraphicsGrid knows nothing about the particular game, drivers, cars. It only knows how to display GridObjects. The class hierarchy is that drivers, cars, obstacles are all GridObjects.</p>
+                <br>
+
+                <h3>Stage 12 - Getting serious about Graphics - Simulation.java and the TimeTick Thread</h3>
+                <br>
+                <p>At this stage you have some choices about what you do. It gets tiring to hit “d &lt;return&gt;” to make your cars advance on the grid. Your graphics program needs to called Simulation.java. Now look at TimeTick.java. This is intended to run in a standalone thread (e.g. use Thread). When you create an instance of TimeTick, you need to pass it your Simulation instance and your Grid instance. The TimeTicker sleeps for 10ms, wakes up, and invokes update() on its Simulation instance (this is to keep the graphics lively when we get to manually controlled car). Every “ticks” intervals it invokes update() on the grid instance. Start with ticks at 100 (1 second) ticks. Basically, this TimeTick replaces pressing a key repeatedly to move your simulation forward.</p>
+                <br>
+                <p>Think about what the Simulation needs to track. In the abstract, it needs to know about the driver, and the rider. It needs to create cars and obstacles. Its needs to know when to create cars, obstacles and riders. It doesn’t need to know the details of exactly where GridObjects are located on the Grid (it leaves that detail to Grid).</p>
+                <br>
+                <p>If you get to where you can use GridSetup to create a simulation with cars,obstacles, and a rider, and then TimeTick moves the simulations forward (picking up a single rider), you are in great shape.</p>
+                <br>
+
+                <h3>Stage 13 - Completing the Graphics Interface</h3>
+                <br>
+                <p>Here is a screenshot of a 30 x 30 opening screenshot</p>
+                <br>
+
+                <div class="preview_div_phone">
+                    <img src="../../images/screenshots_cse11/cse11_assignment4_summary_04.png" alt="Summary Image 04">
+                </div>
+
+                <br>
+
+                <p>Let’s go through the components</p>
+                <ul>
+                    <li>Top part, track the number riders that manual player has loaded and the robots have loaded</li>
+                    <li>Center, the GraphicsGrid representation of the Grid</li>
+                    <li>New Game - Button. Start a new Game</li>
+                    <li>Pause Button - Pause the game</li>
+                    <li>Speed Slider - Left is slow, right is fast. Adjusts as the game is being played.</li>
+                </ul>
+                <br>
+                <p>At this stage, you should be able to load a configuration using GridSetup, click new Game and watch your cars animate, seeking the single Rider (if any). Until loaded. The following is a graphical picture of the original test setup in Stage 6 (picture includes a red manual driver, which you have not added yet).</p>
+                <br>
+
+                <div class="preview_div_phone">
+                    <img src="../../images/screenshots_cse11/cse11_assignment4_summary_05.png" alt="Summary Image 05">
+                </div>
+                <br>
+
+                <p>Notice that there are no arrows, because directions haven’t been set. Now, after a couple of steps of the simulation (and the pause button has been hit). We get the following display</p>
+                <br>
+
+                <div class="preview_div_phone">
+                    <img src="../../images/screenshots_cse11/cse11_assignment4_summary_06.png" alt="Summary Image 06">
+                </div>
+                <br>
+
+                <p>Notice that Blue (robocar) is running the east/west controller. At this point the car is first reducing the east west direction. The Red triangle is a manually-controlled (player) car. The black block is an obstacle.</p>
+                <br>
+
+                <h3>Stage 14 - Adding a player</h3>
+                <br>
+                <p>You need to create your second controller -- ManualController.java. The ManualController Should implement the KeyListener interface to respond immediately to key presses. When your game starts up, the manual player should be in the middle of the grid, colored differently than the Robot Cars, Riders, and Obstacles. To be clear, you will create a single SharedCar with a ManualController. That particular SharedCar is the player of the game.</p>
+                <br>
+                <p>Keys:</p>
+                <ul>
+                    <li>h - turn the car left (meaning counter-clockwise)</li>
+                    <li>l - turn the car right (meaning clock-wise)</li>
+                    <li>&lt;space&gt; - invoke drive() on the player’s SharedCar</li>
+                </ul>
+                <br>
+                <p>You need to think about which object deals with the spacebar. CarControllers have no reference to their SharedCar There are several possible solutions. You and your partner should talk about how you want “hitting the spacebar” to end up being translated into invoking drive() on the player’s car (and only the players car).</p>
+                <br>
+
+                <h3>Stage 15 - Requirements of the Game/Interface</h3>
+                <br>
+                <p>The following are requirements of the Game/Interface</p>
+                <br>
+                <p><b>Command-line arguments. Simulation can be invoked in two ways</b></p>
+                <ul>
+                    <li>java simulation &lt;row&gt;&lt;col&gt;</li>
+                    <ul>
+                        <li>Create a simulation &lt;row&gt; x &lt;col&gt;. Default setup. Manual driver at the center</li>
+                    </ul>
+                    <li>java simulation &lt;configfile&gt;</li>
+                    <ul>
+                        <li>Create a simulation using the configfile (readable by the GridSetup class)</li>
+                    </ul>
+                    <li>You do NOT have to check for valid arguments. We will only check with integers for &lt;row&gt; &lt;col&gt;. We will only check with existing configfiles.</li>
+                </ul>
+                <br>
+
+                <p><b>Start-up</b></p>
+                <ul>
+                    <li>The program is not started immediately. It should show the initial setup (similar to what is above)</li>
+                    <li>The Game should only start when &lt;New Game&gt; is pressed.</li>
+                    <li>The default speed should be to move cars once/second (100 ticks)</li>
+                    <li>If in a default setup, there is no robocar unless defined in the configfile</li>
+                </ul>
+                <br>
+
+                <p><b>Play</b></p>
+                <ul>
+                    <li>The manual controller should respond to the key presses as above. The space bar means that the manual car has an “accelerator”. It can go faster than the robo cars.</li>
+                    <li>Robocars seek out riders or roam</li>
+                    <li>When a rider is successfully picked up, the program should create a new rider at a random location. Ideally there would be a random delay of 0 - 5 seconds between pickup and the next rider being created. This is not a strict requirement, but makes the game more interesting.</li>
+                    <li>When a rider is picked up, the counts of player pickup/robot pickups should be updated.</li>
+                    <li>Starting with the second rider, a new robocar should be created every 10th pickup. Every 10th pickup a randomly-placed obstacle should be added to the grid.</li>
+                    <li>Every 10th pickup, the number of ticks that the time waits should be reduced by 10 ticks. The minimum number of ticks is 10. (100ms).</li>
+                    <li>The player may increase the speed, but may not reduce the speed below what would be calculated. For example, At 55 pickups means that the ticks must not be larger than 50 (.5 seconds).</li>
+                </ul>
+                <br>
+
+                <p><b>Buttons</b></p>
+                <ul>
+                    <li>When the New Game is pressed, the game should return to its startup state, but using the current speed as selected by the slider.</li>
+                    <li>When the Pause button is pressed, the game should stop moving cars forward. It should change its label to resume. When resume is pressed, the game should continue.</li>
+                </ul>
+                <br>
+
+                <p><b>Slider</b></p>
+                <ul>
+                    <li>The slider should have the effect of changing the speed of the update in the range of [0.1s--1.0s] . 0.1s is FAST, 1.0 is SLOW.</li>
+                </ul>
+                <br>
+
+                <h3>Other Controllers</h3>
+                <br>
+                <p>You need to implement two more controllers</p>
+                <ul>
+                    <li>NorthSouthController - equivalent to east/west but roams north/south, and reduces north/south before east/west when in drive mode</li>
+                    <li>RandomController - picks a random direction in roam mode. In drive mode, reduces the larger of row,col when computing dist(goal). That is, when close enough, it tries to follow a diagonal line to the Rider.</li>
+                </ul>
+                <br>
+
+                <p>Specifying the controllers in a GridSetup file</p>
+                <p>If you have an entry in a file that GridSetup can read and that entry looks like</p>
+                <pre>
+                robocar &lt;row&gt; &lt;col&gt; &lt;controller&gt;
+                </pre>
+                <p>Where &lt;row&gt; &lt;col&gt; are the row and column to create the car and &lt;controller&gt; is the string name of the controller, please use the following strings</p>
+                <pre>
+                east - EastWestContoller
+                north - NorthSouthController
+                random - RandomController
+                </pre>
+                <p>An example grid setup file is as follows</p>
+                <pre>
+                dimension 40 40
+                robocar 8 8 east
+                robocar 21 31 random
+                robocar 39 0 north
+                </pre>
+                <br>
+                <p>Would create a</p>
+                <ul>
+                    <li>40 x 40 grid</li>
+                    <li>A SharedCar at 8 8 with controller EastWestController</li>
+                    <li>A SharedCar at 21 31 with controller RandomController</li>
+                    <li>A SharedCar at 39 0 with controller RandomController</li>
+                </ul>
+                <br>
+                <p>The following figure shows how some of the classes interact with each other</p>
+                <br>
+
+                <div class="preview_div">
+                    <img src="../../images/screenshots_cse11/cse11_assignment4_summary_07.png" alt="Summary Image 07">
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Implementation Details</h2>
+                <p></p>
+            </div>
+        </div>
+    </body>
+</html>
